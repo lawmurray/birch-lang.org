@@ -285,8 +285,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#getting-started" title="Getting Started" class="md-nav__link">
-    Getting Started
+  <a href="#example" title="Example" class="md-nav__link">
+    Example
   </a>
   
 </li>
@@ -3392,8 +3392,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#getting-started" title="Getting Started" class="md-nav__link">
-    Getting Started
+  <a href="#example" title="Example" class="md-nav__link">
+    Example
   </a>
   
 </li>
@@ -3438,9 +3438,17 @@
                 
                 <h1 id="probabilistic-programming-in-birch">Probabilistic Programming in Birch</h1>
 <p><img alt="Birch tree" src="./images/trunk.jpg" /></p>
-<p>Birch is an imperative, object-oriented, universal probabilistic programming language. It is open source, and compiles to C++14 for use on Linux, macOS or Windows.</p>
-<blockquote>
-<p><strong>Example:</strong> a linear-Gaussian state-space model written in Birch.</p>
+<p>Birch is an imperative, object-oriented, universal probabilistic
+programming language. It compiles to C++14 for Linux, macOS, and
+Windows 10, and is free and open source.</p>
+<p>Probabilistic models are specified in Birch by writing a program to
+simulate the joint distribution. Inference methods are also written in
+Birch. Sequential Monte Carlo (SMC) is currently supported, with
+analytical optimizations&mdash;such as locally-optimal proposals and
+Rao&ndash;Blackwellization&mdash;applied automatically.</p>
+<p>See <a href="getting-started/installing/">Getting Started</a> to try it yourself.</p>
+<h2 id="example">Example</h2>
+<p>A simple linear-Gaussian state-space model written in Birch.</p>
 <pre><code>β:Real &lt;- 0.9;
 σ2:Real &lt;- 1.0;
 T:Integer &lt;- 10;
@@ -3454,18 +3462,14 @@ for (t:Integer in 2..T) {
   y[t] ~ Gaussian(x[t], σ2);
 }
 </code></pre>
-</blockquote>
-<p>Probabilistic models are specified in Birch by writing programs that simulate from the joint distribution. Inference methods are also written in the Birch language. Sequential Monte Carlo (SMC) is currently supported, with analytical optimizations such as variable elimination and Rao--Blackwellization.</p>
-<h2 id="getting-started">Getting Started</h2>
-<p>See <a href="getting-started/installing/">Getting Started</a> to get up and running on Linux, macOS or Windows.</p>
 <h2 id="upcoming-talks">Upcoming talks</h2>
 <ul>
 <li><a href="https://www.maths.nottingham.ac.uk/personal/tk/bayescomp/">BayesComp 2018</a> in Barcelona. <a href="https://www.indii.org/research">Lawrence Murray</a> on <em>The Birch Probabilistic Programming Language</em>.</li>
-<li><a href="https://www.aistats.org">AIStats 2018</a> in Lanzarote. <a href="https://www.indii.org/research">Lawrence Murray</a> on <em>Delayed Sampling and Automatic Rao--Blackwellization of Probabilistic Programs</em>.</li>
+<li><a href="https://www.aistats.org">AIStats 2018</a> in Lanzarote. <a href="https://www.indii.org/research">Lawrence Murray</a> on <em>Delayed Sampling and Automatic Rao&ndash;Blackwellization of Probabilistic Programs</em>.</li>
 </ul>
 <h2 id="papers">Papers</h2>
 <ul>
-<li>L.M. Murray, D. Lundén, J. Kudlicka, D. Broman and T.B. Schön (2017). <a href="https://arxiv.org/abs/1708.07787">Delayed Sampling and Automatic Rao--Blackwellization of Probabilistic Programs</a>.</li>
+<li>L.M. Murray, D. Lundén, J. Kudlicka, D. Broman and T.B. Schön (2017). <a href="https://arxiv.org/abs/1708.07787">Delayed Sampling and Automatic Rao&ndash;Blackwellization of Probabilistic Programs</a>.</li>
 </ul>
 <h2 id="acknowledgements">Acknowledgements</h2>
 <p>The development of Birch is financially supported by the <a href="https://strategiska.se/en/">Swedish Foundation for Strategic Research</a> (SSF) via the project <a href="http://www.it.uu.se/research/assemble">ASSEMBLE</a>.</p>
