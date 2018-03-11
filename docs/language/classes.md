@@ -56,16 +56,6 @@ All member functions are virtual. To delegate a call to a member function of the
       }
     }
 
-Member functions that do not modify the state of an object may be marked as read-only by placing a prime (`'`) immediately after the `function` keyword:
-
-    class A {
-      function' f(c:C) {
-        //
-      }
-    }
-
-When an object is accessed through a read-only reference, the only member functions that may be called upon it are such read-only member functions.
-
 ### Member fibers
 
 Fiber declarations that appear within the body of a class are *member fibers*. Their behaviour is analogous to member functions. They may be similarly marked as read-only by placing a prime (`'`) immediately after the `fiber` keyword.
