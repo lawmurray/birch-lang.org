@@ -3537,14 +3537,6 @@ f(a.d);
   }
 }
 </code></pre>
-<p>Member functions that do not modify the state of an object may be marked as read-only by placing a prime (<code>'</code>) immediately after the <code>function</code> keyword:</p>
-<pre><code>class A {
-  function' f(c:C) {
-    //
-  }
-}
-</code></pre>
-<p>When an object is accessed through a read-only reference, the only member functions that may be called upon it are such read-only member functions.</p>
 <h3 id="member-fibers">Member fibers</h3>
 <p>Fiber declarations that appear within the body of a class are <em>member fibers</em>. Their behaviour is analogous to member functions. They may be similarly marked as read-only by placing a prime (<code>'</code>) immediately after the <code>fiber</code> keyword.</p>
 <h3 id="generic-parameters">Generic parameters</h3>
