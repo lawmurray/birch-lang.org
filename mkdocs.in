@@ -1,0 +1,62 @@
+site_name: 'Birch'
+site_description: 'A probabilistic object-oriented programming language for machine learning and statistics.'
+theme:
+  name: 'material'
+  palette:
+    primary: 'green'
+    accent: 'green'
+  feature:
+    tabs: true
+markdown_extensions:
+  - admonition
+  - mdx_math:
+      enable_dollar_delimiter: true
+extra_javascript:
+  - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'
+extra:
+  social:
+    - type: 'github'
+      link: 'https://github.com/lawmurray'
+pages:
+  - 'Home': index.md
+  - 'Getting Started':
+    - 'Installing': getting-started/installing.md
+    - 'Platform installation guides':
+      - 'Installing on Ubuntu Linux': getting-started/ubuntu.md
+      - 'Installing on macOS': getting-started/macos.md
+      - 'Installing on Windows 10': getting-started/windows.md
+    - 'Creating a first project': getting-started/creating-a-first-project.md
+    - 'Using Eclipse': getting-started/using-eclipse.md
+  - 'Driver':
+    - driver.md
+    - 'Meta file': driver/meta_file.md
+    - 'Commands':
+      - 'init': driver/commands/init.md
+      - 'check': driver/commands/check.md
+      - 'build': driver/commands/build.md
+      - 'install': driver/commands/install.md
+      - 'uninstall': driver/commands/uninstall.md
+      - 'dist': driver/commands/dist.md
+      - 'docs': driver/commands/docs.md
+      - 'clean': driver/commands/clean.md
+  - 'Language':
+    - language.md
+    - 'Comments': language/comments.md
+    - 'Variables': language/variables.md
+    - 'Types': language/types.md
+    - 'Assignments': language/assignments.md
+    - 'Control Flow': language/control_flow.md
+    - 'Tuples': language/tuples.md
+    - 'Sequences': language/sequences.md
+    - 'Arrays': language/arrays.md
+    - 'Optionals': language/optionals.md
+    - 'Functions': language/functions.md
+    - 'Lambdas': language/lambdas.md
+    - 'Fibers': language/fibers.md
+    - 'Programs': language/programs.md
+    - 'Operators': language/operators.md
+    - 'Classes': language/classes.md
+    - 'Aliases': language/aliases.md
+    - 'Casts': language/casts.md
+    - 'Weak References': language/weak_references.md
+    - 'Special Topics': language/special_topics.md
