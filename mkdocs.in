@@ -17,6 +17,9 @@ extra:
   social:
     - type: 'github'
       link: 'https://github.com/lawmurray'
+google_analytics:
+  - 'UA-115470196-1'
+  - 'auto'
 pages:
   - 'Home': index.md
   - 'Getting Started':
