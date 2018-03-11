@@ -328,7 +328,7 @@
         {
             "location": "/library/", 
             "text": "The Birch standard library.", 
-            "title": "Home"
+            "title": "Library"
         }, 
         {
             "location": "/library/types/", 
@@ -2323,7 +2323,7 @@
         {
             "location": "/examples/", 
             "text": "Demonstration and test programs.", 
-            "title": "Home"
+            "title": "Examples"
         }, 
         {
             "location": "/examples/programs/delay_canonical/", 
