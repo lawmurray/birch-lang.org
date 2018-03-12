@@ -4,7 +4,7 @@
     
     <url>
      <loc>/</loc>
-     <lastmod>2018-03-11</lastmod>
+     <lastmod>2018-03-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -13,7 +13,7 @@
         
     <url>
      <loc>/getting-started/installing/</loc>
-     <lastmod>2018-03-11</lastmod>
+     <lastmod>2018-03-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -25,13 +25,13 @@
         
     <url>
      <loc>/getting-started/creating-a-first-project/</loc>
-     <lastmod>2018-03-11</lastmod>
+     <lastmod>2018-03-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/getting-started/using-eclipse/</loc>
-     <lastmod>2018-03-11</lastmod>
+     <lastmod>2018-03-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -41,13 +41,13 @@
         
     <url>
      <loc>/driver/</loc>
-     <lastmod>2018-03-11</lastmod>
+     <lastmod>2018-03-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/driver/meta_file/</loc>
-     <lastmod>2018-03-11</lastmod>
+     <lastmod>2018-03-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -63,121 +63,121 @@
         
     <url>
      <loc>/language/</loc>
-     <lastmod>2018-03-11</lastmod>
+     <lastmod>2018-03-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/language/comments/</loc>
-     <lastmod>2018-03-11</lastmod>
+     <lastmod>2018-03-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/language/variables/</loc>
-     <lastmod>2018-03-11</lastmod>
+     <lastmod>2018-03-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/language/types/</loc>
-     <lastmod>2018-03-11</lastmod>
+     <lastmod>2018-03-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/language/assignments/</loc>
-     <lastmod>2018-03-11</lastmod>
+     <lastmod>2018-03-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/language/control_flow/</loc>
-     <lastmod>2018-03-11</lastmod>
+     <lastmod>2018-03-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/language/tuples/</loc>
-     <lastmod>2018-03-11</lastmod>
+     <lastmod>2018-03-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/language/sequences/</loc>
-     <lastmod>2018-03-11</lastmod>
+     <lastmod>2018-03-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/language/arrays/</loc>
-     <lastmod>2018-03-11</lastmod>
+     <lastmod>2018-03-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/language/optionals/</loc>
-     <lastmod>2018-03-11</lastmod>
+     <lastmod>2018-03-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/language/functions/</loc>
-     <lastmod>2018-03-11</lastmod>
+     <lastmod>2018-03-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/language/lambdas/</loc>
-     <lastmod>2018-03-11</lastmod>
+     <lastmod>2018-03-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/language/fibers/</loc>
-     <lastmod>2018-03-11</lastmod>
+     <lastmod>2018-03-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/language/programs/</loc>
-     <lastmod>2018-03-11</lastmod>
+     <lastmod>2018-03-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/language/operators/</loc>
-     <lastmod>2018-03-11</lastmod>
+     <lastmod>2018-03-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/language/classes/</loc>
-     <lastmod>2018-03-11</lastmod>
+     <lastmod>2018-03-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/language/aliases/</loc>
-     <lastmod>2018-03-11</lastmod>
+     <lastmod>2018-03-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/language/casts/</loc>
-     <lastmod>2018-03-11</lastmod>
+     <lastmod>2018-03-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/language/weak_references/</loc>
-     <lastmod>2018-03-11</lastmod>
+     <lastmod>2018-03-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/language/special_topics/</loc>
-     <lastmod>2018-03-11</lastmod>
+     <lastmod>2018-03-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -187,19 +187,19 @@
         
     <url>
      <loc>/library/</loc>
-     <lastmod>2018-03-11</lastmod>
+     <lastmod>2018-03-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/library/types/</loc>
-     <lastmod>2018-03-11</lastmod>
+     <lastmod>2018-03-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/library/variables/</loc>
-     <lastmod>2018-03-11</lastmod>
+     <lastmod>2018-03-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -239,7 +239,7 @@
         
     <url>
      <loc>/examples/</loc>
-     <lastmod>2018-03-11</lastmod>
+     <lastmod>2018-03-12</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
