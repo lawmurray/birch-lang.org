@@ -28,38 +28,44 @@ pages:
       - 'Installing on Ubuntu Linux': getting-started/ubuntu.md
       - 'Installing on macOS': getting-started/macos.md
       - 'Installing on Windows 10': getting-started/windows.md
-    - 'Creating a first project': getting-started/creating-a-first-project.md
     - 'Using Eclipse': getting-started/using-eclipse.md
-  - 'Driver':
-    - driver.md
-    - 'Meta file': driver/meta_file.md
-    - 'Commands':
-      - 'init': driver/commands/init.md
-      - 'check': driver/commands/check.md
-      - 'build': driver/commands/build.md
-      - 'install': driver/commands/install.md
-      - 'uninstall': driver/commands/uninstall.md
-      - 'dist': driver/commands/dist.md
-      - 'docs': driver/commands/docs.md
-      - 'clean': driver/commands/clean.md
-  - 'Language':
-    - language.md
-    - 'Comments': language/comments.md
-    - 'Variables': language/variables.md
-    - 'Types': language/types.md
-    - 'Assignments': language/assignments.md
-    - 'Control Flow': language/control_flow.md
-    - 'Tuples': language/tuples.md
-    - 'Sequences': language/sequences.md
-    - 'Arrays': language/arrays.md
-    - 'Optionals': language/optionals.md
-    - 'Functions': language/functions.md
-    - 'Lambdas': language/lambdas.md
-    - 'Fibers': language/fibers.md
-    - 'Programs': language/programs.md
-    - 'Operators': language/operators.md
-    - 'Classes': language/classes.md
-    - 'Aliases': language/aliases.md
-    - 'Casts': language/casts.md
-    - 'Weak References': language/weak_references.md
-    - 'Special Topics': language/special_topics.md
+  - 'Tutorial':
+    - tutorial.md
+    - 'Creating a project': tutorial/creating-a-project.md
+    - 'Creating a model': tutorial/creating-a-model.md
+    - 'Example #1: Bayesian linear regression': tutorial/bayesian-linear-regression.md
+  - 'Documentation':
+    - documentation.md
+    - 'Language':
+      - documentation/language.md
+      - 'Comments': documentation/language/comments.md
+      - 'Variables': documentation/language/variables.md
+      - 'Types': documentation/language/types.md
+      - 'Assignments': documentation/language/assignments.md
+      - 'Control Flow': documentation/language/control_flow.md
+      - 'Tuples': documentation/language/tuples.md
+      - 'Sequences': documentation/language/sequences.md
+      - 'Arrays': documentation/language/arrays.md
+      - 'Optionals': documentation/language/optionals.md
+      - 'Functions': documentation/language/functions.md
+      - 'Lambdas': documentation/language/lambdas.md
+      - 'Fibers': documentation/language/fibers.md
+      - 'Programs': documentation/language/programs.md
+      - 'Operators': documentation/language/operators.md
+      - 'Classes': documentation/language/classes.md
+      - 'Aliases': documentation/language/aliases.md
+      - 'Casts': documentation/language/casts.md
+      - 'Weak References': documentation/language/weak_references.md
+      - 'Special Topics': documentation/language/special_topics.md
+    - 'Driver':
+      - documentation/driver.md
+      - 'Meta file': documentation/driver/meta_file.md
+      - 'Commands':
+        - 'init': documentation/driver/commands/init.md
+        - 'check': documentation/driver/commands/check.md
+        - 'build': documentation/driver/commands/build.md
+        - 'install': documentation/driver/commands/install.md
+        - 'uninstall': documentation/driver/commands/uninstall.md
+        - 'dist': documentation/driver/commands/dist.md
+        - 'docs': documentation/driver/commands/docs.md
+        - 'clean': documentation/driver/commands/clean.md

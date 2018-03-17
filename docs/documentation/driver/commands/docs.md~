@@ -3,7 +3,7 @@
 Build the reference documentation for the project. This creates a Markdown
 file `DOCS.md` in the current working directory.
 
-!!! note
+!!! info
     The Birch documentation system is inspired by JavaDoc and Doxygen. It is suggested to use it similarly.
 
 It will be overwritten if it already exists, and may be readily converted to other formats using a utility such as `pandoc`.

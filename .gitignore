@@ -1,7 +1,7 @@
 /git
 /site
-/docs/library
-/docs/examples
-/docs/library.md
-/docs/examples.md
+/docs/documentation/library
+/docs/documentation/examples
+/docs/documentation/library.md
+/docs/documentation/examples.md
 /mkdocs.yml
