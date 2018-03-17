@@ -356,11 +356,6 @@
             "title": "sample"
         }, 
         {
-            "location": "/library/functions/I/", 
-            "text": "function I(rows:\nInteger\n, columns:\nInteger\n) -\n \nReal\n[_,_]\n\n\nCreate identity matrix.", 
-            "title": "I"
-        }, 
-        {
             "location": "/library/functions/abs/", 
             "text": "function abs(x:\nInteger16\n) -\n \nInteger16\n\n\nAbsolute value.\n\n\n\n\n\n\nfunction abs(x:\nInteger32\n) -\n \nInteger32\n\n\nAbsolute value.\n\n\n\n\n\n\nfunction abs(x:\nInteger64\n) -\n \nInteger64\n\n\nAbsolute value.\n\n\n\n\n\n\nfunction abs(x:\nInteger8\n) -\n \nInteger8\n\n\nAbsolute value.\n\n\n\n\n\n\nfunction abs(x:\nReal32\n) -\n \nReal32\n\n\nAbsolute value.\n\n\n\n\n\n\nfunction abs(x:\nReal64\n) -\n \nReal64\n\n\nAbsolute value.", 
             "title": "abs"
@@ -426,6 +421,16 @@
             "title": "ceil"
         }, 
         {
+            "location": "/library/functions/chol/", 
+            "text": "function chol(X:\nReal\n[_,_]) -\n \nReal\n[_,_]\n\n\nCholesky decomposition of a matrix, \nX = LL^{\\top}\n.\n\n\nReturns: the lower-triangular factor \nL\n.", 
+            "title": "chol"
+        }, 
+        {
+            "location": "/library/functions/choldet/", 
+            "text": "function choldet(X:\nReal\n[_,_]) -\n \nReal\n\n\nDeterminant of a symmetric positive-definite matrix, computed using the\nCholesky decomposition.", 
+            "title": "choldet"
+        }, 
+        {
             "location": "/library/functions/choose/", 
             "text": "function choose(x:\nReal64\n, y:\nReal64\n) -\n \nReal64\n\n\nThe binomial coefficient.\n\n\n\n\n\n\nfunction choose(x:\nReal32\n, y:\nReal32\n) -\n \nReal32\n\n\nThe binomial coefficient.", 
             "title": "choose"
@@ -461,13 +466,18 @@
             "title": "cumulative_weights"
         }, 
         {
-            "location": "/library/functions/determinant/", 
-            "text": "function determinant(X:\nReal\n[_,_]) -\n \nReal\n\n\nDeterminant of a matrix.", 
-            "title": "determinant"
+            "location": "/library/functions/det/", 
+            "text": "function det(X:\nReal\n[_,_]) -\n \nReal\n\n\nDeterminant of a matrix.", 
+            "title": "det"
+        }, 
+        {
+            "location": "/library/functions/diagonal/", 
+            "text": "function diagonal(x:\nReal\n, length:\nInteger\n) -\n \nReal\n[_,_]\n\n\nCreate diagonal matrix, filling the diagonal with a given scalar value.\n\n\n\n\nx: The value.\n\n\nlength: Number of rows/columns.\n\n\n\n\n\n\n\n\nfunction diagonal(x:\nInteger\n, length:\nInteger\n) -\n \nInteger\n[_,_]\n\n\nCreate diagonal matrix, filling the diagonal with a given scalar value.\n\n\n\n\nx: The value.\n\n\nlength: Number of rows/columns.\n\n\n\n\n\n\n\n\nfunction diagonal(x:\nBoolean\n, length:\nInteger\n) -\n \nBoolean\n[_,_]\n\n\nCreate diagonal matrix, filling the diagonal with a given scalar value.\n\n\n\n\nx: The value.\n\n\nlength: Number of rows/columns.", 
+            "title": "diagonal"
         }, 
         {
             "location": "/library/functions/dot/", 
-            "text": "function dot(x:\nReal\n[_]) -\n \nReal\n\n\nDot product of a vector with itself.", 
+            "text": "function dot(x:\nReal\n[_]) -\n \nReal\n\n\nDot product of a vector with itself.\n\n\n\n\n\n\nfunction dot(x:\nInteger\n[_]) -\n \nInteger\n\n\nDot product of a vector with itself.\n\n\n\n\n\n\nfunction dot(x:\nReal\n[_], y:\nReal\n[_]) -\n \nReal\n\n\nDot product of one vector with another.\n\n\n\n\n\n\nfunction dot(x:\nInteger\n[_], y:\nInteger\n[_]) -\n \nInteger\n\n\nDot product of one vector with another.", 
             "title": "dot"
         }, 
         {
@@ -521,14 +531,19 @@
             "title": "gamma"
         }, 
         {
+            "location": "/library/functions/identity/", 
+            "text": "function identity(length:\nInteger\n) -\n \nReal\n[_,_]\n\n\nCreate identity matrix.\n\n\n\n\nlength: Number of rows/columns.", 
+            "title": "identity"
+        }, 
+        {
             "location": "/library/functions/inclusive_prefix_sum/", 
             "text": "function inclusive_prefix_sum(x:\nReal\n[_]) -\n \nReal\n[_]\n\n\nInclusive prefix sum.", 
             "title": "inclusive_prefix_sum"
         }, 
         {
-            "location": "/library/functions/inverse/", 
-            "text": "function inverse(X:\nReal\n[_,_]) -\n \nReal\n[_,_]\n\n\nInverse of a matrix.", 
-            "title": "inverse"
+            "location": "/library/functions/inv/", 
+            "text": "function inv(X:\nReal\n[_,_]) -\n \nReal\n[_,_]\n\n\nInverse of a matrix.", 
+            "title": "inv"
         }, 
         {
             "location": "/library/functions/isnan/", 
@@ -539,6 +554,11 @@
             "location": "/library/functions/lbeta/", 
             "text": "function lbeta(x:\nReal64\n, y:\nReal64\n) -\n \nReal64\n\n\nLogarithm of the beta function.\n\n\n\n\n\n\nfunction lbeta(x:\nReal32\n, y:\nReal32\n) -\n \nReal32\n\n\nLogarithm of the beta function.", 
             "title": "lbeta"
+        }, 
+        {
+            "location": "/library/functions/lcholdet/", 
+            "text": "function lcholdet(X:\nReal\n[_,_]) -\n \nReal\n\n\nLogarithm of the determinant of a symmetric positive-definite matrix,\ncomputed using the Cholesky decomposition.", 
+            "title": "lcholdet"
         }, 
         {
             "location": "/library/functions/lchoose/", 
@@ -554,11 +574,6 @@
             "location": "/library/functions/lgamma/", 
             "text": "function lgamma(x:\nReal64\n) -\n \nReal64\n\n\nLogarithm of the gamma function.\n\n\n\n\n\n\nfunction lgamma(x:\nReal32\n) -\n \nReal32\n\n\nLogarithm of the gamma function.", 
             "title": "lgamma"
-        }, 
-        {
-            "location": "/library/functions/llt/", 
-            "text": "function llt(X:\nReal\n[_,_]) -\n \nReal\n[_,_]\n\n\nLL^T\n Cholesky decomposition of a matrix.", 
-            "title": "llt"
         }, 
         {
             "location": "/library/functions/log/", 
@@ -587,7 +602,7 @@
         }, 
         {
             "location": "/library/functions/matrix/", 
-            "text": "function matrix(x:\nReal\n, rows:\nInteger\n, columns:\nInteger\n) -\n \nReal\n[_,_]\n\n\nCreate matrix filled with a given scalar value.\n\n\n\n\n\n\nfunction matrix(x:\nInteger\n, rows:\nInteger\n, columns:\nInteger\n) -\n \nInteger\n[_,_]\n\n\nCreate matrix filled with a given scalar value.\n\n\n\n\n\n\nfunction matrix(x:\nBoolean\n, rows:\nInteger\n, columns:\nInteger\n) -\n \nBoolean\n[_,_]\n\n\nCreate matrix filled with a given scalar value.", 
+            "text": "function matrix(x:\nReal\n, rows:\nInteger\n, columns:\nInteger\n) -\n \nReal\n[_,_]\n\n\nCreate matrix filled with a given scalar value.\n\n\n\n\nx: The value.\n\n\nrows: Number of rows.\n\n\ncolumns: Number of columns.\n\n\n\n\n\n\n\n\nfunction matrix(x:\nInteger\n, rows:\nInteger\n, columns:\nInteger\n) -\n \nInteger\n[_,_]\n\n\nCreate matrix filled with a given scalar value.\n\n\n\n\nx: The value.\n\n\nrows: Number of rows.\n\n\ncolumns: Number of columns.\n\n\n\n\n\n\n\n\nfunction matrix(x:\nBoolean\n, rows:\nInteger\n, columns:\nInteger\n) -\n \nBoolean\n[_,_]\n\n\nCreate matrix filled with a given scalar value.\n\n\n\n\nx: The value.\n\n\nrows: Number of rows.\n\n\ncolumns: Number of columns.", 
             "title": "matrix"
         }, 
         {
@@ -616,93 +631,153 @@
             "title": "norm"
         }, 
         {
+            "location": "/library/functions/observe_affine_normal_inverse_gamma_gaussian/", 
+            "text": "function observe_affine_normal_inverse_gamma_gaussian(x:\nReal\n, a:\nReal\n, \u03bc:\nReal\n, c:\nReal\n, a2:\nReal\n, \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nObserve a Gaussian variate with a normal inverse-gamma prior with affine\ntransformation.\n\n\n\n\nx: The variate.\n\n\na: Scale.\n\n\n\u03bc: Mean.\n\n\nc: Offset.\n\n\na2: Variance.\n\n\n\u03b1: Shape of the inverse-gamma.\n\n\n\u03b2: Scale of the inverse-gamma.\n\n\n\n\nReturns: the log probability density.", 
+            "title": "observe_affine_normal_inverse_gamma_gaussian"
+        }, 
+        {
             "location": "/library/functions/observe_bernoulli/", 
-            "text": "function observe_bernoulli(x:\nBoolean\n, \u03c1:\nReal\n) -\n \nReal\n\n\nObserve a Bernoulli variate.\n\n\n\n\nx: The variate.\n\n\n\u03c1: Probability of a true result.\n\n\n\n\nReturns the log probability mass.", 
+            "text": "function observe_bernoulli(x:\nBoolean\n, \u03c1:\nReal\n) -\n \nReal\n\n\nObserve a Bernoulli variate.\n\n\n\n\nx: The variate.\n\n\n\u03c1: Probability of a true result.\n\n\n\n\nReturns: the log probability mass.", 
             "title": "observe_bernoulli"
         }, 
         {
             "location": "/library/functions/observe_beta/", 
-            "text": "function observe_beta(x:\nReal\n, \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nObserve a beta variate.\n\n\n\n\nx: The variate.\n\n\n\u03b1: Shape.\n\n\n\u03b2: Shape.\n\n\n\n\nReturns the log probability density.", 
+            "text": "function observe_beta(x:\nReal\n, \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nObserve a beta variate.\n\n\n\n\nx: The variate.\n\n\n\u03b1: Shape.\n\n\n\u03b2: Shape.\n\n\n\n\nReturns: the log probability density.", 
             "title": "observe_beta"
         }, 
         {
             "location": "/library/functions/observe_beta_binomial/", 
-            "text": "function observe_beta_binomial(x:\nInteger\n, n:\nInteger\n, \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nObserve a beta-binomial variate.\n\n\n\n\nx: The variate.\n\n\nn: Number of trials.\n\n\n\u03b1: Shape.\n\n\n\u03b2: Shape.\n\n\n\n\nReturns the log probability mass.", 
+            "text": "function observe_beta_binomial(x:\nInteger\n, n:\nInteger\n, \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nObserve a beta-binomial variate.\n\n\n\n\nx: The variate.\n\n\nn: Number of trials.\n\n\n\u03b1: Shape.\n\n\n\u03b2: Shape.\n\n\n\n\nReturns: the log probability mass.", 
             "title": "observe_beta_binomial"
         }, 
         {
             "location": "/library/functions/observe_binomial/", 
-            "text": "function observe_binomial(x:\nInteger\n, n:\nInteger\n, \u03c1:\nReal\n) -\n \nReal\n\n\nObserve a binomial variate.\n\n\n\n\nx: The variate.\n\n\nn: Number of trials.\n\n\n\u03c1: Probability of a true result.\n\n\n\n\nReturns the log probability mass.", 
+            "text": "function observe_binomial(x:\nInteger\n, n:\nInteger\n, \u03c1:\nReal\n) -\n \nReal\n\n\nObserve a binomial variate.\n\n\n\n\nx: The variate.\n\n\nn: Number of trials.\n\n\n\u03c1: Probability of a true result.\n\n\n\n\nReturns: the log probability mass.", 
             "title": "observe_binomial"
         }, 
         {
             "location": "/library/functions/observe_categorical/", 
-            "text": "function observe_categorical(x:\nInteger\n, \u03c1:\nReal\n[_]) -\n \nReal\n\n\nObserve a categorical variate.\n\n\n\n\nx: The variate.\n\n\n\u03c1: Category probabilities.\n\n\n\n\nReturns the log probability mass.", 
+            "text": "function observe_categorical(x:\nInteger\n, \u03c1:\nReal\n[_]) -\n \nReal\n\n\nObserve a categorical variate.\n\n\n\n\nx: The variate.\n\n\n\u03c1: Category probabilities.\n\n\n\n\nReturns: the log probability mass.", 
             "title": "observe_categorical"
         }, 
         {
             "location": "/library/functions/observe_crp_categorical/", 
-            "text": "function observe_crp_categorical(k:\nInteger\n, \u03b1:\nReal\n, \u03b8:\nReal\n, n:\nInteger\n[_], N:\nInteger\n) -\n \nReal\n\n\nObserve a categorical variate with Chinese restaurant process prior.", 
+            "text": "function observe_crp_categorical(k:\nInteger\n, \u03b1:\nReal\n, \u03b8:\nReal\n, n:\nInteger\n[_], N:\nInteger\n) -\n \nReal\n\n\nObserve a categorical variate with Chinese restaurant process\nprior.\n\n\n\n\nx: The variate.\n\n\n\u03b1: Concentration.\n\n\n\u03b8: Discount.\n\n\nn: Enumerated items.\n\n\nN: Total number of items.", 
             "title": "observe_crp_categorical"
         }, 
         {
             "location": "/library/functions/observe_dirichlet/", 
-            "text": "function observe_dirichlet(x:\nReal\n[_], \u03b1:\nReal\n[_]) -\n \nReal\n\n\nObserve a Dirichlet variate.\n\n\n\n\nx: The variate.\n\n\n\u03b1: Concentrations.\n\n\n\n\nReturns the log probability density.", 
+            "text": "function observe_dirichlet(x:\nReal\n[_], \u03b1:\nReal\n[_]) -\n \nReal\n\n\nObserve a Dirichlet variate.\n\n\n\n\nx: The variate.\n\n\n\u03b1: Concentrations.\n\n\n\n\nReturns: the log probability density.", 
             "title": "observe_dirichlet"
         }, 
         {
             "location": "/library/functions/observe_dirichlet_categorical/", 
-            "text": "function observe_dirichlet_categorical(x:\nInteger\n, \u03b1:\nReal\n[_]) -\n \nReal\n\n\nObserve a Dirichlet-categorical variate.\n\n\n\n\nx: The variate.\n\n\n\u03b1: Concentrations.\n\n\n\n\nReturns the log probability mass.", 
+            "text": "function observe_dirichlet_categorical(x:\nInteger\n, \u03b1:\nReal\n[_]) -\n \nReal\n\n\nObserve a Dirichlet-categorical variate.\n\n\n\n\nx: The variate.\n\n\n\u03b1: Concentrations.\n\n\n\n\nReturns: the log probability mass.", 
             "title": "observe_dirichlet_categorical"
         }, 
         {
             "location": "/library/functions/observe_dirichlet_multinomial/", 
-            "text": "function observe_dirichlet_multinomial(x:\nInteger\n[_], n:\nInteger\n, \u03b1:\nReal\n[_]) -\n \nReal\n\n\nObserve a Dirichlet-multinomial variate.\n\n\n\n\nx: The variate.\n\n\nn: Number of trials.\n\n\n\u03b1: Concentrations.\n\n\n\n\nReturns the log probability mass.", 
+            "text": "function observe_dirichlet_multinomial(x:\nInteger\n[_], n:\nInteger\n, \u03b1:\nReal\n[_]) -\n \nReal\n\n\nObserve a Dirichlet-multinomial variate.\n\n\n\n\nx: The variate.\n\n\nn: Number of trials.\n\n\n\u03b1: Concentrations.\n\n\n\n\nReturns: the log probability mass.", 
             "title": "observe_dirichlet_multinomial"
         }, 
         {
+            "location": "/library/functions/observe_exponential/", 
+            "text": "function observe_exponential(x:\nReal\n, \u03bb:\nReal\n) -\n \nReal\n\n\nObserve an exponential variate.\n\n\n\n\nx: The variate.\n\n\n\u03bb: Rate.\n\n\n\n\nReturns: the log probability density.", 
+            "title": "observe_exponential"
+        }, 
+        {
             "location": "/library/functions/observe_gamma/", 
-            "text": "function observe_gamma(x:\nReal\n, k:\nReal\n, \u03b8:\nReal\n) -\n \nReal\n\n\nObserve a gamma variate.\n\n\n\n\nx: The variate.\n\n\nk: Shape.\n\n\n\u03b8: Scale.\n\n\n\n\nReturns the log probability density.", 
+            "text": "function observe_gamma(x:\nReal\n, k:\nReal\n, \u03b8:\nReal\n) -\n \nReal\n\n\nObserve a gamma variate.\n\n\n\n\nx: The variate.\n\n\nk: Shape.\n\n\n\u03b8: Scale.\n\n\n\n\nReturns: the log probability density.", 
             "title": "observe_gamma"
         }, 
         {
             "location": "/library/functions/observe_gaussian/", 
-            "text": "function observe_gaussian(x:\nReal\n, \u03bc:\nReal\n, \u03c32:\nReal\n) -\n \nReal\n\n\nObserve a Gaussian variate.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Mean.\n\n\n\u03c32: Variance.\n\n\n\n\nReturns the log probability density.", 
+            "text": "function observe_gaussian(x:\nReal\n, \u03bc:\nReal\n, \u03c32:\nReal\n) -\n \nReal\n\n\nObserve a Gaussian variate.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Mean.\n\n\n\u03c32: Variance.\n\n\n\n\nReturns: the log probability density.", 
             "title": "observe_gaussian"
         }, 
         {
             "location": "/library/functions/observe_int_uniform/", 
-            "text": "function observe_int_uniform(x:\nInteger\n, l:\nInteger\n, u:\nInteger\n) -\n \nReal\n\n\nObserve an integer uniform variate.\n\n\n\n\nx: The variate.\n\n\nl: Lower bound of interval.\n\n\nu: Upper bound of interval.\n\n\n\n\nReturns the log probability mass.", 
+            "text": "function observe_int_uniform(x:\nInteger\n, l:\nInteger\n, u:\nInteger\n) -\n \nReal\n\n\nObserve an integer uniform variate.\n\n\n\n\nx: The variate.\n\n\nl: Lower bound of interval.\n\n\nu: Upper bound of interval.\n\n\n\n\nReturns: the log probability mass.", 
             "title": "observe_int_uniform"
         }, 
         {
+            "location": "/library/functions/observe_inverse_gamma/", 
+            "text": "function observe_inverse_gamma(x:\nReal\n, \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nObserve an inverse-gamma variate.\n\n\n\n\nx: The variate.\n\n\n\u03b1: Shape.\n\n\n\u03b2: Scale.\n\n\n\n\nReturns: the log probability density.", 
+            "title": "observe_inverse_gamma"
+        }, 
+        {
+            "location": "/library/functions/observe_inverse_gamma_gaussian/", 
+            "text": "function observe_inverse_gamma_gaussian(x:\nReal\n, \u03bc:\nReal\n, \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nObserve a Gaussian variate with an inverse-gamma distribution over\nthe variance.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Mean.\n\n\n\u03b1: Shape of the inverse-gamma.\n\n\n\u03b2: Scale of the inverse-gamma.\n\n\n\n\nReturns: the log probability density.", 
+            "title": "observe_inverse_gamma_gaussian"
+        }, 
+        {
             "location": "/library/functions/observe_log_gaussian/", 
-            "text": "function observe_log_gaussian(x:\nReal\n, \u03bc:\nReal\n, \u03c32:\nReal\n) -\n \nReal\n\n\nObserve a log-Gaussian variate.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Mean.\n\n\n\u03c32: Variance.\n\n\n\n\nReturns the log probability density.", 
+            "text": "function observe_log_gaussian(x:\nReal\n, \u03bc:\nReal\n, \u03c32:\nReal\n) -\n \nReal\n\n\nObserve a log-Gaussian variate.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Mean.\n\n\n\u03c32: Variance.\n\n\n\n\nReturns: the log probability density.", 
             "title": "observe_log_gaussian"
         }, 
         {
             "location": "/library/functions/observe_multinomial/", 
-            "text": "function observe_multinomial(x:\nInteger\n[_], n:\nInteger\n, \u03c1:\nReal\n[_]) -\n \nReal\n\n\nObserve a multinomial variate.\n\n\n\n\nx: The variate.\n\n\nn: Number of trials.\n\n\n\u03c1: Category probabilities.\n\n\n\n\nReturns the log probability mass.", 
+            "text": "function observe_multinomial(x:\nInteger\n[_], n:\nInteger\n, \u03c1:\nReal\n[_]) -\n \nReal\n\n\nObserve a multinomial variate.\n\n\n\n\nx: The variate.\n\n\nn: Number of trials.\n\n\n\u03c1: Category probabilities.\n\n\n\n\nReturns: the log probability mass.", 
             "title": "observe_multinomial"
         }, 
         {
+            "location": "/library/functions/observe_multivariate_affine_normal_inverse_gamma_gaussian/", 
+            "text": "function observe_multivariate_affine_normal_inverse_gamma_gaussian(x:\nReal\n[_], A:\nReal\n[_,_], \u03bc:\nReal\n[_], c:\nReal\n[_], \u039b:\nReal\n[_,_], \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nObserve a multivariate Gaussian variate with a multivariate normal\ninverse-gamma prior with affine transformation.\n\n\n\n\nx: The variate.\n\n\nA: Scale.\n\n\n\u03bc: Mean.\n\n\nc: Offset.\n\n\n\u039b: Precision.\n\n\n\u03b1: Shape of the inverse-gamma.\n\n\n\u03b2: Scale of the inverse-gamma.\n\n\n\n\nReturns: the log probability density.", 
+            "title": "observe_multivariate_affine_normal_inverse_gamma_gaussian"
+        }, 
+        {
             "location": "/library/functions/observe_multivariate_gaussian/", 
-            "text": "function observe_multivariate_gaussian(x:\nReal\n[_], \u03bc:\nReal\n[_], \u03a3:\nReal\n[_,_]) -\n \nReal\n\n\nObserve a multivariate Gaussian variate.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Mean.\n\n\n\u03a3: Covariance.\n\n\n\n\nReturns the log probability density.", 
+            "text": "function observe_multivariate_gaussian(x:\nReal\n[_], \u03bc:\nReal\n[_], \u03a3:\nReal\n[_,_]) -\n \nReal\n\n\nObserve a multivariate Gaussian variate.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Mean.\n\n\n\u03a3: Covariance.\n\n\n\n\nReturns: the log probability density.\n\n\n\n\n\n\nfunction observe_multivariate_gaussian(x:\nReal\n[_], \u03bc:\nReal\n[_], \u03c32:\nReal\n) -\n \nReal\n\n\nSimulate a multivariate Gaussian distribution with diagonal covariance.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Mean.\n\n\n\u03c32: Variance.\n\n\n\n\nReturns: the log probability density.", 
             "title": "observe_multivariate_gaussian"
         }, 
         {
+            "location": "/library/functions/observe_multivariate_inverse_gamma_gaussian/", 
+            "text": "function observe_multivariate_inverse_gamma_gaussian(x:\nReal\n[_], \u03bc:\nReal\n[_], \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nObserve a multivariate Gaussian variate with an inverse-gamma distribution\nover a diagonal covariance.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Mean.\n\n\n\u03b1: Shape of the inverse-gamma.\n\n\n\u03b2: Scale of the inverse-gamma.\n\n\n\n\nReturns: the log probability density.", 
+            "title": "observe_multivariate_inverse_gamma_gaussian"
+        }, 
+        {
+            "location": "/library/functions/observe_multivariate_normal_inverse_gamma/", 
+            "text": "function observe_multivariate_normal_inverse_gamma(x:\nReal\n[_], \u03bc:\nReal\n[_], \u039b:\nReal\n[_,_], \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nObserve a multivariate normal inverse-gamma variate.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Mean.\n\n\n\u039b: Precision.\n\n\n\u03b1: Shape of inverse-gamma on scale.\n\n\n\u03b2: Scale of inverse-gamma on scale.\n\n\n\n\nReturns: the log probability density.", 
+            "title": "observe_multivariate_normal_inverse_gamma"
+        }, 
+        {
+            "location": "/library/functions/observe_multivariate_normal_inverse_gamma_gaussian/", 
+            "text": "function observe_multivariate_normal_inverse_gamma_gaussian(x:\nReal\n[_], \u03bc:\nReal\n[_], \u039b:\nReal\n[_,_], \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nObserve a multivariate Gaussian variate with a multivariate normal\ninverse-gamma prior.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Mean.\n\n\n\u039b: Precision.\n\n\n\u03b1: Shape of the inverse-gamma.\n\n\n\u03b2: Scale of the inverse-gamma.\n\n\n\n\nReturns: the log probability density.", 
+            "title": "observe_multivariate_normal_inverse_gamma_gaussian"
+        }, 
+        {
+            "location": "/library/functions/observe_multivariate_student_t/", 
+            "text": "function observe_multivariate_student_t(x:\nReal\n[_], \u03bd:\nReal\n, \u03bc:\nReal\n[_], \u039b:\nReal\n[_,_]) -\n \nReal\n\n\nObserve a multivariate Student's \nt\n-distribution variate with location\nand scale.\n\n\n\n\nx: The variate.\n\n\n\u03bd: Degrees of freedom.\n\n\n\u03bc: Location.\n\n\n\u039b: Precision.\n\n\n\n\nReturns: the log probability density.\n\n\n\n\n\n\nfunction observe_multivariate_student_t(x:\nReal\n[_], \u03bd:\nReal\n, \u03bc:\nReal\n[_], \u03bb:\nReal\n) -\n \nReal\n\n\nObserve a multivariate Student's \nt\n-distribution variate with location\nand diagonal scale.\n\n\n\n\nx: The variate.\n\n\n\u03bd: Degrees of freedom.\n\n\n\u03bc: Location.\n\n\n\u03bb: Precision.\n\n\n\n\nReturns: the log probability density.", 
+            "title": "observe_multivariate_student_t"
+        }, 
+        {
             "location": "/library/functions/observe_negative_binomial/", 
-            "text": "function observe_negative_binomial(x:\nInteger\n, k:\nInteger\n, \u03c1:\nReal\n) -\n \nReal\n\n\nObserve a negative binomial variate.\n\n\n\n\nx: The variate (number of failures).\n\n\nk: Number of successes before the experiment is stopped.\n\n\n\u03c1: Probability of success.\n\n\n\n\nReturns the log probability mass.", 
+            "text": "function observe_negative_binomial(x:\nInteger\n, k:\nInteger\n, \u03c1:\nReal\n) -\n \nReal\n\n\nObserve a negative binomial variate.\n\n\n\n\nx: The variate (number of failures).\n\n\nk: Number of successes before the experiment is stopped.\n\n\n\u03c1: Probability of success.\n\n\n\n\nReturns: the log probability mass.", 
             "title": "observe_negative_binomial"
         }, 
         {
+            "location": "/library/functions/observe_normal_inverse_gamma/", 
+            "text": "function observe_normal_inverse_gamma(x:\nReal\n, \u03bc:\nReal\n, a2:\nReal\n, \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nObserve a normal inverse-gamma variate.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Mean.\n\n\na2: Variance.\n\n\n\u03b1: Shape of inverse-gamma on scale.\n\n\n\u03b2: Scale of inverse-gamma on scale.\n\n\n\n\nReturns: the log probability density.", 
+            "title": "observe_normal_inverse_gamma"
+        }, 
+        {
+            "location": "/library/functions/observe_normal_inverse_gamma_gaussian/", 
+            "text": "function observe_normal_inverse_gamma_gaussian(x:\nReal\n, \u03bc:\nReal\n, a2:\nReal\n, \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nObserve a Gaussian variate with a normal inverse-gamma prior.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Mean.\n\n\na2: Variance.\n\n\n\u03b1: Shape of the inverse-gamma.\n\n\n\u03b2: Scale of the inverse-gamma.\n\n\n\n\nReturns: the log probability density.", 
+            "title": "observe_normal_inverse_gamma_gaussian"
+        }, 
+        {
             "location": "/library/functions/observe_poisson/", 
-            "text": "function observe_poisson(x:\nInteger\n, \u03bb:\nReal\n) -\n \nReal\n\n\nObserve a Poisson variate.\n\n\n\n\nx: The variate.\n\n\n\u03bb: Rate.\n\n\n\n\nReturns the log probability mass.", 
+            "text": "function observe_poisson(x:\nInteger\n, \u03bb:\nReal\n) -\n \nReal\n\n\nObserve a Poisson variate.\n\n\n\n\nx: The variate.\n\n\n\u03bb: Rate.\n\n\n\n\nReturns: the log probability mass.", 
             "title": "observe_poisson"
         }, 
         {
+            "location": "/library/functions/observe_student_t/", 
+            "text": "function observe_student_t(x:\nReal\n, \u03bd:\nReal\n) -\n \nReal\n\n\nObserve a Student's \nt\n variate.\n\n\n\n\nx: The variate.\n\n\n\u03bd: Degrees of freedom.\n\n\n\n\nReturns: the log probability density.\n\n\n\n\n\n\nfunction observe_student_t(x:\nReal\n, \u03bd:\nReal\n, \u03bc:\nReal\n, \u03c32:\nReal\n) -\n \nReal\n\n\nObserve a Student's \nt\n variate with location and scale.\n\n\n\n\nx: The variate.\n\n\n\u03bd: Degrees of freedom.\n\n\n\u03bc: Location.\n\n\n\u03c32: Squared scale.\n\n\n\n\nReturns: the log probability density.", 
+            "title": "observe_student_t"
+        }, 
+        {
             "location": "/library/functions/observe_uniform/", 
-            "text": "function observe_uniform(x:\nReal\n, l:\nReal\n, u:\nReal\n) -\n \nReal\n\n\nObserve a uniform variate.\n\n\n\n\nx: The variate.\n\n\nl: Lower bound of interval.\n\n\nu: Upper bound of interval.\n\n\n\n\nReturns the log probability density.", 
+            "text": "function observe_uniform(x:\nReal\n, l:\nReal\n, u:\nReal\n) -\n \nReal\n\n\nObserve a uniform variate.\n\n\n\n\nx: The variate.\n\n\nl: Lower bound of interval.\n\n\nu: Upper bound of interval.\n\n\n\n\nReturns: the log probability density.", 
             "title": "observe_uniform"
         }, 
         {
@@ -741,98 +816,153 @@
             "title": "seed"
         }, 
         {
+            "location": "/library/functions/simulate_affine_normal_inverse_gamma_gaussian/", 
+            "text": "function simulate_affine_normal_inverse_gamma_gaussian(a:\nReal\n, \u03bc:\nReal\n, c:\nReal\n, a2:\nReal\n, \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nSimulate a Gaussian distribution with a normal inverse-gamma prior.\n\n\n\n\na: Scale.\n\n\n\u03bc: Mean.\n\n\nc: Offset.\n\n\na2: Variance.\n\n\n\u03b1: Shape of the inverse-gamma.\n\n\n\u03b2: Scale of the inverse-gamma.", 
+            "title": "simulate_affine_normal_inverse_gamma_gaussian"
+        }, 
+        {
             "location": "/library/functions/simulate_bernoulli/", 
-            "text": "function simulate_bernoulli(\u03c1:\nReal\n) -\n \nBoolean\n\n\nSimulate a Bernoulli variate.\n\n\n\n\n\u03c1: Probability of a true result.", 
+            "text": "function simulate_bernoulli(\u03c1:\nReal\n) -\n \nBoolean\n\n\nSimulate a Bernoulli distribution.\n\n\n\n\n\u03c1: Probability of a true result.", 
             "title": "simulate_bernoulli"
         }, 
         {
             "location": "/library/functions/simulate_beta/", 
-            "text": "function simulate_beta(\u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nSimulate a beta variate.\n\n\n\n\n\u03b1: Shape.\n\n\n\u03b2: Shape.", 
+            "text": "function simulate_beta(\u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nSimulate a beta distribution.\n\n\n\n\n\u03b1: Shape.\n\n\n\u03b2: Shape.", 
             "title": "simulate_beta"
         }, 
         {
             "location": "/library/functions/simulate_beta_binomial/", 
-            "text": "function simulate_beta_binomial(n:\nInteger\n, \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nInteger\n\n\nSimulate a beta-binomial variate.\n\n\n\n\nn: Number of trials.\n\n\n\u03b1: Shape.\n\n\n\u03b2: Shape.", 
+            "text": "function simulate_beta_binomial(n:\nInteger\n, \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nInteger\n\n\nSimulate a beta-binomial distribution.\n\n\n\n\nn: Number of trials.\n\n\n\u03b1: Shape.\n\n\n\u03b2: Shape.", 
             "title": "simulate_beta_binomial"
         }, 
         {
             "location": "/library/functions/simulate_binomial/", 
-            "text": "function simulate_binomial(n:\nInteger\n, \u03c1:\nReal\n) -\n \nInteger\n\n\nSimulate a binomial variate.\n\n\n\n\nn: Number of trials.\n\n\n\u03c1: Probability of a true result.", 
+            "text": "function simulate_binomial(n:\nInteger\n, \u03c1:\nReal\n) -\n \nInteger\n\n\nSimulate a binomial distribution.\n\n\n\n\nn: Number of trials.\n\n\n\u03c1: Probability of a true result.", 
             "title": "simulate_binomial"
         }, 
         {
             "location": "/library/functions/simulate_categorical/", 
-            "text": "function simulate_categorical(\u03c1:\nReal\n[_]) -\n \nInteger\n\n\nSimulate a categorical variate.\n\n\n\n\n\u03c1: Category probabilities.", 
+            "text": "function simulate_categorical(\u03c1:\nReal\n[_]) -\n \nInteger\n\n\nSimulate a categorical distribution.\n\n\n\n\n\u03c1: Category probabilities.", 
             "title": "simulate_categorical"
         }, 
         {
             "location": "/library/functions/simulate_crp_categorical/", 
-            "text": "function simulate_crp_categorical(\u03b1:\nReal\n, \u03b8:\nReal\n, n:\nInteger\n[_], N:\nInteger\n) -\n \nInteger\n\n\nSimulate a categorical variate with Chinese restaurant process prior.", 
+            "text": "function simulate_crp_categorical(\u03b1:\nReal\n, \u03b8:\nReal\n, n:\nInteger\n[_], N:\nInteger\n) -\n \nInteger\n\n\nSimulate a categorical distribution with Chinese restaurant process\nprior.\n\n\n\n\n\u03b1: Concentration.\n\n\n\u03b8: Discount.\n\n\nn: Enumerated items.\n\n\nN: Total number of items.", 
             "title": "simulate_crp_categorical"
         }, 
         {
             "location": "/library/functions/simulate_dirichlet/", 
-            "text": "function simulate_dirichlet(\u03b1:\nReal\n[_]) -\n \nReal\n[_]\n\n\nSimulate a Dirichlet variate.\n\n\n\n\n\u03b1: Concentrations.\n\n\n\n\n\n\n\n\nfunction simulate_dirichlet(\u03b1:\nReal\n, D:\nInteger\n) -\n \nReal\n[_]\n\n\nSimulate a Dirichlet variate.\n\n\n\n\n\u03b1: Concentration.\n\n\nD: Number of dimensions.", 
+            "text": "function simulate_dirichlet(\u03b1:\nReal\n[_]) -\n \nReal\n[_]\n\n\nSimulate a Dirichlet distribution.\n\n\n\n\n\u03b1: Concentrations.\n\n\n\n\n\n\n\n\nfunction simulate_dirichlet(\u03b1:\nReal\n, D:\nInteger\n) -\n \nReal\n[_]\n\n\nSimulate a Dirichlet distribution.\n\n\n\n\n\u03b1: Concentration.\n\n\nD: Number of dimensions.", 
             "title": "simulate_dirichlet"
         }, 
         {
             "location": "/library/functions/simulate_dirichlet_categorical/", 
-            "text": "function simulate_dirichlet_categorical(\u03b1:\nReal\n[_]) -\n \nInteger\n\n\nSimulate a Dirichlet-categorical variate.\n\n\n\n\n\u03b1: Concentrations.", 
+            "text": "function simulate_dirichlet_categorical(\u03b1:\nReal\n[_]) -\n \nInteger\n\n\nSimulate a Dirichlet-categorical distribution.\n\n\n\n\n\u03b1: Concentrations.", 
             "title": "simulate_dirichlet_categorical"
         }, 
         {
             "location": "/library/functions/simulate_dirichlet_multinomial/", 
-            "text": "function simulate_dirichlet_multinomial(n:\nInteger\n, \u03b1:\nReal\n[_]) -\n \nInteger\n[_]\n\n\nSimulate a Dirichlet-multinomial variate.\n\n\n\n\nn: Number of trials.\n\n\n\u03b1: Concentrations.", 
+            "text": "function simulate_dirichlet_multinomial(n:\nInteger\n, \u03b1:\nReal\n[_]) -\n \nInteger\n[_]\n\n\nSimulate a Dirichlet-multinomial distribution.\n\n\n\n\nn: Number of trials.\n\n\n\u03b1: Concentrations.", 
             "title": "simulate_dirichlet_multinomial"
         }, 
         {
             "location": "/library/functions/simulate_exponential/", 
-            "text": "function simulate_exponential(\u03bb:\nReal\n) -\n \nReal\n\n\nSimulate an exponential variate.\n\n\n\n\n\u03bb: Rate.", 
+            "text": "function simulate_exponential(\u03bb:\nReal\n) -\n \nReal\n\n\nSimulate an exponential distribution.\n\n\n\n\n\u03bb: Rate.", 
             "title": "simulate_exponential"
         }, 
         {
             "location": "/library/functions/simulate_gamma/", 
-            "text": "function simulate_gamma(k:\nReal\n, \u03b8:\nReal\n) -\n \nReal\n\n\nSimulate a gamma variate.\n\n\n\n\nk: Shape.\n\n\n\u03b8: Scale.", 
+            "text": "function simulate_gamma(k:\nReal\n, \u03b8:\nReal\n) -\n \nReal\n\n\nSimulate a gamma distribution.\n\n\n\n\nk: Shape.\n\n\n\u03b8: Scale.", 
             "title": "simulate_gamma"
         }, 
         {
             "location": "/library/functions/simulate_gaussian/", 
-            "text": "function simulate_gaussian(\u03bc:\nReal\n, \u03c32:\nReal\n) -\n \nReal\n\n\nSimulate a Gaussian variate.\n\n\n\n\n\u03bc: Mean.\n\n\n\u03c32: Variance.", 
+            "text": "function simulate_gaussian(\u03bc:\nReal\n, \u03c32:\nReal\n) -\n \nReal\n\n\nSimulate a Gaussian distribution.\n\n\n\n\n\u03bc: Mean.\n\n\n\u03c32: Variance.", 
             "title": "simulate_gaussian"
         }, 
         {
             "location": "/library/functions/simulate_int_uniform/", 
-            "text": "function simulate_int_uniform(l:\nInteger\n, u:\nInteger\n) -\n \nInteger\n\n\nSimulate an integer uniform variate.\n\n\n\n\nl: Lower bound of interval.\n\n\nu: Upper bound of interval.", 
+            "text": "function simulate_int_uniform(l:\nInteger\n, u:\nInteger\n) -\n \nInteger\n\n\nSimulate an integer uniform distribution.\n\n\n\n\nl: Lower bound of interval.\n\n\nu: Upper bound of interval.", 
             "title": "simulate_int_uniform"
         }, 
         {
+            "location": "/library/functions/simulate_inverse_gamma/", 
+            "text": "function simulate_inverse_gamma(\u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nSimulate an inverse-gamma distribution.\n\n\n\n\n\u03b1: Shape.\n\n\n\u03b2: Scale.", 
+            "title": "simulate_inverse_gamma"
+        }, 
+        {
+            "location": "/library/functions/simulate_inverse_gamma_gaussian/", 
+            "text": "function simulate_inverse_gamma_gaussian(\u03bc:\nReal\n, \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nSimulate a Gaussian distribution with an inverse-gamma prior over\nthe variance.\n\n\n\n\n\u03bc: Mean.\n\n\n\u03b1: Shape of the inverse-gamma.\n\n\n\u03b2: Scale of the inverse-gamma.", 
+            "title": "simulate_inverse_gamma_gaussian"
+        }, 
+        {
             "location": "/library/functions/simulate_log_gaussian/", 
-            "text": "function simulate_log_gaussian(\u03bc:\nReal\n, \u03c32:\nReal\n) -\n \nReal\n\n\nSimulate a log-Gaussian variate.\n\n\n\n\n\u03bc: Mean (in log space).\n\n\n\u03c32: Variance (in log space).", 
+            "text": "function simulate_log_gaussian(\u03bc:\nReal\n, \u03c32:\nReal\n) -\n \nReal\n\n\nSimulate a log-Gaussian distribution.\n\n\n\n\n\u03bc: Mean (of logarithm).\n\n\n\u03c32: Variance (of logarithm).", 
             "title": "simulate_log_gaussian"
         }, 
         {
             "location": "/library/functions/simulate_multinomial/", 
-            "text": "function simulate_multinomial(n:\nInteger\n, \u03c1:\nReal\n[_]) -\n \nInteger\n[_]\n\n\nSimulate a multinomial variate.\n\n\n\n\nn: Number of trials.\n\n\n\u03c1: Category probabilities.\n\n\n\n\nThis uses an O(N) implementation based on:\n\n\nBentley, J. L. and J. B. Saxe (1979). Generating sorted lists of random\nnumbers. Technical Report 2450, Carnegie Mellon University, Computer\nScience Department.", 
+            "text": "function simulate_multinomial(n:\nInteger\n, \u03c1:\nReal\n[_]) -\n \nInteger\n[_]\n\n\nSimulate a multinomial distribution.\n\n\n\n\nn: Number of trials.\n\n\n\u03c1: Category probabilities.\n\n\n\n\nThis uses an O(N) implementation based on:\n\n\nBentley, J. L. and J. B. Saxe (1979). Generating sorted lists of random\nnumbers. Technical Report 2450, Carnegie Mellon University, Computer\nScience Department.", 
             "title": "simulate_multinomial"
         }, 
         {
+            "location": "/library/functions/simulate_multivariate_affine_normal_inverse_gamma_gaussian/", 
+            "text": "function simulate_multivariate_affine_normal_inverse_gamma_gaussian(A:\nReal\n[_,_], \u03bc:\nReal\n[_], c:\nReal\n[_], \u039b:\nReal\n[_,_], \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n[_]\n\n\nSimulate a Gaussian distribution with a multivariate normal inverse-gamma\nprior.\n\n\n\n\nA: Scale.\n\n\n\u03bc: Mean.\n\n\nc: Offset.\n\n\n\u039b: Precision.\n\n\n\u03b1: Shape of the inverse-gamma.\n\n\n\u03b2: Scale of the inverse-gamma.", 
+            "title": "simulate_multivariate_affine_normal_inverse_gamma_gaussian"
+        }, 
+        {
             "location": "/library/functions/simulate_multivariate_gaussian/", 
-            "text": "function simulate_multivariate_gaussian(\u03bc:\nReal\n[_], \u03a3:\nReal\n[_,_]) -\n \nReal\n[_]\n\n\nSimulate a multivariate Gaussian variate.\n\n\n\n\n\u03bc: Mean.\n\n\n\u03a3: Covariance.", 
+            "text": "function simulate_multivariate_gaussian(\u03bc:\nReal\n[_], \u03a3:\nReal\n[_,_]) -\n \nReal\n[_]\n\n\nSimulate a multivariate Gaussian distribution.\n\n\n\n\n\u03bc: Mean.\n\n\n\u03a3: Covariance.\n\n\n\n\n\n\n\n\nfunction simulate_multivariate_gaussian(\u03bc:\nReal\n[_], \u03c32:\nReal\n) -\n \nReal\n[_]\n\n\nSimulate a multivariate Gaussian distribution with diagonal covariance.\n\n\n\n\n\u03bc: Mean.\n\n\n\u03c32: Variance.", 
             "title": "simulate_multivariate_gaussian"
         }, 
         {
+            "location": "/library/functions/simulate_multivariate_inverse_gamma_gaussian/", 
+            "text": "function simulate_multivariate_inverse_gamma_gaussian(\u03bc:\nReal\n[_], \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n[_]\n\n\nSimulate a multivariate Gaussian distribution with an inverse-gamma prior\nover a diagonal covariance.\n\n\n\n\n\u03bc: Mean.\n\n\n\u03b1: Shape of the inverse-gamma.\n\n\n\u03b2: Scale of the inverse-gamma.", 
+            "title": "simulate_multivariate_inverse_gamma_gaussian"
+        }, 
+        {
+            "location": "/library/functions/simulate_multivariate_normal_inverse_gamma/", 
+            "text": "function simulate_multivariate_normal_inverse_gamma(\u03bc:\nReal\n[_], \u039b:\nReal\n[_,_], \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n[_]\n\n\nSimulate a multivariate normal inverse-gamma distribution.\n\n\n\n\n\u03bc: Mean.\n\n\n\u039b: Precision.\n\n\n\u03b1: Shape of inverse-gamma on scale.\n\n\n\u03b2: Scale of inverse-gamma on scale.", 
+            "title": "simulate_multivariate_normal_inverse_gamma"
+        }, 
+        {
+            "location": "/library/functions/simulate_multivariate_normal_inverse_gamma_gaussian/", 
+            "text": "function simulate_multivariate_normal_inverse_gamma_gaussian(\u03bc:\nReal\n[_], \u039b:\nReal\n[_,_], \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n[_]\n\n\nSimulate a multivariate Gaussian distribution with a multivariate normal\ninverse-gamma prior.\n\n\n\n\n\u03bc: Mean.\n\n\n\u039b: Precision.\n\n\n\u03b1: Shape of the inverse-gamma.\n\n\n\u03b2: Scale of the inverse-gamma.", 
+            "title": "simulate_multivariate_normal_inverse_gamma_gaussian"
+        }, 
+        {
+            "location": "/library/functions/simulate_multivariate_student_t/", 
+            "text": "function simulate_multivariate_student_t(\u03bd:\nReal\n, \u03bc:\nReal\n[_], \u039b:\nReal\n[_,_]) -\n \nReal\n[_]\n\n\nSimulate a multivariate Student's \nt\n-distribution variate with\nlocation and scale.\n\n\n\n\n\u03bd: Degrees of freedom.\n\n\n\u03bc: Location.\n\n\n\u039b: Precision.\n\n\n\n\n\n\n\n\nfunction simulate_multivariate_student_t(\u03bd:\nReal\n, \u03bc:\nReal\n[_], \u03bb:\nReal\n) -\n \nReal\n[_]\n\n\nSimulate a multivariate Student's \nt\n-distribution variate with\nlocation and diagonal scaling.\n\n\n\n\n\u03bd: Degrees of freedom.\n\n\n\u03bc: Location.\n\n\n\u03bb: Precision.", 
+            "title": "simulate_multivariate_student_t"
+        }, 
+        {
             "location": "/library/functions/simulate_negative_binomial/", 
-            "text": "function simulate_negative_binomial(k:\nInteger\n, \u03c1:\nReal\n) -\n \nInteger\n\n\nSimulate a negative binomial variate.\n\n\n\n\nk: Number of successes before the experiment is stopped.\n\n\n\u03c1: Probability of success.\n\n\n\n\nReturns the number of failures.", 
+            "text": "function simulate_negative_binomial(k:\nInteger\n, \u03c1:\nReal\n) -\n \nInteger\n\n\nSimulate a negative binomial distribution.\n\n\n\n\nk: Number of successes before the experiment is stopped.\n\n\n\u03c1: Probability of success.\n\n\n\n\nReturns the number of failures.", 
             "title": "simulate_negative_binomial"
         }, 
         {
+            "location": "/library/functions/simulate_normal_inverse_gamma/", 
+            "text": "function simulate_normal_inverse_gamma(\u03bc:\nReal\n, a2:\nReal\n, \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nSimulate a normal inverse-gamma distribution.\n\n\n\n\n\u03bc: Mean.\n\n\na2: Variance.\n\n\n\u03b1: Shape of inverse-gamma on scale.\n\n\n\u03b2: Scale of inverse-gamma on scale.", 
+            "title": "simulate_normal_inverse_gamma"
+        }, 
+        {
+            "location": "/library/functions/simulate_normal_inverse_gamma_gaussian/", 
+            "text": "function simulate_normal_inverse_gamma_gaussian(\u03bc:\nReal\n, a2:\nReal\n, \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nSimulate a Gaussian distribution with a normal inverse-gamma prior.\n\n\n\n\n\u03bc: Mean.\n\n\na2: Variance.\n\n\n\u03b1: Shape of the inverse-gamma.\n\n\n\u03b2: Scale of the inverse-gamma.", 
+            "title": "simulate_normal_inverse_gamma_gaussian"
+        }, 
+        {
             "location": "/library/functions/simulate_poisson/", 
-            "text": "function simulate_poisson(\u03bb:\nReal\n) -\n \nInteger\n\n\nSimulate a Poisson variate.\n\n\n\n\n\u03bb: Rate.", 
+            "text": "function simulate_poisson(\u03bb:\nReal\n) -\n \nInteger\n\n\nSimulate a Poisson distribution.\n\n\n\n\n\u03bb: Rate.", 
             "title": "simulate_poisson"
         }, 
         {
+            "location": "/library/functions/simulate_student_t/", 
+            "text": "function simulate_student_t(\u03bd:\nReal\n) -\n \nReal\n\n\nSimulate a Student's \nt\n-distribution.\n\n\n\n\n\u03bd: Degrees of freedom.\n\n\n\n\n\n\n\n\nfunction simulate_student_t(\u03bd:\nReal\n, \u03bc:\nReal\n, \u03c32:\nReal\n) -\n \nReal\n\n\nSimulate a Student's \nt\n-distribution with location and scale.\n\n\n\n\n\u03bd: Degrees of freedom.\n\n\n\u03bc: Location.\n\n\n\u03c32: Squared scale.", 
+            "title": "simulate_student_t"
+        }, 
+        {
             "location": "/library/functions/simulate_uniform/", 
-            "text": "function simulate_uniform(l:\nReal\n, u:\nReal\n) -\n \nReal\n\n\nSimulate a uniform variate.\n\n\n\n\nl: Lower bound of interval.\n\n\nu: Upper bound of interval.", 
+            "text": "function simulate_uniform(l:\nReal\n, u:\nReal\n) -\n \nReal\n\n\nSimulate a uniform distribution.\n\n\n\n\nl: Lower bound of interval.\n\n\nu: Upper bound of interval.", 
             "title": "simulate_uniform"
         }, 
         {
@@ -881,9 +1011,69 @@
             "title": "tanh"
         }, 
         {
-            "location": "/library/functions/transpose/", 
-            "text": "function transpose(X:\nReal\n[_,_]) -\n \nReal\n[_,_]\n\n\nTranspose of a matrix.", 
-            "title": "transpose"
+            "location": "/library/functions/trans/", 
+            "text": "function trans(X:\nReal\n[_,_]) -\n \nReal\n[_,_]\n\n\nTranspose of a matrix.\n\n\n\n\n\n\nfunction trans(X:\nInteger\n[_,_]) -\n \nInteger\n[_,_]\n\n\nTranspose of a matrix.\n\n\n\n\n\n\nfunction trans(X:\nBoolean\n[_,_]) -\n \nBoolean\n[_,_]\n\n\nTranspose of a matrix.", 
+            "title": "trans"
+        }, 
+        {
+            "location": "/library/functions/update_affine_gaussian_gaussian/", 
+            "text": "function update_affine_gaussian_gaussian(x:\nReal\n, a:\nReal\n, \u03bc:\nReal\n, \u03c32:\nReal\n, \u03bc_m:\nReal\n, \u03c32_m:\nReal\n) -\n (\nReal\n, \nReal\n)\n\n\nUpdate the parameters of a Gaussian distribution with a Gaussian\nlikelihood and scaling.\n\n\n\n\nx: The variate.\n\n\na: Scale.\n\n\n\u03bc: Prior mean.\n\n\n\u03c32: Prior variance.\n\n\n\u03bc_m: Marginal mean.\n\n\n\u03c32_m: Marginal variance.\n\n\n\n\nReturns: the updated parameters \n\u03bc\n and \n\u03c32\n.", 
+            "title": "update_affine_gaussian_gaussian"
+        }, 
+        {
+            "location": "/library/functions/update_affine_normal_inverse_gamma_gaussian/", 
+            "text": "function update_affine_normal_inverse_gamma_gaussian(a:\nReal\n, x:\nReal\n, c:\nReal\n, \u03bc:\nReal\n, a2:\nReal\n, \u03b1:\nReal\n, \u03b2:\nReal\n) -\n (\nReal\n, \nReal\n, \nReal\n, \nReal\n)\n\n\nUpdate the parameters of a normal inverse-gamma distribution with a\nGaussian likelihood.\n\n\n\n\na: Scale.\n\n\nx: The variate.\n\n\nc: Offset.\n\n\n\u03bc: Mean.\n\n\na2: Variance.\n\n\n\u03b1: Shape of the inverse-gamma.\n\n\n\u03b2: Scale of the inverse-gamma.\n\n\n\n\nReturns: the updated parameters \n\u03bc\n, \na2\n, \n\u03b1\n and \n\u03b2\n.", 
+            "title": "update_affine_normal_inverse_gamma_gaussian"
+        }, 
+        {
+            "location": "/library/functions/update_gaussian_gaussian/", 
+            "text": "function update_gaussian_gaussian(x:\nReal\n, \u03bc:\nReal\n, \u03c32:\nReal\n, \u03bc_m:\nReal\n, \u03c32_m:\nReal\n) -\n (\nReal\n, \nReal\n)\n\n\nUpdate the parameters of a Gaussian distribution with a Gaussian\nlikelihood.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Prior mean.\n\n\n\u03c32: Prior variance.\n\n\n\u03bc_m: Marginal mean.\n\n\n\u03c32_m: Marginal variance.\n\n\n\n\nReturns: the updated parameters \n\u03bc\n and \n\u03c32\n.", 
+            "title": "update_gaussian_gaussian"
+        }, 
+        {
+            "location": "/library/functions/update_inverse_gamma_gaussian/", 
+            "text": "function update_inverse_gamma_gaussian(x:\nReal\n, \u03bc:\nReal\n, \u03b1:\nReal\n, \u03b2:\nReal\n) -\n (\nReal\n, \nReal\n)\n\n\nUpdate the parameters of an inverse-gamma distribution with a\nGaussian likelihood.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Mean.\n\n\n\u03b1: Shape of the inverse-gamma.\n\n\n\u03b2: Scale of the inverse-gamma.\n\n\n\n\nReturns: the updated parameters \n\u03b1\n and \n\u03b2\n.", 
+            "title": "update_inverse_gamma_gaussian"
+        }, 
+        {
+            "location": "/library/functions/update_multivariate_affine_gaussian_gaussian/", 
+            "text": "function update_multivariate_affine_gaussian_gaussian(x:\nReal\n[_], A:\nReal\n[_,_], \u03bc:\nReal\n[_], \u03a3:\nReal\n[_,_], \u03bc_m:\nReal\n[_], \u03a3_m:\nReal\n[_,_]) -\n (\nReal\n[_], \nReal\n[_,_])\n\n\nUpdate the parameters of a multivariate Gaussian distribution with a\nmultivariate Gaussian likelihood and scaling.\n\n\n\n\nx: The variate.\n\n\nA: Scale.\n\n\n\u03bc: Prior mean.\n\n\n\u03a3: Prior variance.\n\n\n\u03bc_m: Marginal mean.\n\n\n\u03a3_m: Marginal variance.\n\n\n\n\nReturns: the updated parameters \n\u03bc\n and \n\u03a3\n.", 
+            "title": "update_multivariate_affine_gaussian_gaussian"
+        }, 
+        {
+            "location": "/library/functions/update_multivariate_affine_normal_inverse_gamma_gaussian/", 
+            "text": "function update_multivariate_affine_normal_inverse_gamma_gaussian(A:\nReal\n[_,_], x:\nReal\n[_], c:\nReal\n[_], \u03bc:\nReal\n[_], \u039b:\nReal\n[_,_], \u03b1:\nReal\n, \u03b2:\nReal\n) -\n (\nReal\n[_], \nReal\n[_,_], \nReal\n, \nReal\n)\n\n\nUpdate the parameters of a normal inverse-gamma distribution with a\nmultivariate Gaussian likelihood and scaling.\n\n\n\n\nA: Scale.\n\n\nx: The variate.\n\n\nc: Offset.\n\n\n\u03bc: Mean.\n\n\n\u039b: Precision.\n\n\n\u03b1: Shape of the inverse-gamma.\n\n\n\u03b2: Scale of the inverse-gamma.\n\n\n\n\nReturns: the updated parameters \n\u03bc\n, \n\u03a3\n, \n\u03b1\n and \n\u03b2\n.", 
+            "title": "update_multivariate_affine_normal_inverse_gamma_gaussian"
+        }, 
+        {
+            "location": "/library/functions/update_multivariate_gaussian_gaussian/", 
+            "text": "function update_multivariate_gaussian_gaussian(x:\nReal\n[_], \u03bc:\nReal\n[_], \u03a3:\nReal\n[_,_], \u03bc_m:\nReal\n[_], \u03a3_m:\nReal\n[_,_]) -\n (\nReal\n[_], \nReal\n[_,_])\n\n\nUpdate the parameters of a multivariate Gaussian distribution with a\nmultivariate Gaussian likelihood.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Prior mean.\n\n\n\u03a3: Prior variance.\n\n\n\u03bc_m: Marginal mean.\n\n\n\u03a3_m: Marginal variance.\n\n\n\n\nReturns: the updated parameters \n\u03bc\n and \n\u03a3\n.", 
+            "title": "update_multivariate_gaussian_gaussian"
+        }, 
+        {
+            "location": "/library/functions/update_multivariate_inverse_gamma_gaussian/", 
+            "text": "function update_multivariate_inverse_gamma_gaussian(x:\nReal\n[_], \u03bc:\nReal\n[_], \u03b1:\nReal\n, \u03b2:\nReal\n) -\n (\nReal\n, \nReal\n)\n\n\nUpdate the parameters of an inverse-gamma distribution with a multivariate\nGaussian likelihood.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Mean.\n\n\n\u03b1: Shape of the inverse-gamma.\n\n\n\u03b2: Scale of the inverse-gamma.\n\n\n\n\nReturns: the updated parameters \n\u03b1\n and \n\u03b2\n.", 
+            "title": "update_multivariate_inverse_gamma_gaussian"
+        }, 
+        {
+            "location": "/library/functions/update_multivariate_normal_inverse_gamma/", 
+            "text": "function update_multivariate_normal_inverse_gamma(x:\nReal\n[_], \u03bc:\nReal\n[_], \u039b:\nReal\n[_,_], \u03b1:\nReal\n, \u03b2:\nReal\n) -\n (\nReal\n, \nReal\n)\n\n\nUpdate the parameters of an inverse-gamma distribution that is part\nof a multivariate normal inverse-gamma joint distribution.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Mean.\n\n\n\u039b: Precision.\n\n\n\u03b1: Shape of the inverse-gamma.\n\n\n\u03b2: Scale of the inverse-gamma.\n\n\n\n\nReturns: the updated parameters \n\u03b1\n and \n\u03b2\n.", 
+            "title": "update_multivariate_normal_inverse_gamma"
+        }, 
+        {
+            "location": "/library/functions/update_multivariate_normal_inverse_gamma_gaussian/", 
+            "text": "function update_multivariate_normal_inverse_gamma_gaussian(x:\nReal\n[_], \u03bc:\nReal\n[_], \u039b:\nReal\n[_,_], \u03b1:\nReal\n, \u03b2:\nReal\n) -\n (\nReal\n[_], \nReal\n[_,_], \nReal\n, \nReal\n)\n\n\nUpdate the parameters of a normal inverse-gamma distribution with a\nmultivariate Gaussian likelihood.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Mean.\n\n\n\u039b: Precision.\n\n\n\u03b1: Shape of the inverse-gamma.\n\n\n\u03b2: Scale of the inverse-gamma.\n\n\n\n\nReturns: the updated parameters \n\u03bc\n, \n\u03a3\n, \n\u03b1\n and \n\u03b2\n.", 
+            "title": "update_multivariate_normal_inverse_gamma_gaussian"
+        }, 
+        {
+            "location": "/library/functions/update_normal_inverse_gamma/", 
+            "text": "function update_normal_inverse_gamma(x:\nReal\n, \u03bc:\nReal\n, a2:\nReal\n, \u03b1:\nReal\n, \u03b2:\nReal\n) -\n (\nReal\n, \nReal\n)\n\n\nUpdate the parameters of an inverse-gamma distribution that is part\nof a normal inverse-gamma joint distribution.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Mean.\n\n\na2: Variance.\n\n\n\u03b1: Shape of the inverse-gamma.\n\n\n\u03b2: Scale of the inverse-gamma.\n\n\n\n\nReturns: the updated parameters \n\u03b1\n and \n\u03b2\n.", 
+            "title": "update_normal_inverse_gamma"
+        }, 
+        {
+            "location": "/library/functions/update_normal_inverse_gamma_gaussian/", 
+            "text": "function update_normal_inverse_gamma_gaussian(x:\nReal\n, \u03bc:\nReal\n, a2:\nReal\n, \u03b1:\nReal\n, \u03b2:\nReal\n) -\n (\nReal\n, \nReal\n, \nReal\n, \nReal\n)\n\n\nUpdate the parameters of a normal inverse-gamma distribution with a\nGaussian likelihood.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Mean.\n\n\na2: Variance.\n\n\n\u03b1: Shape of the inverse-gamma.\n\n\n\u03b2: Scale of the inverse-gamma.\n\n\n\n\nReturns: the updated parameters \n\u03bc\n, \na2\n, \n\u03b1\n and \n\u03b2\n.", 
+            "title": "update_normal_inverse_gamma_gaussian"
         }, 
         {
             "location": "/library/functions/vector/", 
@@ -917,7 +1107,7 @@
         }, 
         {
             "location": "/library/binary_operators/multiply/", 
-            "text": "operator (x:\nInteger16\n * y:\nInteger16\n) -\n \nInteger16\n\n\n\n\n\n\noperator (x:\nInteger32\n * y:\nInteger32\n) -\n \nInteger32\n\n\n\n\n\n\noperator (x:\nInteger64\n * y:\nInteger64\n) -\n \nInteger64\n\n\n\n\n\n\noperator (x:\nInteger8\n * y:\nInteger8\n) -\n \nInteger8\n\n\n\n\n\n\noperator (x:\nReal32\n * y:\nReal32\n) -\n \nReal32\n\n\n\n\n\n\noperator (x:\nReal64\n * y:\nReal64\n) -\n \nReal64\n\n\n\n\n\n\noperator (a:\nReal\n * x:\nRandom\nReal\n) -\n AffineExpression\n\n\n\n\n\n\noperator (a:\nReal\n * x:AffineExpression) -\n AffineExpression\n\n\n\n\n\n\noperator (x:\nRandom\nReal\n * a:\nReal\n) -\n AffineExpression\n\n\n\n\n\n\noperator (x:AffineExpression * a:\nReal\n) -\n AffineExpression\n\n\n\n\n\n\noperator (a:\nReal\n * x:AffineLogExpression) -\n AffineLogExpression\n\n\n\n\n\n\noperator (a:\nReal\n * x:LogExpression) -\n AffineLogExpression\n\n\n\n\n\n\noperator (x:AffineLogExpression * a:\nReal\n) -\n AffineLogExpression\n\n\n\n\n\n\noperator (x:LogExpression * a:\nReal\n) -\n AffineLogExpression\n\n\n\n\n\n\noperator (A:\nReal\n[_,_] * x:\nRandom\nReal\n[_]\n) -\n MultivariateAffineExpression\n\n\n\n\n\n\noperator (A:\nReal\n[_,_] * x:MultivariateAffineExpression) -\n MultivariateAffineExpression\n\n\n\n\n\n\noperator (x:\nReal\n * y:\nReal\n[_]) -\n \nReal\n[_]\n\n\n\n\n\n\noperator (x:\nReal\n[_] * y:\nReal\n) -\n \nReal\n[_]\n\n\n\n\n\n\noperator (x:\nReal\n * Y:\nReal\n[_,_]) -\n \nReal\n[_,_]\n\n\n\n\n\n\noperator (X:\nReal\n[_,_] * y:\nReal\n) -\n \nReal\n[_,_]\n\n\n\n\n\n\noperator (x:\nReal\n[_] * y:\nReal\n[_]) -\n \nReal\n[_]\n\n\n\n\n\n\noperator (X:\nReal\n[_,_] * y:\nReal\n[_]) -\n \nReal\n[_]\n\n\n\n\n\n\noperator (x:\nReal\n[_] * Y:\nReal\n[_,_]) -\n \nReal\n[_,_]\n\n\n\n\n\n\noperator (X:\nReal\n[_,_] * Y:\nReal\n[_,_]) -\n \nReal\n[_,_]\n\n\n\n\n\n\noperator (x:\nInteger\n * y:\nInteger\n[_]) -\n \nInteger\n[_]\n\n\n\n\n\n\noperator (x:\nInteger\n[_] * y:\nInteger\n) -\n \nInteger\n[_]\n\n\n\n\n\n\noperator (x:\nInteger\n * Y:\nInteger\n[_,_]) -\n \nInteger\n[_,_]\n\n\n\n\n\n\noperator (X:\nInteger\n[_,_] * y:\nInteger\n) -\n \nInteger\n[_,_]\n\n\n\n\n\n\noperator (x:\nInteger\n[_] * y:\nInteger\n[_]) -\n \nInteger\n[_]\n\n\n\n\n\n\noperator (X:\nInteger\n[_,_] * y:\nInteger\n[_]) -\n \nInteger\n[_]\n\n\n\n\n\n\noperator (x:\nInteger\n[_] * Y:\nInteger\n[_,_]) -\n \nInteger\n[_,_]\n\n\n\n\n\n\noperator (X:\nInteger\n[_,_] * Y:\nInteger\n[_,_]) -\n \nInteger\n[_,_]", 
+            "text": "operator (x:\nInteger16\n * y:\nInteger16\n) -\n \nInteger16\n\n\n\n\n\n\noperator (x:\nInteger32\n * y:\nInteger32\n) -\n \nInteger32\n\n\n\n\n\n\noperator (x:\nInteger64\n * y:\nInteger64\n) -\n \nInteger64\n\n\n\n\n\n\noperator (x:\nInteger8\n * y:\nInteger8\n) -\n \nInteger8\n\n\n\n\n\n\noperator (x:\nReal32\n * y:\nReal32\n) -\n \nReal32\n\n\n\n\n\n\noperator (x:\nReal64\n * y:\nReal64\n) -\n \nReal64\n\n\n\n\n\n\noperator (a:\nReal\n * x:\nRandom\nReal\n) -\n AffineExpression\n\n\n\n\n\n\noperator (a:\nReal\n * x:AffineExpression) -\n AffineExpression\n\n\n\n\n\n\noperator (x:\nRandom\nReal\n * a:\nReal\n) -\n AffineExpression\n\n\n\n\n\n\noperator (x:AffineExpression * a:\nReal\n) -\n AffineExpression\n\n\n\n\n\n\noperator (a:\nReal\n * x:AffineLogExpression) -\n AffineLogExpression\n\n\n\n\n\n\noperator (a:\nReal\n * x:LogExpression) -\n AffineLogExpression\n\n\n\n\n\n\noperator (x:AffineLogExpression * a:\nReal\n) -\n AffineLogExpression\n\n\n\n\n\n\noperator (x:LogExpression * a:\nReal\n) -\n AffineLogExpression\n\n\n\n\n\n\noperator (A:\nReal\n[_,_] * x:\nRandom\nReal\n) -\n MatrixScalarExpression\n\n\n\n\n\n\noperator (x:\nRandom\nReal\n * A:\nReal\n[_,_]) -\n MatrixScalarExpression\n\n\n\n\n\n\noperator (A:\nReal\n[_,_] * x:MatrixScalarExpression) -\n MatrixScalarExpression\n\n\n\n\n\n\noperator (x:MatrixScalarExpression * A:\nReal\n[_,_]) -\n MatrixScalarExpression\n\n\n\n\n\n\noperator (A:\nReal\n[_,_] * x:\nRandom\nReal\n[_]\n) -\n MultivariateAffineExpression\n\n\n\n\n\n\noperator (A:\nReal\n[_,_] * x:MultivariateAffineExpression) -\n MultivariateAffineExpression\n\n\n\n\n\n\noperator (x:\nReal\n * y:\nReal\n[_]) -\n \nReal\n[_]\n\n\n\n\n\n\noperator (x:\nReal\n[_] * y:\nReal\n) -\n \nReal\n[_]\n\n\n\n\n\n\noperator (x:\nReal\n * Y:\nReal\n[_,_]) -\n \nReal\n[_,_]\n\n\n\n\n\n\noperator (X:\nReal\n[_,_] * y:\nReal\n) -\n \nReal\n[_,_]\n\n\n\n\n\n\noperator (x:\nReal\n[_] * y:\nReal\n[_]) -\n \nReal\n[_]\n\n\n\n\n\n\noperator (X:\nReal\n[_,_] * y:\nReal\n[_]) -\n \nReal\n[_]\n\n\n\n\n\n\noperator (x:\nReal\n[_] * Y:\nReal\n[_,_]) -\n \nReal\n[_,_]\n\n\n\n\n\n\noperator (X:\nReal\n[_,_] * Y:\nReal\n[_,_]) -\n \nReal\n[_,_]\n\n\n\n\n\n\noperator (x:\nInteger\n * y:\nInteger\n[_]) -\n \nInteger\n[_]\n\n\n\n\n\n\noperator (x:\nInteger\n[_] * y:\nInteger\n) -\n \nInteger\n[_]\n\n\n\n\n\n\noperator (x:\nInteger\n * Y:\nInteger\n[_,_]) -\n \nInteger\n[_,_]\n\n\n\n\n\n\noperator (X:\nInteger\n[_,_] * y:\nInteger\n) -\n \nInteger\n[_,_]\n\n\n\n\n\n\noperator (x:\nInteger\n[_] * y:\nInteger\n[_]) -\n \nInteger\n[_]\n\n\n\n\n\n\noperator (X:\nInteger\n[_,_] * y:\nInteger\n[_]) -\n \nInteger\n[_]\n\n\n\n\n\n\noperator (x:\nInteger\n[_] * Y:\nInteger\n[_,_]) -\n \nInteger\n[_,_]\n\n\n\n\n\n\noperator (X:\nInteger\n[_,_] * Y:\nInteger\n[_,_]) -\n \nInteger\n[_,_]", 
             "title": "*"
         }, 
         {
@@ -997,12 +1187,12 @@
         }, 
         {
             "location": "/library/classes/Beta/", 
-            "text": "class Beta \n \nRandom\nReal\n\n\nBeta distribution.\n\n\n\n\nFactory Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nBeta\n\n\nCreate Beta distribution.\n\n\n\n\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\n\u03b1:\nReal\n\n\nFirst shape parameter.\n\n\n\n\n\n\n\u03b2:\nReal\n\n\nSecond shape parameter.\n\n\n\n\n\n\n\n\nFactory Function Details\n\n\n\n\nfunction Beta(\u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nBeta\n\n\nCreate Beta distribution.", 
+            "text": "class Beta \n \nRandom\nReal\n\n\nBeta distribution.\n\n\n\n\nFactory Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nBeta\n\n\nCreate beta distribution.\n\n\n\n\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\n\u03b1:\nReal\n\n\nFirst shape parameter.\n\n\n\n\n\n\n\u03b2:\nReal\n\n\nSecond shape parameter.\n\n\n\n\n\n\n\n\nFactory Function Details\n\n\n\n\nfunction Beta(\u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nBeta\n\n\nCreate beta distribution.", 
             "title": "Beta"
         }, 
         {
             "location": "/library/classes/Beta/#factory-functions", 
-            "text": "Name  Description      Beta  Create Beta distribution.", 
+            "text": "Name  Description      Beta  Create beta distribution.", 
             "title": "Factory Functions"
         }, 
         {
@@ -1012,22 +1202,12 @@
         }, 
         {
             "location": "/library/classes/Beta/#factory-function-details", 
-            "text": "function Beta(\u03b1: Real , \u03b2: Real ) -   Beta  Create Beta distribution.", 
+            "text": "function Beta(\u03b1: Real , \u03b2: Real ) -   Beta  Create beta distribution.", 
             "title": "Factory Function Details"
         }, 
         {
-            "location": "/library/classes/BetaBinomial/", 
-            "text": "class BetaBinomial \n \nRandom\nInteger\n\n\nBinomial with conjugate prior on success probability. When the success\nprobability is known, this is simply a Binomial distribution.\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nn:\nInteger\n\n\nNumber of trials.\n\n\n\n\n\n\n\u03c1:\nBeta\n\n\nProbability of a true result.", 
-            "title": "BetaBinomial"
-        }, 
-        {
-            "location": "/library/classes/BetaBinomial/#member-variables", 
-            "text": "Name  Description      n: Integer  Number of trials.    \u03c1: Beta  Probability of a true result.", 
-            "title": "Member Variables"
-        }, 
-        {
             "location": "/library/classes/Binomial/", 
-            "text": "class Binomial \n \nRandom\nInteger\n\n\nBinomial distribution.\n\n\n\n\nFactory Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nBinomial\n\n\nCreate binomial distribution.\n\n\n\n\n\n\nBinomial\n\n\nCreate binomial distribution.\n\n\n\n\n\n\nBinomial\n\n\nCreate binomial distribution.\n\n\n\n\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nn:\nInteger\n\n\nNumber of trials.\n\n\n\n\n\n\n\u03c1:\nReal\n\n\nProbability of a true result.\n\n\n\n\n\n\n\n\nFactory Function Details\n\n\n\n\nfunction Binomial(n:\nInteger\n, \u03c1:\nReal\n) -\n \nBinomial\n\n\nCreate binomial distribution.\n\n\n\n\n\n\nfunction Binomial(n:\nInteger\n, \u03c1:\nBeta\n) -\n \nBetaBinomial\n\n\nCreate binomial distribution.\n\n\n\n\n\n\nfunction Binomial(n:\nInteger\n, \u03c1:\nRandom\nReal\n) -\n \nRandom\nInteger\n\n\nCreate binomial distribution.", 
+            "text": "class Binomial \n \nRandom\nInteger\n\n\nBinomial distribution.\n\n\n\n\nFactory Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nBinomial\n\n\nCreate binomial distribution.\n\n\n\n\n\n\nBinomial\n\n\nCreate binomial distribution.\n\n\n\n\n\n\nBinomial\n\n\nCreate binomial distribution.\n\n\n\n\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nn:\nInteger\n\n\nNumber of trials.\n\n\n\n\n\n\n\u03c1:\nReal\n\n\nProbability of a true result.\n\n\n\n\n\n\n\n\nFactory Function Details\n\n\n\n\nfunction Binomial(n:\nInteger\n, \u03c1:\nReal\n) -\n \nBinomial\n\n\nCreate binomial distribution.\n\n\n\n\n\n\nfunction Binomial(n:\nInteger\n, \u03c1:\nBeta\n) -\n BetaBinomial\n\n\nCreate binomial distribution.\n\n\n\n\n\n\nfunction Binomial(n:\nInteger\n, \u03c1:\nRandom\nReal\n) -\n \nRandom\nInteger\n\n\nCreate binomial distribution.", 
             "title": "Binomial"
         }, 
         {
@@ -1042,12 +1222,12 @@
         }, 
         {
             "location": "/library/classes/Binomial/#factory-function-details", 
-            "text": "function Binomial(n: Integer , \u03c1: Real ) -   Binomial  Create binomial distribution.    function Binomial(n: Integer , \u03c1: Beta ) -   BetaBinomial  Create binomial distribution.    function Binomial(n: Integer , \u03c1: Random Real ) -   Random Integer  Create binomial distribution.", 
+            "text": "function Binomial(n: Integer , \u03c1: Real ) -   Binomial  Create binomial distribution.    function Binomial(n: Integer , \u03c1: Beta ) -  BetaBinomial  Create binomial distribution.    function Binomial(n: Integer , \u03c1: Random Real ) -   Random Integer  Create binomial distribution.", 
             "title": "Factory Function Details"
         }, 
         {
             "location": "/library/classes/Categorical/", 
-            "text": "class Categorical \n \nRandom\nInteger\n\n\nCategorical distribution.\n\n\n\n\nFactory Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nCategorical\n\n\nCreate categorical distribution.\n\n\n\n\n\n\nCategorical\n\n\nCreate categorical distribution.\n\n\n\n\n\n\nCategorical\n\n\nCreate categorical distribution.\n\n\n\n\n\n\nCategorical\n\n\nCreate categorical distribution.\n\n\n\n\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\n\u03c1:\nReal\n[_]\n\n\nCategory probabilities.\n\n\n\n\n\n\n\n\nFactory Function Details\n\n\n\n\nfunction Categorical(\u03c1:\nReal\n[_]) -\n \nCategorical\n\n\nCreate categorical distribution.\n\n\n\n\n\n\nfunction Categorical(\u03c1:\nDirichlet\n) -\n \nDirichletCategorical\n\n\nCreate categorical distribution.\n\n\n\n\n\n\nfunction Categorical(\u03c1:\nRandom\nReal\n[_]\n) -\n \nRandom\nInteger\n\n\nCreate categorical distribution.\n\n\n\n\n\n\nfunction Categorical(\u03c1:\nRestaurantProcess\n) -\n \nRestaurantProcessCategorical\n\n\nCreate categorical distribution.", 
+            "text": "class Categorical \n \nRandom\nInteger\n\n\nCategorical distribution.\n\n\n\n\nFactory Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nCategorical\n\n\nCreate categorical distribution.\n\n\n\n\n\n\nCategorical\n\n\nCreate categorical distribution.\n\n\n\n\n\n\nCategorical\n\n\nCreate categorical distribution.\n\n\n\n\n\n\nCategorical\n\n\nCreate categorical distribution.\n\n\n\n\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\n\u03c1:\nReal\n[_]\n\n\nCategory probabilities.\n\n\n\n\n\n\n\n\nFactory Function Details\n\n\n\n\nfunction Categorical(\u03c1:\nReal\n[_]) -\n \nCategorical\n\n\nCreate categorical distribution.\n\n\n\n\n\n\nfunction Categorical(\u03c1:\nDirichlet\n) -\n DirichletCategorical\n\n\nCreate categorical distribution.\n\n\n\n\n\n\nfunction Categorical(\u03c1:\nRandom\nReal\n[_]\n) -\n \nRandom\nInteger\n\n\nCreate categorical distribution.\n\n\n\n\n\n\nfunction Categorical(\u03c1:\nRestaurantProcess\n) -\n RestaurantProcessCategorical\n\n\nCreate categorical distribution.", 
             "title": "Categorical"
         }, 
         {
@@ -1062,7 +1242,7 @@
         }, 
         {
             "location": "/library/classes/Categorical/#factory-function-details", 
-            "text": "function Categorical(\u03c1: Real [_]) -   Categorical  Create categorical distribution.    function Categorical(\u03c1: Dirichlet ) -   DirichletCategorical  Create categorical distribution.    function Categorical(\u03c1: Random Real [_] ) -   Random Integer  Create categorical distribution.    function Categorical(\u03c1: RestaurantProcess ) -   RestaurantProcessCategorical  Create categorical distribution.", 
+            "text": "function Categorical(\u03c1: Real [_]) -   Categorical  Create categorical distribution.    function Categorical(\u03c1: Dirichlet ) -  DirichletCategorical  Create categorical distribution.    function Categorical(\u03c1: Random Real [_] ) -   Random Integer  Create categorical distribution.    function Categorical(\u03c1: RestaurantProcess ) -  RestaurantProcessCategorical  Create categorical distribution.", 
             "title": "Factory Function Details"
         }, 
         {
@@ -1196,33 +1376,13 @@
             "title": "update"
         }, 
         {
-            "location": "/library/classes/DirichletCategorical/", 
-            "text": "class DirichletCategorical \n \nRandom\nInteger\n\n\nCategorical distribution with conjugate prior on category probabilities.\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\n\u03c1:\nDirichlet\n\n\nCategory probabilities.", 
-            "title": "DirichletCategorical"
-        }, 
-        {
-            "location": "/library/classes/DirichletCategorical/#member-variables", 
-            "text": "Name  Description      \u03c1: Dirichlet  Category probabilities.", 
-            "title": "Member Variables"
-        }, 
-        {
-            "location": "/library/classes/DirichletMultinomial/", 
-            "text": "class DirichletMultinomial \n \nRandom\nInteger\n[_]\n\n\nMultinomial with conjugate prior on category probabilities.\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nn:\nInteger\n\n\nNumber of trials.\n\n\n\n\n\n\n\u03c1:\nDirichlet\n\n\nCategory probabilities.", 
-            "title": "DirichletMultinomial"
-        }, 
-        {
-            "location": "/library/classes/DirichletMultinomial/#member-variables", 
-            "text": "Name  Description      n: Integer  Number of trials.    \u03c1: Dirichlet  Category probabilities.", 
-            "title": "Member Variables"
-        }, 
-        {
             "location": "/library/classes/Gamma/", 
-            "text": "class Gamma \n \nRandom\nReal\n\n\nGamma distribution.\n\n\n\n\nFactory Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nGamma\n\n\nCreate Gamma distribution.\n\n\n\n\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nk:\nReal\n\n\nShape.\n\n\n\n\n\n\n\u03b8:\nReal\n\n\nScale.\n\n\n\n\n\n\n\n\nFactory Function Details\n\n\n\n\nfunction Gamma(k:\nReal\n, \u03b8:\nReal\n) -\n \nGamma\n\n\nCreate Gamma distribution.", 
+            "text": "class Gamma \n \nRandom\nReal\n\n\nGamma distribution.\n\n\n\n\nFactory Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nGamma\n\n\nCreate gamma distribution.\n\n\n\n\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nk:\nReal\n\n\nShape.\n\n\n\n\n\n\n\u03b8:\nReal\n\n\nScale.\n\n\n\n\n\n\n\n\nFactory Function Details\n\n\n\n\nfunction Gamma(k:\nReal\n, \u03b8:\nReal\n) -\n \nGamma\n\n\nCreate gamma distribution.", 
             "title": "Gamma"
         }, 
         {
             "location": "/library/classes/Gamma/#factory-functions", 
-            "text": "Name  Description      Gamma  Create Gamma distribution.", 
+            "text": "Name  Description      Gamma  Create gamma distribution.", 
             "title": "Factory Functions"
         }, 
         {
@@ -1232,27 +1392,17 @@
         }, 
         {
             "location": "/library/classes/Gamma/#factory-function-details", 
-            "text": "function Gamma(k: Real , \u03b8: Real ) -   Gamma  Create Gamma distribution.", 
+            "text": "function Gamma(k: Real , \u03b8: Real ) -   Gamma  Create gamma distribution.", 
             "title": "Factory Function Details"
         }, 
         {
-            "location": "/library/classes/GammaPoisson/", 
-            "text": "class GammaPoisson \n \nRandom\nInteger\n\n\nPoisson with conjugate prior on rate. When the rate is known, this is\nsimply a Poisson distribution. When the rate is gamma distributed, this is\na negative binomial distribution.\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\n\u03bb:\nGamma\n\n\nRate.", 
-            "title": "GammaPoisson"
-        }, 
-        {
-            "location": "/library/classes/GammaPoisson/#member-variables", 
-            "text": "Name  Description      \u03bb: Gamma  Rate.", 
-            "title": "Member Variables"
-        }, 
-        {
             "location": "/library/classes/Gaussian/", 
-            "text": "class Gaussian \n \nRandom\nReal\n\n\nGaussian distribution.\n\n\n\n\nFactory Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\n\u03bc:\nReal\n\n\nMean.\n\n\n\n\n\n\n\u03c32:\nReal\n\n\nVariance.\n\n\n\n\n\n\n\n\nFactory Function Details\n\n\n\n\nfunction Gaussian(\u03bc:\nReal\n, \u03c32:\nReal\n) -\n \nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nfunction Gaussian(\u03bc:\nReal\n[_], \u03a3:\nReal\n[_,_]) -\n \nMultivariateGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nfunction Gaussian(\u03bc:AffineExpression, \u03c32:\nReal\n) -\n \nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nfunction Gaussian(\u03bc:AffineLogExpression, \u03c32:\nReal\n) -\n \nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nfunction Gaussian(\u03bc:\nGaussian\n, \u03c32:\nReal\n) -\n \nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nfunction Gaussian(\u03bc:\nRandom\nReal\n, \u03c32:\nReal\n) -\n \nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nfunction Gaussian(\u03bc:LogExpression, \u03c32:\nReal\n) -\n \nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nfunction Gaussian(\u03bc:MultivariateAffineExpression, \u03a3:\nReal\n[_,_]) -\n \nMultivariateGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nfunction Gaussian(\u03bc:\nMultivariateGaussian\n, \u03a3:\nReal\n[_,_]) -\n \nMultivariateGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nfunction Gaussian(\u03bc:\nRandom\nReal\n[_]\n, \u03a3:\nReal\n[_,_]) -\n \nMultivariateGaussian\n\n\nCreate Gaussian distribution.", 
+            "text": "class Gaussian \n \nRandom\nReal\n\n\nGaussian distribution.\n\n\n\n\nFactory Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nGaussian\n\n\nCreate multivariate Gaussian distribution.\n\n\n\n\n\n\nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\n\u03bc:\nReal\n\n\nMean.\n\n\n\n\n\n\n\u03c32:\nReal\n\n\nVariance.\n\n\n\n\n\n\n\n\nFactory Function Details\n\n\n\n\nfunction Gaussian(\u03bc:\nReal\n, \u03c32:\nReal\n) -\n \nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nfunction Gaussian(\u03bc:\nReal\n[_], \u03a3:\nReal\n[_,_]) -\n \nMultivariateGaussian\n\n\nCreate multivariate Gaussian distribution.\n\n\n\n\n\n\nfunction Gaussian(\u03bc:\nReal\n[_], \u03a3:MatrixScalarExpression) -\n \nRandom\nReal\n[_]\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nfunction Gaussian(\u03bc:\nReal\n, \u03c32:AffineExpression) -\n \nRandom\nReal\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nfunction Gaussian(\u03bc:AffineExpression, \u03c32:\nReal\n) -\n \nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nfunction Gaussian(\u03bc:AffineLogExpression, \u03c32:\nReal\n) -\n \nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nfunction Gaussian(\u03bc:AffineExpression, \u03c32:\nInverseGamma\n) -\n \nRandom\nReal\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nfunction Gaussian(\u03bc:AffineExpression, \u03c32:\nRandom\nReal\n) -\n \nRandom\nReal\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nfunction Gaussian(\u03bc:\nGaussian\n, \u03c32:\nReal\n) -\n \nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nfunction Gaussian(\u03bc:\nRandom\nReal\n, \u03c32:\nReal\n) -\n \nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nfunction Gaussian(\u03bc:\nReal\n, \u03c32:\nInverseGamma\n) -\n InverseGammaGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nfunction Gaussian(\u03bc:\nReal\n, \u03c32:\nRandom\nReal\n) -\n \nRandom\nReal\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nfunction Gaussian(\u03bc:LogExpression, \u03c32:\nReal\n) -\n \nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nfunction Gaussian(\u03bc:MultivariateAffineExpression, \u03a3:\nReal\n[_,_]) -\n \nMultivariateGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nfunction Gaussian(\u03bc:MultivariateAffineExpression, \u03c32:\nInverseGamma\n) -\n \nRandom\nReal\n[_]\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nfunction Gaussian(\u03bc:MultivariateAffineExpression, \u03c32:\nRandom\nReal\n) -\n \nRandom\nReal\n[_]\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nfunction Gaussian(\u03bc:\nMultivariateGaussian\n, \u03a3:\nReal\n[_,_]) -\n \nMultivariateGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nfunction Gaussian(\u03bc:\nRandom\nReal\n[_]\n, \u03a3:\nReal\n[_,_]) -\n \nMultivariateGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nfunction Gaussian(\u03bc:\nReal\n[_], \u03c32:\nInverseGamma\n) -\n MultivariateInverseGammaGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nfunction Gaussian(\u03bc:\nReal\n[_], \u03c32:\nRandom\nReal\n) -\n \nRandom\nReal\n[_]\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nfunction Gaussian(\u03bc:\nMultivariateNormalInverseGamma\n, \u03c32:\nInverseGamma\n) -\n MultivariateNormalInverseGammaGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nfunction Gaussian(\u03bc:\nRandom\nReal\n[_]\n, \u03c32:\nRandom\nReal\n) -\n \nRandom\nReal\n[_]\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nfunction Gaussian(\u03bc:\nNormalInverseGamma\n, \u03c32:\nInverseGamma\n) -\n NormalInverseGammaGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nfunction Gaussian(\u03bc:\nRandom\nReal\n, \u03c32:\nRandom\nReal\n) -\n \nRandom\nReal\n\n\nCreate Gaussian distribution.", 
             "title": "Gaussian"
         }, 
         {
             "location": "/library/classes/Gaussian/#factory-functions", 
-            "text": "Name  Description      Gaussian  Create Gaussian distribution.    Gaussian  Create Gaussian distribution.    Gaussian  Create Gaussian distribution.    Gaussian  Create Gaussian distribution.    Gaussian  Create Gaussian distribution.    Gaussian  Create Gaussian distribution.    Gaussian  Create Gaussian distribution.    Gaussian  Create Gaussian distribution.    Gaussian  Create Gaussian distribution.    Gaussian  Create Gaussian distribution.", 
+            "text": "Name  Description      Gaussian  Create Gaussian distribution.    Gaussian  Create multivariate Gaussian distribution.    Gaussian  Create Gaussian distribution.    Gaussian  Create Gaussian distribution.    Gaussian  Create Gaussian distribution.    Gaussian  Create Gaussian distribution.    Gaussian  Create Gaussian distribution.    Gaussian  Create Gaussian distribution.    Gaussian  Create Gaussian distribution.    Gaussian  Create Gaussian distribution.    Gaussian  Create Gaussian distribution.    Gaussian  Create Gaussian distribution.    Gaussian  Create Gaussian distribution.    Gaussian  Create Gaussian distribution.    Gaussian  Create Gaussian distribution.    Gaussian  Create Gaussian distribution.    Gaussian  Create Gaussian distribution.    Gaussian  Create Gaussian distribution.    Gaussian  Create Gaussian distribution.    Gaussian  Create Gaussian distribution.    Gaussian  Create Gaussian distribution.    Gaussian  Create Gaussian distribution.    Gaussian  Create Gaussian distribution.    Gaussian  Create Gaussian distribution.", 
             "title": "Factory Functions"
         }, 
         {
@@ -1262,7 +1412,7 @@
         }, 
         {
             "location": "/library/classes/Gaussian/#factory-function-details", 
-            "text": "function Gaussian(\u03bc: Real , \u03c32: Real ) -   Gaussian  Create Gaussian distribution.    function Gaussian(\u03bc: Real [_], \u03a3: Real [_,_]) -   MultivariateGaussian  Create Gaussian distribution.    function Gaussian(\u03bc:AffineExpression, \u03c32: Real ) -   Gaussian  Create Gaussian distribution.    function Gaussian(\u03bc:AffineLogExpression, \u03c32: Real ) -   Gaussian  Create Gaussian distribution.    function Gaussian(\u03bc: Gaussian , \u03c32: Real ) -   Gaussian  Create Gaussian distribution.    function Gaussian(\u03bc: Random Real , \u03c32: Real ) -   Gaussian  Create Gaussian distribution.    function Gaussian(\u03bc:LogExpression, \u03c32: Real ) -   Gaussian  Create Gaussian distribution.    function Gaussian(\u03bc:MultivariateAffineExpression, \u03a3: Real [_,_]) -   MultivariateGaussian  Create Gaussian distribution.    function Gaussian(\u03bc: MultivariateGaussian , \u03a3: Real [_,_]) -   MultivariateGaussian  Create Gaussian distribution.    function Gaussian(\u03bc: Random Real [_] , \u03a3: Real [_,_]) -   MultivariateGaussian  Create Gaussian distribution.", 
+            "text": "function Gaussian(\u03bc: Real , \u03c32: Real ) -   Gaussian  Create Gaussian distribution.    function Gaussian(\u03bc: Real [_], \u03a3: Real [_,_]) -   MultivariateGaussian  Create multivariate Gaussian distribution.    function Gaussian(\u03bc: Real [_], \u03a3:MatrixScalarExpression) -   Random Real [_]  Create Gaussian distribution.    function Gaussian(\u03bc: Real , \u03c32:AffineExpression) -   Random Real  Create Gaussian distribution.    function Gaussian(\u03bc:AffineExpression, \u03c32: Real ) -   Gaussian  Create Gaussian distribution.    function Gaussian(\u03bc:AffineLogExpression, \u03c32: Real ) -   Gaussian  Create Gaussian distribution.    function Gaussian(\u03bc:AffineExpression, \u03c32: InverseGamma ) -   Random Real  Create Gaussian distribution.    function Gaussian(\u03bc:AffineExpression, \u03c32: Random Real ) -   Random Real  Create Gaussian distribution.    function Gaussian(\u03bc: Gaussian , \u03c32: Real ) -   Gaussian  Create Gaussian distribution.    function Gaussian(\u03bc: Random Real , \u03c32: Real ) -   Gaussian  Create Gaussian distribution.    function Gaussian(\u03bc: Real , \u03c32: InverseGamma ) -  InverseGammaGaussian  Create Gaussian distribution.    function Gaussian(\u03bc: Real , \u03c32: Random Real ) -   Random Real  Create Gaussian distribution.    function Gaussian(\u03bc:LogExpression, \u03c32: Real ) -   Gaussian  Create Gaussian distribution.    function Gaussian(\u03bc:MultivariateAffineExpression, \u03a3: Real [_,_]) -   MultivariateGaussian  Create Gaussian distribution.    function Gaussian(\u03bc:MultivariateAffineExpression, \u03c32: InverseGamma ) -   Random Real [_]  Create Gaussian distribution.    function Gaussian(\u03bc:MultivariateAffineExpression, \u03c32: Random Real ) -   Random Real [_]  Create Gaussian distribution.    function Gaussian(\u03bc: MultivariateGaussian , \u03a3: Real [_,_]) -   MultivariateGaussian  Create Gaussian distribution.    function Gaussian(\u03bc: Random Real [_] , \u03a3: Real [_,_]) -   MultivariateGaussian  Create Gaussian distribution.    function Gaussian(\u03bc: Real [_], \u03c32: InverseGamma ) -  MultivariateInverseGammaGaussian  Create Gaussian distribution.    function Gaussian(\u03bc: Real [_], \u03c32: Random Real ) -   Random Real [_]  Create Gaussian distribution.    function Gaussian(\u03bc: MultivariateNormalInverseGamma , \u03c32: InverseGamma ) -  MultivariateNormalInverseGammaGaussian  Create Gaussian distribution.    function Gaussian(\u03bc: Random Real [_] , \u03c32: Random Real ) -   Random Real [_]  Create Gaussian distribution.    function Gaussian(\u03bc: NormalInverseGamma , \u03c32: InverseGamma ) -  NormalInverseGammaGaussian  Create Gaussian distribution.    function Gaussian(\u03bc: Random Real , \u03c32: Random Real ) -   Random Real  Create Gaussian distribution.", 
             "title": "Factory Function Details"
         }, 
         {
@@ -1319,6 +1469,26 @@
             "location": "/library/classes/InputStream/#scanreal", 
             "text": "function scanReal() -   Real  Read real.", 
             "title": "scanReal"
+        }, 
+        {
+            "location": "/library/classes/InverseGamma/", 
+            "text": "class InverseGamma \n \nRandom\nReal\n\n\nInverse-gamma distribution.\n\n\n\n\nFactory Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nInverseGamma\n\n\nCreate inverse-gamma distribution.\n\n\n\n\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\n\u03b1:\nReal\n\n\nShape.\n\n\n\n\n\n\n\u03b2:\nReal\n\n\nScale.\n\n\n\n\n\n\n\n\nFactory Function Details\n\n\n\n\nfunction InverseGamma(\u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nInverseGamma\n\n\nCreate inverse-gamma distribution.", 
+            "title": "InverseGamma"
+        }, 
+        {
+            "location": "/library/classes/InverseGamma/#factory-functions", 
+            "text": "Name  Description      InverseGamma  Create inverse-gamma distribution.", 
+            "title": "Factory Functions"
+        }, 
+        {
+            "location": "/library/classes/InverseGamma/#member-variables", 
+            "text": "Name  Description      \u03b1: Real  Shape.    \u03b2: Real  Scale.", 
+            "title": "Member Variables"
+        }, 
+        {
+            "location": "/library/classes/InverseGamma/#factory-function-details", 
+            "text": "function InverseGamma(\u03b1: Real , \u03b2: Real ) -   InverseGamma  Create inverse-gamma distribution.", 
+            "title": "Factory Function Details"
         }, 
         {
             "location": "/library/classes/JSONReader/", 
@@ -1602,7 +1772,7 @@
         }, 
         {
             "location": "/library/classes/Multinomial/", 
-            "text": "class Multinomial \n \nRandom\nInteger\n[_]\n\n\nMultinomial distribution.\n\n\n\n\nFactory Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nMultinomial\n\n\nCreate multinomial distribution.\n\n\n\n\n\n\nMultinomial\n\n\nCreate multinomial distribution.\n\n\n\n\n\n\nMultinomial\n\n\nCreate multinomial distribution.\n\n\n\n\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nn:\nInteger\n\n\nNumber of trials.\n\n\n\n\n\n\n\u03c1:\nReal\n[_]\n\n\nCategory probabilities.\n\n\n\n\n\n\n\n\nFactory Function Details\n\n\n\n\nfunction Multinomial(n:\nInteger\n, \u03c1:\nReal\n[_]) -\n \nMultinomial\n\n\nCreate multinomial distribution.\n\n\n\n\n\n\nfunction Multinomial(n:\nInteger\n, \u03c1:\nDirichlet\n) -\n \nDirichletMultinomial\n\n\nCreate multinomial distribution.\n\n\n\n\n\n\nfunction Multinomial(n:\nInteger\n, \u03c1:\nRandom\nReal\n[_]\n) -\n \nRandom\nInteger\n[_]\n\n\nCreate multinomial distribution.", 
+            "text": "class Multinomial \n \nRandom\nInteger\n[_]\n\n\nMultinomial distribution.\n\n\n\n\nFactory Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nMultinomial\n\n\nCreate multinomial distribution.\n\n\n\n\n\n\nMultinomial\n\n\nCreate multinomial distribution.\n\n\n\n\n\n\nMultinomial\n\n\nCreate multinomial distribution.\n\n\n\n\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nn:\nInteger\n\n\nNumber of trials.\n\n\n\n\n\n\n\u03c1:\nReal\n[_]\n\n\nCategory probabilities.\n\n\n\n\n\n\n\n\nFactory Function Details\n\n\n\n\nfunction Multinomial(n:\nInteger\n, \u03c1:\nReal\n[_]) -\n \nMultinomial\n\n\nCreate multinomial distribution.\n\n\n\n\n\n\nfunction Multinomial(n:\nInteger\n, \u03c1:\nDirichlet\n) -\n DirichletMultinomial\n\n\nCreate multinomial distribution.\n\n\n\n\n\n\nfunction Multinomial(n:\nInteger\n, \u03c1:\nRandom\nReal\n[_]\n) -\n \nRandom\nInteger\n[_]\n\n\nCreate multinomial distribution.", 
             "title": "Multinomial"
         }, 
         {
@@ -1617,7 +1787,7 @@
         }, 
         {
             "location": "/library/classes/Multinomial/#factory-function-details", 
-            "text": "function Multinomial(n: Integer , \u03c1: Real [_]) -   Multinomial  Create multinomial distribution.    function Multinomial(n: Integer , \u03c1: Dirichlet ) -   DirichletMultinomial  Create multinomial distribution.    function Multinomial(n: Integer , \u03c1: Random Real [_] ) -   Random Integer [_]  Create multinomial distribution.", 
+            "text": "function Multinomial(n: Integer , \u03c1: Real [_]) -   Multinomial  Create multinomial distribution.    function Multinomial(n: Integer , \u03c1: Dirichlet ) -  DirichletMultinomial  Create multinomial distribution.    function Multinomial(n: Integer , \u03c1: Random Real [_] ) -   Random Integer [_]  Create multinomial distribution.", 
             "title": "Factory Function Details"
         }, 
         {
@@ -1636,13 +1806,23 @@
             "title": "MultivariateNormal"
         }, 
         {
+            "location": "/library/classes/MultivariateNormalInverseGamma/", 
+            "text": "class MultivariateNormalInverseGamma \n \nRandom\nReal\n[_]\n\n\nMultivariate normal inverse-gamma distribution. This represents the joint\ndistribution:\n\n\n\n\nx \\mid \\sigma^2 \\sim \\mathrm{N}(\\mu, \\Sigma, \\sigma^2),\n\n\n\\sigma^2 \\sim \\Gamma^{-1}(\\alpha, \\beta).\n\n\n\n\nwhich may be denoted:\n\n\n\n\n(x, \\sigma^2) \\sim \\mathrm{N-}\\Gamma^{-1}(\\mu, \\Sigma, \\alpha, \\beta),\n\n\n\n\nand is the conjugate prior of a Gaussian distribution with both\nunknown mean and unknown variance.\n\n\nIt is established via code such as the following:\n\n\n\u03c32 ~ InverseGamma(\u03b1, \u03b2);\nx ~ Gaussian(\u03bc, \\Sigma*\u03c32);\ny ~ Gaussian(x, \u03c32);\n\n\n\nwhere the last argument in the distribution of \ny\n appears in the\nlast argument of the distribution of \nx\n. The operation of \n\\Sigma\n on\n\n\u03c32\n may be multiplication on left (as above) or right, or division\non right.\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\n\u03bc:\nReal\n[_]\n\n\nMean.\n\n\n\n\n\n\n\u039b:\nReal\n[_,_]\n\n\nPrecision.\n\n\n\n\n\n\n\u03c32:\nInverseGamma\n\n\nVariance scale.", 
+            "title": "MultivariateNormalInverseGamma"
+        }, 
+        {
+            "location": "/library/classes/MultivariateNormalInverseGamma/#member-variables", 
+            "text": "Name  Description      \u03bc: Real [_]  Mean.    \u039b: Real [_,_]  Precision.    \u03c32: InverseGamma  Variance scale.", 
+            "title": "Member Variables"
+        }, 
+        {
             "location": "/library/classes/NegativeBinomial/", 
-            "text": "class NegativeBinomial \n \nRandom\nInteger\n\n\nNegative binomial distribution.\n\n\n\n\nFactory Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nNegativeBinomial\n\n\nCreate.\n\n\n\n\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nk:\nInteger\n\n\nNumber of successes before the experiment is stopped.\n\n\n\n\n\n\n\u03c1:\nReal\n\n\nProbability of success.\n\n\n\n\n\n\n\n\nFactory Function Details\n\n\n\n\nfunction NegativeBinomial(k:\nInteger\n, \u03c1:\nReal\n) -\n \nNegativeBinomial\n\n\nCreate.", 
+            "text": "class NegativeBinomial \n \nRandom\nInteger\n\n\nNegative binomial distribution.\n\n\n\n\nFactory Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nNegativeBinomial\n\n\nCreate negative binomial distribution.\n\n\n\n\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nk:\nInteger\n\n\nNumber of successes before the experiment is stopped.\n\n\n\n\n\n\n\u03c1:\nReal\n\n\nProbability of success.\n\n\n\n\n\n\n\n\nFactory Function Details\n\n\n\n\nfunction NegativeBinomial(k:\nInteger\n, \u03c1:\nReal\n) -\n \nNegativeBinomial\n\n\nCreate negative binomial distribution.", 
             "title": "NegativeBinomial"
         }, 
         {
             "location": "/library/classes/NegativeBinomial/#factory-functions", 
-            "text": "Name  Description      NegativeBinomial  Create.", 
+            "text": "Name  Description      NegativeBinomial  Create negative binomial distribution.", 
             "title": "Factory Functions"
         }, 
         {
@@ -1652,23 +1832,33 @@
         }, 
         {
             "location": "/library/classes/NegativeBinomial/#factory-function-details", 
-            "text": "function NegativeBinomial(k: Integer , \u03c1: Real ) -   NegativeBinomial  Create.", 
+            "text": "function NegativeBinomial(k: Integer , \u03c1: Real ) -   NegativeBinomial  Create negative binomial distribution.", 
             "title": "Factory Function Details"
         }, 
         {
             "location": "/library/classes/Normal/", 
-            "text": "class Normal = \nGaussian\n\n\nSynonym for Gaussian.\n\n\n\n\nFactory Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nNormal\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nNormal\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nNormal\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nNormal\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nNormal\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nNormal\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nNormal\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nNormal\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nNormal\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nNormal\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\n\n\nFactory Function Details\n\n\n\n\nfunction Normal(\u03bc:\nReal\n, \u03c32:\nReal\n) -\n \nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nfunction Normal(\u03bc:\nReal\n[_], \u03a3:\nReal\n[_,_]) -\n \nMultivariateGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nfunction Normal(\u03bc:AffineExpression, \u03c32:\nReal\n) -\n \nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nfunction Normal(\u03bc:AffineLogExpression, \u03c32:\nReal\n) -\n \nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nfunction Normal(\u03bc:\nGaussian\n, \u03c32:\nReal\n) -\n \nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nfunction Normal(\u03bc:\nRandom\nReal\n, \u03c32:\nReal\n) -\n \nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nfunction Normal(\u03bc:LogExpression, \u03c32:\nReal\n) -\n \nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nfunction Normal(\u03bc:MultivariateAffineExpression, \u03a3:\nReal\n[_,_]) -\n \nMultivariateGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nfunction Normal(\u03bc:\nMultivariateGaussian\n, \u03a3:\nReal\n[_,_]) -\n \nMultivariateGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nfunction Normal(\u03bc:\nRandom\nReal\n[_]\n, \u03a3:\nReal\n[_,_]) -\n \nMultivariateGaussian\n\n\nCreate Gaussian distribution.", 
+            "text": "class Normal = \nGaussian\n\n\nSynonym for Gaussian.\n\n\n\n\nFactory Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nNormal\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nNormal\n\n\nCreate multivariate Gaussian distribution.\n\n\n\n\n\n\nNormal\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nNormal\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nNormal\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nNormal\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nNormal\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nNormal\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nNormal\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nNormal\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\n\n\nFactory Function Details\n\n\n\n\nfunction Normal(\u03bc:\nReal\n, \u03c32:\nReal\n) -\n \nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nfunction Normal(\u03bc:\nReal\n[_], \u03a3:\nReal\n[_,_]) -\n \nMultivariateGaussian\n\n\nCreate multivariate Gaussian distribution.\n\n\n\n\n\n\nfunction Normal(\u03bc:AffineExpression, \u03c32:\nReal\n) -\n \nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nfunction Normal(\u03bc:AffineLogExpression, \u03c32:\nReal\n) -\n \nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nfunction Normal(\u03bc:\nGaussian\n, \u03c32:\nReal\n) -\n \nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nfunction Normal(\u03bc:\nRandom\nReal\n, \u03c32:\nReal\n) -\n \nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nfunction Normal(\u03bc:LogExpression, \u03c32:\nReal\n) -\n \nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nfunction Normal(\u03bc:MultivariateAffineExpression, \u03a3:\nReal\n[_,_]) -\n \nMultivariateGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nfunction Normal(\u03bc:\nMultivariateGaussian\n, \u03a3:\nReal\n[_,_]) -\n \nMultivariateGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nfunction Normal(\u03bc:\nRandom\nReal\n[_]\n, \u03a3:\nReal\n[_,_]) -\n \nMultivariateGaussian\n\n\nCreate Gaussian distribution.", 
             "title": "Normal"
         }, 
         {
             "location": "/library/classes/Normal/#factory-functions", 
-            "text": "Name  Description      Normal  Create Gaussian distribution.    Normal  Create Gaussian distribution.    Normal  Create Gaussian distribution.    Normal  Create Gaussian distribution.    Normal  Create Gaussian distribution.    Normal  Create Gaussian distribution.    Normal  Create Gaussian distribution.    Normal  Create Gaussian distribution.    Normal  Create Gaussian distribution.    Normal  Create Gaussian distribution.", 
+            "text": "Name  Description      Normal  Create Gaussian distribution.    Normal  Create multivariate Gaussian distribution.    Normal  Create Gaussian distribution.    Normal  Create Gaussian distribution.    Normal  Create Gaussian distribution.    Normal  Create Gaussian distribution.    Normal  Create Gaussian distribution.    Normal  Create Gaussian distribution.    Normal  Create Gaussian distribution.    Normal  Create Gaussian distribution.", 
             "title": "Factory Functions"
         }, 
         {
             "location": "/library/classes/Normal/#factory-function-details", 
-            "text": "function Normal(\u03bc: Real , \u03c32: Real ) -   Gaussian  Create Gaussian distribution.    function Normal(\u03bc: Real [_], \u03a3: Real [_,_]) -   MultivariateGaussian  Create Gaussian distribution.    function Normal(\u03bc:AffineExpression, \u03c32: Real ) -   Gaussian  Create Gaussian distribution.    function Normal(\u03bc:AffineLogExpression, \u03c32: Real ) -   Gaussian  Create Gaussian distribution.    function Normal(\u03bc: Gaussian , \u03c32: Real ) -   Gaussian  Create Gaussian distribution.    function Normal(\u03bc: Random Real , \u03c32: Real ) -   Gaussian  Create Gaussian distribution.    function Normal(\u03bc:LogExpression, \u03c32: Real ) -   Gaussian  Create Gaussian distribution.    function Normal(\u03bc:MultivariateAffineExpression, \u03a3: Real [_,_]) -   MultivariateGaussian  Create Gaussian distribution.    function Normal(\u03bc: MultivariateGaussian , \u03a3: Real [_,_]) -   MultivariateGaussian  Create Gaussian distribution.    function Normal(\u03bc: Random Real [_] , \u03a3: Real [_,_]) -   MultivariateGaussian  Create Gaussian distribution.", 
+            "text": "function Normal(\u03bc: Real , \u03c32: Real ) -   Gaussian  Create Gaussian distribution.    function Normal(\u03bc: Real [_], \u03a3: Real [_,_]) -   MultivariateGaussian  Create multivariate Gaussian distribution.    function Normal(\u03bc:AffineExpression, \u03c32: Real ) -   Gaussian  Create Gaussian distribution.    function Normal(\u03bc:AffineLogExpression, \u03c32: Real ) -   Gaussian  Create Gaussian distribution.    function Normal(\u03bc: Gaussian , \u03c32: Real ) -   Gaussian  Create Gaussian distribution.    function Normal(\u03bc: Random Real , \u03c32: Real ) -   Gaussian  Create Gaussian distribution.    function Normal(\u03bc:LogExpression, \u03c32: Real ) -   Gaussian  Create Gaussian distribution.    function Normal(\u03bc:MultivariateAffineExpression, \u03a3: Real [_,_]) -   MultivariateGaussian  Create Gaussian distribution.    function Normal(\u03bc: MultivariateGaussian , \u03a3: Real [_,_]) -   MultivariateGaussian  Create Gaussian distribution.    function Normal(\u03bc: Random Real [_] , \u03a3: Real [_,_]) -   MultivariateGaussian  Create Gaussian distribution.", 
             "title": "Factory Function Details"
+        }, 
+        {
+            "location": "/library/classes/NormalInverseGamma/", 
+            "text": "class NormalInverseGamma \n \nRandom\nReal\n\n\nNormal inverse-gamma distribution. This represents the joint\ndistribution:\n\n\n\n\nx \\mid \\sigma^2 \\sim \\mathrm{N}(\\mu, a^2 \\sigma^2),\n\n\n\\sigma^2 \\sim \\Gamma^{-1}(\\alpha, \\beta).\n\n\n\n\nwhich may be denoted:\n\n\n\n\n(x, \\sigma^2) \\sim \\mathrm{N-}\\Gamma^{-1}(\\mu, a^2, \\alpha, \\beta),\n\n\n\n\nand is the conjugate prior of a Gaussian distribution with both\nunknown mean and unknown variance.\n\n\nIt is established via code such as the following:\n\n\n\u03c32 ~ InverseGamma(\u03b1, \u03b2);\nx ~ Gaussian(\u03bc, a2*\u03c32);\ny ~ Gaussian(x, \u03c32);\n\n\n\nwhere the last argument in the distribution of \ny\n appears in the\nlast argument of the distribution of \nx\n. The operation of \na2\n on\n\n\u03c32\n may be multiplication on left (as above) or right, or division\non right.\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\n\u03bc:\nReal\n\n\nMean.\n\n\n\n\n\n\na2:\nReal\n\n\nVariance.\n\n\n\n\n\n\n\u03c32:\nInverseGamma\n\n\nVariance scale.", 
+            "title": "NormalInverseGamma"
+        }, 
+        {
+            "location": "/library/classes/NormalInverseGamma/#member-variables", 
+            "text": "Name  Description      \u03bc: Real  Mean.    a2: Real  Variance.    \u03c32: InverseGamma  Variance scale.", 
+            "title": "Member Variables"
         }, 
         {
             "location": "/library/classes/Object/", 
@@ -1777,7 +1967,7 @@
         }, 
         {
             "location": "/library/classes/Poisson/", 
-            "text": "class Poisson \n \nRandom\nInteger\n\n\nPoisson distribution.\n\n\n\n\nFactory Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nPoisson\n\n\nCreate Poisson distribution.\n\n\n\n\n\n\nPoisson\n\n\nCreate Poisson distribution.\n\n\n\n\n\n\nPoisson\n\n\nCreate Poisson distribution.\n\n\n\n\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\n\u03bb:\nReal\n\n\nRate.\n\n\n\n\n\n\n\n\nFactory Function Details\n\n\n\n\nfunction Poisson(\u03bb:\nReal\n) -\n \nPoisson\n\n\nCreate Poisson distribution.\n\n\n\n\n\n\nfunction Poisson(\u03bb:\nGamma\n) -\n \nGammaPoisson\n\n\nCreate Poisson distribution.\n\n\n\n\n\n\nfunction Poisson(\u03bb:\nRandom\nReal\n) -\n \nRandom\nInteger\n\n\nCreate Poisson distribution.", 
+            "text": "class Poisson \n \nRandom\nInteger\n\n\nPoisson distribution.\n\n\n\n\nFactory Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nPoisson\n\n\nCreate Poisson distribution.\n\n\n\n\n\n\nPoisson\n\n\nCreate Poisson distribution.\n\n\n\n\n\n\nPoisson\n\n\nCreate Poisson distribution.\n\n\n\n\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\n\u03bb:\nReal\n\n\nRate.\n\n\n\n\n\n\n\n\nFactory Function Details\n\n\n\n\nfunction Poisson(\u03bb:\nReal\n) -\n \nPoisson\n\n\nCreate Poisson distribution.\n\n\n\n\n\n\nfunction Poisson(\u03bb:\nGamma\n) -\n GammaPoisson\n\n\nCreate Poisson distribution.\n\n\n\n\n\n\nfunction Poisson(\u03bb:\nRandom\nReal\n) -\n \nRandom\nInteger\n\n\nCreate Poisson distribution.", 
             "title": "Poisson"
         }, 
         {
@@ -1792,7 +1982,7 @@
         }, 
         {
             "location": "/library/classes/Poisson/#factory-function-details", 
-            "text": "function Poisson(\u03bb: Real ) -   Poisson  Create Poisson distribution.    function Poisson(\u03bb: Gamma ) -   GammaPoisson  Create Poisson distribution.    function Poisson(\u03bb: Random Real ) -   Random Integer  Create Poisson distribution.", 
+            "text": "function Poisson(\u03bb: Real ) -   Poisson  Create Poisson distribution.    function Poisson(\u03bb: Gamma ) -  GammaPoisson  Create Poisson distribution.    function Poisson(\u03bb: Random Real ) -   Random Integer  Create Poisson distribution.", 
             "title": "Factory Function Details"
         }, 
         {
@@ -1907,12 +2097,12 @@
         }, 
         {
             "location": "/library/classes/Reader/", 
-            "text": "class Reader \n \nObject\n\n\nAbstract reader.\n\n\n\n\nMember Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\ngetObject\n\n\nGet this as an object.\n\n\n\n\n\n\ngetLength\n\n\nGet the length of an array.\n\n\n\n\n\n\ngetBoolean\n\n\nGet this as a Boolean.\n\n\n\n\n\n\ngetInteger\n\n\nGet this as an integer.\n\n\n\n\n\n\ngetReal\n\n\nGet this as a real.\n\n\n\n\n\n\ngetString\n\n\nGet this as a string.\n\n\n\n\n\n\ngetBooleanArray\n\n\nGet this as an array of Booleans.\n\n\n\n\n\n\ngetIntegerArray\n\n\nGet this as an array of integers.\n\n\n\n\n\n\ngetRealArray\n\n\nGet this as an array of reals.\n\n\n\n\n\n\ngetStringArray\n\n\nGet this as an array of strings.\n\n\n\n\n\n\ngetObject\n\n\nGet an object.\n\n\n\n\n\n\ngetLength\n\n\nGet the length of an array.\n\n\n\n\n\n\ngetBoolean\n\n\nGet a Boolean.\n\n\n\n\n\n\ngetInteger\n\n\nGet an integer.\n\n\n\n\n\n\ngetReal\n\n\nGet a real.\n\n\n\n\n\n\ngetString\n\n\nGet a string.\n\n\n\n\n\n\ngetBooleanArray\n\n\nGet an array of Booleans.\n\n\n\n\n\n\ngetIntegerArray\n\n\nGet an array of integers.\n\n\n\n\n\n\ngetRealArray\n\n\nGet an array of reals.\n\n\n\n\n\n\ngetStringArray\n\n\nGet an array of strings.\n\n\n\n\n\n\ngetObject\n\n\nGet an object.\n\n\n\n\n\n\ngetLength\n\n\nGet the length of an array.\n\n\n\n\n\n\ngetBoolean\n\n\nGet a Boolean.\n\n\n\n\n\n\ngetInteger\n\n\nGet an integer.\n\n\n\n\n\n\ngetReal\n\n\nGet a real.\n\n\n\n\n\n\ngetString\n\n\nGet a string.\n\n\n\n\n\n\ngetBooleanArray\n\n\nGet an array of Booleans.\n\n\n\n\n\n\ngetIntegerArray\n\n\nGet an array of integers.\n\n\n\n\n\n\ngetRealArray\n\n\nGet an array of reals.\n\n\n\n\n\n\ngetStringArray\n\n\nGet an array of strings.\n\n\n\n\n\n\n\n\nMember Fibers\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\ngetArray\n\n\nGet this as an array.\n\n\n\n\n\n\ngetArray\n\n\nGet an array.\n\n\n\n\n\n\ngetArray\n\n\nGet an array.\n\n\n\n\n\n\n\n\nMember Function Details\n\n\ngetBoolean\n\n\n\n\n\n\nfunction getBoolean() -\n \nBoolean\n?\n\n\nGet this as a Boolean.\n\n\nReturn: An optional with a value if this is of a compatible type.\n\n\n\n\n\n\nfunction getBoolean(name:\nString\n) -\n \nBoolean\n?\n\n\nGet a Boolean.\n\n\n\n\nname: Name of the entry.\n\n\n\n\nReturn: An optional with a value if the given entry exists and is of a\ncompatible type.\n\n\n\n\n\n\nfunction getBoolean(path:[\nString\n]) -\n \nBoolean\n?\n\n\nGet a Boolean.\n\n\n\n\npath: Path of the entry.\n\n\n\n\nReturn: An optional with a value if the given entry exists and is of a\ncompatible type.\n\n\n\n\ngetBooleanArray\n\n\n\n\n\n\nfunction getBooleanArray() -\n \nBoolean\n[_]?\n\n\nGet this as an array of Booleans.\n\n\nReturn: An optional with a value if this is an array with all elements\nof a compatible type.\n\n\n\n\n\n\nfunction getBooleanArray(name:\nString\n) -\n \nBoolean\n[_]?\n\n\nGet an array of Booleans.\n\n\n\n\nname: Name of the entry.\n\n\n\n\nReturn: An optional with a value if this is an array with all elements\nof a compatible type.\n\n\n\n\n\n\nfunction getBooleanArray(path:[\nString\n]) -\n \nBoolean\n[_]?\n\n\nGet an array of Booleans.\n\n\n\n\npath: Path of the entry.\n\n\n\n\nReturn: An optional with a value if this is an array with all elements\nof a compatible type.\n\n\n\n\ngetInteger\n\n\n\n\n\n\nfunction getInteger() -\n \nInteger\n?\n\n\nGet this as an integer.\n\n\nReturn: An optional with a value if this is of a compatible type.\n\n\n\n\n\n\nfunction getInteger(name:\nString\n) -\n \nInteger\n?\n\n\nGet an integer.\n\n\n\n\nname: Name of the entry.\n\n\n\n\nReturn: An optional with a value if the given entry exists and is of a\ncompatible type.\n\n\n\n\n\n\nfunction getInteger(path:[\nString\n]) -\n \nInteger\n?\n\n\nGet an integer.\n\n\n\n\npath: Path of the entry.\n\n\n\n\nReturn: An optional with a value if the given entry exists and is of a\ncompatible type.\n\n\n\n\ngetIntegerArray\n\n\n\n\n\n\nfunction getIntegerArray() -\n \nInteger\n[_]?\n\n\nGet this as an array of integers.\n\n\nReturn: An optional with a value if this is an array with all elements\nof a compatible type.\n\n\n\n\n\n\nfunction getIntegerArray(name:\nString\n) -\n \nInteger\n[_]?\n\n\nGet an array of integers.\n\n\n\n\nname: Name of the entry.\n\n\n\n\nReturn: An optional with a value if this is an array with all elements\nof a compatible type.\n\n\n\n\n\n\nfunction getIntegerArray(path:[\nString\n]) -\n \nInteger\n[_]?\n\n\nGet an array of integers.\n\n\n\n\npath: Path of the entry.\n\n\n\n\nReturn: An optional with a value if this is an array with all elements\nof a compatible type.\n\n\n\n\ngetLength\n\n\n\n\n\n\nfunction getLength() -\n \nInteger\n?\n\n\nGet the length of an array.\n\n\nReturn: An optional with a value giving the length if this is an array.\n\n\n\n\n\n\nfunction getLength(name:\nString\n) -\n \nInteger\n?\n\n\nGet the length of an array.\n\n\n\n\nname: Name of the entry.\n\n\n\n\nReturn: An optional with a value giving the length if the given entry\nis an array.\n\n\n\n\n\n\nfunction getLength(path:[\nString\n]) -\n \nInteger\n?\n\n\nGet the length of an array.\n\n\n\n\npath: Path of the entry.\n\n\n\n\nReturn: An optional with a value giving the length if the given entry\nis an array.\n\n\n\n\ngetObject\n\n\n\n\n\n\nfunction getObject() -\n \nReader\n?\n\n\nGet this as an object.\n\n\n\n\n\n\nfunction getObject(name:\nString\n) -\n \nReader\n?\n\n\nGet an object.\n\n\n\n\nname: Name of the entry.\n\n\n\n\nReturn: An optional with a value if the given entry exists and is of a\ncompatible type.\n\n\n\n\n\n\nfunction getObject(path:[\nString\n]) -\n \nReader\n?\n\n\nGet an object.\n\n\n\n\npath: Path of the entry.\n\n\n\n\nReturn: An optional with a value if the given entry exists and is of a\ncompatible type.\n\n\n\n\ngetReal\n\n\n\n\n\n\nfunction getReal() -\n \nReal\n?\n\n\nGet this as a real.\n\n\nReturn: An optional with a value if this is of a compatible type.\n\n\n\n\n\n\nfunction getReal(name:\nString\n) -\n \nReal\n?\n\n\nGet a real.\n\n\n\n\nname: Name of the entry.\n\n\n\n\nReturn: An optional with a value if the given entry exists and is of a\ncompatible type.\n\n\n\n\n\n\nfunction getReal(path:[\nString\n]) -\n \nReal\n?\n\n\nGet a real.\n\n\n\n\npath: Path of the entry.\n\n\n\n\nReturn: An optional with a value if the given entry exists and is of a\ncompatible type.\n\n\n\n\ngetRealArray\n\n\n\n\n\n\nfunction getRealArray() -\n \nReal\n[_]?\n\n\nGet this as an array of reals.\n\n\nReturn: An optional with a value if this is an array with all elements\nof a compatible type.\n\n\n\n\n\n\nfunction getRealArray(name:\nString\n) -\n \nReal\n[_]?\n\n\nGet an array of reals.\n\n\n\n\nname: Name of the entry.\n\n\n\n\nReturn: An optional with a value if this is an array with all elements\nof a compatible type.\n\n\n\n\n\n\nfunction getRealArray(path:[\nString\n]) -\n \nReal\n[_]?\n\n\nGet an array of reals.\n\n\n\n\npath: Path of the entry.\n\n\n\n\nReturn: An optional with a value if this is an array with all elements\nof a compatible type.\n\n\n\n\ngetString\n\n\n\n\n\n\nfunction getString() -\n \nString\n?\n\n\nGet this as a string.\n\n\nReturn: An optional with a value if this is of a compatible type.\n\n\n\n\n\n\nfunction getString(name:\nString\n) -\n \nString\n?\n\n\nGet a string.\n\n\n\n\nname: Name of the entry.\n\n\n\n\nReturn: An optional with a value if the given entry exists and is of a\ncompatible type.\n\n\n\n\n\n\nfunction getString(path:[\nString\n]) -\n \nString\n?\n\n\nGet a string.\n\n\n\n\npath: Path of the entry.\n\n\n\n\nReturn: An optional with a value if the given entry exists and is of a\ncompatible type.\n\n\n\n\ngetStringArray\n\n\n\n\n\n\nfunction getStringArray() -\n \nString\n[_]?\n\n\nGet this as an array of strings.\n\n\nReturn: An optional with a value if this is an array with all elements\nof a compatible type.\n\n\n\n\n\n\nfunction getStringArray(name:\nString\n) -\n \nString\n[_]?\n\n\nGet an array of strings.\n\n\n\n\nname: Name of the entry.\n\n\n\n\nReturn: An optional with a value if this is an array with all elements\nof a compatible type.\n\n\n\n\n\n\nfunction getStringArray(path:[\nString\n]) -\n \nString\n[_]?\n\n\nGet an array of strings.\n\n\n\n\npath: Path of the entry.\n\n\n\n\nReturn: An optional with a value if this is an array with all elements\nof a compatible type.\n\n\n\n\nMember Fiber Details\n\n\ngetArray\n\n\n\n\n\n\nfiber getArray() -\n \nReader\n!\n\n\nGet this as an array.\n\n\nReturn: a fiber object that yields each of the elements of the array in\nturn, or which never yields if this is an empty array or not an array\nat all.\n\n\n\n\n\n\nfiber getArray(name:\nString\n) -\n \nReader\n!\n\n\nGet an array.\n\n\n\n\nname: Name of the entry.\n\n\n\n\nReturn: a fiber object that yields each of the elements of the array in\nturn, or which never yields if this is an empty array or not an array\nat all.\n\n\n\n\n\n\nfiber getArray(path:[\nString\n]) -\n \nReader\n!\n\n\nGet an array.\n\n\n\n\npath: Path of the entry.\n\n\n\n\nReturn: a fiber object that yields each of the elements of the array in\nturn, or which never yields if this is an empty array or not an array\nat all.", 
+            "text": "class Reader \n \nObject\n\n\nAbstract reader.\n\n\n\n\nMember Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\ngetObject\n\n\nGet this as an object.\n\n\n\n\n\n\ngetLength\n\n\nGet the length of an array.\n\n\n\n\n\n\ngetBoolean\n\n\nGet this as a Boolean.\n\n\n\n\n\n\ngetInteger\n\n\nGet this as an integer.\n\n\n\n\n\n\ngetReal\n\n\nGet this as a real.\n\n\n\n\n\n\ngetString\n\n\nGet this as a string.\n\n\n\n\n\n\ngetBooleanVector\n\n\nGet this as a vector of Booleans.\n\n\n\n\n\n\ngetIntegerVector\n\n\nGet this as a vector of integers.\n\n\n\n\n\n\ngetRealVector\n\n\nGet this as a vector of reals.\n\n\n\n\n\n\ngetBooleanMatrix\n\n\nGet this as a matrix of Booleans.\n\n\n\n\n\n\ngetIntegerMatrix\n\n\nGet this as a matrix of integers.\n\n\n\n\n\n\ngetRealMatrix\n\n\nGet this as a matrix of reals.\n\n\n\n\n\n\ngetObject\n\n\nGet an object.\n\n\n\n\n\n\ngetLength\n\n\nGet the length of an array.\n\n\n\n\n\n\ngetBoolean\n\n\nGet a Boolean.\n\n\n\n\n\n\ngetInteger\n\n\nGet an integer.\n\n\n\n\n\n\ngetReal\n\n\nGet a real.\n\n\n\n\n\n\ngetString\n\n\nGet a string.\n\n\n\n\n\n\ngetBooleanVector\n\n\nGet a vector of Booleans.\n\n\n\n\n\n\ngetIntegerVector\n\n\nGet a vector of integers.\n\n\n\n\n\n\ngetRealVector\n\n\nGet a vector of reals.\n\n\n\n\n\n\ngetBooleanMatrix\n\n\nGet a matrix of Booleans.\n\n\n\n\n\n\ngetIntegerMatrix\n\n\nGet a matrix of integers.\n\n\n\n\n\n\ngetRealMatrix\n\n\nGet a matrix of reals.\n\n\n\n\n\n\ngetObject\n\n\nGet an object.\n\n\n\n\n\n\ngetLength\n\n\nGet the length of an array.\n\n\n\n\n\n\ngetBoolean\n\n\nGet a Boolean.\n\n\n\n\n\n\ngetInteger\n\n\nGet an integer.\n\n\n\n\n\n\ngetReal\n\n\nGet a real.\n\n\n\n\n\n\ngetString\n\n\nGet a string.\n\n\n\n\n\n\ngetBooleanVector\n\n\nGet a vector of Booleans.\n\n\n\n\n\n\ngetIntegerVector\n\n\nGet a vector of integers.\n\n\n\n\n\n\ngetRealVector\n\n\nGet a vector of reals.\n\n\n\n\n\n\ngetBooleanMatrix\n\n\nGet a matrix of Booleans.\n\n\n\n\n\n\ngetIntegerMatrix\n\n\nGet a matrix of integers.\n\n\n\n\n\n\ngetRealMatrix\n\n\nGet a matrix of reals.\n\n\n\n\n\n\n\n\nMember Fibers\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\ngetArray\n\n\nGet this as an array.\n\n\n\n\n\n\ngetArray\n\n\nGet an array.\n\n\n\n\n\n\ngetArray\n\n\nGet an array.\n\n\n\n\n\n\n\n\nMember Function Details\n\n\ngetBoolean\n\n\n\n\n\n\nfunction getBoolean() -\n \nBoolean\n?\n\n\nGet this as a Boolean.\n\n\nReturn: An optional with a value if this is of a compatible type.\n\n\n\n\n\n\nfunction getBoolean(name:\nString\n) -\n \nBoolean\n?\n\n\nGet a Boolean.\n\n\n\n\nname: Name of the entry.\n\n\n\n\nReturn: An optional with a value if the given entry exists and is of a\ncompatible type.\n\n\n\n\n\n\nfunction getBoolean(path:[\nString\n]) -\n \nBoolean\n?\n\n\nGet a Boolean.\n\n\n\n\npath: Path of the entry.\n\n\n\n\nReturn: An optional with a value if the given entry exists and is of a\ncompatible type.\n\n\n\n\ngetBooleanMatrix\n\n\n\n\n\n\nfunction getBooleanMatrix() -\n \nBoolean\n[_,_]?\n\n\nGet this as a matrix of Booleans.\n\n\nReturn: An optional with a value if this is an array where all elements\nare themselves arrays of the same length and compatible type.\n\n\n\n\n\n\nfunction getBooleanMatrix(name:\nString\n) -\n \nBoolean\n[_,_]?\n\n\nGet a matrix of Booleans.\n\n\n\n\nname: Name of the entry.\n\n\n\n\nReturn: An optional with a value if this is an array where all elements\nare themselves arrays of the same length and compatible type.\n\n\n\n\n\n\nfunction getBooleanMatrix(path:[\nString\n]) -\n \nBoolean\n[_,_]?\n\n\nGet a matrix of Booleans.\n\n\n\n\npath: Path of the entry.\n\n\n\n\nReturn: An optional with a value if this is an array where all elements\nare themselves arrays of the same length and compatible type.\n\n\n\n\ngetBooleanVector\n\n\n\n\n\n\nfunction getBooleanVector() -\n \nBoolean\n[_]?\n\n\nGet this as a vector of Booleans.\n\n\nReturn: An optional with a value if this is an array with all elements\nof a compatible type.\n\n\n\n\n\n\nfunction getBooleanVector(name:\nString\n) -\n \nBoolean\n[_]?\n\n\nGet a vector of Booleans.\n\n\n\n\nname: Name of the entry.\n\n\n\n\nReturn: An optional with a value if this is an array with all elements\nof a compatible type.\n\n\n\n\n\n\nfunction getBooleanVector(path:[\nString\n]) -\n \nBoolean\n[_]?\n\n\nGet a vector of Booleans.\n\n\n\n\npath: Path of the entry.\n\n\n\n\nReturn: An optional with a value if this is an array with all elements\nof a compatible type.\n\n\n\n\ngetInteger\n\n\n\n\n\n\nfunction getInteger() -\n \nInteger\n?\n\n\nGet this as an integer.\n\n\nReturn: An optional with a value if this is of a compatible type.\n\n\n\n\n\n\nfunction getInteger(name:\nString\n) -\n \nInteger\n?\n\n\nGet an integer.\n\n\n\n\nname: Name of the entry.\n\n\n\n\nReturn: An optional with a value if the given entry exists and is of a\ncompatible type.\n\n\n\n\n\n\nfunction getInteger(path:[\nString\n]) -\n \nInteger\n?\n\n\nGet an integer.\n\n\n\n\npath: Path of the entry.\n\n\n\n\nReturn: An optional with a value if the given entry exists and is of a\ncompatible type.\n\n\n\n\ngetIntegerMatrix\n\n\n\n\n\n\nfunction getIntegerMatrix() -\n \nInteger\n[_,_]?\n\n\nGet this as a matrix of integers.\n\n\nReturn: An optional with a value if this is an array where all elements\nare themselves arrays of the same length and compatible type.\n\n\n\n\n\n\nfunction getIntegerMatrix(name:\nString\n) -\n \nInteger\n[_,_]?\n\n\nGet a matrix of integers.\n\n\n\n\nname: Name of the entry.\n\n\n\n\nReturn: An optional with a value if this is an array where all elements\nare themselves arrays of the same length and compatible type.\n\n\n\n\n\n\nfunction getIntegerMatrix(path:[\nString\n]) -\n \nInteger\n[_,_]?\n\n\nGet a matrix of integers.\n\n\n\n\npath: Path of the entry.\n\n\n\n\nReturn: An optional with a value if this is an array where all elements\nare themselves arrays of the same length and compatible type.\n\n\n\n\ngetIntegerVector\n\n\n\n\n\n\nfunction getIntegerVector() -\n \nInteger\n[_]?\n\n\nGet this as a vector of integers.\n\n\nReturn: An optional with a value if this is an array with all elements\nof a compatible type.\n\n\n\n\n\n\nfunction getIntegerVector(name:\nString\n) -\n \nInteger\n[_]?\n\n\nGet a vector of integers.\n\n\n\n\nname: Name of the entry.\n\n\n\n\nReturn: An optional with a value if this is an array with all elements\nof a compatible type.\n\n\n\n\n\n\nfunction getIntegerVector(path:[\nString\n]) -\n \nInteger\n[_]?\n\n\nGet a vector of integers.\n\n\n\n\npath: Path of the entry.\n\n\n\n\nReturn: An optional with a value if this is an array with all elements\nof a compatible type.\n\n\n\n\ngetLength\n\n\n\n\n\n\nfunction getLength() -\n \nInteger\n?\n\n\nGet the length of an array.\n\n\nReturn: An optional with a value giving the length if this is an array.\n\n\n\n\n\n\nfunction getLength(name:\nString\n) -\n \nInteger\n?\n\n\nGet the length of an array.\n\n\n\n\nname: Name of the entry.\n\n\n\n\nReturn: An optional with a value giving the length if the given entry\nis an array.\n\n\n\n\n\n\nfunction getLength(path:[\nString\n]) -\n \nInteger\n?\n\n\nGet the length of an array.\n\n\n\n\npath: Path of the entry.\n\n\n\n\nReturn: An optional with a value giving the length if the given entry\nis an array.\n\n\n\n\ngetObject\n\n\n\n\n\n\nfunction getObject() -\n \nReader\n?\n\n\nGet this as an object.\n\n\n\n\n\n\nfunction getObject(name:\nString\n) -\n \nReader\n?\n\n\nGet an object.\n\n\n\n\nname: Name of the entry.\n\n\n\n\nReturn: An optional with a value if the given entry exists and is of a\ncompatible type.\n\n\n\n\n\n\nfunction getObject(path:[\nString\n]) -\n \nReader\n?\n\n\nGet an object.\n\n\n\n\npath: Path of the entry.\n\n\n\n\nReturn: An optional with a value if the given entry exists and is of a\ncompatible type.\n\n\n\n\ngetReal\n\n\n\n\n\n\nfunction getReal() -\n \nReal\n?\n\n\nGet this as a real.\n\n\nReturn: An optional with a value if this is of a compatible type.\n\n\n\n\n\n\nfunction getReal(name:\nString\n) -\n \nReal\n?\n\n\nGet a real.\n\n\n\n\nname: Name of the entry.\n\n\n\n\nReturn: An optional with a value if the given entry exists and is of a\ncompatible type.\n\n\n\n\n\n\nfunction getReal(path:[\nString\n]) -\n \nReal\n?\n\n\nGet a real.\n\n\n\n\npath: Path of the entry.\n\n\n\n\nReturn: An optional with a value if the given entry exists and is of a\ncompatible type.\n\n\n\n\ngetRealMatrix\n\n\n\n\n\n\nfunction getRealMatrix() -\n \nReal\n[_,_]?\n\n\nGet this as a matrix of reals.\n\n\nReturn: An optional with a value if this is an array where all elements\nare themselves arrays of the same length and compatible type.\n\n\n\n\n\n\nfunction getRealMatrix(name:\nString\n) -\n \nReal\n[_,_]?\n\n\nGet a matrix of reals.\n\n\n\n\nname: Name of the entry.\n\n\n\n\nReturn: An optional with a value if this is an array where all elements\nare themselves arrays of the same length and compatible type.\n\n\n\n\n\n\nfunction getRealMatrix(path:[\nString\n]) -\n \nReal\n[_,_]?\n\n\nGet a matrix of reals.\n\n\n\n\npath: Path of the entry.\n\n\n\n\nReturn: An optional with a value if this is an array where all elements\nare themselves arrays of the same length and compatible type.\n\n\n\n\ngetRealVector\n\n\n\n\n\n\nfunction getRealVector() -\n \nReal\n[_]?\n\n\nGet this as a vector of reals.\n\n\nReturn: An optional with a value if this is an array with all elements\nof a compatible type.\n\n\n\n\n\n\nfunction getRealVector(name:\nString\n) -\n \nReal\n[_]?\n\n\nGet a vector of reals.\n\n\n\n\nname: Name of the entry.\n\n\n\n\nReturn: An optional with a value if this is an array with all elements\nof a compatible type.\n\n\n\n\n\n\nfunction getRealVector(path:[\nString\n]) -\n \nReal\n[_]?\n\n\nGet a vector of reals.\n\n\n\n\npath: Path of the entry.\n\n\n\n\nReturn: An optional with a value if this is an array with all elements\nof a compatible type.\n\n\n\n\ngetString\n\n\n\n\n\n\nfunction getString() -\n \nString\n?\n\n\nGet this as a string.\n\n\nReturn: An optional with a value if this is of a compatible type.\n\n\n\n\n\n\nfunction getString(name:\nString\n) -\n \nString\n?\n\n\nGet a string.\n\n\n\n\nname: Name of the entry.\n\n\n\n\nReturn: An optional with a value if the given entry exists and is of a\ncompatible type.\n\n\n\n\n\n\nfunction getString(path:[\nString\n]) -\n \nString\n?\n\n\nGet a string.\n\n\n\n\npath: Path of the entry.\n\n\n\n\nReturn: An optional with a value if the given entry exists and is of a\ncompatible type.\n\n\n\n\nMember Fiber Details\n\n\ngetArray\n\n\n\n\n\n\nfiber getArray() -\n \nReader\n!\n\n\nGet this as an array.\n\n\nReturn: a fiber object that yields each of the elements of the array in\nturn, or which never yields if this is an empty array or not an array\nat all.\n\n\n\n\n\n\nfiber getArray(name:\nString\n) -\n \nReader\n!\n\n\nGet an array.\n\n\n\n\nname: Name of the entry.\n\n\n\n\nReturn: a fiber object that yields each of the elements of the array in\nturn, or which never yields if this is an empty array or not an array\nat all.\n\n\n\n\n\n\nfiber getArray(path:[\nString\n]) -\n \nReader\n!\n\n\nGet an array.\n\n\n\n\npath: Path of the entry.\n\n\n\n\nReturn: a fiber object that yields each of the elements of the array in\nturn, or which never yields if this is an empty array or not an array\nat all.", 
             "title": "Reader"
         }, 
         {
             "location": "/library/classes/Reader/#member-functions", 
-            "text": "Name  Description      getObject  Get this as an object.    getLength  Get the length of an array.    getBoolean  Get this as a Boolean.    getInteger  Get this as an integer.    getReal  Get this as a real.    getString  Get this as a string.    getBooleanArray  Get this as an array of Booleans.    getIntegerArray  Get this as an array of integers.    getRealArray  Get this as an array of reals.    getStringArray  Get this as an array of strings.    getObject  Get an object.    getLength  Get the length of an array.    getBoolean  Get a Boolean.    getInteger  Get an integer.    getReal  Get a real.    getString  Get a string.    getBooleanArray  Get an array of Booleans.    getIntegerArray  Get an array of integers.    getRealArray  Get an array of reals.    getStringArray  Get an array of strings.    getObject  Get an object.    getLength  Get the length of an array.    getBoolean  Get a Boolean.    getInteger  Get an integer.    getReal  Get a real.    getString  Get a string.    getBooleanArray  Get an array of Booleans.    getIntegerArray  Get an array of integers.    getRealArray  Get an array of reals.    getStringArray  Get an array of strings.", 
+            "text": "Name  Description      getObject  Get this as an object.    getLength  Get the length of an array.    getBoolean  Get this as a Boolean.    getInteger  Get this as an integer.    getReal  Get this as a real.    getString  Get this as a string.    getBooleanVector  Get this as a vector of Booleans.    getIntegerVector  Get this as a vector of integers.    getRealVector  Get this as a vector of reals.    getBooleanMatrix  Get this as a matrix of Booleans.    getIntegerMatrix  Get this as a matrix of integers.    getRealMatrix  Get this as a matrix of reals.    getObject  Get an object.    getLength  Get the length of an array.    getBoolean  Get a Boolean.    getInteger  Get an integer.    getReal  Get a real.    getString  Get a string.    getBooleanVector  Get a vector of Booleans.    getIntegerVector  Get a vector of integers.    getRealVector  Get a vector of reals.    getBooleanMatrix  Get a matrix of Booleans.    getIntegerMatrix  Get a matrix of integers.    getRealMatrix  Get a matrix of reals.    getObject  Get an object.    getLength  Get the length of an array.    getBoolean  Get a Boolean.    getInteger  Get an integer.    getReal  Get a real.    getString  Get a string.    getBooleanVector  Get a vector of Booleans.    getIntegerVector  Get a vector of integers.    getRealVector  Get a vector of reals.    getBooleanMatrix  Get a matrix of Booleans.    getIntegerMatrix  Get a matrix of integers.    getRealMatrix  Get a matrix of reals.", 
             "title": "Member Functions"
         }, 
         {
@@ -1931,9 +2121,14 @@
             "title": "getBoolean"
         }, 
         {
-            "location": "/library/classes/Reader/#getbooleanarray", 
-            "text": "function getBooleanArray() -   Boolean [_]?  Get this as an array of Booleans.  Return: An optional with a value if this is an array with all elements\nof a compatible type.    function getBooleanArray(name: String ) -   Boolean [_]?  Get an array of Booleans.   name: Name of the entry.   Return: An optional with a value if this is an array with all elements\nof a compatible type.    function getBooleanArray(path:[ String ]) -   Boolean [_]?  Get an array of Booleans.   path: Path of the entry.   Return: An optional with a value if this is an array with all elements\nof a compatible type.", 
-            "title": "getBooleanArray"
+            "location": "/library/classes/Reader/#getbooleanmatrix", 
+            "text": "function getBooleanMatrix() -   Boolean [_,_]?  Get this as a matrix of Booleans.  Return: An optional with a value if this is an array where all elements\nare themselves arrays of the same length and compatible type.    function getBooleanMatrix(name: String ) -   Boolean [_,_]?  Get a matrix of Booleans.   name: Name of the entry.   Return: An optional with a value if this is an array where all elements\nare themselves arrays of the same length and compatible type.    function getBooleanMatrix(path:[ String ]) -   Boolean [_,_]?  Get a matrix of Booleans.   path: Path of the entry.   Return: An optional with a value if this is an array where all elements\nare themselves arrays of the same length and compatible type.", 
+            "title": "getBooleanMatrix"
+        }, 
+        {
+            "location": "/library/classes/Reader/#getbooleanvector", 
+            "text": "function getBooleanVector() -   Boolean [_]?  Get this as a vector of Booleans.  Return: An optional with a value if this is an array with all elements\nof a compatible type.    function getBooleanVector(name: String ) -   Boolean [_]?  Get a vector of Booleans.   name: Name of the entry.   Return: An optional with a value if this is an array with all elements\nof a compatible type.    function getBooleanVector(path:[ String ]) -   Boolean [_]?  Get a vector of Booleans.   path: Path of the entry.   Return: An optional with a value if this is an array with all elements\nof a compatible type.", 
+            "title": "getBooleanVector"
         }, 
         {
             "location": "/library/classes/Reader/#getinteger", 
@@ -1941,9 +2136,14 @@
             "title": "getInteger"
         }, 
         {
-            "location": "/library/classes/Reader/#getintegerarray", 
-            "text": "function getIntegerArray() -   Integer [_]?  Get this as an array of integers.  Return: An optional with a value if this is an array with all elements\nof a compatible type.    function getIntegerArray(name: String ) -   Integer [_]?  Get an array of integers.   name: Name of the entry.   Return: An optional with a value if this is an array with all elements\nof a compatible type.    function getIntegerArray(path:[ String ]) -   Integer [_]?  Get an array of integers.   path: Path of the entry.   Return: An optional with a value if this is an array with all elements\nof a compatible type.", 
-            "title": "getIntegerArray"
+            "location": "/library/classes/Reader/#getintegermatrix", 
+            "text": "function getIntegerMatrix() -   Integer [_,_]?  Get this as a matrix of integers.  Return: An optional with a value if this is an array where all elements\nare themselves arrays of the same length and compatible type.    function getIntegerMatrix(name: String ) -   Integer [_,_]?  Get a matrix of integers.   name: Name of the entry.   Return: An optional with a value if this is an array where all elements\nare themselves arrays of the same length and compatible type.    function getIntegerMatrix(path:[ String ]) -   Integer [_,_]?  Get a matrix of integers.   path: Path of the entry.   Return: An optional with a value if this is an array where all elements\nare themselves arrays of the same length and compatible type.", 
+            "title": "getIntegerMatrix"
+        }, 
+        {
+            "location": "/library/classes/Reader/#getintegervector", 
+            "text": "function getIntegerVector() -   Integer [_]?  Get this as a vector of integers.  Return: An optional with a value if this is an array with all elements\nof a compatible type.    function getIntegerVector(name: String ) -   Integer [_]?  Get a vector of integers.   name: Name of the entry.   Return: An optional with a value if this is an array with all elements\nof a compatible type.    function getIntegerVector(path:[ String ]) -   Integer [_]?  Get a vector of integers.   path: Path of the entry.   Return: An optional with a value if this is an array with all elements\nof a compatible type.", 
+            "title": "getIntegerVector"
         }, 
         {
             "location": "/library/classes/Reader/#getlength", 
@@ -1961,19 +2161,19 @@
             "title": "getReal"
         }, 
         {
-            "location": "/library/classes/Reader/#getrealarray", 
-            "text": "function getRealArray() -   Real [_]?  Get this as an array of reals.  Return: An optional with a value if this is an array with all elements\nof a compatible type.    function getRealArray(name: String ) -   Real [_]?  Get an array of reals.   name: Name of the entry.   Return: An optional with a value if this is an array with all elements\nof a compatible type.    function getRealArray(path:[ String ]) -   Real [_]?  Get an array of reals.   path: Path of the entry.   Return: An optional with a value if this is an array with all elements\nof a compatible type.", 
-            "title": "getRealArray"
+            "location": "/library/classes/Reader/#getrealmatrix", 
+            "text": "function getRealMatrix() -   Real [_,_]?  Get this as a matrix of reals.  Return: An optional with a value if this is an array where all elements\nare themselves arrays of the same length and compatible type.    function getRealMatrix(name: String ) -   Real [_,_]?  Get a matrix of reals.   name: Name of the entry.   Return: An optional with a value if this is an array where all elements\nare themselves arrays of the same length and compatible type.    function getRealMatrix(path:[ String ]) -   Real [_,_]?  Get a matrix of reals.   path: Path of the entry.   Return: An optional with a value if this is an array where all elements\nare themselves arrays of the same length and compatible type.", 
+            "title": "getRealMatrix"
+        }, 
+        {
+            "location": "/library/classes/Reader/#getrealvector", 
+            "text": "function getRealVector() -   Real [_]?  Get this as a vector of reals.  Return: An optional with a value if this is an array with all elements\nof a compatible type.    function getRealVector(name: String ) -   Real [_]?  Get a vector of reals.   name: Name of the entry.   Return: An optional with a value if this is an array with all elements\nof a compatible type.    function getRealVector(path:[ String ]) -   Real [_]?  Get a vector of reals.   path: Path of the entry.   Return: An optional with a value if this is an array with all elements\nof a compatible type.", 
+            "title": "getRealVector"
         }, 
         {
             "location": "/library/classes/Reader/#getstring", 
             "text": "function getString() -   String ?  Get this as a string.  Return: An optional with a value if this is of a compatible type.    function getString(name: String ) -   String ?  Get a string.   name: Name of the entry.   Return: An optional with a value if the given entry exists and is of a\ncompatible type.    function getString(path:[ String ]) -   String ?  Get a string.   path: Path of the entry.   Return: An optional with a value if the given entry exists and is of a\ncompatible type.", 
             "title": "getString"
-        }, 
-        {
-            "location": "/library/classes/Reader/#getstringarray", 
-            "text": "function getStringArray() -   String [_]?  Get this as an array of strings.  Return: An optional with a value if this is an array with all elements\nof a compatible type.    function getStringArray(name: String ) -   String [_]?  Get an array of strings.   name: Name of the entry.   Return: An optional with a value if this is an array with all elements\nof a compatible type.    function getStringArray(path:[ String ]) -   String [_]?  Get an array of strings.   path: Path of the entry.   Return: An optional with a value if this is an array with all elements\nof a compatible type.", 
-            "title": "getStringArray"
         }, 
         {
             "location": "/library/classes/Reader/#member-fiber-details", 
@@ -1987,12 +2187,12 @@
         }, 
         {
             "location": "/library/classes/RestaurantProcess/", 
-            "text": "class RestaurantProcess \n \nRandom\nReal\n[_]\n\n\n(Chinese) restaurant process.\n\n\n\n\nFactory Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nRestaurantProcess\n\n\n\n\n\n\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\n\u03b1:\nReal\n\n\nConcentration parameter.\n\n\n\n\n\n\n\u03b8:\nReal\n\n\nStrength parameter.\n\n\n\n\n\n\nn:\nInteger\n[_]\n\n\nNumber of samples drawn in each component.\n\n\n\n\n\n\nK:\nInteger\n\n\nNumber of components enumerated.\n\n\n\n\n\n\nN:\nInteger\n\n\nNumber of samples drawn.\n\n\n\n\n\n\n\n\nMember Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\ninitialize\n\n\nConstructor.\n\n\n\n\n\n\n\n\nFactory Function Details\n\n\n\n\nfunction RestaurantProcess(\u03b1:\nReal\n, \u03b8:\nReal\n) -\n \nRestaurantProcess\n\n\n\n\nMember Function Details\n\n\ninitialize\n\n\n\n\n\n\nfunction initialize(\u03b1:\nReal\n, \u03b8:\nReal\n)\n\n\nConstructor.\n\n\n\n\n\u03b1: Strength.\n\n\n\u03b8: Concentration.", 
+            "text": "class RestaurantProcess \n \nRandom\nReal\n[_]\n\n\nChinese restaurant process.\n\n\n\n\nFactory Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nRestaurantProcess\n\n\nCreate Chinest restaurant process.\n\n\n\n\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\n\u03b1:\nReal\n\n\nConcentration parameter.\n\n\n\n\n\n\n\u03b8:\nReal\n\n\nStrength parameter.\n\n\n\n\n\n\nn:\nInteger\n[_]\n\n\nNumber of samples drawn in each component.\n\n\n\n\n\n\nK:\nInteger\n\n\nNumber of components enumerated.\n\n\n\n\n\n\nN:\nInteger\n\n\nNumber of samples drawn.\n\n\n\n\n\n\n\n\nMember Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\ninitialize\n\n\nConstructor.\n\n\n\n\n\n\n\n\nFactory Function Details\n\n\n\n\nfunction RestaurantProcess(\u03b1:\nReal\n, \u03b8:\nReal\n) -\n \nRestaurantProcess\n\n\nCreate Chinest restaurant process.\n\n\n\n\nMember Function Details\n\n\ninitialize\n\n\n\n\n\n\nfunction initialize(\u03b1:\nReal\n, \u03b8:\nReal\n)\n\n\nConstructor.\n\n\n\n\n\u03b1: Strength.\n\n\n\u03b8: Concentration.", 
             "title": "RestaurantProcess"
         }, 
         {
             "location": "/library/classes/RestaurantProcess/#factory-functions", 
-            "text": "Name  Description      RestaurantProcess", 
+            "text": "Name  Description      RestaurantProcess  Create Chinest restaurant process.", 
             "title": "Factory Functions"
         }, 
         {
@@ -2007,7 +2207,7 @@
         }, 
         {
             "location": "/library/classes/RestaurantProcess/#factory-function-details", 
-            "text": "function RestaurantProcess(\u03b1: Real , \u03b8: Real ) -   RestaurantProcess", 
+            "text": "function RestaurantProcess(\u03b1: Real , \u03b8: Real ) -   RestaurantProcess  Create Chinest restaurant process.", 
             "title": "Factory Function Details"
         }, 
         {
@@ -2019,16 +2219,6 @@
             "location": "/library/classes/RestaurantProcess/#initialize", 
             "text": "function initialize(\u03b1: Real , \u03b8: Real )  Constructor.   \u03b1: Strength.  \u03b8: Concentration.", 
             "title": "initialize"
-        }, 
-        {
-            "location": "/library/classes/RestaurantProcessCategorical/", 
-            "text": "class RestaurantProcessCategorical \n \nRandom\nInteger\n\n\nCategorical with conjugate restaurant process prior on category\nprobabilities.\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\n\u03c1:\nRestaurantProcess\n\n\nCategory probabilities.", 
-            "title": "RestaurantProcessCategorical"
-        }, 
-        {
-            "location": "/library/classes/RestaurantProcessCategorical/#member-variables", 
-            "text": "Name  Description      \u03c1: RestaurantProcess  Category probabilities.", 
-            "title": "Member Variables"
         }, 
         {
             "location": "/library/classes/Stack/", 
@@ -2116,13 +2306,33 @@
             "title": "simulate"
         }, 
         {
+            "location": "/library/classes/Student/", 
+            "text": "class Student \n \nRandom\nReal\n\n\nStudent's \nt\n-distribution.\n\n\n\n\nFactory Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nStudent\n\n\nCreate Student's \nt\n-distribution.\n\n\n\n\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\n\u03bd:\nReal\n\n\nDegrees of freedom.\n\n\n\n\n\n\n\n\nFactory Function Details\n\n\n\n\nfunction Student(\u03bd:\nReal\n) -\n \nStudent\n\n\nCreate Student's \nt\n-distribution.", 
+            "title": "Student"
+        }, 
+        {
+            "location": "/library/classes/Student/#factory-functions", 
+            "text": "Name  Description      Student  Create Student's  t -distribution.", 
+            "title": "Factory Functions"
+        }, 
+        {
+            "location": "/library/classes/Student/#member-variables", 
+            "text": "Name  Description      \u03bd: Real  Degrees of freedom.", 
+            "title": "Member Variables"
+        }, 
+        {
+            "location": "/library/classes/Student/#factory-function-details", 
+            "text": "function Student(\u03bd: Real ) -   Student  Create Student's  t -distribution.", 
+            "title": "Factory Function Details"
+        }, 
+        {
             "location": "/library/classes/Uniform/", 
-            "text": "class Uniform \n \nRandom\nReal\n\n\nUniform distribution.\n\n\n\n\nFactory Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nUniform\n\n\nCreate a uniform distribution.\n\n\n\n\n\n\nUniform\n\n\nCreate a uniform distribution over integers.\n\n\n\n\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nl:\nReal\n\n\nLower bound.\n\n\n\n\n\n\nu:\nReal\n\n\nUpper bound.\n\n\n\n\n\n\n\n\nFactory Function Details\n\n\n\n\nfunction Uniform(l:\nReal\n, u:\nReal\n) -\n \nUniform\n\n\nCreate a uniform distribution.\n\n\n\n\n\n\nfunction Uniform(l:\nInteger\n, u:\nInteger\n) -\n \nUniformInteger\n\n\nCreate a uniform distribution over integers.", 
+            "text": "class Uniform \n \nRandom\nReal\n\n\nUniform distribution.\n\n\n\n\nFactory Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nUniform\n\n\nCreate a uniform distribution.\n\n\n\n\n\n\nUniform\n\n\nCreate uniform distribution over integers.\n\n\n\n\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nl:\nReal\n\n\nLower bound.\n\n\n\n\n\n\nu:\nReal\n\n\nUpper bound.\n\n\n\n\n\n\n\n\nFactory Function Details\n\n\n\n\nfunction Uniform(l:\nReal\n, u:\nReal\n) -\n \nUniform\n\n\nCreate a uniform distribution.\n\n\n\n\n\n\nfunction Uniform(l:\nInteger\n, u:\nInteger\n) -\n \nUniformInteger\n\n\nCreate uniform distribution over integers.", 
             "title": "Uniform"
         }, 
         {
             "location": "/library/classes/Uniform/#factory-functions", 
-            "text": "Name  Description      Uniform  Create a uniform distribution.    Uniform  Create a uniform distribution over integers.", 
+            "text": "Name  Description      Uniform  Create a uniform distribution.    Uniform  Create uniform distribution over integers.", 
             "title": "Factory Functions"
         }, 
         {
@@ -2132,7 +2342,7 @@
         }, 
         {
             "location": "/library/classes/Uniform/#factory-function-details", 
-            "text": "function Uniform(l: Real , u: Real ) -   Uniform  Create a uniform distribution.    function Uniform(l: Integer , u: Integer ) -   UniformInteger  Create a uniform distribution over integers.", 
+            "text": "function Uniform(l: Real , u: Real ) -   Uniform  Create a uniform distribution.    function Uniform(l: Integer , u: Integer ) -   UniformInteger  Create uniform distribution over integers.", 
             "title": "Factory Function Details"
         }, 
         {
@@ -2247,12 +2457,12 @@
         }, 
         {
             "location": "/library/classes/Writer/", 
-            "text": "class Writer \n \nObject\n\n\nAbstract writer.\n\n\n\n\nMember Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nsetObject\n\n\nSet this as an object.\n\n\n\n\n\n\nsetArray\n\n\nSet this as an array.\n\n\n\n\n\n\nsetBoolean\n\n\nSet this as a Boolean.\n\n\n\n\n\n\nsetInteger\n\n\nSet this as an integer.\n\n\n\n\n\n\nsetReal\n\n\nSet this as a real.\n\n\n\n\n\n\nsetString\n\n\nSet this as a string.\n\n\n\n\n\n\nsetBooleanArray\n\n\nSet this as an array of Booleans.\n\n\n\n\n\n\nsetIntegerArray\n\n\nSet this as an array of integers.\n\n\n\n\n\n\nsetRealArray\n\n\nSet this as an array of reals.\n\n\n\n\n\n\nsetStringArray\n\n\nSet this as an array of strings.\n\n\n\n\n\n\nsetObject\n\n\nSet an object.\n\n\n\n\n\n\nsetArray\n\n\nSet an array.\n\n\n\n\n\n\nsetBoolean\n\n\nSet a Boolean.\n\n\n\n\n\n\nsetInteger\n\n\nSet an integer.\n\n\n\n\n\n\nsetReal\n\n\nSet a real.\n\n\n\n\n\n\nsetString\n\n\nSet a string.\n\n\n\n\n\n\nsetBooleanArray\n\n\nSet an array of Booleans.\n\n\n\n\n\n\nsetIntegerArray\n\n\nSet an array of integers.\n\n\n\n\n\n\nsetRealArray\n\n\nSet an array of reals.\n\n\n\n\n\n\nsetStringArray\n\n\nSet an array of strings.\n\n\n\n\n\n\nsetObject\n\n\nSet an object.\n\n\n\n\n\n\nsetArray\n\n\nSet an array.\n\n\n\n\n\n\nsetBoolean\n\n\nSet a Boolean.\n\n\n\n\n\n\nsetInteger\n\n\nSet an integer.\n\n\n\n\n\n\nsetReal\n\n\nSet a real.\n\n\n\n\n\n\nsetString\n\n\nSet a string.\n\n\n\n\n\n\nsetBooleanArray\n\n\nSet an array of Booleans.\n\n\n\n\n\n\nsetIntegerArray\n\n\nSet an array of integers.\n\n\n\n\n\n\nsetRealArray\n\n\nSet an array of reals.\n\n\n\n\n\n\nsetStringArray\n\n\nSet an array of strings.\n\n\n\n\n\n\npush\n\n\nPush a new element onto the end of an array.\n\n\n\n\n\n\nflush\n\n\nFlush in-memory buffers.\n\n\n\n\n\n\n\n\nMember Function Details\n\n\nflush\n\n\n\n\n\n\nfunction flush()\n\n\nFlush in-memory buffers.\n\n\n\n\npush\n\n\n\n\n\n\nfunction push() -\n \nWriter\n\n\nPush a new element onto the end of an array.\n\n\nReturns: a writer for modifying the new element.\n\n\n\n\nsetArray\n\n\n\n\n\n\nfunction setArray() -\n \nWriter\n\n\nSet this as an array.\n\n\nReturns: a writer (this one) for modifying the new element.\n\n\n\n\n\n\nfunction setArray(name:\nString\n) -\n \nWriter\n\n\nSet an array.\n\n\n\n\nname: Name of the entry.\n\n\n\n\nReturns: a writer for modifying the new element.\n\n\n\n\n\n\nfunction setArray(path:[\nString\n]) -\n \nWriter\n\n\nSet an array.\n\n\n\n\npath: Path of the entry.\n\n\n\n\nReturns: a writer for modifying the new element.\n\n\n\n\nsetBoolean\n\n\n\n\n\n\nfunction setBoolean(value:\nBoolean\n)\n\n\nSet this as a Boolean.\n\n\n\n\nvalue: Value of the entry.\n\n\n\n\n\n\n\n\nfunction setBoolean(name:\nString\n, value:\nBoolean\n)\n\n\nSet a Boolean.\n\n\n\n\nname: Name of the entry.\n\n\nvalue: Value of the entry.\n\n\n\n\n\n\n\n\nfunction setBoolean(path:[\nString\n], value:\nBoolean\n)\n\n\nSet a Boolean.\n\n\n\n\npath: Path of the entry.\n\n\nvalue: Value of the entry.\n\n\n\n\n\n\nsetBooleanArray\n\n\n\n\n\n\nfunction setBooleanArray(value:\nBoolean\n[_])\n\n\nSet this as an array of Booleans.\n\n\n\n\nvalue: Value of the entry.\n\n\n\n\n\n\n\n\nfunction setBooleanArray(name:\nString\n, value:\nBoolean\n[_])\n\n\nSet an array of Booleans.\n\n\n\n\nname: Name of the entry.\n\n\nvalue: Value of the entry.\n\n\n\n\n\n\n\n\nfunction setBooleanArray(path:[\nString\n], value:\nBoolean\n[_])\n\n\nSet an array of Booleans.\n\n\n\n\npath: Path of the entry.\n\n\nvalue: Value of the entry.\n\n\n\n\n\n\nsetInteger\n\n\n\n\n\n\nfunction setInteger(value:\nInteger\n)\n\n\nSet this as an integer.\n\n\n\n\nvalue: Value of the entry.\n\n\n\n\n\n\n\n\nfunction setInteger(name:\nString\n, value:\nInteger\n)\n\n\nSet an integer.\n\n\n\n\nname: Name of the entry.\n\n\nvalue: Value of the entry.\n\n\n\n\n\n\n\n\nfunction setInteger(path:[\nString\n], value:\nInteger\n)\n\n\nSet an integer.\n\n\n\n\npath: Path of the entry.\n\n\nvalue: Value of the entry.\n\n\n\n\n\n\nsetIntegerArray\n\n\n\n\n\n\nfunction setIntegerArray(value:\nInteger\n[_])\n\n\nSet this as an array of integers.\n\n\n\n\nvalue: Value of the entry.\n\n\n\n\n\n\n\n\nfunction setIntegerArray(name:\nString\n, value:\nInteger\n[_])\n\n\nSet an array of integers.\n\n\n\n\nname: Name of the entry.\n\n\nvalue: Value of the entry.\n\n\n\n\n\n\n\n\nfunction setIntegerArray(path:[\nString\n], value:\nInteger\n[_])\n\n\nSet an array of integers.\n\n\n\n\npath: Path of the entry.\n\n\nvalue: Value of the entry.\n\n\n\n\n\n\nsetObject\n\n\n\n\n\n\nfunction setObject() -\n \nWriter\n\n\nSet this as an object.\n\n\nReturns: a writer (this one) for modifying the new element.\n\n\n\n\n\n\nfunction setObject(name:\nString\n) -\n \nWriter\n\n\nSet an object.\n\n\n\n\nname: Name of the entry.\n\n\n\n\nReturns: a writer for modifying the new element.\n\n\n\n\n\n\nfunction setObject(path:[\nString\n]) -\n \nWriter\n\n\nSet an object.\n\n\n\n\npath: Path of the entry.\n\n\n\n\nReturns: a writer for modifying the new element.\n\n\n\n\nsetReal\n\n\n\n\n\n\nfunction setReal(value:\nReal\n)\n\n\nSet this as a real.\n\n\n\n\nvalue: Value of the entry.\n\n\n\n\n\n\n\n\nfunction setReal(name:\nString\n, value:\nReal\n)\n\n\nSet a real.\n\n\n\n\nname: Name of the entry.\n\n\nvalue: Value of the entry.\n\n\n\n\n\n\n\n\nfunction setReal(path:[\nString\n], value:\nReal\n)\n\n\nSet a real.\n\n\n\n\npath: Path of the entry.\n\n\nvalue: Value of the entry.\n\n\n\n\n\n\nsetRealArray\n\n\n\n\n\n\nfunction setRealArray(value:\nReal\n[_])\n\n\nSet this as an array of reals.\n\n\n\n\nvalue: Value of the entry.\n\n\n\n\n\n\n\n\nfunction setRealArray(name:\nString\n, value:\nReal\n[_])\n\n\nSet an array of reals.\n\n\n\n\nname: Name of the entry.\n\n\nvalue: Value of the entry.\n\n\n\n\n\n\n\n\nfunction setRealArray(path:[\nString\n], value:\nReal\n[_])\n\n\nSet an array of reals.\n\n\n\n\npath: Path of the entry.\n\n\nvalue: Value of the entry.\n\n\n\n\n\n\nsetString\n\n\n\n\n\n\nfunction setString(value:\nString\n)\n\n\nSet this as a string.\n\n\n\n\nvalue: Value of the entry.\n\n\n\n\n\n\n\n\nfunction setString(name:\nString\n, value:\nString\n)\n\n\nSet a string.\n\n\n\n\nname: Name of the entry.\n\n\nvalue: Value of the entry.\n\n\n\n\n\n\n\n\nfunction setString(path:[\nString\n], value:\nString\n)\n\n\nSet a string.\n\n\n\n\npath: Path of the entry.\n\n\nvalue: Value of the entry.\n\n\n\n\n\n\nsetStringArray\n\n\n\n\n\n\nfunction setStringArray(value:\nString\n[_])\n\n\nSet this as an array of strings.\n\n\n\n\nvalue: Value of the entry.\n\n\n\n\n\n\n\n\nfunction setStringArray(name:\nString\n, value:\nString\n[_])\n\n\nSet an array of strings.\n\n\n\n\nname: Name of the entry.\n\n\nvalue: Value of the entry.\n\n\n\n\n\n\n\n\nfunction setStringArray(path:[\nString\n], value:\nString\n[_])\n\n\nSet an array of strings.\n\n\n\n\npath: Path of the entry.\n\n\nvalue: Value of the entry.", 
+            "text": "class Writer \n \nObject\n\n\nAbstract writer.\n\n\n\n\nMember Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nsetObject\n\n\nSet this as an object.\n\n\n\n\n\n\nsetArray\n\n\nSet this as an array.\n\n\n\n\n\n\nsetBoolean\n\n\nSet this as a Boolean.\n\n\n\n\n\n\nsetInteger\n\n\nSet this as an integer.\n\n\n\n\n\n\nsetReal\n\n\nSet this as a real.\n\n\n\n\n\n\nsetString\n\n\nSet this as a string.\n\n\n\n\n\n\nsetBooleanVector\n\n\nSet this as a vector of Booleans.\n\n\n\n\n\n\nsetIntegerVector\n\n\nSet this as a vector of integers.\n\n\n\n\n\n\nsetRealVector\n\n\nSet this as a vector of reals.\n\n\n\n\n\n\nsetBooleanMatrix\n\n\nSet this as matrix of Booleans.\n\n\n\n\n\n\nsetIntegerMatrix\n\n\nSet this as a matrix of integers.\n\n\n\n\n\n\nsetRealMatrix\n\n\nSet this as a matrix of reals.\n\n\n\n\n\n\nsetObject\n\n\nSet an object.\n\n\n\n\n\n\nsetArray\n\n\nSet an array.\n\n\n\n\n\n\nsetBoolean\n\n\nSet a Boolean.\n\n\n\n\n\n\nsetInteger\n\n\nSet an integer.\n\n\n\n\n\n\nsetReal\n\n\nSet a real.\n\n\n\n\n\n\nsetString\n\n\nSet a string.\n\n\n\n\n\n\nsetBooleanVector\n\n\nSet a vector of Booleans.\n\n\n\n\n\n\nsetIntegerVector\n\n\nSet a vector of integers.\n\n\n\n\n\n\nsetRealVector\n\n\nSet a vector of reals.\n\n\n\n\n\n\nsetBooleanMatrix\n\n\nSet a matrix of Booleans.\n\n\n\n\n\n\nsetIntegerVector\n\n\nSet a matrix of integers.\n\n\n\n\n\n\nsetRealVector\n\n\nSet a matrix of reals.\n\n\n\n\n\n\nsetObject\n\n\nSet an object.\n\n\n\n\n\n\nsetArray\n\n\nSet an array.\n\n\n\n\n\n\nsetBoolean\n\n\nSet a Boolean.\n\n\n\n\n\n\nsetInteger\n\n\nSet an integer.\n\n\n\n\n\n\nsetReal\n\n\nSet a real.\n\n\n\n\n\n\nsetString\n\n\nSet a string.\n\n\n\n\n\n\nsetBooleanVector\n\n\nSet a vector of Booleans.\n\n\n\n\n\n\nsetIntegerVector\n\n\nSet a vector of integers.\n\n\n\n\n\n\nsetRealVector\n\n\nSet a vector of reals.\n\n\n\n\n\n\nsetBooleanMatrix\n\n\nSet a matrix of Booleans.\n\n\n\n\n\n\nsetIntegerMatrix\n\n\nSet a matrix of integers.\n\n\n\n\n\n\nsetRealMatrix\n\n\nSet a matrix of reals.\n\n\n\n\n\n\npush\n\n\nPush a new element onto the end of an array.\n\n\n\n\n\n\nflush\n\n\nFlush in-memory buffers.\n\n\n\n\n\n\n\n\nMember Function Details\n\n\nflush\n\n\n\n\n\n\nfunction flush()\n\n\nFlush in-memory buffers.\n\n\n\n\npush\n\n\n\n\n\n\nfunction push() -\n \nWriter\n\n\nPush a new element onto the end of an array.\n\n\nReturns: a writer for modifying the new element.\n\n\n\n\nsetArray\n\n\n\n\n\n\nfunction setArray() -\n \nWriter\n\n\nSet this as an array.\n\n\nReturns: a writer (this one) for modifying the new element.\n\n\n\n\n\n\nfunction setArray(name:\nString\n) -\n \nWriter\n\n\nSet an array.\n\n\n\n\nname: Name of the entry.\n\n\n\n\nReturns: a writer for modifying the new element.\n\n\n\n\n\n\nfunction setArray(path:[\nString\n]) -\n \nWriter\n\n\nSet an array.\n\n\n\n\npath: Path of the entry.\n\n\n\n\nReturns: a writer for modifying the new element.\n\n\n\n\nsetBoolean\n\n\n\n\n\n\nfunction setBoolean(value:\nBoolean\n)\n\n\nSet this as a Boolean.\n\n\n\n\nvalue: Value of the entry.\n\n\n\n\n\n\n\n\nfunction setBoolean(name:\nString\n, value:\nBoolean\n)\n\n\nSet a Boolean.\n\n\n\n\nname: Name of the entry.\n\n\nvalue: Value of the entry.\n\n\n\n\n\n\n\n\nfunction setBoolean(path:[\nString\n], value:\nBoolean\n)\n\n\nSet a Boolean.\n\n\n\n\npath: Path of the entry.\n\n\nvalue: Value of the entry.\n\n\n\n\n\n\nsetBooleanMatrix\n\n\n\n\n\n\nfunction setBooleanMatrix(value:\nBoolean\n[_,_])\n\n\nSet this as matrix of Booleans.\n\n\n\n\nvalue: Value of the entry.\n\n\n\n\n\n\n\n\nfunction setBooleanMatrix(name:\nString\n, value:\nBoolean\n[_,_])\n\n\nSet a matrix of Booleans.\n\n\n\n\nname: Name of the entry.\n\n\nvalue: Value of the entry.\n\n\n\n\n\n\n\n\nfunction setBooleanMatrix(path:[\nString\n], value:\nBoolean\n[_,_])\n\n\nSet a matrix of Booleans.\n\n\n\n\npath: Path of the entry.\n\n\nvalue: Value of the entry.\n\n\n\n\n\n\nsetBooleanVector\n\n\n\n\n\n\nfunction setBooleanVector(value:\nBoolean\n[_])\n\n\nSet this as a vector of Booleans.\n\n\n\n\nvalue: Value of the entry.\n\n\n\n\n\n\n\n\nfunction setBooleanVector(name:\nString\n, value:\nBoolean\n[_])\n\n\nSet a vector of Booleans.\n\n\n\n\nname: Name of the entry.\n\n\nvalue: Value of the entry.\n\n\n\n\n\n\n\n\nfunction setBooleanVector(path:[\nString\n], value:\nBoolean\n[_])\n\n\nSet a vector of Booleans.\n\n\n\n\npath: Path of the entry.\n\n\nvalue: Value of the entry.\n\n\n\n\n\n\nsetInteger\n\n\n\n\n\n\nfunction setInteger(value:\nInteger\n)\n\n\nSet this as an integer.\n\n\n\n\nvalue: Value of the entry.\n\n\n\n\n\n\n\n\nfunction setInteger(name:\nString\n, value:\nInteger\n)\n\n\nSet an integer.\n\n\n\n\nname: Name of the entry.\n\n\nvalue: Value of the entry.\n\n\n\n\n\n\n\n\nfunction setInteger(path:[\nString\n], value:\nInteger\n)\n\n\nSet an integer.\n\n\n\n\npath: Path of the entry.\n\n\nvalue: Value of the entry.\n\n\n\n\n\n\nsetIntegerMatrix\n\n\n\n\n\n\nfunction setIntegerMatrix(value:\nInteger\n[_,_])\n\n\nSet this as a matrix of integers.\n\n\n\n\nvalue: Value of the entry.\n\n\n\n\n\n\n\n\nfunction setIntegerMatrix(path:[\nString\n], value:\nInteger\n[_,_])\n\n\nSet a matrix of integers.\n\n\n\n\npath: Path of the entry.\n\n\nvalue: Value of the entry.\n\n\n\n\n\n\nsetIntegerVector\n\n\n\n\n\n\nfunction setIntegerVector(value:\nInteger\n[_])\n\n\nSet this as a vector of integers.\n\n\n\n\nvalue: Value of the entry.\n\n\n\n\n\n\n\n\nfunction setIntegerVector(name:\nString\n, value:\nInteger\n[_])\n\n\nSet a vector of integers.\n\n\n\n\nname: Name of the entry.\n\n\nvalue: Value of the entry.\n\n\n\n\n\n\n\n\nfunction setIntegerVector(name:\nString\n, value:\nInteger\n[_,_])\n\n\nSet a matrix of integers.\n\n\n\n\nname: Name of the entry.\n\n\nvalue: Value of the entry.\n\n\n\n\n\n\n\n\nfunction setIntegerVector(path:[\nString\n], value:\nInteger\n[_])\n\n\nSet a vector of integers.\n\n\n\n\npath: Path of the entry.\n\n\nvalue: Value of the entry.\n\n\n\n\n\n\nsetObject\n\n\n\n\n\n\nfunction setObject() -\n \nWriter\n\n\nSet this as an object.\n\n\nReturns: a writer (this one) for modifying the new element.\n\n\n\n\n\n\nfunction setObject(name:\nString\n) -\n \nWriter\n\n\nSet an object.\n\n\n\n\nname: Name of the entry.\n\n\n\n\nReturns: a writer for modifying the new element.\n\n\n\n\n\n\nfunction setObject(path:[\nString\n]) -\n \nWriter\n\n\nSet an object.\n\n\n\n\npath: Path of the entry.\n\n\n\n\nReturns: a writer for modifying the new element.\n\n\n\n\nsetReal\n\n\n\n\n\n\nfunction setReal(value:\nReal\n)\n\n\nSet this as a real.\n\n\n\n\nvalue: Value of the entry.\n\n\n\n\n\n\n\n\nfunction setReal(name:\nString\n, value:\nReal\n)\n\n\nSet a real.\n\n\n\n\nname: Name of the entry.\n\n\nvalue: Value of the entry.\n\n\n\n\n\n\n\n\nfunction setReal(path:[\nString\n], value:\nReal\n)\n\n\nSet a real.\n\n\n\n\npath: Path of the entry.\n\n\nvalue: Value of the entry.\n\n\n\n\n\n\nsetRealMatrix\n\n\n\n\n\n\nfunction setRealMatrix(value:\nReal\n[_,_])\n\n\nSet this as a matrix of reals.\n\n\n\n\nvalue: Value of the entry.\n\n\n\n\n\n\n\n\nfunction setRealMatrix(path:[\nString\n], value:\nReal\n[_,_])\n\n\nSet a matrix of reals.\n\n\n\n\npath: Path of the entry.\n\n\nvalue: Value of the entry.\n\n\n\n\n\n\nsetRealVector\n\n\n\n\n\n\nfunction setRealVector(value:\nReal\n[_])\n\n\nSet this as a vector of reals.\n\n\n\n\nvalue: Value of the entry.\n\n\n\n\n\n\n\n\nfunction setRealVector(name:\nString\n, value:\nReal\n[_])\n\n\nSet a vector of reals.\n\n\n\n\nname: Name of the entry.\n\n\nvalue: Value of the entry.\n\n\n\n\n\n\n\n\nfunction setRealVector(name:\nString\n, value:\nReal\n[_,_])\n\n\nSet a matrix of reals.\n\n\n\n\nname: Name of the entry.\n\n\nvalue: Value of the entry.\n\n\n\n\n\n\n\n\nfunction setRealVector(path:[\nString\n], value:\nReal\n[_])\n\n\nSet a vector of reals.\n\n\n\n\npath: Path of the entry.\n\n\nvalue: Value of the entry.\n\n\n\n\n\n\nsetString\n\n\n\n\n\n\nfunction setString(value:\nString\n)\n\n\nSet this as a string.\n\n\n\n\nvalue: Value of the entry.\n\n\n\n\n\n\n\n\nfunction setString(name:\nString\n, value:\nString\n)\n\n\nSet a string.\n\n\n\n\nname: Name of the entry.\n\n\nvalue: Value of the entry.\n\n\n\n\n\n\n\n\nfunction setString(path:[\nString\n], value:\nString\n)\n\n\nSet a string.\n\n\n\n\npath: Path of the entry.\n\n\nvalue: Value of the entry.", 
             "title": "Writer"
         }, 
         {
             "location": "/library/classes/Writer/#member-functions", 
-            "text": "Name  Description      setObject  Set this as an object.    setArray  Set this as an array.    setBoolean  Set this as a Boolean.    setInteger  Set this as an integer.    setReal  Set this as a real.    setString  Set this as a string.    setBooleanArray  Set this as an array of Booleans.    setIntegerArray  Set this as an array of integers.    setRealArray  Set this as an array of reals.    setStringArray  Set this as an array of strings.    setObject  Set an object.    setArray  Set an array.    setBoolean  Set a Boolean.    setInteger  Set an integer.    setReal  Set a real.    setString  Set a string.    setBooleanArray  Set an array of Booleans.    setIntegerArray  Set an array of integers.    setRealArray  Set an array of reals.    setStringArray  Set an array of strings.    setObject  Set an object.    setArray  Set an array.    setBoolean  Set a Boolean.    setInteger  Set an integer.    setReal  Set a real.    setString  Set a string.    setBooleanArray  Set an array of Booleans.    setIntegerArray  Set an array of integers.    setRealArray  Set an array of reals.    setStringArray  Set an array of strings.    push  Push a new element onto the end of an array.    flush  Flush in-memory buffers.", 
+            "text": "Name  Description      setObject  Set this as an object.    setArray  Set this as an array.    setBoolean  Set this as a Boolean.    setInteger  Set this as an integer.    setReal  Set this as a real.    setString  Set this as a string.    setBooleanVector  Set this as a vector of Booleans.    setIntegerVector  Set this as a vector of integers.    setRealVector  Set this as a vector of reals.    setBooleanMatrix  Set this as matrix of Booleans.    setIntegerMatrix  Set this as a matrix of integers.    setRealMatrix  Set this as a matrix of reals.    setObject  Set an object.    setArray  Set an array.    setBoolean  Set a Boolean.    setInteger  Set an integer.    setReal  Set a real.    setString  Set a string.    setBooleanVector  Set a vector of Booleans.    setIntegerVector  Set a vector of integers.    setRealVector  Set a vector of reals.    setBooleanMatrix  Set a matrix of Booleans.    setIntegerVector  Set a matrix of integers.    setRealVector  Set a matrix of reals.    setObject  Set an object.    setArray  Set an array.    setBoolean  Set a Boolean.    setInteger  Set an integer.    setReal  Set a real.    setString  Set a string.    setBooleanVector  Set a vector of Booleans.    setIntegerVector  Set a vector of integers.    setRealVector  Set a vector of reals.    setBooleanMatrix  Set a matrix of Booleans.    setIntegerMatrix  Set a matrix of integers.    setRealMatrix  Set a matrix of reals.    push  Push a new element onto the end of an array.    flush  Flush in-memory buffers.", 
             "title": "Member Functions"
         }, 
         {
@@ -2281,9 +2491,14 @@
             "title": "setBoolean"
         }, 
         {
-            "location": "/library/classes/Writer/#setbooleanarray", 
-            "text": "function setBooleanArray(value: Boolean [_])  Set this as an array of Booleans.   value: Value of the entry.     function setBooleanArray(name: String , value: Boolean [_])  Set an array of Booleans.   name: Name of the entry.  value: Value of the entry.     function setBooleanArray(path:[ String ], value: Boolean [_])  Set an array of Booleans.   path: Path of the entry.  value: Value of the entry.", 
-            "title": "setBooleanArray"
+            "location": "/library/classes/Writer/#setbooleanmatrix", 
+            "text": "function setBooleanMatrix(value: Boolean [_,_])  Set this as matrix of Booleans.   value: Value of the entry.     function setBooleanMatrix(name: String , value: Boolean [_,_])  Set a matrix of Booleans.   name: Name of the entry.  value: Value of the entry.     function setBooleanMatrix(path:[ String ], value: Boolean [_,_])  Set a matrix of Booleans.   path: Path of the entry.  value: Value of the entry.", 
+            "title": "setBooleanMatrix"
+        }, 
+        {
+            "location": "/library/classes/Writer/#setbooleanvector", 
+            "text": "function setBooleanVector(value: Boolean [_])  Set this as a vector of Booleans.   value: Value of the entry.     function setBooleanVector(name: String , value: Boolean [_])  Set a vector of Booleans.   name: Name of the entry.  value: Value of the entry.     function setBooleanVector(path:[ String ], value: Boolean [_])  Set a vector of Booleans.   path: Path of the entry.  value: Value of the entry.", 
+            "title": "setBooleanVector"
         }, 
         {
             "location": "/library/classes/Writer/#setinteger", 
@@ -2291,9 +2506,14 @@
             "title": "setInteger"
         }, 
         {
-            "location": "/library/classes/Writer/#setintegerarray", 
-            "text": "function setIntegerArray(value: Integer [_])  Set this as an array of integers.   value: Value of the entry.     function setIntegerArray(name: String , value: Integer [_])  Set an array of integers.   name: Name of the entry.  value: Value of the entry.     function setIntegerArray(path:[ String ], value: Integer [_])  Set an array of integers.   path: Path of the entry.  value: Value of the entry.", 
-            "title": "setIntegerArray"
+            "location": "/library/classes/Writer/#setintegermatrix", 
+            "text": "function setIntegerMatrix(value: Integer [_,_])  Set this as a matrix of integers.   value: Value of the entry.     function setIntegerMatrix(path:[ String ], value: Integer [_,_])  Set a matrix of integers.   path: Path of the entry.  value: Value of the entry.", 
+            "title": "setIntegerMatrix"
+        }, 
+        {
+            "location": "/library/classes/Writer/#setintegervector", 
+            "text": "function setIntegerVector(value: Integer [_])  Set this as a vector of integers.   value: Value of the entry.     function setIntegerVector(name: String , value: Integer [_])  Set a vector of integers.   name: Name of the entry.  value: Value of the entry.     function setIntegerVector(name: String , value: Integer [_,_])  Set a matrix of integers.   name: Name of the entry.  value: Value of the entry.     function setIntegerVector(path:[ String ], value: Integer [_])  Set a vector of integers.   path: Path of the entry.  value: Value of the entry.", 
+            "title": "setIntegerVector"
         }, 
         {
             "location": "/library/classes/Writer/#setobject", 
@@ -2306,19 +2526,19 @@
             "title": "setReal"
         }, 
         {
-            "location": "/library/classes/Writer/#setrealarray", 
-            "text": "function setRealArray(value: Real [_])  Set this as an array of reals.   value: Value of the entry.     function setRealArray(name: String , value: Real [_])  Set an array of reals.   name: Name of the entry.  value: Value of the entry.     function setRealArray(path:[ String ], value: Real [_])  Set an array of reals.   path: Path of the entry.  value: Value of the entry.", 
-            "title": "setRealArray"
+            "location": "/library/classes/Writer/#setrealmatrix", 
+            "text": "function setRealMatrix(value: Real [_,_])  Set this as a matrix of reals.   value: Value of the entry.     function setRealMatrix(path:[ String ], value: Real [_,_])  Set a matrix of reals.   path: Path of the entry.  value: Value of the entry.", 
+            "title": "setRealMatrix"
+        }, 
+        {
+            "location": "/library/classes/Writer/#setrealvector", 
+            "text": "function setRealVector(value: Real [_])  Set this as a vector of reals.   value: Value of the entry.     function setRealVector(name: String , value: Real [_])  Set a vector of reals.   name: Name of the entry.  value: Value of the entry.     function setRealVector(name: String , value: Real [_,_])  Set a matrix of reals.   name: Name of the entry.  value: Value of the entry.     function setRealVector(path:[ String ], value: Real [_])  Set a vector of reals.   path: Path of the entry.  value: Value of the entry.", 
+            "title": "setRealVector"
         }, 
         {
             "location": "/library/classes/Writer/#setstring", 
             "text": "function setString(value: String )  Set this as a string.   value: Value of the entry.     function setString(name: String , value: String )  Set a string.   name: Name of the entry.  value: Value of the entry.     function setString(path:[ String ], value: String )  Set a string.   path: Path of the entry.  value: Value of the entry.", 
             "title": "setString"
-        }, 
-        {
-            "location": "/library/classes/Writer/#setstringarray", 
-            "text": "function setStringArray(value: String [_])  Set this as an array of strings.   value: Value of the entry.     function setStringArray(name: String , value: String [_])  Set an array of strings.   name: Name of the entry.  value: Value of the entry.     function setStringArray(path:[ String ], value: String [_])  Set an array of strings.   path: Path of the entry.  value: Value of the entry.", 
-            "title": "setStringArray"
         }, 
         {
             "location": "/examples/", 
