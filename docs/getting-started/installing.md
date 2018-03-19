@@ -1,24 +1,12 @@
 # Installing
 
-Birch is currently only available in a development version. Because it is updated frequently, it is recommended that you clone its repositories using Git rather than downloading them as archives. This way you can easily pull down new updates.
-
-
-## Clone the repositories
+The development version of the [Birch compiler](https://github.com/lawmurray/Birch), the [Birch standard library](https://github.com/lawmurray/Birch.Standard) and the [Birch examples](https://github.com/lawmurray/Birch.Example) are available from GitHub. There are no stable releases available as yet.
 
 To clone the repositories, use:
 
     git clone https://github.com/lawmurray/Birch.git
     git clone https://github.com/lawmurray/Birch.Standard.git
     git clone https://github.com/lawmurray/Birch.Example.git
-
-To check for updates at any subsequent time, use
-
-    git pull
-
-from within each of these directories. If new updates are applied, you will need to repeat the installation procedure below.
-
-!!! tip
-    [Using Eclipse](using-eclipse.md) can help streamline the process for new updates.
 
 
 ## Install dependencies
@@ -44,6 +32,10 @@ make
 make install
 ```
 
+!!! tip
+    As usual when installing from source, you made need to use `sudo make install` for the last line to elevate to root permissions, if you are installing form a user account that does not have permissions for a system-wide install.
+
+
 ## Install the standard library
 
 Run the following from within the `Birch.Standard` directory:
@@ -52,6 +44,9 @@ Run the following from within the `Birch.Standard` directory:
 birch build
 birch install
 ```
+
+!!! tip
+    Similarly again, you may need to use `sudo birch install` for the last line.
 
 ## Install the examples
 

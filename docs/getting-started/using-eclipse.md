@@ -1,7 +1,7 @@
 A plugin is available for syntax highlighting of Birch code within the [Eclipse](http://www.eclipse.org) IDE. Eclipse can also parse the error messages produced by the Birch compiler, enabling quick navigation to problem lines of code. This can help improve workflow.
 
-!!! help "Contributions"
-    The development of a project wizard plugin to also automate the creation of Birch projects, using the `birch init` command, would be particularly welcome.
+!!! info "Contributions"
+    The development of a project wizard plugin automate the creation of Birch projects, using the `birch init` command, would be particularly welcome.
 
 
 ## Installing the plugin
@@ -27,7 +27,7 @@ You can then use the *Project > Build* menu item, or keyboard shortcuts, to buil
 
 ## Streamlining the build process
 
-It is worth importing the Birch compiler and standard library into your Eclipse workspace also, to establish them as dependencies of your own project.
+It is worth importing the Birch compiler and standard library into your Eclipse workspace as well, to establish them as dependencies of your own project.
 
 Use the *File > Import* menu item from within Eclipse, then:
 
@@ -37,3 +37,5 @@ Use the *File > Import* menu item from within Eclipse, then:
 Once the projects are imported, go to the properties for your own project, select *Project References* on the left, and choose *Birch.Standard*.
 
 Now, when you build your own project, Eclipse will automatically rebuild *Birch.Standard* and, in turn, *Birch*, if necessary.
+
+Note that, unlike when creating your own projects, it is not necessary to modify the project properties for the Birch compiler and standard library. The repositories already include Eclipse project files with the relevant settings.

@@ -1,6 +1,9 @@
-We will start by creating a new project. The `birch` driver program is used to do this. Create a new, empty, directory named `Tutorial`. From within this directory, run
+We will start by creating a new project. The `birch` driver program is used to do this.
 
-    birch init --name Tutorial
+!!! example "Exercise"
+    Create a new, empty, directory named `Tutorial`. From within this directory, run
+
+        birch init --name Tutorial
 
 This creates the standard files and subdirectories for a Birch project. It is recommended that you maintain this standard structure for all of your projects to make their management and distribution easier.
 
@@ -39,4 +42,4 @@ To check for possible issues, e.g. files missing from [`META.json`](/documentati
 
     birch check
 
-More information on the `init`, `check`, and `build` programs is available in the documentation of the [driver](/documentation/driver) program.
+More information on these commands is available in the documentation of the [driver](/documentation/driver) program.

@@ -9,6 +9,7 @@ theme:
     tabs: true
 markdown_extensions:
   - admonition
+  - footnotes
   - mdx_math:
       enable_dollar_delimiter: true
 extra_javascript:
@@ -24,16 +25,19 @@ pages:
   - 'Home': index.md
   - 'Getting Started':
     - 'Installing': getting-started/installing.md
-    - 'Platform installation guides':
+    - 'Updating': getting-started/updating.md
+    - 'Using Eclipse': getting-started/using-eclipse.md
+    - 'Platform guides':
       - 'Installing on Ubuntu Linux': getting-started/ubuntu.md
       - 'Installing on macOS': getting-started/macos.md
       - 'Installing on Windows 10': getting-started/windows.md
-    - 'Using Eclipse': getting-started/using-eclipse.md
   - 'Tutorial':
     - tutorial.md
     - 'Creating a project': tutorial/creating-a-project.md
     - 'Creating a model': tutorial/creating-a-model.md
-    - 'Example #1: Bayesian linear regression': tutorial/bayesian-linear-regression.md
+    - 'Example #1: Linear regression': tutorial/linear-regression.md
+    - 'Example #2: Markov model': tutorial/markov-model.md
+    - 'Where to next': tutorial/where-to-next.md
   - 'Documentation':
     - documentation.md
     - 'Language':
