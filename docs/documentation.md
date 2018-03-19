@@ -1,3 +1,5 @@
+# Contents
+
   * [Language](/documentation/language)
 
     A guide to the Birch programming language.
