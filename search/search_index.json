@@ -207,8 +207,13 @@
         }, 
         {
             "location": "/documentation/", 
-            "text": "Language\n\n\nA guide to the Birch programming language.\n\n\n\n\n\n\nDriver\n\n\nReference documentation for the \nbirch\n driver program, used for building, installing and otherwise working with Birch projects.\n\n\n\n\n\n\nLibrary\n\n\nReference documentation for the standard library, which provides essential functionality for Birch programs, such as math functions, probability distributions, inference methods, model classes, containers, input and output.\n\n\n\n\n\n\nExamples\n\n\nReference documentation for the example programs.", 
-            "title": "Documentation"
+            "text": "Contents\n\n\n\n\n\n\nLanguage\n\n\nA guide to the Birch programming language.\n\n\n\n\n\n\nDriver\n\n\nReference documentation for the \nbirch\n driver program, used for building, installing and otherwise working with Birch projects.\n\n\n\n\n\n\nLibrary\n\n\nReference documentation for the standard library, which provides essential functionality for Birch programs, such as math functions, probability distributions, inference methods, model classes, containers, input and output.\n\n\n\n\n\n\nExamples\n\n\nReference documentation for the example programs.", 
+            "title": "Contents"
+        }, 
+        {
+            "location": "/documentation/#contents", 
+            "text": "Language  A guide to the Birch programming language.    Driver  Reference documentation for the  birch  driver program, used for building, installing and otherwise working with Birch projects.    Library  Reference documentation for the standard library, which provides essential functionality for Birch programs, such as math functions, probability distributions, inference methods, model classes, containers, input and output.    Examples  Reference documentation for the example programs.", 
+            "title": "Contents"
         }, 
         {
             "location": "/documentation/language/", 
