@@ -21,7 +21,7 @@ It is the query operator (`?`) that resumes the fiber. The fiber then continues 
 
 It is not necessary for the caller to run the fiber to termination. Likewise, it is not necessary for a fiber to ever terminate, which may be a design choice.
 
-!!! note
+!!! info
     Consider the following code:
 
         fiber iota() -> Integer! {

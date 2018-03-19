@@ -22,5 +22,5 @@ If the type of the inner sequences is `[D]`, then the type of the outer sequence
 
 It is not possible to access the individual elements of a sequence, either for reading or writing. To access the individual elements, assign the sequence to an array, and access them via the array.
 
-!!! note
+!!! info
     The functionality of sequences is limited at this stage. The primary motivation for their inclusion in the language is for the easy initialization of arrays.

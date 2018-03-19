@@ -1,6 +1,6 @@
-# Where to next
+# Next steps
 
-That concludes the tutorial!
+This concludes the tutorial.
 
 The [language](/documentation/language) documentation is a good next step to learn more about the Birch language. Perusing the [standard library](/documentation/library) documentation will also give you a better idea of the features available, such as supported probability distributions.
 

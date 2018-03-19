@@ -58,7 +58,7 @@ All member functions are virtual. To delegate a call to a member function of the
 
 ### Member fibers
 
-Fiber declarations that appear within the body of a class are *member fibers*. Their behaviour is analogous to member functions. They may be similarly marked as read-only by placing a prime (`'`) immediately after the `fiber` keyword.
+Fiber declarations that appear within the body of a class are *member fibers*. Their behaviour is analogous to member functions.
 
 ### Generic parameters
 
@@ -125,7 +125,7 @@ Initialization arguments can be passed onto the super type if required:
       // ...
     }
 
-!!! note
+!!! info
     Initialization parameters in Birch play a similar role to initialization lists in C++.
 
 Initialization parameters are used for simple object initialization, such as to set initial values and array sizes. They do not allow arbitrary code to be executed upon object construction. This is the role of a *constructor*. Birch does not, however, have any special language support for constructors. Instead, it is idiomatic to use *factory functions*, exploiting the fact that the same name can be used for both a function and a class in the Birch language.
@@ -144,7 +144,7 @@ For complex object construction, it can be useful to define a member function wi
 
 ### Assignments
 
-!!! note
+!!! info
     Recall that, for basic types, assignment is by value, while for class types, assignment is by reference.
 
 Objects of class type `A` may be assigned another object of type `A` or an object of any subtype of `A`; i.e. if `a:A` and `b:B` with `A < B`, it is possible to assign `b <- a` but not `a <- b`.

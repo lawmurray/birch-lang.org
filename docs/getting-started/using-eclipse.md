@@ -1,7 +1,7 @@
 A plugin is available for syntax highlighting of Birch code within the [Eclipse](http://www.eclipse.org) IDE. Eclipse can also parse the error messages produced by the Birch compiler, enabling quick navigation to problem lines of code. This can help improve workflow.
 
 !!! info "Contributions"
-    The development of a project wizard plugin automate the creation of Birch projects, using the `birch init` command, would be particularly welcome.
+    The development of a project wizard plugin to automate the creation of Birch projects, using the `birch init` command, would be a welcome addition.
 
 
 ## Installing the plugin
@@ -10,8 +10,10 @@ To install the plugin, use the *Help > Install New Software...* menu item from w
 
 <http://www.birch-lang.org/eclipse/updates>
 
-Follow the prompts from there. The plugin should be automatically associated with the `*.bi` file extension.
+Select the plugin from the list and follow the prompts from there. The plugin should be automatically associated with the `*.bi` file extension.
 
+!!! bug
+    If the plugin does not appear in the list, uncheck the *Group items by category* checkbox. (We're working on it.)
 
 ## Creating projects in Eclipse
 

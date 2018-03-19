@@ -12,5 +12,5 @@ The special value of `nil` may be assigned to an optional to remove an existing 
 
     a <- nil;
 
-!!! note
+!!! info
     In Birch, a variable of class type always has a value. In some other languages (e.g. Java), variables of class type may have a null value, and this null value is often used to denote no value. In Birch, optionals are always used where a variable may have no value. This is particularly useful when writing functions that accept arguments of class type, as there is no need to check whether those arguments actually have a value or not; they will always have a value, unless denoted as optional.

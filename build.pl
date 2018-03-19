@@ -11,7 +11,7 @@ if (!-e 'git/Birch.Example') {
 `cd git/Birch.Standard; git pull; birch docs; cd ../..`;
 `cd git/Birch.Example; git pull; birch docs; cd ../..`;
 
-`rm -rf docs/library docs/examples`;
+`rm -rf docs/documentation/library docs/documentation/examples`;
 `cp -r git/Birch.Standard/docs docs/documentation/library`;
 `cp -r git/Birch.Example/docs docs/documentation/examples`;
 `mv git/Birch.Standard/docs/index.md docs/documentation/library.md`;

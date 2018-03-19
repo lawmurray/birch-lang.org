@@ -33,11 +33,10 @@ pages:
       - 'Windows 10': getting-started/windows.md
   - 'Tutorial':
     - tutorial.md
-    - 'Creating a project': tutorial/creating-a-project.md
-    - 'Creating a model': tutorial/creating-a-model.md
-    - 'Example #1: Linear regression': tutorial/linear-regression.md
-    - 'Example #2: Markov model': tutorial/markov-model.md
-    - 'Where to next': tutorial/where-to-next.md
+    - 'Exercise #1: Preliminaries': tutorial/preliminaries.md
+    - 'Exercise #2: Linear regression': tutorial/linear-regression.md
+    - 'Exercise #3: Markov model': tutorial/markov-model.md
+    - 'Next steps': tutorial/next-steps.md
   - 'Documentation':
     - documentation.md
     - 'Language':

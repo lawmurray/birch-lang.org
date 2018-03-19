@@ -71,7 +71,7 @@ These are postfix unary operators used with optional and fiber types. They are o
 
 The action of standard operators is defined by overloads, declared using the `operator` statement. Only the standard operators may be overloaded. All other operators have in-built behaviour as described above.
 
-!!! note
+!!! info
     It is still possible to manipulate the behaviour of some operators that cannot be overloaded. For example, the behaviour of the assignment operator `<-` can be manipulated by declaring assignments and conversions in class declarations.
 
 A binary operator `+` with two operands `a:A` and `b:B`, and return type `C`, is declared as:
