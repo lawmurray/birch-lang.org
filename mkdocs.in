@@ -28,9 +28,9 @@ pages:
     - 'Updating': getting-started/updating.md
     - 'Using Eclipse': getting-started/using-eclipse.md
     - 'Platform guides':
-      - 'Installing on Ubuntu Linux': getting-started/ubuntu.md
-      - 'Installing on macOS': getting-started/macos.md
-      - 'Installing on Windows 10': getting-started/windows.md
+      - 'Ubuntu Linux': getting-started/ubuntu.md
+      - 'macOS': getting-started/macos.md
+      - 'Windows 10': getting-started/windows.md
   - 'Tutorial':
     - tutorial.md
     - 'Creating a project': tutorial/creating-a-project.md

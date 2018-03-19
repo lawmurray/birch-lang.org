@@ -1,8 +1,12 @@
 We will now look at implementing a [Markov model](https://en.wikipedia.org/wiki/Markov_model), specifically a simple SIR (susceptible-infectious-recovered) compartmental model for an influenza epidemic, using a classic data set of an outbreak of Russian influenza in a boarding school.
 
-### Model
+## Model
 
-The model is described in three parts. The *parameter* model is:
+The model is described in three parts: the *parameter* model, the *initial* model, and the *transition* model.
+
+### Parameter model
+
+The parameter model is:
 $$\begin{align}
 \lambda &= 10 \\
 \delta &\sim \mathrm{Beta}(2,2) \\
@@ -10,14 +14,18 @@ $$\begin{align}
 \end{align}$$
 where $\lambda$ is a rate of interaction in the population, $\delta$ the probability of infection when a susceptible individual interacts with an infectious individual, and $\gamma$ the recovery probability.
 
-The *initial* model for time $t = 0$ depends on the data set. For the data set introduced below, it is as follows:
+### Initial model
+
+The initial model for time $t = 0$ depends on the data set. For the data set introduced below, it is as follows:
 $$\begin{align}
-s_t &= 760 \\
-i_t &= 3 \\
-r_t &= 0
+s_0 &= 760 \\
+i_0 &= 3 \\
+r_0 &= 0.
 \end{align}$$
 
-The *transition* model for time $t$ is:
+### Transition model
+
+The transition model for time $t$ is:
 $$\begin{align}
 \tau_t &\sim \mathrm{Binomial}\left(s_{t-1}, 1 - \exp\left(-\lambda i_{t-1} / n\right) \right) \\
 \Delta i_t &\sim \mathrm{Binomial}(\tau_t, \delta) \\
@@ -162,8 +170,19 @@ The `SIRState` class must inherit from [State](/documentation/library/classes/St
           }
         }
 
+There are two different `simulate` fibers in the above code:
 
-### Data
+    fiber simulate(θ:SIRParameter) -> Real!;
+    fiber simulate(x:SIRState, θ:SIRParameter) -> Real!;
+
+As suggested by their parameters:
+
+  * the first is for the initial model, providing the parameters as `θ`,
+  * the second is for the transition model, providing the previous state as `x` and the parameters as `θ`.
+
+The initial model is empty by choice here. While we could implement the initial model described above, it is specific to the data set that we will use, and we would prefer not to hardcode it, in order that we might reuse the model for other data sets. Instead, we have elected to include the initial state in the input file that we will set up below.
+
+## Data
 
 We will use a data set of the outbreak of Russian influenze in a boy's boarding school in northern England[^1].
 
@@ -173,7 +192,7 @@ We will use a data set of the outbreak of Russian influenze in a boy's boarding 
 Have a look at the contents of the file in a text editor. It contains an array of states. The first state sets values of all relevant state variable to initialize, and henceforth only the total infectious population, $i_t$, is observed.
 
 
-### Inference
+## Inference
 
 We can now run the model.
 
@@ -189,7 +208,7 @@ We can now run the model.
           --nsamples 10
     
 !!! error
-    With high probability, you will get an error message `particle filter degenerated` at this stage. This is expected.
+    With high probability, you will get an error message `particle filter degenerated` at this point. This is expected.
 
 The new command-line option  `--ncheckpoints` gives the number of *checkpoints* for which to run. In the case of a model that inherits from [Markov model](https://en.wikipedia.org/wiki/Markov_model), as here, this is the number of states. In general, it is the number of observations. The numbers output to the terminal are appear each time the inference method progresses to the next checkpoint.
 

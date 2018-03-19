@@ -1,14 +1,16 @@
 Now that we have a trivial model running, we can do something more substantial. We will start with a simple example of [Bayesian linear regression](http://en.wikipedia.org/wiki/Bayesian_linear_regression), using a [bike sharing data set](https://archive.ics.uci.edu/ml/datasets/bike+sharing+dataset)[^1] that will be provided in a suitable format.
 
-### Model
+## Model
 
 The model is given by:
 $$\begin{align}
-\sigma^2 &\sim \mathcal{\Gamma}^{-1}(3, 4/10) \\
+\sigma^2 &\sim \mathrm{Inv\text{-}Gamma}(3, 4/10) \\
 \boldsymbol{\beta} &\sim \mathcal{N}(0, I\sigma^2) \\
 y_n &\sim \mathcal{N}(\mathbf{x}_n^{\top}\boldsymbol{\beta}, \sigma^2)
 \end{align}$$
-where $\mathcal{\Gamma}^{-1}$ denotes the [inverse-Gamma distribution](https://en.wikipedia.org/wiki/Inverse-gamma_distribution), $\mathcal{N}$ the [multivariate normal distribution](https://en.wikipedia.org/wiki/Multivariate_normal_distribution), and there are $N$ number of observations indexed $n=1,\ldots,N$.
+where $\mathrm{Inv\text{-}Gamma}$ denotes the [inverse-Gamma distribution](https://en.wikipedia.org/wiki/Inverse-gamma_distribution), $\mathcal{N}$ the [multivariate normal distribution](https://en.wikipedia.org/wiki/Multivariate_normal_distribution), and there are $N$ number of observations indexed $n=1,\ldots,N$.
+
+## Implementation
 
 To specify this model in Birch, we again create a class that inherits from [Model](/documentation/library/classes/Model).
 
@@ -93,7 +95,7 @@ As before, we can run the model with
 
 although this will not yet do anything interesting; for that, we need data.
 
-### Data
+## Data
 
 We will use a [data set](https://archive.ics.uci.edu/ml/datasets/bike+sharing+dataset) from the Capital Bikeshare system in Washington D.C. for the years 2011 to 2012. The aim is to use weather and holiday information to predict the number of bike hires on any given day[^1].
 
@@ -134,7 +136,7 @@ While an aside at this stage, optionals are quite common in Birch code, as they 
 The `?` after the type declares an optional variable, the `?` operator in the `if` statement condition checks if it has a value, the `!` operator in the `if` body retrieves that value, if it exists.
 
 
-### Inference
+## Inference
 
 We can run the model with
 
