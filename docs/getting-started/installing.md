@@ -33,7 +33,7 @@ make install
 ```
 
 !!! tip
-    As usual when installing from source, you made need to use `sudo make install` for the last line to elevate to root permissions, if you are installing from a user account that does not have permissions for a system-wide install.
+    You may need to use `sudo make install` for the last line to elevate to root permissions, if you are installing from a user account that does not have permissions for a system-wide install.
 
 !!! tip
     To speed up the build, you can use `make -j 8` on the third line, replacing `8` with a number of threads to run in parallel.
