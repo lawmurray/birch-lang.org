@@ -1,6 +1,6 @@
-A plugin is available for syntax highlighting of Birch code within the [Eclipse](http://www.eclipse.org) IDE. Eclipse can also parse the error messages produced by the Birch compiler, enabling quick navigation to problem lines of code. This can help improve workflow.
+A plugin is available for syntax highlighting of Birch code within [Eclipse](http://www.eclipse.org). Eclipse can also parse the error messages produced by the Birch compiler, enabling quick navigation to problem lines of code. This can help improve workflow.
 
-!!! info "Contributions"
+!!! info "Getting involved"
     The development of a project wizard plugin to automate the creation of Birch projects, using the `birch init` command, would be a welcome addition.
 
 
@@ -15,7 +15,12 @@ Select the plugin from the list and follow the prompts from there. The plugin sh
 !!! bug
     If the plugin does not appear in the list, uncheck the *Group items by category* checkbox. (We're working on it.)
 
+
 ## Creating projects in Eclipse
+
+Within Eclipse, you can treat Birch projects as if they were C/C++ Makefile Projects, with a few tweaks to the project properties as outlined below.
+
+You will need the [Eclipse C/C++ Development Tooling (CDT)](https://www.eclipse.org/cdt/) for this, not just the Eclipse Java Development Tools (JDT). Often, a default Eclipse installation only installs the latter, so you will need to install the former.
 
 Once a Birch project has been created from the command line with `birch init`:
 

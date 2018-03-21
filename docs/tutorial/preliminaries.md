@@ -19,7 +19,7 @@ The standard structure for Birch projects consists of the subdirectories:
   * `input/` for input files,
   * `output/` for output files.
 
-and a number of other meta files in the base directory. The most important of these meta files is [`META.json`](/documentation/driver/meta_file.md), which contains meta information such as a name, version, and description of the project, and a manifest of files. As you add files to the project you should add them to this [`META.json`](/documentation/driver/meta_file.md) file. This is particularly importance for `*.bi` source files in the `bi/` subdirectory, so that they are included when building.
+and a number of other meta files in the base directory. The most important of these meta files is [`META.json`](/documentation/driver/meta_file.md), which contains meta information such as a name, version, and description of the project, and a manifest of files. As you add files to the project you should add them to this [`META.json`](/documentation/driver/meta_file.md) file. This is particularly important for `*.bi` source files in the `bi/` subdirectory, so that they are included when building.
 
 !!! tip
     Now is a good time to set up version control with this initial set of files. For Git:
@@ -46,7 +46,7 @@ To check for possible issues, e.g. files missing from [`META.json`](/documentati
 
     birch check
 
-Not output indicates no issues.
+No output indicates no issues.
 
 More information on these commands is available in the documentation of the [driver](/documentation/driver) program.
 

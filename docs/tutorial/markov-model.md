@@ -97,7 +97,7 @@ We will start with the `SIRParameter` class. This is the parameter model. It mus
           }
         }
 
-Recall the typical structure of this class from the [Bayesian linear regression](/tutorial/bayesian-linear-regresssion) example: random variables as member variables, the `simulate` member fiber, the `input` and `output` memner functions.
+Recall the typical structure of this class from the [Bayesian linear regression](/tutorial/bayesian-linear-regresssion) example: random variables as member variables, the `simulate` member fiber, the `input` and `output` member functions.
 
 The `SIRState` class must inherit from [State](/documentation/library/classes/State). The [State](/documentation/library/classes/State) class is very similar to the [Model](/documentation/library/classes/Model) class, but it splits the `simulate` member fiber into two separate member fibers: one for the initial model, and one for the transition model.
 
@@ -193,7 +193,9 @@ The transition model uses [Delta](/documentation/library/classes/Delta/) distrib
 We will use a data set of the outbreak of Russian influenza at a boy's boarding school in northern England[^1].
 
 !!! example "Exercise"
-    Download the data set [here](/tutorial/russian_influenza.json) and place it in your project's `input/` directory as `input/russian_influenza.json`. Also add the file to `META.json` under `manifest.data`.
+    Download the data set [here](/tutorial/russian_influenza.json) and place it in your project's `input/` directory as `input/russian_influenza.json`.
+
+    Add the file to `META.json` under `manifest.data`.
 
 Have a look at the contents of the file in a text editor. It contains an array of states. The first state sets the values of all state variables, while for subsequent states it sets only $i_t$, the number of infectious individuals.
 
@@ -238,7 +240,7 @@ Another fix is to change the method. There are not so many methods available in 
           --nsamples 10 \
           --method AliveParticleFilter
 
-You will probably notice the particle filter stay at checkpoint 13 for longer than the others. This reveals the issue: the observation at checkpoint 13 has low incremental likelihood, and the alive particle filter makes many more proposals before accepting the 100 particles required.
+You will probably notice the particle filter stays at checkpoint 13 for longer than the others. This reveals the issue: the observation at checkpoint 13 has low incremental likelihood, and the alive particle filter makes many more proposals before accepting the 100 particles required.
 
 More inference methods will be added in future, and will be selectable with the `--method` option.
 

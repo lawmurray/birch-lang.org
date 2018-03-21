@@ -65,7 +65,7 @@ Variables in Birch are typed, and declared with the syntax `name:Type`. Lines al
 
     Another option is to copy and paste from a character map.
 
-!!! info "Contributions"
+!!! info "Getting involved"
     What is the best approach for other operating systems?
 
 Next, we need to establish the joint distribution of these random variables. The [Model](/documentation/library/classes/Model) class has a [*member fiber*](/documentation/language/classes/#member-fibers) called `simulate` that we override to specify the joint distribution of our model.
@@ -107,14 +107,16 @@ We will use a [data set](https://archive.ics.uci.edu/ml/datasets/bike+sharing+da
 The data set has been preprocessed to convert categorical variables into multiple indicator variables; e.g. the season, a four-category variable, becomes four indicator variables. These conversions make it reasonable to attempt a linear regression. Each data point represents one day. The observation is of the logarithm of the total number of bike hires on that day.
 
 !!! example "Exercise"
-    Download the data set [here](/tutorial/bike_share.json) and place it in your project's `input/` directory as `input/bike_share.json`. Also add the file to `META.json` under `manifest.data`.
+    Download the data set [here](/tutorial/bike_share.json) and place it in your project's `input/` directory as `input/bike_share.json`.
+
+    Add the file to `META.json` under `manifest.data`.
 
 The file is in [JSON](http://www.json.org) format, which is the current standard file format for input and output in Birch. You can view and edit these files by hand with a text editor, or for larger files, there are packages available for most programming languages that will allow you to write pre- and post-processing scripts for your data. Birch will support more formats in time.
 
 !!! tip
     In MATLAB, you can use [JSONlab](https://www.mathworks.com/matlabcentral/fileexchange/33381-jsonlab--a-toolbox-to-encode-decode-json-files) to read and write JSON files
 
-!!! info "Contributions"
+!!! info "Getting involved"
     What are appropriate packages for R, Julia, others?
 
 For now, have a look at the contents of the file in a text editor. It contains two variables: a matrix `X` and a vector `y`. We need to get these into our model.
@@ -129,13 +131,19 @@ The [Model](/documentation/library/classes/Model) class has a member function ca
             y <- reader.getRealVector("y")!;
           }
 
-This reads the matrix `X` and the vector `y` from the input file into the corresponding member variables. The [Reader](/documentation/library/classes/Reader) class provides the interface for easily consuming these. Its member functions return [*optionals*](/documentation/language/optionals/), as the requested variable may not exist in the file, or may not have the correct type. We are being somewhat lazy with the above code by using the `!` operator after each call, essentially assuming that the variables do exist.
+    Rebuild:
+
+        birch build
+
+This reads from the input file into the variables `X` and `y`. The strings `"X"` and `"y"` name elements in the input file. The names correspond in this case, although need not in general.
+
+The [Reader](/documentation/library/classes/Reader) class provides the interface for easily consuming these. Its member functions return [*optionals*](/documentation/language/optionals/), as the requested variable may not exist in the file, or may not have the correct type. We are being somewhat lazy with the above code by using the `!` operator after each call, essentially assuming that the variables do exist.
 
 Optionals are quite common in Birch code. They are useful for handling missing values. A more idiomatic usage is as follows:
 
     Z:Real[_,_]? <- reader.getRealMatrix("X");
     if (Z?) {
-      X <- Z;
+      X <- Z!;
     }
 
 The `?` after the type declares an optional variable, the `?` operator in the `if` statement condition checks if it has a value, the `!` operator in the `if` body retrieves that value, if it exists.
@@ -156,6 +164,10 @@ This will in fact perform inference, but will not yet produce any output. We nee
             writer.setRealVector("beta", β);
             writer.setReal("sigma2", σ2);
           }
+
+    Rebuild:
+
+        birch build
 
 We have not used Greek letters in the names of variables that appear in the file. We would like to, but this appears unsupported by some other software (such as MATLAB) when reading in the file.
 
@@ -209,6 +221,10 @@ Birch does not yet include a facility for plotting. It is expected, at least for
         plot(q(3,:), '-b');
         plot(input.y, 'or');
         hold off;
+
+        xlabel('Day');
+        ylabel('(log) Number of bike hires');
+        legend('Estimated median', 'Estimated 2.5% quantile', 'Estimated 97.5% quantile', 'True');
 
 [^1]: H. Fanaee-T & J. Gama (2014). [Event labeling combining ensemble detectors and background knowledge](http://dx.doi.org/10.1007/s13748-013-0040-3). *Progress in Artificial Intelligence*. **2**:113-127.
 
