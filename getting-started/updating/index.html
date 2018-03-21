@@ -3944,11 +3944,23 @@
 make
 make install
 </code></pre>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You may need to use <code>sudo make install</code> for the last line to elevate to root permissions, if you are installing from a user account that does not have permissions for a system-wide install.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>To speed up the build, you can use <code>make -j 8</code> on the second-last line, replacing <code>8</code> with a number of threads to run in parallel.</p>
+</div>
 <p>For <code>Birch.Standard</code> and <code>Birch.Example</code>, or indeed any Birch package, use:</p>
 <pre><code>birch clean
 birch build
 birch install
 </code></pre>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Similarly again, you may need to use <code>sudo birch install</code> for the last line.</p>
+</div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>You may be able to omit <code>make clean</code> and <code>birch clean</code> to speed up the build. This depends on the nature of the updates. Include them to be safe, or omit them unless later steps produce errors.</p>

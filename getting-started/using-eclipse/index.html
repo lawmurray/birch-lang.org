@@ -3996,9 +3996,9 @@
                 
                   <h1>Using Eclipse</h1>
                 
-                <p>A plugin is available for syntax highlighting of Birch code within the <a href="http://www.eclipse.org">Eclipse</a> IDE. Eclipse can also parse the error messages produced by the Birch compiler, enabling quick navigation to problem lines of code. This can help improve workflow.</p>
+                <p>A plugin is available for syntax highlighting of Birch code within <a href="http://www.eclipse.org">Eclipse</a>. Eclipse can also parse the error messages produced by the Birch compiler, enabling quick navigation to problem lines of code. This can help improve workflow.</p>
 <div class="admonition info">
-<p class="admonition-title">Contributions</p>
+<p class="admonition-title">Getting involved</p>
 <p>The development of a project wizard plugin to automate the creation of Birch projects, using the <code>birch init</code> command, would be a welcome addition.</p>
 </div>
 <h2 id="installing-the-plugin">Installing the plugin</h2>
@@ -4010,6 +4010,8 @@
 <p>If the plugin does not appear in the list, uncheck the <em>Group items by category</em> checkbox. (We're working on it.)</p>
 </div>
 <h2 id="creating-projects-in-eclipse">Creating projects in Eclipse</h2>
+<p>Within Eclipse, you can treat Birch projects as if they were C/C++ Makefile Projects, with a few tweaks to the project properties as outlined below.</p>
+<p>You will need the <a href="https://www.eclipse.org/cdt/">Eclipse C/C++ Development Tooling (CDT)</a> for this, not just the Eclipse Java Development Tools (JDT). Often, a default Eclipse installation only installs the latter, so you will need to install the former.</p>
 <p>Once a Birch project has been created from the command line with <code>birch init</code>:</p>
 <ol>
 <li>Import it into Eclipse using <em>File &gt; New &gt; Makefile Project with Existing Code</em>.</li>

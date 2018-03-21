@@ -3999,7 +3999,7 @@
 <li><code>input/</code> for input files,</li>
 <li><code>output/</code> for output files.</li>
 </ul>
-<p>and a number of other meta files in the base directory. The most important of these meta files is <a href="../../documentation/driver/meta_file/"><code>META.json</code></a>, which contains meta information such as a name, version, and description of the project, and a manifest of files. As you add files to the project you should add them to this <a href="../../documentation/driver/meta_file/"><code>META.json</code></a> file. This is particularly importance for <code>*.bi</code> source files in the <code>bi/</code> subdirectory, so that they are included when building.</p>
+<p>and a number of other meta files in the base directory. The most important of these meta files is <a href="../../documentation/driver/meta_file/"><code>META.json</code></a>, which contains meta information such as a name, version, and description of the project, and a manifest of files. As you add files to the project you should add them to this <a href="../../documentation/driver/meta_file/"><code>META.json</code></a> file. This is particularly important for <code>*.bi</code> source files in the <code>bi/</code> subdirectory, so that they are included when building.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Now is a good time to set up version control with this initial set of files. For Git:</p>
@@ -4021,7 +4021,7 @@ git commit -m "Added initial project files."
 <p>To check for possible issues, e.g. files missing from <a href="../../documentation/driver/meta_file/"><code>META.json</code></a> or files listed there that do not exist, use:</p>
 <pre><code>birch check
 </code></pre>
-<p>Not output indicates no issues.</p>
+<p>No output indicates no issues.</p>
 <p>More information on these commands is available in the documentation of the <a href="../../documentation/driver">driver</a> program.</p>
 <h2 id="creating-a-model">Creating a model</h2>
 <p>A model is specified in Birch by creating a class that inherits from <a href="../../documentation/library/classes/Model">Model</a>.</p>

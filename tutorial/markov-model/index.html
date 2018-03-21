@@ -4153,7 +4153,7 @@ class SIRParameter &lt; Model {
 }
 </code></pre>
 </div>
-<p>Recall the typical structure of this class from the <a href="../../tutorial/bayesian-linear-regresssion">Bayesian linear regression</a> example: random variables as member variables, the <code>simulate</code> member fiber, the <code>input</code> and <code>output</code> memner functions.</p>
+<p>Recall the typical structure of this class from the <a href="../../tutorial/bayesian-linear-regresssion">Bayesian linear regression</a> example: random variables as member variables, the <code>simulate</code> member fiber, the <code>input</code> and <code>output</code> member functions.</p>
 <p>The <code>SIRState</code> class must inherit from <a href="../../documentation/library/classes/State">State</a>. The <a href="../../documentation/library/classes/State">State</a> class is very similar to the <a href="../../documentation/library/classes/Model">Model</a> class, but it splits the <code>simulate</code> member fiber into two separate member fibers: one for the initial model, and one for the transition model.</p>
 <div class="admonition example">
 <p class="admonition-title">Exercise</p>
@@ -4245,7 +4245,8 @@ fiber simulate(x:SIRState, θ:SIRParameter) -&gt; Real!;
 <p>We will use a data set of the outbreak of Russian influenza at a boy's boarding school in northern England<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup>.</p>
 <div class="admonition example">
 <p class="admonition-title">Exercise</p>
-<p>Download the data set <a href="../../tutorial/russian_influenza.json">here</a> and place it in your project's <code>input/</code> directory as <code>input/russian_influenza.json</code>. Also add the file to <code>META.json</code> under <code>manifest.data</code>.</p>
+<p>Download the data set <a href="../../tutorial/russian_influenza.json">here</a> and place it in your project's <code>input/</code> directory as <code>input/russian_influenza.json</code>.</p>
+<p>Add the file to <code>META.json</code> under <code>manifest.data</code>.</p>
 </div>
 <p>Have a look at the contents of the file in a text editor. It contains an array of states. The first state sets the values of all state variables, while for subsequent states it sets only <script type="math/tex">i_t</script>, the number of infectious individuals.</p>
 <h2 id="inference">Inference</h2>
@@ -4284,7 +4285,7 @@ fiber simulate(x:SIRState, θ:SIRParameter) -&gt; Real!;
   --method AliveParticleFilter
 </code></pre>
 </div>
-<p>You will probably notice the particle filter stay at checkpoint 13 for longer than the others. This reveals the issue: the observation at checkpoint 13 has low incremental likelihood, and the alive particle filter makes many more proposals before accepting the 100 particles required.</p>
+<p>You will probably notice the particle filter stays at checkpoint 13 for longer than the others. This reveals the issue: the observation at checkpoint 13 has low incremental likelihood, and the alive particle filter makes many more proposals before accepting the 100 particles required.</p>
 <p>More inference methods will be added in future, and will be selectable with the <code>--method</code> option.</p>
 <p>As before, you can inspect the results of the inference in <code>output/russian_influenza.json</code>, and perhaps plot them in a package such as MATLAB, R, or Julia. Be aware that the output here is an <em>importance sample</em>. Each sample is assigned a weight, the logarithm of which is given by the associated <em>weight</em> element in the output file.</p>
 <div class="footnote">

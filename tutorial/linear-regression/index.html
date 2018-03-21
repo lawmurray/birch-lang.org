@@ -4072,7 +4072,7 @@ where <script type="math/tex">\mathrm{Inv\text{-}Gamma}</script> denotes the <a 
 <p>Another option is to copy and paste from a character map.</p>
 </div>
 <div class="admonition info">
-<p class="admonition-title">Contributions</p>
+<p class="admonition-title">Getting involved</p>
 <p>What is the best approach for other operating systems?</p>
 </div>
 <p>Next, we need to establish the joint distribution of these random variables. The <a href="../../documentation/library/classes/Model">Model</a> class has a <a href="../../documentation/language/classes/#member-fibers"><em>member fiber</em></a> called <code>simulate</code> that we override to specify the joint distribution of our model.</p>
@@ -4108,7 +4108,8 @@ where <script type="math/tex">\mathrm{Inv\text{-}Gamma}</script> denotes the <a 
 <p>The data set has been preprocessed to convert categorical variables into multiple indicator variables; e.g. the season, a four-category variable, becomes four indicator variables. These conversions make it reasonable to attempt a linear regression. Each data point represents one day. The observation is of the logarithm of the total number of bike hires on that day.</p>
 <div class="admonition example">
 <p class="admonition-title">Exercise</p>
-<p>Download the data set <a href="../../tutorial/bike_share.json">here</a> and place it in your project's <code>input/</code> directory as <code>input/bike_share.json</code>. Also add the file to <code>META.json</code> under <code>manifest.data</code>.</p>
+<p>Download the data set <a href="../../tutorial/bike_share.json">here</a> and place it in your project's <code>input/</code> directory as <code>input/bike_share.json</code>.</p>
+<p>Add the file to <code>META.json</code> under <code>manifest.data</code>.</p>
 </div>
 <p>The file is in <a href="http://www.json.org">JSON</a> format, which is the current standard file format for input and output in Birch. You can view and edit these files by hand with a text editor, or for larger files, there are packages available for most programming languages that will allow you to write pre- and post-processing scripts for your data. Birch will support more formats in time.</p>
 <div class="admonition tip">
@@ -4116,7 +4117,7 @@ where <script type="math/tex">\mathrm{Inv\text{-}Gamma}</script> denotes the <a 
 <p>In MATLAB, you can use <a href="https://www.mathworks.com/matlabcentral/fileexchange/33381-jsonlab--a-toolbox-to-encode-decode-json-files">JSONlab</a> to read and write JSON files</p>
 </div>
 <div class="admonition info">
-<p class="admonition-title">Contributions</p>
+<p class="admonition-title">Getting involved</p>
 <p>What are appropriate packages for R, Julia, others?</p>
 </div>
 <p>For now, have a look at the contents of the file in a text editor. It contains two variables: a matrix <code>X</code> and a vector <code>y</code>. We need to get these into our model.</p>
@@ -4129,12 +4130,16 @@ where <script type="math/tex">\mathrm{Inv\text{-}Gamma}</script> denotes the <a 
     y &lt;- reader.getRealVector("y")!;
   }
 </code></pre>
+<p>Rebuild:</p>
+<pre><code>birch build
+</code></pre>
 </div>
-<p>This reads the matrix <code>X</code> and the vector <code>y</code> from the input file into the corresponding member variables. The <a href="../../documentation/library/classes/Reader">Reader</a> class provides the interface for easily consuming these. Its member functions return <a href="../../documentation/language/optionals/"><em>optionals</em></a>, as the requested variable may not exist in the file, or may not have the correct type. We are being somewhat lazy with the above code by using the <code>!</code> operator after each call, essentially assuming that the variables do exist.</p>
+<p>This reads from the input file into the variables <code>X</code> and <code>y</code>. The strings <code>"X"</code> and <code>"y"</code> name elements in the input file. The names correspond in this case, although need not in general.</p>
+<p>The <a href="../../documentation/library/classes/Reader">Reader</a> class provides the interface for easily consuming these. Its member functions return <a href="../../documentation/language/optionals/"><em>optionals</em></a>, as the requested variable may not exist in the file, or may not have the correct type. We are being somewhat lazy with the above code by using the <code>!</code> operator after each call, essentially assuming that the variables do exist.</p>
 <p>Optionals are quite common in Birch code. They are useful for handling missing values. A more idiomatic usage is as follows:</p>
 <pre><code>Z:Real[_,_]? &lt;- reader.getRealMatrix("X");
 if (Z?) {
-  X &lt;- Z;
+  X &lt;- Z!;
 }
 </code></pre>
 <p>The <code>?</code> after the type declares an optional variable, the <code>?</code> operator in the <code>if</code> statement condition checks if it has a value, the <code>!</code> operator in the <code>if</code> body retrieves that value, if it exists.</p>
@@ -4150,6 +4155,9 @@ if (Z?) {
     writer.setRealVector("beta", β);
     writer.setReal("sigma2", σ2);
   }
+</code></pre>
+<p>Rebuild:</p>
+<pre><code>birch build
 </code></pre>
 </div>
 <p>We have not used Greek letters in the names of variables that appear in the file. We would like to, but this appears unsupported by some other software (such as MATLAB) when reading in the file.</p>
@@ -4198,6 +4206,10 @@ plot(q(1,:), '-b');
 plot(q(3,:), '-b');
 plot(input.y, 'or');
 hold off;
+
+xlabel('Day');
+ylabel('(log) Number of bike hires');
+legend('Estimated median', 'Estimated 2.5% quantile', 'Estimated 97.5% quantile', 'True');
 </code></pre>
 </div>
 <div class="footnote">
