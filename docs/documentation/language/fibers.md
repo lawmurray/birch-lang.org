@@ -2,15 +2,15 @@ A fiber works similarly to a function, but its execution can be paused and resum
 
 A fiber is declared with:
 
-    fiber f(a:A, b:B) -> C! {
+    fiber f(a:A, b:B) -> C {
       c:C;
       // ...
       yield c;
     }
 
-where `C` is the yield type and `C!` the *fiber type*. The `yield` statement is used to pause execution and yield a value to the caller, analogous to the `return` statement for functions. The fiber terminates when execution reaches the end of the body. When terminating, it does not yield a value. To terminate the execution of a fiber before reaching the end of the body, use an empty `return;` statement.
+where `C` is the yield type. The `yield` statement is used to pause execution and yield a value to the caller, analogous to the `return` statement for functions. The fiber terminates when execution reaches the end of the body. When terminating, it does not yield a value. To terminate the execution of a fiber before reaching the end of the body, use an empty `return;` statement.
 
-When called, a fiber performs no execution except to construct a value of the fiber type and return it. The execution of the fiber is controlled via this value. The usage idiom for controlling fibers is analogous to optionals, except that where an optional has zero or one value, a fiber has zero or more values. The if-statement for optionals is replaced with a while-loop for fibers:
+When called, a fiber performs no execution except to construct a value of its *fiber type* and return it. The fiber type is denoted by the yield type followed by an exclamation mark, e.g. the fiber type of the above fiber is `C!`. The execution of the fiber is controlled via this return value. The usage idiom for this is analogous to optionals, except that where an optional has zero or one value, a fiber has zero or more values. The if-statement for optionals is replaced with a while-loop for fibers:
 
     c:C! <- f(a, b);
     while (c?) {
@@ -24,7 +24,7 @@ It is not necessary for the caller to run the fiber to termination. Likewise, it
 !!! info
     Consider the following code:
 
-        fiber iota() -> Integer! {
+        fiber iota() -> Integer {
           n:Integer <- 0;
           while (true) {
           n <- n + 1;

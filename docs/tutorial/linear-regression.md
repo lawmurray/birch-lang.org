@@ -75,7 +75,7 @@ A [*fiber*](/documentation/language/fibers/) is a particular language construct 
 !!! example "Exercise"
     Enter the following between the curly braces of the `LinearRegressionModel` class:
 
-          fiber simulate() -> Real! {
+          fiber simulate() -> Real {
             N:Integer <- rows(X);
             P:Integer <- columns(X);
             if (N > 0 && P > 0) {

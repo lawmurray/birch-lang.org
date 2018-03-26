@@ -54,7 +54,8 @@ As well as easing implementation, the other advantage of [MarkovModel](/document
 
 [MarkovModel](/documentation/library/classes/MarkovModel) is a *generic* class. It takes the name of two other classes between the angle brackets&mdash;in this case `SIRState` and `SIRParameter`&mdash;which it uses internally. We will create these classes below. Otherwise, this code is just establishing the name `SIRModel` as an alias for `MarkovModel<SIRState,SIRParameter>`: two names for the same type.
 
-We will start with the `SIRParameter` class. This is the parameter model. It must itself inherit from the `Model` class.
+We will start with the `SIRParameter` class. This is the parameter model. It must inherit from [Parameter](/documentation/library/classes/Parameter). The [Parameter](/documentation/library/classes/Parameter) class is very similar to the [Model](/documentation/library/classes/Model) class, but it provides a `parameter` member fiber that must be overriden to define the parameter model.
+
 
 !!! example "Exercise"
     Create a file `bi/SIRParameter.bi`, add it to `META.json`, and enter the following:
@@ -62,7 +63,7 @@ We will start with the `SIRParameter` class. This is the parameter model. It mus
         /**
          * SIR model parameters.
          */
-        class SIRParameter < Model {
+        class SIRParameter < Parameter {
           /**
            * Interaction rate.
            */
@@ -78,7 +79,7 @@ We will start with the `SIRParameter` class. This is the parameter model. It mus
            */
           γ:Random<Real>;
 
-          fiber simulate() -> Real! {
+          fiber parameter() -> Real {
             λ <- 10.0;
             δ ~ Beta(2.0, 2.0);
             γ ~ Beta(2.0, 2.0);
@@ -99,7 +100,7 @@ We will start with the `SIRParameter` class. This is the parameter model. It mus
 
 Recall the typical structure of this class from the [Bayesian linear regression](/tutorial/bayesian-linear-regresssion) example: random variables as member variables, the `simulate` member fiber, the `input` and `output` member functions.
 
-The `SIRState` class must inherit from [State](/documentation/library/classes/State). The [State](/documentation/library/classes/State) class is very similar to the [Model](/documentation/library/classes/Model) class, but it splits the `simulate` member fiber into two separate member fibers: one for the initial model, and one for the transition model.
+The `SIRState` class must inherit from [State](/documentation/library/classes/State). The [State](/documentation/library/classes/State) class is very similar to the [Model](/documentation/library/classes/Model) class, but it provides two separate member fibers `initial` and `transition` that must be overridden to define the initial and transition models, respectively.
 
 !!! example "Exercise"
     Create a file `bi/SIRState.bi`, add it to `META.json`, and enter the following:
@@ -138,11 +139,11 @@ The `SIRState` class must inherit from [State](/documentation/library/classes/St
            */
           r:Random<Integer>;
 
-          fiber simulate(θ:SIRParameter) -> Real! {
+          fiber initial(θ:SIRParameter) -> Real {
             //
           }
 
-          fiber simulate(x:SIRState, θ:SIRParameter) -> Real! {
+          fiber transition(x:SIRState, θ:SIRParameter) -> Real {
             τ ~ Binomial(x.s, 1.0 - exp(-θ.λ*x.i/(x.s + x.i + x.r)));
             Δi ~ Binomial(τ, θ.δ);
             Δr ~ Binomial(x.i, θ.γ);
@@ -169,12 +170,12 @@ The `SIRState` class must inherit from [State](/documentation/library/classes/St
           }
         }
 
-There are two different `simulate` fibers in the above code:
+Notice the two member fibers in the above code:
 
-    fiber simulate(θ:SIRParameter) -> Real!;
-    fiber simulate(x:SIRState, θ:SIRParameter) -> Real!;
+    fiber initial(θ:SIRParameter) -> Real;
+    fiber transition(x:SIRState, θ:SIRParameter) -> Real;
 
-As suggested by their parameters:
+As suggested by their names and parameters:
 
   * the first is for the initial model, providing the parameters as the `θ` argument,
   * the second is for the transition model, providing both the previous state as the `x` argument and the parameters as the `θ` argument.

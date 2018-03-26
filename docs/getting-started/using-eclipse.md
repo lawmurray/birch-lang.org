@@ -20,7 +20,7 @@ Select the plugin from the list and follow the prompts from there. The plugin sh
 
 Within Eclipse, you can treat Birch projects as if they were C/C++ Makefile Projects, with a few tweaks to the project properties as outlined below.
 
-You will need the [Eclipse C/C++ Development Tooling (CDT)](https://www.eclipse.org/cdt/) for this, not just the Eclipse Java Development Tools (JDT). Often, a default Eclipse installation only installs the latter, so you will need to install the former.
+You will need the [Eclipse C/C++ Development Tooling (CDT)](https://www.eclipse.org/cdt/) for this, not just the Eclipse Java Development Tools (JDT). Often, a default Eclipse installation only installs the latter, so you may need to install the former.
 
 Once a Birch project has been created from the command line with `birch init`:
 
