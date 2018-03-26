@@ -3406,6 +3406,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../library/classes/Parameter/" title="Parameter" class="md-nav__link">
+      Parameter
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../library/classes/ParticleFilter/" title="ParticleFilter" class="md-nav__link">
       ParticleFilter
     </a>
@@ -3912,14 +3924,14 @@
                 
                 <p>A fiber works similarly to a function, but its execution can be paused and resumed. Where a function, when called, executes to completion and may <em>return</em> a value to the caller, a fiber, when resumed, executes to its next pause point, and may <em>yield</em> a value to the caller. The caller can then proceed with some other computation, and later resume the fiber again, at which point it will execute to its next yield point. The state of a fiber is maintained between the pause and resume, so that it always resumes execution from where it last paused.</p>
 <p>A fiber is declared with:</p>
-<pre><code>fiber f(a:A, b:B) -&gt; C! {
+<pre><code>fiber f(a:A, b:B) -&gt; C {
   c:C;
   // ...
   yield c;
 }
 </code></pre>
-<p>where <code>C</code> is the yield type and <code>C!</code> the <em>fiber type</em>. The <code>yield</code> statement is used to pause execution and yield a value to the caller, analogous to the <code>return</code> statement for functions. The fiber terminates when execution reaches the end of the body. When terminating, it does not yield a value. To terminate the execution of a fiber before reaching the end of the body, use an empty <code>return;</code> statement.</p>
-<p>When called, a fiber performs no execution except to construct a value of the fiber type and return it. The execution of the fiber is controlled via this value. The usage idiom for controlling fibers is analogous to optionals, except that where an optional has zero or one value, a fiber has zero or more values. The if-statement for optionals is replaced with a while-loop for fibers:</p>
+<p>where <code>C</code> is the yield type. The <code>yield</code> statement is used to pause execution and yield a value to the caller, analogous to the <code>return</code> statement for functions. The fiber terminates when execution reaches the end of the body. When terminating, it does not yield a value. To terminate the execution of a fiber before reaching the end of the body, use an empty <code>return;</code> statement.</p>
+<p>When called, a fiber performs no execution except to construct a value of its <em>fiber type</em> and return it. The fiber type is denoted by the yield type followed by an exclamation mark, e.g. the fiber type of the above fiber is <code>C!</code>. The execution of the fiber is controlled via this return value. The usage idiom for this is analogous to optionals, except that where an optional has zero or one value, a fiber has zero or more values. The if-statement for optionals is replaced with a while-loop for fibers:</p>
 <pre><code>c:C! &lt;- f(a, b);
 while (c?) {
   g(c!);  // do something with the yield value
@@ -3930,7 +3942,7 @@ while (c?) {
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>Consider the following code:</p>
-<pre><code>fiber iota() -&gt; Integer! {
+<pre><code>fiber iota() -&gt; Integer {
   n:Integer &lt;- 0;
   while (true) {
   n &lt;- n + 1;

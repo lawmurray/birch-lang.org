@@ -3483,6 +3483,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../documentation/library/classes/Parameter/" title="Parameter" class="md-nav__link">
+      Parameter
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../documentation/library/classes/ParticleFilter/" title="ParticleFilter" class="md-nav__link">
       ParticleFilter
     </a>
@@ -4110,14 +4122,14 @@ class SIRModel = MarkovModel&lt;SIRState,SIRParameter&gt;;
 </code></pre>
 </div>
 <p><a href="../../documentation/library/classes/MarkovModel">MarkovModel</a> is a <em>generic</em> class. It takes the name of two other classes between the angle brackets&mdash;in this case <code>SIRState</code> and <code>SIRParameter</code>&mdash;which it uses internally. We will create these classes below. Otherwise, this code is just establishing the name <code>SIRModel</code> as an alias for <code>MarkovModel&lt;SIRState,SIRParameter&gt;</code>: two names for the same type.</p>
-<p>We will start with the <code>SIRParameter</code> class. This is the parameter model. It must itself inherit from the <code>Model</code> class.</p>
+<p>We will start with the <code>SIRParameter</code> class. This is the parameter model. It must inherit from <a href="../../documentation/library/classes/Parameter">Parameter</a>. The <a href="../../documentation/library/classes/Parameter">Parameter</a> class is very similar to the <a href="../../documentation/library/classes/Model">Model</a> class, but it provides a <code>parameter</code> member fiber that must be overriden to define the parameter model.</p>
 <div class="admonition example">
 <p class="admonition-title">Exercise</p>
 <p>Create a file <code>bi/SIRParameter.bi</code>, add it to <code>META.json</code>, and enter the following:</p>
 <pre><code>/**
  * SIR model parameters.
  */
-class SIRParameter &lt; Model {
+class SIRParameter &lt; Parameter {
   /**
    * Interaction rate.
    */
@@ -4133,7 +4145,7 @@ class SIRParameter &lt; Model {
    */
   γ:Random&lt;Real&gt;;
 
-  fiber simulate() -&gt; Real! {
+  fiber parameter() -&gt; Real {
     λ &lt;- 10.0;
     δ ~ Beta(2.0, 2.0);
     γ ~ Beta(2.0, 2.0);
@@ -4154,7 +4166,7 @@ class SIRParameter &lt; Model {
 </code></pre>
 </div>
 <p>Recall the typical structure of this class from the <a href="../../tutorial/bayesian-linear-regresssion">Bayesian linear regression</a> example: random variables as member variables, the <code>simulate</code> member fiber, the <code>input</code> and <code>output</code> member functions.</p>
-<p>The <code>SIRState</code> class must inherit from <a href="../../documentation/library/classes/State">State</a>. The <a href="../../documentation/library/classes/State">State</a> class is very similar to the <a href="../../documentation/library/classes/Model">Model</a> class, but it splits the <code>simulate</code> member fiber into two separate member fibers: one for the initial model, and one for the transition model.</p>
+<p>The <code>SIRState</code> class must inherit from <a href="../../documentation/library/classes/State">State</a>. The <a href="../../documentation/library/classes/State">State</a> class is very similar to the <a href="../../documentation/library/classes/Model">Model</a> class, but it provides two separate member fibers <code>initial</code> and <code>transition</code> that must be overridden to define the initial and transition models, respectively.</p>
 <div class="admonition example">
 <p class="admonition-title">Exercise</p>
 <p>Create a file <code>bi/SIRState.bi</code>, add it to <code>META.json</code>, and enter the following:</p>
@@ -4192,11 +4204,11 @@ class SIRState &lt; State {
    */
   r:Random&lt;Integer&gt;;
 
-  fiber simulate(θ:SIRParameter) -&gt; Real! {
+  fiber initial(θ:SIRParameter) -&gt; Real {
     //
   }
 
-  fiber simulate(x:SIRState, θ:SIRParameter) -&gt; Real! {
+  fiber transition(x:SIRState, θ:SIRParameter) -&gt; Real {
     τ ~ Binomial(x.s, 1.0 - exp(-θ.λ*x.i/(x.s + x.i + x.r)));
     Δi ~ Binomial(τ, θ.δ);
     Δr ~ Binomial(x.i, θ.γ);
@@ -4224,11 +4236,11 @@ class SIRState &lt; State {
 }
 </code></pre>
 </div>
-<p>There are two different <code>simulate</code> fibers in the above code:</p>
-<pre><code>fiber simulate(θ:SIRParameter) -&gt; Real!;
-fiber simulate(x:SIRState, θ:SIRParameter) -&gt; Real!;
+<p>Notice the two member fibers in the above code:</p>
+<pre><code>fiber initial(θ:SIRParameter) -&gt; Real;
+fiber transition(x:SIRState, θ:SIRParameter) -&gt; Real;
 </code></pre>
-<p>As suggested by their parameters:</p>
+<p>As suggested by their names and parameters:</p>
 <ul>
 <li>the first is for the initial model, providing the parameters as the <code>θ</code> argument,</li>
 <li>the second is for the transition model, providing both the previous state as the <code>x</code> argument and the parameters as the <code>θ</code> argument.</li>

@@ -3405,6 +3405,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../Parameter/" title="Parameter" class="md-nav__link">
+      Parameter
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../ParticleFilter/" title="ParticleFilter" class="md-nav__link">
       ParticleFilter
     </a>
@@ -3561,8 +3573,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#simulate" title="simulate" class="md-nav__link">
-    simulate
+  <a href="#initial" title="initial" class="md-nav__link">
+    initial
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transition" title="transition" class="md-nav__link">
+    transition
   </a>
   
 </li>
@@ -4050,8 +4069,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#simulate" title="simulate" class="md-nav__link">
-    simulate
+  <a href="#initial" title="initial" class="md-nav__link">
+    initial
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transition" title="transition" class="md-nav__link">
+    transition
   </a>
   
 </li>
@@ -4096,11 +4122,11 @@
 <tbody>
 <tr>
 <td><a href="#input">input</a></td>
-<td>Input to the state.</td>
+<td>Input.</td>
 </tr>
 <tr>
 <td><a href="#output">output</a></td>
-<td>Output from the state.</td>
+<td>Output.</td>
 </tr>
 </tbody>
 </table>
@@ -4114,12 +4140,12 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="#simulate">simulate</a></td>
-<td>Simulate initial state.</td>
+<td><a href="#initial">initial</a></td>
+<td>Initial model.</td>
 </tr>
 <tr>
-<td><a href="#simulate">simulate</a></td>
-<td>Simulate transition from previous state.</td>
+<td><a href="#transition">transition</a></td>
+<td>Transition model.</td>
 </tr>
 </tbody>
 </table>
@@ -4128,27 +4154,29 @@
 <p><a name="input"></a></p>
 <div class="admonition quote">
 <p class="admonition-title">function input(reader:<a href="../Reader/">Reader</a>)</p>
-<p>Input to the state.</p>
+<p>Input.</p>
 </div>
 <h4 id="output">output</h4>
 <p><a name="output"></a></p>
 <div class="admonition quote">
 <p class="admonition-title">function output(writer:<a href="../Writer/">Writer</a>)</p>
-<p>Output from the state.</p>
+<p>Output.</p>
 </div>
 <h3 id="member-fiber-details">Member Fiber Details</h3>
-<h4 id="simulate">simulate</h4>
-<p><a name="simulate"></a></p>
+<h4 id="initial">initial</h4>
+<p><a name="initial"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">fiber simulate(θ:<a href="../Model/">Model</a>) -&gt; <a href="../../types/#Real">Real</a>!</p>
-<p>Simulate initial state.</p>
+<p class="admonition-title">fiber initial(θ:<a href="../Parameter/">Parameter</a>) -&gt; <a href="../../types/#Real">Real</a>!</p>
+<p>Initial model.</p>
 <ul>
 <li>θ: Parameter.</li>
 </ul>
 </div>
+<h4 id="transition">transition</h4>
+<p><a name="transition"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">fiber simulate(x:<a href="./">State</a>, θ:<a href="../Model/">Model</a>) -&gt; <a href="../../types/#Real">Real</a>!</p>
-<p>Simulate transition from previous state.</p>
+<p class="admonition-title">fiber transition(x:<a href="./">State</a>, θ:<a href="../Parameter/">Parameter</a>) -&gt; <a href="../../types/#Real">Real</a>!</p>
+<p>Transition model.</p>
 <ul>
 <li>x: Previous state.</li>
 <li>θ: Parameter.</li>
