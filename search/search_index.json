@@ -526,6 +526,81 @@
             "title": "beta"
         }, 
         {
+            "location": "/documentation/library/functions/cdf_beta/", 
+            "text": "function cdf_beta(x:\nReal\n, \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nCDF of a beta variate.\n\n\n\n\nx: The variate.\n\n\n\u03b1: Shape.\n\n\n\u03b2: Shape.\n\n\n\n\nReturns: the cumulative probability.", 
+            "title": "cdf_beta"
+        }, 
+        {
+            "location": "/documentation/library/functions/cdf_beta_binomial/", 
+            "text": "function cdf_beta_binomial(x:\nInteger\n, n:\nInteger\n, \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nCDF of a beta-binomial variate.\n\n\n\n\nx: The variate.\n\n\nn: Number of trials.\n\n\n\u03b1: Shape.\n\n\n\u03b2: Shape.\n\n\n\n\nReturns: the cumulative probability.", 
+            "title": "cdf_beta_binomial"
+        }, 
+        {
+            "location": "/documentation/library/functions/cdf_binomial/", 
+            "text": "function cdf_binomial(x:\nInteger\n, n:\nInteger\n, \u03c1:\nReal\n) -\n \nReal\n\n\nCDF of a binomial variate.\n\n\n\n\nx: The variate.\n\n\nn: Number of trials.\n\n\n\u03c1: Probability of a true result.\n\n\n\n\nReturns: the cumulative probability.", 
+            "title": "cdf_binomial"
+        }, 
+        {
+            "location": "/documentation/library/functions/cdf_exponential/", 
+            "text": "function cdf_exponential(x:\nReal\n, \u03bb:\nReal\n) -\n \nReal\n\n\nCDF of an exponential variate.\n\n\n\n\nx: The variate.\n\n\n\u03bb: Rate.\n\n\n\n\nReturns: the cumulative probability.", 
+            "title": "cdf_exponential"
+        }, 
+        {
+            "location": "/documentation/library/functions/cdf_gamma/", 
+            "text": "function cdf_gamma(x:\nReal\n, k:\nReal\n, \u03b8:\nReal\n) -\n \nReal\n\n\nCDF of a gamma variate.\n\n\n\n\nx: The variate.\n\n\nk: Shape.\n\n\n\u03b8: Scale.\n\n\n\n\nReturns: the cumulative probability.", 
+            "title": "cdf_gamma"
+        }, 
+        {
+            "location": "/documentation/library/functions/cdf_gamma_poisson/", 
+            "text": "function cdf_gamma_poisson(x:\nInteger\n, k:\nInteger\n, \u03b8:\nReal\n) -\n \nReal\n\n\nCDF of a gamma-Poisson variate.\n\n\n\n\nx: The variate.\n\n\nk: Shape.\n\n\n\u03b8: Scale.\n\n\n\n\nReturns: the cumulative probability.", 
+            "title": "cdf_gamma_poisson"
+        }, 
+        {
+            "location": "/documentation/library/functions/cdf_gaussian/", 
+            "text": "function cdf_gaussian(x:\nReal\n, \u03bc:\nReal\n, \u03c32:\nReal\n) -\n \nReal\n\n\nCDF of a Gaussian variate.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Mean.\n\n\n\u03c32: Variance.\n\n\n\n\nReturns: the cumulative probability.", 
+            "title": "cdf_gaussian"
+        }, 
+        {
+            "location": "/documentation/library/functions/cdf_inverse_gamma/", 
+            "text": "function cdf_inverse_gamma(x:\nReal\n, \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nCDF of an inverse-gamma variate.\n\n\n\n\nx: The variate.\n\n\n\u03b1: Shape.\n\n\n\u03b2: Scale.\n\n\n\n\nReturns: the cumulative probability.", 
+            "title": "cdf_inverse_gamma"
+        }, 
+        {
+            "location": "/documentation/library/functions/cdf_log_gaussian/", 
+            "text": "function cdf_log_gaussian(x:\nReal\n, \u03bc:\nReal\n, \u03c32:\nReal\n) -\n \nReal\n\n\nCDF of a log-Gaussian variate.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Mean.\n\n\n\u03c32: Variance.\n\n\n\n\nReturns: the cumulative probability.", 
+            "title": "cdf_log_gaussian"
+        }, 
+        {
+            "location": "/documentation/library/functions/cdf_negative_binomial/", 
+            "text": "function cdf_negative_binomial(x:\nInteger\n, k:\nInteger\n, \u03c1:\nReal\n) -\n \nReal\n\n\nCDF of a negative binomial variate.\n\n\n\n\nx: The variate (number of failures).\n\n\nk: Number of successes before the experiment is stopped.\n\n\n\u03c1: Probability of success.\n\n\n\n\nReturns: the cumulative probability.", 
+            "title": "cdf_negative_binomial"
+        }, 
+        {
+            "location": "/documentation/library/functions/cdf_normal_inverse_gamma/", 
+            "text": "function cdf_normal_inverse_gamma(x:\nReal\n, \u03bc:\nReal\n, a2:\nReal\n, \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nCDF of a normal inverse-gamma variate.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Mean.\n\n\na2: Variance.\n\n\n\u03b1: Shape of inverse-gamma on scale.\n\n\n\u03b2: Scale of inverse-gamma on scale.\n\n\n\n\nReturns: the cumulative probability.", 
+            "title": "cdf_normal_inverse_gamma"
+        }, 
+        {
+            "location": "/documentation/library/functions/cdf_normal_inverse_gamma_gaussian/", 
+            "text": "function cdf_normal_inverse_gamma_gaussian(x:\nReal\n, \u03bc:\nReal\n, a2:\nReal\n, \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nCDF of a Gaussian variate with a normal inverse-gamma prior.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Mean.\n\n\na2: Variance.\n\n\n\u03b1: Shape of the inverse-gamma.\n\n\n\u03b2: Scale of the inverse-gamma.\n\n\n\n\nReturns: the cumulative probability.", 
+            "title": "cdf_normal_inverse_gamma_gaussian"
+        }, 
+        {
+            "location": "/documentation/library/functions/cdf_poisson/", 
+            "text": "function cdf_poisson(x:\nInteger\n, \u03bb:\nReal\n) -\n \nReal\n\n\nCDF of a Poisson variate.\n\n\n\n\nx: The variate.\n\n\n\u03bb: Rate.\n\n\n\n\nReturns: the cumulative probability.", 
+            "title": "cdf_poisson"
+        }, 
+        {
+            "location": "/documentation/library/functions/cdf_student_t/", 
+            "text": "function cdf_student_t(x:\nReal\n, \u03bd:\nReal\n) -\n \nReal\n\n\nCDF of a Student's \nt\n variate.\n\n\n\n\nx: The variate.\n\n\n\u03bd: Degrees of freedom.\n\n\n\n\nReturns: the cumulative probability.\n\n\n\n\n\n\nfunction cdf_student_t(x:\nReal\n, \u03bd:\nReal\n, \u03bc:\nReal\n, \u03c32:\nReal\n) -\n \nReal\n\n\nCDF of a Student's \nt\n variate with location and scale.\n\n\n\n\nx: The variate.\n\n\n\u03bd: Degrees of freedom.\n\n\n\u03bc: Location.\n\n\n\u03c32: Squared scale.\n\n\n\n\nReturns: the cumulative probability.", 
+            "title": "cdf_student_t"
+        }, 
+        {
+            "location": "/documentation/library/functions/cdf_uniform/", 
+            "text": "function cdf_uniform(x:\nReal\n, l:\nReal\n, u:\nReal\n) -\n \nReal\n\n\nCDF of a uniform variate.\n\n\n\n\nx: The variate.\n\n\nl: Lower bound of interval.\n\n\nu: Upper bound of interval.\n\n\n\n\nReturns: the cumulative probability.", 
+            "title": "cdf_uniform"
+        }, 
+        {
             "location": "/documentation/library/functions/ceil/", 
             "text": "function ceil(x:\nReal64\n) -\n \nReal64\n\n\nRound to smallest integer value not less than x.\n\n\n\n\n\n\nfunction ceil(x:\nReal32\n) -\n \nReal32\n\n\nRound to smallest integer value not less than x.", 
             "title": "ceil"
@@ -806,6 +881,11 @@
             "title": "observe_gamma"
         }, 
         {
+            "location": "/documentation/library/functions/observe_gamma_poisson/", 
+            "text": "function observe_gamma_poisson(x:\nInteger\n, k:\nInteger\n, \u03b8:\nReal\n) -\n \nReal\n\n\nObserve a gamma-Poisson variate.\n\n\n\n\nx: The variate.\n\n\nk: Shape.\n\n\n\u03b8: Scale.\n\n\n\n\nReturns: the log probability mass.", 
+            "title": "observe_gamma_poisson"
+        }, 
+        {
             "location": "/documentation/library/functions/observe_gaussian/", 
             "text": "function observe_gaussian(x:\nReal\n, \u03bc:\nReal\n, \u03c32:\nReal\n) -\n \nReal\n\n\nObserve a Gaussian variate.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Mean.\n\n\n\u03c32: Variance.\n\n\n\n\nReturns: the log probability density.", 
             "title": "observe_gaussian"
@@ -842,7 +922,7 @@
         }, 
         {
             "location": "/documentation/library/functions/observe_multivariate_gaussian/", 
-            "text": "function observe_multivariate_gaussian(x:\nReal\n[_], \u03bc:\nReal\n[_], \u03a3:\nReal\n[_,_]) -\n \nReal\n\n\nObserve a multivariate Gaussian variate.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Mean.\n\n\n\u03a3: Covariance.\n\n\n\n\nReturns: the log probability density.\n\n\n\n\n\n\nfunction observe_multivariate_gaussian(x:\nReal\n[_], \u03bc:\nReal\n[_], \u03c32:\nReal\n) -\n \nReal\n\n\nSimulate a multivariate Gaussian distribution with diagonal covariance.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Mean.\n\n\n\u03c32: Variance.\n\n\n\n\nReturns: the log probability density.", 
+            "text": "function observe_multivariate_gaussian(x:\nReal\n[_], \u03bc:\nReal\n[_], \u03a3:\nReal\n[_,_]) -\n \nReal\n\n\nObserve a multivariate Gaussian variate.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Mean.\n\n\n\u03a3: Covariance.\n\n\n\n\nReturns: the log probability density.\n\n\n\n\n\n\nfunction observe_multivariate_gaussian(x:\nReal\n[_], \u03bc:\nReal\n[_], \u03c32:\nReal\n) -\n \nReal\n\n\nObserve a multivariate Gaussian distribution with diagonal covariance.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Mean.\n\n\n\u03c32: Variance.\n\n\n\n\nReturns: the log probability density.", 
             "title": "observe_multivariate_gaussian"
         }, 
         {
@@ -896,9 +976,169 @@
             "title": "observe_uniform"
         }, 
         {
+            "location": "/documentation/library/functions/pdf_affine_normal_inverse_gamma_gaussian/", 
+            "text": "function pdf_affine_normal_inverse_gamma_gaussian(x:\nReal\n, a:\nReal\n, \u03bc:\nReal\n, c:\nReal\n, a2:\nReal\n, \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nPDF of a Gaussian variate with a normal inverse-gamma prior with affine\ntransformation.\n\n\n\n\nx: The variate.\n\n\na: Scale.\n\n\n\u03bc: Mean.\n\n\nc: Offset.\n\n\na2: Variance.\n\n\n\u03b1: Shape of the inverse-gamma.\n\n\n\u03b2: Scale of the inverse-gamma.\n\n\n\n\nReturns: the probability density.", 
+            "title": "pdf_affine_normal_inverse_gamma_gaussian"
+        }, 
+        {
+            "location": "/documentation/library/functions/pdf_beta/", 
+            "text": "function pdf_beta(x:\nReal\n, \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nPDF of a beta variate.\n\n\n\n\nx: The variate.\n\n\n\u03b1: Shape.\n\n\n\u03b2: Shape.\n\n\n\n\nReturns: the probability density.", 
+            "title": "pdf_beta"
+        }, 
+        {
+            "location": "/documentation/library/functions/pdf_exponential/", 
+            "text": "function pdf_exponential(x:\nReal\n, \u03bb:\nReal\n) -\n \nReal\n\n\nPDF of an exponential variate.\n\n\n\n\nx: The variate.\n\n\n\u03bb: Rate.\n\n\n\n\nReturns: the probability density.", 
+            "title": "pdf_exponential"
+        }, 
+        {
+            "location": "/documentation/library/functions/pdf_gamma/", 
+            "text": "function pdf_gamma(x:\nReal\n, k:\nReal\n, \u03b8:\nReal\n) -\n \nReal\n\n\nPDF of a gamma variate.\n\n\n\n\nx: The variate.\n\n\nk: Shape.\n\n\n\u03b8: Scale.\n\n\n\n\nReturns: the probability density.", 
+            "title": "pdf_gamma"
+        }, 
+        {
+            "location": "/documentation/library/functions/pdf_gaussian/", 
+            "text": "function pdf_gaussian(x:\nReal\n, \u03bc:\nReal\n, \u03c32:\nReal\n) -\n \nReal\n\n\nPDF of a Gaussian variate.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Mean.\n\n\n\u03c32: Variance.\n\n\n\n\nReturns: the probability density.", 
+            "title": "pdf_gaussian"
+        }, 
+        {
+            "location": "/documentation/library/functions/pdf_inverse_gamma/", 
+            "text": "function pdf_inverse_gamma(x:\nReal\n, \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nPDF of an inverse-gamma variate.\n\n\n\n\nx: The variate.\n\n\n\u03b1: Shape.\n\n\n\u03b2: Scale.\n\n\n\n\nReturns: the probability density.", 
+            "title": "pdf_inverse_gamma"
+        }, 
+        {
+            "location": "/documentation/library/functions/pdf_inverse_gamma_gaussian/", 
+            "text": "function pdf_inverse_gamma_gaussian(x:\nReal\n, \u03bc:\nReal\n, \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nPDF of a Gaussian variate with an inverse-gamma distribution over\nthe variance.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Mean.\n\n\n\u03b1: Shape of the inverse-gamma.\n\n\n\u03b2: Scale of the inverse-gamma.\n\n\n\n\nReturns: the probability density.", 
+            "title": "pdf_inverse_gamma_gaussian"
+        }, 
+        {
+            "location": "/documentation/library/functions/pdf_log_gaussian/", 
+            "text": "function pdf_log_gaussian(x:\nReal\n, \u03bc:\nReal\n, \u03c32:\nReal\n) -\n \nReal\n\n\nPDF of a log-Gaussian variate.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Mean.\n\n\n\u03c32: Variance.\n\n\n\n\nReturns: the probability density.", 
+            "title": "pdf_log_gaussian"
+        }, 
+        {
+            "location": "/documentation/library/functions/pdf_multivariate_affine_normal_inverse_gamma_gaussian/", 
+            "text": "function pdf_multivariate_affine_normal_inverse_gamma_gaussian(x:\nReal\n[_], A:\nReal\n[_,_], \u03bc:\nReal\n[_], c:\nReal\n[_], \u039b:\nReal\n[_,_], \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nPDF of a multivariate Gaussian variate with a multivariate normal\ninverse-gamma prior with affine transformation.\n\n\n\n\nx: The variate.\n\n\nA: Scale.\n\n\n\u03bc: Mean.\n\n\nc: Offset.\n\n\n\u039b: Precision.\n\n\n\u03b1: Shape of the inverse-gamma.\n\n\n\u03b2: Scale of the inverse-gamma.\n\n\n\n\nReturns: the probability density.", 
+            "title": "pdf_multivariate_affine_normal_inverse_gamma_gaussian"
+        }, 
+        {
+            "location": "/documentation/library/functions/pdf_multivariate_gaussian/", 
+            "text": "function pdf_multivariate_gaussian(x:\nReal\n[_], \u03bc:\nReal\n[_], \u03a3:\nReal\n[_,_]) -\n \nReal\n\n\nPDF of a multivariate Gaussian variate.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Mean.\n\n\n\u03a3: Covariance.\n\n\n\n\nReturns: the probability density.\n\n\n\n\n\n\nfunction pdf_multivariate_gaussian(x:\nReal\n[_], \u03bc:\nReal\n[_], \u03c32:\nReal\n) -\n \nReal\n\n\nPDF of a multivariate Gaussian distribution with diagonal covariance.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Mean.\n\n\n\u03c32: Variance.\n\n\n\n\nReturns: the probability density.", 
+            "title": "pdf_multivariate_gaussian"
+        }, 
+        {
+            "location": "/documentation/library/functions/pdf_multivariate_inverse_gamma_gaussian/", 
+            "text": "function pdf_multivariate_inverse_gamma_gaussian(x:\nReal\n[_], \u03bc:\nReal\n[_], \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nPDF of a multivariate Gaussian variate with an inverse-gamma distribution\nover a diagonal covariance.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Mean.\n\n\n\u03b1: Shape of the inverse-gamma.\n\n\n\u03b2: Scale of the inverse-gamma.\n\n\n\n\nReturns: the probability density.", 
+            "title": "pdf_multivariate_inverse_gamma_gaussian"
+        }, 
+        {
+            "location": "/documentation/library/functions/pdf_multivariate_normal_inverse_gamma/", 
+            "text": "function pdf_multivariate_normal_inverse_gamma(x:\nReal\n[_], \u03bc:\nReal\n[_], \u039b:\nReal\n[_,_], \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nPDF of a multivariate normal inverse-gamma variate.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Mean.\n\n\n\u039b: Precision.\n\n\n\u03b1: Shape of inverse-gamma on scale.\n\n\n\u03b2: Scale of inverse-gamma on scale.\n\n\n\n\nReturns: the probability density.", 
+            "title": "pdf_multivariate_normal_inverse_gamma"
+        }, 
+        {
+            "location": "/documentation/library/functions/pdf_multivariate_normal_inverse_gamma_gaussian/", 
+            "text": "function pdf_multivariate_normal_inverse_gamma_gaussian(x:\nReal\n[_], \u03bc:\nReal\n[_], \u039b:\nReal\n[_,_], \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nPDF of a multivariate Gaussian variate with a multivariate normal\ninverse-gamma prior.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Mean.\n\n\n\u039b: Precision.\n\n\n\u03b1: Shape of the inverse-gamma.\n\n\n\u03b2: Scale of the inverse-gamma.\n\n\n\n\nReturns: the probability density.", 
+            "title": "pdf_multivariate_normal_inverse_gamma_gaussian"
+        }, 
+        {
+            "location": "/documentation/library/functions/pdf_multivariate_student_t/", 
+            "text": "function pdf_multivariate_student_t(x:\nReal\n[_], \u03bd:\nReal\n, \u03bc:\nReal\n[_], \u039b:\nReal\n[_,_]) -\n \nReal\n\n\nPDF of a multivariate Student's \nt\n-distribution variate with location\nand scale.\n\n\n\n\nx: The variate.\n\n\n\u03bd: Degrees of freedom.\n\n\n\u03bc: Location.\n\n\n\u039b: Precision.\n\n\n\n\nReturns: the probability density.\n\n\n\n\n\n\nfunction pdf_multivariate_student_t(x:\nReal\n[_], \u03bd:\nReal\n, \u03bc:\nReal\n[_], \u03bb:\nReal\n) -\n \nReal\n\n\nPDF of a multivariate Student's \nt\n-distribution variate with location\nand diagonal scale.\n\n\n\n\nx: The variate.\n\n\n\u03bd: Degrees of freedom.\n\n\n\u03bc: Location.\n\n\n\u03bb: Precision.\n\n\n\n\nReturns: the probability density.", 
+            "title": "pdf_multivariate_student_t"
+        }, 
+        {
+            "location": "/documentation/library/functions/pdf_normal_inverse_gamma/", 
+            "text": "function pdf_normal_inverse_gamma(x:\nReal\n, \u03bc:\nReal\n, a2:\nReal\n, \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nPDF of a normal inverse-gamma variate.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Mean.\n\n\na2: Variance.\n\n\n\u03b1: Shape of inverse-gamma on scale.\n\n\n\u03b2: Scale of inverse-gamma on scale.\n\n\n\n\nReturns: the probability density.", 
+            "title": "pdf_normal_inverse_gamma"
+        }, 
+        {
+            "location": "/documentation/library/functions/pdf_normal_inverse_gamma_gaussian/", 
+            "text": "function pdf_normal_inverse_gamma_gaussian(x:\nReal\n, \u03bc:\nReal\n, a2:\nReal\n, \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nPDF of a Gaussian variate with a normal inverse-gamma prior.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Mean.\n\n\na2: Variance.\n\n\n\u03b1: Shape of the inverse-gamma.\n\n\n\u03b2: Scale of the inverse-gamma.\n\n\n\n\nReturns: the probability density.", 
+            "title": "pdf_normal_inverse_gamma_gaussian"
+        }, 
+        {
+            "location": "/documentation/library/functions/pdf_student_t/", 
+            "text": "function pdf_student_t(x:\nReal\n, \u03bd:\nReal\n) -\n \nReal\n\n\nPDF of a Student's \nt\n variate.\n\n\n\n\nx: The variate.\n\n\n\u03bd: Degrees of freedom.\n\n\n\n\nReturns: the probability density.\n\n\n\n\n\n\nfunction pdf_student_t(x:\nReal\n, \u03bd:\nReal\n, \u03bc:\nReal\n, \u03c32:\nReal\n) -\n \nReal\n\n\nPDF of a Student's \nt\n variate with location and scale.\n\n\n\n\nx: The variate.\n\n\n\u03bd: Degrees of freedom.\n\n\n\u03bc: Location.\n\n\n\u03c32: Squared scale.\n\n\n\n\nReturns: the probability density.", 
+            "title": "pdf_student_t"
+        }, 
+        {
+            "location": "/documentation/library/functions/pdf_uniform/", 
+            "text": "function pdf_uniform(x:\nReal\n, l:\nReal\n, u:\nReal\n) -\n \nReal\n\n\nPDF of a uniform variate.\n\n\n\n\nx: The variate.\n\n\nl: Lower bound of interval.\n\n\nu: Upper bound of interval.\n\n\n\n\nReturns: the probability density.", 
+            "title": "pdf_uniform"
+        }, 
+        {
             "location": "/documentation/library/functions/permute_ancestors/", 
             "text": "function permute_ancestors(a:\nInteger\n[_]) -\n \nInteger\n[_]\n\n\nPermute an ancestry vector to ensure that, when a particle survives, at\nleast one of its instances remains in the same place.", 
             "title": "permute_ancestors"
+        }, 
+        {
+            "location": "/documentation/library/functions/pmf_bernoulli/", 
+            "text": "function pmf_bernoulli(x:\nBoolean\n, \u03c1:\nReal\n) -\n \nReal\n\n\nPMF of a Bernoulli variate.\n\n\n\n\nx: The variate.\n\n\n\u03c1: Probability of a true result.\n\n\n\n\nReturns: the probability mass.", 
+            "title": "pmf_bernoulli"
+        }, 
+        {
+            "location": "/documentation/library/functions/pmf_beta_binomial/", 
+            "text": "function pmf_beta_binomial(x:\nInteger\n, n:\nInteger\n, \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nPMF of a beta-binomial variate.\n\n\n\n\nx: The variate.\n\n\nn: Number of trials.\n\n\n\u03b1: Shape.\n\n\n\u03b2: Shape.\n\n\n\n\nReturns: the probability mass.", 
+            "title": "pmf_beta_binomial"
+        }, 
+        {
+            "location": "/documentation/library/functions/pmf_binomial/", 
+            "text": "function pmf_binomial(x:\nInteger\n, n:\nInteger\n, \u03c1:\nReal\n) -\n \nReal\n\n\nPMF of a binomial variate.\n\n\n\n\nx: The variate.\n\n\nn: Number of trials.\n\n\n\u03c1: Probability of a true result.\n\n\n\n\nReturns: the probability mass.", 
+            "title": "pmf_binomial"
+        }, 
+        {
+            "location": "/documentation/library/functions/pmf_categorical/", 
+            "text": "function pmf_categorical(x:\nInteger\n, \u03c1:\nReal\n[_]) -\n \nReal\n\n\nPMF of a categorical variate.\n\n\n\n\nx: The variate.\n\n\n\u03c1: Category probabilities.\n\n\n\n\nReturns: the probability mass.", 
+            "title": "pmf_categorical"
+        }, 
+        {
+            "location": "/documentation/library/functions/pmf_crp_categorical/", 
+            "text": "function pmf_crp_categorical(k:\nInteger\n, \u03b1:\nReal\n, \u03b8:\nReal\n, n:\nInteger\n[_], N:\nInteger\n) -\n \nReal\n\n\nPMF of a categorical variate with Chinese restaurant process prior.\n\n\n\n\nx: The variate.\n\n\n\u03b1: Concentration.\n\n\n\u03b8: Discount.\n\n\nn: Enumerated items.\n\n\nN: Total number of items.", 
+            "title": "pmf_crp_categorical"
+        }, 
+        {
+            "location": "/documentation/library/functions/pmf_delta/", 
+            "text": "function pmf_delta(x:\nInteger\n, \u03bc:\nInteger\n) -\n \nReal\n\n\nPMF of a delta variate.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Location.\n\n\n\n\nReturns: the probability mass.", 
+            "title": "pmf_delta"
+        }, 
+        {
+            "location": "/documentation/library/functions/pmf_dirichlet/", 
+            "text": "function pmf_dirichlet(x:\nReal\n[_], \u03b1:\nReal\n[_]) -\n \nReal\n\n\nPMF of a Dirichlet variate.\n\n\n\n\nx: The variate.\n\n\n\u03b1: Concentrations.\n\n\n\n\nReturns: the probability density.", 
+            "title": "pmf_dirichlet"
+        }, 
+        {
+            "location": "/documentation/library/functions/pmf_dirichlet_categorical/", 
+            "text": "function pmf_dirichlet_categorical(x:\nInteger\n, \u03b1:\nReal\n[_]) -\n \nReal\n\n\nPMF of a Dirichlet-categorical variate.\n\n\n\n\nx: The variate.\n\n\n\u03b1: Concentrations.\n\n\n\n\nReturns: the probability mass.", 
+            "title": "pmf_dirichlet_categorical"
+        }, 
+        {
+            "location": "/documentation/library/functions/pmf_dirichlet_multinomial/", 
+            "text": "function pmf_dirichlet_multinomial(x:\nInteger\n[_], n:\nInteger\n, \u03b1:\nReal\n[_]) -\n \nReal\n\n\nPMF of a Dirichlet-multinomial variate.\n\n\n\n\nx: The variate.\n\n\nn: Number of trials.\n\n\n\u03b1: Concentrations.\n\n\n\n\nReturns: the probability mass.", 
+            "title": "pmf_dirichlet_multinomial"
+        }, 
+        {
+            "location": "/documentation/library/functions/pmf_gamma_poisson/", 
+            "text": "function pmf_gamma_poisson(x:\nInteger\n, k:\nInteger\n, \u03b8:\nReal\n) -\n \nReal\n\n\nPMF of a gamma-Poisson variate.\n\n\n\n\nx: The variate.\n\n\nk: Shape.\n\n\n\u03b8: Scale.\n\n\n\n\nReturns: the probability mass.", 
+            "title": "pmf_gamma_poisson"
+        }, 
+        {
+            "location": "/documentation/library/functions/pmf_int_uniform/", 
+            "text": "function pmf_int_uniform(x:\nInteger\n, l:\nInteger\n, u:\nInteger\n) -\n \nReal\n\n\nPMF of an integer uniform variate.\n\n\n\n\nx: The variate.\n\n\nl: Lower bound of interval.\n\n\nu: Upper bound of interval.\n\n\n\n\nReturns: the probability mass.", 
+            "title": "pmf_int_uniform"
+        }, 
+        {
+            "location": "/documentation/library/functions/pmf_multinomial/", 
+            "text": "function pmf_multinomial(x:\nInteger\n[_], n:\nInteger\n, \u03c1:\nReal\n[_]) -\n \nReal\n\n\nPMF of a multinomial variate.\n\n\n\n\nx: The variate.\n\n\nn: Number of trials.\n\n\n\u03c1: Category probabilities.\n\n\n\n\nReturns: the probability mass.", 
+            "title": "pmf_multinomial"
+        }, 
+        {
+            "location": "/documentation/library/functions/pmf_negative_binomial/", 
+            "text": "function pmf_negative_binomial(x:\nInteger\n, k:\nInteger\n, \u03c1:\nReal\n) -\n \nReal\n\n\nPMF of a negative binomial variate.\n\n\n\n\nx: The variate (number of failures).\n\n\nk: Number of successes before the experiment is stopped.\n\n\n\u03c1: Probability of success.\n\n\n\n\nReturns: the probability mass.", 
+            "title": "pmf_negative_binomial"
+        }, 
+        {
+            "location": "/documentation/library/functions/pmf_poisson/", 
+            "text": "function pmf_poisson(x:\nInteger\n, \u03bb:\nReal\n) -\n \nReal\n\n\nPMF of a Poisson variate.\n\n\n\n\nx: The variate.\n\n\n\u03bb: Rate.\n\n\n\n\nReturns: the probability mass.", 
+            "title": "pmf_poisson"
         }, 
         {
             "location": "/documentation/library/functions/pow/", 
@@ -994,6 +1234,11 @@
             "location": "/documentation/library/functions/simulate_gamma/", 
             "text": "function simulate_gamma(k:\nReal\n, \u03b8:\nReal\n) -\n \nReal\n\n\nSimulate a gamma distribution.\n\n\n\n\nk: Shape.\n\n\n\u03b8: Scale.", 
             "title": "simulate_gamma"
+        }, 
+        {
+            "location": "/documentation/library/functions/simulate_gamma_poisson/", 
+            "text": "function simulate_gamma_poisson(k:\nInteger\n, \u03b8:\nReal\n) -\n \nInteger\n\n\nSimulate a gamma-Poisson distribution.\n\n\n\n\nk: Shape.\n\n\n\u03b8: Scale.", 
+            "title": "simulate_gamma_poisson"
         }, 
         {
             "location": "/documentation/library/functions/simulate_gaussian/", 
@@ -1847,7 +2092,7 @@
         }, 
         {
             "location": "/documentation/library/classes/MarkovModel/", 
-            "text": "class MarkovModel\nStateType \n= \nState\n, ParameterType \n= \nParameter\n \n \nModel\n\n\nMarkov model, structured as a sequence of states, where each state is\nconditionally independent of the state history, given the previous state.\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\n\u03b8:ParameterType\n\n\nParameter.\n\n\n\n\n\n\nhistory:\nList\nStateType\n\n\nState history.\n\n\n\n\n\n\nfuture:\nList\nStateType\n\n\nState future.", 
+            "text": "class MarkovModel\nStateType \n= \nState\n, ParameterType \n= \nParameter\n \n \nModel\n\n\nMarkov model, structured as a sequence of states, where each state is\nconditionally independent of the state history, given the previous state.\n\n\nThe joint distribution is:\n\n\n\n\np(\\mathrm{d}x_{0:T}, \\mathrm{d}\\theta) = p(\\mathrm{d}\\theta)\n  p(\\mathrm{d}x_0 \\mid \\theta) \\prod_{t=1}^T p(\\mathrm{d}x_t \\mid x_{t-1},\n  \\theta)\n\n\n\n\n\n\n\n\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\n\u03b8:ParameterType\n\n\nParameter.\n\n\n\n\n\n\nhistory:\nList\nStateType\n\n\nState history.\n\n\n\n\n\n\nfuture:\nList\nStateType\n\n\nState future.", 
             "title": "MarkovModel"
         }, 
         {
@@ -2167,7 +2412,7 @@
         }, 
         {
             "location": "/documentation/library/classes/RaggedArray/", 
-            "text": "class RaggedArray\nType\n \n \nObject\n\n\nTwo-dimensional array where each row has a varying length. Internally, this\nis stored in one contiguous array for \nO(1)\n random access.\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nvalues:Type[_]\n\n\nElements.\n\n\n\n\n\n\noffsets:Integer[_]\n\n\nOffset into \nvalues\n for each row.\n\n\n\n\n\n\nncols:Integer[_]\n\n\nNumber of columns in each row.\n\n\n\n\n\n\nnrows:Integer\n\n\nNumber of rows.\n\n\n\n\n\n\nnelements:Integer\n\n\nNumber of elements.\n\n\n\n\n\n\n\n\nMember Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nempty\n\n\nIs this empty?\n\n\n\n\n\n\nclear\n\n\nClear all elements.\n\n\n\n\n\n\nsize\n\n\nNumber of rows.\n\n\n\n\n\n\nsize\n\n\nNumber of elements for a given row.\n\n\n\n\n\n\nget\n\n\nGet an element.\n\n\n\n\n\n\nget\n\n\nGet a row.\n\n\n\n\n\n\nset\n\n\nSet an element.\n\n\n\n\n\n\nset\n\n\nSet a row.\n\n\n\n\n\n\npushBack\n\n\nAdd a new row at the back.\n\n\n\n\n\n\npushBack\n\n\nAdd a new element to the end of a row.\n\n\n\n\n\n\nshrink\n\n\nDecrease the number of rows.\n\n\n\n\n\n\nshrink\n\n\nDecrease the number of columns in a row.\n\n\n\n\n\n\nenlarge\n\n\nIncrease the number of rows.\n\n\n\n\n\n\nenlarge\n\n\nIncrease the number of columns in a row.\n\n\n\n\n\n\nfrom\n\n\nFirst serial index of a row.\n\n\n\n\n\n\nto\n\n\nLast serial index of a row.\n\n\n\n\n\n\nserial\n\n\nSerial index of row and column.\n\n\n\n\n\n\n\n\nMember Fibers\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nwalk\n\n\nIterate over the rows.\n\n\n\n\n\n\n\n\nMember Function Details\n\n\nclear\n\n\n\n\n\n\nfunction clear()\n\n\nClear all elements.\n\n\n\n\nempty\n\n\n\n\n\n\nfunction empty() -\n Boolean\n\n\nIs this empty?\n\n\n\n\nenlarge\n\n\n\n\n\n\nfunction enlarge(n:Integer)\n\n\nIncrease the number of rows.\n\n\n\n\nn: Number of rows.\n\n\n\n\nThe current contents is preserved.\n\n\n\n\n\n\nfunction enlarge(i:Integer, n:Integer, x:Type)\n\n\nIncrease the number of columns in a row.\n\n\n\n\ni: Row.\n\n\nn: Number of columns.\n\n\nx: Value for new elements.\n\n\n\n\nThe current contents of the row is preserved.\n\n\n\n\nfrom\n\n\n\n\n\n\nfunction from(i:Integer) -\n Integer\n\n\nFirst serial index of a row.\n\n\n\n\ni: Row.\n\n\n\n\n\n\nget\n\n\n\n\n\n\nfunction get(i:Integer, j:Integer) -\n Type\n\n\nGet an element.\n\n\n\n\ni: Row.\n\n\nj: Column.\n\n\n\n\n\n\n\n\nfunction get(i:Integer) -\n Type[_]\n\n\nGet a row.\n\n\n\n\ni: Row.\n\n\n\n\n\n\npushBack\n\n\n\n\n\n\nfunction pushBack()\n\n\nAdd a new row at the back.\n\n\n\n\n\n\nfunction pushBack(i:Integer, x:Type)\n\n\nAdd a new element to the end of a row.\n\n\n\n\ni: Row.\n\n\nx: Value.\n\n\n\n\n\n\nserial\n\n\n\n\n\n\nfunction serial(i:Integer, j:Integer) -\n Integer\n\n\nSerial index of row and column.\n\n\n\n\ni: Row.\n\n\nj: Column.\n\n\n\n\n\n\nset\n\n\n\n\n\n\nfunction set(i:Integer, j:Integer, x:Type)\n\n\nSet an element.\n\n\n\n\ni: Row.\n\n\nj: Column.\n\n\nx: Value.\n\n\n\n\n\n\n\n\nfunction set(i:Integer, x:Type[_])\n\n\nSet a row.\n\n\n\n\ni: Row.\n\n\nx: Values.\n\n\n\n\nThe number of columns in the row must match the number of columns in\n\nx\n. Use \nshrink\n or \nenlarge\n beforehand if necessary.\n\n\n\n\nshrink\n\n\n\n\n\n\nfunction shrink(n:Integer)\n\n\nDecrease the number of rows.\n\n\n\n\nn: Number of rows.\n\n\n\n\nThe current contents is preserved.\n\n\n\n\n\n\nfunction shrink(i:Integer, n:Integer)\n\n\nDecrease the number of columns in a row.\n\n\n\n\ni: Row.\n\n\nn: Number of columns.\n\n\n\n\nThe current contents of the row is preserved.\n\n\n\n\nsize\n\n\n\n\n\n\nfunction size() -\n Integer\n\n\nNumber of rows.\n\n\n\n\n\n\nfunction size(i:Integer) -\n Integer\n\n\nNumber of elements for a given row.\n\n\n\n\ni: Row.\n\n\n\n\n\n\nto\n\n\n\n\n\n\nfunction to(i:Integer) -\n Integer\n\n\nLast serial index of a row.\n\n\n\n\ni: Row.\n\n\n\n\n\n\nMember Fiber Details\n\n\nwalk\n\n\n\n\n\n\nfiber walk() -\n Type[_]\n\n\nIterate over the rows.\n\n\nReturn: a fiber object that yields each row in forward order.", 
+            "text": "class RaggedArray\nType\n \n \nObject\n\n\nTwo-dimensional array where each row has a varying length. Internally, this\nis stored in one contiguous array for \nO(1)\n random access.\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nvalues:Type[_]\n\n\nElements.\n\n\n\n\n\n\noffsets:Integer[_]\n\n\nOffset into \nvalues\n for each row.\n\n\n\n\n\n\nncols:Integer[_]\n\n\nNumber of columns in each row.\n\n\n\n\n\n\nnrows:Integer\n\n\nNumber of rows.\n\n\n\n\n\n\nnelements:Integer\n\n\nNumber of elements.\n\n\n\n\n\n\n\n\nMember Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nempty\n\n\nIs this empty?\n\n\n\n\n\n\nclear\n\n\nClear all elements.\n\n\n\n\n\n\nsize\n\n\nNumber of rows.\n\n\n\n\n\n\nsize\n\n\nNumber of elements for a given row.\n\n\n\n\n\n\nget\n\n\nGet an element.\n\n\n\n\n\n\nget\n\n\nGet a row.\n\n\n\n\n\n\nset\n\n\nSet an element.\n\n\n\n\n\n\nset\n\n\nSet a row.\n\n\n\n\n\n\npushBack\n\n\nAdd a new row at the back.\n\n\n\n\n\n\npushBack\n\n\nAdd a new element to the end of a row.\n\n\n\n\n\n\nshrink\n\n\nDecrease the number of rows.\n\n\n\n\n\n\nshrink\n\n\nDecrease the number of columns in a row.\n\n\n\n\n\n\nenlarge\n\n\nIncrease the number of rows.\n\n\n\n\n\n\nenlarge\n\n\nIncrease the number of columns in a row.\n\n\n\n\n\n\nfrom\n\n\nFirst serial index of a row.\n\n\n\n\n\n\nto\n\n\nLast serial index of a row.\n\n\n\n\n\n\nserial\n\n\nSerial index of row and column.\n\n\n\n\n\n\n\n\nMember Fibers\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nwalk\n\n\nIterate over the rows.\n\n\n\n\n\n\nwalk\n\n\nIterate over the columns of a row.\n\n\n\n\n\n\n\n\nMember Function Details\n\n\nclear\n\n\n\n\n\n\nfunction clear()\n\n\nClear all elements.\n\n\n\n\nempty\n\n\n\n\n\n\nfunction empty() -\n Boolean\n\n\nIs this empty?\n\n\n\n\nenlarge\n\n\n\n\n\n\nfunction enlarge(n:Integer)\n\n\nIncrease the number of rows.\n\n\n\n\nn: Number of rows.\n\n\n\n\nThe current contents is preserved.\n\n\n\n\n\n\nfunction enlarge(i:Integer, n:Integer, x:Type)\n\n\nIncrease the number of columns in a row.\n\n\n\n\ni: Row.\n\n\nn: Number of columns.\n\n\nx: Value for new elements.\n\n\n\n\nThe current contents of the row is preserved.\n\n\n\n\nfrom\n\n\n\n\n\n\nfunction from(i:Integer) -\n Integer\n\n\nFirst serial index of a row.\n\n\n\n\ni: Row.\n\n\n\n\n\n\nget\n\n\n\n\n\n\nfunction get(i:Integer, j:Integer) -\n Type\n\n\nGet an element.\n\n\n\n\ni: Row.\n\n\nj: Column.\n\n\n\n\n\n\n\n\nfunction get(i:Integer) -\n Type[_]\n\n\nGet a row.\n\n\n\n\ni: Row.\n\n\n\n\n\n\npushBack\n\n\n\n\n\n\nfunction pushBack()\n\n\nAdd a new row at the back.\n\n\n\n\n\n\nfunction pushBack(i:Integer, x:Type)\n\n\nAdd a new element to the end of a row.\n\n\n\n\ni: Row.\n\n\nx: Value.\n\n\n\n\n\n\nserial\n\n\n\n\n\n\nfunction serial(i:Integer, j:Integer) -\n Integer\n\n\nSerial index of row and column.\n\n\n\n\ni: Row.\n\n\nj: Column.\n\n\n\n\n\n\nset\n\n\n\n\n\n\nfunction set(i:Integer, j:Integer, x:Type)\n\n\nSet an element.\n\n\n\n\ni: Row.\n\n\nj: Column.\n\n\nx: Value.\n\n\n\n\n\n\n\n\nfunction set(i:Integer, x:Type[_])\n\n\nSet a row.\n\n\n\n\ni: Row.\n\n\nx: Values.\n\n\n\n\nThe number of columns in the row must match the number of columns in\n\nx\n. Use \nshrink\n or \nenlarge\n beforehand if necessary.\n\n\n\n\nshrink\n\n\n\n\n\n\nfunction shrink(n:Integer)\n\n\nDecrease the number of rows.\n\n\n\n\nn: Number of rows.\n\n\n\n\nThe current contents is preserved.\n\n\n\n\n\n\nfunction shrink(i:Integer, n:Integer)\n\n\nDecrease the number of columns in a row.\n\n\n\n\ni: Row.\n\n\nn: Number of columns.\n\n\n\n\nThe current contents of the row is preserved.\n\n\n\n\nsize\n\n\n\n\n\n\nfunction size() -\n Integer\n\n\nNumber of rows.\n\n\n\n\n\n\nfunction size(i:Integer) -\n Integer\n\n\nNumber of elements for a given row.\n\n\n\n\ni: Row.\n\n\n\n\n\n\nto\n\n\n\n\n\n\nfunction to(i:Integer) -\n Integer\n\n\nLast serial index of a row.\n\n\n\n\ni: Row.\n\n\n\n\n\n\nMember Fiber Details\n\n\nwalk\n\n\n\n\n\n\nfiber walk() -\n Type[_]\n\n\nIterate over the rows.\n\n\nReturn: a fiber object that yields each row in forward order.\n\n\n\n\n\n\nfiber walk(i:Integer) -\n Type\n\n\nIterate over the columns of a row.\n\n\n\n\ni: Row.\n\n\n\n\nReturn: a fiber object that yields each row in forward order.", 
             "title": "RaggedArray"
         }, 
         {
@@ -2182,7 +2427,7 @@
         }, 
         {
             "location": "/documentation/library/classes/RaggedArray/#member-fibers", 
-            "text": "Name  Description      walk  Iterate over the rows.", 
+            "text": "Name  Description      walk  Iterate over the rows.    walk  Iterate over the columns of a row.", 
             "title": "Member Fibers"
         }, 
         {
@@ -2252,7 +2497,7 @@
         }, 
         {
             "location": "/documentation/library/classes/RaggedArray/#walk", 
-            "text": "fiber walk() -  Type[_]  Iterate over the rows.  Return: a fiber object that yields each row in forward order.", 
+            "text": "fiber walk() -  Type[_]  Iterate over the rows.  Return: a fiber object that yields each row in forward order.    fiber walk(i:Integer) -  Type  Iterate over the columns of a row.   i: Row.   Return: a fiber object that yields each row in forward order.", 
             "title": "walk"
         }, 
         {
@@ -2429,6 +2674,56 @@
             "location": "/documentation/library/classes/RestaurantProcess/#initialize", 
             "text": "function initialize(\u03b1: Real , \u03b8: Real )  Constructor.   \u03b1: Strength.  \u03b8: Concentration.", 
             "title": "initialize"
+        }, 
+        {
+            "location": "/documentation/library/classes/Spoke/", 
+            "text": "class Spoke \n \nObject\n\n\nSpoke concept.\n\n\n\n\nMember Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\ninput\n\n\nInput.\n\n\n\n\n\n\noutput\n\n\nOutput.\n\n\n\n\n\n\n\n\nMember Fibers\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nsimulate\n\n\nSimulate.\n\n\n\n\n\n\n\n\nMember Function Details\n\n\ninput\n\n\n\n\n\n\nfunction input(reader:\nReader\n)\n\n\nInput.\n\n\n\n\noutput\n\n\n\n\n\n\nfunction output(writer:\nWriter\n)\n\n\nOutput.\n\n\n\n\nMember Fiber Details\n\n\nsimulate\n\n\n\n\n\n\nfiber simulate(\u03b8:\nParameter\n) -\n \nReal\n!\n\n\nSimulate.\n\n\n\n\n\u03b8: Parameter.", 
+            "title": "Spoke"
+        }, 
+        {
+            "location": "/documentation/library/classes/Spoke/#member-functions", 
+            "text": "Name  Description      input  Input.    output  Output.", 
+            "title": "Member Functions"
+        }, 
+        {
+            "location": "/documentation/library/classes/Spoke/#member-fibers", 
+            "text": "Name  Description      simulate  Simulate.", 
+            "title": "Member Fibers"
+        }, 
+        {
+            "location": "/documentation/library/classes/Spoke/#member-function-details", 
+            "text": "", 
+            "title": "Member Function Details"
+        }, 
+        {
+            "location": "/documentation/library/classes/Spoke/#input", 
+            "text": "function input(reader: Reader )  Input.", 
+            "title": "input"
+        }, 
+        {
+            "location": "/documentation/library/classes/Spoke/#output", 
+            "text": "function output(writer: Writer )  Output.", 
+            "title": "output"
+        }, 
+        {
+            "location": "/documentation/library/classes/Spoke/#member-fiber-details", 
+            "text": "", 
+            "title": "Member Fiber Details"
+        }, 
+        {
+            "location": "/documentation/library/classes/Spoke/#simulate", 
+            "text": "fiber simulate(\u03b8: Parameter ) -   Real !  Simulate.   \u03b8: Parameter.", 
+            "title": "simulate"
+        }, 
+        {
+            "location": "/documentation/library/classes/SpokeModel/", 
+            "text": "class SpokeModel\nSpokeType \n= \nSpoke\n, ParameterType \n= \nParameter\n \n \nModel\n\n\nHub and spoke model, structured as the parameters (the hub) and\nany number of additional models that are conditionally independent\ngiven the parameters (the spokes).\n\n\nThe joint distribution is:\n\n\n\n\np(\\mathrm{d}x_{1:N}, \\mathrm{d}\\theta) = p(\\mathrm{d}\\theta)\n  \\prod_{n=1}^N p(\\mathrm{d}x_n \\mid \\theta)\n\n\n\n\n\n\n\n\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\n\u03b8:ParameterType\n\n\nHub.\n\n\n\n\n\n\nspokes:\nList\nSpokeType\n\n\nSpokes.", 
+            "title": "SpokeModel"
+        }, 
+        {
+            "location": "/documentation/library/classes/SpokeModel/#member-variables", 
+            "text": "Name  Description      \u03b8:ParameterType  Hub.    spokes: List SpokeType  Spokes.", 
+            "title": "Member Variables"
         }, 
         {
             "location": "/documentation/library/classes/Stack/", 
