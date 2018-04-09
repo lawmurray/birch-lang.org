@@ -2,7 +2,7 @@
     "docs": [
         {
             "location": "/", 
-            "text": "Probabilistic Programming in Birch\n\n\n\n\nBirch is an imperative, object-oriented, universal probabilistic\nprogramming language. It compiles to C++14 for Linux, macOS, and\nWindows 10, and is free and open source.\n\n\nProbabilistic models are specified in Birch by writing a program to\nsimulate the joint distribution. Inference methods are also written in\nBirch. Sequential Monte Carlo (SMC) is currently supported, with\nanalytical optimizations\nsuch as locally-optimal proposals and\nRao\nBlackwellization\napplied automatically.\n\n\nSee \nGetting Started\n to try it yourself.\n\n\nExample\n\n\nA simple linear-Gaussian state-space model written in Birch.\n\n\n\u03b2:Real \n- 0.9;\n\u03c32:Real \n- 1.0;\nT:Integer \n- 10;\nx:Random\nReal\n[T];\ny:Random\nReal\n[T];\n\nx[1] ~ Gaussian(0.0, \u03c32);\ny[1] ~ Gaussian(x[1], \u03c32);  \nfor (t:Integer in 2..T) {\n  x[t] ~ Gaussian(\u03b2*x[t - 1], \u03c32);\n  y[t] ~ Gaussian(x[t], \u03c32);\n}\n\n\n\nUpcoming talks\n\n\n\n\nBayesComp 2018\n in Barcelona. \nLawrence Murray\n on \nThe Birch Probabilistic Programming Language\n.\n\n\nAIStats 2018\n in Lanzarote. \nLawrence Murray\n on \nDelayed Sampling and Automatic Rao\nBlackwellization of Probabilistic Programs\n.\n\n\n\n\nPapers\n\n\n\n\nL.M. Murray, D. Lund\u00e9n, J. Kudlicka, D. Broman and T.B. Sch\u00f6n (2017). \nDelayed Sampling and Automatic Rao\nBlackwellization of Probabilistic Programs\n.\n\n\n\n\nAcknowledgements\n\n\nThe development of Birch is financially supported by the \nSwedish Foundation for Strategic Research\n (SSF) via the project \nASSEMBLE\n.", 
+            "text": "Probabilistic Programming in Birch\n\n\n\n\nBirch is an imperative, object-oriented, universal probabilistic\nprogramming language. It compiles to C++14 for Linux, macOS, and\nWindows 10, and is free and open source.\n\n\nProbabilistic models are specified in Birch by writing a program to\nsimulate the joint distribution. Inference methods are also written in\nBirch. Sequential Monte Carlo (SMC) is currently supported, with\nanalytical optimizations\nsuch as locally-optimal proposals and\nRao\nBlackwellization\napplied automatically.\n\n\nSee \nGetting Started\n to try it yourself.\n\n\nExample\n\n\nA simple linear-Gaussian state-space model written in Birch.\n\n\n\u03b2:Real \n- 0.9;\n\u03c32:Real \n- 1.0;\nT:Integer \n- 10;\nx:Random\nReal\n[T];\ny:Random\nReal\n[T];\n\nx[1] ~ Gaussian(0.0, \u03c32);\ny[1] ~ Gaussian(x[1], \u03c32);  \nfor (t:Integer in 2..T) {\n  x[t] ~ Gaussian(\u03b2*x[t - 1], \u03c32);\n  y[t] ~ Gaussian(x[t], \u03c32);\n}\n\n\n\nRecent talks\n\n\n\n\nAIStats 2018\n in Lanzarote. \nLawrence Murray\n on \nDelayed Sampling and Automatic Rao\nBlackwellization of Probabilistic Programs\n. \n[slides]\n \n[poster]\n\n\nBayesComp 2018\n in Barcelona. \nLawrence Murray\n on \nThe Birch Probabilistic Programming Language\n \n[slides]\n\n\n\n\nPapers\n\n\n\n\nL.M. Murray, D. Lund\u00e9n, J. Kudlicka, D. Broman and T.B. Sch\u00f6n (2017). \nDelayed Sampling and Automatic Rao\nBlackwellization of Probabilistic Programs\n.\n\n\n\n\nAcknowledgements\n\n\nThe development of Birch is financially supported by the \nSwedish Foundation for Strategic Research\n (SSF) via the project \nASSEMBLE\n.", 
             "title": "Home"
         }, 
         {
@@ -16,9 +16,9 @@
             "title": "Example"
         }, 
         {
-            "location": "/#upcoming-talks", 
-            "text": "BayesComp 2018  in Barcelona.  Lawrence Murray  on  The Birch Probabilistic Programming Language .  AIStats 2018  in Lanzarote.  Lawrence Murray  on  Delayed Sampling and Automatic Rao Blackwellization of Probabilistic Programs .", 
-            "title": "Upcoming talks"
+            "location": "/#recent-talks", 
+            "text": "AIStats 2018  in Lanzarote.  Lawrence Murray  on  Delayed Sampling and Automatic Rao Blackwellization of Probabilistic Programs .  [slides]   [poster]  BayesComp 2018  in Barcelona.  Lawrence Murray  on  The Birch Probabilistic Programming Language   [slides]", 
+            "title": "Recent talks"
         }, 
         {
             "location": "/#papers", 
