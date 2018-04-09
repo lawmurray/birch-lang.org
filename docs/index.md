@@ -33,10 +33,10 @@ A simple linear-Gaussian state-space model written in Birch.
     }
 
 
-## Upcoming talks
+## Recent talks
 
-* [BayesComp 2018](https://www.maths.nottingham.ac.uk/personal/tk/bayescomp/) in Barcelona. [Lawrence Murray](https://www.indii.org/research) on *The Birch Probabilistic Programming Language*.
-* [AIStats 2018](https://www.aistats.org) in Lanzarote. [Lawrence Murray](https://www.indii.org/research) on *Delayed Sampling and Automatic Rao&ndash;Blackwellization of Probabilistic Programs*.
+* [AIStats 2018](https://www.aistats.org) in Lanzarote. [Lawrence Murray](https://www.indii.org/research) on *Delayed Sampling and Automatic Rao&ndash;Blackwellization of Probabilistic Programs*. [[slides]](/talks/delayed-sampling-slides.pdf) [[poster]](/talks/delayed-sampling-poster.pdf)
+* [BayesComp 2018](https://www.maths.nottingham.ac.uk/personal/tk/bayescomp/) in Barcelona. [Lawrence Murray](https://www.indii.org/research) on *The Birch Probabilistic Programming Language* [[slides]](/talks/the-birch-probabilistic-programming-language-slides.pdf)
 
 ## Papers
 
