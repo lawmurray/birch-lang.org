@@ -148,8 +148,8 @@ The `SIRState` class must inherit from [State](/documentation/library/classes/St
             Δi ~ Binomial(τ, θ.δ);
             Δr ~ Binomial(x.i, θ.γ);
 
-            i ~ Delta(x.i + Δi - Δr);
             s ~ Delta(x.s - Δi);
+            i ~ Delta(x.i + Δi - Δr);
             r ~ Delta(x.r + Δr);
           }
 

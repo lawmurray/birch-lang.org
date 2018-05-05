@@ -61,3 +61,6 @@ Run the following from within the `Birch.Example` directory:
 birch build
 birch install
 ```
+
+!!! tip
+    Similarly again, you may need to use `sudo birch install` for the last line.
