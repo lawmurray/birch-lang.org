@@ -50,9 +50,12 @@ birch install
 !!! tip
     Similarly again, you may need to use `sudo birch install` for the last line.
 
-## Install the examples
+!!! tip
+    You can also run `birch test` afterwards to confirm that the standard library is working correctly.
 
-This is optional. Run the following from within the `Birch.Example` directory:
+## Install the examples (optional)
+
+Run the following from within the `Birch.Example` directory:
 
 ```sh
 birch build
