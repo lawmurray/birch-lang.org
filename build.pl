@@ -17,7 +17,7 @@ if (!-e 'git/Birch.Example') {
 `mv git/Birch.Standard/docs/index.md docs/documentation/library.md`;
 `mv git/Birch.Example/docs/index.md docs/documentation/examples.md`;
 
-`cp mkdocs.in mkdocs.yml`;
+`cp mkdocs.start mkdocs.yml`;
 
 open(MKDOCS, ">>mkdocs.yml");
 
@@ -48,3 +48,5 @@ while ($line = <INPUT>) {
 close INPUT;
 
 close MKDOCS;
+
+`cat mkdocs.end >> mkdocs.yml`;

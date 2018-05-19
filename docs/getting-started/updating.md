@@ -1,7 +1,7 @@
 # Updating
 
 !!! tip
-    [Using Eclipse](using-eclipse.md) can help streamline updates.
+    [Using Eclipse](/documentation/how-to/using-eclipse.md) can help streamline updates.
 
 The development version of Birch is frequently updated with new features and bug fixes. This is especially so at the moment, as development has not yet matured to a stable release.
 

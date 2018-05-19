@@ -26,7 +26,6 @@ pages:
   - 'Getting Started':
     - 'Installing': getting-started/installing.md
     - 'Updating': getting-started/updating.md
-    - 'Using Eclipse': getting-started/using-eclipse.md
     - 'Platform guides':
       - 'Ubuntu Linux': getting-started/ubuntu.md
       - 'macOS': getting-started/macos.md
