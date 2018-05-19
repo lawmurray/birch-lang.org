@@ -4,7 +4,7 @@
     
     <url>
      <loc>/</loc>
-     <lastmod>2018-05-06</lastmod>
+     <lastmod>2018-05-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -13,19 +13,13 @@
         
     <url>
      <loc>/getting-started/installing/</loc>
-     <lastmod>2018-05-06</lastmod>
+     <lastmod>2018-05-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/getting-started/updating/</loc>
-     <lastmod>2018-05-06</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/getting-started/using-eclipse/</loc>
-     <lastmod>2018-05-06</lastmod>
+     <lastmod>2018-05-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -41,31 +35,31 @@
         
     <url>
      <loc>/tutorial/</loc>
-     <lastmod>2018-05-06</lastmod>
+     <lastmod>2018-05-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/tutorial/preliminaries/</loc>
-     <lastmod>2018-05-06</lastmod>
+     <lastmod>2018-05-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/tutorial/linear-regression/</loc>
-     <lastmod>2018-05-06</lastmod>
+     <lastmod>2018-05-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/tutorial/markov-model/</loc>
-     <lastmod>2018-05-06</lastmod>
+     <lastmod>2018-05-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/tutorial/next-steps/</loc>
-     <lastmod>2018-05-06</lastmod>
+     <lastmod>2018-05-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -75,7 +69,13 @@
         
     <url>
      <loc>/documentation/</loc>
-     <lastmod>2018-05-06</lastmod>
+     <lastmod>2018-05-19</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc></loc>
+     <lastmod></lastmod>
      <changefreq>daily</changefreq>
     </url>
         

@@ -71,26 +71,6 @@
             "title": "Updating"
         }, 
         {
-            "location": "/getting-started/using-eclipse/", 
-            "text": "A plugin is available for syntax highlighting of Birch code within \nEclipse\n. Eclipse can also parse the error messages produced by the Birch compiler, enabling quick navigation to problem lines of code. This can help improve workflow.\n\n\n\n\nGetting involved\n\n\nThe development of a project wizard plugin to automate the creation of Birch projects, using the \nbirch init\n command, would be a welcome addition.\n\n\n\n\nInstalling the plugin\n\n\nTo install the plugin, use the \nHelp \n Install New Software...\n menu item from within Eclipse. Click the \nAdd...\n button and enter the following update site URL:\n\n\nhttp://www.birch-lang.org/eclipse/updates\n\n\nSelect the plugin from the list and follow the prompts from there. The plugin should be automatically associated with the \n*.bi\n file extension.\n\n\n\n\nBug\n\n\nIf the plugin does not appear in the list, uncheck the \nGroup items by category\n checkbox. (We're working on it.)\n\n\n\n\nCreating projects in Eclipse\n\n\nWithin Eclipse, you can treat Birch projects as if they were C/C++ Makefile Projects, with a few tweaks to the project properties as outlined below.\n\n\nYou will need the \nEclipse C/C++ Development Tooling (CDT)\n for this, not just the Eclipse Java Development Tools (JDT). Often, a default Eclipse installation only installs the latter, so you may need to install the former.\n\n\nOnce a Birch project has been created from the command line with \nbirch init\n:\n\n\n\n\nImport it into Eclipse using \nFile \n New \n Makefile Project with Existing Code\n.\n\n\nUnder \nProject \n Properties\n, select \nC/C++ Build\n on the left.\n\n\nGo to the \nBuilder Settings\n tab and enter \nbirch\n as the build command.\n\n\nGo to the \nBehavior\n tab and enter \nbuild\n (or \ninstall\n, if preferred) next to the \nBuild (Incremental build)\n checkbox.\n\n\n\n\nYou can then use the \nProject \n Build\n menu item, or keyboard shortcuts, to build your project.\n\n\nStreamlining the build process\n\n\nIt is worth importing the Birch compiler and standard library into your Eclipse workspace as well, to establish them as dependencies of your own project.\n\n\nUse the \nFile \n Import\n menu item from within Eclipse, then:\n\n\n\n\nIf you already have the \nBirch\n and \nBirch.Standard\n repositories in your file system, select \nGeneral \n Existing Projects into Workspace\n in the first dialog and follow the prompts.\n\n\nIf you do not, use \nGit \n Projects from Git\n, then \nClone URI\n and enter \nhttps://www.github.com/lawmurray/Birch.git\n. Follow the prompts from there. Repeat a second time with \nhttps://www.github.com/lawmurray/Birch.Standard.git\n.\n\n\n\n\nOnce the projects are imported, go to the properties for your own project, select \nProject References\n on the left, and choose \nBirch.Standard\n.\n\n\nNow, when you build your own project, Eclipse will automatically rebuild \nBirch.Standard\n and, in turn, \nBirch\n, if necessary.\n\n\nNote that, unlike when creating your own projects, it is not necessary to modify the project properties for the Birch compiler and standard library. The repositories already include Eclipse project files with the relevant settings.", 
-            "title": "Using Eclipse"
-        }, 
-        {
-            "location": "/getting-started/using-eclipse/#installing-the-plugin", 
-            "text": "To install the plugin, use the  Help   Install New Software...  menu item from within Eclipse. Click the  Add...  button and enter the following update site URL:  http://www.birch-lang.org/eclipse/updates  Select the plugin from the list and follow the prompts from there. The plugin should be automatically associated with the  *.bi  file extension.   Bug  If the plugin does not appear in the list, uncheck the  Group items by category  checkbox. (We're working on it.)", 
-            "title": "Installing the plugin"
-        }, 
-        {
-            "location": "/getting-started/using-eclipse/#creating-projects-in-eclipse", 
-            "text": "Within Eclipse, you can treat Birch projects as if they were C/C++ Makefile Projects, with a few tweaks to the project properties as outlined below.  You will need the  Eclipse C/C++ Development Tooling (CDT)  for this, not just the Eclipse Java Development Tools (JDT). Often, a default Eclipse installation only installs the latter, so you may need to install the former.  Once a Birch project has been created from the command line with  birch init :   Import it into Eclipse using  File   New   Makefile Project with Existing Code .  Under  Project   Properties , select  C/C++ Build  on the left.  Go to the  Builder Settings  tab and enter  birch  as the build command.  Go to the  Behavior  tab and enter  build  (or  install , if preferred) next to the  Build (Incremental build)  checkbox.   You can then use the  Project   Build  menu item, or keyboard shortcuts, to build your project.", 
-            "title": "Creating projects in Eclipse"
-        }, 
-        {
-            "location": "/getting-started/using-eclipse/#streamlining-the-build-process", 
-            "text": "It is worth importing the Birch compiler and standard library into your Eclipse workspace as well, to establish them as dependencies of your own project.  Use the  File   Import  menu item from within Eclipse, then:   If you already have the  Birch  and  Birch.Standard  repositories in your file system, select  General   Existing Projects into Workspace  in the first dialog and follow the prompts.  If you do not, use  Git   Projects from Git , then  Clone URI  and enter  https://www.github.com/lawmurray/Birch.git . Follow the prompts from there. Repeat a second time with  https://www.github.com/lawmurray/Birch.Standard.git .   Once the projects are imported, go to the properties for your own project, select  Project References  on the left, and choose  Birch.Standard .  Now, when you build your own project, Eclipse will automatically rebuild  Birch.Standard  and, in turn,  Birch , if necessary.  Note that, unlike when creating your own projects, it is not necessary to modify the project properties for the Birch compiler and standard library. The repositories already include Eclipse project files with the relevant settings.", 
-            "title": "Streamlining the build process"
-        }, 
-        {
             "location": "/getting-started/ubuntu/", 
             "text": "To install dependencies, use:\n\n\nsudo apt-get install autoconf libtool flex bison libboost-all-dev libeigen3-dev\n\n\n\n\nOnce these dependencies are installed, follow the usual \ninstructions\n to install Birch itself.", 
             "title": "Ubuntu Linux"
@@ -207,12 +187,12 @@
         }, 
         {
             "location": "/documentation/", 
-            "text": "Contents\n\n\n\n\n\n\nLanguage\n\n\nA guide to the Birch programming language.\n\n\n\n\n\n\nDriver\n\n\nReference documentation for the \nbirch\n driver program, used for building, installing and otherwise working with Birch projects.\n\n\n\n\n\n\nLibrary\n\n\nReference documentation for the standard library, which provides essential functionality for Birch programs, such as math functions, probability distributions, inference methods, model classes, containers, input and output.\n\n\n\n\n\n\nExamples\n\n\nReference documentation for the example programs.", 
+            "text": "Contents\n\n\n\n\n\n\nLanguage\n\n\nA guide to the Birch programming language.\n\n\n\n\n\n\nDriver\n\n\nReference documentation for the \nbirch\n driver program, used for building, installing and otherwise working with Birch projects.\n\n\n\n\n\n\nLibrary\n\n\nReference documentation for the standard library, which provides essential functionality for Birch programs, such as math functions, probability distributions, inference methods, model classes, containers, input and output.\n\n\n\n\n\n\nExamples\n\n\nReference documentation for the example programs.\n\n\n\n\n\n\nHow To\n\n\nHow-to guides for using Birch with other software and services.", 
             "title": "Contents"
         }, 
         {
             "location": "/documentation/#contents", 
-            "text": "Language  A guide to the Birch programming language.    Driver  Reference documentation for the  birch  driver program, used for building, installing and otherwise working with Birch projects.    Library  Reference documentation for the standard library, which provides essential functionality for Birch programs, such as math functions, probability distributions, inference methods, model classes, containers, input and output.    Examples  Reference documentation for the example programs.", 
+            "text": "Language  A guide to the Birch programming language.    Driver  Reference documentation for the  birch  driver program, used for building, installing and otherwise working with Birch projects.    Library  Reference documentation for the standard library, which provides essential functionality for Birch programs, such as math functions, probability distributions, inference methods, model classes, containers, input and output.    Examples  Reference documentation for the example programs.    How To  How-to guides for using Birch with other software and services.", 
             "title": "Contents"
         }, 
         {
@@ -497,7 +477,7 @@
         }, 
         {
             "location": "/documentation/library/programs/test/", 
-            "text": "program test()\n\n\nRun all tests.", 
+            "text": "program test(N:\nInteger\n \n- 10000)\n\n\nRun all tests.", 
             "title": "test"
         }, 
         {
@@ -562,78 +542,103 @@
         }, 
         {
             "location": "/documentation/library/functions/cdf_beta/", 
-            "text": "function cdf_beta(x:\nReal\n, \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nCDF of a beta variate.\n\n\n\n\nx: The variate.\n\n\n\u03b1: Shape.\n\n\n\u03b2: Shape.\n\n\n\n\nReturns: the cumulative probability.", 
+            "text": "function cdf_beta(x:\nReal\n, \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nCDF of a beta variate.\n\n\n\n\nx: The variate.\n\n\n\u03b1: Shape.\n\n\n\u03b2: Shape.\n\n\n\n\nReturn: the cumulative probability.", 
             "title": "cdf_beta"
         }, 
         {
             "location": "/documentation/library/functions/cdf_beta_binomial/", 
-            "text": "function cdf_beta_binomial(x:\nInteger\n, n:\nInteger\n, \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nCDF of a beta-binomial variate.\n\n\n\n\nx: The variate.\n\n\nn: Number of trials.\n\n\n\u03b1: Shape.\n\n\n\u03b2: Shape.\n\n\n\n\nReturns: the cumulative probability.", 
+            "text": "function cdf_beta_binomial(x:\nInteger\n, n:\nInteger\n, \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nCDF of a beta-binomial variate.\n\n\n\n\nx: The variate.\n\n\nn: Number of trials.\n\n\n\u03b1: Shape.\n\n\n\u03b2: Shape.\n\n\n\n\nReturn: the cumulative probability.", 
             "title": "cdf_beta_binomial"
         }, 
         {
             "location": "/documentation/library/functions/cdf_binomial/", 
-            "text": "function cdf_binomial(x:\nInteger\n, n:\nInteger\n, \u03c1:\nReal\n) -\n \nReal\n\n\nCDF of a binomial variate.\n\n\n\n\nx: The variate.\n\n\nn: Number of trials.\n\n\n\u03c1: Probability of a true result.\n\n\n\n\nReturns: the cumulative probability.", 
+            "text": "function cdf_binomial(x:\nInteger\n, n:\nInteger\n, \u03c1:\nReal\n) -\n \nReal\n\n\nCDF of a binomial variate.\n\n\n\n\nx: The variate.\n\n\nn: Number of trials.\n\n\n\u03c1: Probability of a true result.\n\n\n\n\nReturn: the cumulative probability.", 
             "title": "cdf_binomial"
         }, 
         {
+            "location": "/documentation/library/functions/cdf_categorical/", 
+            "text": "function cdf_categorical(x:\nInteger\n, \u03c1:\nReal\n[_]) -\n \nReal\n\n\nCDF of a categorical variate.\n\n\n\n\nx: The variate.\n\n\n\u03c1: Category probabilities.\n\n\n\n\nReturn: the cumulative probability.", 
+            "title": "cdf_categorical"
+        }, 
+        {
+            "location": "/documentation/library/functions/cdf_dirichlet_categorical/", 
+            "text": "function cdf_dirichlet_categorical(x:\nInteger\n, \u03b1:\nReal\n[_]) -\n \nReal\n\n\nCDF of a Dirichlet-categorical variate.\n\n\n\n\nx: The variate.\n\n\n\u03b1: Concentrations.\n\n\n\n\nReturn: the cumulative probability.", 
+            "title": "cdf_dirichlet_categorical"
+        }, 
+        {
             "location": "/documentation/library/functions/cdf_exponential/", 
-            "text": "function cdf_exponential(x:\nReal\n, \u03bb:\nReal\n) -\n \nReal\n\n\nCDF of an exponential variate.\n\n\n\n\nx: The variate.\n\n\n\u03bb: Rate.\n\n\n\n\nReturns: the cumulative probability.", 
+            "text": "function cdf_exponential(x:\nReal\n, \u03bb:\nReal\n) -\n \nReal\n\n\nCDF of an exponential variate.\n\n\n\n\nx: The variate.\n\n\n\u03bb: Rate.\n\n\n\n\nReturn: the cumulative probability.", 
             "title": "cdf_exponential"
         }, 
         {
             "location": "/documentation/library/functions/cdf_gamma/", 
-            "text": "function cdf_gamma(x:\nReal\n, k:\nReal\n, \u03b8:\nReal\n) -\n \nReal\n\n\nCDF of a gamma variate.\n\n\n\n\nx: The variate.\n\n\nk: Shape.\n\n\n\u03b8: Scale.\n\n\n\n\nReturns: the cumulative probability.", 
+            "text": "function cdf_gamma(x:\nReal\n, k:\nReal\n, \u03b8:\nReal\n) -\n \nReal\n\n\nCDF of a gamma variate.\n\n\n\n\nx: The variate.\n\n\nk: Shape.\n\n\n\u03b8: Scale.\n\n\n\n\nReturn: the cumulative probability.", 
             "title": "cdf_gamma"
         }, 
         {
             "location": "/documentation/library/functions/cdf_gamma_poisson/", 
-            "text": "function cdf_gamma_poisson(x:\nInteger\n, k:\nInteger\n, \u03b8:\nReal\n) -\n \nReal\n\n\nCDF of a gamma-Poisson variate.\n\n\n\n\nx: The variate.\n\n\nk: Shape.\n\n\n\u03b8: Scale.\n\n\n\n\nReturns: the cumulative probability.", 
+            "text": "function cdf_gamma_poisson(x:\nInteger\n, k:\nReal\n, \u03b8:\nReal\n) -\n \nReal\n\n\nCDF of a gamma-Poisson variate.\n\n\n\n\nx: The variate.\n\n\nk: Shape.\n\n\n\u03b8: Scale.\n\n\n\n\nReturn: the cumulative probability.", 
             "title": "cdf_gamma_poisson"
         }, 
         {
             "location": "/documentation/library/functions/cdf_gaussian/", 
-            "text": "function cdf_gaussian(x:\nReal\n, \u03bc:\nReal\n, \u03c32:\nReal\n) -\n \nReal\n\n\nCDF of a Gaussian variate.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Mean.\n\n\n\u03c32: Variance.\n\n\n\n\nReturns: the cumulative probability.", 
+            "text": "function cdf_gaussian(x:\nReal\n, \u03bc:\nReal\n, \u03c32:\nReal\n) -\n \nReal\n\n\nCDF of a Gaussian variate.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Mean.\n\n\n\u03c32: Variance.\n\n\n\n\nReturn: the cumulative probability.", 
             "title": "cdf_gaussian"
         }, 
         {
             "location": "/documentation/library/functions/cdf_inverse_gamma/", 
-            "text": "function cdf_inverse_gamma(x:\nReal\n, \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nCDF of an inverse-gamma variate.\n\n\n\n\nx: The variate.\n\n\n\u03b1: Shape.\n\n\n\u03b2: Scale.\n\n\n\n\nReturns: the cumulative probability.", 
+            "text": "function cdf_inverse_gamma(x:\nReal\n, \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nCDF of an inverse-gamma variate.\n\n\n\n\nx: The variate.\n\n\n\u03b1: Shape.\n\n\n\u03b2: Scale.\n\n\n\n\nReturn: the cumulative probability.", 
             "title": "cdf_inverse_gamma"
         }, 
         {
+            "location": "/documentation/library/functions/cdf_inverse_gamma_gaussian/", 
+            "text": "function cdf_inverse_gamma_gaussian(x:\nReal\n, \u03bc:\nReal\n, \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nCDF of a Gaussian variate with an inverse-gamma distribution over\nthe variance.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Mean.\n\n\n\u03b1: Shape of the inverse-gamma.\n\n\n\u03b2: Scale of the inverse-gamma.\n\n\n\n\nReturn: the cumulative probability.", 
+            "title": "cdf_inverse_gamma_gaussian"
+        }, 
+        {
+            "location": "/documentation/library/functions/cdf_linear_normal_inverse_gamma_gaussian/", 
+            "text": "function cdf_linear_normal_inverse_gamma_gaussian(x:\nReal\n, a:\nReal\n, \u03bc:\nReal\n, c:\nReal\n, a2:\nReal\n, \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nCDF of a Gaussian variate with a normal inverse-gamma prior with linear\ntransformation.\n\n\n\n\nx: The variate.\n\n\na: Scale.\n\n\n\u03bc: Mean.\n\n\nc: Offset.\n\n\na2: Variance.\n\n\n\u03b1: Shape of the inverse-gamma.\n\n\n\u03b2: Scale of the inverse-gamma.\n\n\n\n\nReturn: the cumulative probability.", 
+            "title": "cdf_linear_normal_inverse_gamma_gaussian"
+        }, 
+        {
             "location": "/documentation/library/functions/cdf_log_gaussian/", 
-            "text": "function cdf_log_gaussian(x:\nReal\n, \u03bc:\nReal\n, \u03c32:\nReal\n) -\n \nReal\n\n\nCDF of a log-Gaussian variate.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Mean.\n\n\n\u03c32: Variance.\n\n\n\n\nReturns: the cumulative probability.", 
+            "text": "function cdf_log_gaussian(x:\nReal\n, \u03bc:\nReal\n, \u03c32:\nReal\n) -\n \nReal\n\n\nCDF of a log-Gaussian variate.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Mean.\n\n\n\u03c32: Variance.\n\n\n\n\nReturn: the cumulative probability.", 
             "title": "cdf_log_gaussian"
         }, 
         {
             "location": "/documentation/library/functions/cdf_negative_binomial/", 
-            "text": "function cdf_negative_binomial(x:\nInteger\n, k:\nInteger\n, \u03c1:\nReal\n) -\n \nReal\n\n\nCDF of a negative binomial variate.\n\n\n\n\nx: The variate (number of failures).\n\n\nk: Number of successes before the experiment is stopped.\n\n\n\u03c1: Probability of success.\n\n\n\n\nReturns: the cumulative probability.", 
+            "text": "function cdf_negative_binomial(x:\nInteger\n, k:\nInteger\n, \u03c1:\nReal\n) -\n \nReal\n\n\nCDF of a negative binomial variate.\n\n\n\n\nx: The variate (number of failures).\n\n\nk: Number of successes before the experiment is stopped.\n\n\n\u03c1: Probability of success.\n\n\n\n\nReturn: the cumulative probability.", 
             "title": "cdf_negative_binomial"
         }, 
         {
             "location": "/documentation/library/functions/cdf_normal_inverse_gamma/", 
-            "text": "function cdf_normal_inverse_gamma(x:\nReal\n, \u03bc:\nReal\n, a2:\nReal\n, \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nCDF of a normal inverse-gamma variate.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Mean.\n\n\na2: Variance.\n\n\n\u03b1: Shape of inverse-gamma on scale.\n\n\n\u03b2: Scale of inverse-gamma on scale.\n\n\n\n\nReturns: the cumulative probability.", 
+            "text": "function cdf_normal_inverse_gamma(x:\nReal\n, \u03bc:\nReal\n, a2:\nReal\n, \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nCDF of a normal inverse-gamma variate.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Mean.\n\n\na2: Variance.\n\n\n\u03b1: Shape of inverse-gamma on scale.\n\n\n\u03b2: Scale of inverse-gamma on scale.\n\n\n\n\nReturn: the cumulative probability.", 
             "title": "cdf_normal_inverse_gamma"
         }, 
         {
             "location": "/documentation/library/functions/cdf_normal_inverse_gamma_gaussian/", 
-            "text": "function cdf_normal_inverse_gamma_gaussian(x:\nReal\n, \u03bc:\nReal\n, a2:\nReal\n, \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nCDF of a Gaussian variate with a normal inverse-gamma prior.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Mean.\n\n\na2: Variance.\n\n\n\u03b1: Shape of the inverse-gamma.\n\n\n\u03b2: Scale of the inverse-gamma.\n\n\n\n\nReturns: the cumulative probability.", 
+            "text": "function cdf_normal_inverse_gamma_gaussian(x:\nReal\n, \u03bc:\nReal\n, a2:\nReal\n, \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nCDF of a Gaussian variate with a normal inverse-gamma prior.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Mean.\n\n\na2: Variance.\n\n\n\u03b1: Shape of the inverse-gamma.\n\n\n\u03b2: Scale of the inverse-gamma.\n\n\n\n\nReturn: the cumulative probability.", 
             "title": "cdf_normal_inverse_gamma_gaussian"
         }, 
         {
             "location": "/documentation/library/functions/cdf_poisson/", 
-            "text": "function cdf_poisson(x:\nInteger\n, \u03bb:\nReal\n) -\n \nReal\n\n\nCDF of a Poisson variate.\n\n\n\n\nx: The variate.\n\n\n\u03bb: Rate.\n\n\n\n\nReturns: the cumulative probability.", 
+            "text": "function cdf_poisson(x:\nInteger\n, \u03bb:\nReal\n) -\n \nReal\n\n\nCDF of a Poisson variate.\n\n\n\n\nx: The variate.\n\n\n\u03bb: Rate.\n\n\n\n\nReturn: the cumulative probability.", 
             "title": "cdf_poisson"
         }, 
         {
             "location": "/documentation/library/functions/cdf_student_t/", 
-            "text": "function cdf_student_t(x:\nReal\n, \u03bd:\nReal\n) -\n \nReal\n\n\nCDF of a Student's \nt\n variate.\n\n\n\n\nx: The variate.\n\n\n\u03bd: Degrees of freedom.\n\n\n\n\nReturns: the cumulative probability.\n\n\n\n\n\n\nfunction cdf_student_t(x:\nReal\n, \u03bd:\nReal\n, \u03bc:\nReal\n, \u03c32:\nReal\n) -\n \nReal\n\n\nCDF of a Student's \nt\n variate with location and scale.\n\n\n\n\nx: The variate.\n\n\n\u03bd: Degrees of freedom.\n\n\n\u03bc: Location.\n\n\n\u03c32: Squared scale.\n\n\n\n\nReturns: the cumulative probability.", 
+            "text": "function cdf_student_t(x:\nReal\n, \u03bd:\nReal\n) -\n \nReal\n\n\nCDF of a Student's \nt\n variate.\n\n\n\n\nx: The variate.\n\n\n\u03bd: Degrees of freedom.\n\n\n\n\nReturn: the cumulative probability.\n\n\n\n\n\n\nfunction cdf_student_t(x:\nReal\n, \u03bd:\nReal\n, \u03bc:\nReal\n, \u03c32:\nReal\n) -\n \nReal\n\n\nCDF of a Student's \nt\n variate with location and scale.\n\n\n\n\nx: The variate.\n\n\n\u03bd: Degrees of freedom.\n\n\n\u03bc: Location.\n\n\n\u03c32: Squared scale.\n\n\n\n\nReturn: the cumulative probability.", 
             "title": "cdf_student_t"
         }, 
         {
             "location": "/documentation/library/functions/cdf_uniform/", 
-            "text": "function cdf_uniform(x:\nReal\n, l:\nReal\n, u:\nReal\n) -\n \nReal\n\n\nCDF of a uniform variate.\n\n\n\n\nx: The variate.\n\n\nl: Lower bound of interval.\n\n\nu: Upper bound of interval.\n\n\n\n\nReturns: the cumulative probability.", 
+            "text": "function cdf_uniform(x:\nReal\n, l:\nReal\n, u:\nReal\n) -\n \nReal\n\n\nCDF of a uniform variate.\n\n\n\n\nx: The variate.\n\n\nl: Lower bound of interval.\n\n\nu: Upper bound of interval.\n\n\n\n\nReturn: the cumulative probability.", 
             "title": "cdf_uniform"
+        }, 
+        {
+            "location": "/documentation/library/functions/cdf_uniform_int/", 
+            "text": "function cdf_uniform_int(x:\nInteger\n, l:\nInteger\n, u:\nInteger\n) -\n \nReal\n\n\nCDF of a uniform integer variate.\n\n\n\n\nx: The variate.\n\n\nl: Lower bound of interval.\n\n\nu: Upper bound of interval.\n\n\n\n\nReturn: the cumulative probability.", 
+            "title": "cdf_uniform_int"
         }, 
         {
             "location": "/documentation/library/functions/ceil/", 
@@ -747,7 +752,7 @@
         }, 
         {
             "location": "/documentation/library/functions/fopen/", 
-            "text": "function fopen(file:\nString\n) -\n \nFile\n\n\nOpen a file for reading.\n\n\n\n\nfile : The file name.\n\n\n\n\n\n\n\n\nfunction fopen(file:\nString\n, mode:\nInteger\n) -\n \nFile\n\n\nOpen a file.\n\n\n\n\nfile : The file name.\n\n\nmode : The mode, either \nREAD\n, \nWRITE\n, or \nAPPEND\n.", 
+            "text": "function fopen(path:\nString\n) -\n \nFile\n\n\nOpen a file for reading.\n\n\n\n\npath : Path of the file.\n\n\n\n\nReturn: File handle.\n\n\nIf \npath\n includes non-existing directory, that directory is created (if\npossible). The file is locked for reading (if possible).\n\n\n\n\n\n\nfunction fopen(path:\nString\n, mode:\nInteger\n) -\n \nFile\n\n\nOpen a file.\n\n\n\n\npath : Path of the file.\n\n\nmode : The mode, either \nREAD\n, \nWRITE\n, or \nAPPEND\n.\n\n\n\n\nReturn: File handle.\n\n\nIf \npath\n includes non-existing directory, that directory is created (if\npossible). The file is locked for reading or writing as appropriate (if\npossible).", 
             "title": "fopen"
         }, 
         {
@@ -847,7 +852,7 @@
         }, 
         {
             "location": "/documentation/library/functions/mkdir/", 
-            "text": "function mkdir(path:\nString\n)\n\n\nCreate a directory.", 
+            "text": "function mkdir(path:\nString\n)\n\n\nCreate a directory.\n\n\n\n\npath: Path of the directory.", 
             "title": "mkdir"
         }, 
         {
@@ -1032,92 +1037,97 @@
         }, 
         {
             "location": "/documentation/library/functions/pdf_beta/", 
-            "text": "function pdf_beta(x:\nReal\n, \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nPDF of a beta variate.\n\n\n\n\nx: The variate.\n\n\n\u03b1: Shape.\n\n\n\u03b2: Shape.\n\n\n\n\nReturns: the probability density.", 
+            "text": "function pdf_beta(x:\nReal\n, \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nPDF of a beta variate.\n\n\n\n\nx: The variate.\n\n\n\u03b1: Shape.\n\n\n\u03b2: Shape.\n\n\n\n\nReturn: the probability density.", 
             "title": "pdf_beta"
         }, 
         {
+            "location": "/documentation/library/functions/pdf_dirichlet/", 
+            "text": "function pdf_dirichlet(x:\nReal\n[_], \u03b1:\nReal\n[_]) -\n \nReal\n\n\nPDF of a Dirichlet variate.\n\n\n\n\nx: The variate.\n\n\n\u03b1: Concentrations.\n\n\n\n\nReturn: the probability density.", 
+            "title": "pdf_dirichlet"
+        }, 
+        {
             "location": "/documentation/library/functions/pdf_exponential/", 
-            "text": "function pdf_exponential(x:\nReal\n, \u03bb:\nReal\n) -\n \nReal\n\n\nPDF of an exponential variate.\n\n\n\n\nx: The variate.\n\n\n\u03bb: Rate.\n\n\n\n\nReturns: the probability density.", 
+            "text": "function pdf_exponential(x:\nReal\n, \u03bb:\nReal\n) -\n \nReal\n\n\nPDF of an exponential variate.\n\n\n\n\nx: The variate.\n\n\n\u03bb: Rate.\n\n\n\n\nReturn: the probability density.", 
             "title": "pdf_exponential"
         }, 
         {
             "location": "/documentation/library/functions/pdf_gamma/", 
-            "text": "function pdf_gamma(x:\nReal\n, k:\nReal\n, \u03b8:\nReal\n) -\n \nReal\n\n\nPDF of a gamma variate.\n\n\n\n\nx: The variate.\n\n\nk: Shape.\n\n\n\u03b8: Scale.\n\n\n\n\nReturns: the probability density.", 
+            "text": "function pdf_gamma(x:\nReal\n, k:\nReal\n, \u03b8:\nReal\n) -\n \nReal\n\n\nPDF of a gamma variate.\n\n\n\n\nx: The variate.\n\n\nk: Shape.\n\n\n\u03b8: Scale.\n\n\n\n\nReturn: the probability density.", 
             "title": "pdf_gamma"
         }, 
         {
             "location": "/documentation/library/functions/pdf_gaussian/", 
-            "text": "function pdf_gaussian(x:\nReal\n, \u03bc:\nReal\n, \u03c32:\nReal\n) -\n \nReal\n\n\nPDF of a Gaussian variate.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Mean.\n\n\n\u03c32: Variance.\n\n\n\n\nReturns: the probability density.", 
+            "text": "function pdf_gaussian(x:\nReal\n, \u03bc:\nReal\n, \u03c32:\nReal\n) -\n \nReal\n\n\nPDF of a Gaussian variate.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Mean.\n\n\n\u03c32: Variance.\n\n\n\n\nReturn: the probability density.", 
             "title": "pdf_gaussian"
         }, 
         {
             "location": "/documentation/library/functions/pdf_inverse_gamma/", 
-            "text": "function pdf_inverse_gamma(x:\nReal\n, \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nPDF of an inverse-gamma variate.\n\n\n\n\nx: The variate.\n\n\n\u03b1: Shape.\n\n\n\u03b2: Scale.\n\n\n\n\nReturns: the probability density.", 
+            "text": "function pdf_inverse_gamma(x:\nReal\n, \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nPDF of an inverse-gamma variate.\n\n\n\n\nx: The variate.\n\n\n\u03b1: Shape.\n\n\n\u03b2: Scale.\n\n\n\n\nReturn: the probability density.", 
             "title": "pdf_inverse_gamma"
         }, 
         {
             "location": "/documentation/library/functions/pdf_inverse_gamma_gaussian/", 
-            "text": "function pdf_inverse_gamma_gaussian(x:\nReal\n, \u03bc:\nReal\n, \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nPDF of a Gaussian variate with an inverse-gamma distribution over\nthe variance.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Mean.\n\n\n\u03b1: Shape of the inverse-gamma.\n\n\n\u03b2: Scale of the inverse-gamma.\n\n\n\n\nReturns: the probability density.", 
+            "text": "function pdf_inverse_gamma_gaussian(x:\nReal\n, \u03bc:\nReal\n, \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nPDF of a Gaussian variate with an inverse-gamma distribution over\nthe variance.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Mean.\n\n\n\u03b1: Shape of the inverse-gamma.\n\n\n\u03b2: Scale of the inverse-gamma.\n\n\n\n\nReturn: the probability density.", 
             "title": "pdf_inverse_gamma_gaussian"
         }, 
         {
             "location": "/documentation/library/functions/pdf_linear_normal_inverse_gamma_gaussian/", 
-            "text": "function pdf_linear_normal_inverse_gamma_gaussian(x:\nReal\n, a:\nReal\n, \u03bc:\nReal\n, c:\nReal\n, a2:\nReal\n, \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nPDF of a Gaussian variate with a normal inverse-gamma prior with linear\ntransformation.\n\n\n\n\nx: The variate.\n\n\na: Scale.\n\n\n\u03bc: Mean.\n\n\nc: Offset.\n\n\na2: Variance.\n\n\n\u03b1: Shape of the inverse-gamma.\n\n\n\u03b2: Scale of the inverse-gamma.\n\n\n\n\nReturns: the probability density.", 
+            "text": "function pdf_linear_normal_inverse_gamma_gaussian(x:\nReal\n, a:\nReal\n, \u03bc:\nReal\n, c:\nReal\n, a2:\nReal\n, \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nPDF of a Gaussian variate with a normal inverse-gamma prior with linear\ntransformation.\n\n\n\n\nx: The variate.\n\n\na: Scale.\n\n\n\u03bc: Mean.\n\n\nc: Offset.\n\n\na2: Variance.\n\n\n\u03b1: Shape of the inverse-gamma.\n\n\n\u03b2: Scale of the inverse-gamma.\n\n\n\n\nReturn: the probability density.", 
             "title": "pdf_linear_normal_inverse_gamma_gaussian"
         }, 
         {
             "location": "/documentation/library/functions/pdf_log_gaussian/", 
-            "text": "function pdf_log_gaussian(x:\nReal\n, \u03bc:\nReal\n, \u03c32:\nReal\n) -\n \nReal\n\n\nPDF of a log-Gaussian variate.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Mean.\n\n\n\u03c32: Variance.\n\n\n\n\nReturns: the probability density.", 
+            "text": "function pdf_log_gaussian(x:\nReal\n, \u03bc:\nReal\n, \u03c32:\nReal\n) -\n \nReal\n\n\nPDF of a log-Gaussian variate.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Mean.\n\n\n\u03c32: Variance.\n\n\n\n\nReturn: the probability density.", 
             "title": "pdf_log_gaussian"
         }, 
         {
             "location": "/documentation/library/functions/pdf_multivariate_gaussian/", 
-            "text": "function pdf_multivariate_gaussian(x:\nReal\n[_], \u03bc:\nReal\n[_], \u03a3:\nReal\n[_,_]) -\n \nReal\n\n\nPDF of a multivariate Gaussian variate.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Mean.\n\n\n\u03a3: Covariance.\n\n\n\n\nReturns: the probability density.\n\n\n\n\n\n\nfunction pdf_multivariate_gaussian(x:\nReal\n[_], \u03bc:\nReal\n[_], \u03c32:\nReal\n) -\n \nReal\n\n\nPDF of a multivariate Gaussian distribution with diagonal covariance.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Mean.\n\n\n\u03c32: Variance.\n\n\n\n\nReturns: the probability density.", 
+            "text": "function pdf_multivariate_gaussian(x:\nReal\n[_], \u03bc:\nReal\n[_], \u03a3:\nReal\n[_,_]) -\n \nReal\n\n\nPDF of a multivariate Gaussian variate.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Mean.\n\n\n\u03a3: Covariance.\n\n\n\n\nReturn: the probability density.\n\n\n\n\n\n\nfunction pdf_multivariate_gaussian(x:\nReal\n[_], \u03bc:\nReal\n[_], \u03c32:\nReal\n) -\n \nReal\n\n\nPDF of a multivariate Gaussian distribution with diagonal covariance.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Mean.\n\n\n\u03c32: Variance.\n\n\n\n\nReturn: the probability density.", 
             "title": "pdf_multivariate_gaussian"
         }, 
         {
             "location": "/documentation/library/functions/pdf_multivariate_inverse_gamma_gaussian/", 
-            "text": "function pdf_multivariate_inverse_gamma_gaussian(x:\nReal\n[_], \u03bc:\nReal\n[_], \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nPDF of a multivariate Gaussian variate with an inverse-gamma distribution\nover a diagonal covariance.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Mean.\n\n\n\u03b1: Shape of the inverse-gamma.\n\n\n\u03b2: Scale of the inverse-gamma.\n\n\n\n\nReturns: the probability density.", 
+            "text": "function pdf_multivariate_inverse_gamma_gaussian(x:\nReal\n[_], \u03bc:\nReal\n[_], \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nPDF of a multivariate Gaussian variate with an inverse-gamma distribution\nover a diagonal covariance.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Mean.\n\n\n\u03b1: Shape of the inverse-gamma.\n\n\n\u03b2: Scale of the inverse-gamma.\n\n\n\n\nReturn: the probability density.", 
             "title": "pdf_multivariate_inverse_gamma_gaussian"
         }, 
         {
             "location": "/documentation/library/functions/pdf_multivariate_linear_normal_inverse_gamma_gaussian/", 
-            "text": "function pdf_multivariate_linear_normal_inverse_gamma_gaussian(x:\nReal\n[_], A:\nReal\n[_,_], \u03bc:\nReal\n[_], c:\nReal\n[_], \u039b:\nReal\n[_,_], \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nPDF of a multivariate Gaussian variate with a multivariate normal\ninverse-gamma prior with linear transformation.\n\n\n\n\nx: The variate.\n\n\nA: Scale.\n\n\n\u03bc: Mean.\n\n\nc: Offset.\n\n\n\u039b: Precision.\n\n\n\u03b1: Shape of the inverse-gamma.\n\n\n\u03b2: Scale of the inverse-gamma.\n\n\n\n\nReturns: the probability density.", 
+            "text": "function pdf_multivariate_linear_normal_inverse_gamma_gaussian(x:\nReal\n[_], A:\nReal\n[_,_], \u03bc:\nReal\n[_], c:\nReal\n[_], \u039b:\nReal\n[_,_], \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nPDF of a multivariate Gaussian variate with a multivariate normal\ninverse-gamma prior with linear transformation.\n\n\n\n\nx: The variate.\n\n\nA: Scale.\n\n\n\u03bc: Mean.\n\n\nc: Offset.\n\n\n\u039b: Precision.\n\n\n\u03b1: Shape of the inverse-gamma.\n\n\n\u03b2: Scale of the inverse-gamma.\n\n\n\n\nReturn: the probability density.", 
             "title": "pdf_multivariate_linear_normal_inverse_gamma_gaussian"
         }, 
         {
             "location": "/documentation/library/functions/pdf_multivariate_normal_inverse_gamma/", 
-            "text": "function pdf_multivariate_normal_inverse_gamma(x:\nReal\n[_], \u03bc:\nReal\n[_], \u039b:\nReal\n[_,_], \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nPDF of a multivariate normal inverse-gamma variate.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Mean.\n\n\n\u039b: Precision.\n\n\n\u03b1: Shape of inverse-gamma on scale.\n\n\n\u03b2: Scale of inverse-gamma on scale.\n\n\n\n\nReturns: the probability density.", 
+            "text": "function pdf_multivariate_normal_inverse_gamma(x:\nReal\n[_], \u03bc:\nReal\n[_], \u039b:\nReal\n[_,_], \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nPDF of a multivariate normal inverse-gamma variate.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Mean.\n\n\n\u039b: Precision.\n\n\n\u03b1: Shape of inverse-gamma on scale.\n\n\n\u03b2: Scale of inverse-gamma on scale.\n\n\n\n\nReturn: the probability density.", 
             "title": "pdf_multivariate_normal_inverse_gamma"
         }, 
         {
             "location": "/documentation/library/functions/pdf_multivariate_normal_inverse_gamma_gaussian/", 
-            "text": "function pdf_multivariate_normal_inverse_gamma_gaussian(x:\nReal\n[_], \u03bc:\nReal\n[_], \u039b:\nReal\n[_,_], \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nPDF of a multivariate Gaussian variate with a multivariate normal\ninverse-gamma prior.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Mean.\n\n\n\u039b: Precision.\n\n\n\u03b1: Shape of the inverse-gamma.\n\n\n\u03b2: Scale of the inverse-gamma.\n\n\n\n\nReturns: the probability density.", 
+            "text": "function pdf_multivariate_normal_inverse_gamma_gaussian(x:\nReal\n[_], \u03bc:\nReal\n[_], \u039b:\nReal\n[_,_], \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nPDF of a multivariate Gaussian variate with a multivariate normal\ninverse-gamma prior.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Mean.\n\n\n\u039b: Precision.\n\n\n\u03b1: Shape of the inverse-gamma.\n\n\n\u03b2: Scale of the inverse-gamma.\n\n\n\n\nReturn: the probability density.", 
             "title": "pdf_multivariate_normal_inverse_gamma_gaussian"
         }, 
         {
             "location": "/documentation/library/functions/pdf_multivariate_student_t/", 
-            "text": "function pdf_multivariate_student_t(x:\nReal\n[_], \u03bd:\nReal\n, \u03bc:\nReal\n[_], \u039b:\nReal\n[_,_]) -\n \nReal\n\n\nPDF of a multivariate Student's \nt\n-distribution variate with location\nand scale.\n\n\n\n\nx: The variate.\n\n\n\u03bd: Degrees of freedom.\n\n\n\u03bc: Location.\n\n\n\u039b: Precision.\n\n\n\n\nReturns: the probability density.\n\n\n\n\n\n\nfunction pdf_multivariate_student_t(x:\nReal\n[_], \u03bd:\nReal\n, \u03bc:\nReal\n[_], \u03bb:\nReal\n) -\n \nReal\n\n\nPDF of a multivariate Student's \nt\n-distribution variate with location\nand diagonal scale.\n\n\n\n\nx: The variate.\n\n\n\u03bd: Degrees of freedom.\n\n\n\u03bc: Location.\n\n\n\u03bb: Precision.\n\n\n\n\nReturns: the probability density.", 
+            "text": "function pdf_multivariate_student_t(x:\nReal\n[_], \u03bd:\nReal\n, \u03bc:\nReal\n[_], \u039b:\nReal\n[_,_]) -\n \nReal\n\n\nPDF of a multivariate Student's \nt\n-distribution variate with location\nand scale.\n\n\n\n\nx: The variate.\n\n\n\u03bd: Degrees of freedom.\n\n\n\u03bc: Location.\n\n\n\u039b: Precision.\n\n\n\n\nReturn: the probability density.\n\n\n\n\n\n\nfunction pdf_multivariate_student_t(x:\nReal\n[_], \u03bd:\nReal\n, \u03bc:\nReal\n[_], \u03bb:\nReal\n) -\n \nReal\n\n\nPDF of a multivariate Student's \nt\n-distribution variate with location\nand diagonal scale.\n\n\n\n\nx: The variate.\n\n\n\u03bd: Degrees of freedom.\n\n\n\u03bc: Location.\n\n\n\u03bb: Precision.\n\n\n\n\nReturn: the probability density.", 
             "title": "pdf_multivariate_student_t"
         }, 
         {
             "location": "/documentation/library/functions/pdf_normal_inverse_gamma/", 
-            "text": "function pdf_normal_inverse_gamma(x:\nReal\n, \u03bc:\nReal\n, a2:\nReal\n, \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nPDF of a normal inverse-gamma variate.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Mean.\n\n\na2: Variance.\n\n\n\u03b1: Shape of inverse-gamma on scale.\n\n\n\u03b2: Scale of inverse-gamma on scale.\n\n\n\n\nReturns: the probability density.", 
+            "text": "function pdf_normal_inverse_gamma(x:\nReal\n, \u03bc:\nReal\n, a2:\nReal\n, \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nPDF of a normal inverse-gamma variate.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Mean.\n\n\na2: Variance.\n\n\n\u03b1: Shape of inverse-gamma on scale.\n\n\n\u03b2: Scale of inverse-gamma on scale.\n\n\n\n\nReturn: the probability density.", 
             "title": "pdf_normal_inverse_gamma"
         }, 
         {
             "location": "/documentation/library/functions/pdf_normal_inverse_gamma_gaussian/", 
-            "text": "function pdf_normal_inverse_gamma_gaussian(x:\nReal\n, \u03bc:\nReal\n, a2:\nReal\n, \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nPDF of a Gaussian variate with a normal inverse-gamma prior.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Mean.\n\n\na2: Variance.\n\n\n\u03b1: Shape of the inverse-gamma.\n\n\n\u03b2: Scale of the inverse-gamma.\n\n\n\n\nReturns: the probability density.", 
+            "text": "function pdf_normal_inverse_gamma_gaussian(x:\nReal\n, \u03bc:\nReal\n, a2:\nReal\n, \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nPDF of a Gaussian variate with a normal inverse-gamma prior.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Mean.\n\n\na2: Variance.\n\n\n\u03b1: Shape of the inverse-gamma.\n\n\n\u03b2: Scale of the inverse-gamma.\n\n\n\n\nReturn: the probability density.", 
             "title": "pdf_normal_inverse_gamma_gaussian"
         }, 
         {
             "location": "/documentation/library/functions/pdf_student_t/", 
-            "text": "function pdf_student_t(x:\nReal\n, \u03bd:\nReal\n) -\n \nReal\n\n\nPDF of a Student's \nt\n variate.\n\n\n\n\nx: The variate.\n\n\n\u03bd: Degrees of freedom.\n\n\n\n\nReturns: the probability density.\n\n\n\n\n\n\nfunction pdf_student_t(x:\nReal\n, \u03bd:\nReal\n, \u03bc:\nReal\n, \u03c32:\nReal\n) -\n \nReal\n\n\nPDF of a Student's \nt\n variate with location and scale.\n\n\n\n\nx: The variate.\n\n\n\u03bd: Degrees of freedom.\n\n\n\u03bc: Location.\n\n\n\u03c32: Squared scale.\n\n\n\n\nReturns: the probability density.", 
+            "text": "function pdf_student_t(x:\nReal\n, \u03bd:\nReal\n) -\n \nReal\n\n\nPDF of a Student's \nt\n variate.\n\n\n\n\nx: The variate.\n\n\n\u03bd: Degrees of freedom.\n\n\n\n\nReturn: the probability density.\n\n\n\n\n\n\nfunction pdf_student_t(x:\nReal\n, \u03bd:\nReal\n, \u03bc:\nReal\n, \u03c32:\nReal\n) -\n \nReal\n\n\nPDF of a Student's \nt\n variate with location and scale.\n\n\n\n\nx: The variate.\n\n\n\u03bd: Degrees of freedom.\n\n\n\u03bc: Location.\n\n\n\u03c32: Squared scale.\n\n\n\n\nReturn: the probability density.", 
             "title": "pdf_student_t"
         }, 
         {
             "location": "/documentation/library/functions/pdf_uniform/", 
-            "text": "function pdf_uniform(x:\nReal\n, l:\nReal\n, u:\nReal\n) -\n \nReal\n\n\nPDF of a uniform variate.\n\n\n\n\nx: The variate.\n\n\nl: Lower bound of interval.\n\n\nu: Upper bound of interval.\n\n\n\n\nReturns: the probability density.", 
+            "text": "function pdf_uniform(x:\nReal\n, l:\nReal\n, u:\nReal\n) -\n \nReal\n\n\nPDF of a uniform variate.\n\n\n\n\nx: The variate.\n\n\nl: Lower bound of interval.\n\n\nu: Upper bound of interval.\n\n\n\n\nReturn: the probability density.", 
             "title": "pdf_uniform"
         }, 
         {
@@ -1127,77 +1137,77 @@
         }, 
         {
             "location": "/documentation/library/functions/pmf_bernoulli/", 
-            "text": "function pmf_bernoulli(x:\nBoolean\n, \u03c1:\nReal\n) -\n \nReal\n\n\nPMF of a Bernoulli variate.\n\n\n\n\nx: The variate.\n\n\n\u03c1: Probability of a true result.\n\n\n\n\nReturns: the probability mass.", 
+            "text": "function pmf_bernoulli(x:\nBoolean\n, \u03c1:\nReal\n) -\n \nReal\n\n\nPMF of a Bernoulli variate.\n\n\n\n\nx: The variate.\n\n\n\u03c1: Probability of a true result.\n\n\n\n\nReturn: the probability mass.", 
             "title": "pmf_bernoulli"
         }, 
         {
+            "location": "/documentation/library/functions/pmf_beta_bernoulli/", 
+            "text": "function pmf_beta_bernoulli(x:\nBoolean\n, \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nPMF of a beta-bernoulli variate.\n\n\n\n\nx: The variate.\n\n\n\u03b1: Shape.\n\n\n\u03b2: Shape.\n\n\n\n\nReturn: the probability mass.", 
+            "title": "pmf_beta_bernoulli"
+        }, 
+        {
             "location": "/documentation/library/functions/pmf_beta_binomial/", 
-            "text": "function pmf_beta_binomial(x:\nInteger\n, n:\nInteger\n, \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nPMF of a beta-binomial variate.\n\n\n\n\nx: The variate.\n\n\nn: Number of trials.\n\n\n\u03b1: Shape.\n\n\n\u03b2: Shape.\n\n\n\n\nReturns: the probability mass.", 
+            "text": "function pmf_beta_binomial(x:\nInteger\n, n:\nInteger\n, \u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nReal\n\n\nPMF of a beta-binomial variate.\n\n\n\n\nx: The variate.\n\n\nn: Number of trials.\n\n\n\u03b1: Shape.\n\n\n\u03b2: Shape.\n\n\n\n\nReturn: the probability mass.", 
             "title": "pmf_beta_binomial"
         }, 
         {
             "location": "/documentation/library/functions/pmf_binomial/", 
-            "text": "function pmf_binomial(x:\nInteger\n, n:\nInteger\n, \u03c1:\nReal\n) -\n \nReal\n\n\nPMF of a binomial variate.\n\n\n\n\nx: The variate.\n\n\nn: Number of trials.\n\n\n\u03c1: Probability of a true result.\n\n\n\n\nReturns: the probability mass.", 
+            "text": "function pmf_binomial(x:\nInteger\n, n:\nInteger\n, \u03c1:\nReal\n) -\n \nReal\n\n\nPMF of a binomial variate.\n\n\n\n\nx: The variate.\n\n\nn: Number of trials.\n\n\n\u03c1: Probability of a true result.\n\n\n\n\nReturn: the probability mass.", 
             "title": "pmf_binomial"
         }, 
         {
             "location": "/documentation/library/functions/pmf_categorical/", 
-            "text": "function pmf_categorical(x:\nInteger\n, \u03c1:\nReal\n[_]) -\n \nReal\n\n\nPMF of a categorical variate.\n\n\n\n\nx: The variate.\n\n\n\u03c1: Category probabilities.\n\n\n\n\nReturns: the probability mass.", 
+            "text": "function pmf_categorical(x:\nInteger\n, \u03c1:\nReal\n[_]) -\n \nReal\n\n\nPMF of a categorical variate.\n\n\n\n\nx: The variate.\n\n\n\u03c1: Category probabilities.\n\n\n\n\nReturn: the probability mass.", 
             "title": "pmf_categorical"
         }, 
         {
-            "location": "/documentation/library/functions/pmf_crp_categorical/", 
-            "text": "function pmf_crp_categorical(k:\nInteger\n, \u03b1:\nReal\n, \u03b8:\nReal\n, n:\nInteger\n[_], N:\nInteger\n) -\n \nReal\n\n\nPMF of a categorical variate with Chinese restaurant process prior.\n\n\n\n\nx: The variate.\n\n\n\u03b1: Concentration.\n\n\n\u03b8: Discount.\n\n\nn: Enumerated items.\n\n\nN: Total number of items.", 
-            "title": "pmf_crp_categorical"
-        }, 
-        {
             "location": "/documentation/library/functions/pmf_delta/", 
-            "text": "function pmf_delta(x:\nInteger\n, \u03bc:\nInteger\n) -\n \nReal\n\n\nPMF of a delta variate.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Location.\n\n\n\n\nReturns: the probability mass.", 
+            "text": "function pmf_delta(x:\nInteger\n, \u03bc:\nInteger\n) -\n \nReal\n\n\nPMF of a delta variate.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Location.\n\n\n\n\nReturn: the probability mass.", 
             "title": "pmf_delta"
         }, 
         {
-            "location": "/documentation/library/functions/pmf_dirichlet/", 
-            "text": "function pmf_dirichlet(x:\nReal\n[_], \u03b1:\nReal\n[_]) -\n \nReal\n\n\nPMF of a Dirichlet variate.\n\n\n\n\nx: The variate.\n\n\n\u03b1: Concentrations.\n\n\n\n\nReturns: the probability density.", 
-            "title": "pmf_dirichlet"
-        }, 
-        {
             "location": "/documentation/library/functions/pmf_dirichlet_categorical/", 
-            "text": "function pmf_dirichlet_categorical(x:\nInteger\n, \u03b1:\nReal\n[_]) -\n \nReal\n\n\nPMF of a Dirichlet-categorical variate.\n\n\n\n\nx: The variate.\n\n\n\u03b1: Concentrations.\n\n\n\n\nReturns: the probability mass.", 
+            "text": "function pmf_dirichlet_categorical(x:\nInteger\n, \u03b1:\nReal\n[_]) -\n \nReal\n\n\nPMF of a Dirichlet-categorical variate.\n\n\n\n\nx: The variate.\n\n\n\u03b1: Concentrations.\n\n\n\n\nReturn: the probability mass.", 
             "title": "pmf_dirichlet_categorical"
         }, 
         {
             "location": "/documentation/library/functions/pmf_dirichlet_multinomial/", 
-            "text": "function pmf_dirichlet_multinomial(x:\nInteger\n[_], n:\nInteger\n, \u03b1:\nReal\n[_]) -\n \nReal\n\n\nPMF of a Dirichlet-multinomial variate.\n\n\n\n\nx: The variate.\n\n\nn: Number of trials.\n\n\n\u03b1: Concentrations.\n\n\n\n\nReturns: the probability mass.", 
+            "text": "function pmf_dirichlet_multinomial(x:\nInteger\n[_], n:\nInteger\n, \u03b1:\nReal\n[_]) -\n \nReal\n\n\nPMF of a Dirichlet-multinomial variate.\n\n\n\n\nx: The variate.\n\n\nn: Number of trials.\n\n\n\u03b1: Concentrations.\n\n\n\n\nReturn: the probability mass.", 
             "title": "pmf_dirichlet_multinomial"
         }, 
         {
             "location": "/documentation/library/functions/pmf_gamma_poisson/", 
-            "text": "function pmf_gamma_poisson(x:\nInteger\n, k:\nInteger\n, \u03b8:\nReal\n) -\n \nReal\n\n\nPMF of a gamma-Poisson variate.\n\n\n\n\nx: The variate.\n\n\nk: Shape.\n\n\n\u03b8: Scale.\n\n\n\n\nReturns: the probability mass.", 
+            "text": "function pmf_gamma_poisson(x:\nInteger\n, k:\nReal\n, \u03b8:\nReal\n) -\n \nReal\n\n\nPMF of a gamma-Poisson variate.\n\n\n\n\nx: The variate.\n\n\nk: Shape.\n\n\n\u03b8: Scale.\n\n\n\n\nReturn: the probability mass.", 
             "title": "pmf_gamma_poisson"
         }, 
         {
             "location": "/documentation/library/functions/pmf_multinomial/", 
-            "text": "function pmf_multinomial(x:\nInteger\n[_], n:\nInteger\n, \u03c1:\nReal\n[_]) -\n \nReal\n\n\nPMF of a multinomial variate.\n\n\n\n\nx: The variate.\n\n\nn: Number of trials.\n\n\n\u03c1: Category probabilities.\n\n\n\n\nReturns: the probability mass.", 
+            "text": "function pmf_multinomial(x:\nInteger\n[_], n:\nInteger\n, \u03c1:\nReal\n[_]) -\n \nReal\n\n\nPMF of a multinomial variate.\n\n\n\n\nx: The variate.\n\n\nn: Number of trials.\n\n\n\u03c1: Category probabilities.\n\n\n\n\nReturn: the probability mass.", 
             "title": "pmf_multinomial"
         }, 
         {
             "location": "/documentation/library/functions/pmf_negative_binomial/", 
-            "text": "function pmf_negative_binomial(x:\nInteger\n, k:\nInteger\n, \u03c1:\nReal\n) -\n \nReal\n\n\nPMF of a negative binomial variate.\n\n\n\n\nx: The variate (number of failures).\n\n\nk: Number of successes before the experiment is stopped.\n\n\n\u03c1: Probability of success.\n\n\n\n\nReturns: the probability mass.", 
+            "text": "function pmf_negative_binomial(x:\nInteger\n, k:\nInteger\n, \u03c1:\nReal\n) -\n \nReal\n\n\nPMF of a negative binomial variate.\n\n\n\n\nx: The variate (number of failures).\n\n\nk: Number of successes before the experiment is stopped.\n\n\n\u03c1: Probability of success.\n\n\n\n\nReturn: the probability mass.", 
             "title": "pmf_negative_binomial"
         }, 
         {
             "location": "/documentation/library/functions/pmf_poisson/", 
-            "text": "function pmf_poisson(x:\nInteger\n, \u03bb:\nReal\n) -\n \nReal\n\n\nPMF of a Poisson variate.\n\n\n\n\nx: The variate.\n\n\n\u03bb: Rate.\n\n\n\n\nReturns: the probability mass.", 
+            "text": "function pmf_poisson(x:\nInteger\n, \u03bb:\nReal\n) -\n \nReal\n\n\nPMF of a Poisson variate.\n\n\n\n\nx: The variate.\n\n\n\u03bb: Rate.\n\n\n\n\nReturn: the probability mass.", 
             "title": "pmf_poisson"
         }, 
         {
+            "location": "/documentation/library/functions/pmf_restaurant_categorical/", 
+            "text": "function pmf_restaurant_categorical(k:\nInteger\n, \u03b1:\nReal\n, \u03b8:\nReal\n, n:\nInteger\n[_], N:\nInteger\n) -\n \nReal\n\n\nPMF of a categorical variate with Chinese restaurant process prior.\n\n\n\n\nx: The variate.\n\n\n\u03b1: Concentration.\n\n\n\u03b8: Discount.\n\n\nn: Enumerated items.\n\n\nN: Total number of items.\n\n\n\n\nReturn: the probability mass.", 
+            "title": "pmf_restaurant_categorical"
+        }, 
+        {
             "location": "/documentation/library/functions/pmf_uniform_int/", 
-            "text": "function pmf_uniform_int(x:\nInteger\n, l:\nInteger\n, u:\nInteger\n) -\n \nReal\n\n\nPMF of an integer uniform variate.\n\n\n\n\nx: The variate.\n\n\nl: Lower bound of interval.\n\n\nu: Upper bound of interval.\n\n\n\n\nReturns: the probability mass.", 
+            "text": "function pmf_uniform_int(x:\nInteger\n, l:\nInteger\n, u:\nInteger\n) -\n \nReal\n\n\nPMF of an integer uniform variate.\n\n\n\n\nx: The variate.\n\n\nl: Lower bound of interval.\n\n\nu: Upper bound of interval.\n\n\n\n\nReturn: the probability mass.", 
             "title": "pmf_uniform_int"
         }, 
         {
             "location": "/documentation/library/functions/pow/", 
-            "text": "function pow(x:\nReal64\n, y:\nReal64\n) -\n \nReal64\n\n\nPower.\n\n\n\n\n\n\nfunction pow(x:\nReal32\n, y:\nReal32\n) -\n \nReal32\n\n\nPower.", 
+            "text": "function pow(x:\nInteger16\n, y:\nInteger16\n) -\n \nInteger16\n\n\nPower.\n\n\n\n\n\n\nfunction pow(x:\nInteger32\n, y:\nInteger32\n) -\n \nInteger32\n\n\nPower.\n\n\n\n\n\n\nfunction pow(x:\nInteger64\n, y:\nInteger64\n) -\n \nInteger64\n\n\nPower.\n\n\n\n\n\n\nfunction pow(x:\nInteger8\n, y:\nInteger8\n) -\n \nInteger8\n\n\nPower.\n\n\n\n\n\n\nfunction pow(x:\nReal32\n, y:\nReal32\n) -\n \nReal32\n\n\nPower.\n\n\n\n\n\n\nfunction pow(x:\nReal64\n, y:\nReal64\n) -\n \nReal64\n\n\nPower.", 
             "title": "pow"
         }, 
         {
@@ -1222,7 +1232,7 @@
         }, 
         {
             "location": "/documentation/library/functions/run_test/", 
-            "text": "function run_test(test:\nString\n) -\n \nInteger\n\n\nRun a specific test.\n\n\n\n\ntest: Name of the test.\n\n\n\n\nReturn: Exit code of the test.", 
+            "text": "function run_test(test:\nString\n, N:\nInteger\n) -\n \nInteger\n\n\nRun a specific test.\n\n\n\n\ntest: Name of the test.\n\n\nN: Number of samples.\n\n\n\n\nReturn: Exit code of the test.", 
             "title": "run_test"
         }, 
         {
@@ -1517,7 +1527,7 @@
         }, 
         {
             "location": "/documentation/library/functions/update_multivariate_gaussian_gaussian/", 
-            "text": "function update_multivariate_gaussian_gaussian(x:\nReal\n[_], \u03bc:\nReal\n[_], Q:\nReal\n[_,_], R:\nReal\n[_,_]) -\n (\nReal\n[_], \nReal\n[_,_])\n\n\nUpdate the parameters of a multivariate Gaussian distribution with a\nmultivariate Gaussian likelihood.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Prior mean.\n\n\nQ: Prior variance.\n\n\nR: Likelihood variance.\n\n\n\n\nReturns: the updated parameters \n\u03bc\n and \n\u03a3\n.", 
+            "text": "function update_multivariate_gaussian_gaussian(x:\nReal\n[_], \u03bc:\nReal\n[_], \u03a3:\nReal\n[_,_], \u03bc_m:\nReal\n[_], \u03a3_m:\nReal\n[_,_]) -\n (\nReal\n[_], \nReal\n[_,_])\n\n\nUpdate the parameters of a multivariate Gaussian distribution with a\nmultivariate Gaussian likelihood.\n\n\n\n\nx: The variate.\n\n\n\u03bc: Prior mean.\n\n\n\u03a3: Prior variance.\n\n\n\u03bc_m: Marginal mean.\n\n\n\u03a3_m: Marginal variance.\n\n\n\n\nReturns: the updated parameters \n\u03bc\n and \n\u03a3\n.", 
             "title": "update_multivariate_gaussian_gaussian"
         }, 
         {
@@ -1652,7 +1662,7 @@
         }, 
         {
             "location": "/documentation/library/classes/Bernoulli/", 
-            "text": "class Bernoulli(\u03c1:\nExpression\nReal\n) \n \nRandom\nBoolean\n\n\nBernoulli distribution.\n\n\n\n\nFactory Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nBernoulli\n\n\nCreate Bernoulli distribution.\n\n\n\n\n\n\nBernoulli\n\n\nCreate Bernoulli distribution.\n\n\n\n\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\n\u03c1:\nExpression\nReal\n\n\nSuccess probability.\n\n\n\n\n\n\n\n\nFactory Function Details\n\n\n\n\nfunction Bernoulli(\u03c1:\nExpression\nReal\n) -\n \nBernoulli\n\n\nCreate Bernoulli distribution.\n\n\n\n\n\n\nfunction Bernoulli(\u03c1:\nReal\n) -\n \nBernoulli\n\n\nCreate Bernoulli distribution.", 
+            "text": "class Bernoulli(\u03c1:\nExpression\nReal\n) \n \nDistribution\nBoolean\n\n\nBernoulli distribution.\n\n\n\n\nFactory Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nBernoulli\n\n\nCreate Bernoulli distribution.\n\n\n\n\n\n\nBernoulli\n\n\nCreate Bernoulli distribution.\n\n\n\n\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\n\u03c1:\nExpression\nReal\n\n\nSuccess probability.\n\n\n\n\n\n\n\n\nFactory Function Details\n\n\n\n\nfunction Bernoulli(\u03c1:\nExpression\nReal\n) -\n \nBernoulli\n\n\nCreate Bernoulli distribution.\n\n\n\n\n\n\nfunction Bernoulli(\u03c1:\nReal\n) -\n \nBernoulli\n\n\nCreate Bernoulli distribution.", 
             "title": "Bernoulli"
         }, 
         {
@@ -1672,7 +1682,7 @@
         }, 
         {
             "location": "/documentation/library/classes/Beta/", 
-            "text": "class Beta(\u03b1:\nExpression\nReal\n, \u03b2:\nExpression\nReal\n) \n \nRandom\nReal\n\n\nBeta distribution.\n\n\n\n\nFactory Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nBeta\n\n\nCreate beta distribution.\n\n\n\n\n\n\nBeta\n\n\nCreate beta distribution.\n\n\n\n\n\n\nBeta\n\n\nCreate beta distribution.\n\n\n\n\n\n\nBeta\n\n\nCreate beta distribution.\n\n\n\n\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\n\u03b1:\nExpression\nReal\n\n\nFirst shape.\n\n\n\n\n\n\n\u03b2:\nExpression\nReal\n\n\nSecond shape.\n\n\n\n\n\n\n\n\nFactory Function Details\n\n\n\n\nfunction Beta(\u03b1:\nExpression\nReal\n, \u03b2:\nExpression\nReal\n) -\n \nBeta\n\n\nCreate beta distribution.\n\n\n\n\n\n\nfunction Beta(\u03b1:\nExpression\nReal\n, \u03b2:\nReal\n) -\n \nBeta\n\n\nCreate beta distribution.\n\n\n\n\n\n\nfunction Beta(\u03b1:\nReal\n, \u03b2:\nExpression\nReal\n) -\n \nBeta\n\n\nCreate beta distribution.\n\n\n\n\n\n\nfunction Beta(\u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nBeta\n\n\nCreate beta distribution.", 
+            "text": "class Beta(\u03b1:\nExpression\nReal\n, \u03b2:\nExpression\nReal\n) \n \nDistribution\nReal\n\n\nBeta distribution.\n\n\n\n\nFactory Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nBeta\n\n\nCreate beta distribution.\n\n\n\n\n\n\nBeta\n\n\nCreate beta distribution.\n\n\n\n\n\n\nBeta\n\n\nCreate beta distribution.\n\n\n\n\n\n\nBeta\n\n\nCreate beta distribution.\n\n\n\n\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\n\u03b1:\nExpression\nReal\n\n\nFirst shape.\n\n\n\n\n\n\n\u03b2:\nExpression\nReal\n\n\nSecond shape.\n\n\n\n\n\n\n\n\nFactory Function Details\n\n\n\n\nfunction Beta(\u03b1:\nExpression\nReal\n, \u03b2:\nExpression\nReal\n) -\n \nBeta\n\n\nCreate beta distribution.\n\n\n\n\n\n\nfunction Beta(\u03b1:\nExpression\nReal\n, \u03b2:\nReal\n) -\n \nBeta\n\n\nCreate beta distribution.\n\n\n\n\n\n\nfunction Beta(\u03b1:\nReal\n, \u03b2:\nExpression\nReal\n) -\n \nBeta\n\n\nCreate beta distribution.\n\n\n\n\n\n\nfunction Beta(\u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nBeta\n\n\nCreate beta distribution.", 
             "title": "Beta"
         }, 
         {
@@ -1692,7 +1702,7 @@
         }, 
         {
             "location": "/documentation/library/classes/Binomial/", 
-            "text": "class Binomial(n:\nExpression\nInteger\n, \u03c1:\nExpression\nReal\n) \n \nRandom\nInteger\n\n\nBinomial distribution.\n\n\n\n\nFactory Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nBinomial\n\n\nCreate binomial distribution.\n\n\n\n\n\n\nBinomial\n\n\nCreate binomial distribution.\n\n\n\n\n\n\nBinomial\n\n\nCreate binomial distribution.\n\n\n\n\n\n\nBinomial\n\n\nCreate binomial distribution.\n\n\n\n\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nn:\nExpression\nInteger\n\n\nNumber of trials.\n\n\n\n\n\n\n\u03c1:\nExpression\nReal\n\n\nSuccess probability.\n\n\n\n\n\n\n\n\nFactory Function Details\n\n\n\n\nfunction Binomial(n:\nExpression\nInteger\n, \u03c1:\nExpression\nReal\n) -\n \nBinomial\n\n\nCreate binomial distribution.\n\n\n\n\n\n\nfunction Binomial(n:\nExpression\nInteger\n, \u03c1:\nReal\n) -\n \nBinomial\n\n\nCreate binomial distribution.\n\n\n\n\n\n\nfunction Binomial(n:\nInteger\n, \u03c1:\nExpression\nReal\n) -\n \nBinomial\n\n\nCreate binomial distribution.\n\n\n\n\n\n\nfunction Binomial(n:\nInteger\n, \u03c1:\nReal\n) -\n \nBinomial\n\n\nCreate binomial distribution.", 
+            "text": "class Binomial(n:\nExpression\nInteger\n, \u03c1:\nExpression\nReal\n) \n \nDistribution\nInteger\n\n\nBinomial distribution.\n\n\n\n\nFactory Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nBinomial\n\n\nCreate binomial distribution.\n\n\n\n\n\n\nBinomial\n\n\nCreate binomial distribution.\n\n\n\n\n\n\nBinomial\n\n\nCreate binomial distribution.\n\n\n\n\n\n\nBinomial\n\n\nCreate binomial distribution.\n\n\n\n\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nn:\nExpression\nInteger\n\n\nNumber of trials.\n\n\n\n\n\n\n\u03c1:\nExpression\nReal\n\n\nSuccess probability.\n\n\n\n\n\n\n\n\nFactory Function Details\n\n\n\n\nfunction Binomial(n:\nExpression\nInteger\n, \u03c1:\nExpression\nReal\n) -\n \nBinomial\n\n\nCreate binomial distribution.\n\n\n\n\n\n\nfunction Binomial(n:\nExpression\nInteger\n, \u03c1:\nReal\n) -\n \nBinomial\n\n\nCreate binomial distribution.\n\n\n\n\n\n\nfunction Binomial(n:\nInteger\n, \u03c1:\nExpression\nReal\n) -\n \nBinomial\n\n\nCreate binomial distribution.\n\n\n\n\n\n\nfunction Binomial(n:\nInteger\n, \u03c1:\nReal\n) -\n \nBinomial\n\n\nCreate binomial distribution.", 
             "title": "Binomial"
         }, 
         {
@@ -1732,7 +1742,7 @@
         }, 
         {
             "location": "/documentation/library/classes/Categorical/", 
-            "text": "class Categorical(\u03c1:\nExpression\nReal\n[_]\n) \n \nRandom\nInteger\n\n\nCategorical distribution.\n\n\n\n\nFactory Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nCategorical\n\n\nCreate categorical distribution.\n\n\n\n\n\n\nCategorical\n\n\nCreate categorical distribution.\n\n\n\n\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\n\u03c1:\nExpression\nReal\n[_]\n\n\nCategory probabilities.\n\n\n\n\n\n\n\n\nFactory Function Details\n\n\n\n\nfunction Categorical(\u03c1:\nExpression\nReal\n[_]\n) -\n \nCategorical\n\n\nCreate categorical distribution.\n\n\n\n\n\n\nfunction Categorical(\u03c1:\nReal\n[_]) -\n \nCategorical\n\n\nCreate categorical distribution.", 
+            "text": "class Categorical(\u03c1:\nExpression\nReal\n[_]\n) \n \nDistribution\nInteger\n\n\nCategorical distribution.\n\n\n\n\nFactory Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nCategorical\n\n\nCreate categorical distribution.\n\n\n\n\n\n\nCategorical\n\n\nCreate categorical distribution.\n\n\n\n\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\n\u03c1:\nExpression\nReal\n[_]\n\n\nCategory probabilities.\n\n\n\n\n\n\n\n\nFactory Function Details\n\n\n\n\nfunction Categorical(\u03c1:\nExpression\nReal\n[_]\n) -\n \nCategorical\n\n\nCreate categorical distribution.\n\n\n\n\n\n\nfunction Categorical(\u03c1:\nReal\n[_]) -\n \nCategorical\n\n\nCreate categorical distribution.", 
             "title": "Categorical"
         }, 
         {
@@ -1752,7 +1762,7 @@
         }, 
         {
             "location": "/documentation/library/classes/Delta/", 
-            "text": "class Delta(\u03bc:\nExpression\nInteger\n) \n \nRandom\nInteger\n\n\nDelta distribution, representing a distribution on a discrete space with\nall probability mass at one location.\n\n\n\n\nFactory Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nDelta\n\n\nCreate delta distribution.\n\n\n\n\n\n\nDelta\n\n\nCreate delta distribution.\n\n\n\n\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\n\u03bc:\nExpression\nInteger\n\n\nLocation.\n\n\n\n\n\n\n\n\nFactory Function Details\n\n\n\n\nfunction Delta(\u03bc:\nExpression\nInteger\n) -\n \nDelta\n\n\nCreate delta distribution.\n\n\n\n\n\u03bc: Location.\n\n\n\n\n\n\n\n\nfunction Delta(\u03bc:\nInteger\n) -\n \nDelta\n\n\nCreate delta distribution.\n\n\n\n\n\u03bc: Location.", 
+            "text": "class Delta(\u03bc:\nExpression\nInteger\n) \n \nDistribution\nInteger\n\n\nDelta distribution, representing a distribution on a discrete space with\nall probability mass at one location.\n\n\n\n\nFactory Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nDelta\n\n\nCreate delta distribution.\n\n\n\n\n\n\nDelta\n\n\nCreate delta distribution.\n\n\n\n\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\n\u03bc:\nExpression\nInteger\n\n\nLocation.\n\n\n\n\n\n\n\n\nFactory Function Details\n\n\n\n\nfunction Delta(\u03bc:\nExpression\nInteger\n) -\n \nDelta\n\n\nCreate delta distribution.\n\n\n\n\n\u03bc: Location.\n\n\n\n\n\n\n\n\nfunction Delta(\u03bc:\nInteger\n) -\n \nDelta\n\n\nCreate delta distribution.\n\n\n\n\n\u03bc: Location.", 
             "title": "Delta"
         }, 
         {
@@ -1772,7 +1782,7 @@
         }, 
         {
             "location": "/documentation/library/classes/Dirichlet/", 
-            "text": "class Dirichlet(\u03b1:\nExpression\nReal\n[_]\n) \n \nRandom\nReal\n[_]\n\n\nDirichlet distribution.\n\n\n\n\nFactory Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nDirichlet\n\n\nCreate Dirichlet distribution.\n\n\n\n\n\n\nDirichlet\n\n\nCreate Dirichlet distribution.\n\n\n\n\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\n\u03b1:\nExpression\nReal\n[_]\n\n\nConcentration.\n\n\n\n\n\n\n\n\nFactory Function Details\n\n\n\n\nfunction Dirichlet(\u03b1:\nExpression\nReal\n[_]\n) -\n \nDirichlet\n\n\nCreate Dirichlet distribution.\n\n\n\n\n\n\nfunction Dirichlet(\u03b1:\nReal\n[_]) -\n \nDirichlet\n\n\nCreate Dirichlet distribution.", 
+            "text": "class Dirichlet(\u03b1:\nExpression\nReal\n[_]\n) \n \nDistribution\nReal\n[_]\n\n\nDirichlet distribution.\n\n\n\n\nFactory Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nDirichlet\n\n\nCreate Dirichlet distribution.\n\n\n\n\n\n\nDirichlet\n\n\nCreate Dirichlet distribution.\n\n\n\n\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\n\u03b1:\nExpression\nReal\n[_]\n\n\nConcentration.\n\n\n\n\n\n\n\n\nFactory Function Details\n\n\n\n\nfunction Dirichlet(\u03b1:\nExpression\nReal\n[_]\n) -\n \nDirichlet\n\n\nCreate Dirichlet distribution.\n\n\n\n\n\n\nfunction Dirichlet(\u03b1:\nReal\n[_]) -\n \nDirichlet\n\n\nCreate Dirichlet distribution.", 
             "title": "Dirichlet"
         }, 
         {
@@ -1789,6 +1799,66 @@
             "location": "/documentation/library/classes/Dirichlet/#factory-function-details", 
             "text": "function Dirichlet(\u03b1: Expression Real [_] ) -   Dirichlet  Create Dirichlet distribution.    function Dirichlet(\u03b1: Real [_]) -   Dirichlet  Create Dirichlet distribution.", 
             "title": "Factory Function Details"
+        }, 
+        {
+            "location": "/documentation/library/classes/Distribution/", 
+            "text": "class Distribution\nValue\n \n \nObject\n\n\nProbability distribution.\n\n\n\n\nValue: Value type.\n\n\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\ndelay:DelayValue\n?\n\n\nAssociated node on delayed sampling \nM\n-path.\n\n\n\n\n\n\nx:Random\n\n\nAssociated random variate.\n\n\n\n\n\n\n\n\nMember Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nassociate\n\n\nAssociate a random variate with this distribution.\n\n\n\n\n\n\nvalue\n\n\nInstantiate the associated delayed random variate.\n\n\n\n\n\n\nsimulate\n\n\nSimulate a random variate.\n\n\n\n\n\n\nobserve\n\n\nObserve a random variate.\n\n\n\n\n\n\npmf\n\n\nEvaluate the probability mass function (if it exists) at a value.\n\n\n\n\n\n\npdf\n\n\nEvaluate the probability density function (if it exists) at a value.\n\n\n\n\n\n\ncdf\n\n\nEvaluate the cumulative distribution function at a value.\n\n\n\n\n\n\ngraft\n\n\nGraft this onto the delayed sampling \nM\n-path.\n\n\n\n\n\n\n\n\nMember Function Details\n\n\nassociate\n\n\n\n\n\n\nfunction associate(x:Random\n)\n\n\nAssociate a random variate with this distribution.\n\n\n\n\ncdf\n\n\n\n\n\n\nfunction cdf(x:Value) -\n Real\n\n\nEvaluate the cumulative distribution function at a value.\n\n\n\n\nx: The value.\n\n\n\n\nReturn: the cumulative probability\n\n\n\n\ngraft\n\n\n\n\n\n\nfunction graft()\n\n\nGraft this onto the delayed sampling \nM\n-path.\n\n\n\n\nobserve\n\n\n\n\n\n\nfunction observe(x:Value) -\n Real\n\n\nObserve a random variate.\n\n\n\n\nx: The value.\n\n\n\n\nReturn: The log likelihood.\n\n\n\n\npdf\n\n\n\n\n\n\nfunction pdf(x:Value) -\n Real\n\n\nEvaluate the probability density function (if it exists) at a value.\n\n\n\n\nx: The value.\n\n\n\n\nReturn: the probability density.\n\n\n\n\npmf\n\n\n\n\n\n\nfunction pmf(x:Value) -\n Real\n\n\nEvaluate the probability mass function (if it exists) at a value.\n\n\n\n\nx: The value.\n\n\n\n\nReturn: the probability mass.\n\n\n\n\nsimulate\n\n\n\n\n\n\nfunction simulate() -\n Value\n\n\nSimulate a random variate.\n\n\nReturn: the value.\n\n\n\n\nvalue\n\n\n\n\n\n\nfunction value()\n\n\nInstantiate the associated delayed random variate.", 
+            "title": "Distribution"
+        }, 
+        {
+            "location": "/documentation/library/classes/Distribution/#member-variables", 
+            "text": "Name  Description      delay:DelayValue ?  Associated node on delayed sampling  M -path.    x:Random  Associated random variate.", 
+            "title": "Member Variables"
+        }, 
+        {
+            "location": "/documentation/library/classes/Distribution/#member-functions", 
+            "text": "Name  Description      associate  Associate a random variate with this distribution.    value  Instantiate the associated delayed random variate.    simulate  Simulate a random variate.    observe  Observe a random variate.    pmf  Evaluate the probability mass function (if it exists) at a value.    pdf  Evaluate the probability density function (if it exists) at a value.    cdf  Evaluate the cumulative distribution function at a value.    graft  Graft this onto the delayed sampling  M -path.", 
+            "title": "Member Functions"
+        }, 
+        {
+            "location": "/documentation/library/classes/Distribution/#member-function-details", 
+            "text": "", 
+            "title": "Member Function Details"
+        }, 
+        {
+            "location": "/documentation/library/classes/Distribution/#associate", 
+            "text": "function associate(x:Random )  Associate a random variate with this distribution.", 
+            "title": "associate"
+        }, 
+        {
+            "location": "/documentation/library/classes/Distribution/#cdf", 
+            "text": "function cdf(x:Value) -  Real  Evaluate the cumulative distribution function at a value.   x: The value.   Return: the cumulative probability", 
+            "title": "cdf"
+        }, 
+        {
+            "location": "/documentation/library/classes/Distribution/#graft", 
+            "text": "function graft()  Graft this onto the delayed sampling  M -path.", 
+            "title": "graft"
+        }, 
+        {
+            "location": "/documentation/library/classes/Distribution/#observe", 
+            "text": "function observe(x:Value) -  Real  Observe a random variate.   x: The value.   Return: The log likelihood.", 
+            "title": "observe"
+        }, 
+        {
+            "location": "/documentation/library/classes/Distribution/#pdf", 
+            "text": "function pdf(x:Value) -  Real  Evaluate the probability density function (if it exists) at a value.   x: The value.   Return: the probability density.", 
+            "title": "pdf"
+        }, 
+        {
+            "location": "/documentation/library/classes/Distribution/#pmf", 
+            "text": "function pmf(x:Value) -  Real  Evaluate the probability mass function (if it exists) at a value.   x: The value.   Return: the probability mass.", 
+            "title": "pmf"
+        }, 
+        {
+            "location": "/documentation/library/classes/Distribution/#simulate", 
+            "text": "function simulate() -  Value  Simulate a random variate.  Return: the value.", 
+            "title": "simulate"
+        }, 
+        {
+            "location": "/documentation/library/classes/Distribution/#value", 
+            "text": "function value()  Instantiate the associated delayed random variate.", 
+            "title": "value"
         }, 
         {
             "location": "/documentation/library/classes/Expression/", 
@@ -1817,7 +1887,7 @@
         }, 
         {
             "location": "/documentation/library/classes/Gamma/", 
-            "text": "class Gamma(k:\nExpression\nReal\n, \u03b8:\nExpression\nReal\n) \n \nRandom\nReal\n\n\nGamma distribution.\n\n\n\n\nFactory Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nGamma\n\n\nCreate gamma distribution.\n\n\n\n\n\n\nGamma\n\n\nCreate gamma distribution.\n\n\n\n\n\n\nGamma\n\n\nCreate gamma distribution.\n\n\n\n\n\n\nGamma\n\n\nCreate gamma distribution.\n\n\n\n\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nk:\nExpression\nReal\n\n\nShape.\n\n\n\n\n\n\n\u03b8:\nExpression\nReal\n\n\nScale.\n\n\n\n\n\n\n\n\nFactory Function Details\n\n\n\n\nfunction Gamma(k:\nExpression\nReal\n, \u03b8:\nExpression\nReal\n) -\n \nGamma\n\n\nCreate gamma distribution.\n\n\n\n\n\n\nfunction Gamma(k:\nExpression\nReal\n, \u03b8:\nReal\n) -\n \nGamma\n\n\nCreate gamma distribution.\n\n\n\n\n\n\nfunction Gamma(k:\nReal\n, \u03b8:\nExpression\nReal\n) -\n \nGamma\n\n\nCreate gamma distribution.\n\n\n\n\n\n\nfunction Gamma(k:\nReal\n, \u03b8:\nReal\n) -\n \nGamma\n\n\nCreate gamma distribution.", 
+            "text": "class Gamma(k:\nExpression\nReal\n, \u03b8:\nExpression\nReal\n) \n \nDistribution\nReal\n\n\nGamma distribution.\n\n\n\n\nFactory Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nGamma\n\n\nCreate gamma distribution.\n\n\n\n\n\n\nGamma\n\n\nCreate gamma distribution.\n\n\n\n\n\n\nGamma\n\n\nCreate gamma distribution.\n\n\n\n\n\n\nGamma\n\n\nCreate gamma distribution.\n\n\n\n\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nk:\nExpression\nReal\n\n\nShape.\n\n\n\n\n\n\n\u03b8:\nExpression\nReal\n\n\nScale.\n\n\n\n\n\n\n\n\nFactory Function Details\n\n\n\n\nfunction Gamma(k:\nExpression\nReal\n, \u03b8:\nExpression\nReal\n) -\n \nGamma\n\n\nCreate gamma distribution.\n\n\n\n\n\n\nfunction Gamma(k:\nExpression\nReal\n, \u03b8:\nReal\n) -\n \nGamma\n\n\nCreate gamma distribution.\n\n\n\n\n\n\nfunction Gamma(k:\nReal\n, \u03b8:\nExpression\nReal\n) -\n \nGamma\n\n\nCreate gamma distribution.\n\n\n\n\n\n\nfunction Gamma(k:\nReal\n, \u03b8:\nReal\n) -\n \nGamma\n\n\nCreate gamma distribution.", 
             "title": "Gamma"
         }, 
         {
@@ -1837,7 +1907,7 @@
         }, 
         {
             "location": "/documentation/library/classes/Gaussian/", 
-            "text": "class Gaussian(\u03bc:\nExpression\nReal\n, \u03c32:\nExpression\nReal\n) \n \nRandom\nReal\n\n\nGaussian distribution.\n\n\n\n\nFactory Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nGaussian\n\n\nCreate multivariate Gaussian distribution.\n\n\n\n\n\n\nGaussian\n\n\nCreate multivariate Gaussian distribution.\n\n\n\n\n\n\nGaussian\n\n\nCreate multivariate Gaussian distribution.\n\n\n\n\n\n\nGaussian\n\n\nCreate multivariate Gaussian distribution.\n\n\n\n\n\n\nGaussian\n\n\nCreate multivariate Gaussian distribution.\n\n\n\n\n\n\nGaussian\n\n\nCreate multivariate Gaussian distribution.\n\n\n\n\n\n\nGaussian\n\n\nCreate multivariate Gaussian distribution.\n\n\n\n\n\n\nGaussian\n\n\nCreate multivariate Gaussian distribution.\n\n\n\n\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\n\u03bc:\nExpression\nReal\n\n\nMean.\n\n\n\n\n\n\n\u03c32:\nExpression\nReal\n\n\nVariance.\n\n\n\n\n\n\n\n\nFactory Function Details\n\n\n\n\nfunction Gaussian(\u03bc:\nExpression\nReal\n, \u03c32:\nExpression\nReal\n) -\n \nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nfunction Gaussian(\u03bc:\nExpression\nReal\n, \u03c32:\nReal\n) -\n \nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nfunction Gaussian(\u03bc:\nReal\n, \u03c32:\nExpression\nReal\n) -\n \nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nfunction Gaussian(\u03bc:\nReal\n, \u03c32:\nReal\n) -\n \nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nfunction Gaussian(\u03bc:\nExpression\nReal\n[_]\n, \u03a3:\nExpression\nReal\n[_,_]\n) -\n \nMultivariateGaussian\n\n\nCreate multivariate Gaussian distribution.\n\n\n\n\n\n\nfunction Gaussian(\u03bc:\nExpression\nReal\n[_]\n, \u03a3:\nReal\n[_,_]) -\n \nMultivariateGaussian\n\n\nCreate multivariate Gaussian distribution.\n\n\n\n\n\n\nfunction Gaussian(\u03bc:\nReal\n[_], \u03a3:\nExpression\nReal\n[_,_]\n) -\n \nMultivariateGaussian\n\n\nCreate multivariate Gaussian distribution.\n\n\n\n\n\n\nfunction Gaussian(\u03bc:\nReal\n[_], \u03a3:\nReal\n[_,_]) -\n \nMultivariateGaussian\n\n\nCreate multivariate Gaussian distribution.\n\n\n\n\n\n\nfunction Gaussian(\u03bc:\nExpression\nReal\n[_]\n, \u03c32:\nExpression\nReal\n) -\n \nMultivariateIndependentGaussian\n\n\nCreate multivariate Gaussian distribution.\n\n\n\n\n\n\nfunction Gaussian(\u03bc:\nExpression\nReal\n[_]\n, \u03c32:\nReal\n) -\n \nMultivariateIndependentGaussian\n\n\nCreate multivariate Gaussian distribution.\n\n\n\n\n\n\nfunction Gaussian(\u03bc:\nReal\n[_], \u03c32:\nExpression\nReal\n) -\n \nMultivariateIndependentGaussian\n\n\nCreate multivariate Gaussian distribution.\n\n\n\n\n\n\nfunction Gaussian(\u03bc:\nReal\n[_], \u03c32:\nReal\n) -\n \nMultivariateIndependentGaussian\n\n\nCreate multivariate Gaussian distribution.", 
+            "text": "class Gaussian(\u03bc:\nExpression\nReal\n, \u03c32:\nExpression\nReal\n) \n \nDistribution\nReal\n\n\nGaussian distribution.\n\n\n\n\nFactory Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nGaussian\n\n\nCreate multivariate Gaussian distribution.\n\n\n\n\n\n\nGaussian\n\n\nCreate multivariate Gaussian distribution.\n\n\n\n\n\n\nGaussian\n\n\nCreate multivariate Gaussian distribution.\n\n\n\n\n\n\nGaussian\n\n\nCreate multivariate Gaussian distribution.\n\n\n\n\n\n\nGaussian\n\n\nCreate multivariate Gaussian distribution.\n\n\n\n\n\n\nGaussian\n\n\nCreate multivariate Gaussian distribution.\n\n\n\n\n\n\nGaussian\n\n\nCreate multivariate Gaussian distribution.\n\n\n\n\n\n\nGaussian\n\n\nCreate multivariate Gaussian distribution.\n\n\n\n\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\n\u03bc:\nExpression\nReal\n\n\nMean.\n\n\n\n\n\n\n\u03c32:\nExpression\nReal\n\n\nVariance.\n\n\n\n\n\n\n\n\nFactory Function Details\n\n\n\n\nfunction Gaussian(\u03bc:\nExpression\nReal\n, \u03c32:\nExpression\nReal\n) -\n \nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nfunction Gaussian(\u03bc:\nExpression\nReal\n, \u03c32:\nReal\n) -\n \nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nfunction Gaussian(\u03bc:\nReal\n, \u03c32:\nExpression\nReal\n) -\n \nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nfunction Gaussian(\u03bc:\nReal\n, \u03c32:\nReal\n) -\n \nGaussian\n\n\nCreate Gaussian distribution.\n\n\n\n\n\n\nfunction Gaussian(\u03bc:\nExpression\nReal\n[_]\n, \u03a3:\nExpression\nReal\n[_,_]\n) -\n \nMultivariateGaussian\n\n\nCreate multivariate Gaussian distribution.\n\n\n\n\n\n\nfunction Gaussian(\u03bc:\nExpression\nReal\n[_]\n, \u03a3:\nReal\n[_,_]) -\n \nMultivariateGaussian\n\n\nCreate multivariate Gaussian distribution.\n\n\n\n\n\n\nfunction Gaussian(\u03bc:\nReal\n[_], \u03a3:\nExpression\nReal\n[_,_]\n) -\n \nMultivariateGaussian\n\n\nCreate multivariate Gaussian distribution.\n\n\n\n\n\n\nfunction Gaussian(\u03bc:\nReal\n[_], \u03a3:\nReal\n[_,_]) -\n \nMultivariateGaussian\n\n\nCreate multivariate Gaussian distribution.\n\n\n\n\n\n\nfunction Gaussian(\u03bc:\nExpression\nReal\n[_]\n, \u03c32:\nExpression\nReal\n) -\n \nMultivariateIndependentGaussian\n\n\nCreate multivariate Gaussian distribution.\n\n\n\n\n\n\nfunction Gaussian(\u03bc:\nExpression\nReal\n[_]\n, \u03c32:\nReal\n) -\n \nMultivariateIndependentGaussian\n\n\nCreate multivariate Gaussian distribution.\n\n\n\n\n\n\nfunction Gaussian(\u03bc:\nReal\n[_], \u03c32:\nExpression\nReal\n) -\n \nMultivariateIndependentGaussian\n\n\nCreate multivariate Gaussian distribution.\n\n\n\n\n\n\nfunction Gaussian(\u03bc:\nReal\n[_], \u03c32:\nReal\n) -\n \nMultivariateIndependentGaussian\n\n\nCreate multivariate Gaussian distribution.", 
             "title": "Gaussian"
         }, 
         {
@@ -1912,7 +1982,7 @@
         }, 
         {
             "location": "/documentation/library/classes/InverseGamma/", 
-            "text": "class InverseGamma(\u03b1:\nExpression\nReal\n, \u03b2:\nExpression\nReal\n) \n \nRandom\nReal\n\n\nInverse-gamma distribution.\n\n\n\n\nFactory Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nInverseGamma\n\n\nCreate inverse-gamma distribution.\n\n\n\n\n\n\nInverseGamma\n\n\nCreate inverse-gamma distribution.\n\n\n\n\n\n\nInverseGamma\n\n\nCreate inverse-gamma distribution.\n\n\n\n\n\n\nInverseGamma\n\n\nCreate inverse-gamma distribution.\n\n\n\n\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\n\u03b1:\nExpression\nReal\n\n\nShape.\n\n\n\n\n\n\n\u03b2:\nExpression\nReal\n\n\nScale.\n\n\n\n\n\n\n\n\nFactory Function Details\n\n\n\n\nfunction InverseGamma(\u03b1:\nExpression\nReal\n, \u03b2:\nExpression\nReal\n) -\n \nInverseGamma\n\n\nCreate inverse-gamma distribution.\n\n\n\n\n\n\nfunction InverseGamma(\u03b1:\nExpression\nReal\n, \u03b2:\nReal\n) -\n \nInverseGamma\n\n\nCreate inverse-gamma distribution.\n\n\n\n\n\n\nfunction InverseGamma(\u03b1:\nReal\n, \u03b2:\nExpression\nReal\n) -\n \nInverseGamma\n\n\nCreate inverse-gamma distribution.\n\n\n\n\n\n\nfunction InverseGamma(\u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nInverseGamma\n\n\nCreate inverse-gamma distribution.", 
+            "text": "class InverseGamma(\u03b1:\nExpression\nReal\n, \u03b2:\nExpression\nReal\n) \n \nDistribution\nReal\n\n\nInverse-gamma distribution.\n\n\n\n\nFactory Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nInverseGamma\n\n\nCreate inverse-gamma distribution.\n\n\n\n\n\n\nInverseGamma\n\n\nCreate inverse-gamma distribution.\n\n\n\n\n\n\nInverseGamma\n\n\nCreate inverse-gamma distribution.\n\n\n\n\n\n\nInverseGamma\n\n\nCreate inverse-gamma distribution.\n\n\n\n\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\n\u03b1:\nExpression\nReal\n\n\nShape.\n\n\n\n\n\n\n\u03b2:\nExpression\nReal\n\n\nScale.\n\n\n\n\n\n\n\n\nFactory Function Details\n\n\n\n\nfunction InverseGamma(\u03b1:\nExpression\nReal\n, \u03b2:\nExpression\nReal\n) -\n \nInverseGamma\n\n\nCreate inverse-gamma distribution.\n\n\n\n\n\n\nfunction InverseGamma(\u03b1:\nExpression\nReal\n, \u03b2:\nReal\n) -\n \nInverseGamma\n\n\nCreate inverse-gamma distribution.\n\n\n\n\n\n\nfunction InverseGamma(\u03b1:\nReal\n, \u03b2:\nExpression\nReal\n) -\n \nInverseGamma\n\n\nCreate inverse-gamma distribution.\n\n\n\n\n\n\nfunction InverseGamma(\u03b1:\nReal\n, \u03b2:\nReal\n) -\n \nInverseGamma\n\n\nCreate inverse-gamma distribution.", 
             "title": "InverseGamma"
         }, 
         {
@@ -2112,7 +2182,7 @@
         }, 
         {
             "location": "/documentation/library/classes/LogGaussian/", 
-            "text": "class LogGaussian(\u03bc:\nExpression\nReal\n, \u03c32:\nExpression\nReal\n) \n \nRandom\nReal\n\n\nLog-Gaussian distribution.\n\n\n\n\nFactory Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nLogGaussian\n\n\nCreate log-Gaussian distribution.\n\n\n\n\n\n\nLogGaussian\n\n\nCreate log-Gaussian distribution.\n\n\n\n\n\n\nLogGaussian\n\n\nCreate log-Gaussian distribution.\n\n\n\n\n\n\nLogGaussian\n\n\nCreate log-Gaussian distribution.\n\n\n\n\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\n\u03bc:\nExpression\nReal\n\n\nMean after log transformation.\n\n\n\n\n\n\n\u03c32:\nExpression\nReal\n\n\nVariance after log transformation.\n\n\n\n\n\n\n\n\nFactory Function Details\n\n\n\n\nfunction LogGaussian(\u03bc:\nExpression\nReal\n, \u03c32:\nExpression\nReal\n) -\n \nLogGaussian\n\n\nCreate log-Gaussian distribution.\n\n\n\n\n\n\nfunction LogGaussian(\u03bc:\nExpression\nReal\n, \u03c32:\nReal\n) -\n \nLogGaussian\n\n\nCreate log-Gaussian distribution.\n\n\n\n\n\n\nfunction LogGaussian(\u03bc:\nReal\n, \u03c32:\nExpression\nReal\n) -\n \nLogGaussian\n\n\nCreate log-Gaussian distribution.\n\n\n\n\n\n\nfunction LogGaussian(\u03bc:\nReal\n, \u03c32:\nReal\n) -\n \nLogGaussian\n\n\nCreate log-Gaussian distribution.", 
+            "text": "class LogGaussian(\u03bc:\nExpression\nReal\n, \u03c32:\nExpression\nReal\n) \n \nDistribution\nReal\n\n\nLog-Gaussian distribution.\n\n\n\n\nFactory Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nLogGaussian\n\n\nCreate log-Gaussian distribution.\n\n\n\n\n\n\nLogGaussian\n\n\nCreate log-Gaussian distribution.\n\n\n\n\n\n\nLogGaussian\n\n\nCreate log-Gaussian distribution.\n\n\n\n\n\n\nLogGaussian\n\n\nCreate log-Gaussian distribution.\n\n\n\n\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\n\u03bc:\nExpression\nReal\n\n\nMean after log transformation.\n\n\n\n\n\n\n\u03c32:\nExpression\nReal\n\n\nVariance after log transformation.\n\n\n\n\n\n\n\n\nFactory Function Details\n\n\n\n\nfunction LogGaussian(\u03bc:\nExpression\nReal\n, \u03c32:\nExpression\nReal\n) -\n \nLogGaussian\n\n\nCreate log-Gaussian distribution.\n\n\n\n\n\n\nfunction LogGaussian(\u03bc:\nExpression\nReal\n, \u03c32:\nReal\n) -\n \nLogGaussian\n\n\nCreate log-Gaussian distribution.\n\n\n\n\n\n\nfunction LogGaussian(\u03bc:\nReal\n, \u03c32:\nExpression\nReal\n) -\n \nLogGaussian\n\n\nCreate log-Gaussian distribution.\n\n\n\n\n\n\nfunction LogGaussian(\u03bc:\nReal\n, \u03c32:\nReal\n) -\n \nLogGaussian\n\n\nCreate log-Gaussian distribution.", 
             "title": "LogGaussian"
         }, 
         {
@@ -2212,7 +2282,7 @@
         }, 
         {
             "location": "/documentation/library/classes/Multinomial/", 
-            "text": "class Multinomial(n:\nExpression\nInteger\n, \u03c1:\nExpression\nReal\n[_]\n) \n \nRandom\nInteger\n[_]\n\n\nMultinomial distribution.\n\n\n\n\nFactory Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nMultinomial\n\n\nCreate multinomial distribution.\n\n\n\n\n\n\nMultinomial\n\n\nCreate multinomial distribution.\n\n\n\n\n\n\nMultinomial\n\n\nCreate multinomial distribution.\n\n\n\n\n\n\nMultinomial\n\n\nCreate multinomial distribution.\n\n\n\n\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nn:\nExpression\nInteger\n\n\nNumber of trials.\n\n\n\n\n\n\n\u03c1:\nExpression\nReal\n[_]\n\n\nCategory probabilities.\n\n\n\n\n\n\n\n\nFactory Function Details\n\n\n\n\nfunction Multinomial(n:\nExpression\nInteger\n, \u03c1:\nExpression\nReal\n[_]\n) -\n \nMultinomial\n\n\nCreate multinomial distribution.\n\n\n\n\n\n\nfunction Multinomial(n:\nExpression\nInteger\n, \u03c1:\nReal\n[_]) -\n \nMultinomial\n\n\nCreate multinomial distribution.\n\n\n\n\n\n\nfunction Multinomial(n:\nInteger\n, \u03c1:\nExpression\nReal\n[_]\n) -\n \nMultinomial\n\n\nCreate multinomial distribution.\n\n\n\n\n\n\nfunction Multinomial(n:\nInteger\n, \u03c1:\nReal\n[_]) -\n \nMultinomial\n\n\nCreate multinomial distribution.", 
+            "text": "class Multinomial(n:\nExpression\nInteger\n, \u03c1:\nExpression\nReal\n[_]\n) \n \nDistribution\nInteger\n[_]\n\n\nMultinomial distribution.\n\n\n\n\nFactory Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nMultinomial\n\n\nCreate multinomial distribution.\n\n\n\n\n\n\nMultinomial\n\n\nCreate multinomial distribution.\n\n\n\n\n\n\nMultinomial\n\n\nCreate multinomial distribution.\n\n\n\n\n\n\nMultinomial\n\n\nCreate multinomial distribution.\n\n\n\n\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nn:\nExpression\nInteger\n\n\nNumber of trials.\n\n\n\n\n\n\n\u03c1:\nExpression\nReal\n[_]\n\n\nCategory probabilities.\n\n\n\n\n\n\n\n\nFactory Function Details\n\n\n\n\nfunction Multinomial(n:\nExpression\nInteger\n, \u03c1:\nExpression\nReal\n[_]\n) -\n \nMultinomial\n\n\nCreate multinomial distribution.\n\n\n\n\n\n\nfunction Multinomial(n:\nExpression\nInteger\n, \u03c1:\nReal\n[_]) -\n \nMultinomial\n\n\nCreate multinomial distribution.\n\n\n\n\n\n\nfunction Multinomial(n:\nInteger\n, \u03c1:\nExpression\nReal\n[_]\n) -\n \nMultinomial\n\n\nCreate multinomial distribution.\n\n\n\n\n\n\nfunction Multinomial(n:\nInteger\n, \u03c1:\nReal\n[_]) -\n \nMultinomial\n\n\nCreate multinomial distribution.", 
             "title": "Multinomial"
         }, 
         {
@@ -2232,7 +2302,7 @@
         }, 
         {
             "location": "/documentation/library/classes/MultivariateGaussian/", 
-            "text": "class MultivariateGaussian(\u03bc:\nExpression\nReal\n[_]\n, \u03a3:\nExpression\nReal\n[_,_]\n) \n \nRandom\nReal\n[_]\n\n\nMultivariate Gaussian distribution.\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\n\u03bc:\nExpression\nReal\n[_]\n\n\nMean.\n\n\n\n\n\n\n\u03a3:\nExpression\nReal\n[_,_]\n\n\nCovariance.", 
+            "text": "class MultivariateGaussian(\u03bc:\nExpression\nReal\n[_]\n, \u03a3:\nExpression\nReal\n[_,_]\n) \n \nDistribution\nReal\n[_]\n\n\nMultivariate Gaussian distribution.\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\n\u03bc:\nExpression\nReal\n[_]\n\n\nMean.\n\n\n\n\n\n\n\u03a3:\nExpression\nReal\n[_,_]\n\n\nCovariance.", 
             "title": "MultivariateGaussian"
         }, 
         {
@@ -2242,7 +2312,7 @@
         }, 
         {
             "location": "/documentation/library/classes/MultivariateIndependentGaussian/", 
-            "text": "class MultivariateIndependentGaussian(\u03bc:\nExpression\nReal\n[_]\n, \u03c32:\nExpression\nReal\n) \n \nRandom\nReal\n[_]\n\n\nMultivariate Gaussian distribution with independent components of\nidentical variance.\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\n\u03bc:\nExpression\nReal\n[_]\n\n\nMean.\n\n\n\n\n\n\n\u03c32:\nExpression\nReal\n\n\nVariance.", 
+            "text": "class MultivariateIndependentGaussian(\u03bc:\nExpression\nReal\n[_]\n, \u03c32:\nExpression\nReal\n) \n \nDistribution\nReal\n[_]\n\n\nMultivariate Gaussian distribution with independent components of\nidentical variance.\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\n\u03bc:\nExpression\nReal\n[_]\n\n\nMean.\n\n\n\n\n\n\n\u03c32:\nExpression\nReal\n\n\nVariance.", 
             "title": "MultivariateIndependentGaussian"
         }, 
         {
@@ -2262,7 +2332,7 @@
         }, 
         {
             "location": "/documentation/library/classes/NegativeBinomial/", 
-            "text": "class NegativeBinomial(k:\nExpression\nInteger\n, \u03c1:\nExpression\nReal\n) \n \nRandom\nInteger\n\n\nNegative binomial distribution.\n\n\n\n\nFactory Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nNegativeBinomial\n\n\nCreate negative binomial distribution.\n\n\n\n\n\n\nNegativeBinomial\n\n\nCreate negative binomial distribution.\n\n\n\n\n\n\nNegativeBinomial\n\n\nCreate negative binomial distribution.\n\n\n\n\n\n\nNegativeBinomial\n\n\nCreate negative binomial distribution.\n\n\n\n\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nk:\nExpression\nInteger\n\n\nNumber of successes before the experiment is stopped.\n\n\n\n\n\n\n\u03c1:\nExpression\nReal\n\n\nSuccess probability.\n\n\n\n\n\n\n\n\nFactory Function Details\n\n\n\n\nfunction NegativeBinomial(k:\nExpression\nInteger\n, \u03c1:\nExpression\nReal\n) -\n \nNegativeBinomial\n\n\nCreate negative binomial distribution.\n\n\n\n\n\n\nfunction NegativeBinomial(k:\nExpression\nInteger\n, \u03c1:\nReal\n) -\n \nNegativeBinomial\n\n\nCreate negative binomial distribution.\n\n\n\n\n\n\nfunction NegativeBinomial(k:\nInteger\n, \u03c1:\nExpression\nReal\n) -\n \nNegativeBinomial\n\n\nCreate negative binomial distribution.\n\n\n\n\n\n\nfunction NegativeBinomial(k:\nInteger\n, \u03c1:\nReal\n) -\n \nNegativeBinomial\n\n\nCreate negative binomial distribution.", 
+            "text": "class NegativeBinomial(k:\nExpression\nInteger\n, \u03c1:\nExpression\nReal\n) \n \nDistribution\nInteger\n\n\nNegative binomial distribution.\n\n\n\n\nFactory Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nNegativeBinomial\n\n\nCreate negative binomial distribution.\n\n\n\n\n\n\nNegativeBinomial\n\n\nCreate negative binomial distribution.\n\n\n\n\n\n\nNegativeBinomial\n\n\nCreate negative binomial distribution.\n\n\n\n\n\n\nNegativeBinomial\n\n\nCreate negative binomial distribution.\n\n\n\n\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nk:\nExpression\nInteger\n\n\nNumber of successes before the experiment is stopped.\n\n\n\n\n\n\n\u03c1:\nExpression\nReal\n\n\nSuccess probability.\n\n\n\n\n\n\n\n\nFactory Function Details\n\n\n\n\nfunction NegativeBinomial(k:\nExpression\nInteger\n, \u03c1:\nExpression\nReal\n) -\n \nNegativeBinomial\n\n\nCreate negative binomial distribution.\n\n\n\n\n\n\nfunction NegativeBinomial(k:\nExpression\nInteger\n, \u03c1:\nReal\n) -\n \nNegativeBinomial\n\n\nCreate negative binomial distribution.\n\n\n\n\n\n\nfunction NegativeBinomial(k:\nInteger\n, \u03c1:\nExpression\nReal\n) -\n \nNegativeBinomial\n\n\nCreate negative binomial distribution.\n\n\n\n\n\n\nfunction NegativeBinomial(k:\nInteger\n, \u03c1:\nReal\n) -\n \nNegativeBinomial\n\n\nCreate negative binomial distribution.", 
             "title": "NegativeBinomial"
         }, 
         {
@@ -2397,12 +2467,12 @@
         }, 
         {
             "location": "/documentation/library/classes/ParticleFilter/", 
-            "text": "class ParticleFilter \n \nObject\n\n\nParticle filter.\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nf0:\nModel\n!\n\n\nCanonical particle from which others are initialized. Ensures that input is only consumed once.\n\n\n\n\n\n\nf:\nModel\n![_]\n\n\nParticles.\n\n\n\n\n\n\nw:\nReal\n[_]\n\n\nLog-weights.\n\n\n\n\n\n\ne:\nReal\n[_]\n\n\nFor each checkpoint, the effective sample size (ESS).\n\n\n\n\n\n\nr:\nBoolean\n[_]\n\n\nFor each checkpoint, was resampling performed?\n\n\n\n\n\n\nZ:\nReal\n\n\nNormalizing constant estimate.\n\n\n\n\n\n\nT:\nInteger\n\n\nNumber of checkpoints.\n\n\n\n\n\n\nN:\nInteger\n\n\nNumber of particles.\n\n\n\n\n\n\ntrigger:\nReal\n\n\nRelative ESS below which resampling should be triggered.\n\n\n\n\n\n\n\n\nMember Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nsample\n\n\nRun the filter.\n\n\n\n\n\n\ninitialize\n\n\nInitialize the method.\n\n\n\n\n\n\nstart\n\n\nStart the filter.\n\n\n\n\n\n\nstep\n\n\nStep to the next checkpoint.\n\n\n\n\n\n\nfinish\n\n\nFinish the filter.\n\n\n\n\n\n\noutput\n\n\nWrite output.\n\n\n\n\n\n\ndiagnose\n\n\nWrite diagnostics.\n\n\n\n\n\n\n\n\nMember Function Details\n\n\ndiagnose\n\n\n\n\n\n\nfunction diagnose(writer:\nWriter\n?)\n\n\nWrite diagnostics.\n\n\n\n\ndiagnosticWriter: Writer for diagnostics.\n\n\n\n\n\n\nfinish\n\n\n\n\n\n\nfunction finish()\n\n\nFinish the filter.\n\n\n\n\ninitialize\n\n\n\n\n\n\nfunction initialize(model:\nString\n, inputReader:\nReader\n?, T:\nInteger\n, N:\nInteger\n, trigger:\nReal\n)\n\n\nInitialize the method.\n\n\n\n\nT: Number of checkpoints.\n\n\nN: Number of particles.\n\n\ntrigger: Relative ESS below which resampling should be triggered.\n\n\n\n\n\n\noutput\n\n\n\n\n\n\nfunction output(writer:\nWriter\n?)\n\n\nWrite output.\n\n\n\n\noutputWriter: Writer for output.\n\n\n\n\n\n\nsample\n\n\n\n\n\n\nfunction sample(model:\nString\n, inputReader:\nReader\n?, outputWriter:\nWriter\n?, diagnosticWriter:\nWriter\n?, M:\nInteger\n, T:\nInteger\n, N:\nInteger\n, trigger:\nReal\n)\n\n\nRun the filter.\n\n\n\n\nmodel: Name of the model class.\n\n\ninputReader: Reader for input.\n\n\noutputWriter: Writer for output.\n\n\ndiagnosticWriter: Writer for diagnostics.\n\n\nM: Number of samples.\n\n\nT: Number of checkpoints.\n\n\nN: Number of particles.\n\n\ntrigger: Relative ESS below which resampling should be triggered.\n\n\n\n\n\n\nstart\n\n\n\n\n\n\nfunction start()\n\n\nStart the filter.\n\n\n\n\nmodel: Name of the model class.\n\n\ninputReader: Reader for input.\n\n\n\n\n\n\nstep\n\n\n\n\n\n\nfunction step(t:\nInteger\n)\n\n\nStep to the next checkpoint.\n\n\n\n\nt: Checkpoint number.", 
+            "text": "class ParticleFilter \n \nObject\n\n\nParticle filter.\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nf0:\nModel\n!\n\n\nCanonical particle from which others are initialized. Ensures that input is only consumed once.\n\n\n\n\n\n\nf:\nModel\n![_]\n\n\nParticles.\n\n\n\n\n\n\nw:\nReal\n[_]\n\n\nLog-weights.\n\n\n\n\n\n\ne:\nReal\n[_]\n\n\nFor each checkpoint, the effective sample size (ESS).\n\n\n\n\n\n\nr:\nBoolean\n[_]\n\n\nFor each checkpoint, was resampling performed?\n\n\n\n\n\n\nZ:\nReal\n[_]\n\n\nFor each checkpoint, the normalizing constant estimate up to that checkpoint.\n\n\n\n\n\n\nT:\nInteger\n\n\nNumber of checkpoints.\n\n\n\n\n\n\nN:\nInteger\n\n\nNumber of particles.\n\n\n\n\n\n\ntrigger:\nReal\n\n\nRelative ESS below which resampling should be triggered.\n\n\n\n\n\n\n\n\nMember Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nsample\n\n\nRun the filter.\n\n\n\n\n\n\ninitialize\n\n\nInitialize the method.\n\n\n\n\n\n\nstart\n\n\nStart the filter.\n\n\n\n\n\n\nstep\n\n\nStep to the next checkpoint.\n\n\n\n\n\n\nfinish\n\n\nFinish the filter.\n\n\n\n\n\n\noutput\n\n\nWrite output.\n\n\n\n\n\n\ndiagnose\n\n\nWrite diagnostics.\n\n\n\n\n\n\n\n\nMember Function Details\n\n\ndiagnose\n\n\n\n\n\n\nfunction diagnose(writer:\nWriter\n?)\n\n\nWrite diagnostics.\n\n\n\n\ndiagnosticWriter: Writer for diagnostics.\n\n\n\n\n\n\nfinish\n\n\n\n\n\n\nfunction finish()\n\n\nFinish the filter.\n\n\n\n\ninitialize\n\n\n\n\n\n\nfunction initialize(model:\nString\n, inputReader:\nReader\n?, T:\nInteger\n, N:\nInteger\n, trigger:\nReal\n)\n\n\nInitialize the method.\n\n\n\n\nT: Number of checkpoints.\n\n\nN: Number of particles.\n\n\ntrigger: Relative ESS below which resampling should be triggered.\n\n\n\n\n\n\noutput\n\n\n\n\n\n\nfunction output(writer:\nWriter\n?)\n\n\nWrite output.\n\n\n\n\noutputWriter: Writer for output.\n\n\n\n\n\n\nsample\n\n\n\n\n\n\nfunction sample(model:\nString\n, inputReader:\nReader\n?, outputWriter:\nWriter\n?, diagnosticWriter:\nWriter\n?, M:\nInteger\n, T:\nInteger\n, N:\nInteger\n, trigger:\nReal\n)\n\n\nRun the filter.\n\n\n\n\nmodel: Name of the model class.\n\n\ninputReader: Reader for input.\n\n\noutputWriter: Writer for output.\n\n\ndiagnosticWriter: Writer for diagnostics.\n\n\nM: Number of samples.\n\n\nT: Number of checkpoints.\n\n\nN: Number of particles.\n\n\ntrigger: Relative ESS below which resampling should be triggered.\n\n\n\n\n\n\nstart\n\n\n\n\n\n\nfunction start()\n\n\nStart the filter.\n\n\n\n\nmodel: Name of the model class.\n\n\ninputReader: Reader for input.\n\n\n\n\n\n\nstep\n\n\n\n\n\n\nfunction step(t:\nInteger\n)\n\n\nStep to the next checkpoint.\n\n\n\n\nt: Checkpoint number.", 
             "title": "ParticleFilter"
         }, 
         {
             "location": "/documentation/library/classes/ParticleFilter/#member-variables", 
-            "text": "Name  Description      f0: Model !  Canonical particle from which others are initialized. Ensures that input is only consumed once.    f: Model ![_]  Particles.    w: Real [_]  Log-weights.    e: Real [_]  For each checkpoint, the effective sample size (ESS).    r: Boolean [_]  For each checkpoint, was resampling performed?    Z: Real  Normalizing constant estimate.    T: Integer  Number of checkpoints.    N: Integer  Number of particles.    trigger: Real  Relative ESS below which resampling should be triggered.", 
+            "text": "Name  Description      f0: Model !  Canonical particle from which others are initialized. Ensures that input is only consumed once.    f: Model ![_]  Particles.    w: Real [_]  Log-weights.    e: Real [_]  For each checkpoint, the effective sample size (ESS).    r: Boolean [_]  For each checkpoint, was resampling performed?    Z: Real [_]  For each checkpoint, the normalizing constant estimate up to that checkpoint.    T: Integer  Number of checkpoints.    N: Integer  Number of particles.    trigger: Real  Relative ESS below which resampling should be triggered.", 
             "title": "Member Variables"
         }, 
         {
@@ -2452,7 +2522,7 @@
         }, 
         {
             "location": "/documentation/library/classes/Poisson/", 
-            "text": "class Poisson(\u03bb:\nExpression\nReal\n) \n \nRandom\nInteger\n\n\nPoisson distribution.\n\n\n\n\nFactory Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nPoisson\n\n\nCreate Poisson distribution.\n\n\n\n\n\n\nPoisson\n\n\nCreate Poisson distribution.\n\n\n\n\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\n\u03bb:\nExpression\nReal\n\n\nRate.\n\n\n\n\n\n\n\n\nFactory Function Details\n\n\n\n\nfunction Poisson(\u03bb:\nExpression\nReal\n) -\n \nPoisson\n\n\nCreate Poisson distribution.\n\n\n\n\n\n\nfunction Poisson(\u03bb:\nReal\n) -\n \nPoisson\n\n\nCreate Poisson distribution.", 
+            "text": "class Poisson(\u03bb:\nExpression\nReal\n) \n \nDistribution\nInteger\n\n\nPoisson distribution.\n\n\n\n\nFactory Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nPoisson\n\n\nCreate Poisson distribution.\n\n\n\n\n\n\nPoisson\n\n\nCreate Poisson distribution.\n\n\n\n\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\n\u03bb:\nExpression\nReal\n\n\nRate.\n\n\n\n\n\n\n\n\nFactory Function Details\n\n\n\n\nfunction Poisson(\u03bb:\nExpression\nReal\n) -\n \nPoisson\n\n\nCreate Poisson distribution.\n\n\n\n\n\n\nfunction Poisson(\u03bb:\nReal\n) -\n \nPoisson\n\n\nCreate Poisson distribution.", 
             "title": "Poisson"
         }, 
         {
@@ -2562,8 +2632,13 @@
         }, 
         {
             "location": "/documentation/library/classes/Random/", 
-            "text": "class Random\nValue\n \n \nExpression\nValue\n\n\nRandom variate.\n\n\n\n\nValue: Value type.\n\n\n\n\n\n\nAssignments\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nValue\n\n\nValue assignment.\n\n\n\n\n\n\nValue?\n\n\nOptional value assignment.\n\n\n\n\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nx:Value?\n\n\nValue.\n\n\n\n\n\n\nw:Real?\n\n\nWeight.\n\n\n\n\n\n\n\n\nMember Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nisMissing\n\n\nAre the values of any random variables within this expression missing?\n\n\n\n\n\n\nvalue\n\n\nGet the value of the random variable, forcing realization if necessary.\n\n\n\n\n\n\nsimulate\n\n\nSimulate the random variable.\n\n\n\n\n\n\nobserve\n\n\nObserve the random variable.\n\n\n\n\n\n\n\n\nMember Function Details\n\n\nisMissing\n\n\n\n\n\n\nfunction isMissing() -\n Boolean\n\n\nAre the values of any random variables within this expression missing?\n\n\n\n\nobserve\n\n\n\n\n\n\nfunction observe(x:Value) -\n Real\n\n\nObserve the random variable.\n\n\n\n\nx: The observed value.\n\n\n\n\nReturn: the log likelihood.\n\n\n\n\nsimulate\n\n\n\n\n\n\nfunction simulate() -\n Value\n\n\nSimulate the random variable.\n\n\n\n\nvalue\n\n\n\n\n\n\nfunction value() -\n Value\n\n\nGet the value of the random variable, forcing realization if necessary.", 
+            "text": "class Random\nValue\n \n \nExpression\nValue\n\n\nRandom variate.\n\n\n\n\nValue: Value type.\n\n\n\n\n\n\nFactory Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nRandom\n\n\nCreate random variate with attached distribution.\n\n\n\n\n\n\nRandom\n\n\nCreate random variate with attached distribution.\n\n\n\n\n\n\nRandom\n\n\nCreate random variate with attached distribution.\n\n\n\n\n\n\nRandom\n\n\nCreate random variate with attached distribution.\n\n\n\n\n\n\nRandom\n\n\nCreate random variate with attached distribution.\n\n\n\n\n\n\nRandom\n\n\nCreate random variate with attached distribution.\n\n\n\n\n\n\n\n\nAssignments\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nValue\n\n\nValue assignment.\n\n\n\n\n\n\nValue?\n\n\nOptional value assignment.\n\n\n\n\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nx:Value?\n\n\nValue.\n\n\n\n\n\n\ndist:Distribution\n?\n\n\nAssociated distribution.\n\n\n\n\n\n\n\n\nMember Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nassume\n\n\nAttach a distribution to this random variable.\n\n\n\n\n\n\nvalue\n\n\nGet the value of the random variable, forcing realization if necessary.\n\n\n\n\n\n\nisMissing\n\n\nAre the values of any random variables within this expression missing?\n\n\n\n\n\n\n\n\nFactory Function Details\n\n\n\n\nfunction Random(dist:\nDistribution\nBoolean\n) -\n \nRandom\nBoolean\n\n\nCreate random variate with attached distribution.\n\n\n\n\n\n\nfunction Random(dist:\nDistribution\nInteger\n) -\n \nRandom\nInteger\n\n\nCreate random variate with attached distribution.\n\n\n\n\n\n\nfunction Random(dist:\nDistribution\nReal\n) -\n \nRandom\nReal\n\n\nCreate random variate with attached distribution.\n\n\n\n\n\n\nfunction Random(dist:\nDistribution\nBoolean\n[_]\n) -\n \nRandom\nBoolean\n[_]\n\n\nCreate random variate with attached distribution.\n\n\n\n\n\n\nfunction Random(dist:\nDistribution\nInteger\n[_]\n) -\n \nRandom\nInteger\n[_]\n\n\nCreate random variate with attached distribution.\n\n\n\n\n\n\nfunction Random(dist:\nDistribution\nReal\n[_]\n) -\n \nRandom\nReal\n[_]\n\n\nCreate random variate with attached distribution.\n\n\n\n\nMember Function Details\n\n\nassume\n\n\n\n\n\n\nfunction assume(dist:Distribution\n)\n\n\nAttach a distribution to this random variable.\n\n\n\n\nisMissing\n\n\n\n\n\n\nfunction isMissing() -\n Boolean\n\n\nAre the values of any random variables within this expression missing?\n\n\n\n\nvalue\n\n\n\n\n\n\nfunction value() -\n Value\n\n\nGet the value of the random variable, forcing realization if necessary.", 
             "title": "Random"
+        }, 
+        {
+            "location": "/documentation/library/classes/Random/#factory-functions", 
+            "text": "Name  Description      Random  Create random variate with attached distribution.    Random  Create random variate with attached distribution.    Random  Create random variate with attached distribution.    Random  Create random variate with attached distribution.    Random  Create random variate with attached distribution.    Random  Create random variate with attached distribution.", 
+            "title": "Factory Functions"
         }, 
         {
             "location": "/documentation/library/classes/Random/#assignments", 
@@ -2572,13 +2647,18 @@
         }, 
         {
             "location": "/documentation/library/classes/Random/#member-variables", 
-            "text": "Name  Description      x:Value?  Value.    w:Real?  Weight.", 
+            "text": "Name  Description      x:Value?  Value.    dist:Distribution ?  Associated distribution.", 
             "title": "Member Variables"
         }, 
         {
             "location": "/documentation/library/classes/Random/#member-functions", 
-            "text": "Name  Description      isMissing  Are the values of any random variables within this expression missing?    value  Get the value of the random variable, forcing realization if necessary.    simulate  Simulate the random variable.    observe  Observe the random variable.", 
+            "text": "Name  Description      assume  Attach a distribution to this random variable.    value  Get the value of the random variable, forcing realization if necessary.    isMissing  Are the values of any random variables within this expression missing?", 
             "title": "Member Functions"
+        }, 
+        {
+            "location": "/documentation/library/classes/Random/#factory-function-details", 
+            "text": "function Random(dist: Distribution Boolean ) -   Random Boolean  Create random variate with attached distribution.    function Random(dist: Distribution Integer ) -   Random Integer  Create random variate with attached distribution.    function Random(dist: Distribution Real ) -   Random Real  Create random variate with attached distribution.    function Random(dist: Distribution Boolean [_] ) -   Random Boolean [_]  Create random variate with attached distribution.    function Random(dist: Distribution Integer [_] ) -   Random Integer [_]  Create random variate with attached distribution.    function Random(dist: Distribution Real [_] ) -   Random Real [_]  Create random variate with attached distribution.", 
+            "title": "Factory Function Details"
         }, 
         {
             "location": "/documentation/library/classes/Random/#member-function-details", 
@@ -2586,19 +2666,14 @@
             "title": "Member Function Details"
         }, 
         {
+            "location": "/documentation/library/classes/Random/#assume", 
+            "text": "function assume(dist:Distribution )  Attach a distribution to this random variable.", 
+            "title": "assume"
+        }, 
+        {
             "location": "/documentation/library/classes/Random/#ismissing", 
             "text": "function isMissing() -  Boolean  Are the values of any random variables within this expression missing?", 
             "title": "isMissing"
-        }, 
-        {
-            "location": "/documentation/library/classes/Random/#observe", 
-            "text": "function observe(x:Value) -  Real  Observe the random variable.   x: The observed value.   Return: the log likelihood.", 
-            "title": "observe"
-        }, 
-        {
-            "location": "/documentation/library/classes/Random/#simulate", 
-            "text": "function simulate() -  Value  Simulate the random variable.", 
-            "title": "simulate"
         }, 
         {
             "location": "/documentation/library/classes/Random/#value", 
@@ -2697,7 +2772,7 @@
         }, 
         {
             "location": "/documentation/library/classes/Restaurant/", 
-            "text": "class Restaurant(\u03b1:\nExpression\nReal\n, \u03b8:\nExpression\nReal\n) \n \nRandom\nReal\n[_]\n\n\nChinese restaurant process.\n\n\n\n\nFactory Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nRestaurant\n\n\nCreate Chinese restaurant process.\n\n\n\n\n\n\nRestaurant\n\n\nCreate Chinese restaurant process.\n\n\n\n\n\n\nRestaurant\n\n\nCreate Chinese restaurant process.\n\n\n\n\n\n\nRestaurant\n\n\nCreate Chinese restaurant process.\n\n\n\n\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\n\u03b1:\nExpression\nReal\n\n\nConcentration.\n\n\n\n\n\n\n\u03b8:\nExpression\nReal\n\n\nStrength.\n\n\n\n\n\n\n\n\nFactory Function Details\n\n\n\n\nfunction Restaurant(\u03b1:\nExpression\nReal\n, \u03b8:\nExpression\nReal\n) -\n \nRestaurant\n\n\nCreate Chinese restaurant process.\n\n\n\n\n\n\nfunction Restaurant(\u03b1:\nExpression\nReal\n, \u03b8:\nReal\n) -\n \nRestaurant\n\n\nCreate Chinese restaurant process.\n\n\n\n\n\n\nfunction Restaurant(\u03b1:\nReal\n, \u03b8:\nExpression\nReal\n) -\n \nRestaurant\n\n\nCreate Chinese restaurant process.\n\n\n\n\n\n\nfunction Restaurant(\u03b1:\nReal\n, \u03b8:\nReal\n) -\n \nRestaurant\n\n\nCreate Chinese restaurant process.", 
+            "text": "class Restaurant(\u03b1:\nExpression\nReal\n, \u03b8:\nExpression\nReal\n) \n \nDistribution\nReal\n[_]\n\n\nChinese restaurant process.\n\n\n\n\nFactory Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nRestaurant\n\n\nCreate Chinese restaurant process.\n\n\n\n\n\n\nRestaurant\n\n\nCreate Chinese restaurant process.\n\n\n\n\n\n\nRestaurant\n\n\nCreate Chinese restaurant process.\n\n\n\n\n\n\nRestaurant\n\n\nCreate Chinese restaurant process.\n\n\n\n\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\n\u03b1:\nExpression\nReal\n\n\nConcentration.\n\n\n\n\n\n\n\u03b8:\nExpression\nReal\n\n\nStrength.\n\n\n\n\n\n\n\n\nFactory Function Details\n\n\n\n\nfunction Restaurant(\u03b1:\nExpression\nReal\n, \u03b8:\nExpression\nReal\n) -\n \nRestaurant\n\n\nCreate Chinese restaurant process.\n\n\n\n\n\n\nfunction Restaurant(\u03b1:\nExpression\nReal\n, \u03b8:\nReal\n) -\n \nRestaurant\n\n\nCreate Chinese restaurant process.\n\n\n\n\n\n\nfunction Restaurant(\u03b1:\nReal\n, \u03b8:\nExpression\nReal\n) -\n \nRestaurant\n\n\nCreate Chinese restaurant process.\n\n\n\n\n\n\nfunction Restaurant(\u03b1:\nReal\n, \u03b8:\nReal\n) -\n \nRestaurant\n\n\nCreate Chinese restaurant process.", 
             "title": "Restaurant"
         }, 
         {
@@ -2857,7 +2932,7 @@
         }, 
         {
             "location": "/documentation/library/classes/Student/", 
-            "text": "class Student(\u03bd:\nExpression\nReal\n) \n \nRandom\nReal\n\n\nStudent's \nt\n-distribution.\n\n\n\n\nFactory Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nStudent\n\n\nCreate Student's \nt\n-distribution.\n\n\n\n\n\n\nStudent\n\n\nCreate Student's \nt\n-distribution.\n\n\n\n\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\n\u03bd:\nExpression\nReal\n\n\nDegrees of freedom.\n\n\n\n\n\n\n\n\nFactory Function Details\n\n\n\n\nfunction Student(\u03bd:\nExpression\nReal\n) -\n \nStudent\n\n\nCreate Student's \nt\n-distribution.\n\n\n\n\n\n\nfunction Student(\u03bd:\nReal\n) -\n \nStudent\n\n\nCreate Student's \nt\n-distribution.", 
+            "text": "class Student(\u03bd:\nExpression\nReal\n) \n \nDistribution\nReal\n\n\nStudent's \nt\n-distribution.\n\n\n\n\nFactory Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nStudent\n\n\nCreate Student's \nt\n-distribution.\n\n\n\n\n\n\nStudent\n\n\nCreate Student's \nt\n-distribution.\n\n\n\n\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\n\u03bd:\nExpression\nReal\n\n\nDegrees of freedom.\n\n\n\n\n\n\n\n\nFactory Function Details\n\n\n\n\nfunction Student(\u03bd:\nExpression\nReal\n) -\n \nStudent\n\n\nCreate Student's \nt\n-distribution.\n\n\n\n\n\n\nfunction Student(\u03bd:\nReal\n) -\n \nStudent\n\n\nCreate Student's \nt\n-distribution.", 
             "title": "Student"
         }, 
         {
@@ -2877,7 +2952,7 @@
         }, 
         {
             "location": "/documentation/library/classes/Uniform/", 
-            "text": "class Uniform(l:\nExpression\nReal\n, u:\nExpression\nReal\n) \n \nRandom\nReal\n\n\nUniform distribution.\n\n\n\n\nFactory Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nUniform\n\n\nCreate a uniform distribution.\n\n\n\n\n\n\nUniform\n\n\nCreate a uniform distribution.\n\n\n\n\n\n\nUniform\n\n\nCreate a uniform distribution.\n\n\n\n\n\n\nUniform\n\n\nCreate a uniform distribution.\n\n\n\n\n\n\nUniform\n\n\nCreate uniform distribution over integers.\n\n\n\n\n\n\nUniform\n\n\nCreate uniform distribution over integers.\n\n\n\n\n\n\nUniform\n\n\nCreate uniform distribution over integers.\n\n\n\n\n\n\nUniform\n\n\nCreate uniform distribution over integers.\n\n\n\n\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nl:\nExpression\nReal\n\n\nLower bound.\n\n\n\n\n\n\nu:\nExpression\nReal\n\n\nUpper bound.\n\n\n\n\n\n\n\n\nFactory Function Details\n\n\n\n\nfunction Uniform(l:\nExpression\nReal\n, u:\nExpression\nReal\n) -\n \nUniform\n\n\nCreate a uniform distribution.\n\n\n\n\n\n\nfunction Uniform(l:\nExpression\nReal\n, u:\nReal\n) -\n \nUniform\n\n\nCreate a uniform distribution.\n\n\n\n\n\n\nfunction Uniform(l:\nReal\n, u:\nExpression\nReal\n) -\n \nUniform\n\n\nCreate a uniform distribution.\n\n\n\n\n\n\nfunction Uniform(l:\nReal\n, u:\nReal\n) -\n \nUniform\n\n\nCreate a uniform distribution.\n\n\n\n\n\n\nfunction Uniform(l:\nExpression\nInteger\n, u:\nExpression\nInteger\n) -\n \nUniformInteger\n\n\nCreate uniform distribution over integers.\n\n\n\n\n\n\nfunction Uniform(l:\nExpression\nInteger\n, u:\nInteger\n) -\n \nUniformInteger\n\n\nCreate uniform distribution over integers.\n\n\n\n\n\n\nfunction Uniform(l:\nInteger\n, u:\nExpression\nInteger\n) -\n \nUniformInteger\n\n\nCreate uniform distribution over integers.\n\n\n\n\n\n\nfunction Uniform(l:\nInteger\n, u:\nInteger\n) -\n \nUniformInteger\n\n\nCreate uniform distribution over integers.", 
+            "text": "class Uniform(l:\nExpression\nReal\n, u:\nExpression\nReal\n) \n \nDistribution\nReal\n\n\nUniform distribution.\n\n\n\n\nFactory Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nUniform\n\n\nCreate a uniform distribution.\n\n\n\n\n\n\nUniform\n\n\nCreate a uniform distribution.\n\n\n\n\n\n\nUniform\n\n\nCreate a uniform distribution.\n\n\n\n\n\n\nUniform\n\n\nCreate a uniform distribution.\n\n\n\n\n\n\nUniform\n\n\nCreate uniform distribution over integers.\n\n\n\n\n\n\nUniform\n\n\nCreate uniform distribution over integers.\n\n\n\n\n\n\nUniform\n\n\nCreate uniform distribution over integers.\n\n\n\n\n\n\nUniform\n\n\nCreate uniform distribution over integers.\n\n\n\n\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nl:\nExpression\nReal\n\n\nLower bound.\n\n\n\n\n\n\nu:\nExpression\nReal\n\n\nUpper bound.\n\n\n\n\n\n\n\n\nFactory Function Details\n\n\n\n\nfunction Uniform(l:\nExpression\nReal\n, u:\nExpression\nReal\n) -\n \nUniform\n\n\nCreate a uniform distribution.\n\n\n\n\n\n\nfunction Uniform(l:\nExpression\nReal\n, u:\nReal\n) -\n \nUniform\n\n\nCreate a uniform distribution.\n\n\n\n\n\n\nfunction Uniform(l:\nReal\n, u:\nExpression\nReal\n) -\n \nUniform\n\n\nCreate a uniform distribution.\n\n\n\n\n\n\nfunction Uniform(l:\nReal\n, u:\nReal\n) -\n \nUniform\n\n\nCreate a uniform distribution.\n\n\n\n\n\n\nfunction Uniform(l:\nExpression\nInteger\n, u:\nExpression\nInteger\n) -\n \nUniformInteger\n\n\nCreate uniform distribution over integers.\n\n\n\n\n\n\nfunction Uniform(l:\nExpression\nInteger\n, u:\nInteger\n) -\n \nUniformInteger\n\n\nCreate uniform distribution over integers.\n\n\n\n\n\n\nfunction Uniform(l:\nInteger\n, u:\nExpression\nInteger\n) -\n \nUniformInteger\n\n\nCreate uniform distribution over integers.\n\n\n\n\n\n\nfunction Uniform(l:\nInteger\n, u:\nInteger\n) -\n \nUniformInteger\n\n\nCreate uniform distribution over integers.", 
             "title": "Uniform"
         }, 
         {
@@ -2897,7 +2972,7 @@
         }, 
         {
             "location": "/documentation/library/classes/UniformInteger/", 
-            "text": "class UniformInteger(l:\nExpression\nInteger\n, u:\nExpression\nInteger\n) \n \nRandom\nInteger\n\n\nUniform distribution over integers.\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nl:\nExpression\nInteger\n\n\nLower bound.\n\n\n\n\n\n\nu:\nExpression\nInteger\n\n\nUpper bound.", 
+            "text": "class UniformInteger(l:\nExpression\nInteger\n, u:\nExpression\nInteger\n) \n \nDistribution\nInteger\n\n\nUniform distribution over integers.\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nl:\nExpression\nInteger\n\n\nLower bound.\n\n\n\n\n\n\nu:\nExpression\nInteger\n\n\nUpper bound.", 
             "title": "UniformInteger"
         }, 
         {
@@ -3092,7 +3167,7 @@
         }, 
         {
             "location": "/documentation/examples/", 
-            "text": "Birch Examples\n\n\nExample models for the Birch probabilistic programming language.\n\n\nLicense\n\n\nBirch is open source software.\n\n\nIt is licensed under the Apache License, Version 2.0 (the \"License\"); you may not use it except in compliance with the License. You may obtain a copy of the License at \nhttp://www.apache.org/licenses/LICENSE-2.0\n.\n\n\nInstallation\n\n\nTo build and install, use:\n\n\nbirch build\nbirch install\n\n\n\nMost of the examples will output to the \noutput/\n directory, which you will need to create:\n\n\nmkdir output\n\n\n\nSee the documentation for the individual model classes in the \nbi/model\n directory, or use the \nonline documentation\n for suggested commands to run.\n\n\nAcknowledgements\n\n\nThis package contains data sets that have been prepared into JSON format for Birch. They are:\n\n\n\n\n\n\nA \nbike sharing data set\n from the Capital Bikeshare system in Washington D.C., studied in \nFanaee-T and Gama (2014)\n.\n\n\n\n\n\n\nA russian influenza data set from \nAnonymous (1978)\n.\n\n\n\n\n\n\nReferences\n\n\n\n\n\n\nAnonymous (1978). Influenza in a boarding school. \nBritish Medical Journal\n. \n1\n:587.\n\n\n\n\n\n\nH. Fanaee-T and J. Gama (2014). \nEvent labeling combining ensemble detectors and background knowledge\n. \nProgress in Artificial Intelligence\n. \n2\n:113-127.\n\n\n\n\n\n\nF. Lindsten and T. B. Scho\u0308n (2010). Identification of mixed linear/nonlinear state-space models. In \n49th IEEE Conference on Decision and Control (CDC)\n. 6377\u20136382.\n\n\n\n\n\n\nL.M. Murray, D. Lund\u00e9n, J. Kudlicka, D. Broman and T.B. Sch\u00f6n (2018). \nDelayed Sampling and Automatic Rao\nBlackwellization of Probabilistic Programs\n. In \nProceedings of the 21st International Conference on Artificial Intelligence and Statistics (AISTATS) 2018\n, Lanzarote, Spain.\n\n\n\n\n\n\nVersion history\n\n\nv0.0.0\n\n\n\n\nPre-release.", 
+            "text": "Birch Examples\n\n\nExample models for the Birch probabilistic programming language.\n\n\nLicense\n\n\nBirch is open source software.\n\n\nIt is licensed under the Apache License, Version 2.0 (the \"License\"); you may not use it except in compliance with the License. You may obtain a copy of the License at \nhttp://www.apache.org/licenses/LICENSE-2.0\n.\n\n\nInstallation\n\n\nTo build and install, use:\n\n\nbirch build\nbirch install\n\n\n\nSee the documentation for the individual model classes in the \nbi/model\n directory, or use the \nonline documentation\n for suggested commands to run.\n\n\nAcknowledgements\n\n\nThis package contains data sets that have been prepared into JSON format for Birch. They are:\n\n\n\n\n\n\nA \nbike sharing data set\n from the Capital Bikeshare system in Washington D.C., studied in \nFanaee-T and Gama (2014)\n.\n\n\n\n\n\n\nA russian influenza data set from \nAnonymous (1978)\n.\n\n\n\n\n\n\nReferences\n\n\n\n\n\n\nAnonymous (1978). Influenza in a boarding school. \nBritish Medical Journal\n. \n1\n:587.\n\n\n\n\n\n\nH. Fanaee-T and J. Gama (2014). \nEvent labeling combining ensemble detectors and background knowledge\n. \nProgress in Artificial Intelligence\n. \n2\n:113-127.\n\n\n\n\n\n\nF. Lindsten and T. B. Scho\u0308n (2010). Identification of mixed linear/nonlinear state-space models. In \n49th IEEE Conference on Decision and Control (CDC)\n. 6377\u20136382.\n\n\n\n\n\n\nL.M. Murray, D. Lund\u00e9n, J. Kudlicka, D. Broman and T.B. Sch\u00f6n (2018). \nDelayed Sampling and Automatic Rao\nBlackwellization of Probabilistic Programs\n. In \nProceedings of the 21st International Conference on Artificial Intelligence and Statistics (AISTATS) 2018\n, Lanzarote, Spain.\n\n\n\n\n\n\nVersion history\n\n\nv0.0.0\n\n\n\n\nPre-release.", 
             "title": "Birch Examples"
         }, 
         {
@@ -3107,7 +3182,7 @@
         }, 
         {
             "location": "/documentation/examples/#installation", 
-            "text": "To build and install, use:  birch build\nbirch install  Most of the examples will output to the  output/  directory, which you will need to create:  mkdir output  See the documentation for the individual model classes in the  bi/model  directory, or use the  online documentation  for suggested commands to run.", 
+            "text": "To build and install, use:  birch build\nbirch install  See the documentation for the individual model classes in the  bi/model  directory, or use the  online documentation  for suggested commands to run.", 
             "title": "Installation"
         }, 
         {
@@ -3204,6 +3279,66 @@
             "location": "/documentation/examples/classes/SIRState/#member-variables", 
             "text": "Name  Description      \u03c4:Random Integer  Number of susceptible-infectious interactions.    \u0394i:Random Integer  Newly infected population.    \u0394r:Random Integer  Newly recovered population.    s:Random Integer  Susceptible population.    i:Random Integer  Infectious population.    r:Random Integer  Recovered population.", 
             "title": "Member Variables"
+        }, 
+        {
+            "location": "/documentation/how-to/", 
+            "text": "How To\n\n\n\n\nHow to use Birch with the Eclipse IDE\n\n\nHow to use Birch with Travis CI for continuous integration\n\n\nHow to create 2d graphics with Birch using Cairo", 
+            "title": "How To"
+        }, 
+        {
+            "location": "/documentation/how-to/#how-to", 
+            "text": "How to use Birch with the Eclipse IDE  How to use Birch with Travis CI for continuous integration  How to create 2d graphics with Birch using Cairo", 
+            "title": "How To"
+        }, 
+        {
+            "location": "/documentation/how-to/using-eclipse/", 
+            "text": "How to use Birch with the Eclipse IDE\n\n\nA plugin is available for syntax highlighting of Birch code within \nEclipse\n. Eclipse can also parse the error messages produced by the Birch compiler, enabling quick navigation to problem lines of code. This can help improve workflow.\n\n\n\n\nInstalling the Birch plugin\n\n\nTo install the plugin, use the \nHelp \n Install New Software...\n menu item from within Eclipse. Click the \nAdd...\n button and enter the following update site URL:\n\n\nhttp://www.birch-lang.org/eclipse/updates\n\n\nSelect the plugin from the list and follow the prompts from there. The plugin should be automatically associated with the \n*.bi\n file extension.\n\n\n\n\nBug\n\n\nIf the plugin does not appear in the list, uncheck the \nGroup items by category\n checkbox. (We're working on it.)\n\n\n\n\nInstalling the TM Terminal plugin\n\n\nWhile optional, another useful plugin is \nTM Terminal\n. This allows you to open a terminal from within Eclipse. You can then run \nbirch\n within this terminal instead of an external terminal, staying within the one environment as you work.\n\n\nTo install TM Terminal, use the \nHelp \n Install New Software...\n menu item from within Eclipse. Click the \nAdd...\n button and enter the following update site URL:\n\n\nhttp://download.eclipse.org/tm/terminal/updates/4.3\n\n\nSelect to install the \nTM Terminal\n item and follow the prompts from there.\n\n\n\n\nTip\n\n\nOn macOS, the version of TM Terminal available from the Eclipse Marketplace may have some font issues (this has been observed on High Sierra running Eclipse Oxygen). It is recommended that you install using the above site URL rather than using the Eclipse Marketplace, as it will install a later version that seems to fix this problem.\n\n\nAlso on macOS, the terminal is not configured with the same environment as the Terminal app, so that trying to run \nbirch\n may fail. To fix this, open the \nEclipse \n Preferences\n menu item, go to \nTerminal \n Local Terminal\n on the left, and enter arguments of \n--login\n.\n\n\n\n\nOnce TM Terminal is installed, you can open a terminal window by using \nWindow \n Show View \n Other\n and selecting \nTerminal\n. When the empty terminal window appears, click the \nOpen a Terminal\n icon on the right side of the toolbar and choose \nLocal Terminal\n to open a new tab with a terminal.\n\n\nCreating projects in Eclipse\n\n\n\n\nGetting involved\n\n\nThe development of a project wizard plugin to automate the creation of Birch projects, using the \nbirch init\n command, would be a welcome addition.\n\n\n\n\nWithin Eclipse, you can treat Birch projects as if they are C/C++ Makefile Projects, with a few tweaks to the project properties as outlined below.\n\n\nYou will need the \nEclipse C/C++ Development Tooling (CDT)\n for this, not just the Eclipse Java Development Tools (JDT). Often, a default Eclipse installation only installs the latter, so you may need to install the former.\n\n\nOnce a Birch project has been created from the command line with \nbirch init\n:\n\n\n\n\nImport it into Eclipse using \nFile \n New \n Makefile Project with Existing Code\n.\n\n\nUnder \nProject \n Properties\n, select \nC/C++ Build\n on the left.\n\n\nGo to the \nBuilder Settings\n tab and enter \nbirch\n as the build command.\n\n\nGo to the \nBehavior\n tab and enter \nbuild\n (or \ninstall\n, if preferred) next to the \nBuild (Incremental build)\n checkbox.\n\n\n\n\nYou can then use the \nProject \n Build\n menu item, or keyboard shortcuts, to build your project.\n\n\nStreamlining the build process\n\n\nIt is worth importing the Birch compiler and standard library into your Eclipse workspace as well, to establish them as dependencies of your own project.\n\n\nUse the \nFile \n Import\n menu item from within Eclipse, then:\n\n\n\n\nIf you already have the \nBirch\n and \nBirch.Standard\n repositories in your file system, select \nGeneral \n Existing Projects into Workspace\n in the first dialog and follow the prompts.\n\n\nIf you do not, use \nGit \n Projects from Git\n, then \nClone URI\n and enter \nhttps://www.github.com/lawmurray/Birch.git\n. Follow the prompts from there. Repeat a second time with \nhttps://www.github.com/lawmurray/Birch.Standard.git\n.\n\n\n\n\nOnce the projects are imported, go to the properties for your own project, select \nProject References\n on the left, and choose \nBirch.Standard\n.\n\n\nNow, when you build your own project, Eclipse will automatically rebuild \nBirch.Standard\n and, in turn, \nBirch\n, if necessary.\n\n\nNote that, unlike when creating your own projects, it is not necessary to modify the project properties for the Birch compiler and standard library. The repositories already include Eclipse project files with the relevant settings.", 
+            "title": "Use the Eclipse IDE"
+        }, 
+        {
+            "location": "/documentation/how-to/using-eclipse/#how-to-use-birch-with-the-eclipse-ide", 
+            "text": "A plugin is available for syntax highlighting of Birch code within  Eclipse . Eclipse can also parse the error messages produced by the Birch compiler, enabling quick navigation to problem lines of code. This can help improve workflow.", 
+            "title": "How to use Birch with the Eclipse IDE"
+        }, 
+        {
+            "location": "/documentation/how-to/using-eclipse/#installing-the-birch-plugin", 
+            "text": "To install the plugin, use the  Help   Install New Software...  menu item from within Eclipse. Click the  Add...  button and enter the following update site URL:  http://www.birch-lang.org/eclipse/updates  Select the plugin from the list and follow the prompts from there. The plugin should be automatically associated with the  *.bi  file extension.   Bug  If the plugin does not appear in the list, uncheck the  Group items by category  checkbox. (We're working on it.)", 
+            "title": "Installing the Birch plugin"
+        }, 
+        {
+            "location": "/documentation/how-to/using-eclipse/#installing-the-tm-terminal-plugin", 
+            "text": "While optional, another useful plugin is  TM Terminal . This allows you to open a terminal from within Eclipse. You can then run  birch  within this terminal instead of an external terminal, staying within the one environment as you work.  To install TM Terminal, use the  Help   Install New Software...  menu item from within Eclipse. Click the  Add...  button and enter the following update site URL:  http://download.eclipse.org/tm/terminal/updates/4.3  Select to install the  TM Terminal  item and follow the prompts from there.   Tip  On macOS, the version of TM Terminal available from the Eclipse Marketplace may have some font issues (this has been observed on High Sierra running Eclipse Oxygen). It is recommended that you install using the above site URL rather than using the Eclipse Marketplace, as it will install a later version that seems to fix this problem.  Also on macOS, the terminal is not configured with the same environment as the Terminal app, so that trying to run  birch  may fail. To fix this, open the  Eclipse   Preferences  menu item, go to  Terminal   Local Terminal  on the left, and enter arguments of  --login .   Once TM Terminal is installed, you can open a terminal window by using  Window   Show View   Other  and selecting  Terminal . When the empty terminal window appears, click the  Open a Terminal  icon on the right side of the toolbar and choose  Local Terminal  to open a new tab with a terminal.", 
+            "title": "Installing the TM Terminal plugin"
+        }, 
+        {
+            "location": "/documentation/how-to/using-eclipse/#creating-projects-in-eclipse", 
+            "text": "Getting involved  The development of a project wizard plugin to automate the creation of Birch projects, using the  birch init  command, would be a welcome addition.   Within Eclipse, you can treat Birch projects as if they are C/C++ Makefile Projects, with a few tweaks to the project properties as outlined below.  You will need the  Eclipse C/C++ Development Tooling (CDT)  for this, not just the Eclipse Java Development Tools (JDT). Often, a default Eclipse installation only installs the latter, so you may need to install the former.  Once a Birch project has been created from the command line with  birch init :   Import it into Eclipse using  File   New   Makefile Project with Existing Code .  Under  Project   Properties , select  C/C++ Build  on the left.  Go to the  Builder Settings  tab and enter  birch  as the build command.  Go to the  Behavior  tab and enter  build  (or  install , if preferred) next to the  Build (Incremental build)  checkbox.   You can then use the  Project   Build  menu item, or keyboard shortcuts, to build your project.", 
+            "title": "Creating projects in Eclipse"
+        }, 
+        {
+            "location": "/documentation/how-to/using-eclipse/#streamlining-the-build-process", 
+            "text": "It is worth importing the Birch compiler and standard library into your Eclipse workspace as well, to establish them as dependencies of your own project.  Use the  File   Import  menu item from within Eclipse, then:   If you already have the  Birch  and  Birch.Standard  repositories in your file system, select  General   Existing Projects into Workspace  in the first dialog and follow the prompts.  If you do not, use  Git   Projects from Git , then  Clone URI  and enter  https://www.github.com/lawmurray/Birch.git . Follow the prompts from there. Repeat a second time with  https://www.github.com/lawmurray/Birch.Standard.git .   Once the projects are imported, go to the properties for your own project, select  Project References  on the left, and choose  Birch.Standard .  Now, when you build your own project, Eclipse will automatically rebuild  Birch.Standard  and, in turn,  Birch , if necessary.  Note that, unlike when creating your own projects, it is not necessary to modify the project properties for the Birch compiler and standard library. The repositories already include Eclipse project files with the relevant settings.", 
+            "title": "Streamlining the build process"
+        }, 
+        {
+            "location": "/documentation/how-to/using-travis-ci/", 
+            "text": "How to use Birch with Travis CI for continuous integration\n\n\nTravis CI\n is one of many continuous-integration services that work alongside code repository services to run tests whenever new commits are made to a code repository. Other continuous-integration services include \nCircleCI\n and \nBitrise\n. Software for continuous integration includes \nJenkins\n.\n\n\nTravis CI happens to be used by the Birch development team. Setting it up was not entirely trivial; this page explains how it was done in case others wish to use Travis CI for their Birch projects.\n\n\nThe main issue is that the Linux image used by Travis CI is based on Ubuntu 14.04, which is now several years old. The default \ngcc\n provided with this distribution does not support the C++14 language features required by Birch. Furthermore, the version of Eigen provided with this distribution requires updating for Birch.\n\n\nAfter signing up for the Travis CI service, you will need to add a \n.travis.yml\n file to your code repository to configure the continuous-integration service. Follow the Travis CI documentation for details, but a suggested template for Birch projects is as follows:\n\n\nlanguage: cpp\nmatrix:\n  include:\n    # macOS environment\n    - os: osx\n      compiler: clang\n      osx_image: xcode9.3\n\n    # Ubuntu 14.04 environment\n    - os: linux\n      dist: trusty\n      compiler: gcc\n      addons:\n        apt:\n          sources:\n            - ubuntu-toolchain-r-test\n          packages:\n            - gcc-7\n            - g++-7\n            - autoconf\n            - libtool\n            - flex\n            - bison\n            - libboost-all-dev\nbefore_install:\n  # OS-specific things\n  - if [[ \n$TRAVIS_OS_NAME\n == \nlinux\n ]]; then\n      export CC=gcc-7;\n      export CXX=g++-7;\n      export CXXFLAGS=\n-DBOOST_NO_CXX11_SCOPED_ENUMS\n;\n      wget http://bitbucket.org/eigen/eigen/get/3.3.4.tar.gz \n tar xzf 3.3.4.tar.gz \n sudo cp -Rp eigen-eigen-5a0156e40feb /usr/local/include/eigen3;\n    elif [[ \n$TRAVIS_OS_NAME\n == \nosx\n ]]; then\n      brew install flex bison eigen;\n    fi\n\n  # Checkout Birch, which may be cached, and (re)build\n  - git clone --depth 1 \nhttps://github.com/lawmurray/Birch.git\n || (cd Birch \n git pull \n cd ..)\n  - cd Birch \n ./autogen.sh \n ./configure \n make -j 2 \n sudo make install \n cd ..\n\n  # Checkout Birch.Standard, which may be cached, and (re)build\n  - git clone --depth 1 \nhttps://github.com/lawmurray/Birch.Standard.git\n || (cd Birch.Standard \n git pull \n cd ..)\n  - cd Birch.Standard \n birch build \n sudo birch install \n cd ..\ninstall:\n  - birch build \n sudo birch install\nscript:\n  - birch sample --model YourModel --input-file input/input_file.json --output-file output/output_file.json\ncache:\n  directories:\n    - Birch\n    - Birch.Standard\n\n\n\n\nThis configuration file:\n\n\n\n\nsets up both macOS and Ubuntu Linux build environments,\n\n\nupdates \ngcc\n and \nEigen\n in the Ubuntu Linux build environment, and\n\n\nincludes caching of the Birch compiler and Birch standard library so that they are only recompiled when necessary.\n\n\n\n\nAnecdotally, for \nBirch.Example\n we are observing that tests take about 10 minutes on macOS instances and 20 minutes on Ubuntu Linux instances, reducing to about 4 minutes and 8 minutes when the Birch compiler and Birch standard library do not need to be recompiled.", 
+            "title": "Use Travis CI"
+        }, 
+        {
+            "location": "/documentation/how-to/using-travis-ci/#how-to-use-birch-with-travis-ci-for-continuous-integration", 
+            "text": "Travis CI  is one of many continuous-integration services that work alongside code repository services to run tests whenever new commits are made to a code repository. Other continuous-integration services include  CircleCI  and  Bitrise . Software for continuous integration includes  Jenkins .  Travis CI happens to be used by the Birch development team. Setting it up was not entirely trivial; this page explains how it was done in case others wish to use Travis CI for their Birch projects.  The main issue is that the Linux image used by Travis CI is based on Ubuntu 14.04, which is now several years old. The default  gcc  provided with this distribution does not support the C++14 language features required by Birch. Furthermore, the version of Eigen provided with this distribution requires updating for Birch.  After signing up for the Travis CI service, you will need to add a  .travis.yml  file to your code repository to configure the continuous-integration service. Follow the Travis CI documentation for details, but a suggested template for Birch projects is as follows:  language: cpp\nmatrix:\n  include:\n    # macOS environment\n    - os: osx\n      compiler: clang\n      osx_image: xcode9.3\n\n    # Ubuntu 14.04 environment\n    - os: linux\n      dist: trusty\n      compiler: gcc\n      addons:\n        apt:\n          sources:\n            - ubuntu-toolchain-r-test\n          packages:\n            - gcc-7\n            - g++-7\n            - autoconf\n            - libtool\n            - flex\n            - bison\n            - libboost-all-dev\nbefore_install:\n  # OS-specific things\n  - if [[  $TRAVIS_OS_NAME  ==  linux  ]]; then\n      export CC=gcc-7;\n      export CXX=g++-7;\n      export CXXFLAGS= -DBOOST_NO_CXX11_SCOPED_ENUMS ;\n      wget http://bitbucket.org/eigen/eigen/get/3.3.4.tar.gz   tar xzf 3.3.4.tar.gz   sudo cp -Rp eigen-eigen-5a0156e40feb /usr/local/include/eigen3;\n    elif [[  $TRAVIS_OS_NAME  ==  osx  ]]; then\n      brew install flex bison eigen;\n    fi\n\n  # Checkout Birch, which may be cached, and (re)build\n  - git clone --depth 1  https://github.com/lawmurray/Birch.git  || (cd Birch   git pull   cd ..)\n  - cd Birch   ./autogen.sh   ./configure   make -j 2   sudo make install   cd ..\n\n  # Checkout Birch.Standard, which may be cached, and (re)build\n  - git clone --depth 1  https://github.com/lawmurray/Birch.Standard.git  || (cd Birch.Standard   git pull   cd ..)\n  - cd Birch.Standard   birch build   sudo birch install   cd ..\ninstall:\n  - birch build   sudo birch install\nscript:\n  - birch sample --model YourModel --input-file input/input_file.json --output-file output/output_file.json\ncache:\n  directories:\n    - Birch\n    - Birch.Standard  This configuration file:   sets up both macOS and Ubuntu Linux build environments,  updates  gcc  and  Eigen  in the Ubuntu Linux build environment, and  includes caching of the Birch compiler and Birch standard library so that they are only recompiled when necessary.   Anecdotally, for  Birch.Example  we are observing that tests take about 10 minutes on macOS instances and 20 minutes on Ubuntu Linux instances, reducing to about 4 minutes and 8 minutes when the Birch compiler and Birch standard library do not need to be recompiled.", 
+            "title": "How to use Birch with Travis CI for continuous integration"
+        }, 
+        {
+            "location": "/documentation/how-to/2d-graphics-with-cairo/", 
+            "text": "How to draw 2d graphics with Birch using Cairo\n\n\nBirch.Cairo\n is a nascent project to wrap the \nCairo\n 2d graphics library for use with Birch. This allows the creation of PNG, SVG and PDF files from Birch code.\n\n\nBasic functionality is available. Contributions are welcome.\n\n\n\n\nTip\n\n\nBirch.Cairo\n is also a good example of how to wrap existing C and C++ libraries for use from Birch code.", 
+            "title": "Draw 2d graphics with Cairo"
+        }, 
+        {
+            "location": "/documentation/how-to/2d-graphics-with-cairo/#how-to-draw-2d-graphics-with-birch-using-cairo", 
+            "text": "Birch.Cairo  is a nascent project to wrap the  Cairo  2d graphics library for use with Birch. This allows the creation of PNG, SVG and PDF files from Birch code.  Basic functionality is available. Contributions are welcome.   Tip  Birch.Cairo  is also a good example of how to wrap existing C and C++ libraries for use from Birch code.", 
+            "title": "How to draw 2d graphics with Birch using Cairo"
         }
     ]
 }
