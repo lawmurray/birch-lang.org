@@ -1,8 +1,20 @@
 # How to use Birch with the Eclipse IDE
 
-A plugin is available for syntax highlighting of Birch code within [Eclipse](http://www.eclipse.org). Eclipse can also parse the error messages produced by the Birch compiler, enabling quick navigation to problem lines of code. This can help improve workflow.
+[Eclipse](http://www.eclipse.org) is a popular open-source integrated development environment (IDE) with support for Java, C/C++, PHP, and a host of other programming languages via an ecosystem of extensions.
+
+You can use Eclipse with Birch, too. A plugin is available for syntax highlighting of Birch code. Birch projects can otherwise be treated as if they are C/C++ projects, with only a few minor changes to settings as detailed below. Error messages from the Birch compiler are understood by Eclipse, so that it is able to annotate problem lines of code and allow quick navigation to them. This can help streamline workflow.
 
 ![Screenshot of Eclipse on macOS with syntax highlighting for Birch source files and terminal for running Birch commands.](/images/eclipse-screenshot.png)
+
+!!! info "Getting involved"
+    Contributions to further improve support for Birch within Eclipse would be welcome. A project wizard plugin to automate some of the steps below would be particularly useful.
+
+
+## Installing Eclipse
+
+You should install the Eclipse IDE for C/C++ Developers linked from [here](https://www.eclipse.org/downloads/eclipse-packages/).
+
+If you already have Eclipse installed but without the C/C++ Development Tools (default installs are often for Java development only), you can add the C/C++ Development Tools to that Eclipse installation via the *Help > Install New Software...* menu item. Select *All Available Sites* from the select box at the top, and choose *Programming Languages > C++ Development Tools*, then follow the prompts.
 
 
 ## Installing the Birch plugin
@@ -36,9 +48,6 @@ Once TM Terminal is installed, you can open a terminal window by using *Window >
 
 
 ## Creating projects in Eclipse
-
-!!! info "Getting involved"
-    The development of a project wizard plugin to automate the creation of Birch projects, using the `birch init` command, would be a welcome addition.
 
 Within Eclipse, you can treat Birch projects as if they are C/C++ Makefile Projects, with a few tweaks to the project properties as outlined below.
 
