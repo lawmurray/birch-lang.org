@@ -4731,6 +4731,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#installing-eclipse" title="Installing Eclipse" class="md-nav__link">
+    Installing Eclipse
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#installing-the-birch-plugin" title="Installing the Birch plugin" class="md-nav__link">
     Installing the Birch plugin
   </a>
@@ -4824,6 +4831,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#installing-eclipse" title="Installing Eclipse" class="md-nav__link">
+    Installing Eclipse
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#installing-the-birch-plugin" title="Installing the Birch plugin" class="md-nav__link">
     Installing the Birch plugin
   </a>
@@ -4869,8 +4883,16 @@
                 
                 
                 <h1 id="how-to-use-birch-with-the-eclipse-ide">How to use Birch with the Eclipse IDE</h1>
-<p>A plugin is available for syntax highlighting of Birch code within <a href="http://www.eclipse.org">Eclipse</a>. Eclipse can also parse the error messages produced by the Birch compiler, enabling quick navigation to problem lines of code. This can help improve workflow.</p>
+<p><a href="http://www.eclipse.org">Eclipse</a> is a popular open-source integrated development environment (IDE) with support for Java, C/C++, PHP, and a host of other programming languages via an ecosystem of extensions.</p>
+<p>You can use Eclipse with Birch, too. A plugin is available for syntax highlighting of Birch code. Birch projects can otherwise be treated as if they are C/C++ projects, with only a few minor changes to settings as detailed below. Error messages from the Birch compiler are understood by Eclipse, so that it is able to annotate problem lines of code and allow quick navigation to them. This can help streamline workflow.</p>
 <p><img alt="Screenshot of Eclipse on macOS with syntax highlighting for Birch source files and terminal for running Birch commands." src="../../../images/eclipse-screenshot.png" /></p>
+<div class="admonition info">
+<p class="admonition-title">Getting involved</p>
+<p>Contributions to further improve support for Birch within Eclipse would be welcome. A project wizard plugin to automate some of the steps below would be particularly useful.</p>
+</div>
+<h2 id="installing-eclipse">Installing Eclipse</h2>
+<p>You should install the Eclipse IDE for C/C++ Developers linked from <a href="https://www.eclipse.org/downloads/eclipse-packages/">here</a>.</p>
+<p>If you already have Eclipse installed but without the C/C++ Development Tools (default installs are often for Java development only), you can add the C/C++ Development Tools to that Eclipse installation via the <em>Help &gt; Install New Software...</em> menu item. Select <em>All Available Sites</em> from the select box at the top, and choose <em>Programming Languages &gt; C++ Development Tools</em>, then follow the prompts.</p>
 <h2 id="installing-the-birch-plugin">Installing the Birch plugin</h2>
 <p>To install the plugin, use the <em>Help &gt; Install New Software...</em> menu item from within Eclipse. Click the <em>Add...</em> button and enter the following update site URL:</p>
 <p><a href="http://www.birch-lang.org/eclipse/updates">http://www.birch-lang.org/eclipse/updates</a></p>
@@ -4891,10 +4913,6 @@
 </div>
 <p>Once TM Terminal is installed, you can open a terminal window by using <em>Window &gt; Show View &gt; Other</em> and selecting <em>Terminal</em>. When the empty terminal window appears, click the <em>Open a Terminal</em> icon on the right side of the toolbar and choose <em>Local Terminal</em> to open a new tab with a terminal.</p>
 <h2 id="creating-projects-in-eclipse">Creating projects in Eclipse</h2>
-<div class="admonition info">
-<p class="admonition-title">Getting involved</p>
-<p>The development of a project wizard plugin to automate the creation of Birch projects, using the <code>birch init</code> command, would be a welcome addition.</p>
-</div>
 <p>Within Eclipse, you can treat Birch projects as if they are C/C++ Makefile Projects, with a few tweaks to the project properties as outlined below.</p>
 <p>You will need the <a href="https://www.eclipse.org/cdt/">Eclipse C/C++ Development Tooling (CDT)</a> for this, not just the Eclipse Java Development Tools (JDT). Often, a default Eclipse installation only installs the latter, so you may need to install the former.</p>
 <p>Once a Birch project has been created from the command line with <code>birch init</code>:</p>
