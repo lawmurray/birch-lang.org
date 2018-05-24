@@ -4767,24 +4767,26 @@
                 <pre><code>birch build [options]
 </code></pre>
 <p>Build the project.</p>
+<p>Options:</p>
+<ul>
+<li><code>--enable-unity</code> / <code>--disable-unity</code> : Enable/disable unity build (default: disabled). A unity build is typically faster from a clean state, but does not support incremental builds (i.e. a change to any file will trigger a full rebuild).</li>
+<li><code>--enable-warnings</code> / <code>--disable-warnings</code> : Enable/disable warnings (default: enabled).</li>
+<li><code>--enable-debug</code> / <code>--disable-debug</code> : Enable/disable debug mode (default: enabled).</li>
+<li><code>--enable-verbose</code> / <code>--disable-verbose</code> : Verbose mode (default: enabled).</li>
+<li><code>--prefix</code> : Installation prefix (default: platform-specific).</li>
+<li><code>--arch=[native|js|wasm]</code> : Target architecture (default: <code>native</code>). Valid options are <code>native</code> for the architecture of the current machine, <code>js</code> for JavaScript or <code>wasm</code> for WebAssembly. The latter two require the Emscripten compiler.</li>
+</ul>
+<p>The following three options are analogous to their counterparts for a C/C++ compiler, and specify the locations in which the Birch compiler should
+search for headers (both Birch and C/C++ headers), installed libraries and
+installed data files. They may be given multiple times to specify multiple
+directories in the order in which they are to be searched.</p>
 <ul>
 <li><code>--include-dir</code> : Add search directory for header files.</li>
 <li><code>--lib-dir</code> : Add search directory for library files.</li>
 <li><code>--share-dir</code> : Add search directory for data files.</li>
 </ul>
-<p>These three options are analogous to their counterparts for a C/C++ compiler, and specify the locations in which the Birch compiler should
-search for headers (both Birch and C/C++ headers), installed libraries and
-installed data files. They may be given multiple times to specify multiple
-directories in the order in which they are to be searched.</p>
 <p>After searching these directories, the Birch compiler will search the environment variables <code>BIRCH_INCLUDE_PATH</code>, <code>BIRCH_LIBRARY_PATH</code> and <code>BIRCH_SHARE_PATH</code>, followed by the directories of the compiler's own installation, followed by the system-wide locations <code>/usr/local/</code> and
 <code>/usr/</code>.</p>
-<ul>
-<li><code>--prefix</code> : Installation prefix (default platform-specific).</li>
-<li><code>--enable-std</code> / <code>--disable-std</code> : Enable/disable the standard library.</li>
-<li><code>--enable-warnings</code> / <code>--disable-warnings</code> : Enable/disable warnings.</li>
-<li><code>--enable-debug</code> / <code>--disable-debug</code> : Enable/disable debug mode.</li>
-<li><code>--enable-verbose</code> / <code>--disable-verbose</code> : Verbose mode.</li>
-</ul>
                 
                   
                 
