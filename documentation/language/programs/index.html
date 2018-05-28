@@ -4772,8 +4772,10 @@
 <p>To call a program from the command line, use <code>birch</code>, followed by the program name, following by a list of program options:</p>
 <pre><code>birch example --message "Hello!" --long-name 10.0 -x true -y 10
 </code></pre>
-<p>Program options may be given in any order but must be named. The name is usually prefixed with double-dash (<code>--</code>), but may be prefixed with single-dash (<code>-</code>) if the name is a single character. Whenever an underscore (<code>_</code>) appears in a name, it should be replaced with a dash (<code>-</code>), as in <code>long_name</code>/<code>--long-name</code> above.</p>
+<p>Program options may be given in any order but must be named. The name is usually prefixed with double-dash (<code>--</code>), but may be prefixed with single-dash (<code>-</code>) if the name is a single character.</p>
+<p>Whenever an underscore (<code>_</code>) appears in the name of a program option, it should be replaced with a dash (<code>-</code>) on the command line. This occurs in the example above, where the <code>long_name</code> program option becomes <code>--long-name</code> on the command line.</p>
 <p>Program options may be of any type for which an assignment from type <code>String</code> has been declared. This includes all basic types.</p>
+<p>If a program is called with an unrecognized option, an error is produced.</p>
                 
                   
                 
