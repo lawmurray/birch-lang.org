@@ -25,9 +25,6 @@ To install the plugin, use the *Help > Install New Software...* menu item from w
 
 Select the plugin from the list and follow the prompts from there. The plugin should be automatically associated with the `*.bi` file extension.
 
-!!! bug
-    If the plugin does not appear in the list, uncheck the *Group items by category* checkbox. (We're working on it.)
-
 
 ## Installing the TM Terminal plugin
 
