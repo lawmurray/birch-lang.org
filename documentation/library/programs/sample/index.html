@@ -4766,7 +4766,7 @@
                 
                 <p><a name="sample"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">program sample(model:<a href="../../types/#String">String</a> &lt;- "Model", method:<a href="../../types/#String">String</a> &lt;- "ParticleFilter", input_file:<a href="../../types/#String">String</a>?, output_file:<a href="../../types/#String">String</a>?, diagnostic_file:<a href="../../types/#String">String</a>?, nsamples:<a href="../../types/#Integer">Integer</a> &lt;- 1, ncheckpoints:<a href="../../types/#Integer">Integer</a> &lt;- 1, nparticles:<a href="../../types/#Integer">Integer</a> &lt;- 1, ess_trigger:<a href="../../types/#Real">Real</a> &lt;- 0.7)</p>
+<p class="admonition-title">program sample(model:<a href="../../types/#String">String</a> &lt;- "Model", method:<a href="../../types/#String">String</a> &lt;- "ParticleFilter", input_file:<a href="../../types/#String">String</a>?, output_file:<a href="../../types/#String">String</a>?, diagnostic_file:<a href="../../types/#String">String</a>?, nsamples:<a href="../../types/#Integer">Integer</a> &lt;- 1, ncheckpoints:<a href="../../types/#Integer">Integer</a> &lt;- 1, nparticles:<a href="../../types/#Integer">Integer</a> &lt;- 1, ess_trigger:<a href="../../types/#Real">Real</a> &lt;- 0.7, verbose:<a href="../../types/#Boolean">Boolean</a> &lt;- true)</p>
 <p>Sample from a model.</p>
 <p>General options.</p>
 <ul>
@@ -4803,6 +4803,9 @@
 <p><code>--ess-trigger</code>: Threshold for resampling. Resampling is performed
     whenever the effective sample size, as a proportion of <code>--nparticles</code>,
     drops below this threshold.</p>
+</li>
+<li>
+<p><code>--verbose</code>: Enable verbose reporting?</p>
 </li>
 </ul>
 </div>
