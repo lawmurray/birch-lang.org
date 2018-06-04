@@ -5092,19 +5092,19 @@ is stored in one contiguous array for <script type="math/tex">O(1)</script> rand
 <td>Elements.</td>
 </tr>
 <tr>
-<td>offsets:Integer[_]</td>
+<td>offsets:<a href="../../types/#Integer">Integer</a>[_]</td>
 <td>Offset into <code>values</code> for each row.</td>
 </tr>
 <tr>
-<td>ncols:Integer[_]</td>
+<td>ncols:<a href="../../types/#Integer">Integer</a>[_]</td>
 <td>Number of columns in each row.</td>
 </tr>
 <tr>
-<td>nrows:Integer</td>
+<td>nrows:<a href="../../types/#Integer">Integer</a></td>
 <td>Number of rows.</td>
 </tr>
 <tr>
-<td>nelements:Integer</td>
+<td>nelements:<a href="../../types/#Integer">Integer</a></td>
 <td>Number of elements.</td>
 </tr>
 </tbody>
@@ -5217,13 +5217,13 @@ is stored in one contiguous array for <script type="math/tex">O(1)</script> rand
 <h4 id="empty">empty</h4>
 <p><a name="empty"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function empty() -&gt; Boolean</p>
+<p class="admonition-title">function empty() -&gt; <a href="../../types/#Boolean">Boolean</a></p>
 <p>Is this empty?</p>
 </div>
 <h4 id="enlarge">enlarge</h4>
 <p><a name="enlarge"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function enlarge(n:Integer)</p>
+<p class="admonition-title">function enlarge(n:<a href="../../types/#Integer">Integer</a>)</p>
 <p>Increase the number of rows.</p>
 <ul>
 <li>n: Number of rows.</li>
@@ -5231,7 +5231,7 @@ is stored in one contiguous array for <script type="math/tex">O(1)</script> rand
 <p>The current contents is preserved.</p>
 </div>
 <div class="admonition quote">
-<p class="admonition-title">function enlarge(i:Integer, n:Integer, x:Type)</p>
+<p class="admonition-title">function enlarge(i:<a href="../../types/#Integer">Integer</a>, n:<a href="../../types/#Integer">Integer</a>, x:Type)</p>
 <p>Increase the number of columns in a row.</p>
 <ul>
 <li>i: Row.</li>
@@ -5243,7 +5243,7 @@ is stored in one contiguous array for <script type="math/tex">O(1)</script> rand
 <h4 id="from">from</h4>
 <p><a name="from"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function from(i:Integer) -&gt; Integer</p>
+<p class="admonition-title">function from(i:<a href="../../types/#Integer">Integer</a>) -&gt; <a href="../../types/#Integer">Integer</a></p>
 <p>First serial index of a row.</p>
 <ul>
 <li>i: Row.</li>
@@ -5252,7 +5252,7 @@ is stored in one contiguous array for <script type="math/tex">O(1)</script> rand
 <h4 id="get">get</h4>
 <p><a name="get"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function get(i:Integer, j:Integer) -&gt; Type</p>
+<p class="admonition-title">function get(i:<a href="../../types/#Integer">Integer</a>, j:<a href="../../types/#Integer">Integer</a>) -&gt; Type</p>
 <p>Get an element.</p>
 <ul>
 <li>i: Row.</li>
@@ -5260,7 +5260,7 @@ is stored in one contiguous array for <script type="math/tex">O(1)</script> rand
 </ul>
 </div>
 <div class="admonition quote">
-<p class="admonition-title">function get(i:Integer) -&gt; Type[_]</p>
+<p class="admonition-title">function get(i:<a href="../../types/#Integer">Integer</a>) -&gt; Type[_]</p>
 <p>Get a row.</p>
 <ul>
 <li>i: Row.</li>
@@ -5273,7 +5273,7 @@ is stored in one contiguous array for <script type="math/tex">O(1)</script> rand
 <p>Add a new row at the back.</p>
 </div>
 <div class="admonition quote">
-<p class="admonition-title">function pushBack(i:Integer, x:Type)</p>
+<p class="admonition-title">function pushBack(i:<a href="../../types/#Integer">Integer</a>, x:Type)</p>
 <p>Add a new element to the end of a row.</p>
 <ul>
 <li>i: Row.</li>
@@ -5283,7 +5283,7 @@ is stored in one contiguous array for <script type="math/tex">O(1)</script> rand
 <h4 id="serial">serial</h4>
 <p><a name="serial"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function serial(i:Integer, j:Integer) -&gt; Integer</p>
+<p class="admonition-title">function serial(i:<a href="../../types/#Integer">Integer</a>, j:<a href="../../types/#Integer">Integer</a>) -&gt; <a href="../../types/#Integer">Integer</a></p>
 <p>Serial index of row and column.</p>
 <ul>
 <li>i: Row.</li>
@@ -5293,7 +5293,7 @@ is stored in one contiguous array for <script type="math/tex">O(1)</script> rand
 <h4 id="set">set</h4>
 <p><a name="set"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function set(i:Integer, j:Integer, x:Type)</p>
+<p class="admonition-title">function set(i:<a href="../../types/#Integer">Integer</a>, j:<a href="../../types/#Integer">Integer</a>, x:Type)</p>
 <p>Set an element.</p>
 <ul>
 <li>i: Row.</li>
@@ -5302,7 +5302,7 @@ is stored in one contiguous array for <script type="math/tex">O(1)</script> rand
 </ul>
 </div>
 <div class="admonition quote">
-<p class="admonition-title">function set(i:Integer, x:Type[_])</p>
+<p class="admonition-title">function set(i:<a href="../../types/#Integer">Integer</a>, x:Type[_])</p>
 <p>Set a row.</p>
 <ul>
 <li>i: Row.</li>
@@ -5314,7 +5314,7 @@ is stored in one contiguous array for <script type="math/tex">O(1)</script> rand
 <h4 id="shrink">shrink</h4>
 <p><a name="shrink"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function shrink(n:Integer)</p>
+<p class="admonition-title">function shrink(n:<a href="../../types/#Integer">Integer</a>)</p>
 <p>Decrease the number of rows.</p>
 <ul>
 <li>n: Number of rows.</li>
@@ -5322,7 +5322,7 @@ is stored in one contiguous array for <script type="math/tex">O(1)</script> rand
 <p>The current contents is preserved.</p>
 </div>
 <div class="admonition quote">
-<p class="admonition-title">function shrink(i:Integer, n:Integer)</p>
+<p class="admonition-title">function shrink(i:<a href="../../types/#Integer">Integer</a>, n:<a href="../../types/#Integer">Integer</a>)</p>
 <p>Decrease the number of columns in a row.</p>
 <ul>
 <li>i: Row.</li>
@@ -5333,11 +5333,11 @@ is stored in one contiguous array for <script type="math/tex">O(1)</script> rand
 <h4 id="size">size</h4>
 <p><a name="size"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function size() -&gt; Integer</p>
+<p class="admonition-title">function size() -&gt; <a href="../../types/#Integer">Integer</a></p>
 <p>Number of rows.</p>
 </div>
 <div class="admonition quote">
-<p class="admonition-title">function size(i:Integer) -&gt; Integer</p>
+<p class="admonition-title">function size(i:<a href="../../types/#Integer">Integer</a>) -&gt; <a href="../../types/#Integer">Integer</a></p>
 <p>Number of elements for a given row.</p>
 <ul>
 <li>i: Row.</li>
@@ -5346,7 +5346,7 @@ is stored in one contiguous array for <script type="math/tex">O(1)</script> rand
 <h4 id="to">to</h4>
 <p><a name="to"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function to(i:Integer) -&gt; Integer</p>
+<p class="admonition-title">function to(i:<a href="../../types/#Integer">Integer</a>) -&gt; <a href="../../types/#Integer">Integer</a></p>
 <p>Last serial index of a row.</p>
 <ul>
 <li>i: Row.</li>
@@ -5356,12 +5356,12 @@ is stored in one contiguous array for <script type="math/tex">O(1)</script> rand
 <h4 id="walk">walk</h4>
 <p><a name="walk"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">fiber walk() -&gt; Type[_]</p>
+<p class="admonition-title">fiber walk() -&gt; Type[_]!</p>
 <p>Iterate over the rows.</p>
 <p>Return: a fiber object that yields each row in forward order.</p>
 </div>
 <div class="admonition quote">
-<p class="admonition-title">fiber walk(i:Integer) -&gt; Type</p>
+<p class="admonition-title">fiber walk(i:<a href="../../types/#Integer">Integer</a>) -&gt; Type!</p>
 <p>Iterate over the columns of a row.</p>
 <ul>
 <li>i: Row.</li>

@@ -297,7 +297,7 @@
         }, 
         {
             "location": "/documentation/language/classes/", 
-            "text": "A class named \nA\n is declared as:\n\n\nclass A {\n  // ...\n}\n\n\n\nA variable of class type \nA\n is then declared as usual:\n\n\na:A;\n\n\n\nInheritance\n\n\nA class type named \nA\n that inherits from a class type named \nB\n is declared as:\n\n\nclass A \n B {\n  // ...\n}\n\n\n\nThe class \nB\n is referred to as the \nsuper type\n of \nA\n.\n\n\nMember variables\n\n\nVariable declarations that appear within the body of a class are \nmember variables\n:\n\n\nclass A {\n  c:C;\n  d:D;\n}\n\n\n\nAn object of the class type contains instantiations of these member variables, which may be accessed with the dot (\n.\n) operator:\n\n\nf(a.c);\nf(a.d);\n\n\n\nMember functions\n\n\nFunction declarations that appear within the body of a class are \nmember functions\n:\n\n\nclass A {\n  function f(b:B, c:C) -\n D {\n    // ...\n  }\n}\n\n\n\nThese member functions can be called on an object of the class type, again accessed with the dot (\n.\n) operator. For \na:A\n, \nb:B\n, \nc:C\n, \nd:D\n:\n\n\nd \n- a.f(b, c);\n\n\n\nThe body of a member function may use any member variables of the object on which the member function is called. The keyword \nthis\n is used to explicitly refer to the object on which the member function is called. If the class has a super type, the keyword \nsuper\n is also used to explicitly refer to the object on which the member function is called, but cast to the super type.\n\n\nAll member functions are virtual. To delegate a call to a member function of the super type, also use the \nsuper\n keyword:\n\n\nclass A \n B {\n  function f(c:C) {\n    super.f(c);  // calls f(c:C) in class B\n  }\n}\n\n\n\nMember fibers\n\n\nFiber declarations that appear within the body of a class are \nmember fibers\n. Their behaviour is analogous to member functions.\n\n\nGeneric parameters\n\n\nA class declaration may include parameters for generic types that are to be specified when the class is used. These are declared using angle brackets in the class declaration:\n\n\nclass A\nT,U\n {\n  // ...\n}\n\n\n\nWhen a variable of this type is declared, arguments are specified for the generic types, also using angle brackets:\n\n\na:A\nB,C\n;\n\n\n\nThese arguments may be of any type. A type argument may be restricted to be some specific type or any subtype of it by using a \n=\n operator in the declaration:\n\n\nclass A\nT \n= V, U \n= Number\n {\n  // ..\n}\n\n\n\nWithin the body of the class, the type parameters may be used as though a type themselves:\n\n\nclass A\nT,U\n {\n  t:T;\n  u:U;\n\n  function get() -\n U {\n    return u;\n  }\n}\n\n\n\nInitialization parameters\n\n\nWhen an object of a class type is declared, its member variables are initialized according to the initial values given in the class body. For the class:\n\n\nclass A {\n  b:Integer \n- 0;\n  c:Integer;\n}\n\n\n\nand variable declaration:\n\n\na:A;\n\n\n\nThe member variables of \na\n are initialized such that \na.b == 0\n, while \na.c\n is uninitialized.\n\n\nA class can be given initialization parameters, which may be used to initialize any member variables. These are given in parentheses (after any generic parameters, if used):\n\n\nclass A(d:Integer) {\n  b:Integer \n- 0;\n  c:Integer \n- d;\n}\n\n\n\nArguments to these parameters must be given when an object of the class type is declared:\n\n\na:A(1);\n\n\n\nThe member variables of \na\n are now initialized such that \na.b == 0\n, and \na.c == 1\n.\n\n\nThe declarations \na:A;\n and \na:A();\n are equivalent.\n\n\nInitialization arguments can be passed onto the super type if required:\n\n\nclass A(d:Integer) \n B(d) {\n  // ...\n}\n\n\n\n\n\nInfo\n\n\nInitialization parameters in Birch play a similar role to initialization lists in C++.\n\n\n\n\nInitialization parameters are used for simple object initialization, such as to set initial values and array sizes. They do not allow arbitrary code to be executed upon object construction. This is the role of a \nconstructor\n. Birch does not, however, have any special language support for constructors. Instead, it is idiomatic to use \nfactory functions\n, exploiting the fact that the same name can be used for both a function and a class in the Birch language.\n\n\nA factory function is given the same name as the class it is intended to construct:\n\n\nfunction A(b:B, c:C) -\n A {\n  a:A;\n  // ...\n  return a;\n}\n\n\n\nThis function is treated as any other---there is nothing special about it---but it is idiomatic that such a function should return an object of the same type as its name, or of a subtype of that type. The possibility of returning a subtype makes a factory function slightly more flexible than an ordinary constructor.\n\n\nFor complex object construction, it can be useful to define a member function within the class that does most of the work, with the factory function simply instantiating the object, then passing its arguments to this function. It is idiomatic for such a member function to be given the name \nmake\n.\n\n\nAssignments\n\n\n\n\nInfo\n\n\nRecall that, for basic types, assignment is by value, while for class types, assignment is by reference.\n\n\n\n\nObjects of class type \nA\n may be assigned another object of type \nA\n or an object of any subtype of \nA\n; i.e. if \na:A\n and \nb:B\n with \nA \n B\n, it is possible to assign \nb \n- a\n but not \na \n- b\n.\n\n\nSuch assignments are by reference. Objects of class type \nA\n may be assigned \nby value\n if an appropriate declaration has been made within the class body. To permit assignment of type \nC\n, for example:\n\n\nclass A {\n  operator \n- c:C {\n    // ...\n  }\n}\n\n\n\nThe body of the operator should update the state of the object using the argument. There is no return value. For \na:A\n and \nc:C\n, the assignment \na \n- c\n would then be valid, even though \nC\n is not a subtype of \nA\n.\n\n\nConversions\n\n\nObjects of class type \nA\n may be implicitly cast to an object of any super type of \nA\n; i.e. if \na:A\n and \nb:B\n with \nA \n B\n, the object \na\n can be implicitly converted to an object of type \nB\n, as in the following:\n\n\nfunction f(b:B) {\n  // ...\n}\na:A;\nf(a);\n\n\n\nSuch casts are \nby reference\n. For other types, it is possible to declare implicit conversions \nby value\n, if an appropriate declaration has been made within the class body. To permit conversion to type \nC\n, for example:\n\n\nclass A {\n  operator -\n C {\n    c:C;\n    // ...\n    return c;\n  }\n  ...\n}\n\n\n\nThe body of the operator should construct the object to be returned as the result of the conversion. For \na:A\n and \nc:C\n, the following would then be valid, even though \nC\n is not a super type of \nA\n\n\nfunction f(c:C) {\n  // ...\n}\n\na:A;\nf(a);", 
+            "text": "A class named \nA\n is declared as:\n\n\nclass A {\n  // ...\n}\n\n\n\nA variable of class type \nA\n is then declared as usual:\n\n\na:A;\n\n\n\nInheritance\n\n\nA class type named \nA\n that inherits from a class type named \nB\n is declared as:\n\n\nclass A \n B {\n  // ...\n}\n\n\n\nThe class \nB\n is referred to as the \nsuper type\n of \nA\n.\n\n\nMember variables\n\n\nVariable declarations that appear within the body of a class are \nmember variables\n:\n\n\nclass A {\n  c:C;\n  d:D;\n}\n\n\n\nAn object of the class type contains instantiations of these member variables, which may be accessed with the dot (\n.\n) operator:\n\n\nf(a.c);\nf(a.d);\n\n\n\nMember functions\n\n\nFunction declarations that appear within the body of a class are \nmember functions\n:\n\n\nclass A {\n  function f(b:B, c:C) -\n D {\n    // ...\n  }\n}\n\n\n\nThese member functions can be called on an object of the class type, again accessed with the dot (\n.\n) operator. For \na:A\n, \nb:B\n, \nc:C\n, \nd:D\n:\n\n\nd \n- a.f(b, c);\n\n\n\nThe body of a member function may use any member variables of the object on which the member function is called. The keyword \nthis\n is used to explicitly refer to the object on which the member function is called. If the class has a super type, the keyword \nsuper\n is also used to explicitly refer to the object on which the member function is called, but cast to the super type.\n\n\nAll member functions are virtual. To delegate a call to a member function of the super type, also use the \nsuper\n keyword:\n\n\nclass A \n B {\n  function f(c:C) {\n    super.f(c);  // calls f(c:C) in class B\n  }\n}\n\n\n\nMember fibers\n\n\nFiber declarations that appear within the body of a class are \nmember fibers\n. Their behaviour is analogous to member functions.\n\n\nGeneric parameters\n\n\nA class declaration may include parameters for generic types that are to be specified when the class is used. These are declared using angle brackets in the class declaration:\n\n\nclass A\nT,U\n {\n  // ...\n}\n\n\n\nWhen a variable of this type is declared, arguments are specified for the generic types, also using angle brackets:\n\n\na:A\nB,C\n;\n\n\n\nThese arguments may be of any type. Within the body of the class, the type parameters may be used as though a type themselves:\n\n\nclass A\nT,U\n {\n  t:T;\n  u:U;\n\n  function get() -\n U {\n    return u;\n  }\n}\n\n\n\nInitialization parameters\n\n\nWhen an object of a class type is declared, its member variables are initialized according to the initial values given in the class body. For the class:\n\n\nclass A {\n  b:Integer \n- 0;\n  c:Integer;\n}\n\n\n\nand variable declaration:\n\n\na:A;\n\n\n\nThe member variables of \na\n are initialized such that \na.b == 0\n, while \na.c\n is uninitialized.\n\n\nA class can be given initialization parameters, which may be used to initialize any member variables. These are given in parentheses (after any generic parameters, if used):\n\n\nclass A(d:Integer) {\n  b:Integer \n- 0;\n  c:Integer \n- d;\n}\n\n\n\nArguments to these parameters must be given when an object of the class type is declared:\n\n\na:A(1);\n\n\n\nThe member variables of \na\n are now initialized such that \na.b == 0\n, and \na.c == 1\n.\n\n\nThe declarations \na:A;\n and \na:A();\n are equivalent.\n\n\nInitialization arguments can be passed onto the super type if required:\n\n\nclass A(d:Integer) \n B(d) {\n  // ...\n}\n\n\n\n\n\nInfo\n\n\nInitialization parameters in Birch play a similar role to initialization lists in C++.\n\n\n\n\nInitialization parameters are used for simple object initialization, such as to set initial values and array sizes. They do not allow arbitrary code to be executed upon object construction. This is the role of a \nconstructor\n. Birch does not, however, have any special language support for constructors. Instead, it is idiomatic to use \nfactory functions\n, exploiting the fact that the same name can be used for both a function and a class in the Birch language.\n\n\nA factory function is given the same name as the class it is intended to construct:\n\n\nfunction A(b:B, c:C) -\n A {\n  a:A;\n  // ...\n  return a;\n}\n\n\n\nThis function is treated as any other---there is nothing special about it---but it is idiomatic that such a function should return an object of the same type as its name, or of a subtype of that type. The possibility of returning a subtype makes a factory function slightly more flexible than an ordinary constructor.\n\n\nFor complex object construction, it can be useful to define a member function within the class that does most of the work, with the factory function simply instantiating the object, then passing its arguments to this function. It is idiomatic for such a member function to be given the name \nmake\n.\n\n\nAssignments\n\n\n\n\nInfo\n\n\nRecall that, for basic types, assignment is by value, while for class types, assignment is by reference.\n\n\n\n\nObjects of class type \nA\n may be assigned another object of type \nA\n or an object of any subtype of \nA\n; i.e. if \na:A\n and \nb:B\n with \nA \n B\n, it is possible to assign \nb \n- a\n but not \na \n- b\n.\n\n\nSuch assignments are by reference. Objects of class type \nA\n may be assigned \nby value\n if an appropriate declaration has been made within the class body. To permit assignment of type \nC\n, for example:\n\n\nclass A {\n  operator \n- c:C {\n    // ...\n  }\n}\n\n\n\nThe body of the operator should update the state of the object using the argument. There is no return value. For \na:A\n and \nc:C\n, the assignment \na \n- c\n would then be valid, even though \nC\n is not a subtype of \nA\n.\n\n\nConversions\n\n\nObjects of class type \nA\n may be implicitly cast to an object of any super type of \nA\n; i.e. if \na:A\n and \nb:B\n with \nA \n B\n, the object \na\n can be implicitly converted to an object of type \nB\n, as in the following:\n\n\nfunction f(b:B) {\n  // ...\n}\na:A;\nf(a);\n\n\n\nSuch casts are \nby reference\n. For other types, it is possible to declare implicit conversions \nby value\n, if an appropriate declaration has been made within the class body. To permit conversion to type \nC\n, for example:\n\n\nclass A {\n  operator -\n C {\n    c:C;\n    // ...\n    return c;\n  }\n  ...\n}\n\n\n\nThe body of the operator should construct the object to be returned as the result of the conversion. For \na:A\n and \nc:C\n, the following would then be valid, even though \nC\n is not a super type of \nA\n\n\nfunction f(c:C) {\n  // ...\n}\n\na:A;\nf(a);", 
             "title": "Classes"
         }, 
         {
@@ -322,7 +322,7 @@
         }, 
         {
             "location": "/documentation/language/classes/#generic-parameters", 
-            "text": "A class declaration may include parameters for generic types that are to be specified when the class is used. These are declared using angle brackets in the class declaration:  class A T,U  {\n  // ...\n}  When a variable of this type is declared, arguments are specified for the generic types, also using angle brackets:  a:A B,C ;  These arguments may be of any type. A type argument may be restricted to be some specific type or any subtype of it by using a  =  operator in the declaration:  class A T  = V, U  = Number  {\n  // ..\n}  Within the body of the class, the type parameters may be used as though a type themselves:  class A T,U  {\n  t:T;\n  u:U;\n\n  function get() -  U {\n    return u;\n  }\n}", 
+            "text": "A class declaration may include parameters for generic types that are to be specified when the class is used. These are declared using angle brackets in the class declaration:  class A T,U  {\n  // ...\n}  When a variable of this type is declared, arguments are specified for the generic types, also using angle brackets:  a:A B,C ;  These arguments may be of any type. Within the body of the class, the type parameters may be used as though a type themselves:  class A T,U  {\n  t:T;\n  u:U;\n\n  function get() -  U {\n    return u;\n  }\n}", 
             "title": "Generic parameters"
         }, 
         {
@@ -1802,12 +1802,12 @@
         }, 
         {
             "location": "/documentation/library/classes/Distribution/", 
-            "text": "class Distribution\nValue\n \n \nObject\n\n\nProbability distribution.\n\n\n\n\nValue: Value type.\n\n\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\ndelay:DelayValue\n?\n\n\nAssociated node on delayed sampling \nM\n-path.\n\n\n\n\n\n\nx:Random\n\n\nAssociated random variate.\n\n\n\n\n\n\n\n\nMember Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nassociate\n\n\nAssociate a random variate with this distribution.\n\n\n\n\n\n\nvalue\n\n\nInstantiate the associated delayed random variate.\n\n\n\n\n\n\nsimulate\n\n\nSimulate a random variate.\n\n\n\n\n\n\nobserve\n\n\nObserve a random variate.\n\n\n\n\n\n\npmf\n\n\nEvaluate the probability mass function (if it exists) at a value.\n\n\n\n\n\n\npdf\n\n\nEvaluate the probability density function (if it exists) at a value.\n\n\n\n\n\n\ncdf\n\n\nEvaluate the cumulative distribution function at a value.\n\n\n\n\n\n\ngraft\n\n\nGraft this onto the delayed sampling \nM\n-path.\n\n\n\n\n\n\n\n\nMember Function Details\n\n\nassociate\n\n\n\n\n\n\nfunction associate(x:Random\n)\n\n\nAssociate a random variate with this distribution.\n\n\n\n\ncdf\n\n\n\n\n\n\nfunction cdf(x:Value) -\n Real\n\n\nEvaluate the cumulative distribution function at a value.\n\n\n\n\nx: The value.\n\n\n\n\nReturn: the cumulative probability\n\n\n\n\ngraft\n\n\n\n\n\n\nfunction graft()\n\n\nGraft this onto the delayed sampling \nM\n-path.\n\n\n\n\nobserve\n\n\n\n\n\n\nfunction observe(x:Value) -\n Real\n\n\nObserve a random variate.\n\n\n\n\nx: The value.\n\n\n\n\nReturn: The log likelihood.\n\n\n\n\npdf\n\n\n\n\n\n\nfunction pdf(x:Value) -\n Real\n\n\nEvaluate the probability density function (if it exists) at a value.\n\n\n\n\nx: The value.\n\n\n\n\nReturn: the probability density.\n\n\n\n\npmf\n\n\n\n\n\n\nfunction pmf(x:Value) -\n Real\n\n\nEvaluate the probability mass function (if it exists) at a value.\n\n\n\n\nx: The value.\n\n\n\n\nReturn: the probability mass.\n\n\n\n\nsimulate\n\n\n\n\n\n\nfunction simulate() -\n Value\n\n\nSimulate a random variate.\n\n\nReturn: the value.\n\n\n\n\nvalue\n\n\n\n\n\n\nfunction value()\n\n\nInstantiate the associated delayed random variate.", 
+            "text": "class Distribution\nValue\n \n \nObject\n\n\nProbability distribution.\n\n\n\n\nValue: Value type.\n\n\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\ndelay:DelayValue\nValue\n?\n\n\nAssociated node on delayed sampling \nM\n-path.\n\n\n\n\n\n\nx:\nRandom\nValue\n\n\nAssociated random variate.\n\n\n\n\n\n\n\n\nMember Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nassociate\n\n\nAssociate a random variate with this distribution.\n\n\n\n\n\n\nvalue\n\n\nInstantiate the associated delayed random variate.\n\n\n\n\n\n\nsimulate\n\n\nSimulate a random variate.\n\n\n\n\n\n\nobserve\n\n\nObserve a random variate.\n\n\n\n\n\n\npmf\n\n\nEvaluate the probability mass function (if it exists) at a value.\n\n\n\n\n\n\npdf\n\n\nEvaluate the probability density function (if it exists) at a value.\n\n\n\n\n\n\ncdf\n\n\nEvaluate the cumulative distribution function at a value.\n\n\n\n\n\n\ngraft\n\n\nGraft this onto the delayed sampling \nM\n-path.\n\n\n\n\n\n\n\n\nMember Function Details\n\n\nassociate\n\n\n\n\n\n\nfunction associate(x:\nRandom\nValue\n)\n\n\nAssociate a random variate with this distribution.\n\n\n\n\ncdf\n\n\n\n\n\n\nfunction cdf(x:Value) -\n \nReal\n\n\nEvaluate the cumulative distribution function at a value.\n\n\n\n\nx: The value.\n\n\n\n\nReturn: the cumulative probability\n\n\n\n\ngraft\n\n\n\n\n\n\nfunction graft()\n\n\nGraft this onto the delayed sampling \nM\n-path.\n\n\n\n\nobserve\n\n\n\n\n\n\nfunction observe(x:Value) -\n \nReal\n\n\nObserve a random variate.\n\n\n\n\nx: The value.\n\n\n\n\nReturn: The log likelihood.\n\n\n\n\npdf\n\n\n\n\n\n\nfunction pdf(x:Value) -\n \nReal\n\n\nEvaluate the probability density function (if it exists) at a value.\n\n\n\n\nx: The value.\n\n\n\n\nReturn: the probability density.\n\n\n\n\npmf\n\n\n\n\n\n\nfunction pmf(x:Value) -\n \nReal\n\n\nEvaluate the probability mass function (if it exists) at a value.\n\n\n\n\nx: The value.\n\n\n\n\nReturn: the probability mass.\n\n\n\n\nsimulate\n\n\n\n\n\n\nfunction simulate() -\n Value\n\n\nSimulate a random variate.\n\n\nReturn: the value.\n\n\n\n\nvalue\n\n\n\n\n\n\nfunction value()\n\n\nInstantiate the associated delayed random variate.", 
             "title": "Distribution"
         }, 
         {
             "location": "/documentation/library/classes/Distribution/#member-variables", 
-            "text": "Name  Description      delay:DelayValue ?  Associated node on delayed sampling  M -path.    x:Random  Associated random variate.", 
+            "text": "Name  Description      delay:DelayValue Value ?  Associated node on delayed sampling  M -path.    x: Random Value  Associated random variate.", 
             "title": "Member Variables"
         }, 
         {
@@ -1822,12 +1822,12 @@
         }, 
         {
             "location": "/documentation/library/classes/Distribution/#associate", 
-            "text": "function associate(x:Random )  Associate a random variate with this distribution.", 
+            "text": "function associate(x: Random Value )  Associate a random variate with this distribution.", 
             "title": "associate"
         }, 
         {
             "location": "/documentation/library/classes/Distribution/#cdf", 
-            "text": "function cdf(x:Value) -  Real  Evaluate the cumulative distribution function at a value.   x: The value.   Return: the cumulative probability", 
+            "text": "function cdf(x:Value) -   Real  Evaluate the cumulative distribution function at a value.   x: The value.   Return: the cumulative probability", 
             "title": "cdf"
         }, 
         {
@@ -1837,17 +1837,17 @@
         }, 
         {
             "location": "/documentation/library/classes/Distribution/#observe", 
-            "text": "function observe(x:Value) -  Real  Observe a random variate.   x: The value.   Return: The log likelihood.", 
+            "text": "function observe(x:Value) -   Real  Observe a random variate.   x: The value.   Return: The log likelihood.", 
             "title": "observe"
         }, 
         {
             "location": "/documentation/library/classes/Distribution/#pdf", 
-            "text": "function pdf(x:Value) -  Real  Evaluate the probability density function (if it exists) at a value.   x: The value.   Return: the probability density.", 
+            "text": "function pdf(x:Value) -   Real  Evaluate the probability density function (if it exists) at a value.   x: The value.   Return: the probability density.", 
             "title": "pdf"
         }, 
         {
             "location": "/documentation/library/classes/Distribution/#pmf", 
-            "text": "function pmf(x:Value) -  Real  Evaluate the probability mass function (if it exists) at a value.   x: The value.   Return: the probability mass.", 
+            "text": "function pmf(x:Value) -   Real  Evaluate the probability mass function (if it exists) at a value.   x: The value.   Return: the probability mass.", 
             "title": "pmf"
         }, 
         {
@@ -2082,7 +2082,7 @@
         }, 
         {
             "location": "/documentation/library/classes/List/", 
-            "text": "class List\nType\n \n \nObject\n\n\nList.\n\n\n\n\nMember Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nsize\n\n\nNumber of elements.\n\n\n\n\n\n\nempty\n\n\nIs this empty?\n\n\n\n\n\n\nclear\n\n\nClear all elements.\n\n\n\n\n\n\nfront\n\n\nGet the first element.\n\n\n\n\n\n\nback\n\n\nGet the last element.\n\n\n\n\n\n\nget\n\n\nGet an element.\n\n\n\n\n\n\nset\n\n\nSet an element.\n\n\n\n\n\n\npushFront\n\n\nInsert a new element at the start.\n\n\n\n\n\n\npushBack\n\n\nInsert a new element at the end.\n\n\n\n\n\n\npopFront\n\n\nRemove the first element.\n\n\n\n\n\n\npopBack\n\n\nRemove the last element.\n\n\n\n\n\n\ninsert\n\n\nInsert a new element.\n\n\n\n\n\n\nerase\n\n\nErase an element.\n\n\n\n\n\n\ngetNode\n\n\nGet a node.\n\n\n\n\n\n\n\n\nMember Fibers\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nwalk\n\n\nIterate over the elements.\n\n\n\n\n\n\n\n\nMember Function Details\n\n\nback\n\n\n\n\n\n\nfunction back() -\n Type\n\n\nGet the last element.\n\n\n\n\nclear\n\n\n\n\n\n\nfunction clear()\n\n\nClear all elements.\n\n\n\n\nempty\n\n\n\n\n\n\nfunction empty() -\n Boolean\n\n\nIs this empty?\n\n\n\n\nerase\n\n\n\n\n\n\nfunction erase(i:Integer)\n\n\nErase an element.\n\n\n\n\ni: Position.\n\n\n\n\n\n\nfront\n\n\n\n\n\n\nfunction front() -\n Type\n\n\nGet the first element.\n\n\n\n\nget\n\n\n\n\n\n\nfunction get(i:Integer) -\n Type\n\n\nGet an element.\n\n\n\n\ni: Position.\n\n\n\n\n\n\ngetNode\n\n\n\n\n\n\nfunction getNode(i:Integer) -\n ListNode\n\n\nGet a node.\n\n\n\n\ni: Position.\n\n\n\n\n\n\ninsert\n\n\n\n\n\n\nfunction insert(i:Integer, x:Type)\n\n\nInsert a new element.\n\n\n\n\ni: Position.\n\n\nx: Value.\n\n\n\n\nInserts the new element immediately before the current element at\nposition \ni\n. To insert at the end of the container, use a position that\nis one more than the current size, or \npushBack()\n.\n\n\n\n\npopBack\n\n\n\n\n\n\nfunction popBack()\n\n\nRemove the last element.\n\n\n\n\npopFront\n\n\n\n\n\n\nfunction popFront()\n\n\nRemove the first element.\n\n\n\n\npushBack\n\n\n\n\n\n\nfunction pushBack(x:Type)\n\n\nInsert a new element at the end.\n\n\n\n\nx: Value.\n\n\n\n\n\n\npushFront\n\n\n\n\n\n\nfunction pushFront(x:Type)\n\n\nInsert a new element at the start.\n\n\n\n\nx: Value.\n\n\n\n\n\n\nset\n\n\n\n\n\n\nfunction set(i:Integer, x:Type)\n\n\nSet an element.\n\n\n\n\ni: Position.\n\n\nx: Value.\n\n\n\n\n\n\nsize\n\n\n\n\n\n\nfunction size() -\n Integer\n\n\nNumber of elements.\n\n\n\n\nMember Fiber Details\n\n\nwalk\n\n\n\n\n\n\nfiber walk() -\n Type\n\n\nIterate over the elements.\n\n\nReturn: a fiber object that yields each element in forward order.", 
+            "text": "class List\nType\n \n \nObject\n\n\nList.\n\n\n\n\nMember Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nsize\n\n\nNumber of elements.\n\n\n\n\n\n\nempty\n\n\nIs this empty?\n\n\n\n\n\n\nclear\n\n\nClear all elements.\n\n\n\n\n\n\nfront\n\n\nGet the first element.\n\n\n\n\n\n\nback\n\n\nGet the last element.\n\n\n\n\n\n\nget\n\n\nGet an element.\n\n\n\n\n\n\nset\n\n\nSet an element.\n\n\n\n\n\n\npushFront\n\n\nInsert a new element at the start.\n\n\n\n\n\n\npushBack\n\n\nInsert a new element at the end.\n\n\n\n\n\n\npopFront\n\n\nRemove the first element.\n\n\n\n\n\n\npopBack\n\n\nRemove the last element.\n\n\n\n\n\n\ninsert\n\n\nInsert a new element.\n\n\n\n\n\n\nerase\n\n\nErase an element.\n\n\n\n\n\n\ngetNode\n\n\nGet a node.\n\n\n\n\n\n\n\n\nMember Fibers\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nwalk\n\n\nIterate over the elements.\n\n\n\n\n\n\n\n\nMember Function Details\n\n\nback\n\n\n\n\n\n\nfunction back() -\n Type\n\n\nGet the last element.\n\n\n\n\nclear\n\n\n\n\n\n\nfunction clear()\n\n\nClear all elements.\n\n\n\n\nempty\n\n\n\n\n\n\nfunction empty() -\n \nBoolean\n\n\nIs this empty?\n\n\n\n\nerase\n\n\n\n\n\n\nfunction erase(i:\nInteger\n)\n\n\nErase an element.\n\n\n\n\ni: Position.\n\n\n\n\n\n\nfront\n\n\n\n\n\n\nfunction front() -\n Type\n\n\nGet the first element.\n\n\n\n\nget\n\n\n\n\n\n\nfunction get(i:\nInteger\n) -\n Type\n\n\nGet an element.\n\n\n\n\ni: Position.\n\n\n\n\n\n\ngetNode\n\n\n\n\n\n\nfunction getNode(i:\nInteger\n) -\n ListNode\nType\n\n\nGet a node.\n\n\n\n\ni: Position.\n\n\n\n\n\n\ninsert\n\n\n\n\n\n\nfunction insert(i:\nInteger\n, x:Type)\n\n\nInsert a new element.\n\n\n\n\ni: Position.\n\n\nx: Value.\n\n\n\n\nInserts the new element immediately before the current element at\nposition \ni\n. To insert at the end of the container, use a position that\nis one more than the current size, or \npushBack()\n.\n\n\n\n\npopBack\n\n\n\n\n\n\nfunction popBack()\n\n\nRemove the last element.\n\n\n\n\npopFront\n\n\n\n\n\n\nfunction popFront()\n\n\nRemove the first element.\n\n\n\n\npushBack\n\n\n\n\n\n\nfunction pushBack(x:Type)\n\n\nInsert a new element at the end.\n\n\n\n\nx: Value.\n\n\n\n\n\n\npushFront\n\n\n\n\n\n\nfunction pushFront(x:Type)\n\n\nInsert a new element at the start.\n\n\n\n\nx: Value.\n\n\n\n\n\n\nset\n\n\n\n\n\n\nfunction set(i:\nInteger\n, x:Type)\n\n\nSet an element.\n\n\n\n\ni: Position.\n\n\nx: Value.\n\n\n\n\n\n\nsize\n\n\n\n\n\n\nfunction size() -\n \nInteger\n\n\nNumber of elements.\n\n\n\n\nMember Fiber Details\n\n\nwalk\n\n\n\n\n\n\nfiber walk() -\n Type!\n\n\nIterate over the elements.\n\n\nReturn: a fiber object that yields each element in forward order.", 
             "title": "List"
         }, 
         {
@@ -2112,12 +2112,12 @@
         }, 
         {
             "location": "/documentation/library/classes/List/#empty", 
-            "text": "function empty() -  Boolean  Is this empty?", 
+            "text": "function empty() -   Boolean  Is this empty?", 
             "title": "empty"
         }, 
         {
             "location": "/documentation/library/classes/List/#erase", 
-            "text": "function erase(i:Integer)  Erase an element.   i: Position.", 
+            "text": "function erase(i: Integer )  Erase an element.   i: Position.", 
             "title": "erase"
         }, 
         {
@@ -2127,17 +2127,17 @@
         }, 
         {
             "location": "/documentation/library/classes/List/#get", 
-            "text": "function get(i:Integer) -  Type  Get an element.   i: Position.", 
+            "text": "function get(i: Integer ) -  Type  Get an element.   i: Position.", 
             "title": "get"
         }, 
         {
             "location": "/documentation/library/classes/List/#getnode", 
-            "text": "function getNode(i:Integer) -  ListNode  Get a node.   i: Position.", 
+            "text": "function getNode(i: Integer ) -  ListNode Type  Get a node.   i: Position.", 
             "title": "getNode"
         }, 
         {
             "location": "/documentation/library/classes/List/#insert", 
-            "text": "function insert(i:Integer, x:Type)  Insert a new element.   i: Position.  x: Value.   Inserts the new element immediately before the current element at\nposition  i . To insert at the end of the container, use a position that\nis one more than the current size, or  pushBack() .", 
+            "text": "function insert(i: Integer , x:Type)  Insert a new element.   i: Position.  x: Value.   Inserts the new element immediately before the current element at\nposition  i . To insert at the end of the container, use a position that\nis one more than the current size, or  pushBack() .", 
             "title": "insert"
         }, 
         {
@@ -2162,12 +2162,12 @@
         }, 
         {
             "location": "/documentation/library/classes/List/#set", 
-            "text": "function set(i:Integer, x:Type)  Set an element.   i: Position.  x: Value.", 
+            "text": "function set(i: Integer , x:Type)  Set an element.   i: Position.  x: Value.", 
             "title": "set"
         }, 
         {
             "location": "/documentation/library/classes/List/#size", 
-            "text": "function size() -  Integer  Number of elements.", 
+            "text": "function size() -   Integer  Number of elements.", 
             "title": "size"
         }, 
         {
@@ -2177,7 +2177,7 @@
         }, 
         {
             "location": "/documentation/library/classes/List/#walk", 
-            "text": "fiber walk() -  Type  Iterate over the elements.  Return: a fiber object that yields each element in forward order.", 
+            "text": "fiber walk() -  Type!  Iterate over the elements.  Return: a fiber object that yields each element in forward order.", 
             "title": "walk"
         }, 
         {
@@ -2217,7 +2217,7 @@
         }, 
         {
             "location": "/documentation/library/classes/MarkovModel/", 
-            "text": "class MarkovModel\nStateType \n= \nState\n, ParameterType \n= \nParameter\n \n \nModel\n\n\nMarkov model, structured as a sequence of states, where each state is\nconditionally independent of the state history, given the previous state.\n\n\nThe joint distribution is:\n\n\n\n\np(\\mathrm{d}x_{0:T}, \\mathrm{d}\\theta) = p(\\mathrm{d}\\theta)\n  p(\\mathrm{d}x_0 \\mid \\theta) \\prod_{t=1}^T p(\\mathrm{d}x_t \\mid x_{t-1},\n  \\theta)\n\n\n\n\n\n\n\n\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\n\u03b8:ParameterType\n\n\nParameter.\n\n\n\n\n\n\nhistory:\nList\nStateType\n\n\nState history.\n\n\n\n\n\n\nfuture:\nList\nStateType\n\n\nState future.", 
+            "text": "class MarkovModel\nStateType, ParameterType\n \n \nModel\n\n\nMarkov model, structured as a sequence of states, where each state is\nconditionally independent of the state history, given the previous state.\n\n\nThe joint distribution is:\n\n\n\n\np(\\mathrm{d}x_{0:T}, \\mathrm{d}\\theta) = p(\\mathrm{d}\\theta)\n  p(\\mathrm{d}x_0 \\mid \\theta) \\prod_{t=1}^T p(\\mathrm{d}x_t \\mid x_{t-1},\n  \\theta)\n\n\n\n\n\n\n\n\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\n\u03b8:ParameterType\n\n\nParameter.\n\n\n\n\n\n\nhistory:\nList\nStateType\n\n\nState history.\n\n\n\n\n\n\nfuture:\nList\nStateType\n\n\nState future.", 
             "title": "MarkovModel"
         }, 
         {
@@ -2542,12 +2542,12 @@
         }, 
         {
             "location": "/documentation/library/classes/RaggedArray/", 
-            "text": "class RaggedArray\nType\n \n \nObject\n\n\nTwo-dimensional array where each row has a varying length. Internally, this\nis stored in one contiguous array for \nO(1)\n random access.\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nvalues:Type[_]\n\n\nElements.\n\n\n\n\n\n\noffsets:Integer[_]\n\n\nOffset into \nvalues\n for each row.\n\n\n\n\n\n\nncols:Integer[_]\n\n\nNumber of columns in each row.\n\n\n\n\n\n\nnrows:Integer\n\n\nNumber of rows.\n\n\n\n\n\n\nnelements:Integer\n\n\nNumber of elements.\n\n\n\n\n\n\n\n\nMember Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nempty\n\n\nIs this empty?\n\n\n\n\n\n\nclear\n\n\nClear all elements.\n\n\n\n\n\n\nsize\n\n\nNumber of rows.\n\n\n\n\n\n\nsize\n\n\nNumber of elements for a given row.\n\n\n\n\n\n\nget\n\n\nGet an element.\n\n\n\n\n\n\nget\n\n\nGet a row.\n\n\n\n\n\n\nset\n\n\nSet an element.\n\n\n\n\n\n\nset\n\n\nSet a row.\n\n\n\n\n\n\npushBack\n\n\nAdd a new row at the back.\n\n\n\n\n\n\npushBack\n\n\nAdd a new element to the end of a row.\n\n\n\n\n\n\nshrink\n\n\nDecrease the number of rows.\n\n\n\n\n\n\nshrink\n\n\nDecrease the number of columns in a row.\n\n\n\n\n\n\nenlarge\n\n\nIncrease the number of rows.\n\n\n\n\n\n\nenlarge\n\n\nIncrease the number of columns in a row.\n\n\n\n\n\n\nfrom\n\n\nFirst serial index of a row.\n\n\n\n\n\n\nto\n\n\nLast serial index of a row.\n\n\n\n\n\n\nserial\n\n\nSerial index of row and column.\n\n\n\n\n\n\n\n\nMember Fibers\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nwalk\n\n\nIterate over the rows.\n\n\n\n\n\n\nwalk\n\n\nIterate over the columns of a row.\n\n\n\n\n\n\n\n\nMember Function Details\n\n\nclear\n\n\n\n\n\n\nfunction clear()\n\n\nClear all elements.\n\n\n\n\nempty\n\n\n\n\n\n\nfunction empty() -\n Boolean\n\n\nIs this empty?\n\n\n\n\nenlarge\n\n\n\n\n\n\nfunction enlarge(n:Integer)\n\n\nIncrease the number of rows.\n\n\n\n\nn: Number of rows.\n\n\n\n\nThe current contents is preserved.\n\n\n\n\n\n\nfunction enlarge(i:Integer, n:Integer, x:Type)\n\n\nIncrease the number of columns in a row.\n\n\n\n\ni: Row.\n\n\nn: Number of columns.\n\n\nx: Value for new elements.\n\n\n\n\nThe current contents of the row is preserved.\n\n\n\n\nfrom\n\n\n\n\n\n\nfunction from(i:Integer) -\n Integer\n\n\nFirst serial index of a row.\n\n\n\n\ni: Row.\n\n\n\n\n\n\nget\n\n\n\n\n\n\nfunction get(i:Integer, j:Integer) -\n Type\n\n\nGet an element.\n\n\n\n\ni: Row.\n\n\nj: Column.\n\n\n\n\n\n\n\n\nfunction get(i:Integer) -\n Type[_]\n\n\nGet a row.\n\n\n\n\ni: Row.\n\n\n\n\n\n\npushBack\n\n\n\n\n\n\nfunction pushBack()\n\n\nAdd a new row at the back.\n\n\n\n\n\n\nfunction pushBack(i:Integer, x:Type)\n\n\nAdd a new element to the end of a row.\n\n\n\n\ni: Row.\n\n\nx: Value.\n\n\n\n\n\n\nserial\n\n\n\n\n\n\nfunction serial(i:Integer, j:Integer) -\n Integer\n\n\nSerial index of row and column.\n\n\n\n\ni: Row.\n\n\nj: Column.\n\n\n\n\n\n\nset\n\n\n\n\n\n\nfunction set(i:Integer, j:Integer, x:Type)\n\n\nSet an element.\n\n\n\n\ni: Row.\n\n\nj: Column.\n\n\nx: Value.\n\n\n\n\n\n\n\n\nfunction set(i:Integer, x:Type[_])\n\n\nSet a row.\n\n\n\n\ni: Row.\n\n\nx: Values.\n\n\n\n\nThe number of columns in the row must match the number of columns in\n\nx\n. Use \nshrink\n or \nenlarge\n beforehand if necessary.\n\n\n\n\nshrink\n\n\n\n\n\n\nfunction shrink(n:Integer)\n\n\nDecrease the number of rows.\n\n\n\n\nn: Number of rows.\n\n\n\n\nThe current contents is preserved.\n\n\n\n\n\n\nfunction shrink(i:Integer, n:Integer)\n\n\nDecrease the number of columns in a row.\n\n\n\n\ni: Row.\n\n\nn: Number of columns.\n\n\n\n\nThe current contents of the row is preserved.\n\n\n\n\nsize\n\n\n\n\n\n\nfunction size() -\n Integer\n\n\nNumber of rows.\n\n\n\n\n\n\nfunction size(i:Integer) -\n Integer\n\n\nNumber of elements for a given row.\n\n\n\n\ni: Row.\n\n\n\n\n\n\nto\n\n\n\n\n\n\nfunction to(i:Integer) -\n Integer\n\n\nLast serial index of a row.\n\n\n\n\ni: Row.\n\n\n\n\n\n\nMember Fiber Details\n\n\nwalk\n\n\n\n\n\n\nfiber walk() -\n Type[_]\n\n\nIterate over the rows.\n\n\nReturn: a fiber object that yields each row in forward order.\n\n\n\n\n\n\nfiber walk(i:Integer) -\n Type\n\n\nIterate over the columns of a row.\n\n\n\n\ni: Row.\n\n\n\n\nReturn: a fiber object that yields each row in forward order.", 
+            "text": "class RaggedArray\nType\n \n \nObject\n\n\nTwo-dimensional array where each row has a varying length. Internally, this\nis stored in one contiguous array for \nO(1)\n random access.\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nvalues:Type[_]\n\n\nElements.\n\n\n\n\n\n\noffsets:\nInteger\n[_]\n\n\nOffset into \nvalues\n for each row.\n\n\n\n\n\n\nncols:\nInteger\n[_]\n\n\nNumber of columns in each row.\n\n\n\n\n\n\nnrows:\nInteger\n\n\nNumber of rows.\n\n\n\n\n\n\nnelements:\nInteger\n\n\nNumber of elements.\n\n\n\n\n\n\n\n\nMember Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nempty\n\n\nIs this empty?\n\n\n\n\n\n\nclear\n\n\nClear all elements.\n\n\n\n\n\n\nsize\n\n\nNumber of rows.\n\n\n\n\n\n\nsize\n\n\nNumber of elements for a given row.\n\n\n\n\n\n\nget\n\n\nGet an element.\n\n\n\n\n\n\nget\n\n\nGet a row.\n\n\n\n\n\n\nset\n\n\nSet an element.\n\n\n\n\n\n\nset\n\n\nSet a row.\n\n\n\n\n\n\npushBack\n\n\nAdd a new row at the back.\n\n\n\n\n\n\npushBack\n\n\nAdd a new element to the end of a row.\n\n\n\n\n\n\nshrink\n\n\nDecrease the number of rows.\n\n\n\n\n\n\nshrink\n\n\nDecrease the number of columns in a row.\n\n\n\n\n\n\nenlarge\n\n\nIncrease the number of rows.\n\n\n\n\n\n\nenlarge\n\n\nIncrease the number of columns in a row.\n\n\n\n\n\n\nfrom\n\n\nFirst serial index of a row.\n\n\n\n\n\n\nto\n\n\nLast serial index of a row.\n\n\n\n\n\n\nserial\n\n\nSerial index of row and column.\n\n\n\n\n\n\n\n\nMember Fibers\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nwalk\n\n\nIterate over the rows.\n\n\n\n\n\n\nwalk\n\n\nIterate over the columns of a row.\n\n\n\n\n\n\n\n\nMember Function Details\n\n\nclear\n\n\n\n\n\n\nfunction clear()\n\n\nClear all elements.\n\n\n\n\nempty\n\n\n\n\n\n\nfunction empty() -\n \nBoolean\n\n\nIs this empty?\n\n\n\n\nenlarge\n\n\n\n\n\n\nfunction enlarge(n:\nInteger\n)\n\n\nIncrease the number of rows.\n\n\n\n\nn: Number of rows.\n\n\n\n\nThe current contents is preserved.\n\n\n\n\n\n\nfunction enlarge(i:\nInteger\n, n:\nInteger\n, x:Type)\n\n\nIncrease the number of columns in a row.\n\n\n\n\ni: Row.\n\n\nn: Number of columns.\n\n\nx: Value for new elements.\n\n\n\n\nThe current contents of the row is preserved.\n\n\n\n\nfrom\n\n\n\n\n\n\nfunction from(i:\nInteger\n) -\n \nInteger\n\n\nFirst serial index of a row.\n\n\n\n\ni: Row.\n\n\n\n\n\n\nget\n\n\n\n\n\n\nfunction get(i:\nInteger\n, j:\nInteger\n) -\n Type\n\n\nGet an element.\n\n\n\n\ni: Row.\n\n\nj: Column.\n\n\n\n\n\n\n\n\nfunction get(i:\nInteger\n) -\n Type[_]\n\n\nGet a row.\n\n\n\n\ni: Row.\n\n\n\n\n\n\npushBack\n\n\n\n\n\n\nfunction pushBack()\n\n\nAdd a new row at the back.\n\n\n\n\n\n\nfunction pushBack(i:\nInteger\n, x:Type)\n\n\nAdd a new element to the end of a row.\n\n\n\n\ni: Row.\n\n\nx: Value.\n\n\n\n\n\n\nserial\n\n\n\n\n\n\nfunction serial(i:\nInteger\n, j:\nInteger\n) -\n \nInteger\n\n\nSerial index of row and column.\n\n\n\n\ni: Row.\n\n\nj: Column.\n\n\n\n\n\n\nset\n\n\n\n\n\n\nfunction set(i:\nInteger\n, j:\nInteger\n, x:Type)\n\n\nSet an element.\n\n\n\n\ni: Row.\n\n\nj: Column.\n\n\nx: Value.\n\n\n\n\n\n\n\n\nfunction set(i:\nInteger\n, x:Type[_])\n\n\nSet a row.\n\n\n\n\ni: Row.\n\n\nx: Values.\n\n\n\n\nThe number of columns in the row must match the number of columns in\n\nx\n. Use \nshrink\n or \nenlarge\n beforehand if necessary.\n\n\n\n\nshrink\n\n\n\n\n\n\nfunction shrink(n:\nInteger\n)\n\n\nDecrease the number of rows.\n\n\n\n\nn: Number of rows.\n\n\n\n\nThe current contents is preserved.\n\n\n\n\n\n\nfunction shrink(i:\nInteger\n, n:\nInteger\n)\n\n\nDecrease the number of columns in a row.\n\n\n\n\ni: Row.\n\n\nn: Number of columns.\n\n\n\n\nThe current contents of the row is preserved.\n\n\n\n\nsize\n\n\n\n\n\n\nfunction size() -\n \nInteger\n\n\nNumber of rows.\n\n\n\n\n\n\nfunction size(i:\nInteger\n) -\n \nInteger\n\n\nNumber of elements for a given row.\n\n\n\n\ni: Row.\n\n\n\n\n\n\nto\n\n\n\n\n\n\nfunction to(i:\nInteger\n) -\n \nInteger\n\n\nLast serial index of a row.\n\n\n\n\ni: Row.\n\n\n\n\n\n\nMember Fiber Details\n\n\nwalk\n\n\n\n\n\n\nfiber walk() -\n Type[_]!\n\n\nIterate over the rows.\n\n\nReturn: a fiber object that yields each row in forward order.\n\n\n\n\n\n\nfiber walk(i:\nInteger\n) -\n Type!\n\n\nIterate over the columns of a row.\n\n\n\n\ni: Row.\n\n\n\n\nReturn: a fiber object that yields each row in forward order.", 
             "title": "RaggedArray"
         }, 
         {
             "location": "/documentation/library/classes/RaggedArray/#member-variables", 
-            "text": "Name  Description      values:Type[_]  Elements.    offsets:Integer[_]  Offset into  values  for each row.    ncols:Integer[_]  Number of columns in each row.    nrows:Integer  Number of rows.    nelements:Integer  Number of elements.", 
+            "text": "Name  Description      values:Type[_]  Elements.    offsets: Integer [_]  Offset into  values  for each row.    ncols: Integer [_]  Number of columns in each row.    nrows: Integer  Number of rows.    nelements: Integer  Number of elements.", 
             "title": "Member Variables"
         }, 
         {
@@ -2572,52 +2572,52 @@
         }, 
         {
             "location": "/documentation/library/classes/RaggedArray/#empty", 
-            "text": "function empty() -  Boolean  Is this empty?", 
+            "text": "function empty() -   Boolean  Is this empty?", 
             "title": "empty"
         }, 
         {
             "location": "/documentation/library/classes/RaggedArray/#enlarge", 
-            "text": "function enlarge(n:Integer)  Increase the number of rows.   n: Number of rows.   The current contents is preserved.    function enlarge(i:Integer, n:Integer, x:Type)  Increase the number of columns in a row.   i: Row.  n: Number of columns.  x: Value for new elements.   The current contents of the row is preserved.", 
+            "text": "function enlarge(n: Integer )  Increase the number of rows.   n: Number of rows.   The current contents is preserved.    function enlarge(i: Integer , n: Integer , x:Type)  Increase the number of columns in a row.   i: Row.  n: Number of columns.  x: Value for new elements.   The current contents of the row is preserved.", 
             "title": "enlarge"
         }, 
         {
             "location": "/documentation/library/classes/RaggedArray/#from", 
-            "text": "function from(i:Integer) -  Integer  First serial index of a row.   i: Row.", 
+            "text": "function from(i: Integer ) -   Integer  First serial index of a row.   i: Row.", 
             "title": "from"
         }, 
         {
             "location": "/documentation/library/classes/RaggedArray/#get", 
-            "text": "function get(i:Integer, j:Integer) -  Type  Get an element.   i: Row.  j: Column.     function get(i:Integer) -  Type[_]  Get a row.   i: Row.", 
+            "text": "function get(i: Integer , j: Integer ) -  Type  Get an element.   i: Row.  j: Column.     function get(i: Integer ) -  Type[_]  Get a row.   i: Row.", 
             "title": "get"
         }, 
         {
             "location": "/documentation/library/classes/RaggedArray/#pushback", 
-            "text": "function pushBack()  Add a new row at the back.    function pushBack(i:Integer, x:Type)  Add a new element to the end of a row.   i: Row.  x: Value.", 
+            "text": "function pushBack()  Add a new row at the back.    function pushBack(i: Integer , x:Type)  Add a new element to the end of a row.   i: Row.  x: Value.", 
             "title": "pushBack"
         }, 
         {
             "location": "/documentation/library/classes/RaggedArray/#serial", 
-            "text": "function serial(i:Integer, j:Integer) -  Integer  Serial index of row and column.   i: Row.  j: Column.", 
+            "text": "function serial(i: Integer , j: Integer ) -   Integer  Serial index of row and column.   i: Row.  j: Column.", 
             "title": "serial"
         }, 
         {
             "location": "/documentation/library/classes/RaggedArray/#set", 
-            "text": "function set(i:Integer, j:Integer, x:Type)  Set an element.   i: Row.  j: Column.  x: Value.     function set(i:Integer, x:Type[_])  Set a row.   i: Row.  x: Values.   The number of columns in the row must match the number of columns in x . Use  shrink  or  enlarge  beforehand if necessary.", 
+            "text": "function set(i: Integer , j: Integer , x:Type)  Set an element.   i: Row.  j: Column.  x: Value.     function set(i: Integer , x:Type[_])  Set a row.   i: Row.  x: Values.   The number of columns in the row must match the number of columns in x . Use  shrink  or  enlarge  beforehand if necessary.", 
             "title": "set"
         }, 
         {
             "location": "/documentation/library/classes/RaggedArray/#shrink", 
-            "text": "function shrink(n:Integer)  Decrease the number of rows.   n: Number of rows.   The current contents is preserved.    function shrink(i:Integer, n:Integer)  Decrease the number of columns in a row.   i: Row.  n: Number of columns.   The current contents of the row is preserved.", 
+            "text": "function shrink(n: Integer )  Decrease the number of rows.   n: Number of rows.   The current contents is preserved.    function shrink(i: Integer , n: Integer )  Decrease the number of columns in a row.   i: Row.  n: Number of columns.   The current contents of the row is preserved.", 
             "title": "shrink"
         }, 
         {
             "location": "/documentation/library/classes/RaggedArray/#size", 
-            "text": "function size() -  Integer  Number of rows.    function size(i:Integer) -  Integer  Number of elements for a given row.   i: Row.", 
+            "text": "function size() -   Integer  Number of rows.    function size(i: Integer ) -   Integer  Number of elements for a given row.   i: Row.", 
             "title": "size"
         }, 
         {
             "location": "/documentation/library/classes/RaggedArray/#to", 
-            "text": "function to(i:Integer) -  Integer  Last serial index of a row.   i: Row.", 
+            "text": "function to(i: Integer ) -   Integer  Last serial index of a row.   i: Row.", 
             "title": "to"
         }, 
         {
@@ -2627,12 +2627,12 @@
         }, 
         {
             "location": "/documentation/library/classes/RaggedArray/#walk", 
-            "text": "fiber walk() -  Type[_]  Iterate over the rows.  Return: a fiber object that yields each row in forward order.    fiber walk(i:Integer) -  Type  Iterate over the columns of a row.   i: Row.   Return: a fiber object that yields each row in forward order.", 
+            "text": "fiber walk() -  Type[_]!  Iterate over the rows.  Return: a fiber object that yields each row in forward order.    fiber walk(i: Integer ) -  Type!  Iterate over the columns of a row.   i: Row.   Return: a fiber object that yields each row in forward order.", 
             "title": "walk"
         }, 
         {
             "location": "/documentation/library/classes/Random/", 
-            "text": "class Random\nValue\n \n \nExpression\nValue\n\n\nRandom variate.\n\n\n\n\nValue: Value type.\n\n\n\n\n\n\nFactory Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nRandom\n\n\nCreate random variate with attached distribution.\n\n\n\n\n\n\nRandom\n\n\nCreate random variate with attached distribution.\n\n\n\n\n\n\nRandom\n\n\nCreate random variate with attached distribution.\n\n\n\n\n\n\nRandom\n\n\nCreate random variate with attached distribution.\n\n\n\n\n\n\nRandom\n\n\nCreate random variate with attached distribution.\n\n\n\n\n\n\nRandom\n\n\nCreate random variate with attached distribution.\n\n\n\n\n\n\n\n\nAssignments\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nValue\n\n\nValue assignment.\n\n\n\n\n\n\nValue?\n\n\nOptional value assignment.\n\n\n\n\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nx:Value?\n\n\nValue.\n\n\n\n\n\n\ndist:Distribution\n?\n\n\nAssociated distribution.\n\n\n\n\n\n\n\n\nMember Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nassume\n\n\nAttach a distribution to this random variable.\n\n\n\n\n\n\nvalue\n\n\nGet the value of the random variable, forcing realization if necessary.\n\n\n\n\n\n\nisMissing\n\n\nAre the values of any random variables within this expression missing?\n\n\n\n\n\n\n\n\nFactory Function Details\n\n\n\n\nfunction Random(dist:\nDistribution\nBoolean\n) -\n \nRandom\nBoolean\n\n\nCreate random variate with attached distribution.\n\n\n\n\n\n\nfunction Random(dist:\nDistribution\nInteger\n) -\n \nRandom\nInteger\n\n\nCreate random variate with attached distribution.\n\n\n\n\n\n\nfunction Random(dist:\nDistribution\nReal\n) -\n \nRandom\nReal\n\n\nCreate random variate with attached distribution.\n\n\n\n\n\n\nfunction Random(dist:\nDistribution\nBoolean\n[_]\n) -\n \nRandom\nBoolean\n[_]\n\n\nCreate random variate with attached distribution.\n\n\n\n\n\n\nfunction Random(dist:\nDistribution\nInteger\n[_]\n) -\n \nRandom\nInteger\n[_]\n\n\nCreate random variate with attached distribution.\n\n\n\n\n\n\nfunction Random(dist:\nDistribution\nReal\n[_]\n) -\n \nRandom\nReal\n[_]\n\n\nCreate random variate with attached distribution.\n\n\n\n\nMember Function Details\n\n\nassume\n\n\n\n\n\n\nfunction assume(dist:Distribution\n)\n\n\nAttach a distribution to this random variable.\n\n\n\n\nisMissing\n\n\n\n\n\n\nfunction isMissing() -\n Boolean\n\n\nAre the values of any random variables within this expression missing?\n\n\n\n\nvalue\n\n\n\n\n\n\nfunction value() -\n Value\n\n\nGet the value of the random variable, forcing realization if necessary.", 
+            "text": "class Random\nValue\n \n \nExpression\nValue\n\n\nRandom variate.\n\n\n\n\nValue: Value type.\n\n\n\n\n\n\nFactory Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nRandom\n\n\nCreate random variate with attached distribution.\n\n\n\n\n\n\nRandom\n\n\nCreate random variate with attached distribution.\n\n\n\n\n\n\nRandom\n\n\nCreate random variate with attached distribution.\n\n\n\n\n\n\nRandom\n\n\nCreate random variate with attached distribution.\n\n\n\n\n\n\nRandom\n\n\nCreate random variate with attached distribution.\n\n\n\n\n\n\nRandom\n\n\nCreate random variate with attached distribution.\n\n\n\n\n\n\n\n\nAssignments\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nValue\n\n\nValue assignment.\n\n\n\n\n\n\nValue?\n\n\nOptional value assignment.\n\n\n\n\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nx:Value?\n\n\nValue.\n\n\n\n\n\n\ndist:\nDistribution\nValue\n?\n\n\nAssociated distribution.\n\n\n\n\n\n\n\n\nMember Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nassume\n\n\nAttach a distribution to this random variable.\n\n\n\n\n\n\nvalue\n\n\nGet the value of the random variable, forcing realization if necessary.\n\n\n\n\n\n\nisMissing\n\n\nAre the values of any random variables within this expression missing?\n\n\n\n\n\n\n\n\nFactory Function Details\n\n\n\n\nfunction Random(dist:\nDistribution\nBoolean\n) -\n \nRandom\nBoolean\n\n\nCreate random variate with attached distribution.\n\n\n\n\n\n\nfunction Random(dist:\nDistribution\nInteger\n) -\n \nRandom\nInteger\n\n\nCreate random variate with attached distribution.\n\n\n\n\n\n\nfunction Random(dist:\nDistribution\nReal\n) -\n \nRandom\nReal\n\n\nCreate random variate with attached distribution.\n\n\n\n\n\n\nfunction Random(dist:\nDistribution\nBoolean\n[_]\n) -\n \nRandom\nBoolean\n[_]\n\n\nCreate random variate with attached distribution.\n\n\n\n\n\n\nfunction Random(dist:\nDistribution\nInteger\n[_]\n) -\n \nRandom\nInteger\n[_]\n\n\nCreate random variate with attached distribution.\n\n\n\n\n\n\nfunction Random(dist:\nDistribution\nReal\n[_]\n) -\n \nRandom\nReal\n[_]\n\n\nCreate random variate with attached distribution.\n\n\n\n\nMember Function Details\n\n\nassume\n\n\n\n\n\n\nfunction assume(dist:\nDistribution\nValue\n)\n\n\nAttach a distribution to this random variable.\n\n\n\n\nisMissing\n\n\n\n\n\n\nfunction isMissing() -\n \nBoolean\n\n\nAre the values of any random variables within this expression missing?\n\n\n\n\nvalue\n\n\n\n\n\n\nfunction value() -\n Value\n\n\nGet the value of the random variable, forcing realization if necessary.", 
             "title": "Random"
         }, 
         {
@@ -2647,7 +2647,7 @@
         }, 
         {
             "location": "/documentation/library/classes/Random/#member-variables", 
-            "text": "Name  Description      x:Value?  Value.    dist:Distribution ?  Associated distribution.", 
+            "text": "Name  Description      x:Value?  Value.    dist: Distribution Value ?  Associated distribution.", 
             "title": "Member Variables"
         }, 
         {
@@ -2667,12 +2667,12 @@
         }, 
         {
             "location": "/documentation/library/classes/Random/#assume", 
-            "text": "function assume(dist:Distribution )  Attach a distribution to this random variable.", 
+            "text": "function assume(dist: Distribution Value )  Attach a distribution to this random variable.", 
             "title": "assume"
         }, 
         {
             "location": "/documentation/library/classes/Random/#ismissing", 
-            "text": "function isMissing() -  Boolean  Are the values of any random variables within this expression missing?", 
+            "text": "function isMissing() -   Boolean  Are the values of any random variables within this expression missing?", 
             "title": "isMissing"
         }, 
         {
@@ -2832,7 +2832,7 @@
         }, 
         {
             "location": "/documentation/library/classes/SpokeModel/", 
-            "text": "class SpokeModel\nSpokeType \n= \nSpoke\n, ParameterType \n= \nParameter\n \n \nModel\n\n\nHub and spoke model, structured as the parameters (the hub) and\nany number of additional models that are conditionally independent\ngiven the parameters (the spokes).\n\n\nThe joint distribution is:\n\n\n\n\np(\\mathrm{d}x_{1:N}, \\mathrm{d}\\theta) = p(\\mathrm{d}\\theta)\n  \\prod_{n=1}^N p(\\mathrm{d}x_n \\mid \\theta)\n\n\n\n\n\n\n\n\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\n\u03b8:ParameterType\n\n\nHub.\n\n\n\n\n\n\nspokes:\nList\nSpokeType\n\n\nSpokes.", 
+            "text": "class SpokeModel\nSpokeType, ParameterType\n \n \nModel\n\n\nHub and spoke model, structured as the parameters (the hub) and\nany number of additional models that are conditionally independent\ngiven the parameters (the spokes).\n\n\nThe joint distribution is:\n\n\n\n\np(\\mathrm{d}x_{1:N}, \\mathrm{d}\\theta) = p(\\mathrm{d}\\theta)\n  \\prod_{n=1}^N p(\\mathrm{d}x_n \\mid \\theta)\n\n\n\n\n\n\n\n\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\n\u03b8:ParameterType\n\n\nHub.\n\n\n\n\n\n\nspokes:\nList\nSpokeType\n\n\nSpokes.", 
             "title": "SpokeModel"
         }, 
         {
@@ -2842,7 +2842,7 @@
         }, 
         {
             "location": "/documentation/library/classes/Stack/", 
-            "text": "class Stack\nType\n \n \nObject\n\n\nStack.\n\n\n\n\nMember Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nsize\n\n\nNumber of elements.\n\n\n\n\n\n\nempty\n\n\nIs this empty?\n\n\n\n\n\n\nclear\n\n\nClear all elements.\n\n\n\n\n\n\ntop\n\n\nGet the top element.\n\n\n\n\n\n\npush\n\n\nPush an element onto the top.\n\n\n\n\n\n\npop\n\n\nPop an element from the top.\n\n\n\n\n\n\n\n\nMember Function Details\n\n\nclear\n\n\n\n\n\n\nfunction clear()\n\n\nClear all elements.\n\n\n\n\nempty\n\n\n\n\n\n\nfunction empty() -\n Boolean\n\n\nIs this empty?\n\n\n\n\npop\n\n\n\n\n\n\nfunction pop()\n\n\nPop an element from the top.\n\n\n\n\npush\n\n\n\n\n\n\nfunction push(x:Type)\n\n\nPush an element onto the top.\n\n\n\n\nx: the element.\n\n\n\n\n\n\nsize\n\n\n\n\n\n\nfunction size() -\n Integer\n\n\nNumber of elements.\n\n\n\n\ntop\n\n\n\n\n\n\nfunction top() -\n Type\n\n\nGet the top element.", 
+            "text": "class Stack\nType\n \n \nObject\n\n\nStack.\n\n\n\n\nMember Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nsize\n\n\nNumber of elements.\n\n\n\n\n\n\nempty\n\n\nIs this empty?\n\n\n\n\n\n\nclear\n\n\nClear all elements.\n\n\n\n\n\n\ntop\n\n\nGet the top element.\n\n\n\n\n\n\npush\n\n\nPush an element onto the top.\n\n\n\n\n\n\npop\n\n\nPop an element from the top.\n\n\n\n\n\n\n\n\nMember Function Details\n\n\nclear\n\n\n\n\n\n\nfunction clear()\n\n\nClear all elements.\n\n\n\n\nempty\n\n\n\n\n\n\nfunction empty() -\n \nBoolean\n\n\nIs this empty?\n\n\n\n\npop\n\n\n\n\n\n\nfunction pop()\n\n\nPop an element from the top.\n\n\n\n\npush\n\n\n\n\n\n\nfunction push(x:Type)\n\n\nPush an element onto the top.\n\n\n\n\nx: the element.\n\n\n\n\n\n\nsize\n\n\n\n\n\n\nfunction size() -\n \nInteger\n\n\nNumber of elements.\n\n\n\n\ntop\n\n\n\n\n\n\nfunction top() -\n Type\n\n\nGet the top element.", 
             "title": "Stack"
         }, 
         {
@@ -2862,7 +2862,7 @@
         }, 
         {
             "location": "/documentation/library/classes/Stack/#empty", 
-            "text": "function empty() -  Boolean  Is this empty?", 
+            "text": "function empty() -   Boolean  Is this empty?", 
             "title": "empty"
         }, 
         {
@@ -2877,7 +2877,7 @@
         }, 
         {
             "location": "/documentation/library/classes/Stack/#size", 
-            "text": "function size() -  Integer  Number of elements.", 
+            "text": "function size() -   Integer  Number of elements.", 
             "title": "size"
         }, 
         {
@@ -2982,12 +2982,12 @@
         }, 
         {
             "location": "/documentation/library/classes/Vector/", 
-            "text": "class Vector\nType\n \n \nObject\n\n\nResizeable vector with \nO(1)\n random access.\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nvalues:Type[_]\n\n\nElements.\n\n\n\n\n\n\nnelements:Integer\n\n\nNumber of elements.\n\n\n\n\n\n\n\n\nMember Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nsize\n\n\nNumber of elements.\n\n\n\n\n\n\nempty\n\n\nIs this empty?\n\n\n\n\n\n\nclear\n\n\nClear all elements.\n\n\n\n\n\n\nget\n\n\nGet an element.\n\n\n\n\n\n\nset\n\n\nSet an element.\n\n\n\n\n\n\npushFront\n\n\nInsert a new element at the start.\n\n\n\n\n\n\npushBack\n\n\nInsert a new element at the end.\n\n\n\n\n\n\npopFront\n\n\nRemove the first element.\n\n\n\n\n\n\npopBack\n\n\nRemove the last element.\n\n\n\n\n\n\ninsert\n\n\nInsert a new element.\n\n\n\n\n\n\nerase\n\n\nErase an element.\n\n\n\n\n\n\nshrink\n\n\nShrink the size.\n\n\n\n\n\n\nenlarge\n\n\nEnlarge the size.\n\n\n\n\n\n\n\n\nMember Fibers\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nwalk\n\n\nIterate over the elements.\n\n\n\n\n\n\n\n\nMember Function Details\n\n\nclear\n\n\n\n\n\n\nfunction clear()\n\n\nClear all elements.\n\n\n\n\nempty\n\n\n\n\n\n\nfunction empty() -\n Boolean\n\n\nIs this empty?\n\n\n\n\nenlarge\n\n\n\n\n\n\nfunction enlarge(n:Integer, x:Type)\n\n\nEnlarge the size.\n\n\n\n\nn: Number of elements.\n\n\nx: Value for new elements.\n\n\n\n\nThe current contents are preserved.\n\n\n\n\nerase\n\n\n\n\n\n\nfunction erase(i:Integer)\n\n\nErase an element.\n\n\n\n\ni: Position.\n\n\n\n\n\n\nget\n\n\n\n\n\n\nfunction get(i:Integer) -\n Type\n\n\nGet an element.\n\n\n\n\ni: Position.\n\n\n\n\n\n\ninsert\n\n\n\n\n\n\nfunction insert(i:Integer, x:Type)\n\n\nInsert a new element.\n\n\n\n\ni: Position.\n\n\nx: Value.\n\n\n\n\nInserts the new element immediately before the current element at\nposition \ni\n. To insert at the end of the container, use a position that\nis one more than the current size, or \npushBack()\n.\n\n\n\n\npopBack\n\n\n\n\n\n\nfunction popBack()\n\n\nRemove the last element.\n\n\n\n\npopFront\n\n\n\n\n\n\nfunction popFront()\n\n\nRemove the first element.\n\n\n\n\npushBack\n\n\n\n\n\n\nfunction pushBack(x:Type)\n\n\nInsert a new element at the end.\n\n\n\n\nx: Value.\n\n\n\n\n\n\npushFront\n\n\n\n\n\n\nfunction pushFront(x:Type)\n\n\nInsert a new element at the start.\n\n\n\n\nx: Value.\n\n\n\n\n\n\nset\n\n\n\n\n\n\nfunction set(i:Integer, x:Type)\n\n\nSet an element.\n\n\n\n\ni: Position.\n\n\nx: Value.\n\n\n\n\n\n\nshrink\n\n\n\n\n\n\nfunction shrink(n:Integer)\n\n\nShrink the size.\n\n\n\n\nn: Number of elements.\n\n\n\n\nThe current contents are preserved.\n\n\n\n\nsize\n\n\n\n\n\n\nfunction size() -\n Integer\n\n\nNumber of elements.\n\n\n\n\nMember Fiber Details\n\n\nwalk\n\n\n\n\n\n\nfiber walk() -\n Type\n\n\nIterate over the elements.\n\n\nReturn: a fiber object that yields each element in forward order.", 
+            "text": "class Vector\nType\n \n \nObject\n\n\nResizeable vector with \nO(1)\n random access.\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nvalues:Type[_]\n\n\nElements.\n\n\n\n\n\n\nnelements:\nInteger\n\n\nNumber of elements.\n\n\n\n\n\n\n\n\nMember Functions\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nsize\n\n\nNumber of elements.\n\n\n\n\n\n\nempty\n\n\nIs this empty?\n\n\n\n\n\n\nclear\n\n\nClear all elements.\n\n\n\n\n\n\nget\n\n\nGet an element.\n\n\n\n\n\n\nset\n\n\nSet an element.\n\n\n\n\n\n\npushFront\n\n\nInsert a new element at the start.\n\n\n\n\n\n\npushBack\n\n\nInsert a new element at the end.\n\n\n\n\n\n\npopFront\n\n\nRemove the first element.\n\n\n\n\n\n\npopBack\n\n\nRemove the last element.\n\n\n\n\n\n\ninsert\n\n\nInsert a new element.\n\n\n\n\n\n\nerase\n\n\nErase an element.\n\n\n\n\n\n\nshrink\n\n\nShrink the size.\n\n\n\n\n\n\nenlarge\n\n\nEnlarge the size.\n\n\n\n\n\n\n\n\nMember Fibers\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nwalk\n\n\nIterate over the elements.\n\n\n\n\n\n\n\n\nMember Function Details\n\n\nclear\n\n\n\n\n\n\nfunction clear()\n\n\nClear all elements.\n\n\n\n\nempty\n\n\n\n\n\n\nfunction empty() -\n \nBoolean\n\n\nIs this empty?\n\n\n\n\nenlarge\n\n\n\n\n\n\nfunction enlarge(n:\nInteger\n, x:Type)\n\n\nEnlarge the size.\n\n\n\n\nn: Number of elements.\n\n\nx: Value for new elements.\n\n\n\n\nThe current contents are preserved.\n\n\n\n\nerase\n\n\n\n\n\n\nfunction erase(i:\nInteger\n)\n\n\nErase an element.\n\n\n\n\ni: Position.\n\n\n\n\n\n\nget\n\n\n\n\n\n\nfunction get(i:\nInteger\n) -\n Type\n\n\nGet an element.\n\n\n\n\ni: Position.\n\n\n\n\n\n\ninsert\n\n\n\n\n\n\nfunction insert(i:\nInteger\n, x:Type)\n\n\nInsert a new element.\n\n\n\n\ni: Position.\n\n\nx: Value.\n\n\n\n\nInserts the new element immediately before the current element at\nposition \ni\n. To insert at the end of the container, use a position that\nis one more than the current size, or \npushBack()\n.\n\n\n\n\npopBack\n\n\n\n\n\n\nfunction popBack()\n\n\nRemove the last element.\n\n\n\n\npopFront\n\n\n\n\n\n\nfunction popFront()\n\n\nRemove the first element.\n\n\n\n\npushBack\n\n\n\n\n\n\nfunction pushBack(x:Type)\n\n\nInsert a new element at the end.\n\n\n\n\nx: Value.\n\n\n\n\n\n\npushFront\n\n\n\n\n\n\nfunction pushFront(x:Type)\n\n\nInsert a new element at the start.\n\n\n\n\nx: Value.\n\n\n\n\n\n\nset\n\n\n\n\n\n\nfunction set(i:\nInteger\n, x:Type)\n\n\nSet an element.\n\n\n\n\ni: Position.\n\n\nx: Value.\n\n\n\n\n\n\nshrink\n\n\n\n\n\n\nfunction shrink(n:\nInteger\n)\n\n\nShrink the size.\n\n\n\n\nn: Number of elements.\n\n\n\n\nThe current contents are preserved.\n\n\n\n\nsize\n\n\n\n\n\n\nfunction size() -\n \nInteger\n\n\nNumber of elements.\n\n\n\n\nMember Fiber Details\n\n\nwalk\n\n\n\n\n\n\nfiber walk() -\n Type!\n\n\nIterate over the elements.\n\n\nReturn: a fiber object that yields each element in forward order.", 
             "title": "Vector"
         }, 
         {
             "location": "/documentation/library/classes/Vector/#member-variables", 
-            "text": "Name  Description      values:Type[_]  Elements.    nelements:Integer  Number of elements.", 
+            "text": "Name  Description      values:Type[_]  Elements.    nelements: Integer  Number of elements.", 
             "title": "Member Variables"
         }, 
         {
@@ -3012,27 +3012,27 @@
         }, 
         {
             "location": "/documentation/library/classes/Vector/#empty", 
-            "text": "function empty() -  Boolean  Is this empty?", 
+            "text": "function empty() -   Boolean  Is this empty?", 
             "title": "empty"
         }, 
         {
             "location": "/documentation/library/classes/Vector/#enlarge", 
-            "text": "function enlarge(n:Integer, x:Type)  Enlarge the size.   n: Number of elements.  x: Value for new elements.   The current contents are preserved.", 
+            "text": "function enlarge(n: Integer , x:Type)  Enlarge the size.   n: Number of elements.  x: Value for new elements.   The current contents are preserved.", 
             "title": "enlarge"
         }, 
         {
             "location": "/documentation/library/classes/Vector/#erase", 
-            "text": "function erase(i:Integer)  Erase an element.   i: Position.", 
+            "text": "function erase(i: Integer )  Erase an element.   i: Position.", 
             "title": "erase"
         }, 
         {
             "location": "/documentation/library/classes/Vector/#get", 
-            "text": "function get(i:Integer) -  Type  Get an element.   i: Position.", 
+            "text": "function get(i: Integer ) -  Type  Get an element.   i: Position.", 
             "title": "get"
         }, 
         {
             "location": "/documentation/library/classes/Vector/#insert", 
-            "text": "function insert(i:Integer, x:Type)  Insert a new element.   i: Position.  x: Value.   Inserts the new element immediately before the current element at\nposition  i . To insert at the end of the container, use a position that\nis one more than the current size, or  pushBack() .", 
+            "text": "function insert(i: Integer , x:Type)  Insert a new element.   i: Position.  x: Value.   Inserts the new element immediately before the current element at\nposition  i . To insert at the end of the container, use a position that\nis one more than the current size, or  pushBack() .", 
             "title": "insert"
         }, 
         {
@@ -3057,17 +3057,17 @@
         }, 
         {
             "location": "/documentation/library/classes/Vector/#set", 
-            "text": "function set(i:Integer, x:Type)  Set an element.   i: Position.  x: Value.", 
+            "text": "function set(i: Integer , x:Type)  Set an element.   i: Position.  x: Value.", 
             "title": "set"
         }, 
         {
             "location": "/documentation/library/classes/Vector/#shrink", 
-            "text": "function shrink(n:Integer)  Shrink the size.   n: Number of elements.   The current contents are preserved.", 
+            "text": "function shrink(n: Integer )  Shrink the size.   n: Number of elements.   The current contents are preserved.", 
             "title": "shrink"
         }, 
         {
             "location": "/documentation/library/classes/Vector/#size", 
-            "text": "function size() -  Integer  Number of elements.", 
+            "text": "function size() -   Integer  Number of elements.", 
             "title": "size"
         }, 
         {
@@ -3077,7 +3077,7 @@
         }, 
         {
             "location": "/documentation/library/classes/Vector/#walk", 
-            "text": "fiber walk() -  Type  Iterate over the elements.  Return: a fiber object that yields each element in forward order.", 
+            "text": "fiber walk() -  Type!  Iterate over the elements.  Return: a fiber object that yields each element in forward order.", 
             "title": "walk"
         }, 
         {

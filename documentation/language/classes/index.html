@@ -4976,12 +4976,7 @@ f(a.d);
 <p>When a variable of this type is declared, arguments are specified for the generic types, also using angle brackets:</p>
 <pre><code>a:A&lt;B,C&gt;;
 </code></pre>
-<p>These arguments may be of any type. A type argument may be restricted to be some specific type or any subtype of it by using a <code>&lt;=</code> operator in the declaration:</p>
-<pre><code>class A&lt;T &lt;= V, U &lt;= Number&gt; {
-  // ..
-}
-</code></pre>
-<p>Within the body of the class, the type parameters may be used as though a type themselves:</p>
+<p>These arguments may be of any type. Within the body of the class, the type parameters may be used as though a type themselves:</p>
 <pre><code>class A&lt;T,U&gt; {
   t:T;
   u:U;
