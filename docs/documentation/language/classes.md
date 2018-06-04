@@ -72,13 +72,7 @@ When a variable of this type is declared, arguments are specified for the generi
 
     a:A<B,C>;
 
-These arguments may be of any type. A type argument may be restricted to be some specific type or any subtype of it by using a `<=` operator in the declaration:
-
-    class A<T <= V, U <= Number> {
-      // ..
-    }
-
-Within the body of the class, the type parameters may be used as though a type themselves:
+These arguments may be of any type. Within the body of the class, the type parameters may be used as though a type themselves:
 
     class A<T,U> {
       t:T;
