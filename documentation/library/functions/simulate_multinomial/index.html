@@ -4770,7 +4770,20 @@
 <p>Simulate a multinomial distribution.</p>
 <ul>
 <li>n: Number of trials.</li>
-<li>ρ: Category probabilities.</li>
+<li>ρ: Category probabilities. These should sum to one.</li>
+</ul>
+<p>This uses an O(N) implementation based on:</p>
+<p>Bentley, J. L. and J. B. Saxe (1979). Generating sorted lists of random
+numbers. Technical Report 2450, Carnegie Mellon University, Computer
+Science Department.</p>
+</div>
+<div class="admonition quote">
+<p class="admonition-title">function simulate_multinomial(n:<a href="../../types/#Integer">Integer</a>, ρ:<a href="../../types/#Real">Real</a>[_], Z:<a href="../../types/#Real">Real</a>) -&gt; <a href="../../types/#Integer">Integer</a>[_]</p>
+<p>Simulate a multinomial distribution.</p>
+<ul>
+<li>n: Number of trials.</li>
+<li>ρ: Unnormalized category probabilities.</li>
+<li>Z: Sum of the unnormalized category probabilities.</li>
 </ul>
 <p>This uses an O(N) implementation based on:</p>
 <p>Bentley, J. L. and J. B. Saxe (1979). Generating sorted lists of random

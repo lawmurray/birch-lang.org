@@ -5115,30 +5115,9 @@ fiber transition(x:SIRState, θ:SIRParameter) -&gt; Real;
   --nsamples 10
 </code></pre>
 </div>
-<div class="admonition error">
-<p class="admonition-title">Error</p>
-<p>With high probability, you will get an error message <code>particle filter degenerated</code> at this point. This is expected.</p>
-</div>
-<p>The new command-line option  <code>--ncheckpoints</code> gives the number of <em>checkpoints</em> for which to run. In the case of a model that inherits from <a href="../../documentation/library/classes/MarkovModel">MarkovModel</a>, as here, this is interpreted as the number of states. In general, it is interpreted as the number of observations. The numbers that appear in the terminal are simply ticking off these checkpoints as the sampler proceeds.</p>
+<p>The new command-line option  <code>--ncheckpoints</code> gives the number of <em>checkpoints</em> for which to run. In the case of a model that inherits from <a href="../../documentation/library/classes/MarkovModel">MarkovModel</a>, as here, this is interpreted as the number of states. The numbers that appear in the terminal are simply ticking off these checkpoints as the sampler proceeds.</p>
 <p>Unlike the <a href="../../documentation/tutorial/linear-regression">previous example</a>, there is no exact analytical solution for this model that can be computed in reasonable time. A particle filter is used for inference instead. The new command-line option <code>--nparticles</code> gives the number of particles to use in the particle filter.</p>
-<p>One of the difficulties with this model is that the infectious population, <script type="math/tex">i_t</script>, is observed directly, without additional observation noise. There is positive probability that amongst all particles at time <script type="math/tex">t - 1</script>, not a single one arrives at the exact value required for <script type="math/tex">i_t</script> at time <script type="math/tex">t</script>. This is referred to as <em>degeneracy</em>, and accounts for the error message that you have (probably) just seen.</p>
-<p>One fix is to increase the number of particles. Changing <code>--nparticles 100</code> in the above to <code>--nparticles 1000</code> is adequate.</p>
-<p>Another fix is to change the method. There are not so many methods available in Birch right now, but there is the alive particle filter<sup id="fnref:2"><a class="footnote-ref" href="#fn:2" rel="footnote">2</a></sup>, which is useful in situations such as this. The alive particle filter will continue sampling at each time step until it has <code>--nparticles</code> number of particles with non-zero weights. To use it, add <code>--method AliveParticleFilter</code> to the command.</p>
-<div class="admonition example">
-<p class="admonition-title">Exercise</p>
-<p>Sample from the posterior distribution using the alive particle filter, with the following command:</p>
-<pre><code>birch sample \
-  --model SIRModel \
-  --input-file input/russian_influenza.json \
-  --output-file output/russian_influenza.json \
-  --ncheckpoints 14 \
-  --nparticles 100 \
-  --nsamples 10 \
-  --method AliveParticleFilter
-</code></pre>
-</div>
-<p>You will probably notice the particle filter stays at checkpoint 13 for longer than the others. This reveals the issue: the observation at checkpoint 13 has low incremental likelihood, and the alive particle filter makes many more proposals before accepting the 100 particles required.</p>
-<p>More inference methods will be added in future, and will be selectable with the <code>--method</code> option.</p>
+<p>The delayed sampling<sup id="fnref:2"><a class="footnote-ref" href="#fn:2" rel="footnote">2</a></sup> mechanism in Birch automatically applies some analytical optimizations in this case too. These include marginalizing out the parameters <script type="math/tex">\delta</script> and <script type="math/tex">\gamma</script>, and enumerating sums and differences of binomials.</p>
 <p>As before, you can inspect the results of the inference in <code>output/russian_influenza.json</code>, and perhaps plot them in a package such as MATLAB, R, or Julia. Be aware that the output here is an <em>importance sample</em>. Each sample is assigned a weight, the logarithm of which is given by the associated <em>weight</em> element in the output file.</p>
 <div class="footnote">
 <hr />
@@ -5147,7 +5126,7 @@ fiber transition(x:SIRState, θ:SIRParameter) -&gt; Real;
 <p>Anonymous (1978). Influenza in a boarding school. <em>British Medical Journal</em>. <strong>1</strong>:587.&#160;<a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:2">
-<p>A. Jasra, A. Lee, C. Yau, &amp; X. Zhang (2013). <a href="http://arxiv.org/abs/1304.0151">The Alive Particle Filter</a>.&#160;<a class="footnote-backref" href="#fnref:2" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<p>L.M. Murray, D. Lundén, J. Kudlicka, D. Broman and T.B. Schön (2018). <a href="https://arxiv.org/abs/1708.07787">Delayed Sampling and Automatic Rao&ndash;Blackwellization of Probabilistic Programs</a>. In <em>Proceedings of the 21st International Conference on Artificial Intelligence and Statistics (AISTATS) 2018</em>, Lanzarote, Spain.&#160;<a class="footnote-backref" href="#fnref:2" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>

@@ -4769,7 +4769,15 @@
 <p class="admonition-title">function simulate_categorical(ρ:<a href="../../types/#Real">Real</a>[_]) -&gt; <a href="../../types/#Integer">Integer</a></p>
 <p>Simulate a categorical distribution.</p>
 <ul>
-<li>ρ: Category probabilities.</li>
+<li>ρ: Category probabilities. These should sum to one.</li>
+</ul>
+</div>
+<div class="admonition quote">
+<p class="admonition-title">function simulate_categorical(ρ:<a href="../../types/#Real">Real</a>[_], Z:<a href="../../types/#Real">Real</a>) -&gt; <a href="../../types/#Integer">Integer</a></p>
+<p>Simulate a categorical distribution.</p>
+<ul>
+<li>ρ: Unnormalized category probabilities.</li>
+<li>Z: Sum of the unnormalized category probabilities.</li>
 </ul>
 </div>
                 

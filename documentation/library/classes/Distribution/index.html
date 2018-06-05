@@ -4071,6 +4071,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#lower" title="lower" class="md-nav__link">
+    lower
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#observe" title="observe" class="md-nav__link">
     observe
   </a>
@@ -4092,6 +4099,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#realize" title="realize" class="md-nav__link">
+    realize
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#simulate" title="simulate" class="md-nav__link">
     simulate
   </a>
@@ -4099,8 +4113,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#value" title="value" class="md-nav__link">
-    value
+  <a href="#upper" title="upper" class="md-nav__link">
+    upper
   </a>
   
 </li>
@@ -4918,6 +4932,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#lower" title="lower" class="md-nav__link">
+    lower
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#observe" title="observe" class="md-nav__link">
     observe
   </a>
@@ -4939,6 +4960,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#realize" title="realize" class="md-nav__link">
+    realize
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#simulate" title="simulate" class="md-nav__link">
     simulate
   </a>
@@ -4946,8 +4974,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#value" title="value" class="md-nav__link">
-    value
+  <a href="#upper" title="upper" class="md-nav__link">
+    upper
   </a>
   
 </li>
@@ -5017,7 +5045,7 @@
 <td>Associate a random variate with this distribution.</td>
 </tr>
 <tr>
-<td><a href="#value">value</a></td>
+<td><a href="#realize">realize</a></td>
 <td>Instantiate the associated delayed random variate.</td>
 </tr>
 <tr>
@@ -5039,6 +5067,14 @@
 <tr>
 <td><a href="#cdf">cdf</a></td>
 <td>Evaluate the cumulative distribution function at a value.</td>
+</tr>
+<tr>
+<td><a href="#lower">lower</a></td>
+<td>Finite lower bound of the support of this node, if any.</td>
+</tr>
+<tr>
+<td><a href="#upper">upper</a></td>
+<td>Finite upper bound of the support of this node, if any.</td>
 </tr>
 <tr>
 <td><a href="#graft">graft</a></td>
@@ -5068,6 +5104,12 @@
 <div class="admonition quote">
 <p class="admonition-title">function graft()</p>
 <p>Graft this onto the delayed sampling <script type="math/tex">M</script>-path.</p>
+</div>
+<h4 id="lower">lower</h4>
+<p><a name="lower"></a></p>
+<div class="admonition quote">
+<p class="admonition-title">function lower() -&gt; Value?</p>
+<p>Finite lower bound of the support of this node, if any.</p>
 </div>
 <h4 id="observe">observe</h4>
 <p><a name="observe"></a></p>
@@ -5099,6 +5141,12 @@
 </ul>
 <p>Return: the probability mass.</p>
 </div>
+<h4 id="realize">realize</h4>
+<p><a name="realize"></a></p>
+<div class="admonition quote">
+<p class="admonition-title">function realize()</p>
+<p>Instantiate the associated delayed random variate.</p>
+</div>
 <h4 id="simulate">simulate</h4>
 <p><a name="simulate"></a></p>
 <div class="admonition quote">
@@ -5106,11 +5154,11 @@
 <p>Simulate a random variate.</p>
 <p>Return: the value.</p>
 </div>
-<h4 id="value">value</h4>
-<p><a name="value"></a></p>
+<h4 id="upper">upper</h4>
+<p><a name="upper"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function value()</p>
-<p>Instantiate the associated delayed random variate.</p>
+<p class="admonition-title">function upper() -&gt; Value?</p>
+<p>Finite upper bound of the support of this node, if any.</p>
 </div>
                 
                   
