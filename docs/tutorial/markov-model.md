@@ -216,37 +216,14 @@ We can now run the model.
           --nparticles 100 \
           --nsamples 10
 
-!!! error
-    With high probability, you will get an error message `particle filter degenerated` at this point. This is expected.
-
-The new command-line option  `--ncheckpoints` gives the number of *checkpoints* for which to run. In the case of a model that inherits from [MarkovModel](/documentation/library/classes/MarkovModel), as here, this is interpreted as the number of states. In general, it is interpreted as the number of observations. The numbers that appear in the terminal are simply ticking off these checkpoints as the sampler proceeds.
+The new command-line option  `--ncheckpoints` gives the number of *checkpoints* for which to run. In the case of a model that inherits from [MarkovModel](/documentation/library/classes/MarkovModel), as here, this is interpreted as the number of states. The numbers that appear in the terminal are simply ticking off these checkpoints as the sampler proceeds.
 
 Unlike the [previous example](/documentation/tutorial/linear-regression), there is no exact analytical solution for this model that can be computed in reasonable time. A particle filter is used for inference instead. The new command-line option `--nparticles` gives the number of particles to use in the particle filter.
 
-One of the difficulties with this model is that the infectious population, $i_t$, is observed directly, without additional observation noise. There is positive probability that amongst all particles at time $t - 1$, not a single one arrives at the exact value required for $i_t$ at time $t$. This is referred to as *degeneracy*, and accounts for the error message that you have (probably) just seen.
-
-One fix is to increase the number of particles. Changing `--nparticles 100` in the above to `--nparticles 1000` is adequate.
-
-Another fix is to change the method. There are not so many methods available in Birch right now, but there is the alive particle filter[^2], which is useful in situations such as this. The alive particle filter will continue sampling at each time step until it has `--nparticles` number of particles with non-zero weights. To use it, add `--method AliveParticleFilter` to the command.
-
-!!! example "Exercise"
-    Sample from the posterior distribution using the alive particle filter, with the following command:
-
-        birch sample \
-          --model SIRModel \
-          --input-file input/russian_influenza.json \
-          --output-file output/russian_influenza.json \
-          --ncheckpoints 14 \
-          --nparticles 100 \
-          --nsamples 10 \
-          --method AliveParticleFilter
-
-You will probably notice the particle filter stays at checkpoint 13 for longer than the others. This reveals the issue: the observation at checkpoint 13 has low incremental likelihood, and the alive particle filter makes many more proposals before accepting the 100 particles required.
-
-More inference methods will be added in future, and will be selectable with the `--method` option.
+The delayed sampling[^2] mechanism in Birch automatically applies some analytical optimizations in this case too. These include marginalizing out the parameters $\delta$ and $\gamma$, and enumerating sums and differences of binomials.
 
 As before, you can inspect the results of the inference in `output/russian_influenza.json`, and perhaps plot them in a package such as MATLAB, R, or Julia. Be aware that the output here is an *importance sample*. Each sample is assigned a weight, the logarithm of which is given by the associated *weight* element in the output file.
 
 [^1]: Anonymous (1978). Influenza in a boarding school. *British Medical Journal*. **1**:587.
 
-[^2]: A. Jasra, A. Lee, C. Yau, & X. Zhang (2013). [The Alive Particle Filter](http://arxiv.org/abs/1304.0151).
+[^2]: L.M. Murray, D. Lundén, J. Kudlicka, D. Broman and T.B. Schön (2018). [Delayed Sampling and Automatic Rao&ndash;Blackwellization of Probabilistic Programs](https://arxiv.org/abs/1708.07787). In *Proceedings of the 21st International Conference on Artificial Intelligence and Statistics (AISTATS) 2018*, Lanzarote, Spain.
