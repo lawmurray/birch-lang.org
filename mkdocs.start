@@ -2,6 +2,9 @@ site_name: 'Birch'
 site_description: 'A probabilistic object-oriented programming language for machine learning and statistics.'
 theme:
   name: 'material'
+  font:
+    text: 'Lato'
+    monospace: 'Monaco'
   palette:
     primary: 'green'
     accent: 'green'
