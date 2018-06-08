@@ -53,8 +53,8 @@
     
       <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
       
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
-        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700|">
+        <style>body,input{font-family:"Lato","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"","Courier New",Courier,monospace}</style>
       
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
@@ -4765,57 +4765,57 @@
                 <p>Each Birch project contains a <code>META.json</code> file providing a name, version and description of the project, as well as a manifest of its files and dependencies. The file may contain the following keys.</p>
 <ul>
 <li>
-<p><em>name</em>
+<p><code>name</code>
     : The name of the project (as a string).</p>
 </li>
 <li>
-<p><em>version</em>
+<p><code>version</code>
     : The version of the project (as a string).</p>
 </li>
 <li>
-<p><em>description</em>
+<p><code>description</code>
     : A one-sentence description of the project (as a string).</p>
 </li>
 <li>
-<p><em>manifest</em>
+<p><code>manifest</code>
     : An object containing the following keys, listing the files to be included in the project.</p>
 <ul>
 <li>
-<p><em>source</em>
+<p><code>source</code>
   : A list of source files (as strings) to be compiled. These typically have a <code>.bi</code> file extension. If C/C++ sources are included, they may have <code>.c</code> or <code>.cpp</code> file extensions.</p>
 </li>
 <li>
-<p><em>header</em>
+<p><code>header</code>
   : A list of header files (as strings) to be installed. This is typically only used if C/C++ sources are included, in which case these files are likely to have <code>.h</code> or <code>.hpp</code> file extensions.</p>
 </li>
 <li>
-<p><em>data</em>
+<p><code>data</code>
   : A list of data files (as strings) to be installed. These are typically input files provided by the project.</p>
 </li>
 <li>
-<p><em>other</em>
+<p><code>other</code>
   : A list of other files (as strings) to be distributed but not installed. These are typically meta files, such as <code>README.md</code>, <code>LICENSE</code>, and <code>META.json</code> itself.</p>
 </li>
 </ul>
 </li>
 <li>
-<p><em>require</em>
+<p><code>require</code>
     : An object containing the following keys, describing the dependencies of the project. Their presence is checked during the build of the project.</p>
 <ul>
 <li>
-<p><em>package</em>
+<p><code>package</code>
   : A list of other Birch packages (as strings).</p>
 </li>
 <li>
-<p><em>header</em>
+<p><code>header</code>
   : A list of external C/C++ header files (as strings).</p>
 </li>
 <li>
-<p><em>library</em>
+<p><code>library</code>
   : A list of external libraries (as strings).</p>
 </li>
 <li>
-<p><em>program</em>
+<p><code>program</code>
   : A list of external programs (as strings).</p>
 </li>
 </ul>
