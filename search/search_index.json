@@ -3217,23 +3217,38 @@
         }, 
         {
             "location": "/documentation/examples/classes/LinearGaussianModel/", 
-            "text": "class LinearGaussianModel = MarkovModel\nLinearGaussianState\n, \nLinearGaussianParameter\n\n\nLinear-Gaussian state-space model. The delayed sampling feature of Birch\nresults in a Kalman filter being applied to this model.\n\n\nRun with:\n\n\nbirch sample \\\n  --model LinearGaussianModel \\\n  --input-file input/linear_gaussian.json \\\n  --output-file output/linear_gaussian.json \\\n  --ncheckpoints 10", 
+            "text": "class LinearGaussianModel = MarkovModel\nLinearGaussianState\n, \nLinearGaussianParameter\n\n\nLinear-Gaussian state-space model. The delayed sampling feature of Birch\nresults in a Kalman filter being applied to this model.\n\n\nUsage\n\n\nRun with:\n\n\nbirch sample \\\n  --model LinearGaussianModel \\\n  --input-file input/linear_gaussian.json \\\n  --output-file output/linear_gaussian.json \\\n  --ncheckpoints 10", 
             "title": "LinearGaussianModel"
         }, 
         {
+            "location": "/documentation/examples/classes/LinearGaussianModel/#usage", 
+            "text": "Run with:  birch sample \\\n  --model LinearGaussianModel \\\n  --input-file input/linear_gaussian.json \\\n  --output-file output/linear_gaussian.json \\\n  --ncheckpoints 10", 
+            "title": "Usage"
+        }, 
+        {
             "location": "/documentation/examples/classes/LinearGaussianParameter/", 
-            "text": "class LinearGaussianParameter \n Parameter\n\n\nParameter model for Linear-Gaussian state-space model.", 
+            "text": "class LinearGaussianParameter \n Parameter\n\n\nParameter for LinearGaussianModel.", 
             "title": "LinearGaussianParameter"
         }, 
         {
             "location": "/documentation/examples/classes/LinearGaussianState/", 
-            "text": "class LinearGaussianState \n State\n\n\nState model for linear-Gaussian state-space model.", 
+            "text": "class LinearGaussianState \n State\n\n\nState for LinearGaussianModel.", 
             "title": "LinearGaussianState"
         }, 
         {
             "location": "/documentation/examples/classes/LinearRegressionModel/", 
-            "text": "class LinearRegressionModel \n Model\n\n\nBayesian linear regression model with conjugate normal-inverse-gamma\nprior.\n\n\nThe model is given by:\n  \n\\begin{align}\n  \\sigma^2 &\\sim \\mathrm{Inv\\text{-}Gamma}(3, 4/10) \\\\\n  \\boldsymbol{\\beta} &\\sim \\mathcal{N}(0, I\\sigma^2) \\\\\n  y_n &\\sim \\mathcal{N}(\\mathbf{x}_n^{\\top}\\boldsymbol{\\beta}, \\sigma^2)\n  \\end{align}\n\nThe parameters are the noise variance \n\\sigma^2\n and vector of\ncoefficients \n\\boldsymbol{\\beta}\n. The data consists of observations \ny_n\n\nand explanatory variables \n\\mathbf{x}_n\n for \nn=1,\\ldots,N\n.\n\n\nRun the example using:\n\n\nbirch sample \\\n    --model LinearRegressionModel \\\n    --input-file input/bike_share.json \\\n    --output-file output/bike_share.json \\\n    --nsamples 5\n\n\n\nThe \ndata\n\nis from the Capital Bikeshare system in Washington D.C. for the years 2011\nto 2012. The aim is to use weather and holiday information to predict the\ntotal number of bike hires on any given day\n\n(Fanaee-T and Gama, 2014)\n.\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nX:Real[_,_]\n\n\nExplanatory variables.\n\n\n\n\n\n\n\u03b2:Random\nReal[_]\n\n\nRegression coefficients.\n\n\n\n\n\n\n\u03c32:Random\nReal\n\n\nObservation variance.\n\n\n\n\n\n\ny:Random\nReal[_]\n\n\nObservations.", 
+            "text": "class LinearRegressionModel \n Model\n\n\nBayesian linear regression model with conjugate normal-inverse-gamma\nprior.\n\n\nUsage\n\n\nRun with:\n\n\nbirch sample \\\n    --model LinearRegressionModel \\\n    --input-file input/bike_share.json \\\n    --output-file output/bike_share.json \\\n    --nsamples 5\n\n\n\nThe \ndata\n\nis from the Capital Bikeshare system in Washington D.C. for the years 2011\nto 2012. The aim is to use weather and holiday information to predict the\ntotal number of bike hires on any given day\n\n(Fanaee-T and Gama, 2014)\n.\n\n\nDetails\n\n\nThe model is given by:\n  \n\\begin{align}\n  \\sigma^2 &\\sim \\mathrm{Inv\\text{-}Gamma}(3, 4/10) \\\\\n  \\boldsymbol{\\beta} &\\sim \\mathcal{N}(0, I\\sigma^2) \\\\\n  y_n &\\sim \\mathcal{N}(\\mathbf{x}_n^{\\top}\\boldsymbol{\\beta}, \\sigma^2)\n  \\end{align}\n\nThe parameters are the noise variance \n\\sigma^2\n and vector of\ncoefficients \n\\boldsymbol{\\beta}\n. The data consists of observations \ny_n\n\nand explanatory variables \n\\mathbf{x}_n\n for \nn=1,\\ldots,N\n.\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nX:Real[_,_]\n\n\nExplanatory variables.\n\n\n\n\n\n\n\u03b2:Random\nReal[_]\n\n\nRegression coefficients.\n\n\n\n\n\n\n\u03c32:Random\nReal\n\n\nObservation variance.\n\n\n\n\n\n\ny:Random\nReal[_]\n\n\nObservations.", 
             "title": "LinearRegressionModel"
+        }, 
+        {
+            "location": "/documentation/examples/classes/LinearRegressionModel/#usage", 
+            "text": "Run with:  birch sample \\\n    --model LinearRegressionModel \\\n    --input-file input/bike_share.json \\\n    --output-file output/bike_share.json \\\n    --nsamples 5  The  data \nis from the Capital Bikeshare system in Washington D.C. for the years 2011\nto 2012. The aim is to use weather and holiday information to predict the\ntotal number of bike hires on any given day (Fanaee-T and Gama, 2014) .", 
+            "title": "Usage"
+        }, 
+        {
+            "location": "/documentation/examples/classes/LinearRegressionModel/#details", 
+            "text": "The model is given by:\n   \\begin{align}\n  \\sigma^2 &\\sim \\mathrm{Inv\\text{-}Gamma}(3, 4/10) \\\\\n  \\boldsymbol{\\beta} &\\sim \\mathcal{N}(0, I\\sigma^2) \\\\\n  y_n &\\sim \\mathcal{N}(\\mathbf{x}_n^{\\top}\\boldsymbol{\\beta}, \\sigma^2)\n  \\end{align} \nThe parameters are the noise variance  \\sigma^2  and vector of\ncoefficients  \\boldsymbol{\\beta} . The data consists of observations  y_n \nand explanatory variables  \\mathbf{x}_n  for  n=1,\\ldots,N .", 
+            "title": "Details"
         }, 
         {
             "location": "/documentation/examples/classes/LinearRegressionModel/#member-variables", 
@@ -3242,12 +3257,22 @@
         }, 
         {
             "location": "/documentation/examples/classes/MixedGaussianModel/", 
-            "text": "class MixedGaussianModel = MarkovModel\nMixedGaussianState\n, \nMixedGaussianParameter\n\n\nLinear-nonlinear state-space model. The delayed sampling feature of Birch\nresults in a Rao--Blackwellized particle filter with locally-optimal\nproposal being applied to this model.\n\n\nRun with:\n\n\nbirch sample \\\n  --model MixedGaussianModel \\\n  --input-file input/mixed_gaussian.json \\\n  --output-file output/mixed_gaussian.json \\\n  --nparticles 256 \\\n  --ncheckpoints 50\n\n\n\nThe model is detailed in \nLindsten and Sch\u00f6n (2010)\n.", 
+            "text": "class MixedGaussianModel = MarkovModel\nMixedGaussianState\n, \nMixedGaussianParameter\n\n\nLinear-nonlinear state-space model. The delayed sampling feature of Birch\nresults in a Rao--Blackwellized particle filter with locally-optimal\nproposal being applied to this model.\n\n\nUsage\n\n\nRun with:\n\n\nbirch sample \\\n  --model MixedGaussianModel \\\n  --input-file input/mixed_gaussian.json \\\n  --output-file output/mixed_gaussian.json \\\n  --nparticles 256 \\\n  --ncheckpoints 50\n\n\n\nDetails\n\n\nThe model is detailed in \nLindsten and Sch\u00f6n (2010)\n.", 
             "title": "MixedGaussianModel"
         }, 
         {
+            "location": "/documentation/examples/classes/MixedGaussianModel/#usage", 
+            "text": "Run with:  birch sample \\\n  --model MixedGaussianModel \\\n  --input-file input/mixed_gaussian.json \\\n  --output-file output/mixed_gaussian.json \\\n  --nparticles 256 \\\n  --ncheckpoints 50", 
+            "title": "Usage"
+        }, 
+        {
+            "location": "/documentation/examples/classes/MixedGaussianModel/#details", 
+            "text": "The model is detailed in  Lindsten and Sch\u00f6n (2010) .", 
+            "title": "Details"
+        }, 
+        {
             "location": "/documentation/examples/classes/MixedGaussianParameter/", 
-            "text": "class MixedGaussianParameter \n Parameter\n\n\nParameter model for mixed linear-nonlinear Gaussian state-space model.\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nA:Real[_,_]\n\n\nLinear-linear state transition matrix.\n\n\n\n\n\n\nB:Real[_,_]\n\n\nNonlinear-linear state transition matrix.\n\n\n\n\n\n\nC:Real[_,_]\n\n\nLinear observation matrix.\n\n\n\n\n\n\n\u03a3_x_l:Real[_,_]\n\n\nLinear state noise covariance.\n\n\n\n\n\n\n\u03a3_x_n:Real[_,_]\n\n\nNonlinear state noise covariance.\n\n\n\n\n\n\n\u03a3_y_l:Real[_,_]\n\n\nLinear observation noise covariance.\n\n\n\n\n\n\n\u03a3_y_n:Real[_,_]\n\n\nNonlinear observation noise covariance.", 
+            "text": "class MixedGaussianParameter \n Parameter\n\n\nParameter for MixedGaussianModel.\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nA:Real[_,_]\n\n\nLinear-linear state transition matrix.\n\n\n\n\n\n\nB:Real[_,_]\n\n\nNonlinear-linear state transition matrix.\n\n\n\n\n\n\nC:Real[_,_]\n\n\nLinear observation matrix.\n\n\n\n\n\n\n\u03a3_x_l:Real[_,_]\n\n\nLinear state noise covariance.\n\n\n\n\n\n\n\u03a3_x_n:Real[_,_]\n\n\nNonlinear state noise covariance.\n\n\n\n\n\n\n\u03a3_y_l:Real[_,_]\n\n\nLinear observation noise covariance.\n\n\n\n\n\n\n\u03a3_y_n:Real[_,_]\n\n\nNonlinear observation noise covariance.", 
             "title": "MixedGaussianParameter"
         }, 
         {
@@ -3257,7 +3282,7 @@
         }, 
         {
             "location": "/documentation/examples/classes/MixedGaussianState/", 
-            "text": "class MixedGaussianState \n State\n\n\nState model for mixed linear-nonlinear Gaussian state-space model.\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nx_n:Random\nReal[_]\n\n\nNonlinear state.\n\n\n\n\n\n\nx_l:Random\nReal[_]\n\n\nLinear state.\n\n\n\n\n\n\ny_n:Random\nReal[_]\n\n\nNonlinear observation.\n\n\n\n\n\n\ny_l:Random\nReal[_]\n\n\nLinear observation.", 
+            "text": "class MixedGaussianState \n State\n\n\nState for MixedGaussianState.\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nx_n:Random\nReal[_]\n\n\nNonlinear state.\n\n\n\n\n\n\nx_l:Random\nReal[_]\n\n\nLinear state.\n\n\n\n\n\n\ny_n:Random\nReal[_]\n\n\nNonlinear observation.\n\n\n\n\n\n\ny_l:Random\nReal[_]\n\n\nLinear observation.", 
             "title": "MixedGaussianState"
         }, 
         {
@@ -3267,12 +3292,22 @@
         }, 
         {
             "location": "/documentation/examples/classes/SIRModel/", 
-            "text": "class SIRModel = MarkovModel\nSIRState\n, \nSIRParameter\n\n\nSIR (susceptible-infectious-recovered) model.\n\n\nRun the example using:\n\n\nbirch sample \\\n  --model SIRModel \\\n  --input-file input/russian_influenza.json \\\n  --output-file output/russian_influenza.json \\\n  --ncheckpoints 14 \\\n  --nparticles 100 \\\n  --nsamples 10\n\n\n\nThe data set is of an outbreak of Russian influenza at a boy's boarding\nschool in northern England \n(Anonymous, 1978)\n. The\nmodel on which this is based is described in\n\nMurray et. al. (2018)\n.", 
+            "text": "class SIRModel = MarkovModel\nSIRState\n, \nSIRParameter\n\n\nSIR (susceptible-infectious-recovered) model for infectious disease\noutbreaks in epidemiology.\n\n\nUsage\n\n\nRun with:\n\n\nbirch sample \\\n  --model SIRModel \\\n  --input-file input/russian_influenza.json \\\n  --output-file output/russian_influenza.json \\\n  --ncheckpoints 14 \\\n  --nparticles 100 \\\n  --nsamples 10\n\n\n\nThe data set is of an outbreak of Russian influenza at a boy's boarding\nschool in northern England \n(Anonymous, 1978)\n. The\nmodel on which this is based is described in\n\nMurray et. al. (2018)\n.\n\n\nAny of the parameters and the initial conditions can be clamped by\nmodifying the input file, \ninput/russian_influenza.json\n.\n\n\nDetails\n\n\nThe parameter model is given by:\n  \n\\begin{align}\n  \\lambda &\\sim \\mathrm{Gamma}(2,5) \\\\\n  \\delta &\\sim \\mathrm{Beta}(2,2) \\\\\n  \\gamma &\\sim \\mathrm{Beta}(2,2),\n  \\end{align}\n\nwhere \n\\lambda\n is a rate of interaction in the population, \n\\delta\n the\nprobability of infection when a susceptible individual interacts with an\ninfectious individual, and \n\\gamma\n the daily recovery probability.\n\n\nThe initial model for time \nt = 0\n is:\n  \n\\begin{align}\n  s_0 &= 760 \\\\\n  i_0 &= 3 \\\\\n  r_0 &= 0.\n  \\end{align}\n\n\n\n\nThe transition model for time \nt\n is:\n  \n\\begin{align}\n  \\tau_t &\\sim \\mathrm{Binomial}\\left(s_{t-1}, 1 - \\exp\\left(\\frac{-\\lambda\n  i_{t-1} }{s_{t-1} + i_{t-1} + r_{t-1}}\\right) \\right) \\\\\n  \\Delta i_t &\\sim \\mathrm{Binomial}(\\tau_t, \\delta) \\\\\n  \\Delta r_t &\\sim \\mathrm{Binomial}(i_{t-1}, \\gamma),\n  \\end{align}\n\nwhere \n\\tau_t\n is the number of interactions between infectious and\nsusceptible individuals, \n\\Delta i_t\n the number of newly infected\nindividuals, and \n\\Delta r_t\n the number of newly recovered individuals.\n\n\nPopulation counts are then updated:\n\n\\begin{align}\ns_t &= s_{t-1} - \\Delta i_t \\\\\ni_t &= i_{t-1} + \\Delta i_t - \\Delta r_t \\\\\nr_t &= r_{t-1} + \\Delta r_t.\n\\end{align}", 
             "title": "SIRModel"
         }, 
         {
+            "location": "/documentation/examples/classes/SIRModel/#usage", 
+            "text": "Run with:  birch sample \\\n  --model SIRModel \\\n  --input-file input/russian_influenza.json \\\n  --output-file output/russian_influenza.json \\\n  --ncheckpoints 14 \\\n  --nparticles 100 \\\n  --nsamples 10  The data set is of an outbreak of Russian influenza at a boy's boarding\nschool in northern England  (Anonymous, 1978) . The\nmodel on which this is based is described in Murray et. al. (2018) .  Any of the parameters and the initial conditions can be clamped by\nmodifying the input file,  input/russian_influenza.json .", 
+            "title": "Usage"
+        }, 
+        {
+            "location": "/documentation/examples/classes/SIRModel/#details", 
+            "text": "The parameter model is given by:\n   \\begin{align}\n  \\lambda &\\sim \\mathrm{Gamma}(2,5) \\\\\n  \\delta &\\sim \\mathrm{Beta}(2,2) \\\\\n  \\gamma &\\sim \\mathrm{Beta}(2,2),\n  \\end{align} \nwhere  \\lambda  is a rate of interaction in the population,  \\delta  the\nprobability of infection when a susceptible individual interacts with an\ninfectious individual, and  \\gamma  the daily recovery probability.  The initial model for time  t = 0  is:\n   \\begin{align}\n  s_0 &= 760 \\\\\n  i_0 &= 3 \\\\\n  r_0 &= 0.\n  \\end{align}   The transition model for time  t  is:\n   \\begin{align}\n  \\tau_t &\\sim \\mathrm{Binomial}\\left(s_{t-1}, 1 - \\exp\\left(\\frac{-\\lambda\n  i_{t-1} }{s_{t-1} + i_{t-1} + r_{t-1}}\\right) \\right) \\\\\n  \\Delta i_t &\\sim \\mathrm{Binomial}(\\tau_t, \\delta) \\\\\n  \\Delta r_t &\\sim \\mathrm{Binomial}(i_{t-1}, \\gamma),\n  \\end{align} \nwhere  \\tau_t  is the number of interactions between infectious and\nsusceptible individuals,  \\Delta i_t  the number of newly infected\nindividuals, and  \\Delta r_t  the number of newly recovered individuals.  Population counts are then updated: \\begin{align}\ns_t &= s_{t-1} - \\Delta i_t \\\\\ni_t &= i_{t-1} + \\Delta i_t - \\Delta r_t \\\\\nr_t &= r_{t-1} + \\Delta r_t.\n\\end{align}", 
+            "title": "Details"
+        }, 
+        {
             "location": "/documentation/examples/classes/SIRParameter/", 
-            "text": "class SIRParameter \n Parameter\n\n\nSIR parameter model.\n\n\nThe model is given by:\n  \n\\begin{align}\n  \\lambda &= 10 \\\\\n  \\delta &\\sim \\mathrm{Beta}(2,2) \\\\\n  \\gamma &\\sim \\mathrm{Beta}(2,2),\n  \\end{align}\n\nwhere \n\\lambda\n is a rate of interaction in the population, \n\\delta\n the\nprobability of infection when a susceptible individual interacts with an\ninfectious individual, and \n\\gamma\n the daily recovery probability.\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\n\u03bb:Random\nReal\n\n\nInteraction rate.\n\n\n\n\n\n\n\u03b4:Random\nReal\n\n\nInfection probability.\n\n\n\n\n\n\n\u03b3:Random\nReal\n\n\nRecovery probability.", 
+            "text": "class SIRParameter \n Parameter\n\n\nParameter for SIRModel.\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\n\u03bb:Random\nReal\n\n\nInteraction rate.\n\n\n\n\n\n\n\u03b4:Random\nReal\n\n\nInfection probability.\n\n\n\n\n\n\n\u03b3:Random\nReal\n\n\nRecovery probability.", 
             "title": "SIRParameter"
         }, 
         {
@@ -3282,7 +3317,7 @@
         }, 
         {
             "location": "/documentation/examples/classes/SIRState/", 
-            "text": "class SIRState \n State\n\n\nSIR state model.\n\n\nThe initial model for time \nt = 0\n is:\n  \n\\begin{align}\n  s_0 &= 760 \\\\\n  i_0 &= 3 \\\\\n  r_0 &= 0.\n  \\end{align}\n\n\n\n\nThe transition model for time \nt\n is:\n  \n\\begin{align}\n  \\tau_t &\\sim \\mathrm{Binomial}\\left(s_{t-1}, 1 - \\exp\\left(\\frac{-\\lambda\n  i_{t-1} }{s_{t-1} + i_{t-1} + r_{t-1}}\\right) \\right) \\\\\n  \\Delta i_t &\\sim \\mathrm{Binomial}(\\tau_t, \\delta) \\\\\n  \\Delta r_t &\\sim \\mathrm{Binomial}(i_{t-1}, \\gamma),\n  \\end{align}\n\nwhere \n\\tau_t\n is the number of interactions between infectious and\nsusceptible individuals, \n\\Delta i_t\n the number of newly infected\nindividuals, and \n\\Delta r_t\n the number of newly recovered individuals.\n\n\nPopulation counts are then updated:\n\n\\begin{align}\ns_t &= s_{t-1} - \\Delta i_t \\\\\ni_t &= i_{t-1} + \\Delta i_t - \\Delta r_t \\\\\nr_t &= r_{t-1} + \\Delta r_t.\n\\end{align}\n\n\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\n\u03c4:Random\nInteger\n\n\nNumber of susceptible-infectious interactions.\n\n\n\n\n\n\n\u0394i:Random\nInteger\n\n\nNewly infected population.\n\n\n\n\n\n\n\u0394r:Random\nInteger\n\n\nNewly recovered population.\n\n\n\n\n\n\ns:Random\nInteger\n\n\nSusceptible population.\n\n\n\n\n\n\ni:Random\nInteger\n\n\nInfectious population.\n\n\n\n\n\n\nr:Random\nInteger\n\n\nRecovered population.", 
+            "text": "class SIRState \n State\n\n\nState for SIRModel.\n\n\n\n\nMember Variables\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\n\u03c4:Random\nInteger\n\n\nNumber of susceptible-infectious interactions.\n\n\n\n\n\n\n\u0394i:Random\nInteger\n\n\nNewly infected population.\n\n\n\n\n\n\n\u0394r:Random\nInteger\n\n\nNewly recovered population.\n\n\n\n\n\n\ns:Random\nInteger\n\n\nSusceptible population.\n\n\n\n\n\n\ni:Random\nInteger\n\n\nInfectious population.\n\n\n\n\n\n\nr:Random\nInteger\n\n\nRecovered population.", 
             "title": "SIRState"
         }, 
         {

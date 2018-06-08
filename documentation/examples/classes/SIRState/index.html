@@ -4827,31 +4827,7 @@
                 <p><a name="sirstate"></a></p>
 <div class="admonition quote">
 <p class="admonition-title">class SIRState &lt; State</p>
-<p>SIR state model.</p>
-<p>The initial model for time <script type="math/tex">t = 0</script> is:
-  <script type="math/tex; mode=display">\begin{align}
-  s_0 &= 760 \\
-  i_0 &= 3 \\
-  r_0 &= 0.
-  \end{align}</script>
-</p>
-<p>The transition model for time <script type="math/tex">t</script> is:
-  <script type="math/tex; mode=display">\begin{align}
-  \tau_t &\sim \mathrm{Binomial}\left(s_{t-1}, 1 - \exp\left(\frac{-\lambda
-  i_{t-1} }{s_{t-1} + i_{t-1} + r_{t-1}}\right) \right) \\
-  \Delta i_t &\sim \mathrm{Binomial}(\tau_t, \delta) \\
-  \Delta r_t &\sim \mathrm{Binomial}(i_{t-1}, \gamma),
-  \end{align}</script>
-where <script type="math/tex">\tau_t</script> is the number of interactions between infectious and
-susceptible individuals, <script type="math/tex">\Delta i_t</script> the number of newly infected
-individuals, and <script type="math/tex">\Delta r_t</script> the number of newly recovered individuals.</p>
-<p>Population counts are then updated:
-<script type="math/tex; mode=display">\begin{align}
-s_t &= s_{t-1} - \Delta i_t \\
-i_t &= i_{t-1} + \Delta i_t - \Delta r_t \\
-r_t &= r_{t-1} + \Delta r_t.
-\end{align}</script>
-</p>
+<p>State for SIRModel.</p>
 </div>
 <h3 id="member-variables">Member Variables</h3>
 <table>
