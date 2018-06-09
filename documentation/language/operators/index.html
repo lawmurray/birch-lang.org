@@ -76,7 +76,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
     
-      <a href="#binary-operators" tabindex="1" class="md-skip">
+      <a href="#unary-operators" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -683,13 +683,6 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#binary-operators" title="Binary operators" class="md-nav__link">
-    Binary operators
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#unary-operators" title="Unary operators" class="md-nav__link">
     Unary operators
   </a>
@@ -697,8 +690,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#probabilistic-operators" title="Probabilistic operators" class="md-nav__link">
-    Probabilistic operators
+  <a href="#binary-operators" title="Binary operators" class="md-nav__link">
+    Binary operators
   </a>
   
 </li>
@@ -4825,13 +4818,6 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#binary-operators" title="Binary operators" class="md-nav__link">
-    Binary operators
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#unary-operators" title="Unary operators" class="md-nav__link">
     Unary operators
   </a>
@@ -4839,8 +4825,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#probabilistic-operators" title="Probabilistic operators" class="md-nav__link">
-    Probabilistic operators
+  <a href="#binary-operators" title="Binary operators" class="md-nav__link">
+    Binary operators
   </a>
   
 </li>
@@ -4879,6 +4865,26 @@
                   <h1>Operators</h1>
                 
                 <p>Birch supports the most common arithmetic and logical operators found in other programming languages.</p>
+<h3 id="unary-operators">Unary operators</h3>
+<p>The (prefix) unary operators are all of equal precedence, and of higher precedence than all binary operators:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>+</code> Identity</td>
+<td><code>-</code> Negative</td>
+<td><code>!</code> Logical not</td>
+</tr>
+</tbody>
+</table>
+<p>The standard library provides the obvious overloads for these standard operators for built-in types.</p>
+<p>There are no operators for power or modulus: the standard library functions <code>pow</code> and <code>mod</code> should be used instead. There are no operators defined for bit operations.</p>
 <h3 id="binary-operators">Binary operators</h3>
 <p>The (infix) binary operators are, in order of highest to lowest precedence:</p>
 <table>
@@ -4927,74 +4933,31 @@
 <td></td>
 <td></td>
 </tr>
-</tbody>
-</table>
-<h3 id="unary-operators">Unary operators</h3>
-<p>The (prefix) unary operators are all of equal precedence, and of higher precedence than all binary operators:</p>
-<table>
-<thead>
 <tr>
-<th></th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>+</code> Identity</td>
-<td><code>-</code> Negative</td>
-<td><code>!</code> Logical not</td>
-</tr>
-</tbody>
-</table>
-<p>The standard library provides the obvious overloads for these standard operators for built-in types.</p>
-<p>There are no operators for power or modulus: the standard library functions <code>pow</code> and <code>mod</code> should be used instead. There are no operators defined for bit operations.</p>
-<h3 id="probabilistic-operators">Probabilistic operators</h3>
-<p>The remaining operators are introduced for concise probabilistic statements. The first is a binary operator that always returns a value of type <code>Real</code>, and has precedence less than all of the standard operators:</p>
-<table>
-<thead>
-<tr>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
+<td><code>&lt;-</code> Assign</td>
+<td><code>&lt;~</code> Simulate</td>
 <td><code>~&gt;</code> Observe</td>
+<td><code>~</code> Distributed as</td>
 </tr>
 </tbody>
 </table>
-<p>This operator is syntactic sugar; <code>a ~&gt; b</code> is defined to mean exactly:</p>
+<p>The last three operators are introduced for concise probabilistic statements. They are syntactic sugar. Firstly, <code>a ~&gt; b</code> is defined to mean exactly:</p>
 <pre><code>yield b.observe(a);
 </code></pre>
-<p>Consequently, it is necessary that <code>b</code> is of a class type with an appropriate <code>observe()</code> member function defined. If the operator is used outside of a fiber, the <code>yield</code> is omitted.</p>
-<p>The two remaining probabilistic operators are:</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>&lt;~</code> Simulate</td>
-<td><code>~</code> Distribute as</td>
-</tr>
-</tbody>
-</table>
-<p>Like the assignment operator, these operators have no return type, and may only be used in statements, where they have the lowest, and final, precedence.</p>
-<p>These are also syntactic sugar; <code>a &lt;~ b;</code> means exactly:</p>
+<p>where the yield will be of type <code>Real</code>, and gives the log-likelihood of the observed value <code>a</code> under distribution <code>b</code>. Consequently, it is necessary that <code>b</code> is of a class type with an appropriate <code>observe()</code> member function, typically a subtype of the <code>Distribution</code> class defined in the standard library. If the operator is used outside of a <a href="../fibers">fiber</a>, the <code>yield</code> is omitted.</p>
+<p>Then, <code>a &lt;~ b;</code> means exactly:</p>
 <pre><code>a &lt;- b.simulate();
 </code></pre>
 <p>and <code>a ~ b;</code> means exactly:</p>
 <pre><code>if (a.isMissing()) {
-  a &lt;- b;
+  a.assume(b);
 } else {
   a ~&gt; b;
 }
 </code></pre>
+<p>Again, this means that <code>b</code> must be of a class type with appropriate member functions defined, typically a subtype of the <code>Distribution</code> class defined in the standard library</p>
 <h3 id="query-get">Query-Get</h3>
-<p>These are postfix unary operators used with optional and fiber types. They are of equal precedence, and of higher precedence than all other operators:</p>
+<p>These are postfix unary operators used with <a href="../optionals">optional</a> and <a href="../fibers">fiber</a> types. They are of equal precedence, and of higher precedence than all other operators:</p>
 <table>
 <thead>
 <tr>
