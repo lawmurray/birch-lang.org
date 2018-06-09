@@ -1,18 +1,5 @@
 Birch supports the most common arithmetic and logical operators found in other programming languages.
 
-### Binary operators
-
-The (infix) binary operators are, in order of highest to lowest precedence:
-
-|     |     |     |     |
-| --- | --- | --- | --- |
-| `*` Multiply       | `/` Divide      | | |
-| `+` Add            | `-` Subtract    | | |
-| `<` Less           | `>` Greater     | `<=` Less/equal  | `>=` Greater/equal |
-| `==` Equal         | `!=` Not equal  | | |
-| `&&` Logical and   | | | |
-| `||` Logical or    | | | |
-
 ### Unary operators
 
 The (prefix) unary operators are all of equal precedence, and of higher precedence than all binary operators:
@@ -25,43 +12,43 @@ The standard library provides the obvious overloads for these standard operators
 
 There are no operators for power or modulus: the standard library functions `pow` and `mod` should be used instead. There are no operators defined for bit operations.
 
-### Probabilistic operators
+### Binary operators
 
-The remaining operators are introduced for concise probabilistic statements. The first is a binary operator that always returns a value of type `Real`, and has precedence less than all of the standard operators:
+The (infix) binary operators are, in order of highest to lowest precedence:
 
-|              |
-| ------------ |
-| `~>` Observe |
+|     |     |     |     |
+| --- | --- | --- | --- |
+| `*` Multiply       | `/` Divide      | | |
+| `+` Add            | `-` Subtract    | | |
+| `<` Less           | `>` Greater     | `<=` Less/equal  | `>=` Greater/equal |
+| `==` Equal         | `!=` Not equal  | | |
+| `&&` Logical and   | | | |
+| `||` Logical or    | | | |
+| `<-` Assign | `<~` Simulate | `~>` Observe | `~` Distributed as |
 
-This operator is syntactic sugar; `a ~> b` is defined to mean exactly:
+The last three operators are introduced for concise probabilistic statements. They are syntactic sugar. Firstly, `a ~> b` is defined to mean exactly:
 
     yield b.observe(a);
+    
+where the yield will be of type `Real`, and gives the log-likelihood of the observed value `a` under distribution `b`. Consequently, it is necessary that `b` is of a class type with an appropriate `observe()` member function, typically a subtype of the `Distribution` class defined in the standard library. If the operator is used outside of a [fiber](fibers), the `yield` is omitted.
 
-Consequently, it is necessary that `b` is of a class type with an appropriate `observe()` member function defined. If the operator is used outside of a fiber, the `yield` is omitted.
-
-The two remaining probabilistic operators are:
-
-|               |                   |
-| ------------- | ----------------- |
-| `<~` Simulate | `~` Distribute as |
-
-Like the assignment operator, these operators have no return type, and may only be used in statements, where they have the lowest, and final, precedence.
-
-These are also syntactic sugar; `a <~ b;` means exactly:
+Then, `a <~ b;` means exactly:
 
     a <- b.simulate();
 
 and `a ~ b;` means exactly:
 
     if (a.isMissing()) {
-      a <- b;
+      a.assume(b);
     } else {
       a ~> b;
     }
+    
+Again, this means that `b` must be of a class type with appropriate member functions defined, typically a subtype of the `Distribution` class defined in the standard library
 
 ### Query-Get
 
-These are postfix unary operators used with optional and fiber types. They are of equal precedence, and of higher precedence than all other operators:
+These are postfix unary operators used with [optional](optionals) and [fiber](fibers) types. They are of equal precedence, and of higher precedence than all other operators:
 
 |              |              |
 | ------------ | ------------ |
