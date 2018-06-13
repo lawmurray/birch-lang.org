@@ -104,6 +104,6 @@ If you receive an error message at this point, there may be a problem with your 
 
         birch sample --model TestModel
 
-If this succeeds, nothing will happen, as the model is empty. If this produces an error message, there may be a problem with your installation.
+If this succeeds, you will see an output of zero (this is the marginal log-likelihood of the model---zero for no observations). If this produces an error message, there may be a problem with your installation.
 
 The [sample](/documentation/library/programs/sample) program that you have just run is part of the Birch standard library. It provides a common interface to the available inference methods.
