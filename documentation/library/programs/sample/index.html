@@ -1332,6 +1332,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../functions/cdf_lomax/" title="cdf_lomax" class="md-nav__link">
+      cdf_lomax
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../functions/cdf_negative_binomial/" title="cdf_negative_binomial" class="md-nav__link">
       cdf_negative_binomial
     </a>
@@ -2184,6 +2196,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../functions/observe_lomax/" title="observe_lomax" class="md-nav__link">
+      observe_lomax
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../functions/observe_multinomial/" title="observe_multinomial" class="md-nav__link">
       observe_multinomial
     </a>
@@ -2462,6 +2486,18 @@
   <li class="md-nav__item">
     <a href="../../functions/pdf_log_gaussian/" title="pdf_log_gaussian" class="md-nav__link">
       pdf_log_gaussian
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/pdf_lomax/" title="pdf_lomax" class="md-nav__link">
+      pdf_lomax
     </a>
   </li>
 
@@ -3086,6 +3122,18 @@
   <li class="md-nav__item">
     <a href="../../functions/simulate_log_gaussian/" title="simulate_log_gaussian" class="md-nav__link">
       simulate_log_gaussian
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/simulate_lomax/" title="simulate_lomax" class="md-nav__link">
+      simulate_lomax
     </a>
   </li>
 
@@ -4020,6 +4068,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../classes/Exponential/" title="Exponential" class="md-nav__link">
+      Exponential
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../classes/Expression/" title="Expression" class="md-nav__link">
       Expression
     </a>
@@ -4766,7 +4826,7 @@
                 
                 <p><a name="sample"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">program sample(model:<a href="../../types/#String">String</a> &lt;- "Model", method:<a href="../../types/#String">String</a> &lt;- "ParticleFilter", input_file:<a href="../../types/#String">String</a>?, output_file:<a href="../../types/#String">String</a>?, diagnostic_file:<a href="../../types/#String">String</a>?, nsamples:<a href="../../types/#Integer">Integer</a> &lt;- 1, ncheckpoints:<a href="../../types/#Integer">Integer</a> &lt;- 1, nparticles:<a href="../../types/#Integer">Integer</a> &lt;- 1, ess_trigger:<a href="../../types/#Real">Real</a> &lt;- 0.7, verbose:<a href="../../types/#Boolean">Boolean</a> &lt;- true)</p>
+<p class="admonition-title">program sample(model:<a href="../../types/#String">String</a> &lt;- "Model", method:<a href="../../types/#String">String</a> &lt;- "ParticleFilter", input_file:<a href="../../types/#String">String</a>?, output_file:<a href="../../types/#String">String</a>?, diagnostic_file:<a href="../../types/#String">String</a>?, nsamples:<a href="../../types/#Integer">Integer</a> &lt;- 1, ncheckpoints:<a href="../../types/#Integer">Integer</a> &lt;- 1, seed:<a href="../../types/#Integer">Integer</a>?, verbose:<a href="../../types/#Boolean">Boolean</a> &lt;- true, nparticles:<a href="../../types/#Integer">Integer</a> &lt;- 1, ess_trigger:<a href="../../types/#Real">Real</a> &lt;- 0.7)</p>
 <p>Sample from a model.</p>
 <p>General options.</p>
 <ul>
@@ -4793,6 +4853,12 @@
     interpretation of this is model-dependent, e.g. for a Markov model
     it is the number of states.</p>
 </li>
+<li>
+<p><code>--seed</code>: Random number seed. If not provided, random entropy is used.</p>
+</li>
+<li>
+<p><code>--verbose</code>: Enable verbose reporting?</p>
+</li>
 </ul>
 <p>Particle filter-specific options:</p>
 <ul>
@@ -4803,9 +4869,6 @@
 <p><code>--ess-trigger</code>: Threshold for resampling. Resampling is performed
     whenever the effective sample size, as a proportion of <code>--nparticles</code>,
     drops below this threshold.</p>
-</li>
-<li>
-<p><code>--verbose</code>: Enable verbose reporting?</p>
 </li>
 </ul>
 </div>
