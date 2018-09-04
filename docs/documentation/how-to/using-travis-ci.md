@@ -1,3 +1,14 @@
+# How to use Birch with Travis CI for continuous integration
+
+[Travis CI](https://www.travis-ci.com) is one of many continuous-integration services that work alongside code repository services to run tests whenever new commits are made to a code repository. Other continuous-integration services include [CircleCI](https://www.circleci.com) and [Bitrise](https://www.bitrise.io). Software for continuous integration includes [Jenkins](https://jenkins.io/).
+
+Travis CI happens to be used by the Birch development team. Setting it up was not entirely trivial; this page explains how it was done in case others wish to use Travis CI for their Birch projects.
+
+The main issue is that the Linux image used by Travis CI is based on Ubuntu 14.04, which is now several years old. The default `gcc` provided with this distribution does not support the C++14 language features required by Birch. Furthermore, the version of Eigen provided with this distribution requires updating for Birch.
+
+After signing up for the Travis CI service, you will need to add a `.travis.yml` file to your code repository to configure the continuous-integration service. Follow the Travis CI documentation for details, but a suggested template for Birch projects is as follows:
+
+``` yml
 language: cpp
 matrix:
   include:
