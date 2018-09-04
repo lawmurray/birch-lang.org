@@ -76,10 +76,6 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
     
-      <a href="#how-to-use-birch-with-travis-ci-for-continuous-integration" tabindex="1" class="md-skip">
-        Skip to content
-      </a>
-    
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
@@ -4781,8 +4777,6 @@
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
     
-      
-    
     
     <a href="./" title="Use Travis CI" class="md-nav__link md-nav__link--active">
       Use Travis CI
@@ -4820,91 +4814,66 @@
               </div>
             
             
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-</nav>
-                  </div>
-                </div>
-              </div>
-            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
               
                 
                 
-                <h1 id="how-to-use-birch-with-travis-ci-for-continuous-integration">How to use Birch with Travis CI for continuous integration</h1>
-<p><a href="https://www.travis-ci.com">Travis CI</a> is one of many continuous-integration services that work alongside code repository services to run tests whenever new commits are made to a code repository. Other continuous-integration services include <a href="https://www.circleci.com">CircleCI</a> and <a href="https://www.bitrise.io">Bitrise</a>. Software for continuous integration includes <a href="https://jenkins.io/">Jenkins</a>.</p>
-<p>Travis CI happens to be used by the Birch development team. Setting it up was not entirely trivial; this page explains how it was done in case others wish to use Travis CI for their Birch projects.</p>
-<p>The main issue is that the Linux image used by Travis CI is based on Ubuntu 14.04, which is now several years old. The default <code>gcc</code> provided with this distribution does not support the C++14 language features required by Birch. Furthermore, the version of Eigen provided with this distribution requires updating for Birch.</p>
-<p>After signing up for the Travis CI service, you will need to add a <code>.travis.yml</code> file to your code repository to configure the continuous-integration service. Follow the Travis CI documentation for details, but a suggested template for Birch projects is as follows:</p>
-<pre><code class="yml">language: cpp
-matrix:
-  include:
-    # macOS environment
-    - os: osx
-      compiler: clang
-      osx_image: xcode9.3
-
-    # Ubuntu 14.04 environment
-    - os: linux
-      dist: trusty
-      compiler: gcc
-      addons:
-        apt:
-          sources:
-            - ubuntu-toolchain-r-test
-          packages:
-            - gcc-7
-            - g++-7
-            - autoconf
-            - libtool
-            - flex
-            - bison
-            - libboost-all-dev
-before_install:
+                  <h1>Use Travis CI</h1>
+                
+                <pre><code># Ubuntu 14.04 environment
+- os: linux
+  dist: trusty
+  compiler: gcc
+  addons:
+    apt:
+      sources:
+        - ubuntu-toolchain-r-test
+      packages:
+        - gcc-7
+        - g++-7
+        - autoconf
+        - libtool
+        - flex
+        - bison
+        - libboost-all-dev
+</code></pre>
+<p>before_install:
   # OS-specific things
-  - if [[ &quot;$TRAVIS_OS_NAME&quot; == &quot;linux&quot; ]]; then
+  - if [[ "<script type="math/tex">TRAVIS_OS_NAME" == "linux" ]]; then
       export CC=gcc-7;
       export CXX=g++-7;
-      export CXXFLAGS=&quot;-DBOOST_NO_CXX11_SCOPED_ENUMS&quot;;
-      wget http://bitbucket.org/eigen/eigen/get/3.3.4.tar.gz &amp;&amp; tar xzf 3.3.4.tar.gz &amp;&amp; sudo cp -Rp eigen-eigen-5a0156e40feb /usr/local/include/eigen3;
-    elif [[ &quot;$TRAVIS_OS_NAME&quot; == &quot;osx&quot; ]]; then
-      brew install flex bison eigen;
-    fi
-
-  # Checkout Birch, which may be cached, and (re)build
-  - git clone --depth 1 &quot;https://github.com/lawmurray/Birch.git&quot; || (cd Birch &amp;&amp; git pull &amp;&amp; cd ..)
-  - cd Birch &amp;&amp; ./autogen.sh &amp;&amp; ./configure &amp;&amp; make -j 2 &amp;&amp; sudo make install &amp;&amp; cd ..
-
-  # Checkout Birch.Standard, which may be cached, and (re)build
-  - git clone --depth 1 &quot;https://github.com/lawmurray/Birch.Standard.git&quot; || (cd Birch.Standard &amp;&amp; git pull &amp;&amp; cd ..)
-  - cd Birch.Standard &amp;&amp; birch build &amp;&amp; sudo birch install &amp;&amp; cd ..
-install:
-  - birch build &amp;&amp; sudo birch install
+      export CXXFLAGS="-DBOOST_NO_CXX11_SCOPED_ENUMS";
+      wget http://bitbucket.org/eigen/eigen/get/3.3.4.tar.gz && tar xzf 3.3.4.tar.gz && sudo cp -Rp eigen-eigen-5a0156e40feb /usr/local/include/eigen3;
+    elif [[ "</script>TRAVIS_OS_NAME" == "osx" ]]; then
+      brew install flex bison eigen libomp;
+      brew link --force flex bison;
+    fi</p>
+<p># Checkout Birch, which may be cached, and (re)build
+  - git clone "https://github.com/lawmurray/Birch.git" || cd .
+  - cd Birch &amp;&amp; git checkout master &amp;&amp; git pull &amp;&amp; cd ..
+  - cd Birch &amp;&amp; ./autogen.sh &amp;&amp; ./configure &amp;&amp; make -j 2 &amp;&amp; sudo make install &amp;&amp; cd ..</p>
+<p># Checkout Birch.Standard, which may be cached, and (re)build
+  - git clone "https://github.com/lawmurray/Birch.Standard.git" || cd .
+  - cd Birch.Standard &amp;&amp; git checkout master &amp;&amp; git pull &amp;&amp; cd ..
+  - cd Birch.Standard &amp;&amp; birch build --enable-unity &amp;&amp; sudo birch install --enable-unity &amp;&amp; cd ..</p>
+<p>install:
+  - birch build --enable-unity &amp;&amp; sudo birch install --enable-unity
 script:
   - birch sample --model YourModel --input-file input/input_file.json --output-file output/output_file.json
 cache:
   directories:
     - Birch
     - Birch.Standard
-</code></pre>
-
+```</p>
 <p>This configuration file:</p>
 <ul>
 <li>sets up both macOS and Ubuntu Linux build environments,</li>
 <li>updates <code>gcc</code> and <code>Eigen</code> in the Ubuntu Linux build environment, and</li>
 <li>includes caching of the Birch compiler and Birch standard library so that they are only recompiled when necessary.</li>
 </ul>
-<p>Anecdotally, for <a href="http://www.github.com/lawmurray/Birch.Example">Birch.Example</a> we are observing that tests take about 10 minutes on macOS instances and 20 minutes on Ubuntu Linux instances, reducing to about 4 minutes and 8 minutes when the Birch compiler and Birch standard library do not need to be recompiled.</p>
+<p>Anecdotally, for <a href="http://www.github.com/lawmurray/Birch.Example">Birch.Example</a> we are observing that tests take about 6-8 minutes for each macOS and Ubuntu Linux instances, reducing to about 3-5 minutes when the Birch compiler and Birch standard library do not need to be recompiled. The <code>--enable-unity</code> option is particularly important to speed up the build time on Ubuntu Linux instances, which otherwise take twice as long.</p>
                 
                   
                 
