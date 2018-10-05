@@ -32,15 +32,19 @@ A simple linear-Gaussian state-space model written in Birch.
       y[t] ~ Gaussian(x[t], σ2);
     }
 
+## Talks
 
-## Recent talks
+* [PROBPROG 2018](http://probprog.cc) in Boston. [Lawrence Murray](https://www.indii.org/research) on *Automated learning with a probabilistic programming language: Birch*.
 
 * [AIStats 2018](https://www.aistats.org) in Lanzarote. [Lawrence Murray](https://www.indii.org/research) on *Delayed Sampling and Automatic Rao&ndash;Blackwellization of Probabilistic Programs*. [[slides]](/talks/delayed-sampling-slides.pdf) [[poster]](/talks/delayed-sampling-poster.pdf)
+
 * [BayesComp 2018](https://www.maths.nottingham.ac.uk/personal/tk/bayescomp/) in Barcelona. [Lawrence Murray](https://www.indii.org/research) on *The Birch Probabilistic Programming Language* [[slides]](/talks/the-birch-probabilistic-programming-language-slides.pdf)
 
 ## Papers
 
- * L.M. Murray, D. Lundén, J. Kudlicka, D. Broman and T.B. Schön (2017). [Delayed Sampling and Automatic Rao&ndash;Blackwellization of Probabilistic Programs](https://arxiv.org/abs/1708.07787).
+* L.M. Murray and T.B. Schön (2018). [Automated learning with a probabilistic programming language: Birch](https://arxiv.org/abs/1810.01539). To appear in *Annual Reviews in Control*.
+
+ * L.M. Murray, D. Lundén, J. Kudlicka, D. Broman and T.B. Schön (2018). [Delayed Sampling and Automatic Rao&ndash;Blackwellization of Probabilistic Programs](https://arxiv.org/abs/1708.07787). *Proceedings of the 21st International Conference on Artificial Intelligence and Statistics (AISTATS)*.
 
 ## Acknowledgements
 
