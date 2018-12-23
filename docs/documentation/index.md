@@ -12,10 +12,6 @@
 
     Reference documentation for the standard library, which provides essential functionality for Birch programs, such as math functions, probability distributions, inference methods, model classes, containers, input and output.
 
-  * [Examples](/documentation/examples)
-
-    Reference documentation for the example programs.
-
   * [How To](/documentation/how-to)
 
     How-to guides for using Birch with other software and services.

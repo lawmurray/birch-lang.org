@@ -75,15 +75,15 @@ A [*fiber*](/documentation/language/fibers/) is a particular language construct 
 !!! example "Exercise"
     Enter the following between the curly braces of the `LinearRegressionModel` class:
 
-          fiber simulate() -> Real {
-            N:Integer <- rows(X);
-            P:Integer <- columns(X);
-            if (N > 0 && P > 0) {
-              σ2 ~ InverseGamma(3.0, 0.4);
-              β ~ Gaussian(vector(0.0, P), identity(P)*σ2);
-              y ~ Gaussian(X*β, σ2);
-            }
+        fiber simulate() -> Real {
+          N:Integer <- rows(X);
+          P:Integer <- columns(X);
+          if (N > 0 && P > 0) {
+            σ2 ~ InverseGamma(3.0, 0.4);
+            β ~ Gaussian(vector(0.0, P), identity(P)*σ2);
+            y ~ Gaussian(X*β, σ2);
           }
+        }
 
 Hopefully, this looks similar enough to the equations given above that its meaning is clear. The `if` statement is merely defensive programming: it skips the model for the degenerate situations of no explanatory variables, or no data points.
 
@@ -121,27 +121,35 @@ The file is in [JSON](http://www.json.org) format, which is the current standard
 
 For now, have a look at the contents of the file in a text editor. It contains two variables: a matrix `X` and a vector `y`. We need to get these into our model.
 
-The [Model](/documentation/library/classes/Model) class has a member function called `input` that we can override for this purpose.
+The [Model](/documentation/library/classes/Model) class has a member function called `read` that we can override for this purpose. Similarly, it has a member function called `write` that we can override for output.
 
 !!! example "Exercise"
     Enter the following between the curly braces of the `LinearRegressionModel` class:
 
-          function input(reader:Reader) {
-            X <- reader.getRealMatrix("X")!;
-            y <- reader.getRealVector("y")!;
-          }
+        function read(buffer:Buffer) {
+          X <- buffer.getRealMatrix("X")!;
+          y <- buffer.getRealVector("y")!;
+        }
+
+        function write(buffer:Buffer) {
+          buffer.set("β", β);
+          buffer.set("σ2", σ2);
+        }
 
     Rebuild:
 
         birch build
 
-This reads from the input file into the variables `X` and `y`. The strings `"X"` and `"y"` name elements in the input file. The names correspond in this case, although need not in general.
+This `read` member function reads from the input file into the variables `X` and `y`. The strings `"X"` and `"y"` name elements in the input file. While the names correspond in this case, they need not in general. Similarly, the `write` function writes to the output file.
 
-The [Reader](/documentation/library/classes/Reader) class provides the interface for easily consuming these. Its member functions return [*optionals*](/documentation/language/optionals/), as the requested variable may not exist in the file, or may not have the correct type. We are being somewhat lazy with the above code by using the `!` operator after each call, essentially assuming that the variables do exist.
+!!! tip
+    We have not used Greek letters in the names of variables that appear in the file. We would like to, but this appears unsupported by some other software (such as MATLAB) when reading in the file.
+
+The [Buffer](/documentation/library/classes/Buffer) class provides the interface for easily reading and writing these. Its `get()` style member functions return [*optionals*](/documentation/language/optionals/), as the requested variable may not exist in the file, or may not have the correct type. We are being somewhat lazy with the above code by using the `!` operator after each call, essentially assuming that the variables do exist.
 
 Optionals are quite common in Birch code. They are useful for handling missing values. A more idiomatic usage is as follows:
 
-    Z:Real[_,_]? <- reader.getRealMatrix("X");
+    Z:Real[_,_]? <- buffer.getRealMatrix("X");
     if (Z?) {
       X <- Z!;
     }
@@ -151,43 +159,16 @@ The `?` after the type declares an optional variable, the `?` operator in the `i
 
 ## Inference
 
-We can run the model with
-
-    birch sample --model LinearRegressionModel --input-file input/bike_share.json
-
-This will in fact perform inference, but will not yet produce any output. We need to output results to a file. The [Model](/documentation/library/classes/Model) class has a member function called `output` that we can override for this purpose.
-
-!!! example "Exercise"
-    Enter the following between the curly braces of the `LinearRegressionModel` class:
-
-          function output(writer:Writer) {
-            writer.setRealVector("beta", β);
-            writer.setReal("sigma2", σ2);
-          }
-
-    Rebuild:
-
-        birch build
-
-We have not used Greek letters in the names of variables that appear in the file. We would like to, but this appears unsupported by some other software (such as MATLAB) when reading in the file.
-
-We can now run the model.
-
 !!! example "Exercise"
     Sample from the posterior distribution with the command:
 
         birch sample \
             --model LinearRegressionModel \
-            --input-file input/bike_share.json \
-            --output-file output/bike_share.json \
-            --nsamples 5
-
-The particular model that we have written has an analytical solution, and has been written in such a way that Birch will recognise this and compute it accordingly via its delayed sampling mechanism[^2]. For output, however, it will sample from this distribution.
-
-The above command will output five samples from the posterior distribution to `output/bike_share.json`.
+            --input input/bike_share.json \
+            --output output/linear_regression.json
 
 !!! tip
-    Debugging mode is enabled by default, which dramatically slows down execution times. It is recommended that you keep debugging mode enabled when developing and testing code (perhaps on small problems), but disable it when running tested code.
+    Debugging mode is enabled by default, which dramatically slows down execution times when running `birch`. It is recommended that you keep debugging mode enabled when developing and testing code (perhaps on small problems), but disable it when running tested code.
 
     To disable it, you must rebuild both the standard library and your project with the `--disable-debug` option:
 
@@ -196,16 +177,18 @@ The above command will output five samples from the posterior distribution to `o
 
     This will be streamlined in future.
 
-You can open the `output/bike_share.json` file in a text editor to inspect the results.
+The particular model that we have written has an analytical solution, and has been written in such a way that Birch will recognise this and compute it accordingly via its delayed sampling heuristic[^2]. For output, however, it will sample from this distribution, being the mission of the `sample` program (and the entirety of Birch, at this stage). The above command will output one sample from the posterior distribution to `output/linear_regression.json`. You can open this in a text editor to inspect the result.
 
-Birch does not yet include a facility for plotting. It is expected, at least for now, that you will use an environment such as MATLAB, R, or Julia for this task.
+Birch does not yet include a facility for plotting (although see the [Birch.Cairo](https://www.github.com/lawmurray/Birch.Cairo) package for basic 2d graphics functionality based on the [Cairo](https://cairographics.org) library). You can use an environment such as MATLAB, R, or Julia for this task.
+
+Keep in mind when inspecting the result that you are seeing a *single posterior sample* in this output file, not a mean or any other summary.
 
 !!! tip
     In MATLAB, using [JSONlab](https://www.mathworks.com/matlabcentral/fileexchange/33381-jsonlab--a-toolbox-to-encode-decode-json-files), you can plot the results with something like this:
 
         % read in files
         input = loadjson('input/bike_share.json');
-        output = loadjson('output/bike_share.json');
+        output = loadjson('output/linear_regression.json');
 
         % predict
         Z = [];

@@ -45,25 +45,19 @@ To specify this model in Birch, we again need to create a class that inherits fr
 As well as easing implementation, the other advantage of [MarkovModel](/documentation/library/classes/MarkovModel) is that it reveals something about the structure of the model, which may be useful to enable, or optimize, specific inference methods. It is expected that more classes for specific model structures, and more methods to make use of them, will be available in future.
 
 !!! example "Exercise"
-    Create a file `bi/SIRModel.bi`, add it to `META.json`, and enter the following:
+    Create a file `bi/SIRModel.bi`, add it to `META.json`.
 
-        /**
-         * SIR (susceptible-infectious-recovered) model.
-         */
-        class SIRModel = MarkovModel<SIRState,SIRParameter>;
+[MarkovModel](/documentation/library/classes/MarkovModel) is a [*generic*](/documentation/language/classes/#generic-parameters) class. It requires two other classes, one to contain the parameters of the model, and one to contain the state variables of the model. We will create these classes first, to be called `SIRParameter` and `SIRState`, respectively. We will then specify the parameter, initial and transition models in a class `SIRModel`, to inherit from `MarkovModel<SIRParameter,SIRState>`.
 
-[MarkovModel](/documentation/library/classes/MarkovModel) is a *generic* class. It takes the name of two other classes between the angle brackets&mdash;in this case `SIRState` and `SIRParameter`&mdash;which it uses internally. We will create these classes below. Otherwise, this code is just establishing the name `SIRModel` as an alias for `MarkovModel<SIRState,SIRParameter>`: two names for the same type.
-
-We will start with the `SIRParameter` class. This is the parameter model. It must inherit from [Parameter](/documentation/library/classes/Parameter). The [Parameter](/documentation/library/classes/Parameter) class is very similar to the [Model](/documentation/library/classes/Model) class, but it provides a `parameter` member fiber that must be overriden to define the parameter model.
-
+We will start with the `SIRParameter` class.
 
 !!! example "Exercise"
-    Create a file `bi/SIRParameter.bi`, add it to `META.json`, and enter the following:
+    Add the following code to the file `bi/SIRModel.bi`:
 
         /**
          * SIR model parameters.
          */
-        class SIRParameter < Parameter {
+        class SIRParameter {
           /**
            * Interaction rate.
            */
@@ -79,36 +73,30 @@ We will start with the `SIRParameter` class. This is the parameter model. It mus
            */
           γ:Random<Real>;
 
-          fiber parameter() -> Real {
-            λ <- 10.0;
-            δ ~ Beta(2.0, 2.0);
-            γ ~ Beta(2.0, 2.0);
+          function read(buffer:Buffer) {
+            buffer.get("λ", λ);
+            buffer.get("δ", δ);
+            buffer.get("γ", γ);
           }
 
-          function input(reader:Reader) {
-            λ <- reader.getReal("λ");
-            δ <- reader.getReal("δ");
-            γ <- reader.getReal("γ");
-          }
-
-          function output(writer:Writer) {
-            writer.setReal("λ", λ);
-            writer.setReal("δ", δ);
-            writer.setReal("γ", γ);
+          function write(buffer:Buffer) {
+            buffer.set("λ", λ);
+            buffer.set("δ", δ);
+            buffer.set("γ", γ);
           }
         }
 
-Recall the typical structure of this class from the [Bayesian linear regression](/tutorial/bayesian-linear-regresssion) example: random variables as member variables, the `simulate` member fiber, the `input` and `output` member functions.
+This just groups all the parameters into one class, and overrides the standard `read` and `write` member functions.
 
-The `SIRState` class must inherit from [State](/documentation/library/classes/State). The [State](/documentation/library/classes/State) class is very similar to the [Model](/documentation/library/classes/Model) class, but it provides two separate member fibers `initial` and `transition` that must be overridden to define the initial and transition models, respectively.
+The `SIRState` class is similar.
 
 !!! example "Exercise"
-    Create a file `bi/SIRState.bi`, add it to `META.json`, and enter the following:
+    Add the following code to the file `bi/SIRModel.bi`:
 
         /**
          * SIR model state.
          */
-        class SIRState < State {
+        class SIRState {
           /**
            * Number of susceptible-infectious interactions.
            */
@@ -139,46 +127,69 @@ The `SIRState` class must inherit from [State](/documentation/library/classes/St
            */
           r:Random<Integer>;
 
-          fiber initial(θ:SIRParameter) -> Real {
-            //
+          function read(buffer:Buffer) {
+            buffer.get("Δi", Δi);
+            buffer.get("Δr", Δr);
+            buffer.get("s", s);
+            buffer.get("i", i);
+            buffer.get("r", r);
           }
 
-          fiber transition(x:SIRState, θ:SIRParameter) -> Real {
-            τ ~ Binomial(x.s, 1.0 - exp(-θ.λ*x.i/(x.s + x.i + x.r)));
-            Δi ~ Binomial(τ, θ.δ);
-            Δr ~ Binomial(x.i, θ.γ);
-
-            s ~ Delta(x.s - Δi);
-            i ~ Delta(x.i + Δi - Δr);
-            r ~ Delta(x.r + Δr);
-          }
-
-          function input(reader:Reader) {
-            Δi <- reader.getInteger("Δi");
-            Δr <- reader.getInteger("Δr");
-            s <- reader.getInteger("s");
-            i <- reader.getInteger("i");
-            r <- reader.getInteger("r");
-          }
-
-          function output(writer:Writer) {
-            writer.setInteger("Δi", Δi);
-            writer.setInteger("Δr", Δr);
-            writer.setInteger("s", s);
-            writer.setInteger("i", i);
-            writer.setInteger("r", r);
+          function write(buffer:Buffer) {
+            buffer.set("Δi", Δi);
+            buffer.set("Δr", Δr);
+            buffer.set("s", s);
+            buffer.set("i", i);
+            buffer.set("r", r);
           }
         }
 
-Notice the two member fibers in the above code:
+This just groups all the state variables into one class, and overrides the standard `read` and `write` member functions. Note that it represents a *single* state of the model. The `MarkovModel` class will handle state trajectories for us.
 
-    fiber initial(θ:SIRParameter) -> Real;
-    fiber transition(x:SIRState, θ:SIRParameter) -> Real;
+Finally, we create the class `SIRModel`, where most of the work happens. This inherits from `MarkovModel<SIRParameter,SIRState>`. It must implement member fibers `parameter`, `initial` and `transition` to specify the Markov model.
+
+!!! example "Exercise"
+    Add the following code to the file `bi/SIRModel.bi`:
+
+        /**
+         * SIR model.
+         */
+        class SIRModel < MarkovModel<SIRParameter,SIRState> {
+          fiber parameter(θ:SIRParameter) -> Real {
+            θ.λ ~ Gamma(2.0, 5.0);
+            θ.δ ~ Beta(2.0, 2.0);
+            θ.γ ~ Beta(2.0, 2.0);
+          }
+
+          fiber initial(x:SIRState, θ:SIRParameter) -> Real {
+            //
+          }
+
+          fiber transition(x':SIRState, x:SIRState, θ:SIRParameter) -> Real {
+            x'.τ ~ Binomial(x.s, 1.0 - exp(-θ.λ*x.i/(x.s + x.i + x.r)));
+            x'.Δi ~ Binomial(x'.τ, θ.δ);
+            x'.Δr ~ Binomial(x.i, θ.γ);
+
+            x'.s ~ Delta(x.s - x'.Δi);
+            x'.i ~ Delta(x.i + x'.Δi - x'.Δr);
+            x'.r ~ Delta(x.r + x'.Δr);
+          }
+        }
+
+Notice the three member fibers in the above code:
+
+    fiber parameter(θ:SIRParameter) -> Real;
+    fiber initial(x:SIRState, θ:SIRParameter) -> Real;
+    fiber transition(x':SIRState, x:SIRState, θ:SIRParameter) -> Real;
 
 As suggested by their names and parameters:
 
-  * the first is for the initial model, providing the parameters as the `θ` argument,
-  * the second is for the transition model, providing both the previous state as the `x` argument and the parameters as the `θ` argument.
+  * the first is for the parameter model, providing the parameters as the `θ` argument,
+  * the second is for the initial model, providing the initial state as the `x` argument, and parameters as the `θ` argument,
+  * the third is for the transition model, providing the current state as the `x'` argument, the previous state as the `x` argument, and the parameters as the `θ` argument.
+
+!!! tip
+    Here, `x'` is just the name of a variable. The prime `'` is a valid character for variable names in Birch, useful where it might also be used in mathematics.
 
 The initial model is empty by choice. While we could implement the initial model described above, it is specific to the data set that we will use. We would prefer not to hardcode it, in order that we might reuse this model for other data sets. Instead, we have elected to include the initial state in the input file that we will set up below.
 
@@ -203,26 +214,32 @@ Have a look at the contents of the file in a text editor. It contains an array o
 
 ## Inference
 
-We can now run the model.
+We are nearly ready to perform inference. Unlike the [linear regression](/documentation/tutorial/linear-regression) example, there is no exact analytical solution for this model that can be computed in reasonable time. A particle filter will be used for inference instead. Nevertheless, the delayed sampling[^2] heuristic in Birch will find some local analytical optimizations and automatically apply them. These include marginalizing out the parameters $\delta$ and $\gamma$, and enumerating sums and differences of binomials.
+
+The particle filter requires some configuration. This is provided in a configuration file.
+
+!!! example "Exercise"
+    Create a file `config/sir_model.json`, add it to `META.json`, and enter the following contents:
+
+        {
+          "nsamples": 10,
+          "nparticles": 128
+        }
+
+This simply sets the number of posterior samples to draw, and the number of particles to use when running the particle filter.
+
+Now we can perform inference.
 
 !!! example "Exercise"
     Sample from the posterior distribution with
 
         birch sample \
           --model SIRModel \
-          --input-file input/russian_influenza.json \
-          --output-file output/russian_influenza.json \
-          --ncheckpoints 14 \
-          --nparticles 100 \
-          --nsamples 10
+          --config config/sir_model.json \
+          --input input/russian_influenza.json \
+          --output output/sir_model.json
 
-The new command-line option  `--ncheckpoints` gives the number of *checkpoints* for which to run. In the case of a model that inherits from [MarkovModel](/documentation/library/classes/MarkovModel), as here, this is interpreted as the number of states. The numbers that appear in the terminal are simply ticking off these checkpoints as the sampler proceeds.
-
-Unlike the [previous example](/documentation/tutorial/linear-regression), there is no exact analytical solution for this model that can be computed in reasonable time. A particle filter is used for inference instead. The new command-line option `--nparticles` gives the number of particles to use in the particle filter.
-
-The delayed sampling[^2] mechanism in Birch automatically applies some analytical optimizations in this case too. These include marginalizing out the parameters $\delta$ and $\gamma$, and enumerating sums and differences of binomials.
-
-As before, you can inspect the results of the inference in `output/russian_influenza.json`, and perhaps plot them in a package such as MATLAB, R, or Julia. Be aware that the output here is an *importance sample*. Each sample is assigned a weight, the logarithm of which is given by the associated *weight* element in the output file.
+As before, you can inspect the results of the inference in `output/sir_model.json`, and perhaps plot them. Be aware that the output here is an *importance sample*. Each sample is assigned a weight, the logarithm of which is given by the associated `lweight` element in the output file.
 
 [^1]: Anonymous (1978). Influenza in a boarding school. *British Medical Journal*. **1**:587.
 

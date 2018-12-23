@@ -1,5 +1,6 @@
     - 'How To':
-      - documentation/how-to.md
+      - 'Birch How-To Guides': documentation/how-to/index.md
       - 'Use the Eclipse IDE': documentation/how-to/using-eclipse.md
       - 'Use Travis CI': documentation/how-to/using-travis-ci.md
       - 'Draw 2d graphics with Cairo': documentation/how-to/2d-graphics-with-cairo.md
+  - 'About': about/index.md

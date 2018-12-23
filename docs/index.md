@@ -1,6 +1,6 @@
 # Probabilistic Programming in Birch
 
-![Birch tree](/images/trunk.jpg)
+![Birch forest](/images/forest.jpg)
 
 Birch is an imperative, object-oriented, universal probabilistic
 programming language. It compiles to C++14 for Linux, macOS, and
@@ -13,7 +13,6 @@ analytical optimizations&mdash;such as locally-optimal proposals and
 Rao&ndash;Blackwellization&mdash;applied automatically.
 
 See [Getting Started](/getting-started/installing.md) to try it yourself.
-
 
 ## Example
 
@@ -42,10 +41,6 @@ A simple linear-Gaussian state-space model written in Birch.
 
 ## Papers
 
-* L.M. Murray and T.B. Schön (2018). [Automated learning with a probabilistic programming language: Birch](https://arxiv.org/abs/1810.01539). To appear in *Annual Reviews in Control*.
+* L.M. Murray and T.B. Schön (2018). [Automated learning with a probabilistic programming language: Birch](https://dx.doi.org/10.1016/j.arcontrol.2018.10.013). *Annual Reviews in Control* **46**:29--43. [[arxiv]](https://arxiv.org/abs/1810.01539)
 
  * L.M. Murray, D. Lundén, J. Kudlicka, D. Broman and T.B. Schön (2018). [Delayed Sampling and Automatic Rao&ndash;Blackwellization of Probabilistic Programs](https://arxiv.org/abs/1708.07787). *Proceedings of the 21st International Conference on Artificial Intelligence and Statistics (AISTATS)*.
-
-## Acknowledgements
-
-The development of Birch is financially supported by the [Swedish Foundation for Strategic Research](https://strategiska.se/en/) (SSF) via the project [ASSEMBLE](http://www.it.uu.se/research/assemble).

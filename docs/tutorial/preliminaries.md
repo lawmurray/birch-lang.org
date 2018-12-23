@@ -15,11 +15,12 @@ This creates the standard files and subdirectories for a Birch project. It is re
 The standard structure for Birch projects consists of the subdirectories:
 
   * `bi/` for source code,
-  * `build/` for build artefacts (managed by Birch),
-  * `input/` for input files,
+  * `build/` for build artifacts (managed by Birch),
+  * `config/` for configuration files, typically setting various options for a chosen inference method,
+  * `input/` for input files, and
   * `output/` for output files.
 
-and a number of other meta files in the base directory. The most important of these meta files is [`META.json`](/documentation/driver/meta_file.md), which contains meta information such as a name, version, and description of the project, and a manifest of files. As you add files to the project you should add them to this [`META.json`](/documentation/driver/meta_file.md) file. This is particularly important for `*.bi` source files in the `bi/` subdirectory, so that they are included when building.
+and a number of other meta files in the base directory. The most important of these meta files is [`META.json`](/documentation/driver/meta_file), which contains meta information such as a name, version, and description of the project, and a manifest of files. As you add files to the project you should add them to this [`META.json`](/documentation/driver/meta_file) file. This is particularly important for `*.bi` source files in the `bi/` subdirectory, so that they are included when building.
 
 !!! tip
     Now is a good time to set up version control with this initial set of files. For Git:
@@ -42,11 +43,13 @@ When building, Birch will create a number of additional files in the current wor
 
     birch clean
 
-To check for possible issues, e.g. files missing from [`META.json`](/documentation/driver/meta_file.md) or files listed there that do not exist, use:
+To check for possible issues, e.g. files missing from [`META.json`](/documentation/driver/meta_file) or files listed there that do not exist, use:
 
     birch check
 
 No output indicates no issues.
+
+By convention, packages will also set up `birch run` to perform some interesting task to demonstrate the functionality of the package, although this may or may not be supported by a package.
 
 More information on these commands is available in the documentation of the [driver](/documentation/driver) program.
 
@@ -69,7 +72,7 @@ Comments are written in Birch by either enclosing the comment text with `/*` and
 
 The special `/**` `*/` comment used above acts like an ordinary comment, but is extracted by the [docs](/documentation/driver/commands/docs) command to create reference documentation for your project. It is recommended that you use such a comment for all classes and functions that should be visible to a user of your package.
 
-Recall that it is important to add all source files to the [`META.json`](/documentation/driver/meta_file.md) file in order to include them in the build.
+Recall that it is important to add all source files to the [`META.json`](/documentation/driver/meta_file) file in order to include them in the build.
 
 !!! example "Exercise"
     Open the `META.json` file of your project and add `bi/TestModel.bi` to the list under `manifest.source`. It should then look something like this:
@@ -104,6 +107,6 @@ If you receive an error message at this point, there may be a problem with your 
 
         birch sample --model TestModel
 
-If this succeeds, you will see an output of zero (this is the marginal log-likelihood of the model---zero for no observations). If this produces an error message, there may be a problem with your installation.
+If this succeeds, you will see some basic output giving the marginal log-likelihood of the run (zero for no observations). If this produces an error message, there may be a problem with your installation.
 
 The [sample](/documentation/library/programs/sample) program that you have just run is part of the Birch standard library. It provides a common interface to the available inference methods.

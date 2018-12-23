@@ -24,7 +24,7 @@ extra:
 google_analytics:
   - 'UA-115470196-1'
   - 'auto'
-pages:
+nav:
   - 'Home': index.md
   - 'Getting Started':
     - 'Installing': getting-started/installing.md
@@ -34,15 +34,15 @@ pages:
       - 'macOS': getting-started/macos.md
       - 'Windows 10': getting-started/windows.md
   - 'Tutorial':
-    - tutorial.md
+    - 'The Birch Tutorial': tutorial/index.md
     - 'Exercise #1: Preliminaries': tutorial/preliminaries.md
     - 'Exercise #2: Linear regression': tutorial/linear-regression.md
     - 'Exercise #3: Markov model': tutorial/markov-model.md
-    - 'Next steps': tutorial/next-steps.md
+    - 'Further reading': tutorial/further-reading.md
   - 'Documentation':
-    - documentation.md
+    - 'Birch Documentation': documentation/index.md
     - 'Language':
-      - documentation/language.md
+      - 'The Birch Language': documentation/language/index.md
       - 'Comments': documentation/language/comments.md
       - 'Variables': documentation/language/variables.md
       - 'Types': documentation/language/types.md
@@ -63,7 +63,7 @@ pages:
       - 'Weak References': documentation/language/weak_references.md
       - 'Special Topics': documentation/language/special_topics.md
     - 'Driver':
-      - documentation/driver.md
+      - 'The Birch Driver Program': documentation/driver/index.md
       - 'Meta file': documentation/driver/meta_file.md
       - 'Commands':
         - 'init': documentation/driver/commands/init.md
