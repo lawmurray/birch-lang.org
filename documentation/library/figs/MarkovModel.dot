@@ -2,17 +2,17 @@ digraph {
   graph [layout=dot]
   node [shape=circle]
 
-  θ [label=<<i>θ</i>>]
-  x0 [label=<<i>x</i><sub>0</sub>>]
-  x1 [label=<<i>x</i><sub>1</sub>>]
-  x2 [label=<<i>x</i><sub>2</sub>>]
-  x3 [label=<<i>x</i><sub>3</sub>>]
+  Θ [label=<<i>Θ</i>>]
+  X0 [label=<<i>X</i><sub>0</sub>>]
+  X1 [label=<<i>X</i><sub>1</sub>>]
+  X2 [label=<<i>X</i><sub>2</sub>>]
+  X3 [label=<<i>X</i><sub>3</sub>>]
 
-  θ -> x0
-  θ -> x1
-  θ -> x2
-  θ -> x3
-  x0 -> x1 -> x2 -> x3
+  Θ -> X0
+  Θ -> X1
+  Θ -> X2
+  Θ -> X3
+  X0 -> X1 -> X2 -> X3
 
-  {rank=same; x0 x1 x2 x3}
+  {rank=same; X0 X1 X2 X3}
 }
