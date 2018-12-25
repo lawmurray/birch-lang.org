@@ -30,4 +30,4 @@ Then configure the Bash shell:
     apt-get update
     ```
 
-With the Bash shell now working, follow the instructions for [Ubuntu Linux](/getting-started/ubuntu.md) to install dependencies.
+With the Bash shell now working, follow the instructions for [Ubuntu Linux](/getting-started/ubuntu) to install dependencies.

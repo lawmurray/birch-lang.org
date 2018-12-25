@@ -1,3 +1,15 @@
+    - 'Driver':
+      - 'The Birch Driver Program': documentation/driver/index.md
+      - 'Meta file': documentation/driver/meta_file.md
+      - 'Commands':
+        - 'init': documentation/driver/commands/init.md
+        - 'check': documentation/driver/commands/check.md
+        - 'build': documentation/driver/commands/build.md
+        - 'install': documentation/driver/commands/install.md
+        - 'uninstall': documentation/driver/commands/uninstall.md
+        - 'dist': documentation/driver/commands/dist.md
+        - 'docs': documentation/driver/commands/docs.md
+        - 'clean': documentation/driver/commands/clean.md
     - 'How To':
       - 'Birch How-To Guides': documentation/how-to/index.md
       - 'Use the Eclipse IDE': documentation/how-to/using-eclipse.md

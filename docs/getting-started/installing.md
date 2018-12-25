@@ -19,7 +19,7 @@ Birch requires:
   * the Boost libraries, and
   * the Eigen 3 linear algebra library.
 
-These are all widely available through package managers. See the guides for [Ubuntu Linux](/getting-started/ubuntu.md), [macOS](/getting-started/macos.md) and [Windows 10](/getting-started/windows.md).
+These are all widely available through package managers. See the guides for [Ubuntu Linux](/getting-started/ubuntu/), [macOS](/getting-started/macos/) and [Windows 10](/getting-started/windows).
 
 ## Install the compiler
 

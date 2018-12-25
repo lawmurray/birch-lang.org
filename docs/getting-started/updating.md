@@ -1,7 +1,7 @@
 # Updating
 
 !!! tip
-    [Using Eclipse](/documentation/how-to/using-eclipse.md) can help streamline updates.
+    [Using Eclipse](/documentation/how-to/using-eclipse/) can help streamline updates.
 
 The development version of Birch is frequently updated with new features and bug fixes. This is especially so at the moment, as development has not yet matured to a stable release.
 
@@ -9,7 +9,7 @@ To check for updates at any time, use
 
     git pull
 
-from within each of the `Birch`, `Birch.Standard` and `Birch.Example` directories that you created when [installing](/getting-started/installing). If new updates are retrieved, you will need to recompile.
+from within each of the `Birch`, `Birch.Standard` and `Birch.Example` directories that you created when [installing](/getting-started/installing/). If new updates are retrieved, you will need to recompile.
 
 For `Birch`, use:
 

@@ -12,7 +12,7 @@ Birch. Sequential Monte Carlo (SMC) is currently supported, with
 analytical optimizations&mdash;such as locally-optimal proposals and
 Rao&ndash;Blackwellization&mdash;applied automatically.
 
-See [Getting Started](/getting-started/installing.md) to try it yourself.
+See [Getting Started](/getting-started/installing) to try it yourself.
 
 ## Example
 
