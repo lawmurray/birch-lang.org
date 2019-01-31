@@ -59,7 +59,7 @@ before_install:
 install:
   - birch build --enable-unity && sudo birch install --enable-unity
 script:
-  - birch sample --model YourModel --input-file input/input_file.json --output-file output/output_file.json
+  - birch run
 cache:
   directories:
     - Birch
