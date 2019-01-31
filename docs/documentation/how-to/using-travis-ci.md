@@ -41,18 +41,19 @@ before_install:
       export CXXFLAGS="-DBOOST_NO_CXX11_SCOPED_ENUMS";
       wget http://bitbucket.org/eigen/eigen/get/3.3.4.tar.gz && tar xzf 3.3.4.tar.gz && sudo cp -Rp eigen-eigen-5a0156e40feb /usr/local/include/eigen3;
     elif [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
+      export HOMEBREW_NO_AUTO_UPDATE=1;
       brew install flex bison eigen libomp;
       brew link --force flex bison;
     fi
 
   # Checkout Birch, which may be cached, and (re)build
   - git clone "https://github.com/lawmurray/Birch.git" || cd .
-  - cd Birch && git checkout master && git pull && cd ..
+  - cd Birch && git pull && git checkout master && cd ..
   - cd Birch && ./autogen.sh && ./configure && make -j 2 && sudo make install && cd ..
 
   # Checkout Birch.Standard, which may be cached, and (re)build
   - git clone "https://github.com/lawmurray/Birch.Standard.git" || cd .
-  - cd Birch.Standard && git checkout master && git pull && cd ..
+  - cd Birch.Standard && git pull && git checkout master && cd ..
   - cd Birch.Standard && birch build --enable-unity && sudo birch install --enable-unity && cd ..
 
 install:
