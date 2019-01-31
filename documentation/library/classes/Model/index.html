@@ -2,7 +2,7 @@
 
 
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="no-js">
   <head>
     
@@ -34,7 +34,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.0.4">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.2.0">
     
     
       
@@ -42,7 +42,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/application.451f80e5.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/application.572ca0f0.css">
       
         <link rel="stylesheet" href="../../../../assets/stylesheets/application-palette.22915126.css">
       
@@ -53,7 +53,7 @@
       
     
     
-      <script src="../../../../assets/javascripts/modernizr.1aa3b519.js"></script>
+      <script src="../../../../assets/javascripts/modernizr.8c900955.js"></script>
     
     
       
@@ -63,6 +63,7 @@
       
     
     <link rel="stylesheet" href="../../../../assets/fonts/material-icons.css">
+    
     
     
   </head>
@@ -81,7 +82,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="../../../../#member-variables" tabindex="1" class="md-skip">
+      <a href="#member-functions" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -1656,6 +1657,18 @@
   <li class="md-nav__item">
     <a href="../../functions/inv/" title="inv" class="md-nav__link">
       inv
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/iota/" title="iota" class="md-nav__link">
+      iota
     </a>
   </li>
 
@@ -4355,13 +4368,6 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#member-variables" title="Member Variables" class="md-nav__link">
-    Member Variables
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#member-functions" title="Member Functions" class="md-nav__link">
     Member Functions
   </a>
@@ -4390,20 +4396,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#start" title="start" class="md-nav__link">
-    start
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step" title="step" class="md-nav__link">
-    step
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -4416,6 +4408,13 @@
   
     <nav class="md-nav">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#propose" title="propose" class="md-nav__link">
+    propose
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#simulate" title="simulate" class="md-nav__link">
@@ -5014,13 +5013,6 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#member-variables" title="Member Variables" class="md-nav__link">
-    Member Variables
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#member-functions" title="Member Functions" class="md-nav__link">
     Member Functions
   </a>
@@ -5049,20 +5041,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#start" title="start" class="md-nav__link">
-    start
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step" title="step" class="md-nav__link">
-    step
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -5075,6 +5053,13 @@
   
     <nav class="md-nav">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#propose" title="propose" class="md-nav__link">
+    propose
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#simulate" title="simulate" class="md-nav__link">
@@ -5112,21 +5097,6 @@
 <p class="admonition-title">class Model &lt; <a href="../Object/">Object</a></p>
 <p>Base class for all models.</p>
 </div>
-<h3 id="member-variables">Member Variables</h3>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>f:<a href="../../types/#Real">Real</a>!</td>
-<td>Fiber handle for incremental simulation.</td>
-</tr>
-</tbody>
-</table>
 <h3 id="member-functions">Member Functions</h3>
 <table>
 <thead>
@@ -5139,14 +5109,6 @@
 <tr>
 <td><a href="#checkpoints">checkpoints</a></td>
 <td>Get the natural number of checkpoints for this model as configured, if this can be known in advance.</td>
-</tr>
-<tr>
-<td><a href="#start">start</a></td>
-<td>Start incremental simulation.</td>
-</tr>
-<tr>
-<td><a href="#step">step</a></td>
-<td>Continue incremental simulation.</td>
 </tr>
 </tbody>
 </table>
@@ -5163,6 +5125,10 @@
 <td><a href="#simulate">simulate</a></td>
 <td>Simulate.</td>
 </tr>
+<tr>
+<td><a href="#propose">propose</a></td>
+<td>Propose.</td>
+</tr>
 </tbody>
 </table>
 <h3 id="member-function-details">Member Function Details</h3>
@@ -5173,22 +5139,13 @@
 <p>Get the natural number of checkpoints for this model as configured, if
 this can be known in advance.</p>
 </div>
-<h4 id="start">start</h4>
-<p><a name="start"></a></p>
-<div class="admonition quote">
-<p class="admonition-title">function start() -&gt; <a href="../../types/#Real">Real</a></p>
-<p>Start incremental simulation. This is an alternative interface to the
-<code>simulate()</code> fiber. Use <code>start()</code> to begin an incremental simulation,
-returning the first weight. Use <code>step()</code> repeatedly to continue the
-simulation, returning each additional weight.</p>
-</div>
-<h4 id="step">step</h4>
-<p><a name="step"></a></p>
-<div class="admonition quote">
-<p class="admonition-title">function step() -&gt; <a href="../../types/#Real">Real</a></p>
-<p>Continue incremental simulation.</p>
-</div>
 <h3 id="member-fiber-details">Member Fiber Details</h3>
+<h4 id="propose">propose</h4>
+<p><a name="propose"></a></p>
+<div class="admonition quote">
+<p class="admonition-title">fiber propose(m:<a href="./">Model</a>) -&gt; <a href="../../types/#Real">Real</a></p>
+<p>Propose.</p>
+</div>
 <h4 id="simulate">simulate</h4>
 <p><a name="simulate"></a></p>
 <div class="admonition quote">
@@ -5273,7 +5230,7 @@ simulation, returning each additional weight.</p>
       
     </div>
     
-      <script src="../../../../assets/javascripts/application.583bbe55.js"></script>
+      <script src="../../../../assets/javascripts/application.b41f3d20.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../../.."}})</script>
       
@@ -5282,7 +5239,8 @@ simulation, returning each additional weight.</p>
     
     
       
-        <script>!function(e,a,t,n,o,c,i){e.GoogleAnalyticsObject=o,e.ga=e.ga||function(){(e.ga.q=e.ga.q||[]).push(arguments)},e.ga.l=1*new Date,c=a.createElement(t),i=a.getElementsByTagName(t)[0],c.async=1,c.src="https://www.google-analytics.com/analytics.js",i.parentNode.insertBefore(c,i)}(window,document,"script",0,"ga"),ga("create","UA-115470196-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview");var links=document.getElementsByTagName("a");if(Array.prototype.map.call(links,function(e){e.host!=document.location.host&&e.addEventListener("click",function(){var a=e.getAttribute("data-md-action")||"follow";ga("send","event","outbound",a,e.href)})}),document.forms.search){var query=document.forms.search.query;query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}</script>
+        <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-115470196-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview");var links=document.getElementsByTagName("a");if(Array.prototype.map.call(links,function(a){a.host!=document.location.host&&a.addEventListener("click",function(){var e=a.getAttribute("data-md-action")||"follow";ga("send","event","outbound",e,a.href)})}),document.forms.search){var query=document.forms.search.query;query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
       
     
   </body>

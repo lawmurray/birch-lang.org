@@ -2,7 +2,7 @@
 
 
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="no-js">
   <head>
     
@@ -34,7 +34,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.0.4">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.2.0">
     
     
       
@@ -42,7 +42,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/application.451f80e5.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/application.572ca0f0.css">
       
         <link rel="stylesheet" href="../../../../assets/stylesheets/application-palette.22915126.css">
       
@@ -53,7 +53,7 @@
       
     
     
-      <script src="../../../../assets/javascripts/modernizr.1aa3b519.js"></script>
+      <script src="../../../../assets/javascripts/modernizr.8c900955.js"></script>
     
     
       
@@ -63,6 +63,7 @@
       
     
     <link rel="stylesheet" href="../../../../assets/fonts/material-icons.css">
+    
     
     
   </head>
@@ -81,7 +82,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="../../../../#member-variables" tabindex="1" class="md-skip">
+      <a href="#member-variables" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -1656,6 +1657,18 @@
   <li class="md-nav__item">
     <a href="../../functions/inv/" title="inv" class="md-nav__link">
       inv
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/iota/" title="iota" class="md-nav__link">
+      iota
     </a>
   </li>
 
@@ -4521,8 +4534,36 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#copy" title="copy" class="md-nav__link">
+    copy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#finish" title="finish" class="md-nav__link">
     finish
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#propagate" title="propagate" class="md-nav__link">
+    propagate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reduce" title="reduce" class="md-nav__link">
+    reduce
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resample" title="resample" class="md-nav__link">
+    resample
   </a>
   
 </li>
@@ -5009,8 +5050,36 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#copy" title="copy" class="md-nav__link">
+    copy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#finish" title="finish" class="md-nav__link">
     finish
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#propagate" title="propagate" class="md-nav__link">
+    propagate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reduce" title="reduce" class="md-nav__link">
+    reduce
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resample" title="resample" class="md-nav__link">
+    resample
   </a>
   
 </li>
@@ -5070,40 +5139,44 @@ or Rao--Blackwellized particle filter.</p>
 </thead>
 <tbody>
 <tr>
-<td>nparticles:<a href="../../types/#Integer">Integer</a></td>
-<td>Number of particles.</td>
-</tr>
-<tr>
-<td>trigger:<a href="../../types/#Real">Real</a></td>
-<td>Threshold for resampling. Resampling is performed whenever the effective sample size, as a proportion of <code>nparticles</code>, drops below this threshold.</td>
-</tr>
-<tr>
 <td>f:(<a href="../Model/">Model</a>, <a href="../../types/#Real">Real</a>)![_]</td>
-<td>Particles.</td>
+<td>Particle fibers.</td>
 </tr>
 <tr>
-<td>s:<a href="../Model/">Model</a>[_]</td>
-<td>Samples.</td>
+<td>x:<a href="../Model/">Model</a>[_]</td>
+<td>Particles.</td>
 </tr>
 <tr>
 <td>w:<a href="../../types/#Real">Real</a>[_]</td>
 <td>Log-weights.</td>
 </tr>
 <tr>
-<td>Z:<a href="../../types/#Real">Real</a></td>
-<td>Log-evidence.</td>
+<td>a:<a href="../../types/#Integer">Integer</a>[_]</td>
+<td>Ancestor indices.</td>
 </tr>
 <tr>
-<td>ess:<a href="../List/">List</a>&lt;<a href="../../types/#Real">Real</a>&gt;</td>
+<td>b:<a href="../../types/#Integer">Integer</a></td>
+<td>Index of the chosen path at the end of the filter.</td>
+</tr>
+<tr>
+<td>Z:<a href="../List/">List</a>&lt;<a href="../../types/#Real">Real</a>&gt;</td>
+<td>For each checkpoint, the logarithm of the normalizing constant estimate so far.</td>
+</tr>
+<tr>
+<td>e:<a href="../List/">List</a>&lt;<a href="../../types/#Real">Real</a>&gt;</td>
 <td>For each checkpoint, the effective sample size (ESS).</td>
 </tr>
 <tr>
-<td>resample:<a href="../List/">List</a>&lt;<a href="../../types/#Boolean">Boolean</a>&gt;</td>
+<td>r:<a href="../List/">List</a>&lt;<a href="../../types/#Boolean">Boolean</a>&gt;</td>
 <td>For each checkpoint, was resampling performed?</td>
 </tr>
 <tr>
-<td>evidence:<a href="../List/">List</a>&lt;<a href="../../types/#Real">Real</a>&gt;</td>
-<td>For each checkpoint, the logarithm of the normalizing constant estimate up to that checkpoint.</td>
+<td>nparticles:<a href="../../types/#Integer">Integer</a></td>
+<td>Number of particles.</td>
+</tr>
+<tr>
+<td>trigger:<a href="../../types/#Real">Real</a></td>
+<td>Threshold for resampling. Resampling is performed whenever the effective sample size, as a proportion of <code>nparticles</code>, drops below this threshold.</td>
 </tr>
 </tbody>
 </table>
@@ -5118,11 +5191,27 @@ or Rao--Blackwellized particle filter.</p>
 <tbody>
 <tr>
 <td><a href="#start">start</a></td>
-<td>Start the filter.</td>
+<td>Initialize.</td>
 </tr>
 <tr>
 <td><a href="#step">step</a></td>
-<td>Step to the next checkpoint.</td>
+<td>Step particles to the next checkpoint.</td>
+</tr>
+<tr>
+<td><a href="#resample">resample</a></td>
+<td>Resample particles.</td>
+</tr>
+<tr>
+<td><a href="#copy">copy</a></td>
+<td>Copy particles after resampling.</td>
+</tr>
+<tr>
+<td><a href="#propagate">propagate</a></td>
+<td>Propagate particles.</td>
+</tr>
+<tr>
+<td><a href="#reduce">reduce</a></td>
+<td>Compute summary statistics.</td>
 </tr>
 <tr>
 <td><a href="#finish">finish</a></td>
@@ -5131,25 +5220,47 @@ or Rao--Blackwellized particle filter.</p>
 </tbody>
 </table>
 <h3 id="member-function-details">Member Function Details</h3>
+<h4 id="copy">copy</h4>
+<p><a name="copy"></a></p>
+<div class="admonition quote">
+<p class="admonition-title">function copy()</p>
+<p>Copy particles after resampling.</p>
+</div>
 <h4 id="finish">finish</h4>
 <p><a name="finish"></a></p>
 <div class="admonition quote">
 <p class="admonition-title">function finish()</p>
 <p>Finish the filter.</p>
 </div>
+<h4 id="propagate">propagate</h4>
+<p><a name="propagate"></a></p>
+<div class="admonition quote">
+<p class="admonition-title">function propagate() -&gt; <a href="../../types/#Boolean">Boolean</a></p>
+<p>Propagate particles.</p>
+</div>
+<h4 id="reduce">reduce</h4>
+<p><a name="reduce"></a></p>
+<div class="admonition quote">
+<p class="admonition-title">function reduce()</p>
+<p>Compute summary statistics.</p>
+</div>
+<h4 id="resample">resample</h4>
+<p><a name="resample"></a></p>
+<div class="admonition quote">
+<p class="admonition-title">function resample()</p>
+<p>Resample particles.</p>
+</div>
 <h4 id="start">start</h4>
 <p><a name="start"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function start(m:<a href="../Model/">Model</a>) -&gt; <a href="../../types/#Boolean">Boolean</a></p>
-<p>Start the filter.</p>
-<p>Returns: Are particles yet to terminate?</p>
+<p class="admonition-title">function start(m:<a href="../Model/">Model</a>)</p>
+<p>Initialize.</p>
 </div>
 <h4 id="step">step</h4>
 <p><a name="step"></a></p>
 <div class="admonition quote">
 <p class="admonition-title">function step() -&gt; <a href="../../types/#Boolean">Boolean</a></p>
-<p>Step to the next checkpoint.</p>
-<p>Returns: Are particles yet to terminate?</p>
+<p>Step particles to the next checkpoint.</p>
 </div>
                 
                   
@@ -5229,7 +5340,7 @@ or Rao--Blackwellized particle filter.</p>
       
     </div>
     
-      <script src="../../../../assets/javascripts/application.583bbe55.js"></script>
+      <script src="../../../../assets/javascripts/application.b41f3d20.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../../.."}})</script>
       
@@ -5238,7 +5349,8 @@ or Rao--Blackwellized particle filter.</p>
     
     
       
-        <script>!function(e,a,t,n,o,c,i){e.GoogleAnalyticsObject=o,e.ga=e.ga||function(){(e.ga.q=e.ga.q||[]).push(arguments)},e.ga.l=1*new Date,c=a.createElement(t),i=a.getElementsByTagName(t)[0],c.async=1,c.src="https://www.google-analytics.com/analytics.js",i.parentNode.insertBefore(c,i)}(window,document,"script",0,"ga"),ga("create","UA-115470196-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview");var links=document.getElementsByTagName("a");if(Array.prototype.map.call(links,function(e){e.host!=document.location.host&&e.addEventListener("click",function(){var a=e.getAttribute("data-md-action")||"follow";ga("send","event","outbound",a,e.href)})}),document.forms.search){var query=document.forms.search.query;query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}</script>
+        <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-115470196-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview");var links=document.getElementsByTagName("a");if(Array.prototype.map.call(links,function(a){a.host!=document.location.host&&a.addEventListener("click",function(){var e=a.getAttribute("data-md-action")||"follow";ga("send","event","outbound",e,a.href)})}),document.forms.search){var query=document.forms.search.query;query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
       
     
   </body>
