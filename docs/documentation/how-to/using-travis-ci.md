@@ -1,12 +1,67 @@
 # How to use Birch with Travis CI for continuous integration
 
-[Travis CI](https://www.travis-ci.com) is one of many continuous-integration services that work alongside code repository services to run tests whenever new commits are made to a code repository. Other continuous-integration services include [CircleCI](https://www.circleci.com) and [Bitrise](https://www.bitrise.io). Software for continuous integration includes [Jenkins](https://jenkins.io/).
+[Travis CI](https://www.travis-ci.com) is a continuous integration service that works alongside [GitHub](https://www.github.com) to run tests whenever new commits are made to a repository. Other such services include [Circle CI](https://www.circleci.com) and [Bitrise](https://www.bitrise.io), as well as standalone software such as [Jenkins](https://jenkins.io/).
 
-Travis CI happens to be used by the Birch development team. Setting it up was not entirely trivial; this page explains how it was done in case others wish to use Travis CI for their Birch projects.
+Travis CI is currently used for Birch development. This page explains how you can set up Travis CI for your own Birch projects, too.
 
-The main issue is that the Linux image used by Travis CI is based on Ubuntu 14.04, which is now several years old. The default `gcc` provided with this distribution does not support the C++14 language features required by Birch. Furthermore, the version of Eigen provided with this distribution requires updating for Birch.
+After signing up for the Travis CI service, you will need to add a `.travis.yml` file to your code repository. A suggested template for Birch projects is as follows:
 
-After signing up for the Travis CI service, you will need to add a `.travis.yml` file to your code repository to configure the continuous-integration service. Follow the Travis CI documentation for details, but a suggested template for Birch projects is as follows:
+``` yml
+language: cpp
+matrix:
+    # macOS environment
+    - os: osx
+      compiler: clang
+      osx_image: xcode9.4
+      addons:
+        homebrew:
+          packages:
+            - flex
+            - bison
+            - eigen
+            - libomp
+
+    # Ubuntu 16.04 environment
+    - os: linux
+      dist: xenial
+      compiler: gcc
+      addons:
+        apt:
+          packages:
+            - autoconf
+            - libtool
+            - flex
+            - bison
+            - libeigen3-dev
+            - libboost-all-dev
+before_install:
+  # Checkout Birch, which may be cached, and (re)build
+  - git clone "https://github.com/lawmurray/Birch.git" || cd .
+  - cd Birch && git pull && git checkout master && ./autogen.sh && ./configure INSTALL="install -p" && make -j 2 && sudo make install && cd ..
+
+  # Checkout Birch.Standard, which may be cached, and (re)build
+  - git clone "https://github.com/lawmurray/Birch.Standard.git" || cd .
+  - cd Birch.Standard && git pull && git checkout master && birch build --enable-unity && sudo birch install --enable-unity && cd ..
+
+install:
+  - birch build --enable-unity && sudo birch install --enable-unity
+script:
+  - birch run
+cache:
+  directories:
+    - Birch
+    - Birch.Standard
+```
+
+This sets up both macOS and Ubuntu builds, and caches the Birch compiler and Birch standard library to recompile them only when necessary. Anecdotally, for [Birch.Standard](http://www.github.com/lawmurray/Birch.Standard), we observe that tests take 6-8 minutes for each instance, reducing to 3-4 minutes with an up-to-date cache. The `--enable-unity` option is particularly important to speed up the compile times of `gcc`.
+
+
+## Pre 2019
+
+!!! info
+    This section is kept for reference.
+
+Setting up Travis CI for Birch projects is much easier now that Ubuntu 16.04 Xenial is supported, as well as a Homebrew addon for macOS. Previously, it was necessary to use Ubuntu 14.04 Trusty. The default `gcc` provided with Trusty does not support C++14 language features required by Birch. Furthermore, no sufficiently recent version of Eigen is available through `apt`. This complicates the configuration somewhat:
 
 ``` yml
 language: cpp
@@ -71,5 +126,3 @@ This configuration file:
   * sets up both macOS and Ubuntu Linux build environments,
   * updates `gcc` and `Eigen` in the Ubuntu Linux build environment, and
   * includes caching of the Birch compiler and Birch standard library so that they are only recompiled when necessary.
-
-Anecdotally, for [Birch.Example](http://www.github.com/lawmurray/Birch.Example) we are observing that tests take about 6-8 minutes for each macOS and Ubuntu Linux instances, reducing to about 3-5 minutes when the Birch compiler and Birch standard library do not need to be recompiled. The `--enable-unity` option is particularly important to speed up the build time on Ubuntu Linux instances, which otherwise take twice as long.
