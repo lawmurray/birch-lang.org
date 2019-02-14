@@ -5,11 +5,12 @@ Build the project.
 Options:
 
   - `--enable-unity` / `--disable-unity` : Enable/disable unity build (default: disabled). A unity build is typically faster from a clean state, but does not support incremental builds (i.e. a change to any file will trigger a full rebuild).
+  - `--enable-debug` / `--disable-debug` : Enable/disable debug mode (default: enabled). In debugging mode, assertion checking is enabled and most compiler optimizations are disabled.
   - `--enable-warnings` / `--disable-warnings` : Enable/disable warnings (default: enabled).
-  - `--enable-debug` / `--disable-debug` : Enable/disable debug mode (default: enabled).
   - `--enable-verbose` / `--disable-verbose` : Verbose mode (default: enabled).
   - `--prefix` : Installation prefix (default: platform-specific).
   - `--arch=[native|js|wasm]` : Target architecture (default: `native`). Valid options are `native` for the architecture of the current machine, `js` for JavaScript or `wasm` for WebAssembly. The latter two require the Emscripten compiler.
+  - `--build-dir` : The build directory (default: `build`).
 
 The following three options are analogous to their counterparts for a C/C++ compiler, and specify the locations in which the Birch compiler should
 search for headers (both Birch and C/C++ headers), installed libraries and
