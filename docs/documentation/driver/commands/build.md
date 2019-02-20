@@ -11,8 +11,8 @@ Build the project.
 
 ### Advanced options
 
-  - `--build-dir` (default `build`): The build directory.
-  - `--prefix` (default platform-specific): Installation prefix.
+  - `--work-dir` (default `.`): The working directory. This can be used to build from a different directory to the package itself.
+  - `--prefix` (default platform-specific): Installation prefix. This can be used to install files to different directories than the default. It works in the same way as the `--prefix` option given to `configure` scripts.
   - `--arch=[native|js|wasm]` (default `native`): Target architecture. Valid options are `native` for the architecture of the current machine, `js` for JavaScript or `wasm` for WebAssembly. The latter two require the Emscripten compiler.
 
 The following three options are analogous to their counterparts for a C/C++ compiler, and specify the locations in which the Birch compiler should
@@ -34,6 +34,7 @@ C++ compiler options are controlled automatically by the driver. A GNU Autotools
 
 The following Birch-specific options are available. The defaults have been set to be appropriate for most models. Small performance gains might be realized by tweaking these, and indeed the `tune` command is provided for this purpose.
 
+  - `--enable-memory-pool` / `--disable-memory-pool` (default enabled): Enable/ disable the memory pool allocator. This is typically a little faster than standard `malloc`/`realloc`/`free` but uses more memory overall.
   - `--enable-lazy-deep-clone` / `--disable-lazy-deep-clone` (default enabled): Enable/disable lazy deep clone instead of eager deep clone of objects.
 
 If lazy deep clones are enabled, the following options tune the behavior (an exception: `---clone-memo-initial-size` affects eager deep clones also):
