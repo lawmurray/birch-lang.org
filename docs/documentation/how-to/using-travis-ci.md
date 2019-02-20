@@ -33,7 +33,7 @@ matrix:
             - flex
             - bison
             - libeigen3-dev
-            - libboost-dev
+            - libboost-all-dev
 before_install:
   # Checkout Birch, which may be cached, and (re)build
   - git clone "https://github.com/lawmurray/Birch.git" || cd .
