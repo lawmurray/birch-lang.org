@@ -46,7 +46,7 @@ before_install:
 install:
   - birch build --enable-unity && sudo birch install --enable-unity
 script:
-  - birch run
+  - ./run.sh
 cache:
   directories:
     - Birch
