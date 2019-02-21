@@ -1,4 +1,4 @@
-# How to use Birch with Travis CI for continuous integration
+# How to use Travis CI
 
 [Travis CI](https://www.travis-ci.com) is a continuous integration service that works alongside [GitHub](https://www.github.com) to run tests whenever new commits are made to a repository. Other such services include [Circle CI](https://www.circleci.com) and [Bitrise](https://www.bitrise.io), as well as standalone software such as [Jenkins](https://jenkins.io/).
 

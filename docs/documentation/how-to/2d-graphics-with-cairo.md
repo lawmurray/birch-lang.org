@@ -1,4 +1,4 @@
-# How to draw 2d graphics with Birch using Cairo
+# How to use Cairo
 
 [Birch.Cairo](https://www.github.com/lawmurray/Birch.Cairo) is a nascent project to wrap the [Cairo](https://cairographics.org) 2d graphics library for use with Birch. This allows the creation of PNG, SVG and PDF files from Birch code.
 
