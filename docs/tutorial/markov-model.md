@@ -222,8 +222,10 @@ The particle filter requires some configuration. This is provided in a configura
     Create a file `config/sir_model.json`, add it to `META.json`, and enter the following contents:
 
         {
-          "nsamples": 10,
-          "nparticles": 128
+          "sampler": {
+            "nsamples": 10,
+            "nparticles": 128
+          }
         }
 
 This simply sets the number of posterior samples to draw, and the number of particles to use when running the particle filter.
