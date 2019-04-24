@@ -36,12 +36,4 @@ The following Birch-specific options are available. The defaults have been set t
 
   - `--enable-memory-pool` / `--disable-memory-pool` (default enabled): Enable/ disable the memory pool allocator. This is typically a little faster than standard `malloc`/`realloc`/`free` but uses more memory overall.
   - `--enable-lazy-deep-clone` / `--disable-lazy-deep-clone` (default enabled): Enable/disable lazy deep clone instead of eager deep clone of objects.
-
-If lazy deep clones are enabled, the following options tune the behavior (an exception: `---clone-memo-initial-size` affects eager deep clones also):
-
-  - `--enable-clone-memo` / `--disable-clone-memo` (default enabled): Enable/disable clone memoization.
-  - `--enable-ancestry-memo` / `--disable-clone-memo` (default enabled): Enable/disable ancestry memoization.
-  - `--clone-memo-initial-size=n` (default 64): Initial allocation size (number of entries) in maps used for clone memoization. Must be a positive power of 2.
-  - `--clone-memo-delta=n` (default 2): Number of clone generations between clone memoizations. Must be a positive integer.
-  - `--ancestry-memo-initial-size=n` (default 8): Initial allocation size (number of entries) in sets used for ancestry memoization. Must be a positive power of 2.
-  - `--ancestry-memo-delta=n` (default 2): Number of clone generations between ancestry memoizations. Must be a positive integer.
+  - `--clone-memo-initial-size=n` (default 16): Initial allocation size (number of entries) in memos used for clones. Must be a positive power of 2.

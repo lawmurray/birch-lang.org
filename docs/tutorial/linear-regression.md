@@ -75,7 +75,7 @@ A [*fiber*](/documentation/language/fibers/) is a particular language construct 
 !!! example "Exercise"
     Enter the following between the curly braces of the `LinearRegressionModel` class:
 
-        fiber simulate() -> Real {
+        fiber simulate() -> Event {
           N:Integer <- rows(X);
           P:Integer <- columns(X);
           if (N > 0 && P > 0) {
@@ -150,12 +150,15 @@ The [Buffer](/documentation/library/classes/Buffer) class provides the interface
 Optionals are quite common in Birch code. They are useful for handling missing values. A more idiomatic usage is as follows:
 
     Z:Real[_,_]? <- buffer.getRealMatrix("X");
-    if (Z?) {
+    if Z? {
       X <- Z!;
     }
 
 The `?` after the type declares an optional variable, the `?` operator in the `if` statement condition checks if it has a value, the `!` operator in the `if` body retrieves that value, if it exists.
 
+In more recent versions of Birch, the `<-?` operator provides a shortcut for precisely the above code, and it is possible to write the simpler:
+
+    X <-? buffer.getRealMatrix("X");
 
 ## Inference
 

@@ -19,6 +19,7 @@ matrix:
             - flex
             - bison
             - eigen
+            - libyaml
             - libomp
 
     # Ubuntu 16.04 environment
@@ -33,11 +34,12 @@ matrix:
             - flex
             - bison
             - libeigen3-dev
+            - libyaml-dev
             - libboost-all-dev
 before_install:
   # Checkout Birch, which may be cached, and (re)build
   - git clone "https://github.com/lawmurray/Birch.git" || cd .
-  - cd Birch && git pull && git checkout master && ./autogen.sh && ./configure INSTALL="install -p" && make -j 2 && sudo make install && cd ..
+  - cd Birch && git stash && git pull && git checkout master && ./autogen.sh && ./configure INSTALL="install -p" && make -j 2 && sudo make install && cd ..
 
   # Checkout Birch.Standard, which may be cached, and (re)build
   - git clone "https://github.com/lawmurray/Birch.Standard.git" || cd .

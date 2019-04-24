@@ -155,17 +155,17 @@ Finally, we create the class `SIRModel`, where most of the work happens. This in
          * SIR model.
          */
         class SIRModel < MarkovModel<SIRParameter,SIRState> {
-          fiber parameter(θ:SIRParameter) -> Real {
+          fiber parameter(θ:SIRParameter) -> Event {
             θ.λ ~ Gamma(2.0, 5.0);
             θ.δ ~ Beta(2.0, 2.0);
             θ.γ ~ Beta(2.0, 2.0);
           }
 
-          fiber initial(x:SIRState, θ:SIRParameter) -> Real {
+          fiber initial(x:SIRState, θ:SIRParameter) -> Event {
             //
           }
 
-          fiber transition(x':SIRState, x:SIRState, θ:SIRParameter) -> Real {
+          fiber transition(x':SIRState, x:SIRState, θ:SIRParameter) -> Event {
             x'.τ ~ Binomial(x.s, 1.0 - exp(-θ.λ*x.i/(x.s + x.i + x.r)));
             x'.Δi ~ Binomial(x'.τ, θ.δ);
             x'.Δr ~ Binomial(x.i, θ.γ);
@@ -178,9 +178,9 @@ Finally, we create the class `SIRModel`, where most of the work happens. This in
 
 Notice the three member fibers in the above code:
 
-    fiber parameter(θ:SIRParameter) -> Real;
-    fiber initial(x:SIRState, θ:SIRParameter) -> Real;
-    fiber transition(x':SIRState, x:SIRState, θ:SIRParameter) -> Real;
+    fiber parameter(θ:SIRParameter) -> Event;
+    fiber initial(x:SIRState, θ:SIRParameter) -> Event;
+    fiber transition(x':SIRState, x:SIRState, θ:SIRParameter) -> Event;
 
 As suggested by their names and parameters:
 

@@ -16,6 +16,7 @@ Birch requires:
   * GNU autoconf, automake and libtool,
   * the Flex lexer,
   * the Bison parser generator,
+  * LibYAML,
   * the Boost libraries, and
   * the Eigen 3 linear algebra library.
 
