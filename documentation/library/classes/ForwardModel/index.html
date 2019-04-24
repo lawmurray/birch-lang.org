@@ -1,0 +1,6419 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="A probabilistic object-oriented programming language for machine learning and statistics.">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.2.0">
+    
+    
+      
+        <title>ForwardModel - Birch</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/application.572ca0f0.css">
+      
+        <link rel="stylesheet" href="../../../../assets/stylesheets/application-palette.22915126.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#4caf50">
+      
+    
+    
+      <script src="../../../../assets/javascripts/modernizr.8c900955.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700|">
+        <style>body,input{font-family:"Lato","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../../assets/fonts/material-icons.css">
+    
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="green" data-md-color-accent="green">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#member-functions" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../../../.." title="Birch" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                Birch
+              </span>
+              <span class="md-header-nav__topic">
+                ForwardModel
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../../../.." title="Home" class="md-tabs__link">
+        Home
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../getting-started/installing/" title="Getting Started" class="md-tabs__link">
+          Getting Started
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../../tutorial/" title="Tutorial" class="md-tabs__link">
+          Tutorial
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../" title="Documentation" class="md-tabs__link md-tabs__link--active">
+          Documentation
+        </a>
+      
+    </li>
+  
+
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../../../../about/" title="About" class="md-tabs__link">
+        About
+      </a>
+    
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../../../.." title="Birch" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Birch
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Getting Started
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Getting Started
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../getting-started/installing/" title="Installing" class="md-nav__link">
+      Installing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../getting-started/updating/" title="Updating" class="md-nav__link">
+      Updating
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3">
+    
+    <label class="md-nav__link" for="nav-2-3">
+      Platform guides
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-3">
+        Platform guides
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../getting-started/ubuntu/" title="Ubuntu Linux" class="md-nav__link">
+      Ubuntu Linux
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../getting-started/macos/" title="macOS" class="md-nav__link">
+      macOS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../getting-started/windows/" title="Windows 10" class="md-nav__link">
+      Windows 10
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Tutorial
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Tutorial
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../tutorial/" title="The Birch Tutorial" class="md-nav__link">
+      The Birch Tutorial
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../tutorial/preliminaries/" title="Exercise #1: Preliminaries" class="md-nav__link">
+      Exercise #1: Preliminaries
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../tutorial/linear-regression/" title="Exercise #2: Linear regression" class="md-nav__link">
+      Exercise #2: Linear regression
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../tutorial/markov-model/" title="Exercise #3: Markov model" class="md-nav__link">
+      Exercise #3: Markov model
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../tutorial/further-reading/" title="Further reading" class="md-nav__link">
+      Further reading
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+    
+    <label class="md-nav__link" for="nav-4">
+      Documentation
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Documentation
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../" title="Birch Documentation" class="md-nav__link">
+      Birch Documentation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-2" type="checkbox" id="nav-4-2">
+    
+    <label class="md-nav__link" for="nav-4-2">
+      Language
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-2">
+        Language
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../language/" title="The Birch Language" class="md-nav__link">
+      The Birch Language
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../language/comments/" title="Comments" class="md-nav__link">
+      Comments
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../language/variables/" title="Variables" class="md-nav__link">
+      Variables
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../language/types/" title="Types" class="md-nav__link">
+      Types
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../language/assignments/" title="Assignments" class="md-nav__link">
+      Assignments
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../language/control_flow/" title="Control Flow" class="md-nav__link">
+      Control Flow
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../language/tuples/" title="Tuples" class="md-nav__link">
+      Tuples
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../language/sequences/" title="Sequences" class="md-nav__link">
+      Sequences
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../language/arrays/" title="Arrays" class="md-nav__link">
+      Arrays
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../language/optionals/" title="Optionals" class="md-nav__link">
+      Optionals
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../language/functions/" title="Functions" class="md-nav__link">
+      Functions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../language/lambdas/" title="Lambdas" class="md-nav__link">
+      Lambdas
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../language/fibers/" title="Fibers" class="md-nav__link">
+      Fibers
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../language/programs/" title="Programs" class="md-nav__link">
+      Programs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../language/operators/" title="Operators" class="md-nav__link">
+      Operators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../language/classes/" title="Classes" class="md-nav__link">
+      Classes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../language/aliases/" title="Aliases" class="md-nav__link">
+      Aliases
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../language/casts/" title="Casts" class="md-nav__link">
+      Casts
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../language/weak_references/" title="Weak References" class="md-nav__link">
+      Weak References
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../language/special_topics/" title="Special Topics" class="md-nav__link">
+      Special Topics
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3" type="checkbox" id="nav-4-3" checked>
+    
+    <label class="md-nav__link" for="nav-4-3">
+      Library
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-3">
+        Library
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../" title="The Birch Standard Library" class="md-nav__link">
+      The Birch Standard Library
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../types/" title="Types" class="md-nav__link">
+      Types
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../variables/" title="Variables" class="md-nav__link">
+      Variables
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3-4" type="checkbox" id="nav-4-3-4">
+    
+    <label class="md-nav__link" for="nav-4-3-4">
+      Programs
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-4-3-4">
+        Programs
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../programs/sample/" title="sample" class="md-nav__link">
+      sample
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../programs/test/" title="test" class="md-nav__link">
+      test
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3-5" type="checkbox" id="nav-4-3-5">
+    
+    <label class="md-nav__link" for="nav-4-3-5">
+      Functions
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-4-3-5">
+        Functions
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/abs/" title="abs" class="md-nav__link">
+      abs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/acos/" title="acos" class="md-nav__link">
+      acos
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/acosh/" title="acosh" class="md-nav__link">
+      acosh
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/adjacent_difference/" title="adjacent_difference" class="md-nav__link">
+      adjacent_difference
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/ancestor/" title="ancestor" class="md-nav__link">
+      ancestor
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/append/" title="append" class="md-nav__link">
+      append
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/asin/" title="asin" class="md-nav__link">
+      asin
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/asinh/" title="asinh" class="md-nav__link">
+      asinh
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/atan/" title="atan" class="md-nav__link">
+      atan
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/atan2/" title="atan2" class="md-nav__link">
+      atan2
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/atanh/" title="atanh" class="md-nav__link">
+      atanh
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/beta/" title="beta" class="md-nav__link">
+      beta
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/cdf_beta/" title="cdf_beta" class="md-nav__link">
+      cdf_beta
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/cdf_beta_binomial/" title="cdf_beta_binomial" class="md-nav__link">
+      cdf_beta_binomial
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/cdf_binomial/" title="cdf_binomial" class="md-nav__link">
+      cdf_binomial
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/cdf_categorical/" title="cdf_categorical" class="md-nav__link">
+      cdf_categorical
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/cdf_compound_gamma/" title="cdf_compound_gamma" class="md-nav__link">
+      cdf_compound_gamma
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/cdf_dirichlet_categorical/" title="cdf_dirichlet_categorical" class="md-nav__link">
+      cdf_dirichlet_categorical
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/cdf_exponential/" title="cdf_exponential" class="md-nav__link">
+      cdf_exponential
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/cdf_gamma/" title="cdf_gamma" class="md-nav__link">
+      cdf_gamma
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/cdf_gamma_poisson/" title="cdf_gamma_poisson" class="md-nav__link">
+      cdf_gamma_poisson
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/cdf_gaussian/" title="cdf_gaussian" class="md-nav__link">
+      cdf_gaussian
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/cdf_inverse_gamma/" title="cdf_inverse_gamma" class="md-nav__link">
+      cdf_inverse_gamma
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/cdf_inverse_gamma_gaussian/" title="cdf_inverse_gamma_gaussian" class="md-nav__link">
+      cdf_inverse_gamma_gaussian
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/cdf_linear_normal_inverse_gamma_gaussian/" title="cdf_linear_normal_inverse_gamma_gaussian" class="md-nav__link">
+      cdf_linear_normal_inverse_gamma_gaussian
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/cdf_log_gaussian/" title="cdf_log_gaussian" class="md-nav__link">
+      cdf_log_gaussian
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/cdf_lomax/" title="cdf_lomax" class="md-nav__link">
+      cdf_lomax
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/cdf_multivariate_dot_normal_inverse_gamma_gaussian/" title="cdf_multivariate_dot_normal_inverse_gamma_gaussian" class="md-nav__link">
+      cdf_multivariate_dot_normal_inverse_gamma_gaussian
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/cdf_negative_binomial/" title="cdf_negative_binomial" class="md-nav__link">
+      cdf_negative_binomial
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/cdf_normal_inverse_gamma/" title="cdf_normal_inverse_gamma" class="md-nav__link">
+      cdf_normal_inverse_gamma
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/cdf_normal_inverse_gamma_gaussian/" title="cdf_normal_inverse_gamma_gaussian" class="md-nav__link">
+      cdf_normal_inverse_gamma_gaussian
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/cdf_poisson/" title="cdf_poisson" class="md-nav__link">
+      cdf_poisson
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/cdf_student_t/" title="cdf_student_t" class="md-nav__link">
+      cdf_student_t
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/cdf_uniform/" title="cdf_uniform" class="md-nav__link">
+      cdf_uniform
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/cdf_uniform_int/" title="cdf_uniform_int" class="md-nav__link">
+      cdf_uniform_int
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/ceil/" title="ceil" class="md-nav__link">
+      ceil
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/chol/" title="chol" class="md-nav__link">
+      chol
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/choldet/" title="choldet" class="md-nav__link">
+      choldet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/cholinv/" title="cholinv" class="md-nav__link">
+      cholinv
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/cholsolve/" title="cholsolve" class="md-nav__link">
+      cholsolve
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/choose/" title="choose" class="md-nav__link">
+      choose
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/clone/" title="clone" class="md-nav__link">
+      clone
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/coerce/" title="coerce" class="md-nav__link">
+      coerce
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/column/" title="column" class="md-nav__link">
+      column
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/columns/" title="columns" class="md-nav__link">
+      columns
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/configCloneMemoInitialSize/" title="configCloneMemoInitialSize" class="md-nav__link">
+      configCloneMemoInitialSize
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/configLazyDeepClone/" title="configLazyDeepClone" class="md-nav__link">
+      configLazyDeepClone
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/configMemoryPool/" title="configMemoryPool" class="md-nav__link">
+      configMemoryPool
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/configWrite/" title="configWrite" class="md-nav__link">
+      configWrite
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/copysign/" title="copysign" class="md-nav__link">
+      copysign
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/cos/" title="cos" class="md-nav__link">
+      cos
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/cosh/" title="cosh" class="md-nav__link">
+      cosh
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/cumulative_ancestor/" title="cumulative_ancestor" class="md-nav__link">
+      cumulative_ancestor
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/cumulative_offspring_to_ancestors/" title="cumulative_offspring_to_ancestors" class="md-nav__link">
+      cumulative_offspring_to_ancestors
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/cumulative_offspring_to_offspring/" title="cumulative_offspring_to_offspring" class="md-nav__link">
+      cumulative_offspring_to_offspring
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/cumulative_weights/" title="cumulative_weights" class="md-nav__link">
+      cumulative_weights
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/det/" title="det" class="md-nav__link">
+      det
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/diagonal/" title="diagonal" class="md-nav__link">
+      diagonal
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/dot/" title="dot" class="md-nav__link">
+      dot
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/downdate_beta_bernoulli/" title="downdate_beta_bernoulli" class="md-nav__link">
+      downdate_beta_bernoulli
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/downdate_beta_binomial/" title="downdate_beta_binomial" class="md-nav__link">
+      downdate_beta_binomial
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/downdate_beta_negative_binomial/" title="downdate_beta_negative_binomial" class="md-nav__link">
+      downdate_beta_negative_binomial
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/downdate_dirichlet_categorical/" title="downdate_dirichlet_categorical" class="md-nav__link">
+      downdate_dirichlet_categorical
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/downdate_dirichlet_multinomial/" title="downdate_dirichlet_multinomial" class="md-nav__link">
+      downdate_dirichlet_multinomial
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/downdate_gamma_exponential/" title="downdate_gamma_exponential" class="md-nav__link">
+      downdate_gamma_exponential
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/downdate_gamma_poisson/" title="downdate_gamma_poisson" class="md-nav__link">
+      downdate_gamma_poisson
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/downdate_gaussian_gaussian/" title="downdate_gaussian_gaussian" class="md-nav__link">
+      downdate_gaussian_gaussian
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/downdate_inverse_gamma_gamma/" title="downdate_inverse_gamma_gamma" class="md-nav__link">
+      downdate_inverse_gamma_gamma
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/downdate_inverse_gamma_gaussian/" title="downdate_inverse_gamma_gaussian" class="md-nav__link">
+      downdate_inverse_gamma_gaussian
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/downdate_linear_gaussian_gaussian/" title="downdate_linear_gaussian_gaussian" class="md-nav__link">
+      downdate_linear_gaussian_gaussian
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/downdate_linear_normal_inverse_gamma_gaussian/" title="downdate_linear_normal_inverse_gamma_gaussian" class="md-nav__link">
+      downdate_linear_normal_inverse_gamma_gaussian
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/downdate_multivariate_dot_gaussian_gaussian/" title="downdate_multivariate_dot_gaussian_gaussian" class="md-nav__link">
+      downdate_multivariate_dot_gaussian_gaussian
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/downdate_multivariate_dot_normal_inverse_gamma_gaussian/" title="downdate_multivariate_dot_normal_inverse_gamma_gaussian" class="md-nav__link">
+      downdate_multivariate_dot_normal_inverse_gamma_gaussian
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/downdate_multivariate_gaussian_gaussian/" title="downdate_multivariate_gaussian_gaussian" class="md-nav__link">
+      downdate_multivariate_gaussian_gaussian
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/downdate_multivariate_inverse_gamma_gaussian/" title="downdate_multivariate_inverse_gamma_gaussian" class="md-nav__link">
+      downdate_multivariate_inverse_gamma_gaussian
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/downdate_multivariate_linear_gaussian_gaussian/" title="downdate_multivariate_linear_gaussian_gaussian" class="md-nav__link">
+      downdate_multivariate_linear_gaussian_gaussian
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/downdate_multivariate_linear_normal_inverse_gamma_gaussian/" title="downdate_multivariate_linear_normal_inverse_gamma_gaussian" class="md-nav__link">
+      downdate_multivariate_linear_normal_inverse_gamma_gaussian
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/downdate_multivariate_normal_inverse_gamma/" title="downdate_multivariate_normal_inverse_gamma" class="md-nav__link">
+      downdate_multivariate_normal_inverse_gamma
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/downdate_multivariate_normal_inverse_gamma_gaussian/" title="downdate_multivariate_normal_inverse_gamma_gaussian" class="md-nav__link">
+      downdate_multivariate_normal_inverse_gamma_gaussian
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/downdate_normal_inverse_gamma/" title="downdate_normal_inverse_gamma" class="md-nav__link">
+      downdate_normal_inverse_gamma
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/downdate_normal_inverse_gamma_gaussian/" title="downdate_normal_inverse_gamma_gaussian" class="md-nav__link">
+      downdate_normal_inverse_gamma_gaussian
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/downdate_scaled_gamma_poisson/" title="downdate_scaled_gamma_poisson" class="md-nav__link">
+      downdate_scaled_gamma_poisson
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/erf/" title="erf" class="md-nav__link">
+      erf
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/erfc/" title="erfc" class="md-nav__link">
+      erfc
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/error/" title="error" class="md-nav__link">
+      error
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/ess/" title="ess" class="md-nav__link">
+      ess
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/exclusive_scan/" title="exclusive_scan" class="md-nav__link">
+      exclusive_scan
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/exclusive_scan_sum/" title="exclusive_scan_sum" class="md-nav__link">
+      exclusive_scan_sum
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/exit/" title="exit" class="md-nav__link">
+      exit
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/exp/" title="exp" class="md-nav__link">
+      exp
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/fclose/" title="fclose" class="md-nav__link">
+      fclose
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/floor/" title="floor" class="md-nav__link">
+      floor
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/fopen/" title="fopen" class="md-nav__link">
+      fopen
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/gamma/" title="gamma" class="md-nav__link">
+      gamma
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/ibeta/" title="ibeta" class="md-nav__link">
+      ibeta
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/identity/" title="identity" class="md-nav__link">
+      identity
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/inclusive_scan/" title="inclusive_scan" class="md-nav__link">
+      inclusive_scan
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/inclusive_scan_sum/" title="inclusive_scan_sum" class="md-nav__link">
+      inclusive_scan_sum
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/inv/" title="inv" class="md-nav__link">
+      inv
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/iota/" title="iota" class="md-nav__link">
+      iota
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/isnan/" title="isnan" class="md-nav__link">
+      isnan
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/lbeta/" title="lbeta" class="md-nav__link">
+      lbeta
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/lcholdet/" title="lcholdet" class="md-nav__link">
+      lcholdet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/lchoose/" title="lchoose" class="md-nav__link">
+      lchoose
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/length/" title="length" class="md-nav__link">
+      length
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/lgamma/" title="lgamma" class="md-nav__link">
+      lgamma
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/log/" title="log" class="md-nav__link">
+      log
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/log10/" title="log10" class="md-nav__link">
+      log10
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/log1p/" title="log1p" class="md-nav__link">
+      log1p
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/log2/" title="log2" class="md-nav__link">
+      log2
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/log_sum_exp/" title="log_sum_exp" class="md-nav__link">
+      log_sum_exp
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/lrising/" title="lrising" class="md-nav__link">
+      lrising
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/make/" title="make" class="md-nav__link">
+      make
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/matrix/" title="matrix" class="md-nav__link">
+      matrix
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/max/" title="max" class="md-nav__link">
+      max
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/memoryPool/" title="memoryPool" class="md-nav__link">
+      memoryPool
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/memoryUse/" title="memoryUse" class="md-nav__link">
+      memoryUse
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/min/" title="min" class="md-nav__link">
+      min
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/mkdir/" title="mkdir" class="md-nav__link">
+      mkdir
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/mod/" title="mod" class="md-nav__link">
+      mod
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/multinomial_conditional_resample/" title="multinomial_conditional_resample" class="md-nav__link">
+      multinomial_conditional_resample
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/multinomial_resample/" title="multinomial_resample" class="md-nav__link">
+      multinomial_resample
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/norm/" title="norm" class="md-nav__link">
+      norm
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/norm_exp/" title="norm_exp" class="md-nav__link">
+      norm_exp
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/observe_bernoulli/" title="observe_bernoulli" class="md-nav__link">
+      observe_bernoulli
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/observe_beta/" title="observe_beta" class="md-nav__link">
+      observe_beta
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/observe_beta_bernoulli/" title="observe_beta_bernoulli" class="md-nav__link">
+      observe_beta_bernoulli
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/observe_beta_binomial/" title="observe_beta_binomial" class="md-nav__link">
+      observe_beta_binomial
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/observe_beta_negative_binomial/" title="observe_beta_negative_binomial" class="md-nav__link">
+      observe_beta_negative_binomial
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/observe_binomial/" title="observe_binomial" class="md-nav__link">
+      observe_binomial
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/observe_categorical/" title="observe_categorical" class="md-nav__link">
+      observe_categorical
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/observe_compound_gamma/" title="observe_compound_gamma" class="md-nav__link">
+      observe_compound_gamma
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/observe_crp_categorical/" title="observe_crp_categorical" class="md-nav__link">
+      observe_crp_categorical
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/observe_delta/" title="observe_delta" class="md-nav__link">
+      observe_delta
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/observe_dirichlet/" title="observe_dirichlet" class="md-nav__link">
+      observe_dirichlet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/observe_dirichlet_categorical/" title="observe_dirichlet_categorical" class="md-nav__link">
+      observe_dirichlet_categorical
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/observe_dirichlet_multinomial/" title="observe_dirichlet_multinomial" class="md-nav__link">
+      observe_dirichlet_multinomial
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/observe_exponential/" title="observe_exponential" class="md-nav__link">
+      observe_exponential
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/observe_gamma/" title="observe_gamma" class="md-nav__link">
+      observe_gamma
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/observe_gamma_poisson/" title="observe_gamma_poisson" class="md-nav__link">
+      observe_gamma_poisson
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/observe_gaussian/" title="observe_gaussian" class="md-nav__link">
+      observe_gaussian
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/observe_inverse_gamma/" title="observe_inverse_gamma" class="md-nav__link">
+      observe_inverse_gamma
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/observe_inverse_gamma_gaussian/" title="observe_inverse_gamma_gaussian" class="md-nav__link">
+      observe_inverse_gamma_gaussian
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/observe_linear_normal_inverse_gamma_gaussian/" title="observe_linear_normal_inverse_gamma_gaussian" class="md-nav__link">
+      observe_linear_normal_inverse_gamma_gaussian
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/observe_log_gaussian/" title="observe_log_gaussian" class="md-nav__link">
+      observe_log_gaussian
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/observe_lomax/" title="observe_lomax" class="md-nav__link">
+      observe_lomax
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/observe_multinomial/" title="observe_multinomial" class="md-nav__link">
+      observe_multinomial
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/observe_multivariate_dot_normal_inverse_gamma_gaussian/" title="observe_multivariate_dot_normal_inverse_gamma_gaussian" class="md-nav__link">
+      observe_multivariate_dot_normal_inverse_gamma_gaussian
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/observe_multivariate_gaussian/" title="observe_multivariate_gaussian" class="md-nav__link">
+      observe_multivariate_gaussian
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/observe_multivariate_inverse_gamma_gaussian/" title="observe_multivariate_inverse_gamma_gaussian" class="md-nav__link">
+      observe_multivariate_inverse_gamma_gaussian
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/observe_multivariate_linear_normal_inverse_gamma_gaussian/" title="observe_multivariate_linear_normal_inverse_gamma_gaussian" class="md-nav__link">
+      observe_multivariate_linear_normal_inverse_gamma_gaussian
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/observe_multivariate_normal_inverse_gamma/" title="observe_multivariate_normal_inverse_gamma" class="md-nav__link">
+      observe_multivariate_normal_inverse_gamma
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/observe_multivariate_normal_inverse_gamma_gaussian/" title="observe_multivariate_normal_inverse_gamma_gaussian" class="md-nav__link">
+      observe_multivariate_normal_inverse_gamma_gaussian
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/observe_multivariate_student_t/" title="observe_multivariate_student_t" class="md-nav__link">
+      observe_multivariate_student_t
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/observe_multivariate_uniform/" title="observe_multivariate_uniform" class="md-nav__link">
+      observe_multivariate_uniform
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/observe_multivariate_uniform_int/" title="observe_multivariate_uniform_int" class="md-nav__link">
+      observe_multivariate_uniform_int
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/observe_negative_binomial/" title="observe_negative_binomial" class="md-nav__link">
+      observe_negative_binomial
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/observe_normal_inverse_gamma/" title="observe_normal_inverse_gamma" class="md-nav__link">
+      observe_normal_inverse_gamma
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/observe_normal_inverse_gamma_gaussian/" title="observe_normal_inverse_gamma_gaussian" class="md-nav__link">
+      observe_normal_inverse_gamma_gaussian
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/observe_poisson/" title="observe_poisson" class="md-nav__link">
+      observe_poisson
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/observe_student_t/" title="observe_student_t" class="md-nav__link">
+      observe_student_t
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/observe_uniform/" title="observe_uniform" class="md-nav__link">
+      observe_uniform
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/observe_uniform_int/" title="observe_uniform_int" class="md-nav__link">
+      observe_uniform_int
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/offspring_to_ancestors/" title="offspring_to_ancestors" class="md-nav__link">
+      offspring_to_ancestors
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/pass/" title="pass" class="md-nav__link">
+      pass
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/pdf_beta/" title="pdf_beta" class="md-nav__link">
+      pdf_beta
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/pdf_compound_gamma/" title="pdf_compound_gamma" class="md-nav__link">
+      pdf_compound_gamma
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/pdf_dirichlet/" title="pdf_dirichlet" class="md-nav__link">
+      pdf_dirichlet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/pdf_exponential/" title="pdf_exponential" class="md-nav__link">
+      pdf_exponential
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/pdf_gamma/" title="pdf_gamma" class="md-nav__link">
+      pdf_gamma
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/pdf_gaussian/" title="pdf_gaussian" class="md-nav__link">
+      pdf_gaussian
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/pdf_inverse_gamma/" title="pdf_inverse_gamma" class="md-nav__link">
+      pdf_inverse_gamma
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/pdf_inverse_gamma_gaussian/" title="pdf_inverse_gamma_gaussian" class="md-nav__link">
+      pdf_inverse_gamma_gaussian
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/pdf_linear_normal_inverse_gamma_gaussian/" title="pdf_linear_normal_inverse_gamma_gaussian" class="md-nav__link">
+      pdf_linear_normal_inverse_gamma_gaussian
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/pdf_log_gaussian/" title="pdf_log_gaussian" class="md-nav__link">
+      pdf_log_gaussian
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/pdf_lomax/" title="pdf_lomax" class="md-nav__link">
+      pdf_lomax
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/pdf_multivariate_dot_normal_inverse_gamma_gaussian/" title="pdf_multivariate_dot_normal_inverse_gamma_gaussian" class="md-nav__link">
+      pdf_multivariate_dot_normal_inverse_gamma_gaussian
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/pdf_multivariate_gaussian/" title="pdf_multivariate_gaussian" class="md-nav__link">
+      pdf_multivariate_gaussian
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/pdf_multivariate_inverse_gamma_gaussian/" title="pdf_multivariate_inverse_gamma_gaussian" class="md-nav__link">
+      pdf_multivariate_inverse_gamma_gaussian
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/pdf_multivariate_linear_normal_inverse_gamma_gaussian/" title="pdf_multivariate_linear_normal_inverse_gamma_gaussian" class="md-nav__link">
+      pdf_multivariate_linear_normal_inverse_gamma_gaussian
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/pdf_multivariate_normal_inverse_gamma/" title="pdf_multivariate_normal_inverse_gamma" class="md-nav__link">
+      pdf_multivariate_normal_inverse_gamma
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/pdf_multivariate_normal_inverse_gamma_gaussian/" title="pdf_multivariate_normal_inverse_gamma_gaussian" class="md-nav__link">
+      pdf_multivariate_normal_inverse_gamma_gaussian
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/pdf_multivariate_student_t/" title="pdf_multivariate_student_t" class="md-nav__link">
+      pdf_multivariate_student_t
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/pdf_multivariate_uniform/" title="pdf_multivariate_uniform" class="md-nav__link">
+      pdf_multivariate_uniform
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/pdf_normal_inverse_gamma/" title="pdf_normal_inverse_gamma" class="md-nav__link">
+      pdf_normal_inverse_gamma
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/pdf_normal_inverse_gamma_gaussian/" title="pdf_normal_inverse_gamma_gaussian" class="md-nav__link">
+      pdf_normal_inverse_gamma_gaussian
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/pdf_student_t/" title="pdf_student_t" class="md-nav__link">
+      pdf_student_t
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/pdf_uniform/" title="pdf_uniform" class="md-nav__link">
+      pdf_uniform
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/permute_ancestors/" title="permute_ancestors" class="md-nav__link">
+      permute_ancestors
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/pmf_bernoulli/" title="pmf_bernoulli" class="md-nav__link">
+      pmf_bernoulli
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/pmf_beta_bernoulli/" title="pmf_beta_bernoulli" class="md-nav__link">
+      pmf_beta_bernoulli
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/pmf_beta_binomial/" title="pmf_beta_binomial" class="md-nav__link">
+      pmf_beta_binomial
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/pmf_beta_negative_binomial/" title="pmf_beta_negative_binomial" class="md-nav__link">
+      pmf_beta_negative_binomial
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/pmf_binomial/" title="pmf_binomial" class="md-nav__link">
+      pmf_binomial
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/pmf_categorical/" title="pmf_categorical" class="md-nav__link">
+      pmf_categorical
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/pmf_delta/" title="pmf_delta" class="md-nav__link">
+      pmf_delta
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/pmf_dirichlet_categorical/" title="pmf_dirichlet_categorical" class="md-nav__link">
+      pmf_dirichlet_categorical
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/pmf_dirichlet_multinomial/" title="pmf_dirichlet_multinomial" class="md-nav__link">
+      pmf_dirichlet_multinomial
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/pmf_gamma_poisson/" title="pmf_gamma_poisson" class="md-nav__link">
+      pmf_gamma_poisson
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/pmf_multinomial/" title="pmf_multinomial" class="md-nav__link">
+      pmf_multinomial
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/pmf_multivariate_uniform_int/" title="pmf_multivariate_uniform_int" class="md-nav__link">
+      pmf_multivariate_uniform_int
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/pmf_negative_binomial/" title="pmf_negative_binomial" class="md-nav__link">
+      pmf_negative_binomial
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/pmf_poisson/" title="pmf_poisson" class="md-nav__link">
+      pmf_poisson
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/pmf_restaurant_categorical/" title="pmf_restaurant_categorical" class="md-nav__link">
+      pmf_restaurant_categorical
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/pmf_uniform_int/" title="pmf_uniform_int" class="md-nav__link">
+      pmf_uniform_int
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/pow/" title="pow" class="md-nav__link">
+      pow
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/pow2/" title="pow2" class="md-nav__link">
+      pow2
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/reduce/" title="reduce" class="md-nav__link">
+      reduce
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/resample/" title="resample" class="md-nav__link">
+      resample
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/rising/" title="rising" class="md-nav__link">
+      rising
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/round/" title="round" class="md-nav__link">
+      round
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/row/" title="row" class="md-nav__link">
+      row
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/rows/" title="rows" class="md-nav__link">
+      rows
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/run_test/" title="run_test" class="md-nav__link">
+      run_test
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/scalar/" title="scalar" class="md-nav__link">
+      scalar
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/seed/" title="seed" class="md-nav__link">
+      seed
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/simulate_bernoulli/" title="simulate_bernoulli" class="md-nav__link">
+      simulate_bernoulli
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/simulate_beta/" title="simulate_beta" class="md-nav__link">
+      simulate_beta
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/simulate_beta_bernoulli/" title="simulate_beta_bernoulli" class="md-nav__link">
+      simulate_beta_bernoulli
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/simulate_beta_binomial/" title="simulate_beta_binomial" class="md-nav__link">
+      simulate_beta_binomial
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/simulate_beta_negative_binomial/" title="simulate_beta_negative_binomial" class="md-nav__link">
+      simulate_beta_negative_binomial
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/simulate_binomial/" title="simulate_binomial" class="md-nav__link">
+      simulate_binomial
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/simulate_categorical/" title="simulate_categorical" class="md-nav__link">
+      simulate_categorical
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/simulate_compound_gamma/" title="simulate_compound_gamma" class="md-nav__link">
+      simulate_compound_gamma
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/simulate_crp_categorical/" title="simulate_crp_categorical" class="md-nav__link">
+      simulate_crp_categorical
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/simulate_delta/" title="simulate_delta" class="md-nav__link">
+      simulate_delta
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/simulate_dirichlet/" title="simulate_dirichlet" class="md-nav__link">
+      simulate_dirichlet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/simulate_dirichlet_categorical/" title="simulate_dirichlet_categorical" class="md-nav__link">
+      simulate_dirichlet_categorical
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/simulate_dirichlet_multinomial/" title="simulate_dirichlet_multinomial" class="md-nav__link">
+      simulate_dirichlet_multinomial
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/simulate_exponential/" title="simulate_exponential" class="md-nav__link">
+      simulate_exponential
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/simulate_gamma/" title="simulate_gamma" class="md-nav__link">
+      simulate_gamma
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/simulate_gamma_poisson/" title="simulate_gamma_poisson" class="md-nav__link">
+      simulate_gamma_poisson
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/simulate_gaussian/" title="simulate_gaussian" class="md-nav__link">
+      simulate_gaussian
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/simulate_inverse_gamma/" title="simulate_inverse_gamma" class="md-nav__link">
+      simulate_inverse_gamma
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/simulate_inverse_gamma_gaussian/" title="simulate_inverse_gamma_gaussian" class="md-nav__link">
+      simulate_inverse_gamma_gaussian
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/simulate_linear_normal_inverse_gamma_gaussian/" title="simulate_linear_normal_inverse_gamma_gaussian" class="md-nav__link">
+      simulate_linear_normal_inverse_gamma_gaussian
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/simulate_log_gaussian/" title="simulate_log_gaussian" class="md-nav__link">
+      simulate_log_gaussian
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/simulate_lomax/" title="simulate_lomax" class="md-nav__link">
+      simulate_lomax
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/simulate_multinomial/" title="simulate_multinomial" class="md-nav__link">
+      simulate_multinomial
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/simulate_multivariate_dot_normal_inverse_gamma_gaussian/" title="simulate_multivariate_dot_normal_inverse_gamma_gaussian" class="md-nav__link">
+      simulate_multivariate_dot_normal_inverse_gamma_gaussian
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/simulate_multivariate_gaussian/" title="simulate_multivariate_gaussian" class="md-nav__link">
+      simulate_multivariate_gaussian
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/simulate_multivariate_inverse_gamma_gaussian/" title="simulate_multivariate_inverse_gamma_gaussian" class="md-nav__link">
+      simulate_multivariate_inverse_gamma_gaussian
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/simulate_multivariate_linear_normal_inverse_gamma_gaussian/" title="simulate_multivariate_linear_normal_inverse_gamma_gaussian" class="md-nav__link">
+      simulate_multivariate_linear_normal_inverse_gamma_gaussian
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/simulate_multivariate_normal_inverse_gamma/" title="simulate_multivariate_normal_inverse_gamma" class="md-nav__link">
+      simulate_multivariate_normal_inverse_gamma
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/simulate_multivariate_normal_inverse_gamma_gaussian/" title="simulate_multivariate_normal_inverse_gamma_gaussian" class="md-nav__link">
+      simulate_multivariate_normal_inverse_gamma_gaussian
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/simulate_multivariate_student_t/" title="simulate_multivariate_student_t" class="md-nav__link">
+      simulate_multivariate_student_t
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/simulate_multivariate_uniform/" title="simulate_multivariate_uniform" class="md-nav__link">
+      simulate_multivariate_uniform
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/simulate_multivariate_uniform_int/" title="simulate_multivariate_uniform_int" class="md-nav__link">
+      simulate_multivariate_uniform_int
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/simulate_negative_binomial/" title="simulate_negative_binomial" class="md-nav__link">
+      simulate_negative_binomial
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/simulate_normal_inverse_gamma/" title="simulate_normal_inverse_gamma" class="md-nav__link">
+      simulate_normal_inverse_gamma
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/simulate_normal_inverse_gamma_gaussian/" title="simulate_normal_inverse_gamma_gaussian" class="md-nav__link">
+      simulate_normal_inverse_gamma_gaussian
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/simulate_poisson/" title="simulate_poisson" class="md-nav__link">
+      simulate_poisson
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/simulate_student_t/" title="simulate_student_t" class="md-nav__link">
+      simulate_student_t
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/simulate_uniform/" title="simulate_uniform" class="md-nav__link">
+      simulate_uniform
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/simulate_uniform_int/" title="simulate_uniform_int" class="md-nav__link">
+      simulate_uniform_int
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/simulate_uniform_unit_vector/" title="simulate_uniform_unit_vector" class="md-nav__link">
+      simulate_uniform_unit_vector
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/sin/" title="sin" class="md-nav__link">
+      sin
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/sinh/" title="sinh" class="md-nav__link">
+      sinh
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/solve/" title="solve" class="md-nav__link">
+      solve
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/sort/" title="sort" class="md-nav__link">
+      sort
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/sqrt/" title="sqrt" class="md-nav__link">
+      sqrt
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/sum/" title="sum" class="md-nav__link">
+      sum
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/system/" title="system" class="md-nav__link">
+      system
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/systematic_cumulative_offspring/" title="systematic_cumulative_offspring" class="md-nav__link">
+      systematic_cumulative_offspring
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/tan/" title="tan" class="md-nav__link">
+      tan
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/tanh/" title="tanh" class="md-nav__link">
+      tanh
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/tic/" title="tic" class="md-nav__link">
+      tic
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/toc/" title="toc" class="md-nav__link">
+      toc
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/trans/" title="trans" class="md-nav__link">
+      trans
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/transform/" title="transform" class="md-nav__link">
+      transform
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/transform_reduce/" title="transform_reduce" class="md-nav__link">
+      transform_reduce
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/update_beta_bernoulli/" title="update_beta_bernoulli" class="md-nav__link">
+      update_beta_bernoulli
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/update_beta_binomial/" title="update_beta_binomial" class="md-nav__link">
+      update_beta_binomial
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/update_beta_negative_binomial/" title="update_beta_negative_binomial" class="md-nav__link">
+      update_beta_negative_binomial
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/update_dirichlet_categorical/" title="update_dirichlet_categorical" class="md-nav__link">
+      update_dirichlet_categorical
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/update_dirichlet_multinomial/" title="update_dirichlet_multinomial" class="md-nav__link">
+      update_dirichlet_multinomial
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/update_gamma_exponential/" title="update_gamma_exponential" class="md-nav__link">
+      update_gamma_exponential
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/update_gamma_poisson/" title="update_gamma_poisson" class="md-nav__link">
+      update_gamma_poisson
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/update_gaussian_gaussian/" title="update_gaussian_gaussian" class="md-nav__link">
+      update_gaussian_gaussian
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/update_inverse_gamma_gamma/" title="update_inverse_gamma_gamma" class="md-nav__link">
+      update_inverse_gamma_gamma
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/update_inverse_gamma_gaussian/" title="update_inverse_gamma_gaussian" class="md-nav__link">
+      update_inverse_gamma_gaussian
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/update_linear_gaussian_gaussian/" title="update_linear_gaussian_gaussian" class="md-nav__link">
+      update_linear_gaussian_gaussian
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/update_linear_normal_inverse_gamma_gaussian/" title="update_linear_normal_inverse_gamma_gaussian" class="md-nav__link">
+      update_linear_normal_inverse_gamma_gaussian
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/update_multivariate_dot_gaussian_gaussian/" title="update_multivariate_dot_gaussian_gaussian" class="md-nav__link">
+      update_multivariate_dot_gaussian_gaussian
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/update_multivariate_dot_normal_inverse_gamma_gaussian/" title="update_multivariate_dot_normal_inverse_gamma_gaussian" class="md-nav__link">
+      update_multivariate_dot_normal_inverse_gamma_gaussian
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/update_multivariate_gaussian_gaussian/" title="update_multivariate_gaussian_gaussian" class="md-nav__link">
+      update_multivariate_gaussian_gaussian
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/update_multivariate_inverse_gamma_gaussian/" title="update_multivariate_inverse_gamma_gaussian" class="md-nav__link">
+      update_multivariate_inverse_gamma_gaussian
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/update_multivariate_linear_gaussian_gaussian/" title="update_multivariate_linear_gaussian_gaussian" class="md-nav__link">
+      update_multivariate_linear_gaussian_gaussian
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/update_multivariate_linear_normal_inverse_gamma_gaussian/" title="update_multivariate_linear_normal_inverse_gamma_gaussian" class="md-nav__link">
+      update_multivariate_linear_normal_inverse_gamma_gaussian
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/update_multivariate_normal_inverse_gamma/" title="update_multivariate_normal_inverse_gamma" class="md-nav__link">
+      update_multivariate_normal_inverse_gamma
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/update_multivariate_normal_inverse_gamma_gaussian/" title="update_multivariate_normal_inverse_gamma_gaussian" class="md-nav__link">
+      update_multivariate_normal_inverse_gamma_gaussian
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/update_normal_inverse_gamma/" title="update_normal_inverse_gamma" class="md-nav__link">
+      update_normal_inverse_gamma
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/update_normal_inverse_gamma_gaussian/" title="update_normal_inverse_gamma_gaussian" class="md-nav__link">
+      update_normal_inverse_gamma_gaussian
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/update_scaled_gamma_poisson/" title="update_scaled_gamma_poisson" class="md-nav__link">
+      update_scaled_gamma_poisson
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/vector/" title="vector" class="md-nav__link">
+      vector
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/warning/" title="warning" class="md-nav__link">
+      warning
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../functions/wasserstein/" title="wasserstein" class="md-nav__link">
+      wasserstein
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3-6" type="checkbox" id="nav-4-3-6">
+    
+    <label class="md-nav__link" for="nav-4-3-6">
+      Fibers
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-4-3-6">
+        Fibers
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../fibers/limit/" title="limit" class="md-nav__link">
+      limit
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3-7" type="checkbox" id="nav-4-3-7">
+    
+    <label class="md-nav__link" for="nav-4-3-7">
+      Unary Operators
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-4-3-7">
+        Unary Operators
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../unary_operators/not/" title="!" class="md-nav__link">
+      !
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../unary_operators/add/" title="+" class="md-nav__link">
+      +
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../unary_operators/subtract/" title="-" class="md-nav__link">
+      -
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3-8" type="checkbox" id="nav-4-3-8">
+    
+    <label class="md-nav__link" for="nav-4-3-8">
+      Binary Operators
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-4-3-8">
+        Binary Operators
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../binary_operators/ne/" title="!=" class="md-nav__link">
+      !=
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../binary_operators/and/" title="&&" class="md-nav__link">
+      &&
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../binary_operators/multiply/" title="*" class="md-nav__link">
+      *
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../binary_operators/add/" title="+" class="md-nav__link">
+      +
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../binary_operators/subtract/" title="-" class="md-nav__link">
+      -
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../binary_operators/divide/" title="/" class="md-nav__link">
+      /
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../binary_operators/lt/" title="<" class="md-nav__link">
+      <
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../binary_operators/le/" title="<=" class="md-nav__link">
+      <=
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../binary_operators/eq/" title="==" class="md-nav__link">
+      ==
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../binary_operators/gt/" title=">" class="md-nav__link">
+      >
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../binary_operators/ge/" title=">=" class="md-nav__link">
+      >=
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../binary_operators/or/" title="||" class="md-nav__link">
+      ||
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3-9" type="checkbox" id="nav-4-3-9" checked>
+    
+    <label class="md-nav__link" for="nav-4-3-9">
+      Classes
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-4-3-9">
+        Classes
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../AliveParticleFilter/" title="AliveParticleFilter" class="md-nav__link">
+      AliveParticleFilter
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ArrayValue/" title="ArrayValue" class="md-nav__link">
+      ArrayValue
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../AssumeEvent/" title="AssumeEvent" class="md-nav__link">
+      AssumeEvent
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../AuxiliaryParticleFilter/" title="AuxiliaryParticleFilter" class="md-nav__link">
+      AuxiliaryParticleFilter
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Bernoulli/" title="Bernoulli" class="md-nav__link">
+      Bernoulli
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Beta/" title="Beta" class="md-nav__link">
+      Beta
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../BidirectionalModel/" title="BidirectionalModel" class="md-nav__link">
+      BidirectionalModel
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../BidirectionalSampler/" title="BidirectionalSampler" class="md-nav__link">
+      BidirectionalSampler
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Binomial/" title="Binomial" class="md-nav__link">
+      Binomial
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../BooleanMatrixValue/" title="BooleanMatrixValue" class="md-nav__link">
+      BooleanMatrixValue
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../BooleanValue/" title="BooleanValue" class="md-nav__link">
+      BooleanValue
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../BooleanVectorValue/" title="BooleanVectorValue" class="md-nav__link">
+      BooleanVectorValue
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../BootstrapParticleFilter/" title="BootstrapParticleFilter" class="md-nav__link">
+      BootstrapParticleFilter
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Boxed/" title="Boxed" class="md-nav__link">
+      Boxed
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Buffer/" title="Buffer" class="md-nav__link">
+      Buffer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Categorical/" title="Categorical" class="md-nav__link">
+      Categorical
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ConditionalParticleFilter/" title="ConditionalParticleFilter" class="md-nav__link">
+      ConditionalParticleFilter
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Delta/" title="Delta" class="md-nav__link">
+      Delta
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Dirichlet/" title="Dirichlet" class="md-nav__link">
+      Dirichlet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Distribution/" title="Distribution" class="md-nav__link">
+      Distribution
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Entry/" title="Entry" class="md-nav__link">
+      Entry
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Event/" title="Event" class="md-nav__link">
+      Event
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../EventHandler/" title="EventHandler" class="md-nav__link">
+      EventHandler
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Exponential/" title="Exponential" class="md-nav__link">
+      Exponential
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Expression/" title="Expression" class="md-nav__link">
+      Expression
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../FactorEvent/" title="FactorEvent" class="md-nav__link">
+      FactorEvent
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../FixedEvent/" title="FixedEvent" class="md-nav__link">
+      FixedEvent
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        ForwardModel
+      </label>
+    
+    <a href="./" title="ForwardModel" class="md-nav__link md-nav__link--active">
+      ForwardModel
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#member-functions" title="Member Functions" class="md-nav__link">
+    Member Functions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#member-function-details" title="Member Function Details" class="md-nav__link">
+    Member Function Details
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rewind" title="rewind" class="md-nav__link">
+    rewind
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#size" title="size" class="md-nav__link">
+    size
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#start" title="start" class="md-nav__link">
+    start
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step" title="step" class="md-nav__link">
+    step
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ForwardSampler/" title="ForwardSampler" class="md-nav__link">
+      ForwardSampler
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Gamma/" title="Gamma" class="md-nav__link">
+      Gamma
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Gaussian/" title="Gaussian" class="md-nav__link">
+      Gaussian
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Generator/" title="Generator" class="md-nav__link">
+      Generator
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Geometric/" title="Geometric" class="md-nav__link">
+      Geometric
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../HiddenMarkovModel/" title="HiddenMarkovModel" class="md-nav__link">
+      HiddenMarkovModel
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../HiddenStarModel/" title="HiddenStarModel" class="md-nav__link">
+      HiddenStarModel
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ImportanceSampler/" title="ImportanceSampler" class="md-nav__link">
+      ImportanceSampler
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../InputStream/" title="InputStream" class="md-nav__link">
+      InputStream
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../IntegerMatrixValue/" title="IntegerMatrixValue" class="md-nav__link">
+      IntegerMatrixValue
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../IntegerValue/" title="IntegerValue" class="md-nav__link">
+      IntegerValue
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../IntegerVectorValue/" title="IntegerVectorValue" class="md-nav__link">
+      IntegerVectorValue
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../InverseGamma/" title="InverseGamma" class="md-nav__link">
+      InverseGamma
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../JSONGenerator/" title="JSONGenerator" class="md-nav__link">
+      JSONGenerator
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../JSONParser/" title="JSONParser" class="md-nav__link">
+      JSONParser
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../List/" title="List" class="md-nav__link">
+      List
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../LogGaussian/" title="LogGaussian" class="md-nav__link">
+      LogGaussian
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../LogNormal/" title="LogNormal" class="md-nav__link">
+      LogNormal
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../MarkovModel/" title="MarkovModel" class="md-nav__link">
+      MarkovModel
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../MemoryBuffer/" title="MemoryBuffer" class="md-nav__link">
+      MemoryBuffer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Model/" title="Model" class="md-nav__link">
+      Model
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Multinomial/" title="Multinomial" class="md-nav__link">
+      Multinomial
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../MultivariateGaussian/" title="MultivariateGaussian" class="md-nav__link">
+      MultivariateGaussian
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../MultivariateIndependentGaussian/" title="MultivariateIndependentGaussian" class="md-nav__link">
+      MultivariateIndependentGaussian
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../MultivariateIndependentNormal/" title="MultivariateIndependentNormal" class="md-nav__link">
+      MultivariateIndependentNormal
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../MultivariateNormal/" title="MultivariateNormal" class="md-nav__link">
+      MultivariateNormal
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../MultivariateNormalInverseGamma/" title="MultivariateNormalInverseGamma" class="md-nav__link">
+      MultivariateNormalInverseGamma
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../MultivariateUniform/" title="MultivariateUniform" class="md-nav__link">
+      MultivariateUniform
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../MultivariateUniformInteger/" title="MultivariateUniformInteger" class="md-nav__link">
+      MultivariateUniformInteger
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../NegativeBinomial/" title="NegativeBinomial" class="md-nav__link">
+      NegativeBinomial
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../NilValue/" title="NilValue" class="md-nav__link">
+      NilValue
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Normal/" title="Normal" class="md-nav__link">
+      Normal
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../NormalInverseGamma/" title="NormalInverseGamma" class="md-nav__link">
+      NormalInverseGamma
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Object/" title="Object" class="md-nav__link">
+      Object
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ObjectValue/" title="ObjectValue" class="md-nav__link">
+      ObjectValue
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ObserveEvent/" title="ObserveEvent" class="md-nav__link">
+      ObserveEvent
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../OutputStream/" title="OutputStream" class="md-nav__link">
+      OutputStream
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Parser/" title="Parser" class="md-nav__link">
+      Parser
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ParticleFilter/" title="ParticleFilter" class="md-nav__link">
+      ParticleFilter
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ParticleGibbs/" title="ParticleGibbs" class="md-nav__link">
+      ParticleGibbs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ParticleMarginalMetropolisHastings/" title="ParticleMarginalMetropolisHastings" class="md-nav__link">
+      ParticleMarginalMetropolisHastings
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Poisson/" title="Poisson" class="md-nav__link">
+      Poisson
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Queue/" title="Queue" class="md-nav__link">
+      Queue
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../RaggedArray/" title="RaggedArray" class="md-nav__link">
+      RaggedArray
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Random/" title="Random" class="md-nav__link">
+      Random
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../RandomAccessModel/" title="RandomAccessModel" class="md-nav__link">
+      RandomAccessModel
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../RandomAccessSampler/" title="RandomAccessSampler" class="md-nav__link">
+      RandomAccessSampler
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../RandomEvent/" title="RandomEvent" class="md-nav__link">
+      RandomEvent
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../RaoBlackwellizedParticleFilter/" title="RaoBlackwellizedParticleFilter" class="md-nav__link">
+      RaoBlackwellizedParticleFilter
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../RealMatrixValue/" title="RealMatrixValue" class="md-nav__link">
+      RealMatrixValue
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../RealValue/" title="RealValue" class="md-nav__link">
+      RealValue
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../RealVectorValue/" title="RealVectorValue" class="md-nav__link">
+      RealVectorValue
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Restaurant/" title="Restaurant" class="md-nav__link">
+      Restaurant
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Sampler/" title="Sampler" class="md-nav__link">
+      Sampler
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../SimulateEvent/" title="SimulateEvent" class="md-nav__link">
+      SimulateEvent
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Stack/" title="Stack" class="md-nav__link">
+      Stack
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../StarModel/" title="StarModel" class="md-nav__link">
+      StarModel
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../StateSpaceModel/" title="StateSpaceModel" class="md-nav__link">
+      StateSpaceModel
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../StringValue/" title="StringValue" class="md-nav__link">
+      StringValue
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Student/" title="Student" class="md-nav__link">
+      Student
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Uniform/" title="Uniform" class="md-nav__link">
+      Uniform
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../UniformInteger/" title="UniformInteger" class="md-nav__link">
+      UniformInteger
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Value/" title="Value" class="md-nav__link">
+      Value
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ValueEvent/" title="ValueEvent" class="md-nav__link">
+      ValueEvent
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Vector/" title="Vector" class="md-nav__link">
+      Vector
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-4" type="checkbox" id="nav-4-4">
+    
+    <label class="md-nav__link" for="nav-4-4">
+      Driver
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-4">
+        Driver
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../driver/" title="The Birch Driver Program" class="md-nav__link">
+      The Birch Driver Program
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../driver/meta_file/" title="Meta file" class="md-nav__link">
+      Meta file
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../driver/commands/init/" title="init" class="md-nav__link">
+      init
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../driver/commands/check/" title="check" class="md-nav__link">
+      check
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../driver/commands/build/" title="build" class="md-nav__link">
+      build
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../driver/commands/install/" title="install" class="md-nav__link">
+      install
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../driver/commands/uninstall/" title="uninstall" class="md-nav__link">
+      uninstall
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../driver/commands/dist/" title="dist" class="md-nav__link">
+      dist
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../driver/commands/docs/" title="docs" class="md-nav__link">
+      docs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../driver/commands/tune/" title="tune" class="md-nav__link">
+      tune
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../driver/commands/clean/" title="clean" class="md-nav__link">
+      clean
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-5" type="checkbox" id="nav-4-5">
+    
+    <label class="md-nav__link" for="nav-4-5">
+      How To
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-5">
+        How To
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../how-to/" title="Birch How-To Guides" class="md-nav__link">
+      Birch How-To Guides
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../how-to/install-locally/" title="Install without root access" class="md-nav__link">
+      Install without root access
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../how-to/using-eclipse/" title="Use Eclipse" class="md-nav__link">
+      Use Eclipse
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../how-to/using-travis-ci/" title="Use Travis CI" class="md-nav__link">
+      Use Travis CI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../how-to/2d-graphics-with-cairo/" title="Use Cairo" class="md-nav__link">
+      Use Cairo
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../../about/" title="About" class="md-nav__link">
+      About
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#member-functions" title="Member Functions" class="md-nav__link">
+    Member Functions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#member-function-details" title="Member Function Details" class="md-nav__link">
+    Member Function Details
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rewind" title="rewind" class="md-nav__link">
+    rewind
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#size" title="size" class="md-nav__link">
+    size
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#start" title="start" class="md-nav__link">
+    start
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step" title="step" class="md-nav__link">
+    step
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>ForwardModel</h1>
+                
+                <p><a name="forwardmodel"></a></p>
+<div class="admonition quote">
+<p class="admonition-title">class ForwardModel &lt; <a href="../Model/">Model</a></p>
+<p>Forward model. To simulate the model, first use <code>start()</code>, followed by
+<code>step()</code> any number of times.</p>
+</div>
+<h3 id="member-functions">Member Functions</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#start">start</a></td>
+<td>Start.</td>
+</tr>
+<tr>
+<td><a href="#step">step</a></td>
+<td>Step.</td>
+</tr>
+<tr>
+<td><a href="#rewind">rewind</a></td>
+<td>Rewind to start.</td>
+</tr>
+<tr>
+<td><a href="#size">size</a></td>
+<td>Number of steps.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="member-function-details">Member Function Details</h3>
+<h4 id="rewind">rewind</h4>
+<p><a name="rewind"></a></p>
+<div class="admonition quote">
+<p class="admonition-title">function rewind()</p>
+<p>Rewind to start.</p>
+</div>
+<h4 id="size">size</h4>
+<p><a name="size"></a></p>
+<div class="admonition quote">
+<p class="admonition-title">function size() -&gt; <a href="../../types/#Integer">Integer</a></p>
+<p>Number of steps.</p>
+</div>
+<h4 id="start">start</h4>
+<p><a name="start"></a></p>
+<div class="admonition quote">
+<p class="admonition-title">function start() -&gt; <a href="../../types/#Real">Real</a></p>
+<p>Start.</p>
+</div>
+<h4 id="step">step</h4>
+<p><a name="step"></a></p>
+<div class="admonition quote">
+<p class="admonition-title">function step() -&gt; <a href="../../types/#Real">Real</a></p>
+<p>Step.</p>
+</div>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../FixedEvent/" title="FixedEvent" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                FixedEvent
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../ForwardSampler/" title="ForwardSampler" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                ForwardSampler
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/lawmurray" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../../assets/javascripts/application.b41f3d20.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../../.."}})</script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+    
+      
+        <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-115470196-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview");var links=document.getElementsByTagName("a");if(Array.prototype.map.call(links,function(a){a.host!=document.location.host&&a.addEventListener("click",function(){var e=a.getAttribute("data-md-action")||"follow";ga("send","event","outbound",e,a.href)})}),document.forms.search){var query=document.forms.search.query;query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+  </body>
+</html>
