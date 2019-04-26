@@ -5030,6 +5030,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#hasvalue" title="hasValue" class="md-nav__link">
+    hasValue
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#lower" title="lower" class="md-nav__link">
     lower
   </a>
@@ -5058,8 +5065,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#setrandom" title="setRandom" class="md-nav__link">
-    setRandom
+  <a href="#setfuture" title="setFuture" class="md-nav__link">
+    setFuture
   </a>
   
 </li>
@@ -5081,6 +5088,13 @@
           <li class="md-nav__item">
   <a href="#upper" title="upper" class="md-nav__link">
     upper
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#value" title="value" class="md-nav__link">
+    value
   </a>
   
 </li>
@@ -6313,6 +6327,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#hasvalue" title="hasValue" class="md-nav__link">
+    hasValue
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#lower" title="lower" class="md-nav__link">
     lower
   </a>
@@ -6341,8 +6362,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#setrandom" title="setRandom" class="md-nav__link">
-    setRandom
+  <a href="#setfuture" title="setFuture" class="md-nav__link">
+    setFuture
   </a>
   
 </li>
@@ -6364,6 +6385,13 @@
           <li class="md-nav__item">
   <a href="#upper" title="upper" class="md-nav__link">
     upper
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#value" title="value" class="md-nav__link">
+    value
   </a>
   
 </li>
@@ -6410,12 +6438,16 @@
 </thead>
 <tbody>
 <tr>
-<td>delay:DelayValue&lt;Value&gt;?</td>
-<td>Associated node on delayed sampling <script type="math/tex">M</script>-path.</td>
+<td>future:Value?</td>
+<td>Future value. This is set for situations where delayed sampling is used, but when ultimately realized, a particular value (this one) should be assigned, and updates or downdates applied accordingly. It is typically used when replaying traces.</td>
 </tr>
 <tr>
-<td>x:<a href="../Random/">Random</a>&lt;Value&gt;&amp;</td>
-<td>Associated random variate.</td>
+<td>futureUpdate:<a href="../../types/#Boolean">Boolean</a></td>
+<td>When assigned, should the future value trigger an update? (Otherwise a downdate.)</td>
+</tr>
+<tr>
+<td>delay:DelayValue&lt;Value&gt;?</td>
+<td>Associated node on delayed sampling <script type="math/tex">M</script>-path.</td>
 </tr>
 </tbody>
 </table>
@@ -6429,8 +6461,16 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="#setrandom">setRandom</a></td>
-<td>The the set random variate associated with this distribution.</td>
+<td><a href="#setfuture">setFuture</a></td>
+<td>Set the future value to be produced from the distribution.</td>
+</tr>
+<tr>
+<td><a href="#hasvalue">hasValue</a></td>
+<td>Does the distribution have a value?</td>
+</tr>
+<tr>
+<td><a href="#value">value</a></td>
+<td>Get the value of the node, realizing it if necessary.</td>
 </tr>
 <tr>
 <td><a href="#simulate">simulate</a></td>
@@ -6511,6 +6551,12 @@ undoes the effects of an update().</p>
 <p class="admonition-title">function graft()</p>
 <p>Graft this onto the delayed sampling <script type="math/tex">M</script>-path.</p>
 </div>
+<h4 id="hasvalue">hasValue</h4>
+<p><a name="hasvalue"></a></p>
+<div class="admonition quote">
+<p class="admonition-title">function hasValue() -&gt; <a href="../../types/#Boolean">Boolean</a></p>
+<p>Does the distribution have a value?</p>
+</div>
 <h4 id="lower">lower</h4>
 <p><a name="lower"></a></p>
 <div class="admonition quote">
@@ -6547,11 +6593,16 @@ undoes the effects of an update().</p>
 </ul>
 <p>Return: the probability mass.</p>
 </div>
-<h4 id="setrandom">setRandom</h4>
-<p><a name="setrandom"></a></p>
+<h4 id="setfuture">setFuture</h4>
+<p><a name="setfuture"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function setRandom(x:<a href="../Random/">Random</a>&lt;Value&gt;)</p>
-<p>The the set random variate associated with this distribution.</p>
+<p class="admonition-title">function setFuture(future:Value, futureUpdate:<a href="../../types/#Boolean">Boolean</a>)</p>
+<p>Set the future value to be produced from the distribution.</p>
+<ul>
+<li>future: Future value.</li>
+<li>futureUpdate: When realized, should the future value trigger an
+  update? (Otherwise a downdate.)</li>
+</ul>
 </div>
 <h4 id="simulate">simulate</h4>
 <p><a name="simulate"></a></p>
@@ -6572,6 +6623,12 @@ undoes the effects of an update().</p>
 <div class="admonition quote">
 <p class="admonition-title">function upper() -&gt; Value?</p>
 <p>Finite upper bound of the support of this node, if any.</p>
+</div>
+<h4 id="value">value</h4>
+<p><a name="value"></a></p>
+<div class="admonition quote">
+<p class="admonition-title">function value() -&gt; Value</p>
+<p>Get the value of the node, realizing it if necessary.</p>
 </div>
                 
                   
