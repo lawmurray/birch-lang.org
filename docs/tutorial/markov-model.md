@@ -219,7 +219,7 @@ We are nearly ready to perform inference. Unlike the [linear regression](/docume
 The particle filter requires some configuration. This is provided in a configuration file.
 
 !!! example "Exercise"
-    Create a file `config/sir_model.json`, add it to `META.json`, and enter the following contents:
+    Create a file `config/sir_model.json`, add it to `META.json` under `manifest.other`, and enter the following contents:
 
         {
           "sampler": {
