@@ -9,3 +9,7 @@ a:visited {
 a:active {
   color:#7cb342;
 }
+
+.md-sidebar--secondary {
+  display: none;
+}
