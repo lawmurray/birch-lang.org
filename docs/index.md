@@ -1,18 +1,18 @@
 # Probabilistic Programming in Birch
 
-![Birch forest](/images/forest.jpg)
+![Birch trunk](/images/trunk.jpg)
 
 Birch is an imperative, object-oriented, universal probabilistic
-programming language. It compiles to C++14 for Linux, macOS, and
-Windows 10, and is free and open source.
+programming language. It compiles to C++14 with shared-memory parallelism
+provided by [OpenMP](https://www.openmp.org/) and fast numerics by [Eigen](http://eigen.tuxfamily.org/). It is free and open source software for Linux, macOS and Windows.
 
 Probabilistic models are specified in Birch by writing a program to
 simulate the joint distribution. Inference methods are also written in
-Birch. Sequential Monte Carlo (SMC) is currently supported, with
+the language. Sequential Monte Carlo (SMC) is currently supported, with
 analytical optimizations&mdash;such as locally-optimal proposals and
-Rao&ndash;Blackwellization&mdash;applied automatically.
+Rao&ndash;Blackwellization&mdash;applied automatically, and efficient memory management via a pooled and copy-on-write memory manager that leverages the path coalescence inherent in these algorithms.
 
-See [Getting Started](/getting-started/installing) to try it yourself.
+Research and development of Birch is ongoing, but the above already makes it very useful. See [Getting Started](/getting-started/installing) to try it yourself.
 
 ## Example
 

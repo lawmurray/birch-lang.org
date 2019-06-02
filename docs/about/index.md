@@ -7,6 +7,7 @@
 ## Contributors
 
  * Jan Kudlicka
+ * Riccardo Sven Risuleo
  * Matteo Scandella
  * Anna Wigren
 

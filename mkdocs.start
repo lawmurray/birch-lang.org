@@ -2,19 +2,21 @@ site_name: 'Birch'
 site_description: 'A probabilistic object-oriented programming language for machine learning and statistics.'
 theme:
   name: 'material'
+  logo:
+    icon: 'code'
   font:
     text: 'Lato'
     monospace: 'Monaco'
   palette:
-    primary: 'green'
-    accent: 'green'
-  feature:
-    tabs: true
+    primary: 'white'
+    accent: 'light green'
 markdown_extensions:
   - admonition
   - footnotes
   - mdx_math:
       enable_dollar_delimiter: true
+extra_css:
+  - 'stylesheets/extra.css'
 extra_javascript:
   - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'
 extra:
