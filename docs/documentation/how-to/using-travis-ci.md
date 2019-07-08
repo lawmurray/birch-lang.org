@@ -12,9 +12,10 @@ matrix:
     # macOS environment
     - os: osx
       compiler: clang
-      osx_image: xcode9.4
+      osx_image: xcode10.1
       addons:
         homebrew:
+          update: true
           packages:
             - flex
             - bison
@@ -43,10 +44,10 @@ before_install:
 
   # Checkout Birch.Standard, which may be cached, and (re)build
   - git clone "https://github.com/lawmurray/Birch.Standard.git" || cd .
-  - cd Birch.Standard && git stash && git pull && git checkout master && birch build --enable-unity && sudo birch install --enable-unity && cd ..
+  - cd Birch.Standard && git stash && git pull && git checkout master && birch build && sudo birch install && cd ..
 
 install:
-  - birch build --enable-unity && sudo birch install --enable-unity
+  - birch build && sudo birch install
 script:
   - ./run.sh
 cache:
@@ -55,7 +56,7 @@ cache:
     - Birch.Standard
 ```
 
-This sets up both macOS and Ubuntu builds, and caches the Birch compiler and Birch standard library to recompile them only when necessary. Anecdotally, for [Birch.Standard](http://www.github.com/lawmurray/Birch.Standard), we observe that tests take 6-8 minutes for each instance, reducing to 3-4 minutes with an up-to-date cache. The `--enable-unity` option is particularly important to speed up the compile times of `gcc`.
+This sets up both macOS and Ubuntu builds, and caches the Birch compiler and Birch standard library to recompile them only when necessary. Anecdotally, for [Birch.Standard](http://www.github.com/lawmurray/Birch.Standard), we observe that tests take 6-8 minutes for each instance, reducing to 3-4 minutes with an up-to-date cache.
 
 
 ## Pre 2019

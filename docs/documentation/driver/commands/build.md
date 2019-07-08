@@ -4,7 +4,7 @@ Build the project.
 
 ### Basic options
 
-  - `--enable-unity` / `--disable-unity` (default disabled): Enable/disable unity build. A unity build is typically faster from a clean state, but does not support incremental builds (i.e. a change to any file will trigger a full rebuild).
+  - `--enable-unity` / `--disable-unity` (default enabled): Enable/disable unity build. A unity build is typically faster from a clean state, but does not support incremental builds (i.e. a change to any file will trigger a full rebuild).
   - `--enable-debug` / `--disable-debug` (default enabled): Enable/disable debug mode. In debug mode, assertion checking is enabled and most compiler optimizations are disabled.
   - `--enable-warnings` / `--disable-warnings` (default enabled): Enable/disable compiler warnings.
   - `--enable-verbose` / `--disable-verbose` (default enabled): Show all compiler output.
