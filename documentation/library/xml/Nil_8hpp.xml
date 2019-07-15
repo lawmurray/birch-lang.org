@@ -1,0 +1,156 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
+  <compounddef id="Nil_8hpp" kind="file" language="C++">
+    <compoundname>Nil.hpp</compoundname>
+    <includedby refid="EagerPtr_8hpp" local="yes">libbirch/EagerPtr.hpp</includedby>
+    <includedby refid="Optional_8hpp" local="yes">libbirch/Optional.hpp</includedby>
+    <includedby refid="libbirch_8hpp" local="yes">libbirch/libbirch.hpp</includedby>
+    <invincdepgraph>
+      <node id="1912">
+        <label>libbirch/Shared.hpp</label>
+        <link refid="Shared_8hpp"/>
+        <childnode refid="1913" relation="include">
+        </childnode>
+        <childnode refid="1914" relation="include">
+        </childnode>
+        <childnode refid="1921" relation="include">
+        </childnode>
+        <childnode refid="1919" relation="include">
+        </childnode>
+        <childnode refid="1920" relation="include">
+        </childnode>
+        <childnode refid="1915" relation="include">
+        </childnode>
+      </node>
+      <node id="1922">
+        <label>libbirch/Weak.hpp</label>
+        <link refid="Weak_8hpp"/>
+        <childnode refid="1914" relation="include">
+        </childnode>
+        <childnode refid="1921" relation="include">
+        </childnode>
+        <childnode refid="1919" relation="include">
+        </childnode>
+        <childnode refid="1920" relation="include">
+        </childnode>
+        <childnode refid="1915" relation="include">
+        </childnode>
+      </node>
+      <node id="1915">
+        <label>libbirch/libbirch.hpp</label>
+        <link refid="libbirch_8hpp"/>
+        <childnode refid="1916" relation="include">
+        </childnode>
+      </node>
+      <node id="1911">
+        <label>libbirch/EagerPtr.hpp</label>
+        <link refid="EagerPtr_8hpp"/>
+        <childnode refid="1912" relation="include">
+        </childnode>
+        <childnode refid="1922" relation="include">
+        </childnode>
+      </node>
+      <node id="1918">
+        <label>libbirch/EigenOperators.hpp</label>
+        <link refid="EigenOperators_8hpp"/>
+        <childnode refid="1915" relation="include">
+        </childnode>
+      </node>
+      <node id="1921">
+        <label>libbirch/Optional.hpp</label>
+        <link refid="Optional_8hpp"/>
+        <childnode refid="1914" relation="include">
+        </childnode>
+        <childnode refid="1919" relation="include">
+        </childnode>
+        <childnode refid="1920" relation="include">
+        </childnode>
+        <childnode refid="1915" relation="include">
+        </childnode>
+      </node>
+      <node id="1917">
+        <label>libbirch/EigenFunctions.hpp</label>
+        <link refid="EigenFunctions_8hpp"/>
+        <childnode refid="1915" relation="include">
+        </childnode>
+      </node>
+      <node id="1916">
+        <label>libbirch/libbirch.cpp</label>
+        <link refid="libbirch_8cpp"/>
+      </node>
+      <node id="1919">
+        <label>libbirch/finish.hpp</label>
+        <link refid="finish_8hpp"/>
+        <childnode refid="1915" relation="include">
+        </childnode>
+      </node>
+      <node id="1914">
+        <label>libbirch/value.hpp</label>
+        <link refid="value_8hpp"/>
+        <childnode refid="1913" relation="include">
+        </childnode>
+        <childnode refid="1915" relation="include">
+        </childnode>
+      </node>
+      <node id="1910">
+        <label>libbirch/Nil.hpp</label>
+        <link refid="Nil_8hpp"/>
+        <childnode refid="1911" relation="include">
+        </childnode>
+        <childnode refid="1921" relation="include">
+        </childnode>
+        <childnode refid="1915" relation="include">
+        </childnode>
+      </node>
+      <node id="1920">
+        <label>libbirch/freeze.hpp</label>
+        <link refid="freeze_8hpp"/>
+        <childnode refid="1915" relation="include">
+        </childnode>
+      </node>
+      <node id="1913">
+        <label>libbirch/Array.hpp</label>
+        <link refid="Array_8hpp"/>
+        <childnode refid="1914" relation="include">
+        </childnode>
+        <childnode refid="1917" relation="include">
+        </childnode>
+        <childnode refid="1918" relation="include">
+        </childnode>
+        <childnode refid="1919" relation="include">
+        </childnode>
+        <childnode refid="1920" relation="include">
+        </childnode>
+        <childnode refid="1915" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classlibbirch_1_1Nil" prot="public">libbirch::Nil</innerclass>
+    <innernamespace refid="namespacelibbirch">libbirch</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="4"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacelibbirch" kindref="compound">libbirch</ref><sp/>{</highlight></codeline>
+<codeline lineno="12" refid="classlibbirch_1_1Nil" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classlibbirch_1_1Nil" kindref="compound">Nil</ref><sp/>{</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">operator</highlight><highlight class="normal"><sp/>std::nullptr_t()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>T&gt;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">operator</highlight><highlight class="normal"><sp/>std::initializer_list&lt;T&gt;()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>std::initializer_list&lt;T&gt;();</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="28"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="keyword">static</highlight><highlight class="normal"><sp/>constexpr<sp/><ref refid="classlibbirch_1_1Nil" kindref="compound">Nil</ref><sp/><ref refid="namespacelibbirch_1a14799155d9b9fb3fd424dd59a5e6bc57" kindref="member">nil</ref>;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="libbirch/Nil.hpp"/>
+  </compounddef>
+</doxygen>

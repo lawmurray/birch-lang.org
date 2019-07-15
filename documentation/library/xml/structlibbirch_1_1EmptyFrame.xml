@@ -1,0 +1,507 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
+  <compounddef id="structlibbirch_1_1EmptyFrame" kind="struct" language="C++" prot="public">
+    <compoundname>libbirch::EmptyFrame</compoundname>
+    <includes local="no">Frame.hpp</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structlibbirch_1_1EmptyFrame_1a3af09a80c7d65b4de87aa4a365980904" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>EmptyFrame</definition>
+        <argsstring>()</argsstring>
+        <name>EmptyFrame</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Frame.hpp" line="21" column="1" bodyfile="libbirch/Frame.hpp" bodystart="21" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="structlibbirch_1_1EmptyFrame_1af9f1b24428906d15b5d2f7cf8090153d" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>EmptyFrame</definition>
+        <argsstring>(const Eigen::Index cols)</argsstring>
+        <name>EmptyFrame</name>
+        <param>
+          <type>const Eigen::Index</type>
+          <declname>cols</declname>
+        </param>
+        <briefdescription>
+<para>Special constructor for Eigen integration where all matrices and vectors are treated as matrices, with row and column counts. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If this constructor, is reached, it means the array is a vector, and <computeroutput>length</computeroutput> should be one (and is checked for this). </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Frame.hpp" line="31" column="1" bodyfile="libbirch/Frame.hpp" bodystart="31" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="structlibbirch_1_1EmptyFrame_1a07cb7fdac580d020f5fda822b918b109" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structlibbirch_1_1EmptyFrame" kindref="compound">EmptyFrame</ref></type>
+        <definition>EmptyFrame operator()</definition>
+        <argsstring>(const EmptyView &amp;o) const</argsstring>
+        <name>operator()</name>
+        <param>
+          <type>const <ref refid="structlibbirch_1_1EmptyView" kindref="compound">EmptyView</ref> &amp;</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Frame.hpp" line="35" column="1" bodyfile="libbirch/Frame.hpp" bodystart="35" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="structlibbirch_1_1EmptyFrame_1adfc301aff03a34ce31f1f48dd98ddebd" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool conforms</definition>
+        <argsstring>(const EmptyFrame &amp;o) const</argsstring>
+        <name>conforms</name>
+        <param>
+          <type>const <ref refid="structlibbirch_1_1EmptyFrame" kindref="compound">EmptyFrame</ref> &amp;</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Frame.hpp" line="39" column="1" bodyfile="libbirch/Frame.hpp" bodystart="39" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="structlibbirch_1_1EmptyFrame_1a5a0e86c738d1500c14d79c037b4144f3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class Frame1</type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool conforms</definition>
+        <argsstring>(const Frame1 &amp;o) const</argsstring>
+        <name>conforms</name>
+        <param>
+          <type>const Frame1 &amp;</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Frame.hpp" line="44" column="1" bodyfile="libbirch/Frame.hpp" bodystart="44" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="structlibbirch_1_1EmptyFrame_1a6a2692ba8e7eef99bb738b14d085df1e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool conforms</definition>
+        <argsstring>(const Eigen::Index rows, const Eigen::Index cols)</argsstring>
+        <name>conforms</name>
+        <param>
+          <type>const Eigen::Index</type>
+          <declname>rows</declname>
+        </param>
+        <param>
+          <type>const Eigen::Index</type>
+          <declname>cols</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Frame.hpp" line="48" column="1" bodyfile="libbirch/Frame.hpp" bodystart="48" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="structlibbirch_1_1EmptyFrame_1a3e902e77588bee506a1bbab43a43391a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool conforms</definition>
+        <argsstring>(const Eigen::Index rows)</argsstring>
+        <name>conforms</name>
+        <param>
+          <type>const Eigen::Index</type>
+          <declname>rows</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Frame.hpp" line="52" column="1" bodyfile="libbirch/Frame.hpp" bodystart="52" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="function" id="structlibbirch_1_1EmptyFrame_1a7244401988a2364a7d7053464688226b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void resize</definition>
+        <argsstring>(const EmptyFrame &amp;o)</argsstring>
+        <name>resize</name>
+        <param>
+          <type>const <ref refid="structlibbirch_1_1EmptyFrame" kindref="compound">EmptyFrame</ref> &amp;</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Frame.hpp" line="56" column="1" bodyfile="libbirch/Frame.hpp" bodystart="56" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="structlibbirch_1_1EmptyFrame_1a164c625c13c8e532888a766bdb47d733" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class T1</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void resize</definition>
+        <argsstring>(T1 *in)</argsstring>
+        <name>resize</name>
+        <param>
+          <type>T1 *</type>
+          <declname>in</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Frame.hpp" line="61" column="1" bodyfile="libbirch/Frame.hpp" bodystart="61" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="structlibbirch_1_1EmptyFrame_1ac19f56db8307546108d16e718a4575c5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void resize</definition>
+        <argsstring>(const Eigen::Index cols)</argsstring>
+        <name>resize</name>
+        <param>
+          <type>const Eigen::Index</type>
+          <declname>cols</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Frame.hpp" line="65" column="1" bodyfile="libbirch/Frame.hpp" bodystart="65" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="structlibbirch_1_1EmptyFrame_1a139715ec3c3cd3f96257aa272c86a09c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int64_t</type>
+        <definition>int64_t offset</definition>
+        <argsstring>(const int64_t n) const</argsstring>
+        <name>offset</name>
+        <param>
+          <type>const int64_t</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Frame.hpp" line="70" column="1" bodyfile="libbirch/Frame.hpp" bodystart="70" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="structlibbirch_1_1EmptyFrame_1af12ba87227fc5dd76fcc321346514f92" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int64_t</type>
+        <definition>int64_t length</definition>
+        <argsstring>(const int i) const</argsstring>
+        <name>length</name>
+        <param>
+          <type>const int</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Frame.hpp" line="74" column="1" bodyfile="libbirch/Frame.hpp" bodystart="74" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="structlibbirch_1_1EmptyFrame_1a99170399deaa0541336a932930a77519" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int64_t</type>
+        <definition>int64_t stride</definition>
+        <argsstring>(const int i) const</argsstring>
+        <name>stride</name>
+        <param>
+          <type>const int</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Frame.hpp" line="79" column="1" bodyfile="libbirch/Frame.hpp" bodystart="79" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="structlibbirch_1_1EmptyFrame_1a868316457e3370c3e467a5781b70c7d0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class T1</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void lengths</definition>
+        <argsstring>(T1 *out) const</argsstring>
+        <name>lengths</name>
+        <param>
+          <type>T1 *</type>
+          <declname>out</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Frame.hpp" line="85" column="1" bodyfile="libbirch/Frame.hpp" bodystart="85" bodyend="87"/>
+      </memberdef>
+      <memberdef kind="function" id="structlibbirch_1_1EmptyFrame_1a408d99db761d86466b4776be3c713d0d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class T1</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void strides</definition>
+        <argsstring>(T1 *out) const</argsstring>
+        <name>strides</name>
+        <param>
+          <type>T1 *</type>
+          <declname>out</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Frame.hpp" line="90" column="1" bodyfile="libbirch/Frame.hpp" bodystart="90" bodyend="92"/>
+      </memberdef>
+      <memberdef kind="function" id="structlibbirch_1_1EmptyFrame_1ae32b77d1100d6c07f6c2d4d84e64253a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class View</type>
+          </param>
+        </templateparamlist>
+        <type>int64_t</type>
+        <definition>int64_t serial</definition>
+        <argsstring>(const View &amp;o) const</argsstring>
+        <name>serial</name>
+        <param>
+          <type>const View &amp;</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Frame.hpp" line="111" column="1" bodyfile="libbirch/Frame.hpp" bodystart="111" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="structlibbirch_1_1EmptyFrame_1a9523f8242e40c9385f31cac4ba16316b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool contiguous</definition>
+        <argsstring>() const</argsstring>
+        <name>contiguous</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Frame.hpp" line="115" column="1" bodyfile="libbirch/Frame.hpp" bodystart="115" bodyend="117"/>
+      </memberdef>
+      <memberdef kind="function" id="structlibbirch_1_1EmptyFrame_1a4be5f7649252b56be4931d784dbd5d01" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool operator==</definition>
+        <argsstring>(const EmptyFrame &amp;o) const</argsstring>
+        <name>operator==</name>
+        <param>
+          <type>const <ref refid="structlibbirch_1_1EmptyFrame" kindref="compound">EmptyFrame</ref> &amp;</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Frame.hpp" line="119" column="1" bodyfile="libbirch/Frame.hpp" bodystart="119" bodyend="121"/>
+      </memberdef>
+      <memberdef kind="function" id="structlibbirch_1_1EmptyFrame_1a188444d88016e9329f10142bd6905945" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class Frame1</type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool operator==</definition>
+        <argsstring>(const Frame1 &amp;o) const</argsstring>
+        <name>operator==</name>
+        <param>
+          <type>const Frame1 &amp;</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Frame.hpp" line="124" column="1" bodyfile="libbirch/Frame.hpp" bodystart="124" bodyend="126"/>
+      </memberdef>
+      <memberdef kind="function" id="structlibbirch_1_1EmptyFrame_1a19fa79a122ed4a31a1543a3f04f171bb" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class Frame1</type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool operator!=</definition>
+        <argsstring>(const Frame1 &amp;o) const</argsstring>
+        <name>operator!=</name>
+        <param>
+          <type>const Frame1 &amp;</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Frame.hpp" line="129" column="1" bodyfile="libbirch/Frame.hpp" bodystart="129" bodyend="131"/>
+      </memberdef>
+      <memberdef kind="function" id="structlibbirch_1_1EmptyFrame_1ad11623ff06a785c06f85b66fe4d33f3a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structlibbirch_1_1EmptyFrame" kindref="compound">EmptyFrame</ref> &amp;</type>
+        <definition>EmptyFrame&amp; operator *=</definition>
+        <argsstring>(const int64_t n)</argsstring>
+        <name>operator *=</name>
+        <param>
+          <type>const int64_t</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Frame.hpp" line="133" column="1" bodyfile="libbirch/Frame.hpp" bodystart="133" bodyend="135"/>
+      </memberdef>
+      <memberdef kind="function" id="structlibbirch_1_1EmptyFrame_1a6c3c4c2057651a6598e1b507a8e38ca6" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structlibbirch_1_1EmptyFrame" kindref="compound">EmptyFrame</ref></type>
+        <definition>EmptyFrame operator *</definition>
+        <argsstring>(const int64_t n) const</argsstring>
+        <name>operator *</name>
+        <param>
+          <type>const int64_t</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Frame.hpp" line="137" column="1" bodyfile="libbirch/Frame.hpp" bodystart="137" bodyend="141"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structlibbirch_1_1EmptyFrame_1ac369025065ebcada96d6d671df89b8eb" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr int</type>
+        <definition>static constexpr int count</definition>
+        <argsstring>()</argsstring>
+        <name>count</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Frame.hpp" line="94" column="1" bodyfile="libbirch/Frame.hpp" bodystart="94" bodyend="96"/>
+      </memberdef>
+      <memberdef kind="function" id="structlibbirch_1_1EmptyFrame_1ab9262cb2c842c85aa3ec44ddb988df45" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr int64_t</type>
+        <definition>static constexpr int64_t size</definition>
+        <argsstring>()</argsstring>
+        <name>size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Frame.hpp" line="98" column="1" bodyfile="libbirch/Frame.hpp" bodystart="98" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="function" id="structlibbirch_1_1EmptyFrame_1a8d19d82a3b827e744fd926f68eb3f12a" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr int64_t</type>
+        <definition>static constexpr int64_t volume</definition>
+        <argsstring>()</argsstring>
+        <name>volume</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Frame.hpp" line="102" column="1" bodyfile="libbirch/Frame.hpp" bodystart="102" bodyend="104"/>
+      </memberdef>
+      <memberdef kind="function" id="structlibbirch_1_1EmptyFrame_1ab2dabbb26efc4870ddd8c1593058ab40" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr int64_t</type>
+        <definition>static constexpr int64_t block</definition>
+        <argsstring>()</argsstring>
+        <name>block</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Frame.hpp" line="106" column="1" bodyfile="libbirch/Frame.hpp" bodystart="106" bodyend="108"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Empty frame. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="structlibbirch_1_1NonemptyFrame" kindref="compound">NonemptyFrame</ref> </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="libbirch/Frame.hpp" line="20" column="1" bodyfile="libbirch/Frame.hpp" bodystart="20" bodyend="142"/>
+    <listofallmembers>
+      <member refid="structlibbirch_1_1EmptyFrame_1ab2dabbb26efc4870ddd8c1593058ab40" prot="public" virt="non-virtual"><scope>libbirch::EmptyFrame</scope><name>block</name></member>
+      <member refid="structlibbirch_1_1EmptyFrame_1adfc301aff03a34ce31f1f48dd98ddebd" prot="public" virt="non-virtual"><scope>libbirch::EmptyFrame</scope><name>conforms</name></member>
+      <member refid="structlibbirch_1_1EmptyFrame_1a5a0e86c738d1500c14d79c037b4144f3" prot="public" virt="non-virtual"><scope>libbirch::EmptyFrame</scope><name>conforms</name></member>
+      <member refid="structlibbirch_1_1EmptyFrame_1a6a2692ba8e7eef99bb738b14d085df1e" prot="public" virt="non-virtual"><scope>libbirch::EmptyFrame</scope><name>conforms</name></member>
+      <member refid="structlibbirch_1_1EmptyFrame_1a3e902e77588bee506a1bbab43a43391a" prot="public" virt="non-virtual"><scope>libbirch::EmptyFrame</scope><name>conforms</name></member>
+      <member refid="structlibbirch_1_1EmptyFrame_1a9523f8242e40c9385f31cac4ba16316b" prot="public" virt="non-virtual"><scope>libbirch::EmptyFrame</scope><name>contiguous</name></member>
+      <member refid="structlibbirch_1_1EmptyFrame_1ac369025065ebcada96d6d671df89b8eb" prot="public" virt="non-virtual"><scope>libbirch::EmptyFrame</scope><name>count</name></member>
+      <member refid="structlibbirch_1_1EmptyFrame_1a3af09a80c7d65b4de87aa4a365980904" prot="public" virt="non-virtual"><scope>libbirch::EmptyFrame</scope><name>EmptyFrame</name></member>
+      <member refid="structlibbirch_1_1EmptyFrame_1af9f1b24428906d15b5d2f7cf8090153d" prot="public" virt="non-virtual"><scope>libbirch::EmptyFrame</scope><name>EmptyFrame</name></member>
+      <member refid="structlibbirch_1_1EmptyFrame_1af12ba87227fc5dd76fcc321346514f92" prot="public" virt="non-virtual"><scope>libbirch::EmptyFrame</scope><name>length</name></member>
+      <member refid="structlibbirch_1_1EmptyFrame_1a868316457e3370c3e467a5781b70c7d0" prot="public" virt="non-virtual"><scope>libbirch::EmptyFrame</scope><name>lengths</name></member>
+      <member refid="structlibbirch_1_1EmptyFrame_1a139715ec3c3cd3f96257aa272c86a09c" prot="public" virt="non-virtual"><scope>libbirch::EmptyFrame</scope><name>offset</name></member>
+      <member refid="structlibbirch_1_1EmptyFrame_1a6c3c4c2057651a6598e1b507a8e38ca6" prot="public" virt="non-virtual"><scope>libbirch::EmptyFrame</scope><name>operator *</name></member>
+      <member refid="structlibbirch_1_1EmptyFrame_1ad11623ff06a785c06f85b66fe4d33f3a" prot="public" virt="non-virtual"><scope>libbirch::EmptyFrame</scope><name>operator *=</name></member>
+      <member refid="structlibbirch_1_1EmptyFrame_1a19fa79a122ed4a31a1543a3f04f171bb" prot="public" virt="non-virtual"><scope>libbirch::EmptyFrame</scope><name>operator!=</name></member>
+      <member refid="structlibbirch_1_1EmptyFrame_1a07cb7fdac580d020f5fda822b918b109" prot="public" virt="non-virtual"><scope>libbirch::EmptyFrame</scope><name>operator()</name></member>
+      <member refid="structlibbirch_1_1EmptyFrame_1a4be5f7649252b56be4931d784dbd5d01" prot="public" virt="non-virtual"><scope>libbirch::EmptyFrame</scope><name>operator==</name></member>
+      <member refid="structlibbirch_1_1EmptyFrame_1a188444d88016e9329f10142bd6905945" prot="public" virt="non-virtual"><scope>libbirch::EmptyFrame</scope><name>operator==</name></member>
+      <member refid="structlibbirch_1_1EmptyFrame_1a7244401988a2364a7d7053464688226b" prot="public" virt="non-virtual"><scope>libbirch::EmptyFrame</scope><name>resize</name></member>
+      <member refid="structlibbirch_1_1EmptyFrame_1a164c625c13c8e532888a766bdb47d733" prot="public" virt="non-virtual"><scope>libbirch::EmptyFrame</scope><name>resize</name></member>
+      <member refid="structlibbirch_1_1EmptyFrame_1ac19f56db8307546108d16e718a4575c5" prot="public" virt="non-virtual"><scope>libbirch::EmptyFrame</scope><name>resize</name></member>
+      <member refid="structlibbirch_1_1EmptyFrame_1ae32b77d1100d6c07f6c2d4d84e64253a" prot="public" virt="non-virtual"><scope>libbirch::EmptyFrame</scope><name>serial</name></member>
+      <member refid="structlibbirch_1_1EmptyFrame_1ab9262cb2c842c85aa3ec44ddb988df45" prot="public" virt="non-virtual"><scope>libbirch::EmptyFrame</scope><name>size</name></member>
+      <member refid="structlibbirch_1_1EmptyFrame_1a99170399deaa0541336a932930a77519" prot="public" virt="non-virtual"><scope>libbirch::EmptyFrame</scope><name>stride</name></member>
+      <member refid="structlibbirch_1_1EmptyFrame_1a408d99db761d86466b4776be3c713d0d" prot="public" virt="non-virtual"><scope>libbirch::EmptyFrame</scope><name>strides</name></member>
+      <member refid="structlibbirch_1_1EmptyFrame_1a8d19d82a3b827e744fd926f68eb3f12a" prot="public" virt="non-virtual"><scope>libbirch::EmptyFrame</scope><name>volume</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

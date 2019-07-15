@@ -1,0 +1,130 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
+  <compounddef id="namespacebi_1_1type" kind="namespace" language="C++">
+    <compoundname>bi::type</compoundname>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="namespacebi_1_1type_1a717a190167959b837148d927a5d380ba" prot="public" static="no">
+        <type>bool</type>
+        <definition>using Boolean =  bool</definition>
+        <argsstring></argsstring>
+        <name>Boolean</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/basic.hpp" line="11" column="1" bodyfile="libbirch/basic.hpp" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacebi_1_1type_1a73edb547abea90219d2066356f65c111" prot="public" static="no">
+        <type>double</type>
+        <definition>using Real64 =  double</definition>
+        <argsstring></argsstring>
+        <name>Real64</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/basic.hpp" line="12" column="1" bodyfile="libbirch/basic.hpp" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacebi_1_1type_1a591eaada8113388d023119a8c8023221" prot="public" static="no">
+        <type>float</type>
+        <definition>using Real32 =  float</definition>
+        <argsstring></argsstring>
+        <name>Real32</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/basic.hpp" line="13" column="1" bodyfile="libbirch/basic.hpp" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacebi_1_1type_1aaf242fdad5afc9d5106f3ec7c20809ed" prot="public" static="no">
+        <type>std::int64_t</type>
+        <definition>using Integer64 =  std::int64_t</definition>
+        <argsstring></argsstring>
+        <name>Integer64</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/basic.hpp" line="14" column="1" bodyfile="libbirch/basic.hpp" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacebi_1_1type_1a7f1adf611fe2a1f87690588c0bcf6df0" prot="public" static="no">
+        <type>std::int32_t</type>
+        <definition>using Integer32 =  std::int32_t</definition>
+        <argsstring></argsstring>
+        <name>Integer32</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/basic.hpp" line="15" column="1" bodyfile="libbirch/basic.hpp" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacebi_1_1type_1a610c8b704cb1a1190c5a5a519d8f1aac" prot="public" static="no">
+        <type>std::int16_t</type>
+        <definition>using Integer16 =  std::int16_t</definition>
+        <argsstring></argsstring>
+        <name>Integer16</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/basic.hpp" line="16" column="1" bodyfile="libbirch/basic.hpp" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacebi_1_1type_1afad748179b248a183c51214a1b89bf8c" prot="public" static="no">
+        <type>std::int8_t</type>
+        <definition>using Integer8 =  std::int8_t</definition>
+        <argsstring></argsstring>
+        <name>Integer8</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/basic.hpp" line="17" column="1" bodyfile="libbirch/basic.hpp" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacebi_1_1type_1a5573b97b9e5129f61d289e037d7e806c" prot="public" static="no">
+        <type>std::string</type>
+        <definition>using String =  std::string</definition>
+        <argsstring></argsstring>
+        <name>String</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/basic.hpp" line="18" column="1" bodyfile="libbirch/basic.hpp" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespacebi_1_1type_1ac6c0e7be3323ae36dd232c6f2e1671e4" prot="public" static="no">
+        <type>FILE *</type>
+        <definition>using File =  FILE*</definition>
+        <argsstring></argsstring>
+        <name>File</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/basic.hpp" line="19" column="1" bodyfile="libbirch/basic.hpp" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libbirch/basic.hpp" line="7" column="1"/>
+  </compounddef>
+</doxygen>

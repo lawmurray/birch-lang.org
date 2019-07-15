@@ -1,0 +1,551 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
+  <compounddef id="EagerPtr_8hpp" kind="file" language="C++">
+    <compoundname>EagerPtr.hpp</compoundname>
+    <includes refid="clone_8hpp" local="yes">libbirch/clone.hpp</includes>
+    <includes refid="EagerMemo_8hpp" local="yes">libbirch/EagerMemo.hpp</includes>
+    <includes refid="Nil_8hpp" local="yes">libbirch/Nil.hpp</includes>
+    <includes refid="SwapClone_8hpp" local="yes">libbirch/SwapClone.hpp</includes>
+    <includes refid="SwapContext_8hpp" local="yes">libbirch/SwapContext.hpp</includes>
+    <includedby refid="Shared_8hpp" local="yes">libbirch/Shared.hpp</includedby>
+    <includedby refid="Weak_8hpp" local="yes">libbirch/Weak.hpp</includedby>
+    <incdepgraph>
+      <node id="640">
+        <label>boost/math/special_functions.hpp</label>
+      </node>
+      <node id="625">
+        <label>iomanip</label>
+      </node>
+      <node id="619">
+        <label>functional</label>
+      </node>
+      <node id="611">
+        <label>libbirch/clone.hpp</label>
+        <link refid="clone_8hpp"/>
+        <childnode refid="612" relation="include">
+        </childnode>
+      </node>
+      <node id="630">
+        <label>cstdint</label>
+      </node>
+      <node id="652">
+        <label>libbirch/SwapContext.hpp</label>
+        <link refid="SwapContext_8hpp"/>
+        <childnode refid="611" relation="include">
+        </childnode>
+        <childnode refid="648" relation="include">
+        </childnode>
+      </node>
+      <node id="610">
+        <label>libbirch/EagerPtr.hpp</label>
+        <link refid="EagerPtr_8hpp"/>
+        <childnode refid="611" relation="include">
+        </childnode>
+        <childnode refid="613" relation="include">
+        </childnode>
+        <childnode refid="650" relation="include">
+        </childnode>
+        <childnode refid="651" relation="include">
+        </childnode>
+        <childnode refid="652" relation="include">
+        </childnode>
+      </node>
+      <node id="632">
+        <label>cmath</label>
+      </node>
+      <node id="627">
+        <label>cassert</label>
+      </node>
+      <node id="617">
+        <label>numeric</label>
+      </node>
+      <node id="636">
+        <label>eigen3/Eigen/Dense</label>
+      </node>
+      <node id="623">
+        <label>string</label>
+      </node>
+      <node id="644">
+        <label>libbirch/Pool.hpp</label>
+        <link refid="Pool_8hpp"/>
+      </node>
+      <node id="651">
+        <label>libbirch/SwapClone.hpp</label>
+        <link refid="SwapClone_8hpp"/>
+        <childnode refid="641" relation="include">
+        </childnode>
+      </node>
+      <node id="646">
+        <label>libbirch/EagerAny.hpp</label>
+        <link refid="EagerAny_8hpp"/>
+        <childnode refid="614" relation="include">
+        </childnode>
+      </node>
+      <node id="614">
+        <label>libbirch/Counted.hpp</label>
+        <link refid="Counted_8hpp"/>
+        <childnode refid="615" relation="include">
+        </childnode>
+        <childnode refid="641" relation="include">
+        </childnode>
+        <childnode refid="645" relation="include">
+        </childnode>
+        <childnode refid="642" relation="include">
+        </childnode>
+      </node>
+      <node id="650">
+        <label>libbirch/Nil.hpp</label>
+        <link refid="Nil_8hpp"/>
+      </node>
+      <node id="643">
+        <label>libbirch/Atomic.hpp</label>
+        <link refid="Atomic_8hpp"/>
+      </node>
+      <node id="628">
+        <label>cstdio</label>
+      </node>
+      <node id="620">
+        <label>tuple</label>
+      </node>
+      <node id="639">
+        <label>boost/math/distributions.hpp</label>
+      </node>
+      <node id="633">
+        <label>unistd.h</label>
+      </node>
+      <node id="621">
+        <label>vector</label>
+      </node>
+      <node id="638">
+        <label>eigen3/unsupported/Eigen/KroneckerProduct</label>
+      </node>
+      <node id="618">
+        <label>utility</label>
+      </node>
+      <node id="624">
+        <label>sstream</label>
+      </node>
+      <node id="641">
+        <label>libbirch/memory.hpp</label>
+        <link refid="memory_8hpp"/>
+        <childnode refid="615" relation="include">
+        </childnode>
+        <childnode refid="642" relation="include">
+        </childnode>
+        <childnode refid="643" relation="include">
+        </childnode>
+        <childnode refid="644" relation="include">
+        </childnode>
+      </node>
+      <node id="629">
+        <label>cstdlib</label>
+      </node>
+      <node id="648">
+        <label>libbirch/Any.hpp</label>
+        <link refid="Any_8hpp"/>
+        <childnode refid="649" relation="include">
+        </childnode>
+        <childnode refid="646" relation="include">
+        </childnode>
+      </node>
+      <node id="642">
+        <label>libbirch/thread.hpp</label>
+        <link refid="thread_8hpp"/>
+        <childnode refid="615" relation="include">
+        </childnode>
+      </node>
+      <node id="631">
+        <label>cstddef</label>
+      </node>
+      <node id="615">
+        <label>libbirch/external.hpp</label>
+        <link refid="external_8hpp"/>
+        <childnode refid="616" relation="include">
+        </childnode>
+        <childnode refid="617" relation="include">
+        </childnode>
+        <childnode refid="618" relation="include">
+        </childnode>
+        <childnode refid="619" relation="include">
+        </childnode>
+        <childnode refid="620" relation="include">
+        </childnode>
+        <childnode refid="621" relation="include">
+        </childnode>
+        <childnode refid="622" relation="include">
+        </childnode>
+        <childnode refid="623" relation="include">
+        </childnode>
+        <childnode refid="624" relation="include">
+        </childnode>
+        <childnode refid="625" relation="include">
+        </childnode>
+        <childnode refid="626" relation="include">
+        </childnode>
+        <childnode refid="627" relation="include">
+        </childnode>
+        <childnode refid="628" relation="include">
+        </childnode>
+        <childnode refid="629" relation="include">
+        </childnode>
+        <childnode refid="630" relation="include">
+        </childnode>
+        <childnode refid="631" relation="include">
+        </childnode>
+        <childnode refid="632" relation="include">
+        </childnode>
+        <childnode refid="633" relation="include">
+        </childnode>
+        <childnode refid="634" relation="include">
+        </childnode>
+        <childnode refid="635" relation="include">
+        </childnode>
+        <childnode refid="636" relation="include">
+        </childnode>
+        <childnode refid="637" relation="include">
+        </childnode>
+        <childnode refid="638" relation="include">
+        </childnode>
+        <childnode refid="639" relation="include">
+        </childnode>
+        <childnode refid="640" relation="include">
+        </childnode>
+      </node>
+      <node id="612">
+        <label>libbirch/Memo.hpp</label>
+        <link refid="Memo_8hpp"/>
+      </node>
+      <node id="634">
+        <label>getopt.h</label>
+      </node>
+      <node id="645">
+        <label>libbirch/class.hpp</label>
+        <link refid="class_8hpp"/>
+      </node>
+      <node id="647">
+        <label>libbirch/Map.hpp</label>
+        <link refid="Map_8hpp"/>
+        <childnode refid="648" relation="include">
+        </childnode>
+      </node>
+      <node id="616">
+        <label>algorithm</label>
+      </node>
+      <node id="613">
+        <label>libbirch/EagerMemo.hpp</label>
+        <link refid="EagerMemo_8hpp"/>
+        <childnode refid="614" relation="include">
+        </childnode>
+        <childnode refid="646" relation="include">
+        </childnode>
+        <childnode refid="647" relation="include">
+        </childnode>
+      </node>
+      <node id="649">
+        <label>libbirch/LazyAny.hpp</label>
+        <link refid="LazyAny_8hpp"/>
+      </node>
+      <node id="622">
+        <label>memory</label>
+      </node>
+      <node id="626">
+        <label>initializer_list</label>
+      </node>
+      <node id="637">
+        <label>eigen3/Eigen/Sparse</label>
+      </node>
+      <node id="635">
+        <label>dlfcn.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="654">
+        <label>libbirch/Shared.hpp</label>
+        <link refid="Shared_8hpp"/>
+        <childnode refid="655" relation="include">
+        </childnode>
+        <childnode refid="656" relation="include">
+        </childnode>
+        <childnode refid="663" relation="include">
+        </childnode>
+        <childnode refid="661" relation="include">
+        </childnode>
+        <childnode refid="662" relation="include">
+        </childnode>
+        <childnode refid="657" relation="include">
+        </childnode>
+      </node>
+      <node id="664">
+        <label>libbirch/Weak.hpp</label>
+        <link refid="Weak_8hpp"/>
+        <childnode refid="656" relation="include">
+        </childnode>
+        <childnode refid="663" relation="include">
+        </childnode>
+        <childnode refid="661" relation="include">
+        </childnode>
+        <childnode refid="662" relation="include">
+        </childnode>
+        <childnode refid="657" relation="include">
+        </childnode>
+      </node>
+      <node id="657">
+        <label>libbirch/libbirch.hpp</label>
+        <link refid="libbirch_8hpp"/>
+        <childnode refid="658" relation="include">
+        </childnode>
+      </node>
+      <node id="653">
+        <label>libbirch/EagerPtr.hpp</label>
+        <link refid="EagerPtr_8hpp"/>
+        <childnode refid="654" relation="include">
+        </childnode>
+        <childnode refid="664" relation="include">
+        </childnode>
+      </node>
+      <node id="660">
+        <label>libbirch/EigenOperators.hpp</label>
+        <link refid="EigenOperators_8hpp"/>
+        <childnode refid="657" relation="include">
+        </childnode>
+      </node>
+      <node id="663">
+        <label>libbirch/Optional.hpp</label>
+        <link refid="Optional_8hpp"/>
+        <childnode refid="656" relation="include">
+        </childnode>
+        <childnode refid="661" relation="include">
+        </childnode>
+        <childnode refid="662" relation="include">
+        </childnode>
+        <childnode refid="657" relation="include">
+        </childnode>
+      </node>
+      <node id="659">
+        <label>libbirch/EigenFunctions.hpp</label>
+        <link refid="EigenFunctions_8hpp"/>
+        <childnode refid="657" relation="include">
+        </childnode>
+      </node>
+      <node id="658">
+        <label>libbirch/libbirch.cpp</label>
+        <link refid="libbirch_8cpp"/>
+      </node>
+      <node id="661">
+        <label>libbirch/finish.hpp</label>
+        <link refid="finish_8hpp"/>
+        <childnode refid="657" relation="include">
+        </childnode>
+      </node>
+      <node id="656">
+        <label>libbirch/value.hpp</label>
+        <link refid="value_8hpp"/>
+        <childnode refid="655" relation="include">
+        </childnode>
+        <childnode refid="657" relation="include">
+        </childnode>
+      </node>
+      <node id="662">
+        <label>libbirch/freeze.hpp</label>
+        <link refid="freeze_8hpp"/>
+        <childnode refid="657" relation="include">
+        </childnode>
+      </node>
+      <node id="655">
+        <label>libbirch/Array.hpp</label>
+        <link refid="Array_8hpp"/>
+        <childnode refid="656" relation="include">
+        </childnode>
+        <childnode refid="659" relation="include">
+        </childnode>
+        <childnode refid="660" relation="include">
+        </childnode>
+        <childnode refid="661" relation="include">
+        </childnode>
+        <childnode refid="662" relation="include">
+        </childnode>
+        <childnode refid="657" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classlibbirch_1_1Optional" prot="public">libbirch::Optional</innerclass>
+    <innerclass refid="classlibbirch_1_1EagerPtr" prot="public">libbirch::EagerPtr</innerclass>
+    <innernamespace refid="namespacelibbirch">libbirch</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="4"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>!ENABLE_LAZY_DEEP_CLONE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="clone_8hpp" kindref="compound">libbirch/clone.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="EagerMemo_8hpp" kindref="compound">libbirch/EagerMemo.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="Nil_8hpp" kindref="compound">libbirch/Nil.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="SwapClone_8hpp" kindref="compound">libbirch/SwapClone.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="SwapContext_8hpp" kindref="compound">libbirch/SwapContext.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacelibbirch" kindref="compound">libbirch</ref><sp/>{</highlight></codeline>
+<codeline lineno="14" refid="classlibbirch_1_1Optional" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>T&gt;<sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classlibbirch_1_1Optional" kindref="compound">Optional</ref>;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>P&gt;</highlight></codeline>
+<codeline lineno="24" refid="classlibbirch_1_1EagerPtr" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classlibbirch_1_1EagerPtr" kindref="compound">EagerPtr</ref><sp/>{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>U&gt;<sp/></highlight><highlight class="keyword">friend</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classlibbirch_1_1EagerPtr" kindref="compound">EagerPtr</ref>;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/><ref refid="classlibbirch_1_1EagerPtr_1a074037a4af7a39da39fe5c68a2a549a0" kindref="member">T</ref><sp/>=<sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>P::value_type;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>U&gt;<sp/></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/><ref refid="classlibbirch_1_1EagerPtr" kindref="compound">cast_type</ref><sp/>=<sp/><ref refid="classlibbirch_1_1EagerPtr" kindref="compound">EagerPtr&lt;typename P::template cast_type&lt;U&gt;</ref>&gt;;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><ref refid="classlibbirch_1_1EagerPtr_1a1ab3a2687e3252f846d8736b31b42604" kindref="member">EagerPtr</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classlibbirch_1_1Nil" kindref="compound">Nil</ref>&amp;<sp/>=<sp/><ref refid="namespacelibbirch_1a14799155d9b9fb3fd424dd59a5e6bc57" kindref="member">nil</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><ref refid="classlibbirch_1_1EagerPtr_1a1ab3a2687e3252f846d8736b31b42604" kindref="member">EagerPtr</ref>(<ref refid="classlibbirch_1_1EagerPtr_1a074037a4af7a39da39fe5c68a2a549a0" kindref="member">T</ref>*<sp/></highlight><highlight class="keywordtype">object</highlight><highlight class="normal">)<sp/>:</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classlibbirch_1_1EagerPtr_1ace4800044346e00c518e064abd9b5d1d" kindref="member">object</ref>(</highlight><highlight class="keywordtype">object</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><ref refid="classlibbirch_1_1EagerPtr_1a1ab3a2687e3252f846d8736b31b42604" kindref="member">EagerPtr</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>P&amp;<sp/></highlight><highlight class="keywordtype">object</highlight><highlight class="normal">)<sp/>:</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classlibbirch_1_1EagerPtr_1ace4800044346e00c518e064abd9b5d1d" kindref="member">object</ref>(</highlight><highlight class="keywordtype">object</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><ref refid="classlibbirch_1_1EagerPtr_1a1ab3a2687e3252f846d8736b31b42604" kindref="member">EagerPtr</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classlibbirch_1_1EagerPtr" kindref="compound">EagerPtr&lt;P&gt;</ref>&amp;<sp/>o)<sp/>{</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="namespacelibbirch_1a777e68acd7a448d4c84dc559c3977048" kindref="member">cloneUnderway</ref><sp/>&amp;&amp;<sp/>o.<ref refid="classlibbirch_1_1EagerPtr_1ace4800044346e00c518e064abd9b5d1d" kindref="member">object</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">object</highlight><highlight class="normal"><sp/>=<sp/>static_cast&lt;T*&gt;(<ref refid="namespacelibbirch_1a14f98be2b513d5fafe9972a3e325d8d7" kindref="member">currentContext</ref>-&gt;<ref refid="classlibbirch_1_1EagerMemo_1a9b1f9ea426079e1f79282f4af0cce8e1" kindref="member">get</ref>(o.<ref refid="classlibbirch_1_1EagerPtr_1ac051b2568208e363ae2dffb23c0ad9ba" kindref="member">get</ref>()));</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">object</highlight><highlight class="normal"><sp/>=<sp/>o.<ref refid="classlibbirch_1_1EagerPtr_1ace4800044346e00c518e064abd9b5d1d" kindref="member">object</ref>;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>Q&gt;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><ref refid="classlibbirch_1_1EagerPtr_1a1ab3a2687e3252f846d8736b31b42604" kindref="member">EagerPtr</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classlibbirch_1_1EagerPtr" kindref="compound">EagerPtr&lt;Q&gt;</ref>&amp;<sp/>o)<sp/>:</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classlibbirch_1_1EagerPtr_1ace4800044346e00c518e064abd9b5d1d" kindref="member">object</ref>(o.<ref refid="classlibbirch_1_1EagerPtr_1ace4800044346e00c518e064abd9b5d1d" kindref="member">object</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><ref refid="classlibbirch_1_1EagerPtr_1a1ab3a2687e3252f846d8736b31b42604" kindref="member">EagerPtr</ref>(<ref refid="classlibbirch_1_1EagerPtr" kindref="compound">EagerPtr&lt;P&gt;</ref><sp/>&amp;&amp;<sp/>o)<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><ref refid="classlibbirch_1_1EagerPtr" kindref="compound">EagerPtr&lt;P&gt;</ref>&amp;<sp/><ref refid="classlibbirch_1_1EagerPtr_1a16f48d4ac362f637bfb165f3097032ff" kindref="member">operator=</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classlibbirch_1_1EagerPtr" kindref="compound">EagerPtr&lt;P&gt;</ref>&amp;<sp/>o)<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><ref refid="classlibbirch_1_1EagerPtr" kindref="compound">EagerPtr&lt;P&gt;</ref>&amp;<sp/><ref refid="classlibbirch_1_1EagerPtr_1a16f48d4ac362f637bfb165f3097032ff" kindref="member">operator=</ref>(<ref refid="classlibbirch_1_1EagerPtr" kindref="compound">EagerPtr&lt;P&gt;</ref><sp/>&amp;&amp;<sp/>o)<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>Q&gt;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><ref refid="classlibbirch_1_1EagerPtr" kindref="compound">EagerPtr&lt;P&gt;</ref>&amp;<sp/><ref refid="classlibbirch_1_1EagerPtr_1a16f48d4ac362f637bfb165f3097032ff" kindref="member">operator=</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classlibbirch_1_1EagerPtr" kindref="compound">EagerPtr&lt;Q&gt;</ref>&amp;<sp/>o)<sp/>{</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">object</highlight><highlight class="normal"><sp/>=<sp/>o.<ref refid="classlibbirch_1_1EagerPtr_1ace4800044346e00c518e064abd9b5d1d" kindref="member">object</ref>;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>Q&gt;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><ref refid="classlibbirch_1_1EagerPtr" kindref="compound">EagerPtr&lt;P&gt;</ref>&amp;<sp/><ref refid="classlibbirch_1_1EagerPtr_1a16f48d4ac362f637bfb165f3097032ff" kindref="member">operator=</ref>(<ref refid="classlibbirch_1_1EagerPtr" kindref="compound">EagerPtr&lt;Q&gt;</ref><sp/>&amp;&amp;<sp/>o)<sp/>{</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">object</highlight><highlight class="normal"><sp/>=<sp/>std::move(o.<ref refid="classlibbirch_1_1EagerPtr_1ace4800044346e00c518e064abd9b5d1d" kindref="member">object</ref>);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><ref refid="classlibbirch_1_1EagerPtr" kindref="compound">EagerPtr&lt;P&gt;</ref>&amp;<sp/><ref refid="classlibbirch_1_1EagerPtr_1a16f48d4ac362f637bfb165f3097032ff" kindref="member">operator=</ref>(<ref refid="classlibbirch_1_1EagerPtr_1a074037a4af7a39da39fe5c68a2a549a0" kindref="member">T</ref>*<sp/>o)<sp/>{</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">object</highlight><highlight class="normal"><sp/>=<sp/>o;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><ref refid="classlibbirch_1_1EagerPtr" kindref="compound">EagerPtr&lt;P&gt;</ref>&amp;<sp/><ref refid="classlibbirch_1_1EagerPtr_1a16f48d4ac362f637bfb165f3097032ff" kindref="member">operator=</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classlibbirch_1_1Nil" kindref="compound">Nil</ref>&amp;)<sp/>{</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">object</highlight><highlight class="normal"><sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><ref refid="classlibbirch_1_1EagerPtr" kindref="compound">EagerPtr&lt;P&gt;</ref>&amp;<sp/><ref refid="classlibbirch_1_1EagerPtr_1a16f48d4ac362f637bfb165f3097032ff" kindref="member">operator=</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::nullptr_t&amp;)<sp/>{</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">object</highlight><highlight class="normal"><sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>Q&gt;</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><ref refid="classlibbirch_1_1EagerPtr" kindref="compound">EagerPtr&lt;P&gt;</ref>&amp;<sp/><ref refid="classlibbirch_1_1EagerPtr_1a16f48d4ac362f637bfb165f3097032ff" kindref="member">operator=</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classlibbirch_1_1Optional" kindref="compound">Optional</ref>&lt;<ref refid="classlibbirch_1_1EagerPtr" kindref="compound">EagerPtr&lt;Q&gt;</ref>&gt;&amp;<sp/>o)<sp/>{</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(o.query())<sp/>{</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal"><sp/>=<sp/>o.get();</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal"><sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>U&gt;</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><ref refid="classlibbirch_1_1EagerPtr" kindref="compound">EagerPtr&lt;P&gt;</ref>&amp;<sp/><ref refid="classlibbirch_1_1EagerPtr_1a16f48d4ac362f637bfb165f3097032ff" kindref="member">operator=</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>U&amp;<sp/>o)<sp/>{</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/>*<ref refid="classlibbirch_1_1EagerPtr_1ac051b2568208e363ae2dffb23c0ad9ba" kindref="member">get</ref>()<sp/>=<sp/>o;</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/>template&lt;class<sp/>U,<sp/>typename<sp/>=<sp/>std::enable_if_t&lt;std::is_convertible&lt;T,U&gt;::value&gt;&gt;</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">operator</highlight><highlight class="normal"><sp/>U()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>static_cast&lt;U&gt;(*<ref refid="classlibbirch_1_1EagerPtr_1ac051b2568208e363ae2dffb23c0ad9ba" kindref="member">get</ref>());</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classlibbirch_1_1EagerPtr_1a10bfba662deb2d3a524d37968e81de46" kindref="member">query</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>static_cast&lt;bool&gt;(</highlight><highlight class="keywordtype">object</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><ref refid="classlibbirch_1_1EagerPtr_1a074037a4af7a39da39fe5c68a2a549a0" kindref="member">T</ref>*<sp/><ref refid="classlibbirch_1_1EagerPtr_1ac051b2568208e363ae2dffb23c0ad9ba" kindref="member">get</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">object</highlight><highlight class="normal">.get();</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><ref refid="classlibbirch_1_1EagerPtr_1a074037a4af7a39da39fe5c68a2a549a0" kindref="member">T</ref>*<sp/><ref refid="classlibbirch_1_1EagerPtr_1ac051b2568208e363ae2dffb23c0ad9ba" kindref="member">get</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">object</highlight><highlight class="normal">.get();</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classlibbirch_1_1EagerPtr_1a074037a4af7a39da39fe5c68a2a549a0" kindref="member">T</ref>*<sp/><ref refid="classlibbirch_1_1EagerPtr_1a7ee06e2c093d1cb435497ed34527c4d3" kindref="member">pull</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">object</highlight><highlight class="normal">.get();</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classlibbirch_1_1EagerPtr_1a074037a4af7a39da39fe5c68a2a549a0" kindref="member">T</ref>*<sp/><ref refid="classlibbirch_1_1EagerPtr_1a7ee06e2c093d1cb435497ed34527c4d3" kindref="member">pull</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">object</highlight><highlight class="normal">.get();</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><ref refid="classlibbirch_1_1EagerPtr" kindref="compound">EagerPtr&lt;P&gt;</ref><sp/><ref refid="classlibbirch_1_1EagerPtr_1a8023b0458e4dfd3b032a1e93e3aedd6a" kindref="member">clone</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">object</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classlibbirch_1_1SharedPtr" kindref="compound">SharedPtr&lt;EagerMemo&gt;</ref><sp/>memo<sp/>=<sp/><ref refid="classlibbirch_1_1Counted_1ab9dea9cbf4b842ce52d7c1b7fee803a2" kindref="member">EagerMemo::create_</ref>();</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classlibbirch_1_1SwapClone" kindref="compound">SwapClone</ref><sp/>swapClone(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classlibbirch_1_1SwapContext" kindref="compound">SwapContext</ref><sp/>swapContext(memo.<ref refid="classlibbirch_1_1SharedPtr_1a8cd3929c3ea66c2b5595f0b1d78c03f7" kindref="member">get</ref>());</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classlibbirch_1_1EagerPtr" kindref="compound">EagerPtr&lt;P&gt;</ref>(static_cast&lt;T*&gt;(memo-&gt;copy(</highlight><highlight class="keywordtype">object</highlight><highlight class="normal">.get())));</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classlibbirch_1_1EagerPtr" kindref="compound">EagerPtr&lt;P&gt;</ref>();</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classlibbirch_1_1EagerPtr_1a4ccf1ef2310c05f6b7cf89fd8a9ab406" kindref="member">freeze</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/>assert(</highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"></highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><ref refid="classlibbirch_1_1EagerPtr_1a074037a4af7a39da39fe5c68a2a549a0" kindref="member">T</ref>&amp;<sp/><ref refid="classlibbirch_1_1EagerPtr_1a2477b013cf44492b54afd64d151de6aa" kindref="member">operator*</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*<ref refid="classlibbirch_1_1EagerPtr_1ac051b2568208e363ae2dffb23c0ad9ba" kindref="member">get</ref>();</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"></highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><ref refid="classlibbirch_1_1EagerPtr_1a074037a4af7a39da39fe5c68a2a549a0" kindref="member">T</ref>*<sp/><ref refid="classlibbirch_1_1EagerPtr_1a5c1735ebb61cb9b40f6d0ed30be8a288" kindref="member">operator-&gt;</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classlibbirch_1_1EagerPtr_1ac051b2568208e363ae2dffb23c0ad9ba" kindref="member">get</ref>();</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"></highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>U&gt;</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classlibbirch_1_1EagerPtr_1ad6b847ae81828c66a02d20b439fb1102" kindref="member">operator==</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classlibbirch_1_1EagerPtr" kindref="compound">EagerPtr&lt;U&gt;</ref>&amp;<sp/>o)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classlibbirch_1_1EagerPtr_1ac051b2568208e363ae2dffb23c0ad9ba" kindref="member">get</ref>()<sp/>==<sp/>o.<ref refid="classlibbirch_1_1EagerPtr_1ac051b2568208e363ae2dffb23c0ad9ba" kindref="member">get</ref>();</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"></highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>U&gt;</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classlibbirch_1_1EagerPtr_1ad04c6ea807f6aa4286bc7b93d008f005" kindref="member">operator!=</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classlibbirch_1_1EagerPtr" kindref="compound">EagerPtr&lt;U&gt;</ref>&amp;<sp/>o)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classlibbirch_1_1EagerPtr_1ac051b2568208e363ae2dffb23c0ad9ba" kindref="member">get</ref>()<sp/>!=<sp/>o.<ref refid="classlibbirch_1_1EagerPtr_1ac051b2568208e363ae2dffb23c0ad9ba" kindref="member">get</ref>();</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"></highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>U&gt;</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/><ref refid="classlibbirch_1_1EagerPtr_1ad545a67f92fe64358aa787951e8de4c0" kindref="member">dynamic_pointer_cast</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classlibbirch_1_1EagerPtr" kindref="compound">cast_type&lt;U&gt;</ref>(dynamic_cast&lt;U*&gt;(<ref refid="classlibbirch_1_1EagerPtr_1ac051b2568208e363ae2dffb23c0ad9ba" kindref="member">get</ref>()));</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"></highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>U&gt;</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/><ref refid="classlibbirch_1_1EagerPtr_1a482a3682f4ce430e38e9bcdd11cfb5f6" kindref="member">static_pointer_cast</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classlibbirch_1_1EagerPtr" kindref="compound">cast_type&lt;U&gt;</ref>(static_cast&lt;U*&gt;(<ref refid="classlibbirch_1_1EagerPtr_1ac051b2568208e363ae2dffb23c0ad9ba" kindref="member">get</ref>()));</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"></highlight></codeline>
+<codeline lineno="254"><highlight class="normal"></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/>P<sp/><ref refid="classlibbirch_1_1EagerPtr_1ace4800044346e00c518e064abd9b5d1d" kindref="member">object</ref>;</highlight></codeline>
+<codeline lineno="259"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="260"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"></highlight></codeline>
+<codeline lineno="262"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="libbirch/EagerPtr.hpp"/>
+  </compounddef>
+</doxygen>

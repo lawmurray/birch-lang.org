@@ -1,0 +1,293 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
+  <compounddef id="classlibbirch_1_1ContextPtr" kind="class" language="C++" prot="public">
+    <compoundname>libbirch::ContextPtr</compoundname>
+    <includes local="no">ContextPtr.hpp</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classlibbirch_1_1ContextPtr_1aded76fcdffd2b7edd4ee8c2bdb72bd64" prot="private" static="no" mutable="no">
+        <type><ref refid="classlibbirch_1_1SharedPtr" kindref="compound">SharedPtr</ref>&lt; LazyMemo &gt;</type>
+        <definition>SharedPtr&lt;LazyMemo&gt; memo</definition>
+        <argsstring></argsstring>
+        <name>memo</name>
+        <briefdescription>
+<para>The memo, if it is difference to context, otherwise <computeroutput>nullptr</computeroutput>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/ContextPtr.hpp" line="173" column="1" bodyfile="libbirch/ContextPtr.hpp" bodystart="173" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlibbirch_1_1ContextPtr_1a32176a66ce11eabf24fbe192a66d96e8" prot="private" static="no" mutable="no">
+        <type><ref refid="classlibbirch_1_1InitPtr" kindref="compound">InitPtr</ref>&lt; LazyMemo &gt;</type>
+        <definition>InitPtr&lt;LazyMemo&gt; context</definition>
+        <argsstring></argsstring>
+        <name>context</name>
+        <briefdescription>
+<para>The owning context. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This is the context in which the pointer itself was created. For a member variable, it is the same as the context of the containing object. Because the containing object holds a <ref refid="classlibbirch_1_1WeakPtr" kindref="compound">WeakPtr</ref> to the same object, use of an <ref refid="classlibbirch_1_1InitPtr" kindref="compound">InitPtr</ref> is sufficient here. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/ContextPtr.hpp" line="181" column="1" bodyfile="libbirch/ContextPtr.hpp" bodystart="181" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classlibbirch_1_1ContextPtr_1a9b924755a998d20675b158d826455fee" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ContextPtr</definition>
+        <argsstring>()</argsstring>
+        <name>ContextPtr</name>
+        <briefdescription>
+<para>Default constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/ContextPtr.hpp" line="24" column="1" bodyfile="libbirch/ContextPtr.hpp" bodystart="24" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1ContextPtr_1a887072f51c26f4a122be5700c1e83372" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ContextPtr</definition>
+        <argsstring>(Memo *memo)</argsstring>
+        <name>ContextPtr</name>
+        <param>
+          <type><ref refid="namespacelibbirch_1a3395b3df5e469e9570f1786617f78da3" kindref="member">Memo</ref> *</type>
+          <declname>memo</declname>
+        </param>
+        <briefdescription>
+<para>Value constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/ContextPtr.hpp" line="32" column="1" bodyfile="libbirch/ContextPtr.hpp" bodystart="32" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1ContextPtr_1aab5b645ff9169be1287c4ae26cac5970" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ContextPtr</definition>
+        <argsstring>(const ContextPtr &amp;o)</argsstring>
+        <name>ContextPtr</name>
+        <param>
+          <type>const <ref refid="classlibbirch_1_1ContextPtr" kindref="compound">ContextPtr</ref> &amp;</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+<para>Copy constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/ContextPtr.hpp" line="41" column="1" bodyfile="libbirch/ContextPtr.hpp" bodystart="41" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1ContextPtr_1a556926452e50c80b4d1ae718cff1c80d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ContextPtr</definition>
+        <argsstring>(ContextPtr &amp;&amp;o)</argsstring>
+        <name>ContextPtr</name>
+        <param>
+          <type><ref refid="classlibbirch_1_1ContextPtr" kindref="compound">ContextPtr</ref> &amp;&amp;</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+<para>Move constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/ContextPtr.hpp" line="58" column="1" bodyfile="libbirch/ContextPtr.hpp" bodystart="58" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1ContextPtr_1aef7392b7fbe178b55a85896c5f4e13ef" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classlibbirch_1_1ContextPtr" kindref="compound">ContextPtr</ref> &amp;</type>
+        <definition>ContextPtr&amp; operator=</definition>
+        <argsstring>(Memo *memo)</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="namespacelibbirch_1a3395b3df5e469e9570f1786617f78da3" kindref="member">Memo</ref> *</type>
+          <declname>memo</declname>
+        </param>
+        <briefdescription>
+<para>Value assignment. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/ContextPtr.hpp" line="75" column="1" bodyfile="libbirch/ContextPtr.hpp" bodystart="75" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1ContextPtr_1a3fda9d2a59aed1a2139b28a2da7a325c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classlibbirch_1_1ContextPtr" kindref="compound">ContextPtr</ref> &amp;</type>
+        <definition>ContextPtr&amp; operator=</definition>
+        <argsstring>(const ContextPtr &amp;o)</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="classlibbirch_1_1ContextPtr" kindref="compound">ContextPtr</ref> &amp;</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+<para>Copy assignment. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/ContextPtr.hpp" line="83" column="1" bodyfile="libbirch/ContextPtr.hpp" bodystart="83" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1ContextPtr_1a844eab57bca1b86bca267b24fd600140" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classlibbirch_1_1ContextPtr" kindref="compound">ContextPtr</ref> &amp;</type>
+        <definition>ContextPtr&amp; operator=</definition>
+        <argsstring>(ContextPtr &amp;&amp;o)</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="classlibbirch_1_1ContextPtr" kindref="compound">ContextPtr</ref> &amp;&amp;</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+<para>Move assignment. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/ContextPtr.hpp" line="103" column="1" bodyfile="libbirch/ContextPtr.hpp" bodystart="103" bodyend="118"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1ContextPtr_1a179dfd716a20d577474fa792714a172d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespacelibbirch_1a3395b3df5e469e9570f1786617f78da3" kindref="member">Memo</ref> *</type>
+        <definition>Memo* get</definition>
+        <argsstring>() const</argsstring>
+        <name>get</name>
+        <briefdescription>
+<para>Get the raw pointer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/ContextPtr.hpp" line="123" column="1" bodyfile="libbirch/ContextPtr.hpp" bodystart="123" bodyend="125"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1ContextPtr_1ac0389830959da6885694f82b2efdd7a7" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespacelibbirch_1a3395b3df5e469e9570f1786617f78da3" kindref="member">Memo</ref> *</type>
+        <definition>Memo* getContext</definition>
+        <argsstring>() const</argsstring>
+        <name>getContext</name>
+        <briefdescription>
+<para>Get the context. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/ContextPtr.hpp" line="130" column="1" bodyfile="libbirch/ContextPtr.hpp" bodystart="130" bodyend="132"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1ContextPtr_1a0e28f052f6cc67b421abc4770ab7694e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespacelibbirch_1a3395b3df5e469e9570f1786617f78da3" kindref="member">Memo</ref> &amp;</type>
+        <definition>Memo&amp; operator *</definition>
+        <argsstring>() const</argsstring>
+        <name>operator *</name>
+        <briefdescription>
+<para>Dereference. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/ContextPtr.hpp" line="137" column="1" bodyfile="libbirch/ContextPtr.hpp" bodystart="137" bodyend="139"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1ContextPtr_1a79b31829a32b8b8ea1f879e72c69d847" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespacelibbirch_1a3395b3df5e469e9570f1786617f78da3" kindref="member">Memo</ref> *</type>
+        <definition>Memo* operator-&gt;</definition>
+        <argsstring>() const</argsstring>
+        <name>operator-&gt;</name>
+        <briefdescription>
+<para>Member access. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/ContextPtr.hpp" line="144" column="1" bodyfile="libbirch/ContextPtr.hpp" bodystart="144" bodyend="146"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1ContextPtr_1a824abfe62725916624770af2c3190a53" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool operator==</definition>
+        <argsstring>(const ContextPtr &amp;o) const</argsstring>
+        <name>operator==</name>
+        <param>
+          <type>const <ref refid="classlibbirch_1_1ContextPtr" kindref="compound">ContextPtr</ref> &amp;</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+<para>Equal comparison. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/ContextPtr.hpp" line="151" column="1" bodyfile="libbirch/ContextPtr.hpp" bodystart="151" bodyend="153"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1ContextPtr_1a4ba87604e97ac16417b4ab543662318c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool operator!=</definition>
+        <argsstring>(const ContextPtr &amp;o) const</argsstring>
+        <name>operator!=</name>
+        <param>
+          <type>const <ref refid="classlibbirch_1_1ContextPtr" kindref="compound">ContextPtr</ref> &amp;</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+<para>Not equal comparison. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/ContextPtr.hpp" line="158" column="1" bodyfile="libbirch/ContextPtr.hpp" bodystart="158" bodyend="160"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1ContextPtr_1a67b76affb3b5d35fa419ac234144038b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>operator bool</definition>
+        <argsstring>() const</argsstring>
+        <name>operator bool</name>
+        <briefdescription>
+<para>Is the pointer not null? </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/ContextPtr.hpp" line="165" column="1" bodyfile="libbirch/ContextPtr.hpp" bodystart="165" bodyend="167"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Shared or weak pointer to a Memo, according to context. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This is used by LazyPtr for its memo field. It records the context of the pointer: whether it is part of a member variable or not, and keeps a weak or shared pointer to the Memo according to that context. </para>
+    </detaileddescription>
+    <location file="libbirch/ContextPtr.hpp" line="19" column="1" bodyfile="libbirch/ContextPtr.hpp" bodystart="19" bodyend="182"/>
+    <listofallmembers>
+      <member refid="classlibbirch_1_1ContextPtr_1a32176a66ce11eabf24fbe192a66d96e8" prot="private" virt="non-virtual"><scope>libbirch::ContextPtr</scope><name>context</name></member>
+      <member refid="classlibbirch_1_1ContextPtr_1a9b924755a998d20675b158d826455fee" prot="public" virt="non-virtual"><scope>libbirch::ContextPtr</scope><name>ContextPtr</name></member>
+      <member refid="classlibbirch_1_1ContextPtr_1a887072f51c26f4a122be5700c1e83372" prot="public" virt="non-virtual"><scope>libbirch::ContextPtr</scope><name>ContextPtr</name></member>
+      <member refid="classlibbirch_1_1ContextPtr_1aab5b645ff9169be1287c4ae26cac5970" prot="public" virt="non-virtual"><scope>libbirch::ContextPtr</scope><name>ContextPtr</name></member>
+      <member refid="classlibbirch_1_1ContextPtr_1a556926452e50c80b4d1ae718cff1c80d" prot="public" virt="non-virtual"><scope>libbirch::ContextPtr</scope><name>ContextPtr</name></member>
+      <member refid="classlibbirch_1_1ContextPtr_1a179dfd716a20d577474fa792714a172d" prot="public" virt="non-virtual"><scope>libbirch::ContextPtr</scope><name>get</name></member>
+      <member refid="classlibbirch_1_1ContextPtr_1ac0389830959da6885694f82b2efdd7a7" prot="public" virt="non-virtual"><scope>libbirch::ContextPtr</scope><name>getContext</name></member>
+      <member refid="classlibbirch_1_1ContextPtr_1aded76fcdffd2b7edd4ee8c2bdb72bd64" prot="private" virt="non-virtual"><scope>libbirch::ContextPtr</scope><name>memo</name></member>
+      <member refid="classlibbirch_1_1ContextPtr_1a0e28f052f6cc67b421abc4770ab7694e" prot="public" virt="non-virtual"><scope>libbirch::ContextPtr</scope><name>operator *</name></member>
+      <member refid="classlibbirch_1_1ContextPtr_1a67b76affb3b5d35fa419ac234144038b" prot="public" virt="non-virtual"><scope>libbirch::ContextPtr</scope><name>operator bool</name></member>
+      <member refid="classlibbirch_1_1ContextPtr_1a4ba87604e97ac16417b4ab543662318c" prot="public" virt="non-virtual"><scope>libbirch::ContextPtr</scope><name>operator!=</name></member>
+      <member refid="classlibbirch_1_1ContextPtr_1a79b31829a32b8b8ea1f879e72c69d847" prot="public" virt="non-virtual"><scope>libbirch::ContextPtr</scope><name>operator-&gt;</name></member>
+      <member refid="classlibbirch_1_1ContextPtr_1aef7392b7fbe178b55a85896c5f4e13ef" prot="public" virt="non-virtual"><scope>libbirch::ContextPtr</scope><name>operator=</name></member>
+      <member refid="classlibbirch_1_1ContextPtr_1a3fda9d2a59aed1a2139b28a2da7a325c" prot="public" virt="non-virtual"><scope>libbirch::ContextPtr</scope><name>operator=</name></member>
+      <member refid="classlibbirch_1_1ContextPtr_1a844eab57bca1b86bca267b24fd600140" prot="public" virt="non-virtual"><scope>libbirch::ContextPtr</scope><name>operator=</name></member>
+      <member refid="classlibbirch_1_1ContextPtr_1a824abfe62725916624770af2c3190a53" prot="public" virt="non-virtual"><scope>libbirch::ContextPtr</scope><name>operator==</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,196 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
+  <compounddef id="classlibbirch_1_1EagerAny" kind="class" language="C++" prot="public">
+    <compoundname>libbirch::EagerAny</compoundname>
+    <basecompoundref refid="classlibbirch_1_1Counted" prot="public" virt="non-virtual">Counted</basecompoundref>
+    <derivedcompoundref refid="classlibbirch_1_1FiberState" prot="public" virt="non-virtual">FiberState&lt; YieldType &gt;</derivedcompoundref>
+    <includes local="no">EagerAny.hpp</includes>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classlibbirch_1_1EagerAny_1a8c19cad66e63a5d41e1a5330968c5b79" prot="public" static="no">
+        <type><ref refid="classlibbirch_1_1EagerAny" kindref="compound">EagerAny</ref></type>
+        <definition>using class_type_ =  EagerAny</definition>
+        <argsstring></argsstring>
+        <name>class_type_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/EagerAny.hpp" line="17" column="1" bodyfile="libbirch/EagerAny.hpp" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classlibbirch_1_1EagerAny_1a505c3e980ab9dc2ee99af1e898699df9" prot="public" static="no">
+        <type><ref refid="classlibbirch_1_1EagerAny" kindref="compound">EagerAny</ref></type>
+        <definition>using this_type_ =  EagerAny</definition>
+        <argsstring></argsstring>
+        <name>this_type_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/EagerAny.hpp" line="18" column="1" bodyfile="libbirch/EagerAny.hpp" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classlibbirch_1_1EagerAny_1a738fff58e4ec0b680fbef1c4315ee5b3" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>EagerAny</definition>
+        <argsstring>()</argsstring>
+        <name>EagerAny</name>
+        <briefdescription>
+<para>Constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/EagerAny.hpp" line="24" column="1" bodyfile="libbirch/EagerAny.cpp" bodystart="7" bodyend="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1EagerAny_1a9c45dadaff2e08500dc1d8f8290e36e6" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>EagerAny</definition>
+        <argsstring>(const EagerAny &amp;o)</argsstring>
+        <name>EagerAny</name>
+        <param>
+          <type>const <ref refid="classlibbirch_1_1EagerAny" kindref="compound">EagerAny</ref> &amp;</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+<para>Copy constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/EagerAny.hpp" line="29" column="1" bodyfile="libbirch/EagerAny.cpp" bodystart="12" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1EagerAny_1a4498a1bd4d5b26f3cc92ab5b42fe2d51" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>~EagerAny</definition>
+        <argsstring>()</argsstring>
+        <name>~EagerAny</name>
+        <briefdescription>
+<para>Destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/EagerAny.hpp" line="34" column="1" bodyfile="libbirch/EagerAny.cpp" bodystart="17" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1EagerAny_1afa05aadf87f8d754192258ded79bb429" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classlibbirch_1_1EagerAny" kindref="compound">EagerAny</ref> &amp;</type>
+        <definition>EagerAny&amp; operator=</definition>
+        <argsstring>(const EagerAny &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="classlibbirch_1_1EagerAny" kindref="compound">EagerAny</ref> &amp;</type>
+        </param>
+        <briefdescription>
+<para>Copy assignment operator. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/EagerAny.hpp" line="39" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Base for all class types when eager deep clone is used. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="29">
+        <label>FiberState&lt; YieldType &gt;</label>
+        <link refid="classlibbirch_1_1FiberState"/>
+        <childnode refid="27" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>Counted</label>
+        <link refid="classlibbirch_1_1Counted"/>
+      </node>
+      <node id="27">
+        <label>EagerAny</label>
+        <link refid="classlibbirch_1_1EagerAny"/>
+        <childnode refid="28" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="32">
+        <label>Atomic&lt; unsigned &gt;</label>
+        <link refid="classlibbirch_1_1Atomic"/>
+        <childnode refid="33" relation="template-instance">
+          <edgelabel>&lt; unsigned &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="31">
+        <label>Counted</label>
+        <link refid="classlibbirch_1_1Counted"/>
+        <childnode refid="32" relation="usage">
+          <edgelabel>sharedCount</edgelabel>
+          <edgelabel>memoCount</edgelabel>
+          <edgelabel>frozen</edgelabel>
+          <edgelabel>weakCount</edgelabel>
+        </childnode>
+      </node>
+      <node id="33">
+        <label>Atomic&lt; T &gt;</label>
+        <link refid="classlibbirch_1_1Atomic"/>
+      </node>
+      <node id="30">
+        <label>EagerAny</label>
+        <link refid="classlibbirch_1_1EagerAny"/>
+        <childnode refid="31" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="libbirch/EagerAny.hpp" line="15" column="1" bodyfile="libbirch/EagerAny.hpp" bodystart="15" bodyend="46"/>
+    <listofallmembers>
+      <member refid="classlibbirch_1_1EagerAny_1a8c19cad66e63a5d41e1a5330968c5b79" prot="public" virt="non-virtual"><scope>libbirch::EagerAny</scope><name>class_type_</name></member>
+      <member refid="classlibbirch_1_1Counted_1a917dc87d3769e48c9ee733994ac5bb15" prot="public" virt="virtual"><scope>libbirch::EagerAny</scope><name>clone_</name></member>
+      <member refid="classlibbirch_1_1Counted_1a8d0bb16fb69772b3a2013ed69e7ce6a3" prot="public" virt="virtual"><scope>libbirch::EagerAny</scope><name>clone_</name></member>
+      <member refid="classlibbirch_1_1Counted_1a98e8feabc40af39663a33e1d090b8ca2" prot="protected" virt="non-virtual"><scope>libbirch::EagerAny</scope><name>Counted</name></member>
+      <member refid="classlibbirch_1_1Counted_1aef92e3e0ca796a0256838df431bebe38" prot="protected" virt="non-virtual"><scope>libbirch::EagerAny</scope><name>Counted</name></member>
+      <member refid="classlibbirch_1_1Counted_1ab9dea9cbf4b842ce52d7c1b7fee803a2" prot="public" virt="non-virtual"><scope>libbirch::EagerAny</scope><name>create_</name></member>
+      <member refid="classlibbirch_1_1Counted_1a2d68be4fd20ffdd7f7a9b51579eacc2f" prot="public" virt="non-virtual"><scope>libbirch::EagerAny</scope><name>deallocate</name></member>
+      <member refid="classlibbirch_1_1Counted_1a9824b19084ed08884ddd5701e04b3b45" prot="public" virt="non-virtual"><scope>libbirch::EagerAny</scope><name>decMemo</name></member>
+      <member refid="classlibbirch_1_1Counted_1abf2e038d6eb51f4bac697eb0a30fb8b0" prot="public" virt="non-virtual"><scope>libbirch::EagerAny</scope><name>decShared</name></member>
+      <member refid="classlibbirch_1_1Counted_1a0d9719d4c3a108183915612abd1a447f" prot="public" virt="non-virtual"><scope>libbirch::EagerAny</scope><name>decWeak</name></member>
+      <member refid="classlibbirch_1_1Counted_1a8c646025033c039cda48e37d63ebff79" prot="public" virt="virtual"><scope>libbirch::EagerAny</scope><name>destroy_</name></member>
+      <member refid="classlibbirch_1_1Counted_1a26f8e2284860b3b15c9ab9879649c1aa" prot="protected" virt="virtual"><scope>libbirch::EagerAny</scope><name>doFreeze_</name></member>
+      <member refid="classlibbirch_1_1EagerAny_1a738fff58e4ec0b680fbef1c4315ee5b3" prot="protected" virt="non-virtual"><scope>libbirch::EagerAny</scope><name>EagerAny</name></member>
+      <member refid="classlibbirch_1_1EagerAny_1a9c45dadaff2e08500dc1d8f8290e36e6" prot="protected" virt="non-virtual"><scope>libbirch::EagerAny</scope><name>EagerAny</name></member>
+      <member refid="classlibbirch_1_1Counted_1ac71e4633145f9f52611994bc57099a8e" prot="public" virt="non-virtual"><scope>libbirch::EagerAny</scope><name>emplace_</name></member>
+      <member refid="classlibbirch_1_1Counted_1abd8698b462ce90fe56b15ce7a0192d3e" prot="public" virt="non-virtual"><scope>libbirch::EagerAny</scope><name>freeze</name></member>
+      <member refid="classlibbirch_1_1Counted_1a800af4b01fbdbcdc10a04820b75920ff" prot="protected" virt="non-virtual"><scope>libbirch::EagerAny</scope><name>frozen</name></member>
+      <member refid="classlibbirch_1_1Counted_1a5756f37da68a0b34ddd54f0fb9c62895" prot="public" virt="non-virtual"><scope>libbirch::EagerAny</scope><name>getSize</name></member>
+      <member refid="classlibbirch_1_1Counted_1a7d28bb2d9e9c1d29906bf3545a55c70a" prot="public" virt="non-virtual"><scope>libbirch::EagerAny</scope><name>incMemo</name></member>
+      <member refid="classlibbirch_1_1Counted_1ae09733b78fdd98d5dd6364e383965cd4" prot="public" virt="non-virtual"><scope>libbirch::EagerAny</scope><name>incShared</name></member>
+      <member refid="classlibbirch_1_1Counted_1a7b3b026ba1a761adcc5cef7a99947f9f" prot="public" virt="non-virtual"><scope>libbirch::EagerAny</scope><name>incWeak</name></member>
+      <member refid="classlibbirch_1_1Counted_1a3da65a2c91114b08bf601ee73c11e25c" prot="public" virt="non-virtual"><scope>libbirch::EagerAny</scope><name>isFrozen</name></member>
+      <member refid="classlibbirch_1_1Counted_1a8859152c823676b08b9ea86f9adb9127" prot="public" virt="non-virtual"><scope>libbirch::EagerAny</scope><name>isReachable</name></member>
+      <member refid="classlibbirch_1_1Counted_1a531a1efc849fdf7f033548554b2f91ce" prot="public" virt="non-virtual"><scope>libbirch::EagerAny</scope><name>isUniquelyReachable</name></member>
+      <member refid="classlibbirch_1_1Counted_1afe3eee241fd6adcbdab67f55a0fb84c0" prot="public" virt="non-virtual"><scope>libbirch::EagerAny</scope><name>lock</name></member>
+      <member refid="classlibbirch_1_1Counted_1aad62527caa9507292ee230da2a5fa3b1" prot="protected" virt="non-virtual"><scope>libbirch::EagerAny</scope><name>memoCount</name></member>
+      <member refid="classlibbirch_1_1Counted_1a6249994a90affe4e8b9fbcb9191508b1" prot="public" virt="virtual"><scope>libbirch::EagerAny</scope><name>name_</name></member>
+      <member refid="classlibbirch_1_1Counted_1ae3ba14b36bb88b7fedb51d3d555cd4de" prot="public" virt="non-virtual"><scope>libbirch::EagerAny</scope><name>numMemo</name></member>
+      <member refid="classlibbirch_1_1Counted_1a2f8fced40a31c46ea8ef724aa6fd0cfd" prot="public" virt="non-virtual"><scope>libbirch::EagerAny</scope><name>numShared</name></member>
+      <member refid="classlibbirch_1_1Counted_1a6d72bcfa0479f6b1f1350e3df7f74061" prot="public" virt="non-virtual"><scope>libbirch::EagerAny</scope><name>numWeak</name></member>
+      <member refid="classlibbirch_1_1EagerAny_1afa05aadf87f8d754192258ded79bb429" prot="protected" virt="non-virtual"><scope>libbirch::EagerAny</scope><name>operator=</name></member>
+      <member refid="classlibbirch_1_1Counted_1a651127bd450456b8d31b323c02882001" prot="protected" virt="non-virtual" ambiguityscope="libbirch::Counted::"><scope>libbirch::EagerAny</scope><name>operator=</name></member>
+      <member refid="classlibbirch_1_1Counted_1a23acab1b0e0a47cb076ced41bd2ca662" prot="protected" virt="non-virtual"><scope>libbirch::EagerAny</scope><name>sharedCount</name></member>
+      <member refid="classlibbirch_1_1Counted_1a245260f6f74972558f61b85227df5aae" prot="protected" virt="non-virtual"><scope>libbirch::EagerAny</scope><name>size</name></member>
+      <member refid="classlibbirch_1_1EagerAny_1a505c3e980ab9dc2ee99af1e898699df9" prot="public" virt="non-virtual"><scope>libbirch::EagerAny</scope><name>this_type_</name></member>
+      <member refid="classlibbirch_1_1Counted_1a50b3051397ce0b7a33b4173bafd4019b" prot="protected" virt="non-virtual"><scope>libbirch::EagerAny</scope><name>tid</name></member>
+      <member refid="classlibbirch_1_1Counted_1a11ef8befb08db1d93f55ce92058fb237" prot="protected" virt="non-virtual"><scope>libbirch::EagerAny</scope><name>weakCount</name></member>
+      <member refid="classlibbirch_1_1Counted_1a22bdfc1bde06428a0db196a9e54b554e" prot="protected" virt="virtual"><scope>libbirch::EagerAny</scope><name>~Counted</name></member>
+      <member refid="classlibbirch_1_1EagerAny_1a4498a1bd4d5b26f3cc92ab5b42fe2d51" prot="protected" virt="virtual"><scope>libbirch::EagerAny</scope><name>~EagerAny</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

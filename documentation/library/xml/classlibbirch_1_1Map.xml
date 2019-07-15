@@ -1,0 +1,429 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
+  <compounddef id="classlibbirch_1_1Map" kind="class" language="C++" prot="public">
+    <compoundname>libbirch::Map</compoundname>
+    <includes local="no">Map.hpp</includes>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classlibbirch_1_1Map_1a9b8b40c78d7dfa7e7c48c298f839e4ea" prot="public" static="no">
+        <type><ref refid="namespacelibbirch_1a33a3183e88858e70c8c2dc0ef3d33778" kindref="member">Any</ref> *</type>
+        <definition>using key_type =  Any*</definition>
+        <argsstring></argsstring>
+        <name>key_type</name>
+        <briefdescription>
+<para>Key type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Map.hpp" line="19" column="1" bodyfile="libbirch/Map.hpp" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classlibbirch_1_1Map_1a0410b5780a361813594bcf6a659a3b94" prot="public" static="no">
+        <type><ref refid="namespacelibbirch_1a33a3183e88858e70c8c2dc0ef3d33778" kindref="member">Any</ref> *</type>
+        <definition>using value_type =  Any*</definition>
+        <argsstring></argsstring>
+        <name>value_type</name>
+        <briefdescription>
+<para>Value type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Map.hpp" line="24" column="1" bodyfile="libbirch/Map.hpp" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classlibbirch_1_1Map_1a816622d6d5a0919c56a29610c6a1283e" prot="private" static="no" mutable="no">
+        <type><ref refid="classlibbirch_1_1Map_1a9b8b40c78d7dfa7e7c48c298f839e4ea" kindref="member">key_type</ref> *</type>
+        <definition>key_type* keys</definition>
+        <argsstring></argsstring>
+        <name>keys</name>
+        <briefdescription>
+<para>The keys. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Map.hpp" line="117" column="1" bodyfile="libbirch/Map.hpp" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlibbirch_1_1Map_1a0422798f73013ee4a75797a014fed86d" prot="private" static="no" mutable="no">
+        <type><ref refid="classlibbirch_1_1Map_1a0410b5780a361813594bcf6a659a3b94" kindref="member">value_type</ref> *</type>
+        <definition>value_type* values</definition>
+        <argsstring></argsstring>
+        <name>values</name>
+        <briefdescription>
+<para>The values. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Map.hpp" line="122" column="1" bodyfile="libbirch/Map.hpp" bodystart="122" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlibbirch_1_1Map_1a8198788d4adf17888301da6335fdc6e4" prot="private" static="no" mutable="no">
+        <type>unsigned</type>
+        <definition>unsigned nentries</definition>
+        <argsstring></argsstring>
+        <name>nentries</name>
+        <briefdescription>
+<para>Number of entries in the table. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Map.hpp" line="127" column="1" bodyfile="libbirch/Map.hpp" bodystart="127" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlibbirch_1_1Map_1a88646fd6d06e01bed2072aceecc1159e" prot="private" static="no" mutable="no">
+        <type>unsigned</type>
+        <definition>unsigned tentries</definition>
+        <argsstring></argsstring>
+        <name>tentries</name>
+        <briefdescription>
+<para>Id of the thread that allocated keys and values. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Map.hpp" line="132" column="1" bodyfile="libbirch/Map.hpp" bodystart="132" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlibbirch_1_1Map_1a164619ca80ecdc5fa036a9fb9f81cb07" prot="private" static="no" mutable="no">
+        <type>unsigned</type>
+        <definition>unsigned noccupied</definition>
+        <argsstring></argsstring>
+        <name>noccupied</name>
+        <briefdescription>
+<para>Number of occupied entries in the table. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Map.hpp" line="137" column="1" bodyfile="libbirch/Map.hpp" bodystart="137" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classlibbirch_1_1Map_1a49848ab3a0e1934c5615242b67af68c7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Map</definition>
+        <argsstring>()</argsstring>
+        <name>Map</name>
+        <briefdescription>
+<para>Constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Map.hpp" line="29" column="1" bodyfile="libbirch/Map.cpp" bodystart="6" bodyend="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1Map_1ac59b12e62f61360298c324334ecc6bc9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>~Map</definition>
+        <argsstring>()</argsstring>
+        <name>~Map</name>
+        <briefdescription>
+<para>Destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Map.hpp" line="34" column="1" bodyfile="libbirch/Map.cpp" bodystart="15" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1Map_1a644718bb2fb240de962dc3c9a1fdf0dc" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool empty</definition>
+        <argsstring>() const</argsstring>
+        <name>empty</name>
+        <briefdescription>
+<para>Is this empty? </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Map.hpp" line="39" column="1" bodyfile="libbirch/Map.hpp" bodystart="141" bodyend="143"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1Map_1a3a8bed3e5aa34f4d1b8a2502b889791f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classlibbirch_1_1Map_1a0410b5780a361813594bcf6a659a3b94" kindref="member">value_type</ref></type>
+        <definition>libbirch::Map::value_type get</definition>
+        <argsstring>(const key_type key, const value_type failed=nullptr)</argsstring>
+        <name>get</name>
+        <param>
+          <type>const <ref refid="classlibbirch_1_1Map_1a9b8b40c78d7dfa7e7c48c298f839e4ea" kindref="member">key_type</ref></type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classlibbirch_1_1Map_1a0410b5780a361813594bcf6a659a3b94" kindref="member">value_type</ref></type>
+          <declname>failed</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+<para>Get a value. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>key</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Key.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>If <computeroutput>key</computeroutput> exists, then its associated value, otherwise <computeroutput>failed</computeroutput>. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Map.hpp" line="49" column="1" bodyfile="libbirch/Map.cpp" bodystart="32" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1Map_1aca043ddb351592ddf1092c4daaa1afbe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classlibbirch_1_1Map_1a0410b5780a361813594bcf6a659a3b94" kindref="member">value_type</ref></type>
+        <definition>libbirch::Map::value_type put</definition>
+        <argsstring>(const key_type key, const value_type value)</argsstring>
+        <name>put</name>
+        <param>
+          <type>const <ref refid="classlibbirch_1_1Map_1a9b8b40c78d7dfa7e7c48c298f839e4ea" kindref="member">key_type</ref></type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classlibbirch_1_1Map_1a0410b5780a361813594bcf6a659a3b94" kindref="member">value_type</ref></type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Put an entry. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>key</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Key. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>If <computeroutput>key</computeroutput> exists, then its associated value, otherwise <computeroutput>value</computeroutput>. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Map.hpp" line="59" column="1" bodyfile="libbirch/Map.cpp" bodystart="52" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1Map_1aa07fda588f9b07abfa8960c34c2dbdbc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classlibbirch_1_1Map_1a0410b5780a361813594bcf6a659a3b94" kindref="member">value_type</ref></type>
+        <definition>libbirch::Map::value_type uninitialized_put</definition>
+        <argsstring>(const key_type key, const value_type value)</argsstring>
+        <name>uninitialized_put</name>
+        <param>
+          <type>const <ref refid="classlibbirch_1_1Map_1a9b8b40c78d7dfa7e7c48c298f839e4ea" kindref="member">key_type</ref></type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classlibbirch_1_1Map_1a0410b5780a361813594bcf6a659a3b94" kindref="member">value_type</ref></type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Put an uninitialized value. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>As <ref refid="classlibbirch_1_1Map_1aca043ddb351592ddf1092c4daaa1afbe" kindref="member">put()</ref>, but it is the caller&apos;s responsibility to update reference counts on the key (weak) and value (shared).</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>key</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Key. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>If <computeroutput>key</computeroutput> exists, then its associated value, otherwise <computeroutput>value</computeroutput>. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Map.hpp" line="71" column="1" bodyfile="libbirch/Map.cpp" bodystart="85" bodyend="111"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1Map_1abd8698b462ce90fe56b15ce7a0192d3e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void freeze</definition>
+        <argsstring>()</argsstring>
+        <name>freeze</name>
+        <briefdescription>
+<para>Freeze all values in the map. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Map.hpp" line="76" column="1" bodyfile="libbirch/Map.cpp" bodystart="113" bodyend="120"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1Map_1abd13c54fd92df3fa2e49b140428e7437" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void copy</definition>
+        <argsstring>(Map &amp;o)</argsstring>
+        <name>copy</name>
+        <param>
+          <type><ref refid="classlibbirch_1_1Map" kindref="compound">Map</ref> &amp;</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+<para>Copy entries from another map into this one, removing any that are obsolete. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Map.hpp" line="82" column="1" bodyfile="libbirch/Map.cpp" bodystart="122" bodyend="156"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classlibbirch_1_1Map_1a1e685c647df7f1de86080515282453b5" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>unsigned</type>
+        <definition>unsigned hash</definition>
+        <argsstring>(const key_type key, const unsigned nentries)</argsstring>
+        <name>hash</name>
+        <param>
+          <type>const <ref refid="classlibbirch_1_1Map_1a9b8b40c78d7dfa7e7c48c298f839e4ea" kindref="member">key_type</ref></type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>const unsigned</type>
+          <declname>nentries</declname>
+        </param>
+        <briefdescription>
+<para>Compute the hash code for a given key for a table with the given number of entries. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Map.hpp" line="89" column="1" bodyfile="libbirch/Map.hpp" bodystart="145" bodyend="149"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classlibbirch_1_1Map_1a455baf4cab7004ad43ddcb3b6165f617" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>unsigned</type>
+        <definition>unsigned crowd</definition>
+        <argsstring>() const</argsstring>
+        <name>crowd</name>
+        <briefdescription>
+<para>Compute the lower bound on reserved entries to be considered crowded. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Map.hpp" line="94" column="1" bodyfile="libbirch/Map.hpp" bodystart="151" bodyend="155"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1Map_1a0754e2def4850bd8bf73f69b6f476973" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void reserve</definition>
+        <argsstring>()</argsstring>
+        <name>reserve</name>
+        <briefdescription>
+<para>Reserve space for a (possible) new entry, resizing if necessary. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Map.hpp" line="99" column="1" bodyfile="libbirch/Map.cpp" bodystart="158" bodyend="162"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1Map_1a61b165036bf262866afd8b22e460fea3" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void unreserve</definition>
+        <argsstring>()</argsstring>
+        <name>unreserve</name>
+        <briefdescription>
+<para>Release a reservation previously obtained with reserve(), which will not be needed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Map.hpp" line="105" column="1" bodyfile="libbirch/Map.hpp" bodystart="157" bodyend="159"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1Map_1a8c00cc81053a4f650b9a6789221781d2" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void resize</definition>
+        <argsstring>(const unsigned nentries)</argsstring>
+        <name>resize</name>
+        <param>
+          <type>const unsigned</type>
+          <declname>nentries</declname>
+        </param>
+        <briefdescription>
+<para>Resize and rehash the table. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nentries</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The new size. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Map.hpp" line="112" column="1" bodyfile="libbirch/Map.cpp" bodystart="164" bodyend="204"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Hash table of memory mappings. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libbirch/Map.hpp" line="14" column="1" bodyfile="libbirch/Map.hpp" bodystart="14" bodyend="138"/>
+    <listofallmembers>
+      <member refid="classlibbirch_1_1Map_1abd13c54fd92df3fa2e49b140428e7437" prot="public" virt="non-virtual"><scope>libbirch::Map</scope><name>copy</name></member>
+      <member refid="classlibbirch_1_1Map_1a455baf4cab7004ad43ddcb3b6165f617" prot="private" virt="non-virtual"><scope>libbirch::Map</scope><name>crowd</name></member>
+      <member refid="classlibbirch_1_1Map_1a644718bb2fb240de962dc3c9a1fdf0dc" prot="public" virt="non-virtual"><scope>libbirch::Map</scope><name>empty</name></member>
+      <member refid="classlibbirch_1_1Map_1abd8698b462ce90fe56b15ce7a0192d3e" prot="public" virt="non-virtual"><scope>libbirch::Map</scope><name>freeze</name></member>
+      <member refid="classlibbirch_1_1Map_1a3a8bed3e5aa34f4d1b8a2502b889791f" prot="public" virt="non-virtual"><scope>libbirch::Map</scope><name>get</name></member>
+      <member refid="classlibbirch_1_1Map_1a1e685c647df7f1de86080515282453b5" prot="private" virt="non-virtual"><scope>libbirch::Map</scope><name>hash</name></member>
+      <member refid="classlibbirch_1_1Map_1a9b8b40c78d7dfa7e7c48c298f839e4ea" prot="public" virt="non-virtual"><scope>libbirch::Map</scope><name>key_type</name></member>
+      <member refid="classlibbirch_1_1Map_1a816622d6d5a0919c56a29610c6a1283e" prot="private" virt="non-virtual"><scope>libbirch::Map</scope><name>keys</name></member>
+      <member refid="classlibbirch_1_1Map_1a49848ab3a0e1934c5615242b67af68c7" prot="public" virt="non-virtual"><scope>libbirch::Map</scope><name>Map</name></member>
+      <member refid="classlibbirch_1_1Map_1a8198788d4adf17888301da6335fdc6e4" prot="private" virt="non-virtual"><scope>libbirch::Map</scope><name>nentries</name></member>
+      <member refid="classlibbirch_1_1Map_1a164619ca80ecdc5fa036a9fb9f81cb07" prot="private" virt="non-virtual"><scope>libbirch::Map</scope><name>noccupied</name></member>
+      <member refid="classlibbirch_1_1Map_1aca043ddb351592ddf1092c4daaa1afbe" prot="public" virt="non-virtual"><scope>libbirch::Map</scope><name>put</name></member>
+      <member refid="classlibbirch_1_1Map_1a0754e2def4850bd8bf73f69b6f476973" prot="private" virt="non-virtual"><scope>libbirch::Map</scope><name>reserve</name></member>
+      <member refid="classlibbirch_1_1Map_1a8c00cc81053a4f650b9a6789221781d2" prot="private" virt="non-virtual"><scope>libbirch::Map</scope><name>resize</name></member>
+      <member refid="classlibbirch_1_1Map_1a88646fd6d06e01bed2072aceecc1159e" prot="private" virt="non-virtual"><scope>libbirch::Map</scope><name>tentries</name></member>
+      <member refid="classlibbirch_1_1Map_1aa07fda588f9b07abfa8960c34c2dbdbc" prot="public" virt="non-virtual"><scope>libbirch::Map</scope><name>uninitialized_put</name></member>
+      <member refid="classlibbirch_1_1Map_1a61b165036bf262866afd8b22e460fea3" prot="private" virt="non-virtual"><scope>libbirch::Map</scope><name>unreserve</name></member>
+      <member refid="classlibbirch_1_1Map_1a0410b5780a361813594bcf6a659a3b94" prot="public" virt="non-virtual"><scope>libbirch::Map</scope><name>value_type</name></member>
+      <member refid="classlibbirch_1_1Map_1a0422798f73013ee4a75797a014fed86d" prot="private" virt="non-virtual"><scope>libbirch::Map</scope><name>values</name></member>
+      <member refid="classlibbirch_1_1Map_1ac59b12e62f61360298c324334ecc6bc9" prot="public" virt="non-virtual"><scope>libbirch::Map</scope><name>~Map</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,407 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
+  <compounddef id="structlibbirch_1_1NonemptyView" kind="struct" language="C++" prot="public">
+    <compoundname>libbirch::NonemptyView</compoundname>
+    <includes local="no">View.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>class Head</type>
+      </param>
+      <param>
+        <type>class Tail</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="user-defined">
+      <header>Collections</header>
+      <memberdef kind="function" id="structlibbirch_1_1NonemptyView_1aac6cc21bb8e9110b42b3bf91f5658341" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class T1</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void offsets</definition>
+        <argsstring>(T1 *out) const</argsstring>
+        <name>offsets</name>
+        <param>
+          <type>T1 *</type>
+          <declname>out</declname>
+        </param>
+        <briefdescription>
+<para>Get offsets. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>T1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Integer type.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classlibbirch_1_1Array" kindref="compound">Array</ref> assumed to have at least <ref refid="structlibbirch_1_1NonemptyView_1ac369025065ebcada96d6d671df89b8eb" kindref="member">count()</ref> elements. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/View.hpp" line="124" column="1" bodyfile="libbirch/View.hpp" bodystart="124" bodyend="127"/>
+      </memberdef>
+      <memberdef kind="function" id="structlibbirch_1_1NonemptyView_1a868316457e3370c3e467a5781b70c7d0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class T1</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void lengths</definition>
+        <argsstring>(T1 *out) const</argsstring>
+        <name>lengths</name>
+        <param>
+          <type>T1 *</type>
+          <declname>out</declname>
+        </param>
+        <briefdescription>
+<para>Get lengths. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>T1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Integer type.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classlibbirch_1_1Array" kindref="compound">Array</ref> assumed to have at least <ref refid="structlibbirch_1_1NonemptyView_1ac369025065ebcada96d6d671df89b8eb" kindref="member">count()</ref> elements. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/View.hpp" line="137" column="1" bodyfile="libbirch/View.hpp" bodystart="137" bodyend="140"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Reductions</header>
+      <memberdef kind="function" id="structlibbirch_1_1NonemptyView_1aa326d81dcac346461f3b8528bf0b49de" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int64_t</type>
+        <definition>int64_t size</definition>
+        <argsstring>() const</argsstring>
+        <name>size</name>
+        <briefdescription>
+<para>Size (the product of all lengths). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/View.hpp" line="164" column="1" bodyfile="libbirch/View.hpp" bodystart="164" bodyend="166"/>
+      </memberdef>
+      <memberdef kind="function" id="structlibbirch_1_1NonemptyView_1ac369025065ebcada96d6d671df89b8eb" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr int</type>
+        <definition>static constexpr int count</definition>
+        <argsstring>()</argsstring>
+        <name>count</name>
+        <briefdescription>
+<para>Number of dimensions. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/View.hpp" line="150" column="1" bodyfile="libbirch/View.hpp" bodystart="150" bodyend="152"/>
+      </memberdef>
+      <memberdef kind="function" id="structlibbirch_1_1NonemptyView_1a8a457a67926ebef25b5bb5a7ddf2d94f" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr int</type>
+        <definition>static constexpr int rangeCount</definition>
+        <argsstring>()</argsstring>
+        <name>rangeCount</name>
+        <briefdescription>
+<para>Number of ranges. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/View.hpp" line="157" column="1" bodyfile="libbirch/View.hpp" bodystart="157" bodyend="159"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Indexing and iterating</header>
+      <memberdef kind="variable" id="structlibbirch_1_1NonemptyView_1a8cc38beb686e59ceb02a2f95c7628364" prot="public" static="no" mutable="no">
+        <type>Head</type>
+        <definition>Head head</definition>
+        <argsstring></argsstring>
+        <name>head</name>
+        <briefdescription>
+<para>Head. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/View.hpp" line="199" column="1" bodyfile="libbirch/View.hpp" bodystart="199" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structlibbirch_1_1NonemptyView_1aa75437190ec5d2975275f624dee7952c" prot="public" static="no" mutable="no">
+        <type>Tail</type>
+        <definition>Tail tail</definition>
+        <argsstring></argsstring>
+        <name>tail</name>
+        <briefdescription>
+<para>Tail. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/View.hpp" line="204" column="1" bodyfile="libbirch/View.hpp" bodystart="204" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="function" id="structlibbirch_1_1NonemptyView_1a3f36dc381dde0b8d8334bd74b26b3a35" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class Head1</type>
+          </param>
+          <param>
+            <type>class Tail1</type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool operator==</definition>
+        <argsstring>(const NonemptyView&lt; Head1, Tail1 &gt; &amp;o) const</argsstring>
+        <name>operator==</name>
+        <param>
+          <type>const <ref refid="structlibbirch_1_1NonemptyView" kindref="compound">NonemptyView</ref>&lt; Head1, Tail1 &gt; &amp;</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+<para>Equality operator. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/View.hpp" line="177" column="1" bodyfile="libbirch/View.hpp" bodystart="177" bodyend="179"/>
+      </memberdef>
+      <memberdef kind="function" id="structlibbirch_1_1NonemptyView_1a1278e7527195fb4b0eb4fb57d30d1ebb" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool operator==</definition>
+        <argsstring>(const EmptyView &amp;o) const</argsstring>
+        <name>operator==</name>
+        <param>
+          <type>const <ref refid="structlibbirch_1_1EmptyView" kindref="compound">EmptyView</ref> &amp;</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+<para>Equality operator. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/View.hpp" line="184" column="1" bodyfile="libbirch/View.hpp" bodystart="184" bodyend="186"/>
+      </memberdef>
+      <memberdef kind="function" id="structlibbirch_1_1NonemptyView_1aafbcf2622022b36dc3652fb724a43d06" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class View1</type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool operator!=</definition>
+        <argsstring>(const View1 &amp;o) const</argsstring>
+        <name>operator!=</name>
+        <param>
+          <type>const View1 &amp;</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+<para>Unequality operator. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/View.hpp" line="192" column="1" bodyfile="libbirch/View.hpp" bodystart="192" bodyend="194"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="structlibbirch_1_1NonemptyView_1a925170fd7a31285f9e01cf9c1ba9ce28" prot="public" static="no">
+        <type>Head</type>
+        <definition>typedef Head head_type</definition>
+        <argsstring></argsstring>
+        <name>head_type</name>
+        <briefdescription>
+<para>Head type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/View.hpp" line="73" column="1" bodyfile="libbirch/View.hpp" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="structlibbirch_1_1NonemptyView_1af2a5b52c7b611f8f9ffb7291a7601262" prot="public" static="no">
+        <type>Tail</type>
+        <definition>typedef Tail tail_type</definition>
+        <argsstring></argsstring>
+        <name>tail_type</name>
+        <briefdescription>
+<para>Tail type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/View.hpp" line="78" column="1" bodyfile="libbirch/View.hpp" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structlibbirch_1_1NonemptyView_1aed20bd62c9ad6e106c93b1014aef1527" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>NonemptyView</definition>
+        <argsstring>()</argsstring>
+        <name>NonemptyView</name>
+        <briefdescription>
+<para>Default constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/View.hpp" line="83" column="1" bodyfile="libbirch/View.hpp" bodystart="83" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="function" id="structlibbirch_1_1NonemptyView_1ae084266c3ca2dd9f4927a21e17f569cd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class Head1</type>
+          </param>
+          <param>
+            <type>class Tail1</type>
+          </param>
+        </templateparamlist>
+        <type></type>
+        <definition>NonemptyView</definition>
+        <argsstring>(const Head1 head, const Tail1 tail)</argsstring>
+        <name>NonemptyView</name>
+        <param>
+          <type>const Head1</type>
+          <declname>head</declname>
+        </param>
+        <param>
+          <type>const Tail1</type>
+          <declname>tail</declname>
+        </param>
+        <briefdescription>
+<para>Generic constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/View.hpp" line="91" column="1" bodyfile="libbirch/View.hpp" bodystart="91" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="function" id="structlibbirch_1_1NonemptyView_1acf749c2abb11601979c21cf51f21ae16" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>NonemptyView</definition>
+        <argsstring>(const NonemptyView&lt; Head, Tail &gt; &amp;o)=default</argsstring>
+        <name>NonemptyView</name>
+        <param>
+          <type>const <ref refid="structlibbirch_1_1NonemptyView" kindref="compound">NonemptyView</ref>&lt; Head, Tail &gt; &amp;</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+<para>Copy constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/View.hpp" line="100" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="structlibbirch_1_1NonemptyView_1a6f4d2f5ff086c78d27afd93a0b110e80" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class Head1</type>
+          </param>
+          <param>
+            <type>class Tail1</type>
+          </param>
+        </templateparamlist>
+        <type></type>
+        <definition>NonemptyView</definition>
+        <argsstring>(const NonemptyView&lt; Head1, Tail1 &gt; &amp;o)</argsstring>
+        <name>NonemptyView</name>
+        <param>
+          <type>const <ref refid="structlibbirch_1_1NonemptyView" kindref="compound">NonemptyView</ref>&lt; Head1, Tail1 &gt; &amp;</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+<para>Generic copy constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/View.hpp" line="106" column="1" bodyfile="libbirch/View.hpp" bodystart="106" bodyend="110"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Nonempty view. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Head</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="structlibbirch_1_1Range" kindref="compound">Range</ref> or <ref refid="structlibbirch_1_1Index" kindref="compound">Index</ref> type. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Tail</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>View type.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+A view describes the active elements over <computeroutput>D</computeroutput> dimensions of an array. It consists of a <emphasis>head</emphasis> range or index for the first dimension, and a <emphasis>tail</emphasis> view for the remaining <computeroutput>D - 1</computeroutput> dimensions, recursively. The tail view is <ref refid="structlibbirch_1_1EmptyView" kindref="compound">EmptyView</ref> for the last dimension. </para>
+    </detaileddescription>
+    <location file="libbirch/View.hpp" line="69" column="1" bodyfile="libbirch/View.hpp" bodystart="69" bodyend="205"/>
+    <listofallmembers>
+      <member refid="structlibbirch_1_1NonemptyView_1ac369025065ebcada96d6d671df89b8eb" prot="public" virt="non-virtual"><scope>libbirch::NonemptyView</scope><name>count</name></member>
+      <member refid="structlibbirch_1_1NonemptyView_1a8cc38beb686e59ceb02a2f95c7628364" prot="public" virt="non-virtual"><scope>libbirch::NonemptyView</scope><name>head</name></member>
+      <member refid="structlibbirch_1_1NonemptyView_1a925170fd7a31285f9e01cf9c1ba9ce28" prot="public" virt="non-virtual"><scope>libbirch::NonemptyView</scope><name>head_type</name></member>
+      <member refid="structlibbirch_1_1NonemptyView_1a868316457e3370c3e467a5781b70c7d0" prot="public" virt="non-virtual"><scope>libbirch::NonemptyView</scope><name>lengths</name></member>
+      <member refid="structlibbirch_1_1NonemptyView_1aed20bd62c9ad6e106c93b1014aef1527" prot="public" virt="non-virtual"><scope>libbirch::NonemptyView</scope><name>NonemptyView</name></member>
+      <member refid="structlibbirch_1_1NonemptyView_1ae084266c3ca2dd9f4927a21e17f569cd" prot="public" virt="non-virtual"><scope>libbirch::NonemptyView</scope><name>NonemptyView</name></member>
+      <member refid="structlibbirch_1_1NonemptyView_1acf749c2abb11601979c21cf51f21ae16" prot="public" virt="non-virtual"><scope>libbirch::NonemptyView</scope><name>NonemptyView</name></member>
+      <member refid="structlibbirch_1_1NonemptyView_1a6f4d2f5ff086c78d27afd93a0b110e80" prot="public" virt="non-virtual"><scope>libbirch::NonemptyView</scope><name>NonemptyView</name></member>
+      <member refid="structlibbirch_1_1NonemptyView_1aac6cc21bb8e9110b42b3bf91f5658341" prot="public" virt="non-virtual"><scope>libbirch::NonemptyView</scope><name>offsets</name></member>
+      <member refid="structlibbirch_1_1NonemptyView_1aafbcf2622022b36dc3652fb724a43d06" prot="public" virt="non-virtual"><scope>libbirch::NonemptyView</scope><name>operator!=</name></member>
+      <member refid="structlibbirch_1_1NonemptyView_1a3f36dc381dde0b8d8334bd74b26b3a35" prot="public" virt="non-virtual"><scope>libbirch::NonemptyView</scope><name>operator==</name></member>
+      <member refid="structlibbirch_1_1NonemptyView_1a1278e7527195fb4b0eb4fb57d30d1ebb" prot="public" virt="non-virtual"><scope>libbirch::NonemptyView</scope><name>operator==</name></member>
+      <member refid="structlibbirch_1_1NonemptyView_1a8a457a67926ebef25b5bb5a7ddf2d94f" prot="public" virt="non-virtual"><scope>libbirch::NonemptyView</scope><name>rangeCount</name></member>
+      <member refid="structlibbirch_1_1NonemptyView_1aa326d81dcac346461f3b8528bf0b49de" prot="public" virt="non-virtual"><scope>libbirch::NonemptyView</scope><name>size</name></member>
+      <member refid="structlibbirch_1_1NonemptyView_1aa75437190ec5d2975275f624dee7952c" prot="public" virt="non-virtual"><scope>libbirch::NonemptyView</scope><name>tail</name></member>
+      <member refid="structlibbirch_1_1NonemptyView_1af2a5b52c7b611f8f9ffb7291a7601262" prot="public" virt="non-virtual"><scope>libbirch::NonemptyView</scope><name>tail_type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,417 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
+  <compounddef id="EagerAny_8hpp" kind="file" language="C++">
+    <compoundname>EagerAny.hpp</compoundname>
+    <includes refid="Counted_8hpp" local="yes">libbirch/Counted.hpp</includes>
+    <includedby refid="Any_8hpp" local="yes">libbirch/Any.hpp</includedby>
+    <includedby refid="EagerMemo_8hpp" local="yes">libbirch/EagerMemo.hpp</includedby>
+    <incdepgraph>
+      <node id="488">
+        <label>boost/math/special_functions.hpp</label>
+      </node>
+      <node id="473">
+        <label>iomanip</label>
+      </node>
+      <node id="467">
+        <label>functional</label>
+      </node>
+      <node id="478">
+        <label>cstdint</label>
+      </node>
+      <node id="480">
+        <label>cmath</label>
+      </node>
+      <node id="475">
+        <label>cassert</label>
+      </node>
+      <node id="465">
+        <label>numeric</label>
+      </node>
+      <node id="484">
+        <label>eigen3/Eigen/Dense</label>
+      </node>
+      <node id="471">
+        <label>string</label>
+      </node>
+      <node id="492">
+        <label>libbirch/Pool.hpp</label>
+        <link refid="Pool_8hpp"/>
+      </node>
+      <node id="461">
+        <label>libbirch/EagerAny.hpp</label>
+        <link refid="EagerAny_8hpp"/>
+        <childnode refid="462" relation="include">
+        </childnode>
+      </node>
+      <node id="462">
+        <label>libbirch/Counted.hpp</label>
+        <link refid="Counted_8hpp"/>
+        <childnode refid="463" relation="include">
+        </childnode>
+        <childnode refid="489" relation="include">
+        </childnode>
+        <childnode refid="493" relation="include">
+        </childnode>
+        <childnode refid="490" relation="include">
+        </childnode>
+      </node>
+      <node id="491">
+        <label>libbirch/Atomic.hpp</label>
+        <link refid="Atomic_8hpp"/>
+      </node>
+      <node id="476">
+        <label>cstdio</label>
+      </node>
+      <node id="468">
+        <label>tuple</label>
+      </node>
+      <node id="487">
+        <label>boost/math/distributions.hpp</label>
+      </node>
+      <node id="481">
+        <label>unistd.h</label>
+      </node>
+      <node id="469">
+        <label>vector</label>
+      </node>
+      <node id="486">
+        <label>eigen3/unsupported/Eigen/KroneckerProduct</label>
+      </node>
+      <node id="466">
+        <label>utility</label>
+      </node>
+      <node id="472">
+        <label>sstream</label>
+      </node>
+      <node id="489">
+        <label>libbirch/memory.hpp</label>
+        <link refid="memory_8hpp"/>
+        <childnode refid="463" relation="include">
+        </childnode>
+        <childnode refid="490" relation="include">
+        </childnode>
+        <childnode refid="491" relation="include">
+        </childnode>
+        <childnode refid="492" relation="include">
+        </childnode>
+      </node>
+      <node id="477">
+        <label>cstdlib</label>
+      </node>
+      <node id="490">
+        <label>libbirch/thread.hpp</label>
+        <link refid="thread_8hpp"/>
+        <childnode refid="463" relation="include">
+        </childnode>
+      </node>
+      <node id="479">
+        <label>cstddef</label>
+      </node>
+      <node id="463">
+        <label>libbirch/external.hpp</label>
+        <link refid="external_8hpp"/>
+        <childnode refid="464" relation="include">
+        </childnode>
+        <childnode refid="465" relation="include">
+        </childnode>
+        <childnode refid="466" relation="include">
+        </childnode>
+        <childnode refid="467" relation="include">
+        </childnode>
+        <childnode refid="468" relation="include">
+        </childnode>
+        <childnode refid="469" relation="include">
+        </childnode>
+        <childnode refid="470" relation="include">
+        </childnode>
+        <childnode refid="471" relation="include">
+        </childnode>
+        <childnode refid="472" relation="include">
+        </childnode>
+        <childnode refid="473" relation="include">
+        </childnode>
+        <childnode refid="474" relation="include">
+        </childnode>
+        <childnode refid="475" relation="include">
+        </childnode>
+        <childnode refid="476" relation="include">
+        </childnode>
+        <childnode refid="477" relation="include">
+        </childnode>
+        <childnode refid="478" relation="include">
+        </childnode>
+        <childnode refid="479" relation="include">
+        </childnode>
+        <childnode refid="480" relation="include">
+        </childnode>
+        <childnode refid="481" relation="include">
+        </childnode>
+        <childnode refid="482" relation="include">
+        </childnode>
+        <childnode refid="483" relation="include">
+        </childnode>
+        <childnode refid="484" relation="include">
+        </childnode>
+        <childnode refid="485" relation="include">
+        </childnode>
+        <childnode refid="486" relation="include">
+        </childnode>
+        <childnode refid="487" relation="include">
+        </childnode>
+        <childnode refid="488" relation="include">
+        </childnode>
+      </node>
+      <node id="482">
+        <label>getopt.h</label>
+      </node>
+      <node id="493">
+        <label>libbirch/class.hpp</label>
+        <link refid="class_8hpp"/>
+      </node>
+      <node id="464">
+        <label>algorithm</label>
+      </node>
+      <node id="470">
+        <label>memory</label>
+      </node>
+      <node id="474">
+        <label>initializer_list</label>
+      </node>
+      <node id="485">
+        <label>eigen3/Eigen/Sparse</label>
+      </node>
+      <node id="483">
+        <label>dlfcn.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="499">
+        <label>libbirch/Shared.hpp</label>
+        <link refid="Shared_8hpp"/>
+        <childnode refid="500" relation="include">
+        </childnode>
+        <childnode refid="501" relation="include">
+        </childnode>
+        <childnode refid="508" relation="include">
+        </childnode>
+        <childnode refid="506" relation="include">
+        </childnode>
+        <childnode refid="507" relation="include">
+        </childnode>
+        <childnode refid="502" relation="include">
+        </childnode>
+      </node>
+      <node id="509">
+        <label>libbirch/Weak.hpp</label>
+        <link refid="Weak_8hpp"/>
+        <childnode refid="501" relation="include">
+        </childnode>
+        <childnode refid="508" relation="include">
+        </childnode>
+        <childnode refid="506" relation="include">
+        </childnode>
+        <childnode refid="507" relation="include">
+        </childnode>
+        <childnode refid="502" relation="include">
+        </childnode>
+      </node>
+      <node id="502">
+        <label>libbirch/libbirch.hpp</label>
+        <link refid="libbirch_8hpp"/>
+        <childnode refid="503" relation="include">
+        </childnode>
+      </node>
+      <node id="511">
+        <label>libbirch/Map.cpp</label>
+        <link refid="Map_8cpp"/>
+      </node>
+      <node id="515">
+        <label>libbirch/EagerAny.cpp</label>
+        <link refid="EagerAny_8cpp"/>
+      </node>
+      <node id="512">
+        <label>libbirch/SwapContext.hpp</label>
+        <link refid="SwapContext_8hpp"/>
+        <childnode refid="498" relation="include">
+        </childnode>
+        <childnode refid="510" relation="include">
+        </childnode>
+        <childnode refid="502" relation="include">
+        </childnode>
+      </node>
+      <node id="498">
+        <label>libbirch/EagerPtr.hpp</label>
+        <link refid="EagerPtr_8hpp"/>
+        <childnode refid="499" relation="include">
+        </childnode>
+        <childnode refid="509" relation="include">
+        </childnode>
+      </node>
+      <node id="505">
+        <label>libbirch/EigenOperators.hpp</label>
+        <link refid="EigenOperators_8hpp"/>
+        <childnode refid="502" relation="include">
+        </childnode>
+      </node>
+      <node id="508">
+        <label>libbirch/Optional.hpp</label>
+        <link refid="Optional_8hpp"/>
+        <childnode refid="501" relation="include">
+        </childnode>
+        <childnode refid="506" relation="include">
+        </childnode>
+        <childnode refid="507" relation="include">
+        </childnode>
+        <childnode refid="502" relation="include">
+        </childnode>
+      </node>
+      <node id="504">
+        <label>libbirch/EigenFunctions.hpp</label>
+        <link refid="EigenFunctions_8hpp"/>
+        <childnode refid="502" relation="include">
+        </childnode>
+      </node>
+      <node id="513">
+        <label>libbirch/FiberState.hpp</label>
+        <link refid="FiberState_8hpp"/>
+        <childnode refid="514" relation="include">
+        </childnode>
+        <childnode refid="502" relation="include">
+        </childnode>
+      </node>
+      <node id="503">
+        <label>libbirch/libbirch.cpp</label>
+        <link refid="libbirch_8cpp"/>
+      </node>
+      <node id="506">
+        <label>libbirch/finish.hpp</label>
+        <link refid="finish_8hpp"/>
+        <childnode refid="502" relation="include">
+        </childnode>
+      </node>
+      <node id="494">
+        <label>libbirch/EagerAny.hpp</label>
+        <link refid="EagerAny_8hpp"/>
+        <childnode refid="495" relation="include">
+        </childnode>
+        <childnode refid="497" relation="include">
+        </childnode>
+      </node>
+      <node id="501">
+        <label>libbirch/value.hpp</label>
+        <link refid="value_8hpp"/>
+        <childnode refid="500" relation="include">
+        </childnode>
+        <childnode refid="502" relation="include">
+        </childnode>
+      </node>
+      <node id="507">
+        <label>libbirch/freeze.hpp</label>
+        <link refid="freeze_8hpp"/>
+        <childnode refid="502" relation="include">
+        </childnode>
+      </node>
+      <node id="510">
+        <label>libbirch/EagerMemo.cpp</label>
+        <link refid="EagerMemo_8cpp"/>
+      </node>
+      <node id="495">
+        <label>libbirch/Any.hpp</label>
+        <link refid="Any_8hpp"/>
+        <childnode refid="496" relation="include">
+        </childnode>
+        <childnode refid="512" relation="include">
+        </childnode>
+        <childnode refid="513" relation="include">
+        </childnode>
+        <childnode refid="515" relation="include">
+        </childnode>
+        <childnode refid="502" relation="include">
+        </childnode>
+      </node>
+      <node id="496">
+        <label>libbirch/Map.hpp</label>
+        <link refid="Map_8hpp"/>
+        <childnode refid="497" relation="include">
+        </childnode>
+        <childnode refid="511" relation="include">
+        </childnode>
+      </node>
+      <node id="497">
+        <label>libbirch/EagerMemo.hpp</label>
+        <link refid="EagerMemo_8hpp"/>
+        <childnode refid="498" relation="include">
+        </childnode>
+        <childnode refid="510" relation="include">
+        </childnode>
+      </node>
+      <node id="514">
+        <label>libbirch/Fiber.hpp</label>
+        <link refid="Fiber_8hpp"/>
+        <childnode refid="501" relation="include">
+        </childnode>
+        <childnode refid="506" relation="include">
+        </childnode>
+        <childnode refid="507" relation="include">
+        </childnode>
+        <childnode refid="502" relation="include">
+        </childnode>
+      </node>
+      <node id="500">
+        <label>libbirch/Array.hpp</label>
+        <link refid="Array_8hpp"/>
+        <childnode refid="501" relation="include">
+        </childnode>
+        <childnode refid="504" relation="include">
+        </childnode>
+        <childnode refid="505" relation="include">
+        </childnode>
+        <childnode refid="506" relation="include">
+        </childnode>
+        <childnode refid="507" relation="include">
+        </childnode>
+        <childnode refid="502" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classlibbirch_1_1EagerAny" prot="public">libbirch::EagerAny</innerclass>
+    <innernamespace refid="namespacelibbirch">libbirch</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="4"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>!ENABLE_LAZY_DEEP_CLONE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="Counted_8hpp" kindref="compound">libbirch/Counted.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacelibbirch" kindref="compound">libbirch</ref><sp/>{</highlight></codeline>
+<codeline lineno="15" refid="classlibbirch_1_1EagerAny" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classlibbirch_1_1EagerAny" kindref="compound">EagerAny</ref>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classlibbirch_1_1Counted" kindref="compound">Counted</ref><sp/>{</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/><ref refid="classlibbirch_1_1EagerAny" kindref="compound">class_type_</ref><sp/>=<sp/><ref refid="classlibbirch_1_1EagerAny_1a738fff58e4ec0b680fbef1c4315ee5b3" kindref="member">EagerAny</ref>;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/><ref refid="classlibbirch_1_1EagerAny" kindref="compound">this_type_</ref><sp/>=<sp/><ref refid="classlibbirch_1_1EagerAny_1a738fff58e4ec0b680fbef1c4315ee5b3" kindref="member">EagerAny</ref>;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><ref refid="classlibbirch_1_1EagerAny_1a738fff58e4ec0b680fbef1c4315ee5b3" kindref="member">EagerAny</ref>();</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><ref refid="classlibbirch_1_1EagerAny_1a738fff58e4ec0b680fbef1c4315ee5b3" kindref="member">EagerAny</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classlibbirch_1_1EagerAny" kindref="compound">EagerAny</ref>&amp;<sp/>o);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="classlibbirch_1_1EagerAny_1a4498a1bd4d5b26f3cc92ab5b42fe2d51" kindref="member">~EagerAny</ref>();</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><ref refid="classlibbirch_1_1EagerAny" kindref="compound">EagerAny</ref>&amp;<sp/><ref refid="classlibbirch_1_1EagerAny_1afa05aadf87f8d754192258ded79bb429" kindref="member">operator=</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classlibbirch_1_1EagerAny" kindref="compound">EagerAny</ref>&amp;)<sp/>=<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><ref refid="class_8hpp_1a92ffbcd012b01aec7b9127f76072faa5" kindref="member">libbirch_create_function_</ref></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><ref refid="class_8hpp_1a18d7b3e711c8514ed46b02f6ae291ea1" kindref="member">libbirch_emplace_function_</ref></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><ref refid="class_8hpp_1a9b1b3a6913748ee934ccb6ead10de989" kindref="member">libbirch_clone_function_</ref></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><ref refid="class_8hpp_1af6bffe6364b4b4be7f315b3fc236ad32" kindref="member">libbirch_destroy_function_</ref></highlight></codeline>
+<codeline lineno="46"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="47"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="libbirch/EagerAny.hpp"/>
+  </compounddef>
+</doxygen>

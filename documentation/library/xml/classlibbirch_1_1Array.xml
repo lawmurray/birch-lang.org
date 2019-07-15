@@ -1,0 +1,1630 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
+  <compounddef id="classlibbirch_1_1Array" kind="class" language="C++" prot="public">
+    <compoundname>libbirch::Array</compoundname>
+    <includes local="no">Array.hpp</includes>
+    <innerclass refid="structlibbirch_1_1Array_1_1is__eigen__compatible" prot="public">libbirch::Array::is_eigen_compatible</innerclass>
+    <templateparamlist>
+      <param>
+        <type>class T</type>
+      </param>
+      <param>
+        <type>class F</type>
+        <defval><ref refid="structlibbirch_1_1EmptyFrame" kindref="compound">EmptyFrame</ref></defval>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="user-defined">
+      <header>Eigen integration</header>
+      <description><para>These functions and operators permit the implicit conversion between Birch <ref refid="classlibbirch_1_1Array" kindref="compound">Array</ref> types and Eigen Matrix types. </para>
+</description>
+      <memberdef kind="typedef" id="classlibbirch_1_1Array_1a5145439bf17ec4620bdd04a01f406cb0" prot="public" static="no">
+        <type>typename std::conditional&lt; F::count()==2, <ref refid="namespacelibbirch_1aafaa6d16740bbe788f6254629b52cae0" kindref="member">EigenMatrixMap</ref>&lt; T &gt;, typename std::conditional&lt; F::count()==1, <ref refid="namespacelibbirch_1a8a59a3a1f5bf08ec79f4aa25bec699a7" kindref="member">EigenVectorMap</ref>&lt; T &gt;, void &gt;::type &gt;::type</type>
+        <definition>using EigenType =  typename std::conditional&lt;F::count() == 2, EigenMatrixMap&lt;T&gt;, typename std::conditional&lt;F::count() == 1, EigenVectorMap&lt;T&gt;, void&gt;::type&gt;::type</definition>
+        <argsstring></argsstring>
+        <name>EigenType</name>
+        <briefdescription>
+<para>Appropriate Eigen Matrix type for this Birch <ref refid="classlibbirch_1_1Array" kindref="compound">Array</ref> type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Array.hpp" line="410" column="1" bodyfile="libbirch/Array.hpp" bodystart="414" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classlibbirch_1_1Array_1aaaf2f2c425072ea658ac600083e04243" prot="public" static="no">
+        <type>typename std::conditional&lt; F::count()==2, <ref refid="namespacelibbirch_1ad6fe0ce3a2334265a652c5f3a36951bf" kindref="member">EigenMatrixStride</ref>, typename std::conditional&lt; F::count()==1, <ref refid="namespacelibbirch_1a618d170fe59d6052cf52247d3693db14" kindref="member">EigenVectorStride</ref>, void &gt;::type &gt;::type</type>
+        <definition>using EigenStrideType =  typename std::conditional&lt;F::count() == 2, EigenMatrixStride, typename std::conditional&lt;F::count() == 1, EigenVectorStride, void&gt;::type&gt;::type</definition>
+        <argsstring></argsstring>
+        <name>EigenStrideType</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Array.hpp" line="416" column="1" bodyfile="libbirch/Array.hpp" bodystart="420" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1Array_1ade3d3b168b86f737db57368a481b77dc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classlibbirch_1_1Array_1a5145439bf17ec4620bdd04a01f406cb0" kindref="member">EigenType</ref></type>
+        <definition>EigenType toEigen</definition>
+        <argsstring>()</argsstring>
+        <name>toEigen</name>
+        <briefdescription>
+<para>Explicitly convert to Eigen matrix type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Array.hpp" line="425" column="1" bodyfile="libbirch/Array.hpp" bodystart="425" bodyend="431"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1Array_1a28e37956b227672ae17f965ae19669e4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classlibbirch_1_1Array_1a5145439bf17ec4620bdd04a01f406cb0" kindref="member">EigenType</ref></type>
+        <definition>EigenType toEigen</definition>
+        <argsstring>() const</argsstring>
+        <name>toEigen</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Array.hpp" line="432" column="1" bodyfile="libbirch/Array.hpp" bodystart="432" bodyend="438"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1Array_1a7f76ab2421e895d988d728f7dd6fa8bd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>operator EigenType</definition>
+        <argsstring>()</argsstring>
+        <name>operator EigenType</name>
+        <briefdescription>
+<para>Implicitly convert to Eigen matrix type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Array.hpp" line="443" column="1" bodyfile="libbirch/Array.hpp" bodystart="443" bodyend="445"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1Array_1ab09d0912e9e3464caa22c37e69f6b2ca" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>operator EigenType</definition>
+        <argsstring>() const</argsstring>
+        <name>operator EigenType</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Array.hpp" line="446" column="1" bodyfile="libbirch/Array.hpp" bodystart="446" bodyend="448"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1Array_1ab9515736ce299ddf3e9a988a2d772b65" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class DerivedType</type>
+          </param>
+          <param>
+            <type>typename</type>
+            <defval>std::enable_if_t&lt;      <ref refid="structlibbirch_1_1Array_1_1is__eigen__compatible" kindref="compound">is_eigen_compatible</ref>&lt;DerivedType&gt;::value&gt;</defval>
+          </param>
+        </templateparamlist>
+        <type></type>
+        <definition>Array</definition>
+        <argsstring>(const Eigen::MatrixBase&lt; DerivedType &gt; &amp;o, const F &amp;frame)</argsstring>
+        <name>Array</name>
+        <param>
+          <type>const Eigen::MatrixBase&lt; DerivedType &gt; &amp;</type>
+          <declname>o</declname>
+        </param>
+        <param>
+          <type>const F &amp;</type>
+          <declname>frame</declname>
+        </param>
+        <briefdescription>
+<para>Construct with new allocation and copy in existing array from Eigen Matrix expression. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>o</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Existing array. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>frame</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Frame.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+Memory is allocated for the array, and is freed on destruction. After allocation, the contents of the existing array are copied in. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Array.hpp" line="462" column="1" bodyfile="libbirch/Array.hpp" bodystart="462" bodyend="469"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1Array_1ac99b7fd2d284b1ece5b189a43ee0d62a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class DerivedType</type>
+          </param>
+          <param>
+            <type>typename</type>
+            <defval>std::enable_if_t&lt;      <ref refid="structlibbirch_1_1Array_1_1is__eigen__compatible" kindref="compound">is_eigen_compatible</ref>&lt;DerivedType&gt;::value&gt;</defval>
+          </param>
+        </templateparamlist>
+        <type></type>
+        <definition>Array</definition>
+        <argsstring>(const Eigen::MatrixBase&lt; DerivedType &gt; &amp;o)</argsstring>
+        <name>Array</name>
+        <param>
+          <type>const Eigen::MatrixBase&lt; DerivedType &gt; &amp;</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+<para>Construct from Eigen Matrix expression. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Array.hpp" line="476" column="1" bodyfile="libbirch/Array.hpp" bodystart="476" bodyend="483"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1Array_1ab09f6a023c4aaf44b8317db00e6abcef" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class DerivedType</type>
+          </param>
+          <param>
+            <type>typename</type>
+            <defval>std::enable_if_t&lt;      <ref refid="structlibbirch_1_1Array_1_1is__eigen__compatible" kindref="compound">is_eigen_compatible</ref>&lt;DerivedType&gt;::value&gt;</defval>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classlibbirch_1_1Array" kindref="compound">Array</ref>&lt; T, F &gt; &amp;</type>
+        <definition>Array&lt;T,F&gt;&amp; operator=</definition>
+        <argsstring>(const Eigen::MatrixBase&lt; DerivedType &gt; &amp;o)</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const Eigen::MatrixBase&lt; DerivedType &gt; &amp;</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+<para>Assign from Eigen Matrix expression. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Array.hpp" line="490" column="1" bodyfile="libbirch/Array.hpp" bodystart="490" bodyend="499"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="classlibbirch_1_1Array_1a23070656da6784a7e4c33c4b0ea9de35" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class U</type>
+          </param>
+          <param>
+            <type>class G</type>
+          </param>
+        </templateparamlist>
+        <type>friend class</type>
+        <definition>friend class Array</definition>
+        <argsstring></argsstring>
+        <name>Array</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Array.hpp" line="31" column="1" bodyfile="libbirch/Array.hpp" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classlibbirch_1_1Array_1a3c6199d143209c1e0cb829395da48694" prot="private" static="no" mutable="no">
+        <type>F</type>
+        <definition>F frame</definition>
+        <argsstring></argsstring>
+        <name>frame</name>
+        <briefdescription>
+<para>Frame. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Array.hpp" line="754" column="1" bodyfile="libbirch/Array.hpp" bodystart="754" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlibbirch_1_1Array_1a5d2acc71189888993fddb484d4760237" prot="private" static="no" mutable="no">
+        <type><ref refid="classlibbirch_1_1Buffer" kindref="compound">Buffer</ref>&lt; T &gt; *</type>
+        <definition>Buffer&lt;T&gt;* buffer</definition>
+        <argsstring></argsstring>
+        <name>buffer</name>
+        <briefdescription>
+<para><ref refid="classlibbirch_1_1Buffer" kindref="compound">Buffer</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Array.hpp" line="759" column="1" bodyfile="libbirch/Array.hpp" bodystart="759" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlibbirch_1_1Array_1ae25fb5067bd6b3b1b319efc61685a98f" prot="private" static="no" mutable="no">
+        <type>int64_t</type>
+        <definition>int64_t offset</definition>
+        <argsstring></argsstring>
+        <name>offset</name>
+        <briefdescription>
+<para><ref refid="structlibbirch_1_1Offset" kindref="compound">Offset</ref> into the buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This should be zero when isView is false. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Array.hpp" line="764" column="1" bodyfile="libbirch/Array.hpp" bodystart="764" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlibbirch_1_1Array_1a4dde1190b6c6a1fa22d3135aa235a0dd" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool isView</definition>
+        <argsstring></argsstring>
+        <name>isView</name>
+        <briefdescription>
+<para>Is this a view of another array? A view has stricter assignment semantics, as it cannot be resized or moved. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Array.hpp" line="770" column="1" bodyfile="libbirch/Array.hpp" bodystart="770" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classlibbirch_1_1Array_1ad88789fb60d6fa4365201dce33f9f6c9" prot="private" static="no" mutable="no">
+        <type><ref refid="classlibbirch_1_1ExclusiveLock" kindref="compound">ExclusiveLock</ref></type>
+        <definition>ExclusiveLock mutex</definition>
+        <argsstring></argsstring>
+        <name>mutex</name>
+        <briefdescription>
+<para><ref refid="classlibbirch_1_1Lock" kindref="compound">Lock</ref> used for copy on write. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Array.hpp" line="775" column="1" bodyfile="libbirch/Array.hpp" bodystart="775" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classlibbirch_1_1Array_1af9474cac29f3177edf5e8d72ea4a440c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Array</definition>
+        <argsstring>()</argsstring>
+        <name>Array</name>
+        <briefdescription>
+<para>Default constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Array.hpp" line="36" column="1" bodyfile="libbirch/Array.hpp" bodystart="36" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1Array_1aa741ba2c2161b66b285b2c753f33002c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Array</definition>
+        <argsstring>(const F &amp;frame)</argsstring>
+        <name>Array</name>
+        <param>
+          <type>const F &amp;</type>
+          <declname>frame</declname>
+        </param>
+        <briefdescription>
+<para>Constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>frame</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Frame. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Array.hpp" line="49" column="1" bodyfile="libbirch/Array.hpp" bodystart="49" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1Array_1a34ff817b09ec0e4bf552e943a14c5412" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class ...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type></type>
+        <definition>Array</definition>
+        <argsstring>(const F &amp;frame, Args ... args)</argsstring>
+        <name>Array</name>
+        <param>
+          <type>const F &amp;</type>
+          <declname>frame</declname>
+        </param>
+        <param>
+          <type>Args ...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+<para>Constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>...Args</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Constructor parameter types.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>frame</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Frame. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>args</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Constructor arguments for each element. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Array.hpp" line="67" column="1" bodyfile="libbirch/Array.hpp" bodystart="67" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1Array_1a2e951f0f84dbf0e6aaa7da369e147a00" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Array</definition>
+        <argsstring>(const Array&lt; T, F &gt; &amp;o, const bool canShare=true)</argsstring>
+        <name>Array</name>
+        <param>
+          <type>const <ref refid="classlibbirch_1_1Array" kindref="compound">Array</ref>&lt; T, F &gt; &amp;</type>
+          <declname>o</declname>
+        </param>
+        <param>
+          <type>const bool</type>
+          <declname>canShare</declname>
+          <defval>true</defval>
+        </param>
+        <briefdescription>
+<para>Copy constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>canShare</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Is it fine for the new array to share an underlying buffer with o (in a copy on write manner)? </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Array.hpp" line="82" column="1" bodyfile="libbirch/Array.hpp" bodystart="782" bodyend="805"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1Array_1ac6009de7fe178d924bb5f267ff01cdf8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class U</type>
+          </param>
+          <param>
+            <type>class G</type>
+          </param>
+        </templateparamlist>
+        <type></type>
+        <definition>Array</definition>
+        <argsstring>(const Array&lt; U, G &gt; &amp;o)</argsstring>
+        <name>Array</name>
+        <param>
+          <type>const <ref refid="classlibbirch_1_1Array" kindref="compound">Array</ref>&lt; U, G &gt; &amp;</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+<para>Generic copy constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Array.hpp" line="88" column="1" bodyfile="libbirch/Array.hpp" bodystart="88" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1Array_1a09300b24a4e88f3f1490af80f293c068" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Array</definition>
+        <argsstring>(Array&lt; T, F &gt; &amp;&amp;o)</argsstring>
+        <name>Array</name>
+        <param>
+          <type><ref refid="classlibbirch_1_1Array" kindref="compound">Array</ref>&lt; T, F &gt; &amp;&amp;</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+<para>Move constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Array.hpp" line="100" column="1" bodyfile="libbirch/Array.hpp" bodystart="100" bodyend="106"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1Array_1a34e6ff4a626a7276e4d355fa7c7591bd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Array</definition>
+        <argsstring>(const typename sequence_type&lt; T, F::count()&gt;::type &amp;o)</argsstring>
+        <name>Array</name>
+        <param>
+          <type>const typename <ref refid="structlibbirch_1_1sequence__type" kindref="compound">sequence_type</ref>&lt; T, F::count()&gt;::type &amp;</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+<para>Sequence constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>o</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Sequence. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Array.hpp" line="113" column="1" bodyfile="libbirch/Array.hpp" bodystart="113" bodyend="120"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1Array_1a9338ffdafb6c90a0d192ade96b24550a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>~Array</definition>
+        <argsstring>()</argsstring>
+        <name>~Array</name>
+        <briefdescription>
+<para>Destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Array.hpp" line="125" column="1" bodyfile="libbirch/Array.hpp" bodystart="125" bodyend="127"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1Array_1a6e6c77a98bc2570df9b3e8e3c6e53e44" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classlibbirch_1_1Array" kindref="compound">Array</ref>&lt; T, F &gt; &amp;</type>
+        <definition>Array&lt;T,F&gt;&amp; operator=</definition>
+        <argsstring>(const Array&lt; T, F &gt; &amp;o)</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="classlibbirch_1_1Array" kindref="compound">Array</ref>&lt; T, F &gt; &amp;</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+<para>Copy assignment. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>For a view the frames of the two arrays must conform, otherwise a resize is permitted. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Array.hpp" line="133" column="1" bodyfile="libbirch/Array.hpp" bodystart="133" bodyend="142"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1Array_1aa1a5ead3b992211cf40ab7524ae78081" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class U</type>
+          </param>
+          <param>
+            <type>class G</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classlibbirch_1_1Array" kindref="compound">Array</ref>&lt; T, F &gt; &amp;</type>
+        <definition>Array&lt;T,F&gt;&amp; operator=</definition>
+        <argsstring>(const Array&lt; U, G &gt; &amp;o)</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="classlibbirch_1_1Array" kindref="compound">Array</ref>&lt; U, G &gt; &amp;</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+<para>Generic copy assignment. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>For a view the frames of the two arrays must conform, otherwise a resize is permitted. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Array.hpp" line="149" column="1" bodyfile="libbirch/Array.hpp" bodystart="149" bodyend="158"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1Array_1a48cf87ec0c8873411708e98bfe7e59ee" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classlibbirch_1_1Array" kindref="compound">Array</ref>&lt; T, F &gt; &amp;</type>
+        <definition>Array&lt;T,F&gt;&amp; operator=</definition>
+        <argsstring>(Array&lt; T, F &gt; &amp;&amp;o)</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="classlibbirch_1_1Array" kindref="compound">Array</ref>&lt; T, F &gt; &amp;&amp;</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+<para>Move assignment. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Array.hpp" line="163" column="1" bodyfile="libbirch/Array.hpp" bodystart="163" bodyend="177"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1Array_1a18842ae93ce1daccde8aeda6ad7f179d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classlibbirch_1_1Array" kindref="compound">Array</ref>&lt; T, F &gt; &amp;</type>
+        <definition>Array&lt;T,F&gt;&amp; operator=</definition>
+        <argsstring>(const typename sequence_type&lt; T, F::count()&gt;::type &amp;o)</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const typename <ref refid="structlibbirch_1_1sequence__type" kindref="compound">sequence_type</ref>&lt; T, F::count()&gt;::type &amp;</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+<para>Generic sequence assignment. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>For a view the frames of array must conform to that of the sequence, otherwise a resize is permitted. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Array.hpp" line="183" column="1" bodyfile="libbirch/Array.hpp" bodystart="183" bodyend="191"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1Array_1a5c38e9958e6b26d715cebcf98e255f14" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const <ref refid="classlibbirch_1_1Array" kindref="compound">Array</ref>&lt; T, F &gt; &amp;</type>
+        <definition>const Array&lt;T,F&gt;&amp; as_const</definition>
+        <argsstring>()</argsstring>
+        <name>as_const</name>
+        <briefdescription>
+<para>Return const reference to the array. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This can be used to ensure that the array is being accessed in a const context, to avoid unnecessary copying of shared buffers. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Array.hpp" line="198" column="1" bodyfile="libbirch/Array.hpp" bodystart="198" bodyend="200"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1Array_1a6f7e577c421c9b1d9ea0df2f4ab7af1f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const <ref refid="classlibbirch_1_1Array" kindref="compound">Array</ref>&lt; T, F &gt; &amp;</type>
+        <definition>const Array&lt;T,F&gt;&amp; as_const</definition>
+        <argsstring>() const</argsstring>
+        <name>as_const</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Array.hpp" line="201" column="1" bodyfile="libbirch/Array.hpp" bodystart="201" bodyend="203"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1Array_1a57cda2dc84a90c2543c512afaac4718a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class View1</type>
+          </param>
+          <param>
+            <type>typename</type>
+            <defval>std::enable_if_t&lt;View1::rangeCount() != 0&gt;</defval>
+          </param>
+        </templateparamlist>
+        <type>auto</type>
+        <definition>auto operator()</definition>
+        <argsstring>(const View1 &amp;view)</argsstring>
+        <name>operator()</name>
+        <param>
+          <type>const View1 &amp;</type>
+          <declname>view</declname>
+        </param>
+        <briefdescription>
+<para>View operator. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>View1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>View type.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>o</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>View.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The new array. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Array.hpp" line="215" column="1" bodyfile="libbirch/Array.hpp" bodystart="215" bodyend="218"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1Array_1ab62fba7525b5853f3e82faf6d54ce86a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class View1</type>
+          </param>
+          <param>
+            <type>typename</type>
+            <defval>std::enable_if_t&lt;View1::rangeCount() != 0&gt;</defval>
+          </param>
+        </templateparamlist>
+        <type>auto</type>
+        <definition>auto operator()</definition>
+        <argsstring>(const View1 &amp;view) const</argsstring>
+        <name>operator()</name>
+        <param>
+          <type>const View1 &amp;</type>
+          <declname>view</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Array.hpp" line="220" column="1" bodyfile="libbirch/Array.hpp" bodystart="220" bodyend="223"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1Array_1ad302f8cf4cf2ea7dc279ae429a6ac370" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class View1</type>
+          </param>
+          <param>
+            <type>typename</type>
+            <defval>std::enable_if_t&lt;View1::rangeCount() == 0&gt;</defval>
+          </param>
+        </templateparamlist>
+        <type>auto &amp;</type>
+        <definition>auto&amp; operator()</definition>
+        <argsstring>(const View1 &amp;view)</argsstring>
+        <name>operator()</name>
+        <param>
+          <type>const View1 &amp;</type>
+          <declname>view</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Array.hpp" line="225" column="1" bodyfile="libbirch/Array.hpp" bodystart="225" bodyend="227"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1Array_1a7565abdf2a740af9759cd49d7096ec83" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class View1</type>
+          </param>
+          <param>
+            <type>typename</type>
+            <defval>std::enable_if_t&lt;View1::rangeCount() == 0&gt;</defval>
+          </param>
+        </templateparamlist>
+        <type>const auto &amp;</type>
+        <definition>const auto&amp; operator()</definition>
+        <argsstring>(const View1 &amp;view) const</argsstring>
+        <name>operator()</name>
+        <param>
+          <type>const View1 &amp;</type>
+          <declname>view</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Array.hpp" line="229" column="1" bodyfile="libbirch/Array.hpp" bodystart="229" bodyend="231"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1Array_1ab0cee2023afeedb82f71258309902502" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class G</type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool operator==</definition>
+        <argsstring>(const Array&lt; T, G &gt; &amp;o) const</argsstring>
+        <name>operator==</name>
+        <param>
+          <type>const <ref refid="classlibbirch_1_1Array" kindref="compound">Array</ref>&lt; T, G &gt; &amp;</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+<para>Equal comparison. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Array.hpp" line="237" column="1" bodyfile="libbirch/Array.hpp" bodystart="237" bodyend="242"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1Array_1aaec814675cd5b035a59389e1949b4ab3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class G</type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool operator!=</definition>
+        <argsstring>(const Array&lt; T, G &gt; &amp;o) const</argsstring>
+        <name>operator!=</name>
+        <param>
+          <type>const <ref refid="classlibbirch_1_1Array" kindref="compound">Array</ref>&lt; T, G &gt; &amp;</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+<para>Not equal comparison. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Array.hpp" line="248" column="1" bodyfile="libbirch/Array.hpp" bodystart="248" bodyend="250"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1Array_1afd1fcf00c966bfd990206632949769f6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classlibbirch_1_1Iterator" kindref="compound">Iterator</ref>&lt; T, F &gt;</type>
+        <definition>Iterator&lt;T,F&gt; begin</definition>
+        <argsstring>()</argsstring>
+        <name>begin</name>
+        <briefdescription>
+<para><ref refid="classlibbirch_1_1Iterator" kindref="compound">Iterator</ref> pointing to the first element. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Iterators are used to access the elements of an array sequentially. Elements are visited in the order in which they are stored in memory; the rightmost dimension is the fastest moving (for a matrix, this is &quot;row major&quot; order).</para>
+<para>There is no <computeroutput>end()</computeroutput> function to retrieve an iterator to one-past-the-last element. This is because a first/last pair must be created atomically for thread safety. Instead use something like: <verbatim>auto first = begin();
+auto last = first + size();
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Array.hpp" line="267" column="1" bodyfile="libbirch/Array.hpp" bodystart="267" bodyend="269"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1Array_1a3a756acf67328a71be53faa294001e01" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classlibbirch_1_1Iterator" kindref="compound">Iterator</ref>&lt; T, F &gt;</type>
+        <definition>Iterator&lt;T,F&gt; begin</definition>
+        <argsstring>() const</argsstring>
+        <name>begin</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Array.hpp" line="270" column="1" bodyfile="libbirch/Array.hpp" bodystart="270" bodyend="272"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1Array_1aa326d81dcac346461f3b8528bf0b49de" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int64_t</type>
+        <definition>int64_t size</definition>
+        <argsstring>() const</argsstring>
+        <name>size</name>
+        <briefdescription>
+<para>Size (product of lengths). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Array.hpp" line="277" column="1" bodyfile="libbirch/Array.hpp" bodystart="277" bodyend="279"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1Array_1a566e1cca6efad6f44fa239b6b7e51fd5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int64_t</type>
+        <definition>int64_t volume</definition>
+        <argsstring>() const</argsstring>
+        <name>volume</name>
+        <briefdescription>
+<para>Volume (number of elements allocated in buffer). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Array.hpp" line="284" column="1" bodyfile="libbirch/Array.hpp" bodystart="284" bodyend="286"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1Array_1af12ba87227fc5dd76fcc321346514f92" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int64_t</type>
+        <definition>int64_t length</definition>
+        <argsstring>(const int i) const</argsstring>
+        <name>length</name>
+        <param>
+          <type>const int</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+<para>Get the length of the <computeroutput>i</computeroutput> th dimension. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Array.hpp" line="291" column="1" bodyfile="libbirch/Array.hpp" bodystart="291" bodyend="293"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1Array_1a99170399deaa0541336a932930a77519" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int64_t</type>
+        <definition>int64_t stride</definition>
+        <argsstring>(const int i) const</argsstring>
+        <name>stride</name>
+        <param>
+          <type>const int</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+<para>Get the stride of the <computeroutput>i</computeroutput> th dimension. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Array.hpp" line="298" column="1" bodyfile="libbirch/Array.hpp" bodystart="298" bodyend="300"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1Array_1a58256b8c97c5370adbdac83357a31d33" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>T *</type>
+        <definition>T* buf</definition>
+        <argsstring>()</argsstring>
+        <name>buf</name>
+        <briefdescription>
+<para>Raw pointer to underlying buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Array.hpp" line="305" column="1" bodyfile="libbirch/Array.hpp" bodystart="305" bodyend="307"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1Array_1ae066fee272f29af28537dcb3aa0d1a63" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>T *</type>
+        <definition>T* buf</definition>
+        <argsstring>() const</argsstring>
+        <name>buf</name>
+        <briefdescription>
+<para>Raw pointer to underlying buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Array.hpp" line="312" column="1" bodyfile="libbirch/Array.hpp" bodystart="312" bodyend="314"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1Array_1a16051a3965ad8ca282ab8dd99ca9307b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class G</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void shrink</definition>
+        <argsstring>(const G &amp;frame)</argsstring>
+        <name>shrink</name>
+        <param>
+          <type>const G &amp;</type>
+          <declname>frame</declname>
+        </param>
+        <briefdescription>
+<para>Shrink a one-dimensional array in-place. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>G</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Frame type.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>frame</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>New frame. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Array.hpp" line="324" column="1" bodyfile="libbirch/Array.hpp" bodystart="324" bodyend="353"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1Array_1a525e25e986bb4dadd2dcbe978b3c6ecc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class G</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void enlarge</definition>
+        <argsstring>(const G &amp;frame, const T &amp;x)</argsstring>
+        <name>enlarge</name>
+        <param>
+          <type>const G &amp;</type>
+          <declname>frame</declname>
+        </param>
+        <param>
+          <type>const T &amp;</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+<para>Enlarge a one-dimensional array in-place. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>G</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Frame type.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>frame</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>New frame. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value to assign to new elements. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Array.hpp" line="364" column="1" bodyfile="libbirch/Array.hpp" bodystart="364" bodyend="386"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classlibbirch_1_1Array_1a1ddb1b758a0eb530123dfe3e13fcf1e8" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Array</definition>
+        <argsstring>(Buffer&lt; T &gt; *buffer, const int64_t offset, const F &amp;frame)</argsstring>
+        <name>Array</name>
+        <param>
+          <type><ref refid="classlibbirch_1_1Buffer" kindref="compound">Buffer</ref>&lt; T &gt; *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>const int64_t</type>
+          <declname>offset</declname>
+        </param>
+        <param>
+          <type>const F &amp;</type>
+          <declname>frame</declname>
+        </param>
+        <briefdescription>
+<para>Constructor for view. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classlibbirch_1_1Buffer" kindref="compound">Buffer</ref>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>offset</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="structlibbirch_1_1Offset" kindref="compound">Offset</ref>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>frame</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Frame. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Array.hpp" line="510" column="1" bodyfile="libbirch/Array.hpp" bodystart="510" bodyend="516"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1Array_1a4f0379af455a0b5886caabe2d542697a" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class G</type>
+          </param>
+        </templateparamlist>
+        <type></type>
+        <definition>Array</definition>
+        <argsstring>(const Array&lt; T, F &gt; &amp;o, const G &amp;frame, const T &amp;x)</argsstring>
+        <name>Array</name>
+        <param>
+          <type>const <ref refid="classlibbirch_1_1Array" kindref="compound">Array</ref>&lt; T, F &gt; &amp;</type>
+          <declname>o</declname>
+        </param>
+        <param>
+          <type>const G &amp;</type>
+          <declname>frame</declname>
+        </param>
+        <param>
+          <type>const T &amp;</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+<para>Constructor for enlarging a one dimensional array. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>G</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Frame type.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>o</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Original array. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>frame</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Frame. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value to assign to new elements. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Array.hpp" line="528" column="1" bodyfile="libbirch/Array.hpp" bodystart="528" bodyend="538"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1Array_1a32c65720f2e9753aa0bedbe762a9e429" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class G</type>
+          </param>
+        </templateparamlist>
+        <type></type>
+        <definition>Array</definition>
+        <argsstring>(const Array&lt; T, F &gt; &amp;o, const G &amp;frame)</argsstring>
+        <name>Array</name>
+        <param>
+          <type>const <ref refid="classlibbirch_1_1Array" kindref="compound">Array</ref>&lt; T, F &gt; &amp;</type>
+          <declname>o</declname>
+        </param>
+        <param>
+          <type>const G &amp;</type>
+          <declname>frame</declname>
+        </param>
+        <briefdescription>
+<para>Constructor for shrinking a one dimensional array. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>G</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Frame type.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>o</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Original array. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>frame</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Frame. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Array.hpp" line="549" column="1" bodyfile="libbirch/Array.hpp" bodystart="549" bodyend="559"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1Array_1acaefe811b78a2fdc4a0dba0c4029c3ef" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void allocate</definition>
+        <argsstring>()</argsstring>
+        <name>allocate</name>
+        <briefdescription>
+<para>Allocate memory for array, leaving uninitialized. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Array.hpp" line="564" column="1" bodyfile="libbirch/Array.hpp" bodystart="564" bodyend="572"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1Array_1a068bba4d3c795ce98bd1b74a06d9a362" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classlibbirch_1_1Buffer" kindref="compound">Buffer</ref>&lt; T &gt; *</type>
+        <definition>Buffer&lt;T&gt;* duplicate</definition>
+        <argsstring>()</argsstring>
+        <name>duplicate</name>
+        <briefdescription>
+<para>Duplicate underlying buffer by copy. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Array.hpp" line="577" column="1" bodyfile="libbirch/Array.hpp" bodystart="577" bodyend="591"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1Array_1aada414fd39b0beb6209b6f6ef5829c31" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void rebase</definition>
+        <argsstring>(const Array&lt; T, F &gt; &amp;o)</argsstring>
+        <name>rebase</name>
+        <param>
+          <type>const <ref refid="classlibbirch_1_1Array" kindref="compound">Array</ref>&lt; T, F &gt; &amp;</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+<para>Rebase to match the contents of an existing array (possibly sharing a buffer with it, using copy on write). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Array.hpp" line="597" column="1" bodyfile="libbirch/Array.hpp" bodystart="597" bodyend="603"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1Array_1adce672055b28d227e0ba4fc3fd3cc25b" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void rebase</definition>
+        <argsstring>(Array&lt; T, F &gt; &amp;&amp;o)</argsstring>
+        <name>rebase</name>
+        <param>
+          <type><ref refid="classlibbirch_1_1Array" kindref="compound">Array</ref>&lt; T, F &gt; &amp;&amp;</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+<para>Rebase to match the contents of an existing array (possibly sharing a buffer with it, using copy on write). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Array.hpp" line="609" column="1" bodyfile="libbirch/Array.hpp" bodystart="609" bodyend="614"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1Array_1a23b477d0e2d399f75d585d154c346591" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void release</definition>
+        <argsstring>()</argsstring>
+        <name>release</name>
+        <briefdescription>
+<para>Deallocate memory of array. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Array.hpp" line="619" column="1" bodyfile="libbirch/Array.hpp" bodystart="619" bodyend="633"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1Array_1a5967810fe6766544d53b1020aab65a3d" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class ...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void initialize</definition>
+        <argsstring>(Args ... args)</argsstring>
+        <name>initialize</name>
+        <param>
+          <type>Args ...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+<para>Initialize allocated memory. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>args</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Constructor arguments. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Array.hpp" line="641" column="1" bodyfile="libbirch/Array.hpp" bodystart="641" bodyend="647"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1Array_1a3d63a44c9c851b7ee61833deb8a01cdd" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class U</type>
+          </param>
+          <param>
+            <type>class G</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void copy</definition>
+        <argsstring>(const Array&lt; U, G &gt; &amp;o)</argsstring>
+        <name>copy</name>
+        <param>
+          <type>const <ref refid="classlibbirch_1_1Array" kindref="compound">Array</ref>&lt; U, G &gt; &amp;</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+<para>Copy from another array. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Array.hpp" line="653" column="1" bodyfile="libbirch/Array.hpp" bodystart="653" bodyend="659"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1Array_1a6b5f4da817d1b33ed4fc9a828341a044" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void copy</definition>
+        <argsstring>(const typename sequence_type&lt; T, F::count()&gt;::type &amp;o)</argsstring>
+        <name>copy</name>
+        <param>
+          <type>const typename <ref refid="structlibbirch_1_1sequence__type" kindref="compound">sequence_type</ref>&lt; T, F::count()&gt;::type &amp;</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Array.hpp" line="661" column="1" bodyfile="libbirch/Array.hpp" bodystart="661" bodyend="667"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1Array_1a36de26bcf84b8a17de5c8214d489cd50" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class U</type>
+          </param>
+          <param>
+            <type>class G</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void assign</definition>
+        <argsstring>(const Array&lt; U, G &gt; &amp;o)</argsstring>
+        <name>assign</name>
+        <param>
+          <type>const <ref refid="classlibbirch_1_1Array" kindref="compound">Array</ref>&lt; U, G &gt; &amp;</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+<para>Assign from another array. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Array.hpp" line="673" column="1" bodyfile="libbirch/Array.hpp" bodystart="673" bodyend="698"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1Array_1ab3edc50cca5f9bd03ab7127cf3db96d0" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void assign</definition>
+        <argsstring>(const typename sequence_type&lt; T, F::count()&gt;::type &amp;o)</argsstring>
+        <name>assign</name>
+        <param>
+          <type>const typename <ref refid="structlibbirch_1_1sequence__type" kindref="compound">sequence_type</ref>&lt; T, F::count()&gt;::type &amp;</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Array.hpp" line="700" column="1" bodyfile="libbirch/Array.hpp" bodystart="700" bodyend="706"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1Array_1acdf70e82e036c814bb20e366674afccf" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool isShared</definition>
+        <argsstring>() const</argsstring>
+        <name>isShared</name>
+        <briefdescription>
+<para>Is the buffer shared with one or more other arrays? </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Array.hpp" line="733" column="1" bodyfile="libbirch/Array.hpp" bodystart="733" bodyend="735"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1Array_1aa81aed607133209dade63a226818224d" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void lock</definition>
+        <argsstring>()</argsstring>
+        <name>lock</name>
+        <briefdescription>
+<para>Release the lock. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Array.hpp" line="740" column="1" bodyfile="libbirch/Array.hpp" bodystart="740" bodyend="742"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1Array_1a9278be8203e1c42e2619179882ae4403" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void unlock</definition>
+        <argsstring>()</argsstring>
+        <name>unlock</name>
+        <briefdescription>
+<para>Release the lock. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Array.hpp" line="747" column="1" bodyfile="libbirch/Array.hpp" bodystart="747" bodyend="749"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classlibbirch_1_1Array_1ac1ffb8531af4b553f9da9489359c18cc" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class U</type>
+          </param>
+          <param>
+            <type>class ...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>static void emplace</definition>
+        <argsstring>(U &amp;o, Args ... args)</argsstring>
+        <name>emplace</name>
+        <param>
+          <type>U &amp;</type>
+          <declname>o</declname>
+        </param>
+        <param>
+          <type>Args ...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+<para>Construct element of value type in place. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>o</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Element. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>args</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Constructor arguments. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Array.hpp" line="715" column="1" bodyfile="libbirch/Array.hpp" bodystart="715" bodyend="717"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1Array_1a911430f9fdb24ad6716ce7f8eab7a3dc" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class U</type>
+          </param>
+          <param>
+            <type>class ...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>static void emplace</definition>
+        <argsstring>(Shared&lt; U &gt; &amp;o, Args ... args)</argsstring>
+        <name>emplace</name>
+        <param>
+          <type><ref refid="namespacelibbirch_1a9df66c287c7bf28578b0d01c96b8417a" kindref="member">Shared</ref>&lt; U &gt; &amp;</type>
+          <declname>o</declname>
+        </param>
+        <param>
+          <type>Args ...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+<para>Construct element of shared pointer type in place. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>o</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Element. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>args</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Constructor arguments. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Array.hpp" line="726" column="1" bodyfile="libbirch/Array.hpp" bodystart="726" bodyend="728"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>A multidimensional array. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Combines underlying data and a frame describing the shape of that data. Allows the construction of views of the data, where a view indexes either an individual element or some range of elements.</para>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Value type. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Frame</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Frame type. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+    </detaileddescription>
+    <location file="libbirch/Array.hpp" line="29" column="1" bodyfile="libbirch/Array.hpp" bodystart="29" bodyend="776"/>
+    <listofallmembers>
+      <member refid="classlibbirch_1_1Array_1acaefe811b78a2fdc4a0dba0c4029c3ef" prot="private" virt="non-virtual"><scope>libbirch::Array</scope><name>allocate</name></member>
+      <member refid="classlibbirch_1_1Array_1a23070656da6784a7e4c33c4b0ea9de35" prot="private" virt="non-virtual"><scope>libbirch::Array</scope><name>Array</name></member>
+      <member refid="classlibbirch_1_1Array_1af9474cac29f3177edf5e8d72ea4a440c" prot="public" virt="non-virtual"><scope>libbirch::Array</scope><name>Array</name></member>
+      <member refid="classlibbirch_1_1Array_1aa741ba2c2161b66b285b2c753f33002c" prot="public" virt="non-virtual"><scope>libbirch::Array</scope><name>Array</name></member>
+      <member refid="classlibbirch_1_1Array_1a34ff817b09ec0e4bf552e943a14c5412" prot="public" virt="non-virtual"><scope>libbirch::Array</scope><name>Array</name></member>
+      <member refid="classlibbirch_1_1Array_1a2e951f0f84dbf0e6aaa7da369e147a00" prot="public" virt="non-virtual"><scope>libbirch::Array</scope><name>Array</name></member>
+      <member refid="classlibbirch_1_1Array_1ac6009de7fe178d924bb5f267ff01cdf8" prot="public" virt="non-virtual"><scope>libbirch::Array</scope><name>Array</name></member>
+      <member refid="classlibbirch_1_1Array_1a09300b24a4e88f3f1490af80f293c068" prot="public" virt="non-virtual"><scope>libbirch::Array</scope><name>Array</name></member>
+      <member refid="classlibbirch_1_1Array_1a34e6ff4a626a7276e4d355fa7c7591bd" prot="public" virt="non-virtual"><scope>libbirch::Array</scope><name>Array</name></member>
+      <member refid="classlibbirch_1_1Array_1ab9515736ce299ddf3e9a988a2d772b65" prot="public" virt="non-virtual"><scope>libbirch::Array</scope><name>Array</name></member>
+      <member refid="classlibbirch_1_1Array_1ac99b7fd2d284b1ece5b189a43ee0d62a" prot="public" virt="non-virtual"><scope>libbirch::Array</scope><name>Array</name></member>
+      <member refid="classlibbirch_1_1Array_1a1ddb1b758a0eb530123dfe3e13fcf1e8" prot="private" virt="non-virtual"><scope>libbirch::Array</scope><name>Array</name></member>
+      <member refid="classlibbirch_1_1Array_1a4f0379af455a0b5886caabe2d542697a" prot="private" virt="non-virtual"><scope>libbirch::Array</scope><name>Array</name></member>
+      <member refid="classlibbirch_1_1Array_1a32c65720f2e9753aa0bedbe762a9e429" prot="private" virt="non-virtual"><scope>libbirch::Array</scope><name>Array</name></member>
+      <member refid="classlibbirch_1_1Array_1a5c38e9958e6b26d715cebcf98e255f14" prot="public" virt="non-virtual"><scope>libbirch::Array</scope><name>as_const</name></member>
+      <member refid="classlibbirch_1_1Array_1a6f7e577c421c9b1d9ea0df2f4ab7af1f" prot="public" virt="non-virtual"><scope>libbirch::Array</scope><name>as_const</name></member>
+      <member refid="classlibbirch_1_1Array_1a36de26bcf84b8a17de5c8214d489cd50" prot="private" virt="non-virtual"><scope>libbirch::Array</scope><name>assign</name></member>
+      <member refid="classlibbirch_1_1Array_1ab3edc50cca5f9bd03ab7127cf3db96d0" prot="private" virt="non-virtual"><scope>libbirch::Array</scope><name>assign</name></member>
+      <member refid="classlibbirch_1_1Array_1afd1fcf00c966bfd990206632949769f6" prot="public" virt="non-virtual"><scope>libbirch::Array</scope><name>begin</name></member>
+      <member refid="classlibbirch_1_1Array_1a3a756acf67328a71be53faa294001e01" prot="public" virt="non-virtual"><scope>libbirch::Array</scope><name>begin</name></member>
+      <member refid="classlibbirch_1_1Array_1a58256b8c97c5370adbdac83357a31d33" prot="public" virt="non-virtual"><scope>libbirch::Array</scope><name>buf</name></member>
+      <member refid="classlibbirch_1_1Array_1ae066fee272f29af28537dcb3aa0d1a63" prot="public" virt="non-virtual"><scope>libbirch::Array</scope><name>buf</name></member>
+      <member refid="classlibbirch_1_1Array_1a5d2acc71189888993fddb484d4760237" prot="private" virt="non-virtual"><scope>libbirch::Array</scope><name>buffer</name></member>
+      <member refid="classlibbirch_1_1Array_1a3d63a44c9c851b7ee61833deb8a01cdd" prot="private" virt="non-virtual"><scope>libbirch::Array</scope><name>copy</name></member>
+      <member refid="classlibbirch_1_1Array_1a6b5f4da817d1b33ed4fc9a828341a044" prot="private" virt="non-virtual"><scope>libbirch::Array</scope><name>copy</name></member>
+      <member refid="classlibbirch_1_1Array_1a068bba4d3c795ce98bd1b74a06d9a362" prot="private" virt="non-virtual"><scope>libbirch::Array</scope><name>duplicate</name></member>
+      <member refid="classlibbirch_1_1Array_1aaaf2f2c425072ea658ac600083e04243" prot="public" virt="non-virtual"><scope>libbirch::Array</scope><name>EigenStrideType</name></member>
+      <member refid="classlibbirch_1_1Array_1a5145439bf17ec4620bdd04a01f406cb0" prot="public" virt="non-virtual"><scope>libbirch::Array</scope><name>EigenType</name></member>
+      <member refid="classlibbirch_1_1Array_1ac1ffb8531af4b553f9da9489359c18cc" prot="private" virt="non-virtual"><scope>libbirch::Array</scope><name>emplace</name></member>
+      <member refid="classlibbirch_1_1Array_1a911430f9fdb24ad6716ce7f8eab7a3dc" prot="private" virt="non-virtual"><scope>libbirch::Array</scope><name>emplace</name></member>
+      <member refid="classlibbirch_1_1Array_1a525e25e986bb4dadd2dcbe978b3c6ecc" prot="public" virt="non-virtual"><scope>libbirch::Array</scope><name>enlarge</name></member>
+      <member refid="classlibbirch_1_1Array_1a3c6199d143209c1e0cb829395da48694" prot="private" virt="non-virtual"><scope>libbirch::Array</scope><name>frame</name></member>
+      <member refid="classlibbirch_1_1Array_1a5967810fe6766544d53b1020aab65a3d" prot="private" virt="non-virtual"><scope>libbirch::Array</scope><name>initialize</name></member>
+      <member refid="classlibbirch_1_1Array_1acdf70e82e036c814bb20e366674afccf" prot="private" virt="non-virtual"><scope>libbirch::Array</scope><name>isShared</name></member>
+      <member refid="classlibbirch_1_1Array_1a4dde1190b6c6a1fa22d3135aa235a0dd" prot="private" virt="non-virtual"><scope>libbirch::Array</scope><name>isView</name></member>
+      <member refid="classlibbirch_1_1Array_1af12ba87227fc5dd76fcc321346514f92" prot="public" virt="non-virtual"><scope>libbirch::Array</scope><name>length</name></member>
+      <member refid="classlibbirch_1_1Array_1aa81aed607133209dade63a226818224d" prot="private" virt="non-virtual"><scope>libbirch::Array</scope><name>lock</name></member>
+      <member refid="classlibbirch_1_1Array_1ad88789fb60d6fa4365201dce33f9f6c9" prot="private" virt="non-virtual"><scope>libbirch::Array</scope><name>mutex</name></member>
+      <member refid="classlibbirch_1_1Array_1ae25fb5067bd6b3b1b319efc61685a98f" prot="private" virt="non-virtual"><scope>libbirch::Array</scope><name>offset</name></member>
+      <member refid="classlibbirch_1_1Array_1a7f76ab2421e895d988d728f7dd6fa8bd" prot="public" virt="non-virtual"><scope>libbirch::Array</scope><name>operator EigenType</name></member>
+      <member refid="classlibbirch_1_1Array_1ab09d0912e9e3464caa22c37e69f6b2ca" prot="public" virt="non-virtual"><scope>libbirch::Array</scope><name>operator EigenType</name></member>
+      <member refid="classlibbirch_1_1Array_1aaec814675cd5b035a59389e1949b4ab3" prot="public" virt="non-virtual"><scope>libbirch::Array</scope><name>operator!=</name></member>
+      <member refid="classlibbirch_1_1Array_1a57cda2dc84a90c2543c512afaac4718a" prot="public" virt="non-virtual"><scope>libbirch::Array</scope><name>operator()</name></member>
+      <member refid="classlibbirch_1_1Array_1ab62fba7525b5853f3e82faf6d54ce86a" prot="public" virt="non-virtual"><scope>libbirch::Array</scope><name>operator()</name></member>
+      <member refid="classlibbirch_1_1Array_1ad302f8cf4cf2ea7dc279ae429a6ac370" prot="public" virt="non-virtual"><scope>libbirch::Array</scope><name>operator()</name></member>
+      <member refid="classlibbirch_1_1Array_1a7565abdf2a740af9759cd49d7096ec83" prot="public" virt="non-virtual"><scope>libbirch::Array</scope><name>operator()</name></member>
+      <member refid="classlibbirch_1_1Array_1a6e6c77a98bc2570df9b3e8e3c6e53e44" prot="public" virt="non-virtual"><scope>libbirch::Array</scope><name>operator=</name></member>
+      <member refid="classlibbirch_1_1Array_1aa1a5ead3b992211cf40ab7524ae78081" prot="public" virt="non-virtual"><scope>libbirch::Array</scope><name>operator=</name></member>
+      <member refid="classlibbirch_1_1Array_1a48cf87ec0c8873411708e98bfe7e59ee" prot="public" virt="non-virtual"><scope>libbirch::Array</scope><name>operator=</name></member>
+      <member refid="classlibbirch_1_1Array_1a18842ae93ce1daccde8aeda6ad7f179d" prot="public" virt="non-virtual"><scope>libbirch::Array</scope><name>operator=</name></member>
+      <member refid="classlibbirch_1_1Array_1ab09f6a023c4aaf44b8317db00e6abcef" prot="public" virt="non-virtual"><scope>libbirch::Array</scope><name>operator=</name></member>
+      <member refid="classlibbirch_1_1Array_1ab0cee2023afeedb82f71258309902502" prot="public" virt="non-virtual"><scope>libbirch::Array</scope><name>operator==</name></member>
+      <member refid="classlibbirch_1_1Array_1aada414fd39b0beb6209b6f6ef5829c31" prot="private" virt="non-virtual"><scope>libbirch::Array</scope><name>rebase</name></member>
+      <member refid="classlibbirch_1_1Array_1adce672055b28d227e0ba4fc3fd3cc25b" prot="private" virt="non-virtual"><scope>libbirch::Array</scope><name>rebase</name></member>
+      <member refid="classlibbirch_1_1Array_1a23b477d0e2d399f75d585d154c346591" prot="private" virt="non-virtual"><scope>libbirch::Array</scope><name>release</name></member>
+      <member refid="classlibbirch_1_1Array_1a16051a3965ad8ca282ab8dd99ca9307b" prot="public" virt="non-virtual"><scope>libbirch::Array</scope><name>shrink</name></member>
+      <member refid="classlibbirch_1_1Array_1aa326d81dcac346461f3b8528bf0b49de" prot="public" virt="non-virtual"><scope>libbirch::Array</scope><name>size</name></member>
+      <member refid="classlibbirch_1_1Array_1a99170399deaa0541336a932930a77519" prot="public" virt="non-virtual"><scope>libbirch::Array</scope><name>stride</name></member>
+      <member refid="classlibbirch_1_1Array_1ade3d3b168b86f737db57368a481b77dc" prot="public" virt="non-virtual"><scope>libbirch::Array</scope><name>toEigen</name></member>
+      <member refid="classlibbirch_1_1Array_1a28e37956b227672ae17f965ae19669e4" prot="public" virt="non-virtual"><scope>libbirch::Array</scope><name>toEigen</name></member>
+      <member refid="classlibbirch_1_1Array_1a9278be8203e1c42e2619179882ae4403" prot="private" virt="non-virtual"><scope>libbirch::Array</scope><name>unlock</name></member>
+      <member refid="classlibbirch_1_1Array_1a566e1cca6efad6f44fa239b6b7e51fd5" prot="public" virt="non-virtual"><scope>libbirch::Array</scope><name>volume</name></member>
+      <member refid="classlibbirch_1_1Array_1a9338ffdafb6c90a0d192ade96b24550a" prot="public" virt="non-virtual"><scope>libbirch::Array</scope><name>~Array</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

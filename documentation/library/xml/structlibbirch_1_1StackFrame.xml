@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
+  <compounddef id="structlibbirch_1_1StackFrame" kind="struct" language="C++" prot="public">
+    <compoundname>libbirch::StackFrame</compoundname>
+    <includes local="no">stacktrace.hpp</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structlibbirch_1_1StackFrame_1afc4e949c7b7d0ab565ecfb62c3380171" prot="public" static="no" mutable="no">
+        <type>const char *</type>
+        <definition>const char* func</definition>
+        <argsstring></argsstring>
+        <name>func</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/stacktrace.hpp" line="36" column="1" bodyfile="libbirch/stacktrace.hpp" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structlibbirch_1_1StackFrame_1af0baa3ccdd9d2a6adf03b72e2bea5789" prot="public" static="no" mutable="no">
+        <type>const char *</type>
+        <definition>const char* file</definition>
+        <argsstring></argsstring>
+        <name>file</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/stacktrace.hpp" line="37" column="1" bodyfile="libbirch/stacktrace.hpp" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structlibbirch_1_1StackFrame_1a41ebd28ef1d7c6ade45642cb6acc1039" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int line</definition>
+        <argsstring></argsstring>
+        <name>line</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/stacktrace.hpp" line="38" column="1" bodyfile="libbirch/stacktrace.hpp" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Stack frame. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libbirch/stacktrace.hpp" line="35" column="1" bodyfile="libbirch/stacktrace.hpp" bodystart="35" bodyend="39"/>
+    <listofallmembers>
+      <member refid="structlibbirch_1_1StackFrame_1af0baa3ccdd9d2a6adf03b72e2bea5789" prot="public" virt="non-virtual"><scope>libbirch::StackFrame</scope><name>file</name></member>
+      <member refid="structlibbirch_1_1StackFrame_1afc4e949c7b7d0ab565ecfb62c3380171" prot="public" virt="non-virtual"><scope>libbirch::StackFrame</scope><name>func</name></member>
+      <member refid="structlibbirch_1_1StackFrame_1a41ebd28ef1d7c6ade45642cb6acc1039" prot="public" virt="non-virtual"><scope>libbirch::StackFrame</scope><name>line</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

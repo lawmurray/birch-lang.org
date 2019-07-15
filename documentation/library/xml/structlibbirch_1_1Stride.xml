@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
+  <compounddef id="structlibbirch_1_1Stride" kind="struct" language="C++" prot="public">
+    <compoundname>libbirch::Stride</compoundname>
+    <includes local="no">Stride.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>int64_t</type>
+        <declname>n</declname>
+        <defname>n</defname>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="structlibbirch_1_1Stride_1aec96912cf4f97d5807df6af1854bccd5" prot="public" static="yes" mutable="no">
+        <type>const int64_t</type>
+        <definition>const int64_t stride_value</definition>
+        <argsstring></argsstring>
+        <name>stride_value</name>
+        <initializer>= n</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Stride.hpp" line="17" column="1" bodyfile="libbirch/Stride.hpp" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structlibbirch_1_1Stride_1afbc1ddccda13c6ebab86f7d2df59bb3a" prot="public" static="yes" mutable="no">
+        <type>const int64_t</type>
+        <definition>const int64_t stride</definition>
+        <argsstring></argsstring>
+        <name>stride</name>
+        <initializer>= n</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Stride.hpp" line="18" column="1" bodyfile="libbirch/Stride.hpp" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structlibbirch_1_1Stride_1a64c88fe489f0b0090afaea8c971c4775" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Stride</definition>
+        <argsstring>(const int64_t stride)</argsstring>
+        <name>Stride</name>
+        <param>
+          <type>const int64_t</type>
+          <declname>stride</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Stride.hpp" line="20" column="1" bodyfile="libbirch/Stride.hpp" bodystart="20" bodyend="22"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><ref refid="structlibbirch_1_1Stride" kindref="compound">Stride</ref>. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>The number of elements, including both active and inactive elements, along a dimension. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="177">
+        <label>Stride&lt; stride_value &gt;</label>
+        <link refid="structlibbirch_1_1Stride"/>
+        <childnode refid="176" relation="template-instance">
+          <edgelabel>&lt; stride_value &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="178">
+        <label>Span&lt; length_value, stride_value &gt;</label>
+        <link refid="structlibbirch_1_1Span"/>
+        <childnode refid="177" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="176">
+        <label>Stride&lt; n &gt;</label>
+        <link refid="structlibbirch_1_1Stride"/>
+      </node>
+    </inheritancegraph>
+    <location file="libbirch/Stride.hpp" line="16" column="1" bodyfile="libbirch/Stride.hpp" bodystart="16" bodyend="23"/>
+    <listofallmembers>
+      <member refid="structlibbirch_1_1Stride_1afbc1ddccda13c6ebab86f7d2df59bb3a" prot="public" virt="non-virtual"><scope>libbirch::Stride</scope><name>stride</name></member>
+      <member refid="structlibbirch_1_1Stride_1a64c88fe489f0b0090afaea8c971c4775" prot="public" virt="non-virtual"><scope>libbirch::Stride</scope><name>Stride</name></member>
+      <member refid="structlibbirch_1_1Stride_1aec96912cf4f97d5807df6af1854bccd5" prot="public" virt="non-virtual"><scope>libbirch::Stride</scope><name>stride_value</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

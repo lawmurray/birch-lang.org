@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
+  <compounddef id="basic_8hpp" kind="file" language="C++">
+    <compoundname>basic.hpp</compoundname>
+    <includedby refid="libbirch_8hpp" local="yes">libbirch/libbirch.hpp</includedby>
+    <invincdepgraph>
+      <node id="234">
+        <label>libbirch/libbirch.hpp</label>
+        <link refid="libbirch_8hpp"/>
+        <childnode refid="235" relation="include">
+        </childnode>
+      </node>
+      <node id="233">
+        <label>libbirch/basic.hpp</label>
+        <link refid="basic_8hpp"/>
+        <childnode refid="234" relation="include">
+        </childnode>
+      </node>
+      <node id="235">
+        <label>libbirch/libbirch.cpp</label>
+        <link refid="libbirch_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innernamespace refid="namespacebi">bi</innernamespace>
+    <innernamespace refid="namespacebi_1_1type">bi::type</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"></codeline>
+<codeline lineno="4"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6" refid="namespacebi" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespacebi" kindref="compound">bi</ref><sp/>{</highlight></codeline>
+<codeline lineno="7" refid="namespacebi_1_1type" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">type<sp/>{</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/>Basic<sp/>types.</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/><ref refid="namespacebi_1_1type_1a717a190167959b837148d927a5d380ba" kindref="member">Boolean</ref><sp/>=<sp/>bool;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/><ref refid="namespacebi_1_1type_1a73edb547abea90219d2066356f65c111" kindref="member">Real64</ref><sp/>=<sp/>double;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/><ref refid="namespacebi_1_1type_1a591eaada8113388d023119a8c8023221" kindref="member">Real32</ref><sp/>=<sp/>float;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/><ref refid="namespacebi_1_1type_1aaf242fdad5afc9d5106f3ec7c20809ed" kindref="member">Integer64</ref><sp/>=<sp/>std::int64_t;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/><ref refid="namespacebi_1_1type_1a7f1adf611fe2a1f87690588c0bcf6df0" kindref="member">Integer32</ref><sp/>=<sp/>std::int32_t;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/><ref refid="namespacebi_1_1type_1a610c8b704cb1a1190c5a5a519d8f1aac" kindref="member">Integer16</ref><sp/>=<sp/>std::int16_t;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/><ref refid="namespacebi_1_1type_1afad748179b248a183c51214a1b89bf8c" kindref="member">Integer8</ref><sp/>=<sp/>std::int8_t;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/><ref refid="namespacebi_1_1type_1a5573b97b9e5129f61d289e037d7e806c" kindref="member">String</ref><sp/>=<sp/>std::string;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/><ref refid="namespacebi_1_1type_1ac6c0e7be3323ae36dd232c6f2e1671e4" kindref="member">File</ref><sp/>=<sp/>FILE*;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="21"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="libbirch/basic.hpp"/>
+  </compounddef>
+</doxygen>

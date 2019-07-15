@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
+  <compounddef id="structlibbirch_1_1Offset" kind="struct" language="C++" prot="public">
+    <compoundname>libbirch::Offset</compoundname>
+    <includes local="no">Offset.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>int64_t</type>
+        <declname>n</declname>
+        <defname>n</defname>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="structlibbirch_1_1Offset_1a07bd7887508c3c14c07a790d47d4282a" prot="public" static="yes" mutable="no">
+        <type>const int64_t</type>
+        <definition>const int64_t offset_value</definition>
+        <argsstring></argsstring>
+        <name>offset_value</name>
+        <initializer>= n</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Offset.hpp" line="17" column="1" bodyfile="libbirch/Offset.hpp" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structlibbirch_1_1Offset_1a2e49592f0a633c18fcc94826b0419f3c" prot="public" static="yes" mutable="no">
+        <type>const int64_t</type>
+        <definition>const int64_t offset</definition>
+        <argsstring></argsstring>
+        <name>offset</name>
+        <initializer>= n</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Offset.hpp" line="18" column="1" bodyfile="libbirch/Offset.hpp" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structlibbirch_1_1Offset_1a86485b4e7377308b6cbbdbe4f1a36ae2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Offset</definition>
+        <argsstring>(const int64_t offset)</argsstring>
+        <name>Offset</name>
+        <param>
+          <type>const int64_t</type>
+          <declname>offset</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Offset.hpp" line="20" column="1" bodyfile="libbirch/Offset.hpp" bodystart="20" bodyend="22"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><ref refid="structlibbirch_1_1Offset" kindref="compound">Offset</ref>. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Number of elements until the first active element along a dimension. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="132">
+        <label>Index&lt; offset_value &gt;</label>
+        <link refid="structlibbirch_1_1Index"/>
+        <childnode refid="131" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="131">
+        <label>Offset&lt; offset_value &gt;</label>
+        <link refid="structlibbirch_1_1Offset"/>
+        <childnode refid="130" relation="template-instance">
+          <edgelabel>&lt; offset_value &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="130">
+        <label>Offset&lt; n &gt;</label>
+        <link refid="structlibbirch_1_1Offset"/>
+      </node>
+      <node id="133">
+        <label>Range&lt; offset_value, length_value &gt;</label>
+        <link refid="structlibbirch_1_1Range"/>
+        <childnode refid="131" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="libbirch/Offset.hpp" line="16" column="1" bodyfile="libbirch/Offset.hpp" bodystart="16" bodyend="23"/>
+    <listofallmembers>
+      <member refid="structlibbirch_1_1Offset_1a2e49592f0a633c18fcc94826b0419f3c" prot="public" virt="non-virtual"><scope>libbirch::Offset</scope><name>offset</name></member>
+      <member refid="structlibbirch_1_1Offset_1a86485b4e7377308b6cbbdbe4f1a36ae2" prot="public" virt="non-virtual"><scope>libbirch::Offset</scope><name>Offset</name></member>
+      <member refid="structlibbirch_1_1Offset_1a07bd7887508c3c14c07a790d47d4282a" prot="public" virt="non-virtual"><scope>libbirch::Offset</scope><name>offset_value</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

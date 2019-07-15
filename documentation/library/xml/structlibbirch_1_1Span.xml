@@ -1,0 +1,442 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
+  <compounddef id="structlibbirch_1_1Span" kind="struct" language="C++" prot="public">
+    <compoundname>libbirch::Span</compoundname>
+    <basecompoundref refid="structlibbirch_1_1Length" prot="public" virt="non-virtual">Length&lt; length_value &gt;</basecompoundref>
+    <basecompoundref refid="structlibbirch_1_1Stride" prot="public" virt="non-virtual">Stride&lt; stride_value &gt;</basecompoundref>
+    <includes local="no">Span.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>int64_t</type>
+        <declname>length_value</declname>
+        <defname>length_value</defname>
+        <defval><ref refid="namespacelibbirch_1a2286a8d86c241c8517f3b6c33a0bf411" kindref="member">mutable_value</ref></defval>
+      </param>
+      <param>
+        <type>int64_t</type>
+        <declname>stride_value</declname>
+        <defname>stride_value</defname>
+        <defval><ref refid="namespacelibbirch_1a2286a8d86c241c8517f3b6c33a0bf411" kindref="member">mutable_value</ref></defval>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="structlibbirch_1_1Span_1a1e1f8b2383e1aba27103be306bc8ffdd" prot="public" static="no">
+        <type><ref refid="structlibbirch_1_1Length" kindref="compound">Length</ref>&lt; <ref refid="structlibbirch_1_1Length_1a72d8848f92ec12264c367c2b55f606f4" kindref="member">length_value</ref> &gt;</type>
+        <definition>typedef Length&lt;length_value&gt; length_type</definition>
+        <argsstring></argsstring>
+        <name>length_type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Span.hpp" line="27" column="1" bodyfile="libbirch/Span.hpp" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="structlibbirch_1_1Span_1a207f05e7ab1c585eb2cbf4eef63db79d" prot="public" static="no">
+        <type><ref refid="structlibbirch_1_1Stride" kindref="compound">Stride</ref>&lt; <ref refid="structlibbirch_1_1Stride_1aec96912cf4f97d5807df6af1854bccd5" kindref="member">stride_value</ref> &gt;</type>
+        <definition>typedef Stride&lt;stride_value&gt; stride_type</definition>
+        <argsstring></argsstring>
+        <name>stride_type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Span.hpp" line="28" column="1" bodyfile="libbirch/Span.hpp" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structlibbirch_1_1Span_1a329baa0d66f12d8dd419b6753e5b6092" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Span</definition>
+        <argsstring>(const int64_t length=0, const int64_t stride=0)</argsstring>
+        <name>Span</name>
+        <param>
+          <type>const int64_t</type>
+          <declname>length</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>const int64_t</type>
+          <declname>stride</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para>Constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>length</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initial length. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>stride</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initial stride.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+For static values, the initial values given must match the static values or an error is given. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Span.hpp" line="39" column="1" bodyfile="libbirch/Span.hpp" bodystart="39" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="structlibbirch_1_1Span_1a28ff3cdfe9a0a9ed072f36f8dff2bf53" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Span</definition>
+        <argsstring>(const Span&lt; length_value, stride_value &gt; &amp;o)=default</argsstring>
+        <name>Span</name>
+        <param>
+          <type>const <ref refid="structlibbirch_1_1Span" kindref="compound">Span</ref>&lt; <ref refid="structlibbirch_1_1Length_1a72d8848f92ec12264c367c2b55f606f4" kindref="member">length_value</ref>, <ref refid="structlibbirch_1_1Stride_1aec96912cf4f97d5807df6af1854bccd5" kindref="member">stride_value</ref> &gt; &amp;</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+<para>Copy constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Span.hpp" line="49" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="structlibbirch_1_1Span_1aea0645c7f01d7e2b68e7b56d0528f5ee" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int64_t</type>
+            <declname>length_value1</declname>
+            <defname>length_value1</defname>
+          </param>
+          <param>
+            <type>int64_t</type>
+            <declname>stride_value1</declname>
+            <defname>stride_value1</defname>
+          </param>
+        </templateparamlist>
+        <type></type>
+        <definition>Span</definition>
+        <argsstring>(const Span&lt; length_value1, stride_value1 &gt; &amp;o)</argsstring>
+        <name>Span</name>
+        <param>
+          <type>const <ref refid="structlibbirch_1_1Span" kindref="compound">Span</ref>&lt; length_value1, stride_value1 &gt; &amp;</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+<para>Generic copy constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Span.hpp" line="55" column="1" bodyfile="libbirch/Span.hpp" bodystart="55" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="structlibbirch_1_1Span_1a804fadef8dd7a97ff09da13b8d0bf3ad" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int64_t</type>
+            <declname>offset_value1</declname>
+            <defname>offset_value1</defname>
+          </param>
+          <param>
+            <type>int64_t</type>
+            <declname>length_value1</declname>
+            <defname>length_value1</defname>
+          </param>
+        </templateparamlist>
+        <type>auto</type>
+        <definition>auto operator()</definition>
+        <argsstring>(const Range&lt; offset_value1, length_value1 &gt; &amp;arg) const</argsstring>
+        <name>operator()</name>
+        <param>
+          <type>const <ref refid="structlibbirch_1_1Range" kindref="compound">Range</ref>&lt; offset_value1, length_value1 &gt; &amp;</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+<para>View operator. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Span.hpp" line="65" column="1" bodyfile="libbirch/Span.hpp" bodystart="65" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="structlibbirch_1_1Span_1a193d560d600c0f77fb0196b6d3c7865e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int64_t</type>
+            <declname>length_value1</declname>
+            <defname>length_value1</defname>
+          </param>
+          <param>
+            <type>int64_t</type>
+            <declname>stride_value1</declname>
+            <defname>stride_value1</defname>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool operator==</definition>
+        <argsstring>(const Span&lt; length_value1, stride_value1 &gt; &amp;o) const</argsstring>
+        <name>operator==</name>
+        <param>
+          <type>const <ref refid="structlibbirch_1_1Span" kindref="compound">Span</ref>&lt; length_value1, stride_value1 &gt; &amp;</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+<para>Generic equality operator. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Span.hpp" line="75" column="1" bodyfile="libbirch/Span.hpp" bodystart="75" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="structlibbirch_1_1Span_1a166f688da8f593e81912d307a935b665" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int64_t</type>
+            <declname>length_value1</declname>
+            <defname>length_value1</defname>
+          </param>
+          <param>
+            <type>int64_t</type>
+            <declname>stride_value1</declname>
+            <defname>stride_value1</defname>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool operator!=</definition>
+        <argsstring>(const Span&lt; length_value1, stride_value1 &gt; &amp;o) const</argsstring>
+        <name>operator!=</name>
+        <param>
+          <type>const <ref refid="structlibbirch_1_1Span" kindref="compound">Span</ref>&lt; length_value1, stride_value1 &gt; &amp;</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+<para>Generic inequality operator. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Span.hpp" line="83" column="1" bodyfile="libbirch/Span.hpp" bodystart="83" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="function" id="structlibbirch_1_1Span_1a6aa6cd54840c544c4c5e356ff2ec9c28" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class Span1</type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool conforms</definition>
+        <argsstring>(const Span1 &amp;o) const</argsstring>
+        <name>conforms</name>
+        <param>
+          <type>const Span1 &amp;</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+<para>Does this span conform to another? Two spans conform if their lengths are equal. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Span.hpp" line="92" column="1" bodyfile="libbirch/Span.hpp" bodystart="92" bodyend="94"/>
+      </memberdef>
+      <memberdef kind="function" id="structlibbirch_1_1Span_1a3e902e77588bee506a1bbab43a43391a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool conforms</definition>
+        <argsstring>(const Eigen::Index rows)</argsstring>
+        <name>conforms</name>
+        <param>
+          <type>const Eigen::Index</type>
+          <declname>rows</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Span.hpp" line="95" column="1" bodyfile="libbirch/Span.hpp" bodystart="95" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="structlibbirch_1_1Span_1aec68b488ae872b977d60d20905bb684f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class Span1</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void resize</definition>
+        <argsstring>(const Span1 &amp;o)</argsstring>
+        <name>resize</name>
+        <param>
+          <type>const Span1 &amp;</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+<para>Resize this span to conform to another. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Span.hpp" line="103" column="1" bodyfile="libbirch/Span.hpp" bodystart="103" bodyend="108"/>
+      </memberdef>
+      <memberdef kind="function" id="structlibbirch_1_1Span_1a5549f102cb2ce897d77724a018b3f354" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void resize</definition>
+        <argsstring>(const Eigen::Index length)</argsstring>
+        <name>resize</name>
+        <param>
+          <type>const Eigen::Index</type>
+          <declname>length</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Span.hpp" line="109" column="1" bodyfile="libbirch/Span.hpp" bodystart="109" bodyend="114"/>
+      </memberdef>
+      <memberdef kind="function" id="structlibbirch_1_1Span_1a3300261528817ca37e5d542b9769c96c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structlibbirch_1_1Span" kindref="compound">Span</ref>&lt; <ref refid="structlibbirch_1_1Length_1a72d8848f92ec12264c367c2b55f606f4" kindref="member">length_value</ref>, <ref refid="structlibbirch_1_1Stride_1aec96912cf4f97d5807df6af1854bccd5" kindref="member">stride_value</ref> &gt; &amp;</type>
+        <definition>Span&lt;length_value,stride_value&gt;&amp; operator *=</definition>
+        <argsstring>(const int64_t n)</argsstring>
+        <name>operator *=</name>
+        <param>
+          <type>const int64_t</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+<para>Multiply stride. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Span.hpp" line="119" column="1" bodyfile="libbirch/Span.hpp" bodystart="119" bodyend="127"/>
+      </memberdef>
+      <memberdef kind="function" id="structlibbirch_1_1Span_1ae971c30fbd1914613b645c38c3f9f22f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>auto</type>
+        <definition>auto operator *</definition>
+        <argsstring>(const int64_t n) const</argsstring>
+        <name>operator *</name>
+        <param>
+          <type>const int64_t</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+<para>Multiply stride. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Span.hpp" line="132" column="1" bodyfile="libbirch/Span.hpp" bodystart="132" bodyend="136"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><ref refid="structlibbirch_1_1Span" kindref="compound">Span</ref>. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>A <ref refid="structlibbirch_1_1Span" kindref="compound">Span</ref> describes one dimension of an array. It combines a <ref refid="structlibbirch_1_1Length" kindref="compound">Length</ref> and <ref refid="structlibbirch_1_1Stride" kindref="compound">Stride</ref> to indicate the size of the dimension. Each of these may have a static value (indicated by a template parameter giving that value) or a dynamic value (indicated by a template parameter of mutable_value and initial value given in the constructor). </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="164">
+        <label>Length&lt; n &gt;</label>
+        <link refid="structlibbirch_1_1Length"/>
+      </node>
+      <node id="165">
+        <label>Stride&lt; stride_value &gt;</label>
+        <link refid="structlibbirch_1_1Stride"/>
+        <childnode refid="166" relation="template-instance">
+          <edgelabel>&lt; stride_value &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="162">
+        <label>Span&lt; length_value, stride_value &gt;</label>
+        <link refid="structlibbirch_1_1Span"/>
+        <childnode refid="163" relation="public-inheritance">
+        </childnode>
+        <childnode refid="165" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="166">
+        <label>Stride&lt; n &gt;</label>
+        <link refid="structlibbirch_1_1Stride"/>
+      </node>
+      <node id="163">
+        <label>Length&lt; length_value &gt;</label>
+        <link refid="structlibbirch_1_1Length"/>
+        <childnode refid="164" relation="template-instance">
+          <edgelabel>&lt; length_value &gt;</edgelabel>
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="169">
+        <label>Length&lt; n &gt;</label>
+        <link refid="structlibbirch_1_1Length"/>
+      </node>
+      <node id="170">
+        <label>Stride&lt; stride_value &gt;</label>
+        <link refid="structlibbirch_1_1Stride"/>
+        <childnode refid="171" relation="template-instance">
+          <edgelabel>&lt; stride_value &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="167">
+        <label>Span&lt; length_value, stride_value &gt;</label>
+        <link refid="structlibbirch_1_1Span"/>
+        <childnode refid="168" relation="public-inheritance">
+        </childnode>
+        <childnode refid="170" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="171">
+        <label>Stride&lt; n &gt;</label>
+        <link refid="structlibbirch_1_1Stride"/>
+      </node>
+      <node id="168">
+        <label>Length&lt; length_value &gt;</label>
+        <link refid="structlibbirch_1_1Length"/>
+        <childnode refid="169" relation="template-instance">
+          <edgelabel>&lt; length_value &gt;</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="libbirch/Span.hpp" line="26" column="1" bodyfile="libbirch/Span.hpp" bodystart="26" bodyend="137"/>
+    <listofallmembers>
+      <member refid="structlibbirch_1_1Span_1a6aa6cd54840c544c4c5e356ff2ec9c28" prot="public" virt="non-virtual"><scope>libbirch::Span</scope><name>conforms</name></member>
+      <member refid="structlibbirch_1_1Span_1a3e902e77588bee506a1bbab43a43391a" prot="public" virt="non-virtual"><scope>libbirch::Span</scope><name>conforms</name></member>
+      <member refid="structlibbirch_1_1Length_1aff717499c916e75bc544e148a26ea484" prot="public" virt="non-virtual"><scope>libbirch::Span</scope><name>length</name></member>
+      <member refid="structlibbirch_1_1Length_1a522ae410df6949598872c479c7780677" prot="public" virt="non-virtual"><scope>libbirch::Span</scope><name>Length</name></member>
+      <member refid="structlibbirch_1_1Span_1a1e1f8b2383e1aba27103be306bc8ffdd" prot="public" virt="non-virtual"><scope>libbirch::Span</scope><name>length_type</name></member>
+      <member refid="structlibbirch_1_1Length_1a72d8848f92ec12264c367c2b55f606f4" prot="public" virt="non-virtual"><scope>libbirch::Span</scope><name>length_value</name></member>
+      <member refid="structlibbirch_1_1Span_1ae971c30fbd1914613b645c38c3f9f22f" prot="public" virt="non-virtual"><scope>libbirch::Span</scope><name>operator *</name></member>
+      <member refid="structlibbirch_1_1Span_1a3300261528817ca37e5d542b9769c96c" prot="public" virt="non-virtual"><scope>libbirch::Span</scope><name>operator *=</name></member>
+      <member refid="structlibbirch_1_1Span_1a166f688da8f593e81912d307a935b665" prot="public" virt="non-virtual"><scope>libbirch::Span</scope><name>operator!=</name></member>
+      <member refid="structlibbirch_1_1Span_1a804fadef8dd7a97ff09da13b8d0bf3ad" prot="public" virt="non-virtual"><scope>libbirch::Span</scope><name>operator()</name></member>
+      <member refid="structlibbirch_1_1Span_1a193d560d600c0f77fb0196b6d3c7865e" prot="public" virt="non-virtual"><scope>libbirch::Span</scope><name>operator==</name></member>
+      <member refid="structlibbirch_1_1Span_1aec68b488ae872b977d60d20905bb684f" prot="public" virt="non-virtual"><scope>libbirch::Span</scope><name>resize</name></member>
+      <member refid="structlibbirch_1_1Span_1a5549f102cb2ce897d77724a018b3f354" prot="public" virt="non-virtual"><scope>libbirch::Span</scope><name>resize</name></member>
+      <member refid="structlibbirch_1_1Span_1a329baa0d66f12d8dd419b6753e5b6092" prot="public" virt="non-virtual"><scope>libbirch::Span</scope><name>Span</name></member>
+      <member refid="structlibbirch_1_1Span_1a28ff3cdfe9a0a9ed072f36f8dff2bf53" prot="public" virt="non-virtual"><scope>libbirch::Span</scope><name>Span</name></member>
+      <member refid="structlibbirch_1_1Span_1aea0645c7f01d7e2b68e7b56d0528f5ee" prot="public" virt="non-virtual"><scope>libbirch::Span</scope><name>Span</name></member>
+      <member refid="structlibbirch_1_1Stride_1a64c88fe489f0b0090afaea8c971c4775" prot="public" virt="non-virtual"><scope>libbirch::Span</scope><name>Stride</name></member>
+      <member refid="structlibbirch_1_1Stride_1afbc1ddccda13c6ebab86f7d2df59bb3a" prot="public" virt="non-virtual"><scope>libbirch::Span</scope><name>stride</name></member>
+      <member refid="structlibbirch_1_1Span_1a207f05e7ab1c585eb2cbf4eef63db79d" prot="public" virt="non-virtual"><scope>libbirch::Span</scope><name>stride_type</name></member>
+      <member refid="structlibbirch_1_1Stride_1aec96912cf4f97d5807df6af1854bccd5" prot="public" virt="non-virtual"><scope>libbirch::Span</scope><name>stride_value</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

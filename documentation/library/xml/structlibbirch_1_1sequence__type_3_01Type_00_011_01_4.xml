@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
+  <compounddef id="structlibbirch_1_1sequence__type_3_01Type_00_011_01_4" kind="struct" language="C++" prot="public">
+    <compoundname>libbirch::sequence_type&lt; Type, 1 &gt;</compoundname>
+    <includes local="no">Sequence.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>class Type</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="structlibbirch_1_1sequence__type_3_01Type_00_011_01_4_1aecbbf2d7ef5823e733fdfe72cd67f3f3" prot="public" static="no">
+        <type>std::initializer_list&lt; Type &gt;</type>
+        <definition>using type =  std::initializer_list&lt;Type&gt;</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Sequence.hpp" line="25" column="1" bodyfile="libbirch/Sequence.hpp" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Sequence type base case. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libbirch/Sequence.hpp" line="24" column="1" bodyfile="libbirch/Sequence.hpp" bodystart="24" bodyend="26"/>
+    <listofallmembers>
+      <member refid="structlibbirch_1_1sequence__type_3_01Type_00_011_01_4_1aecbbf2d7ef5823e733fdfe72cd67f3f3" prot="public" virt="non-virtual"><scope>libbirch::sequence_type&lt; Type, 1 &gt;</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

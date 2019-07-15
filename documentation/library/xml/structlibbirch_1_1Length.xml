@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
+  <compounddef id="structlibbirch_1_1Length" kind="struct" language="C++" prot="public">
+    <compoundname>libbirch::Length</compoundname>
+    <includes local="no">Length.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>int64_t</type>
+        <declname>n</declname>
+        <defname>n</defname>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="structlibbirch_1_1Length_1a72d8848f92ec12264c367c2b55f606f4" prot="public" static="yes" mutable="no">
+        <type>const int64_t</type>
+        <definition>const int64_t length_value</definition>
+        <argsstring></argsstring>
+        <name>length_value</name>
+        <initializer>= n</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Length.hpp" line="16" column="1" bodyfile="libbirch/Length.hpp" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structlibbirch_1_1Length_1aff717499c916e75bc544e148a26ea484" prot="public" static="yes" mutable="no">
+        <type>const int64_t</type>
+        <definition>const int64_t length</definition>
+        <argsstring></argsstring>
+        <name>length</name>
+        <initializer>= n</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Length.hpp" line="17" column="1" bodyfile="libbirch/Length.hpp" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structlibbirch_1_1Length_1a522ae410df6949598872c479c7780677" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Length</definition>
+        <argsstring>(const int64_t length)</argsstring>
+        <name>Length</name>
+        <param>
+          <type>const int64_t</type>
+          <declname>length</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/Length.hpp" line="19" column="1" bodyfile="libbirch/Length.hpp" bodystart="19" bodyend="21"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><ref refid="structlibbirch_1_1Length" kindref="compound">Length</ref>. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>The number of active elements along a dimension. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="113">
+        <label>Index&lt; offset_value &gt;</label>
+        <link refid="structlibbirch_1_1Index"/>
+        <childnode refid="112" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="112">
+        <label>Length&lt; 1 &gt;</label>
+        <link refid="structlibbirch_1_1Length"/>
+        <childnode refid="111" relation="template-instance">
+          <edgelabel>&lt; 1 &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="111">
+        <label>Length&lt; n &gt;</label>
+        <link refid="structlibbirch_1_1Length"/>
+      </node>
+      <node id="116">
+        <label>Span&lt; length_value, stride_value &gt;</label>
+        <link refid="structlibbirch_1_1Span"/>
+        <childnode refid="114" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="114">
+        <label>Length&lt; length_value &gt;</label>
+        <link refid="structlibbirch_1_1Length"/>
+        <childnode refid="111" relation="template-instance">
+          <edgelabel>&lt; length_value &gt;</edgelabel>
+        </childnode>
+      </node>
+      <node id="115">
+        <label>Range&lt; offset_value, length_value &gt;</label>
+        <link refid="structlibbirch_1_1Range"/>
+        <childnode refid="114" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="libbirch/Length.hpp" line="15" column="1" bodyfile="libbirch/Length.hpp" bodystart="15" bodyend="22"/>
+    <listofallmembers>
+      <member refid="structlibbirch_1_1Length_1aff717499c916e75bc544e148a26ea484" prot="public" virt="non-virtual"><scope>libbirch::Length</scope><name>length</name></member>
+      <member refid="structlibbirch_1_1Length_1a522ae410df6949598872c479c7780677" prot="public" virt="non-virtual"><scope>libbirch::Length</scope><name>Length</name></member>
+      <member refid="structlibbirch_1_1Length_1a72d8848f92ec12264c367c2b55f606f4" prot="public" virt="non-virtual"><scope>libbirch::Length</scope><name>length_value</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
+  <compounddef id="classlibbirch_1_1SwapContext" kind="class" language="C++" prot="public">
+    <compoundname>libbirch::SwapContext</compoundname>
+    <includes local="no">SwapContext.hpp</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classlibbirch_1_1SwapContext_1a1d0d56e5d65083341cd41ad85fc36928" prot="private" static="no" mutable="no">
+        <type><ref refid="namespacelibbirch_1a3395b3df5e469e9570f1786617f78da3" kindref="member">Memo</ref> *</type>
+        <definition>Memo* prevContext</definition>
+        <argsstring></argsstring>
+        <name>prevContext</name>
+        <briefdescription>
+<para>Previous context. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/SwapContext.hpp" line="40" column="1" bodyfile="libbirch/SwapContext.hpp" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classlibbirch_1_1SwapContext_1a868ef31a3ad27f8ccf57f79ed2d82144" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>SwapContext</definition>
+        <argsstring>(Memo *context)</argsstring>
+        <name>SwapContext</name>
+        <param>
+          <type><ref refid="namespacelibbirch_1a3395b3df5e469e9570f1786617f78da3" kindref="member">Memo</ref> *</type>
+          <declname>context</declname>
+        </param>
+        <briefdescription>
+<para>Constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/SwapContext.hpp" line="18" column="1" bodyfile="libbirch/SwapContext.hpp" bodystart="18" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1SwapContext_1a5ad6ca605d5c7449d7c2dae4cf6d2201" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>SwapContext</definition>
+        <argsstring>(Any *o)</argsstring>
+        <name>SwapContext</name>
+        <param>
+          <type><ref refid="namespacelibbirch_1a33a3183e88858e70c8c2dc0ef3d33778" kindref="member">Any</ref> *</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+<para>Constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/SwapContext.hpp" line="25" column="1" bodyfile="libbirch/SwapContext.hpp" bodystart="25" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classlibbirch_1_1SwapContext_1adc3823784bc50ba6bba03f9b0288eb73" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>~SwapContext</definition>
+        <argsstring>()</argsstring>
+        <name>~SwapContext</name>
+        <briefdescription>
+<para>Destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libbirch/SwapContext.hpp" line="32" column="1" bodyfile="libbirch/SwapContext.hpp" bodystart="32" bodyend="34"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Swap the context on construction, swap it back on destruction. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libbirch/SwapContext.hpp" line="13" column="1" bodyfile="libbirch/SwapContext.hpp" bodystart="13" bodyend="41"/>
+    <listofallmembers>
+      <member refid="classlibbirch_1_1SwapContext_1a1d0d56e5d65083341cd41ad85fc36928" prot="private" virt="non-virtual"><scope>libbirch::SwapContext</scope><name>prevContext</name></member>
+      <member refid="classlibbirch_1_1SwapContext_1a868ef31a3ad27f8ccf57f79ed2d82144" prot="public" virt="non-virtual"><scope>libbirch::SwapContext</scope><name>SwapContext</name></member>
+      <member refid="classlibbirch_1_1SwapContext_1a5ad6ca605d5c7449d7c2dae4cf6d2201" prot="public" virt="non-virtual"><scope>libbirch::SwapContext</scope><name>SwapContext</name></member>
+      <member refid="classlibbirch_1_1SwapContext_1adc3823784bc50ba6bba03f9b0288eb73" prot="public" virt="non-virtual"><scope>libbirch::SwapContext</scope><name>~SwapContext</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
