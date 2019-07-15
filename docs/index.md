@@ -41,6 +41,8 @@ A simple linear-Gaussian state-space model written in Birch.
 
 ## Papers
 
+* J. Kudlicka, L.M. Murray, F. Ronquist and T.B. Schön (2019). [Probabilistic programming for birth-death models of evolution using an alive particle filter with delayed sampling](https://arxiv.org/abs/1907.04615). *Uncertainty in Artificial Intelligence*. [[online]](http://auai.org/uai2019/accepted.php) [[arxiv]](https://arxiv.org/abs/1907.04615)
+
 * L.M. Murray and T.B. Schön (2018). [Automated learning with a probabilistic programming language: Birch](https://dx.doi.org/10.1016/j.arcontrol.2018.10.013). *Annual Reviews in Control* **46**:29--43. [[arxiv]](https://arxiv.org/abs/1810.01539)
 
- * L.M. Murray, D. Lundén, J. Kudlicka, D. Broman and T.B. Schön (2018). [Delayed Sampling and Automatic Rao&ndash;Blackwellization of Probabilistic Programs](https://arxiv.org/abs/1708.07787). *Proceedings of the 21st International Conference on Artificial Intelligence and Statistics (AISTATS)*.
+ * L.M. Murray, D. Lundén, J. Kudlicka, D. Broman and T.B. Schön (2018). [Delayed Sampling and Automatic Rao&ndash;Blackwellization of Probabilistic Programs](http://proceedings.mlr.press/v84/murray18a.html). *Proceedings of the 21st International Conference on Artificial Intelligence and Statistics (AISTATS)*. [[arxiv]](https://arxiv.org/abs/1708.07787)
