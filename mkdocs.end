@@ -16,4 +16,5 @@
       - 'Use Eclipse': documentation/how-to/using-eclipse.md
       - 'Use Travis CI': documentation/how-to/using-travis-ci.md
       - 'Use Cairo': documentation/how-to/2d-graphics-with-cairo.md
+    - 'LibBirch C++ Library': documentation/libbirch/index.html
   - 'About': about/index.md

@@ -4,10 +4,12 @@
 if (!-e 'git/Birch.Standard') {
   `git clone https://github.com/lawmurray/Birch.Standard.git git/Birch.Standard`;
 }
-`cd git/Birch.Standard; git pull; birch docs; cd ../..`;
+`cd git/Birch.Standard; git pull; birch docs; doxygen; cd ../..`;
 
 `rm -rf docs/documentation/library`;
 `cp -r git/Birch.Standard/docs docs/documentation/library`;
+`rm -rf docs/documentation/libbirch`;
+`cp -r git/Birch.Standard/docs/libbirch/html docs/documentation/libbirch`;
 
 `cp mkdocs.start mkdocs.yml`;
 open(MKDOCS, ">>mkdocs.yml");
