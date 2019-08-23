@@ -1,0 +1,13 @@
+var searchData=
+[
+  ['name_5f',['name_',['../classlibbirch_1_1Counted.html#aa90b49af1ffd8e75a609102e5205c128',1,'libbirch::Counted::name_()'],['../classlibbirch_1_1LazyAny.html#aac4c492c434922a7c3b12bc8bc3c9a88',1,'libbirch::LazyAny::name_()']]],
+  ['nil',['Nil',['../classlibbirch_1_1Nil.html',1,'libbirch']]],
+  ['nil_2ehpp',['Nil.hpp',['../Nil_8hpp.html',1,'']]],
+  ['nlabels_5f',['nlabels_',['../classlibbirch_1_1FiberState.html#a544e39a54f4c52a94ea6f03a1a0f8dd6',1,'libbirch::FiberState']]],
+  ['nonemptyframe',['NonemptyFrame',['../structlibbirch_1_1NonemptyFrame.html',1,'libbirch::NonemptyFrame&lt; Head, Tail &gt;'],['../structlibbirch_1_1NonemptyFrame.html#af8e14455d6d44773611b7087ee1f5455',1,'libbirch::NonemptyFrame::NonemptyFrame()'],['../structlibbirch_1_1NonemptyFrame.html#a6b84cc9596877c8d03044c8a78dae743',1,'libbirch::NonemptyFrame::NonemptyFrame(const Head1 head, const Tail1 tail)'],['../structlibbirch_1_1NonemptyFrame.html#a076b40e8b500df27826802576128720d',1,'libbirch::NonemptyFrame::NonemptyFrame(const NonemptyFrame&lt; Head, Tail &gt; &amp;o)=default'],['../structlibbirch_1_1NonemptyFrame.html#a7678bc9723e710c71446ffc92f873411',1,'libbirch::NonemptyFrame::NonemptyFrame(const NonemptyFrame&lt; Head1, Tail1 &gt; &amp;o)']]],
+  ['nonemptyview',['NonemptyView',['../structlibbirch_1_1NonemptyView.html',1,'libbirch::NonemptyView&lt; Head, Tail &gt;'],['../structlibbirch_1_1NonemptyView.html#a4aa232fc469e4071e504b43d21a6a613',1,'libbirch::NonemptyView::NonemptyView()'],['../structlibbirch_1_1NonemptyView.html#ad93ac066355021a60c3e64507903a2da',1,'libbirch::NonemptyView::NonemptyView(const Head1 head, const Tail1 tail)'],['../structlibbirch_1_1NonemptyView.html#a5960091ffc6d7faba8a41a7ba601e92d',1,'libbirch::NonemptyView::NonemptyView(const NonemptyView&lt; Head, Tail &gt; &amp;o)=default'],['../structlibbirch_1_1NonemptyView.html#a55f8f75134fbe188ef2ae8d9c5821f92',1,'libbirch::NonemptyView::NonemptyView(const NonemptyView&lt; Head1, Tail1 &gt; &amp;o)']]],
+  ['nummemo',['numMemo',['../classlibbirch_1_1Counted.html#a6ec5740dce5254b05aed29b6a7296a36',1,'libbirch::Counted']]],
+  ['numshared',['numShared',['../classlibbirch_1_1Counted.html#a42193fc0f693da2d4261c1061e24fa2d',1,'libbirch::Counted']]],
+  ['numusage',['numUsage',['../classlibbirch_1_1Buffer.html#ab53933238301525929176f6b488abd71',1,'libbirch::Buffer']]],
+  ['numweak',['numWeak',['../classlibbirch_1_1Counted.html#ab9847b4a52bce8390f6da3f1a9d1e99f',1,'libbirch::Counted']]]
+];

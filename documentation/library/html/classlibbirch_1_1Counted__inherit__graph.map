@@ -1,6 +1,0 @@
-<map id="Counted" name="Counted">
-<area shape="rect" id="node1" title="Base class for reference counted objects." alt="" coords="108,5,180,32"/>
-<area shape="rect" id="node2" href="$classlibbirch_1_1EagerAny.html" title="Base for all class types when eager deep clone is used." alt="" coords="48,80,128,107"/>
-<area shape="rect" id="node4" href="$classlibbirch_1_1EagerMemo.html" title="Memo for lazy deep cloning of objects." alt="" coords="153,80,247,107"/>
-<area shape="rect" id="node3" href="$classlibbirch_1_1FiberState.html" title="State of a fiber." alt="" coords="5,155,171,181"/>
-</map>

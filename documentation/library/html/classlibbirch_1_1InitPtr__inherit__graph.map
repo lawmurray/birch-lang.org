@@ -1,4 +1,0 @@
-<map id="InitPtr&lt; T &gt;" name="InitPtr&lt; T &gt;">
-<area shape="rect" id="node1" title="Smart pointer that does not update reference counts, but that does initialize to nullptr." alt="" coords="34,5,122,32"/>
-<area shape="rect" id="node2" href="$classlibbirch_1_1InitPtr.html" title=" " alt="" coords="5,95,151,121"/>
-</map>

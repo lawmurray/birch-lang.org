@@ -1,0 +1,5 @@
+<map id="libbirch::FiberState&lt; YieldType &gt;" name="libbirch::FiberState&lt; YieldType &gt;">
+<area shape="rect" id="node1" title="State of a fiber." alt="" coords="5,155,139,196"/>
+<area shape="rect" id="node2" href="$classlibbirch_1_1LazyAny.html" title="Base for all class types when lazy deep clone is used." alt="" coords="49,80,95,107"/>
+<area shape="rect" id="node3" href="$classlibbirch_1_1Counted.html" title="Base class for reference counted objects." alt="" coords="11,5,133,32"/>
+</map>

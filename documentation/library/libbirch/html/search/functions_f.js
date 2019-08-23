@@ -1,0 +1,16 @@
+var searchData=
+[
+  ['serial',['serial',['../structlibbirch_1_1NonemptyFrame.html#a18a50ac25753754d9de95131ab33a9cd',1,'libbirch::NonemptyFrame']]],
+  ['set',['set',['../classlibbirch_1_1ExclusiveLock.html#a7c99e57ad3c28c440357eeaecdffa70f',1,'libbirch::ExclusiveLock']]],
+  ['sharedptr',['SharedPtr',['../classlibbirch_1_1SharedPtr.html#a0750389b33917449c34c7d83a95bd284',1,'libbirch::SharedPtr::SharedPtr(T *ptr=nullptr)'],['../classlibbirch_1_1SharedPtr.html#ae10ad0a8ea61149fecbc2e3c131fc39a',1,'libbirch::SharedPtr::SharedPtr(const WeakPtr&lt; U &gt; &amp;o)'],['../classlibbirch_1_1SharedPtr.html#a5256b8ca87a1b60ba86abd494a1febab',1,'libbirch::SharedPtr::SharedPtr(const InitPtr&lt; U &gt; &amp;o)'],['../classlibbirch_1_1SharedPtr.html#af2531f38c4fc7c122fab7ed564b1b964',1,'libbirch::SharedPtr::SharedPtr(const SharedPtr&lt; T &gt; &amp;o)'],['../classlibbirch_1_1SharedPtr.html#ab63793ca12ea42b648a768ddc93cbd67',1,'libbirch::SharedPtr::SharedPtr(const SharedPtr&lt; U &gt; &amp;o)'],['../classlibbirch_1_1SharedPtr.html#a8197e666fd1c206a04340722ca7c17ce',1,'libbirch::SharedPtr::SharedPtr(SharedPtr&lt; T &gt; &amp;&amp;o)'],['../classlibbirch_1_1SharedPtr.html#a210b1e1f6d78d6482b153282d1e563d8',1,'libbirch::SharedPtr::SharedPtr(SharedPtr&lt; U &gt; &amp;&amp;o)']]],
+  ['shrink',['shrink',['../classlibbirch_1_1Array.html#a8be252a5b139fe47516ad132bf58e0e0',1,'libbirch::Array']]],
+  ['size',['size',['../classlibbirch_1_1Array.html#a12a09811ee7843d287ba174fdab59cab',1,'libbirch::Array::size()'],['../classlibbirch_1_1Buffer.html#a1e63f6e993790e664fa5910a88e32f6e',1,'libbirch::Buffer::size()'],['../structlibbirch_1_1NonemptyFrame.html#a89cdfce90abec4ea15dec118ab93571a',1,'libbirch::NonemptyFrame::size()'],['../structlibbirch_1_1NonemptyView.html#a055196c66886b8a7903384cd108b00f8',1,'libbirch::NonemptyView::size()']]],
+  ['span',['Span',['../structlibbirch_1_1Span.html#a3ae7ed8ed62a10ca75889f54e332c0ea',1,'libbirch::Span::Span(const int64_t length=0, const int64_t stride=0)'],['../structlibbirch_1_1Span.html#a033db50459952651e0c761954d5f3d0b',1,'libbirch::Span::Span(const Span&lt; length_value, stride_value &gt; &amp;o)=default'],['../structlibbirch_1_1Span.html#adf971c5729010f06e560d8e48b62a373',1,'libbirch::Span::Span(const Span&lt; length_value1, stride_value1 &gt; &amp;o)']]],
+  ['static_5fpointer_5fcast',['static_pointer_cast',['../classlibbirch_1_1LazyPtr.html#ae86c76a5dc30d84c40823caebae3c347',1,'libbirch::LazyPtr']]],
+  ['store',['store',['../classlibbirch_1_1Atomic.html#a31354b14fefdd011c0302aa4bba620ad',1,'libbirch::Atomic']]],
+  ['stride',['stride',['../classlibbirch_1_1Array.html#ae94f425af1bc667f0ac25113ecd32636',1,'libbirch::Array::stride()'],['../structlibbirch_1_1NonemptyFrame.html#a3ce04a2390867e23433d69a808795907',1,'libbirch::NonemptyFrame::stride()']]],
+  ['strides',['strides',['../structlibbirch_1_1NonemptyFrame.html#a733943691f649f97d686120ee8e9f82b',1,'libbirch::NonemptyFrame']]],
+  ['subtract',['subtract',['../classlibbirch_1_1Atomic.html#abab8df763324706af21cbe964e227f9a',1,'libbirch::Atomic']]],
+  ['swapclone',['SwapClone',['../classlibbirch_1_1SwapClone.html#a483ee93865e550fe3939000449fb0c81',1,'libbirch::SwapClone']]],
+  ['swapcontext',['SwapContext',['../classlibbirch_1_1SwapContext.html#a049a37507ab75f6027b59e65724d78f2',1,'libbirch::SwapContext']]]
+];
