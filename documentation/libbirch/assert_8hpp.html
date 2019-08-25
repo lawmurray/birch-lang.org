@@ -9,14 +9,6 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-  $(document).ready(initResizable);
-/* @license-end */</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -61,23 +53,6 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('assert_8hpp.html','');});
-/* @license-end */
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -92,6 +67,11 @@ $(document).ready(function(){initNavTree('assert_8hpp.html','');});
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_bc6244f0c6369ca19d5d53d55ee6b39e.html">libbirch</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#define-members">Macros</a>  </div>
@@ -104,13 +84,13 @@ $(document).ready(function(){initNavTree('assert_8hpp.html','');});
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a698fe6d6d9258a13709e10b5b67fad2a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="assert_8hpp.html#a698fe6d6d9258a13709e10b5b67fad2a">libbirch_assert_</a>(cond)&#160;&#160;&#160;if (!(cond)) <a class="el" href="namespacelibbirch.html#a21c00c43aa2980beb805ea58b855ee0c">libbirch::abort</a>()</td></tr>
+<tr class="memitem:a698fe6d6d9258a13709e10b5b67fad2a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="assert_8hpp.html#a698fe6d6d9258a13709e10b5b67fad2a">libbirch_assert_</a>(cond)&#160;&#160;&#160;if (!(cond)) <a class="el" href="namespacelibbirch.html#ac54f53dc342019e8db34f4aa581a5792">libbirch::abort</a>()</td></tr>
 <tr class="memdesc:a698fe6d6d9258a13709e10b5b67fad2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">If debugging is enabled, check an assertion and abort on fail.  <a href="#a698fe6d6d9258a13709e10b5b67fad2a">More...</a><br /></td></tr>
 <tr class="separator:a698fe6d6d9258a13709e10b5b67fad2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a22061ba6b76eede490ade3ca90ddc34d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="assert_8hpp.html#a22061ba6b76eede490ade3ca90ddc34d">libbirch_assert_msg_</a>(cond,  msg)</td></tr>
 <tr class="memdesc:a22061ba6b76eede490ade3ca90ddc34d"><td class="mdescLeft">&#160;</td><td class="mdescRight">If debugging is enabled, check an assertion and abort with a message on fail.  <a href="#a22061ba6b76eede490ade3ca90ddc34d">More...</a><br /></td></tr>
 <tr class="separator:a22061ba6b76eede490ade3ca90ddc34d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a81b21f5c63268197bfea11276b61d576"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="assert_8hpp.html#a81b21f5c63268197bfea11276b61d576">libbirch_error_</a>(cond)&#160;&#160;&#160;if (!(cond)) <a class="el" href="namespacelibbirch.html#a21c00c43aa2980beb805ea58b855ee0c">libbirch::abort</a>()</td></tr>
+<tr class="memitem:a81b21f5c63268197bfea11276b61d576"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="assert_8hpp.html#a81b21f5c63268197bfea11276b61d576">libbirch_error_</a>(cond)&#160;&#160;&#160;if (!(cond)) <a class="el" href="namespacelibbirch.html#ac54f53dc342019e8db34f4aa581a5792">libbirch::abort</a>()</td></tr>
 <tr class="memdesc:a81b21f5c63268197bfea11276b61d576"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check a condition and abort on fail.  <a href="#a81b21f5c63268197bfea11276b61d576">More...</a><br /></td></tr>
 <tr class="separator:a81b21f5c63268197bfea11276b61d576"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac1c28ade7b7ce8ffad8a4e22e8ef022b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="assert_8hpp.html#ac1c28ade7b7ce8ffad8a4e22e8ef022b">libbirch_error_msg_</a>(cond,  msg)</td></tr>
@@ -129,7 +109,7 @@ Macros</h2></td></tr>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">cond</td><td>)</td>
-          <td>&#160;&#160;&#160;if (!(cond)) <a class="el" href="namespacelibbirch.html#a21c00c43aa2980beb805ea58b855ee0c">libbirch::abort</a>()</td>
+          <td>&#160;&#160;&#160;if (!(cond)) <a class="el" href="namespacelibbirch.html#ac54f53dc342019e8db34f4aa581a5792">libbirch::abort</a>()</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -183,7 +163,7 @@ Macros</h2></td></tr>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">cond</td><td>)</td>
-          <td>&#160;&#160;&#160;if (!(cond)) <a class="el" href="namespacelibbirch.html#a21c00c43aa2980beb805ea58b855ee0c">libbirch::abort</a>()</td>
+          <td>&#160;&#160;&#160;if (!(cond)) <a class="el" href="namespacelibbirch.html#ac54f53dc342019e8db34f4aa581a5792">libbirch::abort</a>()</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -227,15 +207,11 @@ Macros</h2></td></tr>
 </div>
 </div>
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="dir_bc6244f0c6369ca19d5d53d55ee6b39e.html">libbirch</a></li><li class="navelem"><a class="el" href="assert_8hpp.html">assert.hpp</a></li>
-    <li class="footer">Generated by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.15
+</small></address>
 </body>
 </html>

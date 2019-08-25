@@ -1,5 +1,5 @@
-<map id="libbirch::Fiber&lt; YieldType &gt;" name="libbirch::Fiber&lt; YieldType &gt;">
-<area shape="rect" id="node1" title="Fiber." alt="" coords="5,213,189,240"/>
-<area shape="rect" id="node2" href="$classlibbirch_1_1LazyPtr.html" title=" " alt="" coords="29,95,166,151"/>
-<area shape="rect" id="node3" href="$classlibbirch_1_1ContextPtr.html" title="Pointer to a Context object." alt="" coords="30,5,165,32"/>
+<map id="Fiber&lt; YieldType &gt;" name="Fiber&lt; YieldType &gt;">
+<area shape="rect" id="node1" title="Fiber." alt="" coords="27,199,161,225"/>
+<area shape="rect" id="node2" href="$classlibbirch_1_1LazyPtr.html" title=" " alt="" coords="5,95,183,136"/>
+<area shape="rect" id="node3" href="$classlibbirch_1_1ContextPtr.html" title="Pointer to a Context object." alt="" coords="51,5,137,32"/>
 </map>

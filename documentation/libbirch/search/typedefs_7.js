@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['tail_5ftype',['tail_type',['../structlibbirch_1_1NonemptyFrame.html#ac6ad95542e5748d027d91b005052ac8e',1,'libbirch::NonemptyFrame::tail_type()'],['../structlibbirch_1_1NonemptyView.html#a717923582d304cc0b859f6ae61ae1206',1,'libbirch::NonemptyView::tail_type()']]]
+  ['tail_5ftype',['tail_type',['../structlibbirch_1_1NonemptyFrame.html#af2a5b52c7b611f8f9ffb7291a7601262',1,'libbirch::NonemptyFrame::tail_type()'],['../structlibbirch_1_1NonemptyView.html#af2a5b52c7b611f8f9ffb7291a7601262',1,'libbirch::NonemptyView::tail_type()']]]
 ];

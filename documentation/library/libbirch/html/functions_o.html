@@ -9,14 +9,6 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-  $(document).ready(initResizable);
-/* @license-end */</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -62,22 +54,6 @@ $(function() {
 /* @license-end */</script>
 <div id="main-nav"></div>
 </div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('functions_o.html','');});
-/* @license-end */
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -97,110 +73,107 @@ $(document).ready(function(){initNavTree('functions_o.html','');});
 
 <h3><a id="index_o"></a>- o -</h3><ul>
 <li>object
-: <a class="el" href="classlibbirch_1_1LazyPtr.html#a70346767402f4f95e06f01452d2f6068">libbirch::LazyPtr&lt; P &gt;</a>
+: <a class="el" href="classlibbirch_1_1LazyPtr.html#ace4800044346e00c518e064abd9b5d1d">LazyPtr&lt; P &gt;</a>
 </li>
 <li>offset()
-: <a class="el" href="structlibbirch_1_1NonemptyFrame.html#aac90e089dbeeadfbe9b4234d8127fb36">libbirch::NonemptyFrame&lt; Head, Tail &gt;</a>
+: <a class="el" href="structlibbirch_1_1NonemptyFrame.html#a139715ec3c3cd3f96257aa272c86a09c">NonemptyFrame&lt; Head, Tail &gt;</a>
 </li>
 <li>offsets()
-: <a class="el" href="structlibbirch_1_1NonemptyView.html#a50cf80288253d2059a723de6a502aede">libbirch::NonemptyView&lt; Head, Tail &gt;</a>
+: <a class="el" href="structlibbirch_1_1NonemptyView.html#aac6cc21bb8e9110b42b3bf91f5658341">NonemptyView&lt; Head, Tail &gt;</a>
 </li>
 <li>operator *()
-: <a class="el" href="classlibbirch_1_1ContextPtr.html#a1e7ca81a81a7ffbf7693e0102a0209fa">libbirch::ContextPtr</a>
-, <a class="el" href="classlibbirch_1_1InitPtr.html#a08512c84ad0792e2dc2449d43518c641">libbirch::InitPtr&lt; T &gt;</a>
-, <a class="el" href="classlibbirch_1_1LazyPtr.html#abe75dab6f56e92a58e503b5f43592ae2">libbirch::LazyPtr&lt; P &gt;</a>
-, <a class="el" href="classlibbirch_1_1SharedPtr.html#a62b8a7029bb3c79608b870b2148b30d1">libbirch::SharedPtr&lt; T &gt;</a>
-, <a class="el" href="structlibbirch_1_1Span.html#af70b825af808aaf7d0c85dccb5dd14d8">libbirch::Span&lt; length_value, stride_value &gt;</a>
-, <a class="el" href="classlibbirch_1_1WeakPtr.html#adea967fe5a7478fa517b66a3cdc8def6">libbirch::WeakPtr&lt; T &gt;</a>
+: <a class="el" href="classlibbirch_1_1ContextPtr.html#ac61b4f99e819180066cf51f169bccb77">ContextPtr</a>
+, <a class="el" href="classlibbirch_1_1InitPtr.html#a2477b013cf44492b54afd64d151de6aa">InitPtr&lt; T &gt;</a>
+, <a class="el" href="classlibbirch_1_1LazyPtr.html#a2477b013cf44492b54afd64d151de6aa">LazyPtr&lt; P &gt;</a>
+, <a class="el" href="classlibbirch_1_1SharedPtr.html#a2477b013cf44492b54afd64d151de6aa">SharedPtr&lt; T &gt;</a>
+, <a class="el" href="structlibbirch_1_1Span.html#ae971c30fbd1914613b645c38c3f9f22f">Span&lt; length_value, stride_value &gt;</a>
+, <a class="el" href="classlibbirch_1_1WeakPtr.html#a2477b013cf44492b54afd64d151de6aa">WeakPtr&lt; T &gt;</a>
 </li>
 <li>operator *=()
-: <a class="el" href="structlibbirch_1_1Span.html#a864c08762783ce815c625be7d46f14cf">libbirch::Span&lt; length_value, stride_value &gt;</a>
+: <a class="el" href="structlibbirch_1_1Span.html#a3300261528817ca37e5d542b9769c96c">Span&lt; length_value, stride_value &gt;</a>
 </li>
 <li>operator bool()
-: <a class="el" href="classlibbirch_1_1ContextPtr.html#af4359374acb22314a44aa2359f7ae4b4">libbirch::ContextPtr</a>
-, <a class="el" href="classlibbirch_1_1InitPtr.html#a7fb2ea02841b388c645115bab433f1df">libbirch::InitPtr&lt; T &gt;</a>
-, <a class="el" href="classlibbirch_1_1SharedPtr.html#a2512a6b2fa7b0f991f52a605634ece37">libbirch::SharedPtr&lt; T &gt;</a>
-, <a class="el" href="classlibbirch_1_1WeakPtr.html#a132949777d5c16ec8ca82df7c3ae77cb">libbirch::WeakPtr&lt; T &gt;</a>
+: <a class="el" href="classlibbirch_1_1ContextPtr.html#a67b76affb3b5d35fa419ac234144038b">ContextPtr</a>
+, <a class="el" href="classlibbirch_1_1InitPtr.html#a67b76affb3b5d35fa419ac234144038b">InitPtr&lt; T &gt;</a>
+, <a class="el" href="classlibbirch_1_1SharedPtr.html#a67b76affb3b5d35fa419ac234144038b">SharedPtr&lt; T &gt;</a>
+, <a class="el" href="classlibbirch_1_1WeakPtr.html#a67b76affb3b5d35fa419ac234144038b">WeakPtr&lt; T &gt;</a>
 </li>
 <li>operator EigenType()
-: <a class="el" href="classlibbirch_1_1Array.html#a9dbe4ebc6479ff90352c8eb3ccf764c6">libbirch::Array&lt; T, F &gt;</a>
+: <a class="el" href="classlibbirch_1_1Array.html#ab09d0912e9e3464caa22c37e69f6b2ca">Array&lt; T, F &gt;</a>
 </li>
 <li>operator std::initializer_list&lt; T &gt;()
-: <a class="el" href="classlibbirch_1_1Nil.html#a9c421e38f31e9b152090070334fa1c49">libbirch::Nil</a>
+: <a class="el" href="classlibbirch_1_1Nil.html#ac8e8c98695a5a6ae84d2a8ca7a4eaa80">Nil</a>
 </li>
 <li>operator std::nullptr_t()
-: <a class="el" href="classlibbirch_1_1Nil.html#ac6da96d871958995cba6e839237f5958">libbirch::Nil</a>
+: <a class="el" href="classlibbirch_1_1Nil.html#ae8483f8efd15cf59a86a12aed7f0cf43">Nil</a>
 </li>
 <li>operator U()
-: <a class="el" href="classlibbirch_1_1LazyPtr.html#ab06d6d04b6c25bee3d1aa5d77e00fb4e">libbirch::LazyPtr&lt; P &gt;</a>
+: <a class="el" href="classlibbirch_1_1LazyPtr.html#a26ab5452c3e461a2c51058ee63ecbf05">LazyPtr&lt; P &gt;</a>
 </li>
 <li>operator Weak&lt; T &gt;()
-: <a class="el" href="classlibbirch_1_1Optional_3_01Shared_3_01T_01_4_01_4.html#a6fb90322df5926762dea03b5f0d965dd">libbirch::Optional&lt; Shared&lt; T &gt; &gt;</a>
+: <a class="el" href="classlibbirch_1_1Optional_3_01Shared_3_01T_01_4_01_4.html#aff1c5aced89670bbab9c26590893b80b">Optional&lt; Shared&lt; T &gt; &gt;</a>
 </li>
 <li>operator!=()
-: <a class="el" href="classlibbirch_1_1Array.html#af2a33dc2fe0ef46b722650bf8e51a52a">libbirch::Array&lt; T, F &gt;</a>
-, <a class="el" href="classlibbirch_1_1ContextPtr.html#ac759d702538245d4bcfe4225a727512e">libbirch::ContextPtr</a>
-, <a class="el" href="structlibbirch_1_1Index.html#ad5a9466e31257384e0f1ca5696409639">libbirch::Index&lt; offset_value &gt;</a>
-, <a class="el" href="classlibbirch_1_1InitPtr.html#a0ba5aa49175b7427d02bc47b4ead8fc2">libbirch::InitPtr&lt; T &gt;</a>
-, <a class="el" href="classlibbirch_1_1LazyPtr.html#acbb5465c0ca3a26eaa7b94db779d7054">libbirch::LazyPtr&lt; P &gt;</a>
-, <a class="el" href="structlibbirch_1_1NonemptyFrame.html#adb1c82ad35a1035c19ce10141912b098">libbirch::NonemptyFrame&lt; Head, Tail &gt;</a>
-, <a class="el" href="structlibbirch_1_1NonemptyView.html#afac52d27d13db8725a5a1283306d34ae">libbirch::NonemptyView&lt; Head, Tail &gt;</a>
-, <a class="el" href="structlibbirch_1_1Range.html#a698924d2a31e3239bffe93b0ed3ea2e6">libbirch::Range&lt; offset_value, length_value &gt;</a>
-, <a class="el" href="classlibbirch_1_1SharedPtr.html#a281b42777d6a91367dcc31dbc2864409">libbirch::SharedPtr&lt; T &gt;</a>
-, <a class="el" href="structlibbirch_1_1Span.html#a9df0675c72ba50abbc6e385a86b77b63">libbirch::Span&lt; length_value, stride_value &gt;</a>
-, <a class="el" href="classlibbirch_1_1WeakPtr.html#ae6da7caac1221f5460297949f9f57138">libbirch::WeakPtr&lt; T &gt;</a>
+: <a class="el" href="classlibbirch_1_1Array.html#aaec814675cd5b035a59389e1949b4ab3">Array&lt; T, F &gt;</a>
+, <a class="el" href="classlibbirch_1_1ContextPtr.html#a4ba87604e97ac16417b4ab543662318c">ContextPtr</a>
+, <a class="el" href="structlibbirch_1_1Index.html#aa8ea42dc3a63fe9709e5169ed32dac34">Index&lt; offset_value &gt;</a>
+, <a class="el" href="classlibbirch_1_1InitPtr.html#a0f3fa26f4ee5bf382966ef9ca03161ce">InitPtr&lt; T &gt;</a>
+, <a class="el" href="classlibbirch_1_1LazyPtr.html#a6f46430b3377c2a63a3fa14e8cb1c87c">LazyPtr&lt; P &gt;</a>
+, <a class="el" href="structlibbirch_1_1NonemptyFrame.html#a19fa79a122ed4a31a1543a3f04f171bb">NonemptyFrame&lt; Head, Tail &gt;</a>
+, <a class="el" href="structlibbirch_1_1NonemptyView.html#aafbcf2622022b36dc3652fb724a43d06">NonemptyView&lt; Head, Tail &gt;</a>
+, <a class="el" href="structlibbirch_1_1Range.html#aae06cae81aa58683b2c581eabc6123ca">Range&lt; offset_value, length_value &gt;</a>
+, <a class="el" href="classlibbirch_1_1SharedPtr.html#a0f3fa26f4ee5bf382966ef9ca03161ce">SharedPtr&lt; T &gt;</a>
+, <a class="el" href="structlibbirch_1_1Span.html#a166f688da8f593e81912d307a935b665">Span&lt; length_value, stride_value &gt;</a>
+, <a class="el" href="classlibbirch_1_1WeakPtr.html#a0f3fa26f4ee5bf382966ef9ca03161ce">WeakPtr&lt; T &gt;</a>
 </li>
 <li>operator()()
-: <a class="el" href="classlibbirch_1_1Array.html#a26f27bee5106fafbcc99047cd4ea01f5">libbirch::Array&lt; T, F &gt;</a>
-, <a class="el" href="structlibbirch_1_1NonemptyFrame.html#a6d7236dedceafefbb4ca52650eaec7dc">libbirch::NonemptyFrame&lt; Head, Tail &gt;</a>
-, <a class="el" href="structlibbirch_1_1Span.html#a14641ec933b3ff375c6356934e924282">libbirch::Span&lt; length_value, stride_value &gt;</a>
+: <a class="el" href="classlibbirch_1_1Array.html#a57cda2dc84a90c2543c512afaac4718a">Array&lt; T, F &gt;</a>
+, <a class="el" href="structlibbirch_1_1NonemptyFrame.html#a31ca08d034c2ae34d22128e3f0b9ddc6">NonemptyFrame&lt; Head, Tail &gt;</a>
+, <a class="el" href="structlibbirch_1_1Span.html#a804fadef8dd7a97ff09da13b8d0bf3ad">Span&lt; length_value, stride_value &gt;</a>
 </li>
 <li>operator-&gt;()
-: <a class="el" href="classlibbirch_1_1ContextPtr.html#a922940a4f5dd196d9ef8a373b2d6f2ae">libbirch::ContextPtr</a>
-, <a class="el" href="classlibbirch_1_1InitPtr.html#a285426aed8bc57ddd6ff0231689761c6">libbirch::InitPtr&lt; T &gt;</a>
-, <a class="el" href="classlibbirch_1_1LazyPtr.html#a81e478dc25b4610a4c577a0073d1d4e0">libbirch::LazyPtr&lt; P &gt;</a>
-, <a class="el" href="classlibbirch_1_1SharedPtr.html#a2942bd095b965dd10ffc1db1386c4bbb">libbirch::SharedPtr&lt; T &gt;</a>
-, <a class="el" href="classlibbirch_1_1WeakPtr.html#a6f0fb2e244578b26a177df3d96d8ee21">libbirch::WeakPtr&lt; T &gt;</a>
+: <a class="el" href="classlibbirch_1_1ContextPtr.html#a08852702a6e577ebbcef53775d8e1a48">ContextPtr</a>
+, <a class="el" href="classlibbirch_1_1InitPtr.html#a5c1735ebb61cb9b40f6d0ed30be8a288">InitPtr&lt; T &gt;</a>
+, <a class="el" href="classlibbirch_1_1LazyPtr.html#a5c1735ebb61cb9b40f6d0ed30be8a288">LazyPtr&lt; P &gt;</a>
+, <a class="el" href="classlibbirch_1_1SharedPtr.html#a5c1735ebb61cb9b40f6d0ed30be8a288">SharedPtr&lt; T &gt;</a>
+, <a class="el" href="classlibbirch_1_1WeakPtr.html#a5c1735ebb61cb9b40f6d0ed30be8a288">WeakPtr&lt; T &gt;</a>
 </li>
 <li>operator=()
-: <a class="el" href="classlibbirch_1_1Array.html#abc6a753671f595a77737b64388fb23f0">libbirch::Array&lt; T, F &gt;</a>
-, <a class="el" href="classlibbirch_1_1Buffer.html#acd324fbefa81071cedf817f3f873cfeb">libbirch::Buffer&lt; T &gt;</a>
-, <a class="el" href="classlibbirch_1_1ContextPtr.html#a8a11135045b3fed762db0fb50a0d434a">libbirch::ContextPtr</a>
-, <a class="el" href="classlibbirch_1_1Counted.html#ac56a3f83be2de62e8051819aacf6ed6b">libbirch::Counted</a>
-, <a class="el" href="classlibbirch_1_1LazyAny.html#aba8c13abdc8a62b562fa9016a3b8a068">libbirch::LazyAny</a>
-, <a class="el" href="classlibbirch_1_1LazyPtr.html#a88fcb2b5817b8d3e5b78ac2c3f20215b">libbirch::LazyPtr&lt; P &gt;</a>
-, <a class="el" href="classlibbirch_1_1Optional.html#a9867ee62860dfd73b923332dca092097">libbirch::Optional&lt; T &gt;</a>
-, <a class="el" href="classlibbirch_1_1Optional_3_01Shared_3_01T_01_4_01_4.html#acad9d97b21394ed610825443d0344ebc">libbirch::Optional&lt; Shared&lt; T &gt; &gt;</a>
-, <a class="el" href="classlibbirch_1_1SharedPtr.html#abdeb79b9fadca36181014b4bfa867f82">libbirch::SharedPtr&lt; T &gt;</a>
-, <a class="el" href="classlibbirch_1_1WeakPtr.html#ab697c0393a862a05a43820095d53ecc4">libbirch::WeakPtr&lt; T &gt;</a>
+: <a class="el" href="classlibbirch_1_1Array.html#a6e6c77a98bc2570df9b3e8e3c6e53e44">Array&lt; T, F &gt;</a>
+, <a class="el" href="classlibbirch_1_1Buffer.html#aeff12d3247873142a987c78a4f909deb">Buffer&lt; T &gt;</a>
+, <a class="el" href="classlibbirch_1_1ContextPtr.html#a3fda9d2a59aed1a2139b28a2da7a325c">ContextPtr</a>
+, <a class="el" href="classlibbirch_1_1Counted.html#a651127bd450456b8d31b323c02882001">Counted</a>
+, <a class="el" href="classlibbirch_1_1LazyAny.html#a4c1767b22d877d380604bda2a26f10f3">LazyAny</a>
+, <a class="el" href="classlibbirch_1_1LazyPtr.html#af3ef4e94d9e3b5a7eed3a8007d7938ec">LazyPtr&lt; P &gt;</a>
+, <a class="el" href="classlibbirch_1_1Optional.html#aa1d4f85248216e9cddb353c96d484505">Optional&lt; T &gt;</a>
+, <a class="el" href="classlibbirch_1_1Optional_3_01Shared_3_01T_01_4_01_4.html#ae440e179e330b7617aa2c610ca2ac483">Optional&lt; Shared&lt; T &gt; &gt;</a>
+, <a class="el" href="classlibbirch_1_1SharedPtr.html#ae50704730bf874c9e9859ae04a69d9b1">SharedPtr&lt; T &gt;</a>
+, <a class="el" href="classlibbirch_1_1WeakPtr.html#a44379301d7bbf168170538a3709c9022">WeakPtr&lt; T &gt;</a>
 </li>
 <li>operator==()
-: <a class="el" href="classlibbirch_1_1Array.html#a7a98511ed836a744539c7cf4cbdadc2b">libbirch::Array&lt; T, F &gt;</a>
-, <a class="el" href="classlibbirch_1_1ContextPtr.html#aba93f9c56139457b94e9d438dc4af5bf">libbirch::ContextPtr</a>
-, <a class="el" href="structlibbirch_1_1Index.html#a605543716deb1f9e741f0c2721e4cd24">libbirch::Index&lt; offset_value &gt;</a>
-, <a class="el" href="classlibbirch_1_1InitPtr.html#a43789ddb23bc65db0d18e4be68fe2854">libbirch::InitPtr&lt; T &gt;</a>
-, <a class="el" href="classlibbirch_1_1LazyPtr.html#a2502964752a06cf7aa1c973539f31175">libbirch::LazyPtr&lt; P &gt;</a>
-, <a class="el" href="structlibbirch_1_1NonemptyFrame.html#a6cb9f643f1f5b1e0ba897c903675c021">libbirch::NonemptyFrame&lt; Head, Tail &gt;</a>
-, <a class="el" href="structlibbirch_1_1NonemptyView.html#a706b81b7236a0942c69c93ed95f5ea6c">libbirch::NonemptyView&lt; Head, Tail &gt;</a>
-, <a class="el" href="structlibbirch_1_1Range.html#a4ce28d6354510c80c82e2751e69e4aca">libbirch::Range&lt; offset_value, length_value &gt;</a>
-, <a class="el" href="classlibbirch_1_1SharedPtr.html#a979ca74793388e3cd43b8b06adaddb4f">libbirch::SharedPtr&lt; T &gt;</a>
-, <a class="el" href="structlibbirch_1_1Span.html#a90fde62c3d2d68e29b34755a40301836">libbirch::Span&lt; length_value, stride_value &gt;</a>
-, <a class="el" href="classlibbirch_1_1WeakPtr.html#af1c91715236a0528d8843f33eff8c985">libbirch::WeakPtr&lt; T &gt;</a>
+: <a class="el" href="classlibbirch_1_1Array.html#ab0cee2023afeedb82f71258309902502">Array&lt; T, F &gt;</a>
+, <a class="el" href="classlibbirch_1_1ContextPtr.html#a824abfe62725916624770af2c3190a53">ContextPtr</a>
+, <a class="el" href="structlibbirch_1_1Index.html#a3375dd6e50c26ab87cd32fd929659fb2">Index&lt; offset_value &gt;</a>
+, <a class="el" href="classlibbirch_1_1InitPtr.html#a4de5b6abbe375d42824e76f967ad22a9">InitPtr&lt; T &gt;</a>
+, <a class="el" href="classlibbirch_1_1LazyPtr.html#ab41879ca75d0338008f77a2f977b9bd1">LazyPtr&lt; P &gt;</a>
+, <a class="el" href="structlibbirch_1_1NonemptyFrame.html#a4be5f7649252b56be4931d784dbd5d01">NonemptyFrame&lt; Head, Tail &gt;</a>
+, <a class="el" href="structlibbirch_1_1NonemptyView.html#a1278e7527195fb4b0eb4fb57d30d1ebb">NonemptyView&lt; Head, Tail &gt;</a>
+, <a class="el" href="structlibbirch_1_1Range.html#a6fea86728d7988c0a8b4622558ed2442">Range&lt; offset_value, length_value &gt;</a>
+, <a class="el" href="classlibbirch_1_1SharedPtr.html#a4de5b6abbe375d42824e76f967ad22a9">SharedPtr&lt; T &gt;</a>
+, <a class="el" href="structlibbirch_1_1Span.html#a193d560d600c0f77fb0196b6d3c7865e">Span&lt; length_value, stride_value &gt;</a>
+, <a class="el" href="classlibbirch_1_1WeakPtr.html#a4de5b6abbe375d42824e76f967ad22a9">WeakPtr&lt; T &gt;</a>
 </li>
 <li>Optional()
-: <a class="el" href="classlibbirch_1_1Optional.html#ab597fa39b9a5fe827fa2358ad5a7e01c">libbirch::Optional&lt; T &gt;</a>
-, <a class="el" href="classlibbirch_1_1Optional_3_01Shared_3_01T_01_4_01_4.html#aa5a005ab2064e89163cdd4379165006e">libbirch::Optional&lt; Shared&lt; T &gt; &gt;</a>
+: <a class="el" href="classlibbirch_1_1Optional.html#a65b5a7c5cbd0c075d2469131bba4dda2">Optional&lt; T &gt;</a>
+, <a class="el" href="classlibbirch_1_1Optional_3_01Shared_3_01T_01_4_01_4.html#a96b58e56fa1878f765388053d696b31a">Optional&lt; Shared&lt; T &gt; &gt;</a>
 </li>
 </ul>
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="footer">Generated by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.15
+</small></address>
 </body>
 </html>

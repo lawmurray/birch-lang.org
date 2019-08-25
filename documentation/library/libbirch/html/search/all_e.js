@@ -1,10 +1,10 @@
 var searchData=
 [
-  ['pool',['Pool',['../classlibbirch_1_1Pool.html',1,'libbirch::Pool'],['../classlibbirch_1_1Pool.html#affa6bf860052b80fe25fbc5e21a19d21',1,'libbirch::Pool::Pool()'],['../namespacelibbirch.html#a395aafef551304d025831b0b16dd7fe1',1,'libbirch::pool()']]],
+  ['pool',['Pool',['../classlibbirch_1_1Pool.html',1,'Pool'],['../classlibbirch_1_1Pool.html#af71e2c9e63c7a14525b20806f3c40c23',1,'libbirch::Pool::Pool()'],['../namespacelibbirch.html#a52b2ef05e2a1852133888ced076a2d37',1,'libbirch::pool()']]],
   ['pool_2ehpp',['Pool.hpp',['../Pool_8hpp.html',1,'']]],
-  ['pop',['pop',['../classlibbirch_1_1Pool.html#aa0ec160416a7e56e5f4f4fb00718ebeb',1,'libbirch::Pool']]],
-  ['ptr',['ptr',['../classlibbirch_1_1Iterator.html#a5feaee7a315ff5ae990d5f82dec3c530',1,'libbirch::Iterator']]],
-  ['pull',['pull',['../classlibbirch_1_1InitPtr.html#a3e44fc427ba6648783c12893edc60cdf',1,'libbirch::InitPtr::pull()'],['../classlibbirch_1_1LazyContext.html#ab0796c5fc59408bd76c6688ca99a99b7',1,'libbirch::LazyContext::pull()'],['../classlibbirch_1_1LazyPtr.html#af6108188247eee0b033139a8bdea42d5',1,'libbirch::LazyPtr::pull()'],['../classlibbirch_1_1LazyPtr.html#a4143abfd81ed96a2b86420e492c5cb20',1,'libbirch::LazyPtr::pull() const'],['../classlibbirch_1_1SharedPtr.html#aea4d1cb91ae54421194a24a62ab50b41',1,'libbirch::SharedPtr::pull()'],['../classlibbirch_1_1WeakPtr.html#a67eb0dfa88976252e46a712084cf4bc8',1,'libbirch::WeakPtr::pull()']]],
-  ['push',['push',['../classlibbirch_1_1Pool.html#aa143bbcf3a451c76937aceeeb07a1287',1,'libbirch::Pool']]],
-  ['put',['put',['../classlibbirch_1_1LazyMemo.html#aaf764f502221eabcd9088c5fb2d7244e',1,'libbirch::LazyMemo']]]
+  ['pop',['pop',['../classlibbirch_1_1Pool.html#a225224d14b9a17728ec0698c42fb9097',1,'libbirch::Pool']]],
+  ['ptr',['ptr',['../classlibbirch_1_1Iterator.html#a4e0fab5bba27ff507e909503f0770e58',1,'libbirch::Iterator']]],
+  ['pull',['pull',['../classlibbirch_1_1InitPtr.html#a49a19dbb705a1db64bb88b4f64d473ec',1,'libbirch::InitPtr::pull()'],['../classlibbirch_1_1LazyContext.html#ac933f308b2957fd9d0dc20b0359456c3',1,'libbirch::LazyContext::pull()'],['../classlibbirch_1_1LazyPtr.html#af3267dbb7aa0fac4731564d9a7ae7ad8',1,'libbirch::LazyPtr::pull()'],['../classlibbirch_1_1LazyPtr.html#a49a19dbb705a1db64bb88b4f64d473ec',1,'libbirch::LazyPtr::pull() const'],['../classlibbirch_1_1SharedPtr.html#a49a19dbb705a1db64bb88b4f64d473ec',1,'libbirch::SharedPtr::pull()'],['../classlibbirch_1_1WeakPtr.html#a49a19dbb705a1db64bb88b4f64d473ec',1,'libbirch::WeakPtr::pull()']]],
+  ['push',['push',['../classlibbirch_1_1Pool.html#a32a4d25ec9ef82d3db8017f71c14bd00',1,'libbirch::Pool']]],
+  ['put',['put',['../classlibbirch_1_1LazyMemo.html#aea8bd8485fb260c7922027b5f86bd148',1,'libbirch::LazyMemo']]]
 ];

@@ -9,14 +9,6 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-  $(document).ready(initResizable);
-/* @license-end */</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -61,23 +53,6 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('structlibbirch_1_1NonemptyFrame.html','');});
-/* @license-end */
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -92,49 +67,51 @@ $(document).ready(function(){initNavTree('structlibbirch_1_1NonemptyFrame.html',
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespacelibbirch.html">libbirch</a></li><li class="navelem"><a class="el" href="structlibbirch_1_1NonemptyFrame.html">NonemptyFrame</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">libbirch::NonemptyFrame&lt; Head, Tail &gt; Member List</div>  </div>
+<div class="title">NonemptyFrame&lt; Head, Tail &gt; Member List</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the complete list of members for <a class="el" href="structlibbirch_1_1NonemptyFrame.html">libbirch::NonemptyFrame&lt; Head, Tail &gt;</a>, including all inherited members.</p>
+<p>This is the complete list of members for <a class="el" href="structlibbirch_1_1NonemptyFrame.html">NonemptyFrame&lt; Head, Tail &gt;</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html#a1b2e75dfe159185286ba0310d19a9184">block</a>() const</td><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html">libbirch::NonemptyFrame&lt; Head, Tail &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html#a19d0a00cee06f56d7c31ff369345f51a">conforms</a>(const EmptyFrame &amp;o) const</td><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html">libbirch::NonemptyFrame&lt; Head, Tail &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html#acf8ff4cfb79ece7434704d4ea743a25c">contiguous</a>() const</td><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html">libbirch::NonemptyFrame&lt; Head, Tail &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html#aa5c2bdf3a376e5adb554b28ba8fc7ee9">count</a>()</td><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html">libbirch::NonemptyFrame&lt; Head, Tail &gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html#ae84019f603784cc26ba8223b37f7237f">head</a></td><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html">libbirch::NonemptyFrame&lt; Head, Tail &gt;</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html#ac0ec8c106acd201639262dfea007dad6">head_type</a> typedef</td><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html">libbirch::NonemptyFrame&lt; Head, Tail &gt;</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html#a6c10bd2527566dc1b53a7918396c3c89">length</a>(const int i) const</td><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html">libbirch::NonemptyFrame&lt; Head, Tail &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html#add6a6b3a011f9e4b294d86fd4fcd5df1">lengths</a>(T1 *out) const</td><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html">libbirch::NonemptyFrame&lt; Head, Tail &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html#af8e14455d6d44773611b7087ee1f5455">NonemptyFrame</a>()</td><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html">libbirch::NonemptyFrame&lt; Head, Tail &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html#a6b84cc9596877c8d03044c8a78dae743">NonemptyFrame</a>(const Head1 head, const Tail1 tail)</td><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html">libbirch::NonemptyFrame&lt; Head, Tail &gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">explicit</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html#a076b40e8b500df27826802576128720d">NonemptyFrame</a>(const NonemptyFrame&lt; Head, Tail &gt; &amp;o)=default</td><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html">libbirch::NonemptyFrame&lt; Head, Tail &gt;</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html#a7678bc9723e710c71446ffc92f873411">NonemptyFrame</a>(const NonemptyFrame&lt; Head1, Tail1 &gt; &amp;o)</td><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html">libbirch::NonemptyFrame&lt; Head, Tail &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html#aac90e089dbeeadfbe9b4234d8127fb36">offset</a>(const int64_t n) const</td><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html">libbirch::NonemptyFrame&lt; Head, Tail &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html#adb1c82ad35a1035c19ce10141912b098">operator!=</a>(const Frame1 &amp;o) const</td><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html">libbirch::NonemptyFrame&lt; Head, Tail &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html#a6d7236dedceafefbb4ca52650eaec7dc">operator()</a>(const NonemptyView&lt; Range&lt; offset_value1, length_value1 &gt;, Tail1 &gt; &amp;o) const</td><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html">libbirch::NonemptyFrame&lt; Head, Tail &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html#ad6374c527ebd51b70c2ff6d7faeae018">operator()</a>(const NonemptyView&lt; Index&lt; offset_value1 &gt;, Tail1 &gt; &amp;o) const</td><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html">libbirch::NonemptyFrame&lt; Head, Tail &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html#a957d7c9b5097e3aba787bcb82dc48f4b">operator==</a>(const NonemptyFrame&lt; Head1, Tail1 &gt; &amp;o) const</td><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html">libbirch::NonemptyFrame&lt; Head, Tail &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html#a6cb9f643f1f5b1e0ba897c903675c021">operator==</a>(const EmptyFrame &amp;o) const</td><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html">libbirch::NonemptyFrame&lt; Head, Tail &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html#aad20d25b3ad51ad42715146b6ae06775">resize</a>(const Frame1 &amp;o)</td><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html">libbirch::NonemptyFrame&lt; Head, Tail &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html#a18a50ac25753754d9de95131ab33a9cd">serial</a>(const View &amp;o) const</td><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html">libbirch::NonemptyFrame&lt; Head, Tail &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html#a89cdfce90abec4ea15dec118ab93571a">size</a>() const</td><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html">libbirch::NonemptyFrame&lt; Head, Tail &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html#a3ce04a2390867e23433d69a808795907">stride</a>(const int i) const</td><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html">libbirch::NonemptyFrame&lt; Head, Tail &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html#a733943691f649f97d686120ee8e9f82b">strides</a>(T1 *out) const</td><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html">libbirch::NonemptyFrame&lt; Head, Tail &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html#aba5c34b85f6bbfaa73ffcd867c4f15b9">tail</a></td><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html">libbirch::NonemptyFrame&lt; Head, Tail &gt;</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html#ac6ad95542e5748d027d91b005052ac8e">tail_type</a> typedef</td><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html">libbirch::NonemptyFrame&lt; Head, Tail &gt;</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html#a5c12f2a062c3cef1aa484ff77fb57cc3">volume</a>() const</td><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html">libbirch::NonemptyFrame&lt; Head, Tail &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html#a03049dcb2b662ef3935e8002b61ac571">block</a>() const</td><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html">NonemptyFrame&lt; Head, Tail &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html#adfc301aff03a34ce31f1f48dd98ddebd">conforms</a>(const EmptyFrame &amp;o) const</td><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html">NonemptyFrame&lt; Head, Tail &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html#a9523f8242e40c9385f31cac4ba16316b">contiguous</a>() const</td><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html">NonemptyFrame&lt; Head, Tail &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html#ac369025065ebcada96d6d671df89b8eb">count</a>()</td><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html">NonemptyFrame&lt; Head, Tail &gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html#a8cc38beb686e59ceb02a2f95c7628364">head</a></td><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html">NonemptyFrame&lt; Head, Tail &gt;</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html#a925170fd7a31285f9e01cf9c1ba9ce28">head_type</a> typedef</td><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html">NonemptyFrame&lt; Head, Tail &gt;</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html#af12ba87227fc5dd76fcc321346514f92">length</a>(const int i) const</td><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html">NonemptyFrame&lt; Head, Tail &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html#a868316457e3370c3e467a5781b70c7d0">lengths</a>(T1 *out) const</td><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html">NonemptyFrame&lt; Head, Tail &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html#ac8093a40823ae996ba93e13074ae6c19">NonemptyFrame</a>()</td><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html">NonemptyFrame&lt; Head, Tail &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html#a9c28dd4a8121ac77a993b6e0c2783d9e">NonemptyFrame</a>(const Head1 head, const Tail1 tail)</td><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html">NonemptyFrame&lt; Head, Tail &gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">explicit</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html#a0ba546a9bc6e03647bbfd8d9daf7cb82">NonemptyFrame</a>(const NonemptyFrame&lt; Head, Tail &gt; &amp;o)=default</td><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html">NonemptyFrame&lt; Head, Tail &gt;</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html#a6a78d35c944c494e5b22bd72cbd005c2">NonemptyFrame</a>(const NonemptyFrame&lt; Head1, Tail1 &gt; &amp;o)</td><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html">NonemptyFrame&lt; Head, Tail &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html#a139715ec3c3cd3f96257aa272c86a09c">offset</a>(const int64_t n) const</td><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html">NonemptyFrame&lt; Head, Tail &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html#a19fa79a122ed4a31a1543a3f04f171bb">operator!=</a>(const Frame1 &amp;o) const</td><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html">NonemptyFrame&lt; Head, Tail &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html#a31ca08d034c2ae34d22128e3f0b9ddc6">operator()</a>(const NonemptyView&lt; Range&lt; offset_value1, length_value1 &gt;, Tail1 &gt; &amp;o) const</td><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html">NonemptyFrame&lt; Head, Tail &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html#a4272b5d17d7296414120d90f600bf367">operator()</a>(const NonemptyView&lt; Index&lt; offset_value1 &gt;, Tail1 &gt; &amp;o) const</td><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html">NonemptyFrame&lt; Head, Tail &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html#aa51236666ae06e70deb82d20b28d6543">operator==</a>(const NonemptyFrame&lt; Head1, Tail1 &gt; &amp;o) const</td><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html">NonemptyFrame&lt; Head, Tail &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html#a4be5f7649252b56be4931d784dbd5d01">operator==</a>(const EmptyFrame &amp;o) const</td><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html">NonemptyFrame&lt; Head, Tail &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html#a512a326f8a5d4e8143059142bfcffcb5">resize</a>(const Frame1 &amp;o)</td><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html">NonemptyFrame&lt; Head, Tail &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html#ae32b77d1100d6c07f6c2d4d84e64253a">serial</a>(const View &amp;o) const</td><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html">NonemptyFrame&lt; Head, Tail &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html#aa326d81dcac346461f3b8528bf0b49de">size</a>() const</td><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html">NonemptyFrame&lt; Head, Tail &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html#a99170399deaa0541336a932930a77519">stride</a>(const int i) const</td><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html">NonemptyFrame&lt; Head, Tail &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html#a408d99db761d86466b4776be3c713d0d">strides</a>(T1 *out) const</td><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html">NonemptyFrame&lt; Head, Tail &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html#aa75437190ec5d2975275f624dee7952c">tail</a></td><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html">NonemptyFrame&lt; Head, Tail &gt;</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html#af2a5b52c7b611f8f9ffb7291a7601262">tail_type</a> typedef</td><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html">NonemptyFrame&lt; Head, Tail &gt;</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html#a566e1cca6efad6f44fa239b6b7e51fd5">volume</a>() const</td><td class="entry"><a class="el" href="structlibbirch_1_1NonemptyFrame.html">NonemptyFrame&lt; Head, Tail &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
 </table></div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="footer">Generated by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.15
+</small></address>
 </body>
 </html>

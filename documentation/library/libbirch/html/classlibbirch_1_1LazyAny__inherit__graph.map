@@ -1,5 +1,5 @@
-<map id="libbirch::LazyAny" name="libbirch::LazyAny">
-<area shape="rect" id="node1" title="Base for all class types when lazy deep clone is used." alt="" coords="11,80,133,107"/>
-<area shape="rect" id="node3" href="$classlibbirch_1_1FiberState.html" title="State of a fiber." alt="" coords="5,155,139,196"/>
-<area shape="rect" id="node2" href="$classlibbirch_1_1Counted.html" title="Base class for reference counted objects." alt="" coords="11,5,133,32"/>
+<map id="LazyAny" name="LazyAny">
+<area shape="rect" id="node1" title="Base for all class types when lazy deep clone is used." alt="" coords="51,80,125,107"/>
+<area shape="rect" id="node3" href="$classlibbirch_1_1FiberState.html" title="State of a fiber." alt="" coords="5,155,171,181"/>
+<area shape="rect" id="node2" href="$classlibbirch_1_1Counted.html" title="Base class for reference counted objects." alt="" coords="52,5,124,32"/>
 </map>

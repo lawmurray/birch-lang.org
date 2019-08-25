@@ -9,14 +9,6 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-  $(document).ready(initResizable);
-/* @license-end */</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -61,23 +53,6 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('clone_8cpp_source.html','');});
-/* @license-end */
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -92,27 +67,28 @@ $(document).ready(function(){initNavTree('clone_8cpp_source.html','');});
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_bc6244f0c6369ca19d5d53d55ee6b39e.html">libbirch</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">clone.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="clone_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="clone_8hpp.html">libbirch/clone.hpp</a>&quot;</span></div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">/* see memory.cpp, where some variables declared in clone.hpp are defined to</span></div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> * ensure correct order of initialization of all global variables */</span></div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#if ENABLE_LAZY_DEEP_CLONE</span></div><div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="namespacelibbirch.html#a76d7ff1cfaadd19b3ff30adef5167243">   11</a></span>&#160;<a class="code" href="classlibbirch_1_1EntryExitLock.html">libbirch::EntryExitLock</a> <a class="code" href="namespacelibbirch.html#a76d7ff1cfaadd19b3ff30adef5167243">libbirch::freezeLock</a>;</div><div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="namespacelibbirch.html#a8969289b70651d2c9268ae57958a7391">   12</a></span>&#160;thread_local <span class="keywordtype">bool</span> <a class="code" href="namespacelibbirch.html#a8969289b70651d2c9268ae57958a7391">libbirch::freezeUnderway</a> = <span class="keyword">false</span>;</div><div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="namespacelibbirch.html#af2104f77f93de2f53362de569f7de4c8">   13</a></span>&#160;<a class="code" href="classlibbirch_1_1EntryExitLock.html">libbirch::EntryExitLock</a> <a class="code" href="namespacelibbirch.html#af2104f77f93de2f53362de569f7de4c8">libbirch::finishLock</a>;</div><div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="namespacelibbirch.html#ae07bf8efdd1bf81a8fa4909d5dcc1b4a">   14</a></span>&#160;thread_local <span class="keywordtype">bool</span> <a class="code" href="namespacelibbirch.html#ae07bf8efdd1bf81a8fa4909d5dcc1b4a">libbirch::finishUnderway</a> = <span class="keyword">false</span>;</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#endif</span></div><div class="ttc" id="namespacelibbirch_html_ae07bf8efdd1bf81a8fa4909d5dcc1b4a"><div class="ttname"><a href="namespacelibbirch.html#ae07bf8efdd1bf81a8fa4909d5dcc1b4a">libbirch::finishUnderway</a></div><div class="ttdeci">thread_local bool finishUnderway</div><div class="ttdoc">Is a finish operation currently underway in the thread?</div><div class="ttdef"><b>Definition:</b> <a href="clone_8cpp_source.html#l00014">clone.cpp:14</a></div></div>
-<div class="ttc" id="namespacelibbirch_html_af2104f77f93de2f53362de569f7de4c8"><div class="ttname"><a href="namespacelibbirch.html#af2104f77f93de2f53362de569f7de4c8">libbirch::finishLock</a></div><div class="ttdeci">EntryExitLock finishLock</div><div class="ttdoc">Global finish lock.</div><div class="ttdef"><b>Definition:</b> <a href="clone_8cpp_source.html#l00013">clone.cpp:13</a></div></div>
+<a href="clone_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="clone_8hpp.html">libbirch/clone.hpp</a>&quot;</span></div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">/* see memory.cpp, where some variables declared in clone.hpp are defined to</span></div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> * ensure correct order of initialization of all global variables */</span></div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#if ENABLE_LAZY_DEEP_CLONE</span></div><div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="namespacelibbirch.html#a9ee6e84341e197dee91560358f118bb1">   11</a></span>&#160;<a class="code" href="classlibbirch_1_1EntryExitLock.html">libbirch::EntryExitLock</a> <a class="code" href="namespacelibbirch.html#a9ee6e84341e197dee91560358f118bb1">libbirch::freezeLock</a>;</div><div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="namespacelibbirch.html#ac1ca696052acc2baf7fcc60fb5382053">   12</a></span>&#160;thread_local <span class="keywordtype">bool</span> <a class="code" href="namespacelibbirch.html#ac1ca696052acc2baf7fcc60fb5382053">libbirch::freezeUnderway</a> = <span class="keyword">false</span>;</div><div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="namespacelibbirch.html#afd5822bb99c0a3d64f2750dfb6d48467">   13</a></span>&#160;<a class="code" href="classlibbirch_1_1EntryExitLock.html">libbirch::EntryExitLock</a> <a class="code" href="namespacelibbirch.html#afd5822bb99c0a3d64f2750dfb6d48467">libbirch::finishLock</a>;</div><div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="namespacelibbirch.html#a9d947586a3586065d4cf87c0e7749f30">   14</a></span>&#160;thread_local <span class="keywordtype">bool</span> <a class="code" href="namespacelibbirch.html#a9d947586a3586065d4cf87c0e7749f30">libbirch::finishUnderway</a> = <span class="keyword">false</span>;</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#endif</span></div><div class="ttc" id="namespacelibbirch_html_afd5822bb99c0a3d64f2750dfb6d48467"><div class="ttname"><a href="namespacelibbirch.html#afd5822bb99c0a3d64f2750dfb6d48467">libbirch::finishLock</a></div><div class="ttdeci">EntryExitLock finishLock</div><div class="ttdoc">Global finish lock.</div><div class="ttdef"><b>Definition:</b> <a href="clone_8cpp_source.html#l00013">clone.cpp:13</a></div></div>
+<div class="ttc" id="namespacelibbirch_html_a9d947586a3586065d4cf87c0e7749f30"><div class="ttname"><a href="namespacelibbirch.html#a9d947586a3586065d4cf87c0e7749f30">libbirch::finishUnderway</a></div><div class="ttdeci">thread_local bool finishUnderway</div><div class="ttdoc">Is a finish operation currently underway in the thread?</div><div class="ttdef"><b>Definition:</b> <a href="clone_8cpp_source.html#l00014">clone.cpp:14</a></div></div>
+<div class="ttc" id="namespacelibbirch_html_ac1ca696052acc2baf7fcc60fb5382053"><div class="ttname"><a href="namespacelibbirch.html#ac1ca696052acc2baf7fcc60fb5382053">libbirch::freezeUnderway</a></div><div class="ttdeci">thread_local bool freezeUnderway</div><div class="ttdoc">Is a freeze operation currently underway in the thread?</div><div class="ttdef"><b>Definition:</b> <a href="clone_8cpp_source.html#l00012">clone.cpp:12</a></div></div>
 <div class="ttc" id="clone_8hpp_html"><div class="ttname"><a href="clone_8hpp.html">clone.hpp</a></div></div>
 <div class="ttc" id="classlibbirch_1_1EntryExitLock_html"><div class="ttname"><a href="classlibbirch_1_1EntryExitLock.html">libbirch::EntryExitLock</a></div><div class="ttdoc">Lock that permits any number of threads to enter a critical region, but only exit when there are no t...</div><div class="ttdef"><b>Definition:</b> <a href="EntryExitLock_8hpp_source.html#l00020">EntryExitLock.hpp:20</a></div></div>
-<div class="ttc" id="namespacelibbirch_html_a76d7ff1cfaadd19b3ff30adef5167243"><div class="ttname"><a href="namespacelibbirch.html#a76d7ff1cfaadd19b3ff30adef5167243">libbirch::freezeLock</a></div><div class="ttdeci">EntryExitLock freezeLock</div><div class="ttdoc">Global freeze lock.</div><div class="ttdef"><b>Definition:</b> <a href="clone_8cpp_source.html#l00011">clone.cpp:11</a></div></div>
-<div class="ttc" id="namespacelibbirch_html_a8969289b70651d2c9268ae57958a7391"><div class="ttname"><a href="namespacelibbirch.html#a8969289b70651d2c9268ae57958a7391">libbirch::freezeUnderway</a></div><div class="ttdeci">thread_local bool freezeUnderway</div><div class="ttdoc">Is a freeze operation currently underway in the thread?</div><div class="ttdef"><b>Definition:</b> <a href="clone_8cpp_source.html#l00012">clone.cpp:12</a></div></div>
+<div class="ttc" id="namespacelibbirch_html_a9ee6e84341e197dee91560358f118bb1"><div class="ttname"><a href="namespacelibbirch.html#a9ee6e84341e197dee91560358f118bb1">libbirch::freezeLock</a></div><div class="ttdeci">EntryExitLock freezeLock</div><div class="ttdoc">Global freeze lock.</div><div class="ttdef"><b>Definition:</b> <a href="clone_8cpp_source.html#l00011">clone.cpp:11</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="dir_bc6244f0c6369ca19d5d53d55ee6b39e.html">libbirch</a></li><li class="navelem"><a class="el" href="clone_8cpp.html">clone.cpp</a></li>
-    <li class="footer">Generated by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.15
+</small></address>
 </body>
 </html>

@@ -1,6 +1,6 @@
-<map id="libbirch::Counted" name="libbirch::Counted">
-<area shape="rect" id="node1" title="Base class for reference counted objects." alt="" coords="89,5,212,32"/>
-<area shape="rect" id="node2" href="$classlibbirch_1_1LazyAny.html" title="Base for all class types when lazy deep clone is used." alt="" coords="11,80,133,107"/>
-<area shape="rect" id="node4" href="$classlibbirch_1_1LazyContext.html" title="Context for lazy deep clones." alt="" coords="158,80,303,107"/>
-<area shape="rect" id="node3" href="$classlibbirch_1_1FiberState.html" title="State of a fiber." alt="" coords="5,155,139,196"/>
+<map id="Counted" name="Counted">
+<area shape="rect" id="node1" title="Base class for reference counted objects." alt="" coords="107,5,179,32"/>
+<area shape="rect" id="node2" href="$classlibbirch_1_1LazyAny.html" title="Base for all class types when lazy deep clone is used." alt="" coords="51,80,125,107"/>
+<area shape="rect" id="node4" href="$classlibbirch_1_1LazyContext.html" title="Context for lazy deep clones." alt="" coords="149,80,245,107"/>
+<area shape="rect" id="node3" href="$classlibbirch_1_1FiberState.html" title="State of a fiber." alt="" coords="5,155,171,181"/>
 </map>

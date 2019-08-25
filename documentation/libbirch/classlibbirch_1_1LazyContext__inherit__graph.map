@@ -1,4 +1,4 @@
-<map id="libbirch::LazyContext" name="libbirch::LazyContext">
-<area shape="rect" id="node1" title="Context for lazy deep clones." alt="" coords="5,80,151,107"/>
-<area shape="rect" id="node2" href="$classlibbirch_1_1Counted.html" title="Base class for reference counted objects." alt="" coords="17,5,139,32"/>
+<map id="LazyContext" name="LazyContext">
+<area shape="rect" id="node1" title="Context for lazy deep clones." alt="" coords="5,80,101,107"/>
+<area shape="rect" id="node2" href="$classlibbirch_1_1Counted.html" title="Base class for reference counted objects." alt="" coords="17,5,89,32"/>
 </map>

@@ -9,14 +9,6 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-  $(document).ready(initResizable);
-/* @license-end */</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -61,23 +53,6 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('classlibbirch_1_1Buffer.html','');});
-/* @license-end */
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -92,33 +67,35 @@ $(document).ready(function(){initNavTree('classlibbirch_1_1Buffer.html','');});
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespacelibbirch.html">libbirch</a></li><li class="navelem"><a class="el" href="classlibbirch_1_1Buffer.html">Buffer</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">libbirch::Buffer&lt; T &gt; Member List</div>  </div>
+<div class="title">Buffer&lt; T &gt; Member List</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the complete list of members for <a class="el" href="classlibbirch_1_1Buffer.html">libbirch::Buffer&lt; T &gt;</a>, including all inherited members.</p>
+<p>This is the complete list of members for <a class="el" href="classlibbirch_1_1Buffer.html">Buffer&lt; T &gt;</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="classlibbirch_1_1Buffer.html#a521b4dcde07a5dc0fb49b773c0f55c1c">buf</a>()</td><td class="entry"><a class="el" href="classlibbirch_1_1Buffer.html">libbirch::Buffer&lt; T &gt;</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classlibbirch_1_1Buffer.html#a35fb17db45cee5612257af5ed7d6e33d">buf</a>() const</td><td class="entry"><a class="el" href="classlibbirch_1_1Buffer.html">libbirch::Buffer&lt; T &gt;</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classlibbirch_1_1Buffer.html#ad3fd9bcf6025ae81fd7cc62a44d85158">Buffer</a>()</td><td class="entry"><a class="el" href="classlibbirch_1_1Buffer.html">libbirch::Buffer&lt; T &gt;</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classlibbirch_1_1Buffer.html#aee7383b83680eac1e264bfe715ea69a6">Buffer</a>(const Buffer&lt; T &gt; &amp;o)=delete</td><td class="entry"><a class="el" href="classlibbirch_1_1Buffer.html">libbirch::Buffer&lt; T &gt;</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classlibbirch_1_1Buffer.html#a77445051903f37d4a5f73a8dc58a8efc">decUsage</a>()</td><td class="entry"><a class="el" href="classlibbirch_1_1Buffer.html">libbirch::Buffer&lt; T &gt;</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classlibbirch_1_1Buffer.html#ad7ba4eaf208433c12af62e0e349747f6">incUsage</a>()</td><td class="entry"><a class="el" href="classlibbirch_1_1Buffer.html">libbirch::Buffer&lt; T &gt;</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classlibbirch_1_1Buffer.html#ab53933238301525929176f6b488abd71">numUsage</a>() const</td><td class="entry"><a class="el" href="classlibbirch_1_1Buffer.html">libbirch::Buffer&lt; T &gt;</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="classlibbirch_1_1Buffer.html#acd324fbefa81071cedf817f3f873cfeb">operator=</a>(const Buffer&lt; T &gt; &amp;)=delete</td><td class="entry"><a class="el" href="classlibbirch_1_1Buffer.html">libbirch::Buffer&lt; T &gt;</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classlibbirch_1_1Buffer.html#a1e63f6e993790e664fa5910a88e32f6e">size</a>(const int64_t n)</td><td class="entry"><a class="el" href="classlibbirch_1_1Buffer.html">libbirch::Buffer&lt; T &gt;</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
-  <tr><td class="entry"><a class="el" href="classlibbirch_1_1Buffer.html#a23acec4b866a74b24e3fb9d6f38027f9">tid</a></td><td class="entry"><a class="el" href="classlibbirch_1_1Buffer.html">libbirch::Buffer&lt; T &gt;</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classlibbirch_1_1Buffer.html#a1d39f73613903de5cc8fcd2cd5c0bab6">buf</a>()</td><td class="entry"><a class="el" href="classlibbirch_1_1Buffer.html">Buffer&lt; T &gt;</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classlibbirch_1_1Buffer.html#ace11dd5e0254e9a78a64f616a60d387d">buf</a>() const</td><td class="entry"><a class="el" href="classlibbirch_1_1Buffer.html">Buffer&lt; T &gt;</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classlibbirch_1_1Buffer.html#a47587d18a394fb4b9508c61e3d5f0260">Buffer</a>()</td><td class="entry"><a class="el" href="classlibbirch_1_1Buffer.html">Buffer&lt; T &gt;</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classlibbirch_1_1Buffer.html#a89e21544fd12626517fb14ecf171667f">Buffer</a>(const Buffer&lt; T &gt; &amp;o)=delete</td><td class="entry"><a class="el" href="classlibbirch_1_1Buffer.html">Buffer&lt; T &gt;</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classlibbirch_1_1Buffer.html#a252151e63e6bef79e53ea1ab05cd01f1">decUsage</a>()</td><td class="entry"><a class="el" href="classlibbirch_1_1Buffer.html">Buffer&lt; T &gt;</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classlibbirch_1_1Buffer.html#ab2566a0010e4fd48d1a38d2de5416636">incUsage</a>()</td><td class="entry"><a class="el" href="classlibbirch_1_1Buffer.html">Buffer&lt; T &gt;</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classlibbirch_1_1Buffer.html#ad1db77f7846deb10ebf972e58c3bcd8c">numUsage</a>() const</td><td class="entry"><a class="el" href="classlibbirch_1_1Buffer.html">Buffer&lt; T &gt;</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="classlibbirch_1_1Buffer.html#aeff12d3247873142a987c78a4f909deb">operator=</a>(const Buffer&lt; T &gt; &amp;)=delete</td><td class="entry"><a class="el" href="classlibbirch_1_1Buffer.html">Buffer&lt; T &gt;</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classlibbirch_1_1Buffer.html#acc076e9a4e4c776099e3870df41cfafb">size</a>(const int64_t n)</td><td class="entry"><a class="el" href="classlibbirch_1_1Buffer.html">Buffer&lt; T &gt;</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classlibbirch_1_1Buffer.html#a50b3051397ce0b7a33b4173bafd4019b">tid</a></td><td class="entry"><a class="el" href="classlibbirch_1_1Buffer.html">Buffer&lt; T &gt;</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="footer">Generated by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.15
+</small></address>
 </body>
 </html>

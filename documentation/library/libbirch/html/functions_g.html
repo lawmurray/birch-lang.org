@@ -9,14 +9,6 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-  $(document).ready(initResizable);
-/* @license-end */</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -62,22 +54,6 @@ $(function() {
 /* @license-end */</script>
 <div id="main-nav"></div>
 </div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('functions_g.html','');});
-/* @license-end */
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -97,34 +73,31 @@ $(document).ready(function(){initNavTree('functions_g.html','');});
 
 <h3><a id="index_g"></a>- g -</h3><ul>
 <li>get()
-: <a class="el" href="classlibbirch_1_1ContextPtr.html#a3cf6145315df3e0af36e950f595ad70e">libbirch::ContextPtr</a>
-, <a class="el" href="classlibbirch_1_1Fiber.html#a5524e7edd2111574774ad6db60296697">libbirch::Fiber&lt; YieldType &gt;</a>
-, <a class="el" href="classlibbirch_1_1FiberState.html#a2504dd75cd93487a0995ece18ab57a7b">libbirch::FiberState&lt; YieldType &gt;</a>
-, <a class="el" href="classlibbirch_1_1InitPtr.html#a6615402b4febfab32631d2e94e0b9664">libbirch::InitPtr&lt; T &gt;</a>
-, <a class="el" href="classlibbirch_1_1LazyContext.html#a757f8e1b2b5dd8fdfc47761d05d51738">libbirch::LazyContext</a>
-, <a class="el" href="classlibbirch_1_1LazyMemo.html#a120edf799fb74b56aa6742db56db6532">libbirch::LazyMemo</a>
-, <a class="el" href="classlibbirch_1_1LazyPtr.html#a478a810bdf0324949d02f021a4ce3513">libbirch::LazyPtr&lt; P &gt;</a>
-, <a class="el" href="classlibbirch_1_1Optional.html#ab52bab7d8016c8e02d6b8a9c2077aff2">libbirch::Optional&lt; T &gt;</a>
-, <a class="el" href="classlibbirch_1_1Optional_3_01Shared_3_01T_01_4_01_4.html#aa68f3ecbc1eaf635ab1b5562d6d48e54">libbirch::Optional&lt; Shared&lt; T &gt; &gt;</a>
-, <a class="el" href="classlibbirch_1_1SharedPtr.html#aabc528a1efd46106a11e0eb0bebd3d38">libbirch::SharedPtr&lt; T &gt;</a>
-, <a class="el" href="classlibbirch_1_1WeakPtr.html#add47a7c7bba9cbbb37309d0a77ca38f8">libbirch::WeakPtr&lt; T &gt;</a>
+: <a class="el" href="classlibbirch_1_1ContextPtr.html#a5c134db1be166332d42159b1fdf9e6b8">ContextPtr</a>
+, <a class="el" href="classlibbirch_1_1Fiber.html#a1f006b223f64dc7fd15a62710b1c0e48">Fiber&lt; YieldType &gt;</a>
+, <a class="el" href="classlibbirch_1_1FiberState.html#a6c01130903c8b1c8235c27ae7fb79ef8">FiberState&lt; YieldType &gt;</a>
+, <a class="el" href="classlibbirch_1_1InitPtr.html#a8cd3929c3ea66c2b5595f0b1d78c03f7">InitPtr&lt; T &gt;</a>
+, <a class="el" href="classlibbirch_1_1LazyContext.html#a01e534270841f92eb8f123ddae6423e8">LazyContext</a>
+, <a class="el" href="classlibbirch_1_1LazyMemo.html#aa29b14e8b901aa210bd5e94ca493d5fc">LazyMemo</a>
+, <a class="el" href="classlibbirch_1_1LazyPtr.html#a8cd3929c3ea66c2b5595f0b1d78c03f7">LazyPtr&lt; P &gt;</a>
+, <a class="el" href="classlibbirch_1_1Optional.html#a73f799e2233b063893121b058004f575">Optional&lt; T &gt;</a>
+, <a class="el" href="classlibbirch_1_1Optional_3_01Shared_3_01T_01_4_01_4.html#a4311295c4b4de259de400b77f0cf9ec5">Optional&lt; Shared&lt; T &gt; &gt;</a>
+, <a class="el" href="classlibbirch_1_1SharedPtr.html#a8cd3929c3ea66c2b5595f0b1d78c03f7">SharedPtr&lt; T &gt;</a>
+, <a class="el" href="classlibbirch_1_1WeakPtr.html#a8cd3929c3ea66c2b5595f0b1d78c03f7">WeakPtr&lt; T &gt;</a>
 </li>
 <li>getContext()
-: <a class="el" href="classlibbirch_1_1LazyAny.html#aca870d836abf66104d3fb642a86ea6a4">libbirch::LazyAny</a>
+: <a class="el" href="classlibbirch_1_1LazyAny.html#a380106c420046f8f31da6cb070c5e713">LazyAny</a>
 </li>
 <li>getSize()
-: <a class="el" href="classlibbirch_1_1Counted.html#aeddaeae386cee9711f02666d9a74e5f6">libbirch::Counted</a>
+: <a class="el" href="classlibbirch_1_1Counted.html#a5756f37da68a0b34ddd54f0fb9c62895">Counted</a>
 </li>
 </ul>
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="footer">Generated by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.15
+</small></address>
 </body>
 </html>
