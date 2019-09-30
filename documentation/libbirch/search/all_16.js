@@ -9,7 +9,6 @@ var searchData=
   ['_7elazycontext',['~LazyContext',['../classlibbirch_1_1LazyContext.html#a3ecc1bf4d0e8109fab57dedd8f3cb84f',1,'libbirch::LazyContext']]],
   ['_7elazymemo',['~LazyMemo',['../classlibbirch_1_1LazyMemo.html#a18c8a029e5507d58d8c6eac497a9301d',1,'libbirch::LazyMemo']]],
   ['_7esharedptr',['~SharedPtr',['../classlibbirch_1_1SharedPtr.html#a04f6862368a72a3a3ad600a31da89669',1,'libbirch::SharedPtr']]],
-  ['_7eswapclone',['~SwapClone',['../classlibbirch_1_1SwapClone.html#af2eac7079cf5a05701e36dc4f90f26e9',1,'libbirch::SwapClone']]],
   ['_7eswapcontext',['~SwapContext',['../classlibbirch_1_1SwapContext.html#adc3823784bc50ba6bba03f9b0288eb73',1,'libbirch::SwapContext']]],
   ['_7eweakptr',['~WeakPtr',['../classlibbirch_1_1WeakPtr.html#a1ef3941136c334b28ed1bc2cf7a6e605',1,'libbirch::WeakPtr']]]
 ];

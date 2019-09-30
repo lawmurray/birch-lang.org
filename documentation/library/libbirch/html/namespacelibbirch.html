@@ -192,9 +192,6 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlibbirch_1_1Stride.html">Stride</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structlibbirch_1_1Stride.html" title="Stride.">Stride</a>.  <a href="structlibbirch_1_1Stride.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibbirch_1_1SwapClone.html">SwapClone</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the thread-local flag cloneUnderway on construction, swaps it back to its previous value on destruction.  <a href="classlibbirch_1_1SwapClone.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibbirch_1_1SwapContext.html">SwapContext</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the thread-local variable currentContext on construction, sets it back to its previous value on destruction.  <a href="classlibbirch_1_1SwapContext.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -226,6 +223,10 @@ Typedefs</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a73abe036853314f08b545c8078ce0e79"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:a73abe036853314f08b545c8078ce0e79"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#a73abe036853314f08b545c8078ce0e79">clone</a> (const T &amp;o)</td></tr>
+<tr class="memdesc:a73abe036853314f08b545c8078ce0e79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clone.  <a href="#a73abe036853314f08b545c8078ce0e79">More...</a><br /></td></tr>
+<tr class="separator:a73abe036853314f08b545c8078ce0e79"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a21754b962beb9b5be239beb812306d77"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
 <tr class="memitem:a21754b962beb9b5be239beb812306d77"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#a21754b962beb9b5be239beb812306d77">finish</a> (const T &amp;o)</td></tr>
 <tr class="memdesc:a21754b962beb9b5be239beb812306d77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recursively finish objects.  <a href="#a21754b962beb9b5be239beb812306d77">More...</a><br /></td></tr>
@@ -356,24 +357,6 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:af838cbd67432e9b81855aa53787147ef"><td class="memItemLeft" align="right" valign="top">thread_local <a class="el" href="namespacelibbirch.html#a859f70d7a8dda45c3bf074231db65fdd">Context</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#af838cbd67432e9b81855aa53787147ef">currentContext</a></td></tr>
-<tr class="memdesc:af838cbd67432e9b81855aa53787147ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">The current context to which to assign newly created objects in the thread.  <a href="#af838cbd67432e9b81855aa53787147ef">More...</a><br /></td></tr>
-<tr class="separator:af838cbd67432e9b81855aa53787147ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a777e68acd7a448d4c84dc559c3977048"><td class="memItemLeft" align="right" valign="top">thread_local bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#a777e68acd7a448d4c84dc559c3977048">cloneUnderway</a> = false</td></tr>
-<tr class="memdesc:a777e68acd7a448d4c84dc559c3977048"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is a clone operation currently underway in the thread?  <a href="#a777e68acd7a448d4c84dc559c3977048">More...</a><br /></td></tr>
-<tr class="separator:a777e68acd7a448d4c84dc559c3977048"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9ee6e84341e197dee91560358f118bb1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classlibbirch_1_1EntryExitLock.html">EntryExitLock</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#a9ee6e84341e197dee91560358f118bb1">freezeLock</a></td></tr>
-<tr class="memdesc:a9ee6e84341e197dee91560358f118bb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Global freeze lock.  <a href="#a9ee6e84341e197dee91560358f118bb1">More...</a><br /></td></tr>
-<tr class="separator:a9ee6e84341e197dee91560358f118bb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac1ca696052acc2baf7fcc60fb5382053"><td class="memItemLeft" align="right" valign="top">thread_local bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#ac1ca696052acc2baf7fcc60fb5382053">freezeUnderway</a> = false</td></tr>
-<tr class="memdesc:ac1ca696052acc2baf7fcc60fb5382053"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is a freeze operation currently underway in the thread?  <a href="#ac1ca696052acc2baf7fcc60fb5382053">More...</a><br /></td></tr>
-<tr class="separator:ac1ca696052acc2baf7fcc60fb5382053"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afd5822bb99c0a3d64f2750dfb6d48467"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classlibbirch_1_1EntryExitLock.html">EntryExitLock</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#afd5822bb99c0a3d64f2750dfb6d48467">finishLock</a></td></tr>
-<tr class="memdesc:afd5822bb99c0a3d64f2750dfb6d48467"><td class="mdescLeft">&#160;</td><td class="mdescRight">Global finish lock.  <a href="#afd5822bb99c0a3d64f2750dfb6d48467">More...</a><br /></td></tr>
-<tr class="separator:afd5822bb99c0a3d64f2750dfb6d48467"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9d947586a3586065d4cf87c0e7749f30"><td class="memItemLeft" align="right" valign="top">thread_local bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#a9d947586a3586065d4cf87c0e7749f30">finishUnderway</a> = false</td></tr>
-<tr class="memdesc:a9d947586a3586065d4cf87c0e7749f30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is a finish operation currently underway in the thread?  <a href="#a9d947586a3586065d4cf87c0e7749f30">More...</a><br /></td></tr>
-<tr class="separator:a9d947586a3586065d4cf87c0e7749f30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3ee99b29317c6b7115c294adf4f6643f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classlibbirch_1_1Atomic.html">libbirch::Atomic</a>&lt; size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#a3ee99b29317c6b7115c294adf4f6643f">memoryUse</a></td></tr>
 <tr class="memdesc:a3ee99b29317c6b7115c294adf4f6643f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of bytes of memory currently allocated.  <a href="#a3ee99b29317c6b7115c294adf4f6643f">More...</a><br /></td></tr>
 <tr class="separator:a3ee99b29317c6b7115c294adf4f6643f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -386,6 +369,15 @@ Variables</h2></td></tr>
 <tr class="memitem:a7be887a2ca0a258cf6b368d32fd87487"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#a7be887a2ca0a258cf6b368d32fd87487">bufferSize</a></td></tr>
 <tr class="memdesc:a7be887a2ca0a258cf6b368d32fd87487"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size of heap (for debugging purposes).  <a href="#a7be887a2ca0a258cf6b368d32fd87487">More...</a><br /></td></tr>
 <tr class="separator:a7be887a2ca0a258cf6b368d32fd87487"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af838cbd67432e9b81855aa53787147ef"><td class="memItemLeft" align="right" valign="top">thread_local <a class="el" href="namespacelibbirch.html#a859f70d7a8dda45c3bf074231db65fdd">Context</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#af838cbd67432e9b81855aa53787147ef">currentContext</a></td></tr>
+<tr class="memdesc:af838cbd67432e9b81855aa53787147ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">The current context to which to assign newly created objects in the thread.  <a href="#af838cbd67432e9b81855aa53787147ef">More...</a><br /></td></tr>
+<tr class="separator:af838cbd67432e9b81855aa53787147ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ee6e84341e197dee91560358f118bb1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classlibbirch_1_1EntryExitLock.html">EntryExitLock</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#a9ee6e84341e197dee91560358f118bb1">freezeLock</a></td></tr>
+<tr class="memdesc:a9ee6e84341e197dee91560358f118bb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Global freeze lock.  <a href="#a9ee6e84341e197dee91560358f118bb1">More...</a><br /></td></tr>
+<tr class="separator:a9ee6e84341e197dee91560358f118bb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd5822bb99c0a3d64f2750dfb6d48467"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classlibbirch_1_1EntryExitLock.html">EntryExitLock</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#afd5822bb99c0a3d64f2750dfb6d48467">finishLock</a></td></tr>
+<tr class="memdesc:afd5822bb99c0a3d64f2750dfb6d48467"><td class="mdescLeft">&#160;</td><td class="mdescRight">Global finish lock.  <a href="#afd5822bb99c0a3d64f2750dfb6d48467">More...</a><br /></td></tr>
+<tr class="separator:afd5822bb99c0a3d64f2750dfb6d48467"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>LibBirch. </p>
@@ -570,7 +562,7 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Pointer to the allocated memory. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="memory_8cpp_source.html#l00062">62</a> of file <a class="el" href="memory_8cpp_source.html">memory.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="memory_8cpp_source.html#l00060">60</a> of file <a class="el" href="memory_8cpp_source.html">memory.cpp</a>.</p>
 
 </div>
 </div>
@@ -599,7 +591,7 @@ Variables</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Pointer to the allocated memory.</dd></dl>
 <p>This implementation, where the size is given by a static 32-bit integer, is typically slightly faster than the 64-bit integer version. </p>
 
-<p class="definition">Definition at line <a class="el" href="memory_8hpp_source.html#l00136">136</a> of file <a class="el" href="memory_8hpp_source.html">memory.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="memory_8hpp_source.html#l00130">130</a> of file <a class="el" href="memory_8hpp_source.html">memory.hpp</a>.</p>
 
 </div>
 </div>
@@ -673,9 +665,9 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="classlibbirch_1_1Pool.html" title="Thread-safe stack of memory allocations.">Pool</a> index.</dd></dl>
-<p><a class="el" href="classlibbirch_1_1Pool.html" title="Thread-safe stack of memory allocations.">Pool</a> sizes are multiples of 8 bytes up to 64 bytes, and powers of two thereafter. </p>
+<p><a class="el" href="classlibbirch_1_1Pool.html" title="Thread-safe stack of memory allocations.">Pool</a> sizes are powers of two, with a minimum allocation of 64 bytes to avoid false sharing. </p>
 
-<p class="definition">Definition at line <a class="el" href="memory_8hpp_source.html#l00058">58</a> of file <a class="el" href="memory_8hpp_source.html">memory.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="memory_8hpp_source.html#l00056">56</a> of file <a class="el" href="memory_8hpp_source.html">memory.hpp</a>.</p>
 
 </div>
 </div>
@@ -710,9 +702,9 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="classlibbirch_1_1Pool.html" title="Thread-safe stack of memory allocations.">Pool</a> index.</dd></dl>
-<p><a class="el" href="classlibbirch_1_1Pool.html" title="Thread-safe stack of memory allocations.">Pool</a> sizes are multiples of 8 bytes up to 64 bytes, and powers of two thereafter. </p>
+<p><a class="el" href="classlibbirch_1_1Pool.html" title="Thread-safe stack of memory allocations.">Pool</a> sizes are powers of two, with a minimum allocation of 64 bytes to avoid false sharing. </p>
 
-<p class="definition">Definition at line <a class="el" href="memory_8hpp_source.html#l00089">89</a> of file <a class="el" href="memory_8hpp_source.html">memory.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="memory_8hpp_source.html#l00085">85</a> of file <a class="el" href="memory_8hpp_source.html">memory.hpp</a>.</p>
 
 </div>
 </div>
@@ -762,6 +754,28 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="a73abe036853314f08b545c8078ce0e79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73abe036853314f08b545c8078ce0e79">&#9670;&nbsp;</a></span>clone()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">auto libbirch::clone </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>o</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Clone. </p>
+
+<p class="definition">Definition at line <a class="el" href="clone_8hpp_source.html#l00011">11</a> of file <a class="el" href="clone_8hpp_source.html">clone.hpp</a>.</p>
+
+</div>
+</div>
 <a id="a4d043e243f95c8c907f9cbd9db2fd3b1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4d043e243f95c8c907f9cbd9db2fd3b1">&#9670;&nbsp;</a></span>deallocate() <span class="overload">[1/2]</span></h2>
 
@@ -804,7 +818,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="memory_8cpp_source.html#l00088">88</a> of file <a class="el" href="memory_8cpp_source.html">memory.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="memory_8cpp_source.html#l00079">79</a> of file <a class="el" href="memory_8cpp_source.html">memory.cpp</a>.</p>
 
 </div>
 </div>
@@ -851,7 +865,7 @@ Variables</h2></td></tr>
 </dl>
 <p>This implementation, where the size is given by a 32-bit integer, is typically slightly faster than the 64-bit integer version. </p>
 
-<p class="definition">Definition at line <a class="el" href="memory_8cpp_source.html#l00102">102</a> of file <a class="el" href="memory_8cpp_source.html">memory.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="memory_8cpp_source.html#l00093">93</a> of file <a class="el" href="memory_8cpp_source.html">memory.cpp</a>.</p>
 
 </div>
 </div>
@@ -1511,7 +1525,7 @@ Variables</h2></td></tr>
 
 <p>Get the <code>i</code>th pool. </p>
 
-<p class="definition">Definition at line <a class="el" href="memory_8cpp_source.html#l00038">38</a> of file <a class="el" href="memory_8cpp_source.html">memory.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="memory_8cpp_source.html#l00049">49</a> of file <a class="el" href="memory_8cpp_source.html">memory.cpp</a>.</p>
 
 </div>
 </div>
@@ -1565,7 +1579,7 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Pointer to the newly allocated memory. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="memory_8cpp_source.html#l00116">116</a> of file <a class="el" href="memory_8cpp_source.html">memory.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="memory_8cpp_source.html#l00107">107</a> of file <a class="el" href="memory_8cpp_source.html">memory.cpp</a>.</p>
 
 </div>
 </div>
@@ -1627,7 +1641,7 @@ Variables</h2></td></tr>
 
 <p>Determine the size for a given bin. </p>
 
-<p class="definition">Definition at line <a class="el" href="memory_8hpp_source.html#l00111">111</a> of file <a class="el" href="memory_8hpp_source.html">memory.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="memory_8hpp_source.html#l00105">105</a> of file <a class="el" href="memory_8hpp_source.html">memory.hpp</a>.</p>
 
 </div>
 </div>
@@ -1684,7 +1698,7 @@ Variables</h2></td></tr>
 
 <p>Size of heap (for debugging purposes). </p>
 
-<p class="definition">Definition at line <a class="el" href="memory_8cpp_source.html#l00046">46</a> of file <a class="el" href="memory_8cpp_source.html">memory.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="memory_8cpp_source.html#l00057">57</a> of file <a class="el" href="memory_8cpp_source.html">memory.cpp</a>.</p>
 
 </div>
 </div>
@@ -1702,26 +1716,7 @@ Variables</h2></td></tr>
 
 <p>Start of heap (for debugging purposes). </p>
 
-<p class="definition">Definition at line <a class="el" href="memory_8cpp_source.html#l00045">45</a> of file <a class="el" href="memory_8cpp_source.html">memory.cpp</a>.</p>
-
-</div>
-</div>
-<a id="a777e68acd7a448d4c84dc559c3977048"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a777e68acd7a448d4c84dc559c3977048">&#9670;&nbsp;</a></span>cloneUnderway</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">thread_local bool cloneUnderway = false</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Is a clone operation currently underway in the thread? </p>
-<dl class="section note"><dt>Note</dt><dd>A thread-local variable is used rather than a function argument to facilitate use of copy constructors when cloning objects, particularly important when using types from e.g. the STL where we can't modify the copy constructor or add new constructors. </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="memory_8cpp_source.html#l00060">60</a> of file <a class="el" href="memory_8cpp_source.html">memory.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="memory_8cpp_source.html#l00056">56</a> of file <a class="el" href="memory_8cpp_source.html">memory.cpp</a>.</p>
 
 </div>
 </div>
@@ -1755,26 +1750,7 @@ Variables</h2></td></tr>
 
 <p>Global finish lock. </p>
 
-<p class="definition">Definition at line <a class="el" href="clone_8cpp_source.html#l00013">13</a> of file <a class="el" href="clone_8cpp_source.html">clone.cpp</a>.</p>
-
-</div>
-</div>
-<a id="a9d947586a3586065d4cf87c0e7749f30"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9d947586a3586065d4cf87c0e7749f30">&#9670;&nbsp;</a></span>finishUnderway</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">thread_local bool finishUnderway = false</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Is a finish operation currently underway in the thread? </p>
-<p>A thread-local variable is used here as a way of making finishLock recursive. </p>
-
-<p class="definition">Definition at line <a class="el" href="clone_8cpp_source.html#l00014">14</a> of file <a class="el" href="clone_8cpp_source.html">clone.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="memory_8cpp_source.html#l00019">19</a> of file <a class="el" href="memory_8cpp_source.html">memory.cpp</a>.</p>
 
 </div>
 </div>
@@ -1792,26 +1768,7 @@ Variables</h2></td></tr>
 
 <p>Global freeze lock. </p>
 
-<p class="definition">Definition at line <a class="el" href="clone_8cpp_source.html#l00011">11</a> of file <a class="el" href="clone_8cpp_source.html">clone.cpp</a>.</p>
-
-</div>
-</div>
-<a id="ac1ca696052acc2baf7fcc60fb5382053"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac1ca696052acc2baf7fcc60fb5382053">&#9670;&nbsp;</a></span>freezeUnderway</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">thread_local bool freezeUnderway = false</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Is a freeze operation currently underway in the thread? </p>
-<p>A thread-local variable is used here as a way of making freezeLock recursive. </p>
-
-<p class="definition">Definition at line <a class="el" href="clone_8cpp_source.html#l00012">12</a> of file <a class="el" href="clone_8cpp_source.html">clone.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="memory_8cpp_source.html#l00018">18</a> of file <a class="el" href="memory_8cpp_source.html">memory.cpp</a>.</p>
 
 </div>
 </div>

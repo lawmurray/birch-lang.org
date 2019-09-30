@@ -75,7 +75,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">clone.hpp File Reference</div>  </div>
 </div><!--header-->
@@ -89,26 +89,12 @@ Namespaces</h2></td></tr>
 <tr class="memdesc:namespacelibbirch"><td class="mdescLeft">&#160;</td><td class="mdescRight">LibBirch. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:af838cbd67432e9b81855aa53787147ef"><td class="memItemLeft" align="right" valign="top">thread_local Context *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#af838cbd67432e9b81855aa53787147ef">currentContext</a></td></tr>
-<tr class="memdesc:af838cbd67432e9b81855aa53787147ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">The current context to which to assign newly created objects in the thread.  <a href="namespacelibbirch.html#af838cbd67432e9b81855aa53787147ef">More...</a><br /></td></tr>
-<tr class="separator:af838cbd67432e9b81855aa53787147ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a777e68acd7a448d4c84dc559c3977048"><td class="memItemLeft" align="right" valign="top">thread_local bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#a777e68acd7a448d4c84dc559c3977048">cloneUnderway</a> = false</td></tr>
-<tr class="memdesc:a777e68acd7a448d4c84dc559c3977048"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is a clone operation currently underway in the thread?  <a href="namespacelibbirch.html#a777e68acd7a448d4c84dc559c3977048">More...</a><br /></td></tr>
-<tr class="separator:a777e68acd7a448d4c84dc559c3977048"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9ee6e84341e197dee91560358f118bb1"><td class="memItemLeft" align="right" valign="top">EntryExitLock&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#a9ee6e84341e197dee91560358f118bb1">freezeLock</a></td></tr>
-<tr class="memdesc:a9ee6e84341e197dee91560358f118bb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Global freeze lock.  <a href="namespacelibbirch.html#a9ee6e84341e197dee91560358f118bb1">More...</a><br /></td></tr>
-<tr class="separator:a9ee6e84341e197dee91560358f118bb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac1ca696052acc2baf7fcc60fb5382053"><td class="memItemLeft" align="right" valign="top">thread_local bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#ac1ca696052acc2baf7fcc60fb5382053">freezeUnderway</a> = false</td></tr>
-<tr class="memdesc:ac1ca696052acc2baf7fcc60fb5382053"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is a freeze operation currently underway in the thread?  <a href="namespacelibbirch.html#ac1ca696052acc2baf7fcc60fb5382053">More...</a><br /></td></tr>
-<tr class="separator:ac1ca696052acc2baf7fcc60fb5382053"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afd5822bb99c0a3d64f2750dfb6d48467"><td class="memItemLeft" align="right" valign="top">EntryExitLock&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#afd5822bb99c0a3d64f2750dfb6d48467">finishLock</a></td></tr>
-<tr class="memdesc:afd5822bb99c0a3d64f2750dfb6d48467"><td class="mdescLeft">&#160;</td><td class="mdescRight">Global finish lock.  <a href="namespacelibbirch.html#afd5822bb99c0a3d64f2750dfb6d48467">More...</a><br /></td></tr>
-<tr class="separator:afd5822bb99c0a3d64f2750dfb6d48467"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9d947586a3586065d4cf87c0e7749f30"><td class="memItemLeft" align="right" valign="top">thread_local bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#a9d947586a3586065d4cf87c0e7749f30">finishUnderway</a> = false</td></tr>
-<tr class="memdesc:a9d947586a3586065d4cf87c0e7749f30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is a finish operation currently underway in the thread?  <a href="namespacelibbirch.html#a9d947586a3586065d4cf87c0e7749f30">More...</a><br /></td></tr>
-<tr class="separator:a9d947586a3586065d4cf87c0e7749f30"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a73abe036853314f08b545c8078ce0e79"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:a73abe036853314f08b545c8078ce0e79"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#a73abe036853314f08b545c8078ce0e79">clone</a> (const T &amp;o)</td></tr>
+<tr class="memdesc:a73abe036853314f08b545c8078ce0e79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clone.  <a href="namespacelibbirch.html#a73abe036853314f08b545c8078ce0e79">More...</a><br /></td></tr>
+<tr class="separator:a73abe036853314f08b545c8078ce0e79"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->

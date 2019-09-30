@@ -16,6 +16,8 @@ var searchData=
   ['stackfunction',['StackFunction',['../structlibbirch_1_1StackFunction.html',1,'libbirch']]],
   ['stacktrace_2ecpp',['stacktrace.cpp',['../stacktrace_8cpp.html',1,'']]],
   ['stacktrace_2ehpp',['stacktrace.hpp',['../stacktrace_8hpp.html',1,'']]],
+  ['startfinish',['startFinish',['../classlibbirch_1_1LazyPtr.html#a1a891dd4bc4cae98cd2eb7fbfab11b94',1,'libbirch::LazyPtr::startFinish()'],['../classlibbirch_1_1LazyPtr.html#a9ce28078353c9be7046f6341cdfd0c20',1,'libbirch::LazyPtr::startFinish() const']]],
+  ['startfreeze',['startFreeze',['../classlibbirch_1_1LazyPtr.html#a5d1a2e5e4596105067ef5c0b4d09372b',1,'libbirch::LazyPtr::startFreeze()'],['../classlibbirch_1_1LazyPtr.html#a958af456d88494a6a9955a286638d0da',1,'libbirch::LazyPtr::startFreeze() const']]],
   ['state',['state',['../classlibbirch_1_1Fiber.html#a544fc2cd2fd93ffb1820fa9732d1ba9c',1,'libbirch::Fiber']]],
   ['static_5fpointer_5fcast',['static_pointer_cast',['../classlibbirch_1_1LazyPtr.html#a482a3682f4ce430e38e9bcdd11cfb5f6',1,'libbirch::LazyPtr']]],
   ['store',['store',['../classlibbirch_1_1Atomic.html#aecf819a6b11a4df040cee66e865bc7bd',1,'libbirch::Atomic']]],
@@ -24,8 +26,6 @@ var searchData=
   ['stride_3c_20stride_5fvalue_20_3e',['Stride&lt; stride_value &gt;',['../structlibbirch_1_1Stride.html',1,'libbirch']]],
   ['strides',['strides',['../structlibbirch_1_1NonemptyFrame.html#a408d99db761d86466b4776be3c713d0d',1,'libbirch::NonemptyFrame']]],
   ['subtract',['subtract',['../classlibbirch_1_1Atomic.html#a0b51065033ccabfdb3ea329a95d0c32e',1,'libbirch::Atomic']]],
-  ['swapclone',['SwapClone',['../classlibbirch_1_1SwapClone.html',1,'SwapClone'],['../classlibbirch_1_1SwapClone.html#a81f5f811f51f41c7ce6e198176dc7ad3',1,'libbirch::SwapClone::SwapClone()']]],
-  ['swapclone_2ehpp',['SwapClone.hpp',['../SwapClone_8hpp.html',1,'']]],
   ['swapcontext',['SwapContext',['../classlibbirch_1_1SwapContext.html',1,'SwapContext'],['../classlibbirch_1_1SwapContext.html#a3536491de1411aab296a338dab96569d',1,'libbirch::SwapContext::SwapContext()']]],
   ['swapcontext_2ehpp',['SwapContext.hpp',['../SwapContext_8hpp.html',1,'']]]
 ];

@@ -10,7 +10,7 @@ var searchData=
   ['eigenfunctions_2ehpp',['EigenFunctions.hpp',['../EigenFunctions_8hpp.html',1,'']]],
   ['eigenoperators_2ehpp',['EigenOperators.hpp',['../EigenOperators_8hpp.html',1,'']]],
   ['eigentype',['EigenType',['../classlibbirch_1_1Array.html#a5145439bf17ec4620bdd04a01f406cb0',1,'libbirch::Array']]],
-  ['emplace_5f',['emplace_',['../classlibbirch_1_1Counted.html#ac71e4633145f9f52611994bc57099a8e',1,'libbirch::Counted']]],
+  ['emplace_5f',['emplace_',['../classlibbirch_1_1Counted.html#a9eae23688ca14bcf376da3d2bdf0e55a',1,'libbirch::Counted']]],
   ['empty',['empty',['../classlibbirch_1_1LazyMemo.html#a644718bb2fb240de962dc3c9a1fdf0dc',1,'libbirch::LazyMemo::empty()'],['../classlibbirch_1_1Pool.html#a644718bb2fb240de962dc3c9a1fdf0dc',1,'libbirch::Pool::empty()']]],
   ['emptyframe',['EmptyFrame',['../structlibbirch_1_1EmptyFrame.html',1,'EmptyFrame'],['../structlibbirch_1_1EmptyFrame.html#af9f1b24428906d15b5d2f7cf8090153d',1,'libbirch::EmptyFrame::EmptyFrame()']]],
   ['emptyview',['EmptyView',['../structlibbirch_1_1EmptyView.html',1,'libbirch']]],

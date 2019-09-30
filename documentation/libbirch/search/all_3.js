@@ -10,6 +10,7 @@ var searchData=
   ['defaultframe',['DefaultFrame',['../structlibbirch_1_1DefaultFrame.html',1,'libbirch']]],
   ['defaultview',['DefaultView',['../structlibbirch_1_1DefaultView.html',1,'libbirch']]],
   ['destroy_5f',['destroy_',['../classlibbirch_1_1Counted.html#a8c646025033c039cda48e37d63ebff79',1,'libbirch::Counted']]],
+  ['diagonal',['diagonal',['../EigenFunctions_8hpp.html#ab6aa26cd380bf39505e4352af9522afc',1,'bi']]],
   ['docs_2ehpp',['docs.hpp',['../docs_8hpp.html',1,'']]],
   ['dofinish_5f',['doFinish_',['../classlibbirch_1_1LazyAny.html#ab330e8a401386a541e8cb3e1791fdd4d',1,'libbirch::LazyAny']]],
   ['dofreeze_5f',['doFreeze_',['../classlibbirch_1_1LazyAny.html#a26f8e2284860b3b15c9ab9879649c1aa',1,'libbirch::LazyAny']]],
