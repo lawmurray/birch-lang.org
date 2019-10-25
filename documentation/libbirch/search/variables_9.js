@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['serial',['serial',['../classlibbirch_1_1Iterator.html#aef52ed1e2355b47245e81800a313cd24',1,'libbirch::Iterator']]],
-  ['sharedcount',['sharedCount',['../classlibbirch_1_1Counted.html#a23acab1b0e0a47cb076ced41bd2ca662',1,'libbirch::Counted']]],
-  ['size',['size',['../classlibbirch_1_1Counted.html#a245260f6f74972558f61b85227df5aae',1,'libbirch::Counted']]],
-  ['state',['state',['../classlibbirch_1_1Fiber.html#a544fc2cd2fd93ffb1820fa9732d1ba9c',1,'libbirch::Fiber']]]
+  ['tail_561',['tail',['../structlibbirch_1_1NonemptyFrame.html#aa75437190ec5d2975275f624dee7952c',1,'libbirch::NonemptyFrame::tail()'],['../structlibbirch_1_1NonemptyView.html#aa75437190ec5d2975275f624dee7952c',1,'libbirch::NonemptyView::tail()']]],
+  ['tid_562',['tid',['../classlibbirch_1_1Buffer.html#a8cc3dd191f714ba4ae35b2d3ac5b557a',1,'libbirch::Buffer::tid()'],['../classlibbirch_1_1Counted.html#a8cc3dd191f714ba4ae35b2d3ac5b557a',1,'libbirch::Counted::tid()']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['object',['object',['../classlibbirch_1_1LazyPtr.html#ace4800044346e00c518e064abd9b5d1d',1,'libbirch::LazyPtr']]]
+  ['rootcontext_557',['rootContext',['../namespacelibbirch.html#aa880359e61864c2a36ce7fd38e696abc',1,'libbirch']]]
 ];

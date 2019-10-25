@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['init',['Init',['../namespacelibbirch.html#ab77af6f966e394c1e3f60c680e416bce',1,'libbirch']]]
+  ['label_569',['Label',['../namespacelibbirch.html#ab12497ee57b7557c4be2b8bb952753d2',1,'libbirch']]]
 ];

@@ -6210,18 +6210,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../LLT/" title="LLT" class="md-nav__link">
-      LLT
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../List/" title="List" class="md-nav__link">
       List
     </a>
@@ -7173,9 +7161,9 @@
 multivariate linear regression:</p>
 <p>
 <script type="math/tex; mode=display">\begin{align*}
-\mathbf{\Sigma} &\sim \mathcal{W}^{-1}(\mathbf{\Psi}, \nu) \\
+\boldsymbol{\Sigma} &\sim \mathcal{W}^{-1}(\boldsymbol{\Psi}, \nu) \\
 \mathbf{W} &\sim \mathcal{MN}(\mathbf{M}, \mathbf{A}, \boldsymbol{\Sigma}) \\
-\mathbf{Y} &\sim \mathcal{N}(\mathbf{W}\mathbf{X}, \boldsymbol{\Sigma}),
+\mathbf{Y} &\sim \mathcal{N}(\mathbf{X}\mathbf{W}, \boldsymbol{\Sigma}),
 \end{align*}</script>
 </p>
 <p>where <script type="math/tex">\mathbf{X}</script> are inputs and <script type="math/tex">\mathbf{Y}</script> are outputs.</p>
@@ -7191,7 +7179,7 @@ X:Real[_,_];
 
 V ~ InverseWishart(Ψ, k);
 W ~ Gaussian(M, U, V);
-Y ~ Gaussian(W*X, V);
+Y ~ Gaussian(X*W, V);
 </code></pre>
 </div>
 <h3 id="factory-functions">Factory Functions</h3>

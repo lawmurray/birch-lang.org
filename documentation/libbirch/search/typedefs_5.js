@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['key_5ftype',['key_type',['../classlibbirch_1_1LazyMemo.html#a9b8b40c78d7dfa7e7c48c298f839e4ea',1,'libbirch::LazyMemo']]]
+  ['shared_570',['Shared',['../namespacelibbirch.html#a8a26a4e08f949aebb90f748aea6017a8',1,'libbirch']]]
 ];

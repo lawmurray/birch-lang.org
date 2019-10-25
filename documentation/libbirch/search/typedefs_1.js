@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['defaultarray',['DefaultArray',['../namespacelibbirch.html#af274cdc237a577eb6b5563773b5c0922',1,'libbirch']]]
+  ['head_5ftype_566',['head_type',['../structlibbirch_1_1NonemptyFrame.html#a925170fd7a31285f9e01cf9c1ba9ce28',1,'libbirch::NonemptyFrame::head_type()'],['../structlibbirch_1_1NonemptyView.html#a925170fd7a31285f9e01cf9c1ba9ce28',1,'libbirch::NonemptyView::head_type()']]]
 ];

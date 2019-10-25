@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['nlabels_5f',['nlabels_',['../classlibbirch_1_1FiberState.html#ac99fc781fb57fc20e85485422ee7b89e',1,'libbirch::FiberState']]]
+  ['point_5f_555',['point_',['../classlibbirch_1_1FiberState.html#acc8c606d67e51ea18b80dbbccdddc54a',1,'libbirch::FiberState']]],
+  ['ptr_556',['ptr',['../classlibbirch_1_1Iterator.html#a4e0fab5bba27ff507e909503f0770e58',1,'libbirch::Iterator']]]
 ];

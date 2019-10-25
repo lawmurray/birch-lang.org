@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['shared',['Shared',['../namespacelibbirch.html#a8a26a4e08f949aebb90f748aea6017a8',1,'libbirch']]]
+  ['tail_5ftype_571',['tail_type',['../structlibbirch_1_1NonemptyFrame.html#af2a5b52c7b611f8f9ffb7291a7601262',1,'libbirch::NonemptyFrame::tail_type()'],['../structlibbirch_1_1NonemptyView.html#af2a5b52c7b611f8f9ffb7291a7601262',1,'libbirch::NonemptyView::tail_type()']]]
 ];

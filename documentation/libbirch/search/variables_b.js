@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['value_5f',['value_',['../classlibbirch_1_1FiberState.html#aa1e7c15bb530d8190beb32d9dfcbdab6',1,'libbirch::FiberState']]]
+  ['weakcount_564',['weakCount',['../classlibbirch_1_1Counted.html#a11ef8befb08db1d93f55ce92058fb237',1,'libbirch::Counted']]]
 ];
