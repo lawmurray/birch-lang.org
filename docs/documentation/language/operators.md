@@ -2,15 +2,17 @@ Birch supports the most common arithmetic and logical operators found in other p
 
 ### Unary operators
 
-The (prefix) unary operators are all of equal precedence, and of higher precedence than all binary operators:
+The prefix unary operators are all of equal precedence, and of higher precedence than all binary operators:
 
 |              |              |                 |
 | ------------ | ------------ | --------------- |
 | `+` Identity | `-` Negative | `!` Logical not |
 
-The standard library provides the obvious overloads for these standard operators for built-in types.
+The postfix unary operators are used with [optional](optionals) and [fiber](fibers). They are of equal precedence, and of higher precedence than all other operators, including the prefix unary operators:
 
-There are no operators for power or modulus: the standard library functions `pow` and `mod` should be used instead. There are no operators defined for bit operations.
+|           |         |
+| --------- | ------- |
+| `?` Query | `!` Get |
 
 ### Binary operators
 
@@ -20,52 +22,34 @@ The (infix) binary operators are, in order of highest to lowest precedence:
 | --- | --- | --- | --- |
 | `*` Multiply       | `/` Divide      | | |
 | `+` Add            | `-` Subtract    | | |
-| `<` Less           | `>` Greater     | `<=` Less/equal  | `>=` Greater/equal |
+| `<` Less           | `>` Greater     | `<=` Less or equal  | `>=` Greater or equal |
 | `==` Equal         | `!=` Not equal  | | |
 | `&&` Logical and   | | | |
 | `||` Logical or    | | | |
-| `<-` Assign | `<~` Simulate | `~>` Observe | `~` Distributed as |
+| `<-` Assign | `<~` Simulate | `~>` Observe | `~` Assume |
 
-The last three operators are introduced for concise probabilistic statements. They are syntactic sugar. Firstly, `a ~> b` is defined to mean exactly:
+There are no operators for power or modulus: the standard library functions `pow` and `mod` should be used instead. There are no operators defined for bit operations.
 
-    yield b.observe(a);
-    
-where the yield will be of type `Real`, and gives the log-likelihood of the observed value `a` under distribution `b`. Consequently, it is necessary that `b` is of a class type with an appropriate `observe()` member function, typically a subtype of the `Distribution` class defined in the standard library. If the operator is used outside of a [fiber](fibers), the `yield` is omitted.
+The last three operators are introduced for concise probabilistic statements and interactions between models and inference methods. They may only be used within fibers that yield the type `Event`, in which models are typically defined.
 
-Then, `a <~ b;` means exactly:
+Let `x` be an object of basic type (e.g. `Real`), optional type (e.g. `Real?`) or random type (e.g. `Random<Real>`), and `p` an object of `Distribution` type. Then:
 
-    a <- b.simulate();
-
-and `a ~ b;` means exactly:
-
-    if (a.isMissing()) {
-      a.assume(b);
-    } else {
-      a ~> b;
-    }
-    
-Again, this means that `b` must be of a class type with appropriate member functions defined, typically a subtype of the `Distribution` class defined in the standard library
-
-### Query-Get
-
-These are postfix unary operators used with [optional](optionals) and [fiber](fibers) types. They are of equal precedence, and of higher precedence than all other operators:
-
-|              |              |
-| ------------ | ------------ |
-| `?` Query    | `!` Get      |
+  * `x <~ p` simulates from the distribution `p` and assigns the variate to `x`,
+  * `x ~> p` observes a variate of value `x` produced from the distribution `p`,
+  * `x ~ p` assumes that the variate `x` is distributed according to the distribution `p`, although it may not be simulated from it immediately, or ever, according to subsequent statements.
 
 ### Overloading
 
-The action of standard operators is defined by overloads, declared using the `operator` statement. Only the standard operators may be overloaded. All other operators have in-built behaviour as described above.
+The action of standard operators is defined by overloads, declared using the `operator` statement. Only the standard operators may be overloaded. All other operators have in-built behavior as described above.
 
 !!! info
-    It is still possible to manipulate the behaviour of some operators that cannot be overloaded. For example, the behaviour of the assignment operator `<-` can be manipulated by declaring assignments and conversions in class declarations.
+    It is still possible to manipulate the behavior of some operators that cannot be overloaded. For example, the behavior of the assignment operator `<-` can be manipulated by declaring assignments and conversions in class declarations.
 
 A binary operator `+` with two operands `a:A` and `b:B`, and return type `C`, is declared as:
 
     operator (a:A + b:B) -> C {
       c:C;
-      // ...
+      // do something
       return c;
     }
 
@@ -75,7 +59,6 @@ A unary operator `+` with one operand `a:A`, and return type `C`, is declared as
 
     operator (+a:A) -> C {
       c:C;
-      // ...
       return c;
     }
 

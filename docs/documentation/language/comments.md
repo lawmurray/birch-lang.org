@@ -7,4 +7,4 @@ In the spirit of JavaDoc and Doxygen, block comments that begin with two stars d
 
     /** documentation comment */
 
-These typically appear immediately prior to class and function declarations to document their behaviour.
+These typically appear immediately prior to class and function declarations to document their behavior.

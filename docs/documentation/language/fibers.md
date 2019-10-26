@@ -4,7 +4,7 @@ A fiber is declared with:
 
     fiber f(a:A, b:B) -> C {
       c:C;
-      // ...
+      // do something
       yield c;
     }
 
@@ -33,7 +33,7 @@ It is not necessary for the caller to run the fiber to termination. Likewise, it
 
     This fiber yields the positive integers in order. It never terminates, but need not: the caller will decide how many times it is resumed.
 
-Fibers may call other fibers. No special syntax is required for this. There is a common use case, however, where a fiber with yield type `C` calls another fiber with yield type `C`, and wishes the pass the yield values of that second fiber back to the original caller. For the convenience of this common use case, the following implicit behaviour is defined.
+Fibers may call other fibers. No special syntax is required for this. There is a common use case, however, where a fiber with yield type `C` calls another fiber with yield type `C`, and wishes the pass the yield values of that second fiber back to the original caller. For the convenience of this common use case, the following implicit behavior is defined.
 
 If a fiber calls another fiber, but ignores the return value that would otherwise be used to control the execution of that fiber:
 
@@ -48,4 +48,8 @@ this implicitly behaves as though the following were written:
 
 That is, the second fiber yields values to the first fiber, which in turn yields those values back to its caller.
 
-The same implicit behaviour applies when a fiber calls a *function*---not itself a fiber---but that returns a fiber type.
+The same implicit behavior applies when a fiber calls a *function*---not itself a fiber---but that returns a fiber type.
+
+### Generic fibers
+
+Generic fibers are analogous to generic functions; they are declared with type parameters, and called with type arguments.

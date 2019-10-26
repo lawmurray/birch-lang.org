@@ -2,7 +2,7 @@ Lambda (anonymous) functions may appear in expressions as:
 
     @(a:A, b:B) -> C {
       c:C;
-      // ...
+      // do something
       return c;
     }
 
@@ -14,7 +14,7 @@ to assign values to it:
 
     f <- @(a:A, b:B) -> C {
           c:C;
-          // ...
+          // do something
           return c;
       };
 
@@ -26,7 +26,7 @@ Functions can accept lambdas as arguments. Such a function may be declared:
 
     function g(f:@(a:A, b:B) -> C) -> D {
       d:D;
-      // ...
+      // do something
       return d;
     }
 
@@ -34,7 +34,7 @@ and be called with:
 
     g(@(a:A, b:B) -> C {
           c:C;
-          // ...
+          // do something
           return c;
         });
 

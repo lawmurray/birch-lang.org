@@ -50,10 +50,9 @@ nav:
       - 'Types': documentation/language/types.md
       - 'Assignments': documentation/language/assignments.md
       - 'Control Flow': documentation/language/control_flow.md
-      - 'Tuples': documentation/language/tuples.md
-      - 'Sequences': documentation/language/sequences.md
       - 'Arrays': documentation/language/arrays.md
       - 'Optionals': documentation/language/optionals.md
+      - 'Tuples': documentation/language/tuples.md
       - 'Functions': documentation/language/functions.md
       - 'Lambdas': documentation/language/lambdas.md
       - 'Fibers': documentation/language/fibers.md

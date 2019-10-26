@@ -14,6 +14,14 @@ The size of the array may be given in the square brackets when it is declared, i
     a:A[4];
     b:B[4,8];
 
+Alternatively, arrays can be initialized using a sequence of element values in square brackets:
+
+    a:Real[_] <- [0.0, 1.0, 2.0];
+
+It is possible to nest these sequences to construct higher-dimensional arrays:
+
+    A:Real[_,_] <- [[1.0, 0.0], [0.0, 1.0]];
+
 Arrays are sliced with square brackets. To select the element of `b` at row 2 and column 6, use:
 
     b[2,6]

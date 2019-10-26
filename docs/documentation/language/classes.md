@@ -1,7 +1,7 @@
 A class named `A` is declared as:
 
     class A {
-      // ...
+      // declare members
     }
 
 A variable of class type `A` is then declared as usual:
@@ -13,10 +13,34 @@ A variable of class type `A` is then declared as usual:
 A class type named `A` that inherits from a class type named `B` is declared as:
 
     class A < B {
-      // ...
+      // declare members
     }
 
-The class `B` is referred to as the *super type* of `A`.
+The class `B` is referred to as the *base class* of `A`. Conversely, `A` is referred to as a *derived class* of `B`.
+
+A class may be marked `abstract` to indicate that it cannot be instantiated:
+
+    abstract class A {
+      // declare members
+    }
+
+A class may be marked `final` to indicate that it cannot be inherited by another class:
+
+    final class B < A {
+      // declare members
+    }
+
+An abstract class cannot be instantiated directly:
+
+    a:A;
+
+However, because objects are kept by reference, it is possible to declare an object of an abstract class, but initialize it with an object of a derived class:
+
+    b:B;
+    a:A <- b;
+
+!!! info
+    Some constraints on abstract and final classes are currently enforced by the C++ compiler, not the Birch compiler, and so will produce C++ compilation error messages, rather than Birch compilation error messages. These are still reasonably interpretable.
 
 ### Member variables
 
@@ -38,7 +62,7 @@ Function declarations that appear within the body of a class are *member functio
 
     class A {
       function f(b:B, c:C) -> D {
-        // ...
+        // do something
       }
     }
 
@@ -46,9 +70,9 @@ These member functions can be called on an object of the class type, again acces
 
     d <- a.f(b, c);
 
-The body of a member function may use any member variables of the object on which the member function is called. The keyword `this` is used to explicitly refer to the object on which the member function is called. If the class has a super type, the keyword `super` is also used to explicitly refer to the object on which the member function is called, but cast to the super type.
+The body of a member function may use any member variables of the object on which the member function is called. The keyword `this` is used to explicitly refer to the object on which the member function is called. If the class has a base class, the keyword `super` is also used to explicitly refer to the object on which the member function is called, but cast to the base class.
 
-All member functions are virtual. To delegate a call to a member function of the super type, also use the `super` keyword:
+All member functions are virtual. To delegate a call to a member function of the base class, also use the `super` keyword:
 
     class A < B {
       function f(c:C) {
@@ -56,16 +80,35 @@ All member functions are virtual. To delegate a call to a member function of the
       }
     }
 
+Member functions cannot be generic.
+
+A member function may be marked `final` to indicate that it cannot be overridden by a derived class:
+
+    final function f(a:A, b:B) {
+      // do something
+    }
+
+A member function may be marked `abstract` to indicate that it must be overridden by a derived class if objects of that class are to be instantiated:
+
+    abstract function f(a:A, b:B);
+
+A final member function must have a body. An abstract member function must not have a body. A class with one or more abstract member functions must be marked as an abstract class.
+
+!!! info
+    Some constraints on abstract and final member functions are currently enforced by the C++ compiler, not the Birch compiler, and so will produce C++ compilation error messages, rather than Birch compilation error messages. These are still reasonably interpretable.
+
 ### Member fibers
 
-Fiber declarations that appear within the body of a class are *member fibers*. Their behaviour is analogous to member functions.
+Fiber declarations that appear within the body of a class are *member fibers*. Their behavior is analogous to member functions. They may similar be declared as abstract or final member fibers.
 
-### Generic parameters
+Member functions cannot be generic.
+
+### Generic classes
 
 A class declaration may include parameters for generic types that are to be specified when the class is used. These are declared using angle brackets in the class declaration:
 
     class A<T,U> {
-      // ...
+      // declare members
     }
 
 When a variable of this type is declared, arguments are specified for the generic types, also using angle brackets:
@@ -83,7 +126,7 @@ These arguments may be of any type. Within the body of the class, the type param
       }
     }
 
-### Initialization parameters
+### Initialization
 
 When an object of a class type is declared, its member variables are initialized according to the initial values given in the class body. For the class:
 
@@ -113,14 +156,11 @@ The member variables of `a` are now initialized such that `a.b == 0`, and `a.c =
 
 The declarations `a:A;` and `a:A();` are equivalent.
 
-Initialization arguments can be passed onto the super type if required:
+Initialization arguments can be passed onto the base class if required:
 
     class A(d:Integer) < B(d) {
-      // ...
+      // declare members
     }
-
-!!! info
-    Initialization parameters in Birch play a similar role to initialization lists in C++.
 
 Initialization parameters are used for simple object initialization, such as to set initial values and array sizes. They do not allow arbitrary code to be executed upon object construction. This is the role of a *constructor*. Birch does not, however, have any special language support for constructors. Instead, it is idiomatic to use *factory functions*, exploiting the fact that the same name can be used for both a function and a class in the Birch language.
 
@@ -128,56 +168,56 @@ A factory function is given the same name as the class it is intended to constru
 
     function A(b:B, c:C) -> A {
       a:A;
-      // ...
+      // do something
       return a;
     }
 
-This function is treated as any other---there is nothing special about it---but it is idiomatic that such a function should return an object of the same type as its name, or of a subtype of that type. The possibility of returning a subtype makes a factory function slightly more flexible than an ordinary constructor.
+This function is treated as any other---there is nothing special about it---but it is idiomatic that such a function should return an object of the same type as its name, or of a derived type. The possibility of returning a derived type makes a factory function slightly more flexible than an ordinary constructor.
 
 For complex object construction, it can be useful to define a member function within the class that does most of the work, with the factory function simply instantiating the object, then passing its arguments to this function. It is idiomatic for such a member function to be given the name `make`.
 
-### Assignments
+### Assignment
 
 !!! info
     Recall that, for basic types, assignment is by value, while for class types, assignment is by reference.
 
-Objects of class type `A` may be assigned another object of type `A` or an object of any subtype of `A`; i.e. if `a:A` and `b:B` with `A < B`, it is possible to assign `b <- a` but not `a <- b`.
+Objects of class type `A` may be assigned another object of basic type `A` or an object of a derived type of `A`; i.e. if `a:A` and `b:B` with `A < B`, it is possible to assign `b <- a` but not `a <- b`.
 
-Such assignments are by reference. Objects of class type `A` may be assigned *by value* if an appropriate declaration has been made within the class body. To permit assignment of type `C`, for example:
+Such assignments are by reference. Objects of class type `A` may be assigned *by value* from a basic type if an appropriate declaration has been made within the class body. To permit assignment of type `C`, for example:
 
     class A {
       operator <- c:C {
-        // ...
+        // do something
       }
     }
 
-The body of the operator should update the state of the object using the argument. There is no return value. For `a:A` and `c:C`, the assignment `a <- c` would then be valid, even though `C` is not a subtype of `A`.
+The body of the operator should update the state of the object using the argument. There is no return value. For `a:A` and `c:C`, the assignment `a <- c` would then be valid, even though `C` is not a derived class of `A`.
 
-### Conversions
+### Conversion
 
-Objects of class type `A` may be implicitly cast to an object of any super type of `A`; i.e. if `a:A` and `b:B` with `A < B`, the object `a` can be implicitly converted to an object of type `B`, as in the following:
+Objects of class type `A` may be implicitly cast to an object of any base class of `A`; i.e. if `a:A` and `b:B` with `A < B`, the object `a` can be implicitly converted to an object of type `B`, as in the following:
 
     function f(b:B) {
-      // ...
+      // do something
     }
     a:A;
     f(a);
 
-Such casts are *by reference*. For other types, it is possible to declare implicit conversions *by value*, if an appropriate declaration has been made within the class body. To permit conversion to type `C`, for example:
+Such casts are *by reference*. For basic types, it is possible to declare implicit conversions *by value*, if an appropriate declaration has been made within the class body. To permit conversion to type `C`, for example:
 
     class A {
       operator -> C {
         c:C;
-        // ...
+        // do something
         return c;
       }
       ...
     }
 
-The body of the operator should construct the object to be returned as the result of the conversion. For `a:A` and `c:C`, the following would then be valid, even though `C` is not a super type of `A`
+For `a:A` and `c:C`, the following function call would then be valid, even though `C` is not a base class of `A`
 
     function f(c:C) {
-      // ...
+      // do something
     }
 
     a:A;

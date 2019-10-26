@@ -2,7 +2,7 @@ A program is a special function that is an entry point into Birch code from the 
 
     program example(x:Boolean, y:Integer <- 0, message:String,
         long_name:Real) {
-      // ...
+      // do something
     }
 
 where `x`, `y`, `message`, and `long_name` are program options, with `y` given a default value of zero. A program has no return value.
