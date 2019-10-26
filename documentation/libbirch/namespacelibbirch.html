@@ -306,6 +306,14 @@ Functions</h2></td></tr>
 <tr class="memitem:ac0c0286071907e22e29792eb3ba181b7"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classlibbirch_1_1Tie.html">Tie</a>&lt; Head &amp;, Tail &amp;... &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#ac0c0286071907e22e29792eb3ba181b7">tie</a> (<a class="el" href="namespacelibbirch.html#ab12497ee57b7557c4be2b8bb952753d2">Label</a> *context, Head &amp;head, Tail &amp;... tail)</td></tr>
 <tr class="memdesc:ac0c0286071907e22e29792eb3ba181b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make an assignable tuple.  <a href="namespacelibbirch.html#ac0c0286071907e22e29792eb3ba181b7">More...</a><br /></td></tr>
 <tr class="separator:ac0c0286071907e22e29792eb3ba181b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8403a7ba209873172ce171f3eb08921"><td class="memTemplParams" colspan="2">template&lt;class Type , IS_VALUE(Type) &gt; </td></tr>
+<tr class="memitem:ae8403a7ba209873172ce171f3eb08921"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classlibbirch_1_1Optional.html">Optional</a>&lt; Type &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#ae8403a7ba209873172ce171f3eb08921">make</a> (<a class="el" href="namespacelibbirch.html#ab12497ee57b7557c4be2b8bb952753d2">Label</a> *context)</td></tr>
+<tr class="memdesc:ae8403a7ba209873172ce171f3eb08921"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make a value.  <a href="namespacelibbirch.html#ae8403a7ba209873172ce171f3eb08921">More...</a><br /></td></tr>
+<tr class="separator:ae8403a7ba209873172ce171f3eb08921"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa759ed01f9806b6e873dfce121233e3f"><td class="memTemplParams" colspan="2">template&lt;class Type , IS_POINTER(Type) , IS_DEFAULT_CONSTRUCTIBLE(Type) &gt; </td></tr>
+<tr class="memitem:aa759ed01f9806b6e873dfce121233e3f"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classlibbirch_1_1Optional.html">Optional</a>&lt; Type &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#aa759ed01f9806b6e873dfce121233e3f">make</a> (<a class="el" href="namespacelibbirch.html#ab12497ee57b7557c4be2b8bb952753d2">Label</a> *context)</td></tr>
+<tr class="memdesc:aa759ed01f9806b6e873dfce121233e3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make an object.  <a href="namespacelibbirch.html#aa759ed01f9806b6e873dfce121233e3f">More...</a><br /></td></tr>
+<tr class="separator:aa759ed01f9806b6e873dfce121233e3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adb88cade0d4d33cf8c560bee36953b99"><td class="memTemplParams" colspan="2">template&lt;class To , class From &gt; </td></tr>
 <tr class="memitem:adb88cade0d4d33cf8c560bee36953b99"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classlibbirch_1_1Optional.html">Optional</a>&lt; To &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#adb88cade0d4d33cf8c560bee36953b99">dynamic_pointer_cast</a> (<a class="el" href="namespacelibbirch.html#ab12497ee57b7557c4be2b8bb952753d2">Label</a> *context, const <a class="el" href="namespacelibbirch.html#a8a26a4e08f949aebb90f748aea6017a8">Shared</a>&lt; From &gt; &amp;from)</td></tr>
 <tr class="memdesc:adb88cade0d4d33cf8c560bee36953b99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cast an object.  <a href="namespacelibbirch.html#adb88cade0d4d33cf8c560bee36953b99">More...</a><br /></td></tr>
@@ -603,7 +611,7 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Pointer to the allocated memory. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="memory_8cpp_source.html#l00048">48</a> of file <a class="el" href="memory_8cpp_source.html">memory.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="memory_8cpp_source.html#l00013">13</a> of file <a class="el" href="memory_8cpp_source.html">memory.cpp</a>.</p>
 
 </div>
 </div>
@@ -715,7 +723,7 @@ Variables</h2></td></tr>
 <p>Cast anything else. </p>
 <dl class="section return"><dt>Returns</dt><dd>An optional, with a value only if <code>from</code> is of type To. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="libbirch_8hpp_source.html#l00390">390</a> of file <a class="el" href="libbirch_8hpp_source.html">libbirch.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="libbirch_8hpp_source.html#l00429">429</a> of file <a class="el" href="libbirch_8hpp_source.html">libbirch.hpp</a>.</p>
 
 </div>
 </div>
@@ -738,7 +746,7 @@ Variables</h2></td></tr>
 <p>Cast an optional of anything else. </p>
 <dl class="section return"><dt>Returns</dt><dd>An optional, with a value only if <code>from</code> has a value of type To. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="libbirch_8hpp_source.html#l00400">400</a> of file <a class="el" href="libbirch_8hpp_source.html">libbirch.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="libbirch_8hpp_source.html#l00439">439</a> of file <a class="el" href="libbirch_8hpp_source.html">libbirch.hpp</a>.</p>
 
 </div>
 </div>
@@ -831,7 +839,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="memory_8cpp_source.html#l00068">68</a> of file <a class="el" href="memory_8cpp_source.html">memory.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="memory_8cpp_source.html#l00033">33</a> of file <a class="el" href="memory_8cpp_source.html">memory.cpp</a>.</p>
 
 </div>
 </div>
@@ -878,7 +886,7 @@ Variables</h2></td></tr>
 </dl>
 <p>This implementation, where the size is given by a 32-bit integer, is typically slightly faster than the 64-bit integer version. </p>
 
-<p class="definition">Definition at line <a class="el" href="memory_8cpp_source.html#l00082">82</a> of file <a class="el" href="memory_8cpp_source.html">memory.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="memory_8cpp_source.html#l00047">47</a> of file <a class="el" href="memory_8cpp_source.html">memory.cpp</a>.</p>
 
 </div>
 </div>
@@ -910,7 +918,7 @@ Variables</h2></td></tr>
 
 <p>Cast an object optional. </p>
 
-<p class="definition">Definition at line <a class="el" href="libbirch_8hpp_source.html#l00376">376</a> of file <a class="el" href="libbirch_8hpp_source.html">libbirch.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="libbirch_8hpp_source.html#l00415">415</a> of file <a class="el" href="libbirch_8hpp_source.html">libbirch.hpp</a>.</p>
 
 </div>
 </div>
@@ -942,7 +950,7 @@ Variables</h2></td></tr>
 
 <p>Cast an object. </p>
 
-<p class="definition">Definition at line <a class="el" href="libbirch_8hpp_source.html#l00368">368</a> of file <a class="el" href="libbirch_8hpp_source.html">libbirch.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="libbirch_8hpp_source.html#l00407">407</a> of file <a class="el" href="libbirch_8hpp_source.html">libbirch.hpp</a>.</p>
 
 </div>
 </div>
@@ -1041,6 +1049,64 @@ Variables</h2></td></tr>
 <p>Update the line number of the top frame of the stack trace. </p>
 
 <p class="definition">Definition at line <a class="el" href="stacktrace_8cpp_source.html#l00028">28</a> of file <a class="el" href="stacktrace_8cpp_source.html">stacktrace.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ae8403a7ba209873172ce171f3eb08921"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8403a7ba209873172ce171f3eb08921">&#9670;&nbsp;</a></span>make() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classlibbirch_1_1Optional.html">Optional</a>&lt;Type&gt; libbirch::make </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacelibbirch.html#ab12497ee57b7557c4be2b8bb952753d2">Label</a> *&#160;</td>
+          <td class="paramname"><em>context</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Make a value. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Type</td><td>Value type.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An optional with a default-constructed value of the given type. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="libbirch_8hpp_source.html#l00372">372</a> of file <a class="el" href="libbirch_8hpp_source.html">libbirch.hpp</a>.</p>
+
+</div>
+</div>
+<a id="aa759ed01f9806b6e873dfce121233e3f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa759ed01f9806b6e873dfce121233e3f">&#9670;&nbsp;</a></span>make() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classlibbirch_1_1Optional.html">Optional</a>&lt; Type &gt; make </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacelibbirch.html#ab12497ee57b7557c4be2b8bb952753d2">Label</a> *&#160;</td>
+          <td class="paramname"><em>context</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Make an object. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Type</td><td>Pointer type.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An optional with a value of the given type if that type is default-constructible, otherwise no value. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="libbirch_8hpp_source.html#l00385">385</a> of file <a class="el" href="libbirch_8hpp_source.html">libbirch.hpp</a>.</p>
 
 </div>
 </div>
@@ -1726,7 +1792,7 @@ Variables</h2></td></tr>
 
 <p>Get the <code>i</code>th pool. </p>
 
-<p class="definition">Definition at line <a class="el" href="memory_8cpp_source.html#l00037">37</a> of file <a class="el" href="memory_8cpp_source.html">memory.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="memory_8cpp_source.html#l00007">7</a> of file <a class="el" href="memory_8cpp_source.html">memory.cpp</a>.</p>
 
 </div>
 </div>
@@ -1780,7 +1846,7 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Pointer to the newly allocated memory. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="memory_8cpp_source.html#l00096">96</a> of file <a class="el" href="memory_8cpp_source.html">memory.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="memory_8cpp_source.html#l00061">61</a> of file <a class="el" href="memory_8cpp_source.html">memory.cpp</a>.</p>
 
 </div>
 </div>
@@ -1957,7 +2023,7 @@ Variables</h2></td></tr>
 
 <p>Size of heap (for debugging purposes). </p>
 
-<p class="definition">Definition at line <a class="el" href="memory_8cpp_source.html#l00045">45</a> of file <a class="el" href="memory_8cpp_source.html">memory.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="global_8cpp_source.html#l00040">40</a> of file <a class="el" href="global_8cpp_source.html">global.cpp</a>.</p>
 
 </div>
 </div>
@@ -1975,7 +2041,7 @@ Variables</h2></td></tr>
 
 <p>Start of heap (for debugging purposes). </p>
 
-<p class="definition">Definition at line <a class="el" href="memory_8cpp_source.html#l00044">44</a> of file <a class="el" href="memory_8cpp_source.html">memory.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="global_8cpp_source.html#l00039">39</a> of file <a class="el" href="global_8cpp_source.html">global.cpp</a>.</p>
 
 </div>
 </div>
@@ -1993,7 +2059,7 @@ Variables</h2></td></tr>
 
 <p>Global finish lock. </p>
 
-<p class="definition">Definition at line <a class="el" href="thread_8cpp_source.html#l00016">16</a> of file <a class="el" href="thread_8cpp_source.html">thread.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="global_8cpp_source.html#l00052">52</a> of file <a class="el" href="global_8cpp_source.html">global.cpp</a>.</p>
 
 </div>
 </div>
@@ -2011,7 +2077,7 @@ Variables</h2></td></tr>
 
 <p>Global freeze lock. </p>
 
-<p class="definition">Definition at line <a class="el" href="thread_8cpp_source.html#l00015">15</a> of file <a class="el" href="thread_8cpp_source.html">thread.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="global_8cpp_source.html#l00051">51</a> of file <a class="el" href="global_8cpp_source.html">global.cpp</a>.</p>
 
 </div>
 </div>
@@ -2045,7 +2111,7 @@ Variables</h2></td></tr>
 
 <p>The root context. </p>
 
-<p class="definition">Definition at line <a class="el" href="thread_8cpp_source.html#l00014">14</a> of file <a class="el" href="thread_8cpp_source.html">thread.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="global_8cpp_source.html#l00050">50</a> of file <a class="el" href="global_8cpp_source.html">global.cpp</a>.</p>
 
 </div>
 </div>

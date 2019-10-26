@@ -102,6 +102,14 @@ Macros</h2></td></tr>
 <tr class="separator:a5116e5fb782e4ac9918e09779b5a164d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5b5cc8b89aa1b6bfae43f534bc75ef53"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="type_8hpp.html#a5b5cc8b89aa1b6bfae43f534bc75ef53">IS_CONVERTIBLE</a>(From,  To)&#160;&#160;&#160;std::enable_if_t&lt;std::is_convertible&lt;From,To&gt;::value,int&gt; = 0</td></tr>
 <tr class="separator:a5b5cc8b89aa1b6bfae43f534bc75ef53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd51df53b94d7c2461f56bc6f9dc7b97"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="type_8hpp.html#afd51df53b94d7c2461f56bc6f9dc7b97">IS_POINTER</a>(Type)&#160;&#160;&#160;std::enable_if_t&lt;is_pointer&lt;Type&gt;::value,int&gt; = 0</td></tr>
+<tr class="separator:afd51df53b94d7c2461f56bc6f9dc7b97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae914ff2c7916f0e884840f311641d7d9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="type_8hpp.html#ae914ff2c7916f0e884840f311641d7d9">IS_NOT_POINTER</a>(Type)&#160;&#160;&#160;std::enable_if_t&lt;!is_pointer&lt;Type&gt;::value,int&gt; = 0</td></tr>
+<tr class="separator:ae914ff2c7916f0e884840f311641d7d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46ae7876b88f474d48d2d654528f6f42"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="type_8hpp.html#a46ae7876b88f474d48d2d654528f6f42">IS_DEFAULT_CONSTRUCTIBLE</a>(Type)&#160;&#160;&#160;std::enable_if_t&lt;std::is_constructible&lt;typename Type::value_type,Label*&gt;::value,int&gt; = 0</td></tr>
+<tr class="separator:a46ae7876b88f474d48d2d654528f6f42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60813d4ba3739e9491688508c7194327"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="type_8hpp.html#a60813d4ba3739e9491688508c7194327">IS_NOT_DEFAULT_CONSTRUCTIBLE</a>(Type)&#160;&#160;&#160;std::enable_if_t&lt;!std::is_constructible&lt;typename Type::value_type,Label*&gt;::value,int&gt; = 0</td></tr>
+<tr class="separator:a60813d4ba3739e9491688508c7194327"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="a5b5cc8b89aa1b6bfae43f534bc75ef53"></a>
@@ -132,6 +140,69 @@ Macros</h2></td></tr>
 <p>Macro that can be added to the template arguments of a function template specialization to enable it only if one type is convertible to another, using SFINAE. </p>
 
 <p class="definition">Definition at line <a class="el" href="type_8hpp_source.html#l00071">71</a> of file <a class="el" href="type_8hpp_source.html">type.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a46ae7876b88f474d48d2d654528f6f42"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46ae7876b88f474d48d2d654528f6f42">&#9670;&nbsp;</a></span>IS_DEFAULT_CONSTRUCTIBLE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IS_DEFAULT_CONSTRUCTIBLE</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">Type</td><td>)</td>
+          <td>&#160;&#160;&#160;std::enable_if_t&lt;std::is_constructible&lt;typename Type::value_type,Label*&gt;::value,int&gt; = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Macro that can be added to the template arguments of a function template specialization to enable it only if a specific type is default-constructible using SFINAE. </p>
+
+<p class="definition">Definition at line <a class="el" href="type_8hpp_source.html#l00098">98</a> of file <a class="el" href="type_8hpp_source.html">type.hpp</a>.</p>
+
+</div>
+</div>
+<a id="a60813d4ba3739e9491688508c7194327"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60813d4ba3739e9491688508c7194327">&#9670;&nbsp;</a></span>IS_NOT_DEFAULT_CONSTRUCTIBLE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IS_NOT_DEFAULT_CONSTRUCTIBLE</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">Type</td><td>)</td>
+          <td>&#160;&#160;&#160;std::enable_if_t&lt;!std::is_constructible&lt;typename Type::value_type,Label*&gt;::value,int&gt; = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Macro that can be added to the template arguments of a function template specialization to enable it only if a specific type is not default-constructible using SFINAE. </p>
+
+<p class="definition">Definition at line <a class="el" href="type_8hpp_source.html#l00107">107</a> of file <a class="el" href="type_8hpp_source.html">type.hpp</a>.</p>
+
+</div>
+</div>
+<a id="ae914ff2c7916f0e884840f311641d7d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae914ff2c7916f0e884840f311641d7d9">&#9670;&nbsp;</a></span>IS_NOT_POINTER</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IS_NOT_POINTER</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">Type</td><td>)</td>
+          <td>&#160;&#160;&#160;std::enable_if_t&lt;!is_pointer&lt;Type&gt;::value,int&gt; = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Macro that can be added to the template arguments of a function template specialization to enable it only if a specific type is not a pointer type, using SFINAE. </p>
+
+<p class="definition">Definition at line <a class="el" href="type_8hpp_source.html#l00089">89</a> of file <a class="el" href="type_8hpp_source.html">type.hpp</a>.</p>
 
 </div>
 </div>
@@ -195,6 +266,27 @@ Macros</h2></td></tr>
 <p>As IS_NOT_VALUE1, for use when a second condition is required. </p>
 
 <p class="definition">Definition at line <a class="el" href="type_8hpp_source.html#l00053">53</a> of file <a class="el" href="type_8hpp_source.html">type.hpp</a>.</p>
+
+</div>
+</div>
+<a id="afd51df53b94d7c2461f56bc6f9dc7b97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd51df53b94d7c2461f56bc6f9dc7b97">&#9670;&nbsp;</a></span>IS_POINTER</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IS_POINTER</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">Type</td><td>)</td>
+          <td>&#160;&#160;&#160;std::enable_if_t&lt;is_pointer&lt;Type&gt;::value,int&gt; = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Macro that can be added to the template arguments of a function template specialization to enable it only if a specific type is a pointer type, using SFINAE. </p>
+
+<p class="definition">Definition at line <a class="el" href="type_8hpp_source.html#l00080">80</a> of file <a class="el" href="type_8hpp_source.html">type.hpp</a>.</p>
 
 </div>
 </div>

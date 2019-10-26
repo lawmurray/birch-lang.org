@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['pool_2ehpp_368',['Pool.hpp',['../Pool_8hpp.html',1,'']]]
+  ['offset_2ehpp_372',['Offset.hpp',['../Offset_8hpp.html',1,'']]],
+  ['optional_2ehpp_373',['Optional.hpp',['../Optional_8hpp.html',1,'']]]
 ];
