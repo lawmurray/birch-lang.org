@@ -7293,7 +7293,7 @@
                 
                 <p><a name="writer"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">class Writer &lt; <a href="../Object/">Object</a></p>
+<p class="admonition-title">abstract class Writer &lt; <a href="../Object/">Object</a></p>
 <p>Abstract writer.</p>
 <p>Typical use is to use the <code>Writer</code> factory function to instantiate an
 object of an appropriate derived class based on the file extension of the
@@ -7391,31 +7391,31 @@ returned object. Supported file extension are <code>.json</code> and <code>.yml<
 <h4 id="close">close</h4>
 <p><a name="close"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function close()</p>
+<p class="admonition-title">abstract function close()</p>
 <p>Close the file.</p>
 </div>
 <h4 id="endmapping">endMapping</h4>
 <p><a name="endmapping"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function endMapping()</p>
+<p class="admonition-title">abstract function endMapping()</p>
 <p>End a mapping.</p>
 </div>
 <h4 id="endsequence">endSequence</h4>
 <p><a name="endsequence"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function endSequence()</p>
+<p class="admonition-title">abstract function endSequence()</p>
 <p>End a sequence.</p>
 </div>
 <h4 id="flush">flush</h4>
 <p><a name="flush"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function flush()</p>
+<p class="admonition-title">abstract function flush()</p>
 <p>Flush accumulated writes to the file.</p>
 </div>
 <h4 id="open">open</h4>
 <p><a name="open"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function open(path:<a href="../../types/#String">String</a>)</p>
+<p class="admonition-title">abstract function open(path:<a href="../../types/#String">String</a>)</p>
 <p>Open a file.</p>
 <ul>
 <li>path : Path of the file.</li>
@@ -7424,19 +7424,19 @@ returned object. Supported file extension are <code>.json</code> and <code>.yml<
 <h4 id="startmapping">startMapping</h4>
 <p><a name="startmapping"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function startMapping()</p>
+<p class="admonition-title">abstract function startMapping()</p>
 <p>Start a mapping.</p>
 </div>
 <h4 id="startsequence">startSequence</h4>
 <p><a name="startsequence"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function startSequence()</p>
+<p class="admonition-title">abstract function startSequence()</p>
 <p>Start a sequence.</p>
 </div>
 <h4 id="write">write</h4>
 <p><a name="write"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function write(buffer:<a href="../MemoryBuffer/">MemoryBuffer</a>)</p>
+<p class="admonition-title">abstract function write(buffer:<a href="../MemoryBuffer/">MemoryBuffer</a>)</p>
 <p>Write the entire contents of the file.</p>
 <ul>
 <li>buffer: Buffer to write.</li>

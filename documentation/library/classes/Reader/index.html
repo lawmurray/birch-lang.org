@@ -7223,7 +7223,7 @@
                 
                 <p><a name="reader"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">class Reader &lt; <a href="../Object/">Object</a></p>
+<p class="admonition-title">abstract class Reader &lt; <a href="../Object/">Object</a></p>
 <p>Abstract reader.</p>
 <p>Typical use is to use the <code>Reader</code> factory function to instantiate an
 object of an appropriate derived class based on the file extension of the
@@ -7290,13 +7290,13 @@ returned object. Supported file extension are <code>.json</code> and <code>.yml<
 <h4 id="close">close</h4>
 <p><a name="close"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function close()</p>
+<p class="admonition-title">abstract function close()</p>
 <p>Close the file.</p>
 </div>
 <h4 id="open">open</h4>
 <p><a name="open"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function open(path:<a href="../../types/#String">String</a>)</p>
+<p class="admonition-title">abstract function open(path:<a href="../../types/#String">String</a>)</p>
 <p>Open a file.</p>
 <ul>
 <li>path : Path of the file.</li>
@@ -7305,7 +7305,7 @@ returned object. Supported file extension are <code>.json</code> and <code>.yml<
 <h4 id="read">read</h4>
 <p><a name="read"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function read(buffer:<a href="../MemoryBuffer/">MemoryBuffer</a>)</p>
+<p class="admonition-title">abstract function read(buffer:<a href="../MemoryBuffer/">MemoryBuffer</a>)</p>
 <p>Read the entire contents of the file.</p>
 <ul>
 <li>buffer: Buffer into which to read.</li>

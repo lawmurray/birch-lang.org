@@ -7669,7 +7669,7 @@
                 
                 <p><a name="buffer"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">class Buffer &lt; <a href="../Object/">Object</a></p>
+<p class="admonition-title">abstract class Buffer &lt; <a href="../Object/">Object</a></p>
 <p>Abstract buffer.</p>
 <p>When reading and writing objects, defers to the <code>read()</code> and <code>write()</code>
 member functions, declared in <code>Object</code>.</p>
@@ -8358,7 +8358,7 @@ are themselves arrays of the same length and compatible type.</p>
 <h4 id="getarray">getArray</h4>
 <p><a name="getarray"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function getArray() -&gt; <a href="./">Buffer</a>?</p>
+<p class="admonition-title">abstract function getArray() -&gt; <a href="./">Buffer</a>?</p>
 <p>Get this as an array.</p>
 </div>
 <div class="admonition quote">
@@ -8373,7 +8373,7 @@ compatible type.</p>
 <h4 id="getboolean">getBoolean</h4>
 <p><a name="getboolean"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function getBoolean() -&gt; <a href="../../types/#Boolean">Boolean</a>?</p>
+<p class="admonition-title">abstract function getBoolean() -&gt; <a href="../../types/#Boolean">Boolean</a>?</p>
 <p>Get this as a Boolean.</p>
 <p>Return: An optional with a value if this is of a compatible type.</p>
 </div>
@@ -8389,7 +8389,7 @@ compatible type.</p>
 <h4 id="getbooleanmatrix">getBooleanMatrix</h4>
 <p><a name="getbooleanmatrix"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function getBooleanMatrix() -&gt; <a href="../../types/#Boolean">Boolean</a>[_,_]?</p>
+<p class="admonition-title">abstract function getBooleanMatrix() -&gt; <a href="../../types/#Boolean">Boolean</a>[_,_]?</p>
 <p>Get this as a matrix of Booleans.</p>
 <p>Return: An optional with a value if this is an array where all elements
 are themselves arrays of the same length and compatible type.</p>
@@ -8406,7 +8406,7 @@ are themselves arrays of the same length and compatible type.</p>
 <h4 id="getbooleanvector">getBooleanVector</h4>
 <p><a name="getbooleanvector"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function getBooleanVector() -&gt; <a href="../../types/#Boolean">Boolean</a>[_]?</p>
+<p class="admonition-title">abstract function getBooleanVector() -&gt; <a href="../../types/#Boolean">Boolean</a>[_]?</p>
 <p>Get this as a vector of Booleans.</p>
 <p>Return: An optional with a value if this is an array with all elements
 of a compatible type.</p>
@@ -8423,13 +8423,13 @@ of a compatible type.</p>
 <h4 id="getchild">getChild</h4>
 <p><a name="getchild"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function getChild(name:<a href="../../types/#String">String</a>) -&gt; <a href="./">Buffer</a>?</p>
+<p class="admonition-title">abstract function getChild(name:<a href="../../types/#String">String</a>) -&gt; <a href="./">Buffer</a>?</p>
 <p>Get a child.</p>
 </div>
 <h4 id="getinteger">getInteger</h4>
 <p><a name="getinteger"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function getInteger() -&gt; <a href="../../types/#Integer">Integer</a>?</p>
+<p class="admonition-title">abstract function getInteger() -&gt; <a href="../../types/#Integer">Integer</a>?</p>
 <p>Get this as an integer.</p>
 <p>Return: An optional with a value if this is of a compatible type.</p>
 </div>
@@ -8445,7 +8445,7 @@ compatible type.</p>
 <h4 id="getintegermatrix">getIntegerMatrix</h4>
 <p><a name="getintegermatrix"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function getIntegerMatrix() -&gt; <a href="../../types/#Integer">Integer</a>[_,_]?</p>
+<p class="admonition-title">abstract function getIntegerMatrix() -&gt; <a href="../../types/#Integer">Integer</a>[_,_]?</p>
 <p>Get this as a matrix of integers.</p>
 <p>Return: An optional with a value if this is an array where all elements
 are themselves arrays of the same length and compatible type.</p>
@@ -8462,7 +8462,7 @@ are themselves arrays of the same length and compatible type.</p>
 <h4 id="getintegervector">getIntegerVector</h4>
 <p><a name="getintegervector"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function getIntegerVector() -&gt; <a href="../../types/#Integer">Integer</a>[_]?</p>
+<p class="admonition-title">abstract function getIntegerVector() -&gt; <a href="../../types/#Integer">Integer</a>[_]?</p>
 <p>Get this as a vector of integers.</p>
 <p>Return: An optional with a value if this is an array with all elements
 of a compatible type.</p>
@@ -8479,7 +8479,7 @@ of a compatible type.</p>
 <h4 id="getobject">getObject</h4>
 <p><a name="getobject"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function getObject() -&gt; <a href="./">Buffer</a>?</p>
+<p class="admonition-title">abstract function getObject() -&gt; <a href="./">Buffer</a>?</p>
 <p>Get this as an object.</p>
 </div>
 <div class="admonition quote">
@@ -8494,7 +8494,7 @@ compatible type.</p>
 <h4 id="getreal">getReal</h4>
 <p><a name="getreal"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function getReal() -&gt; <a href="../../types/#Real">Real</a>?</p>
+<p class="admonition-title">abstract function getReal() -&gt; <a href="../../types/#Real">Real</a>?</p>
 <p>Get this as a real.</p>
 <p>Return: An optional with a value if this is of a compatible type.</p>
 </div>
@@ -8510,7 +8510,7 @@ compatible type.</p>
 <h4 id="getrealmatrix">getRealMatrix</h4>
 <p><a name="getrealmatrix"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function getRealMatrix() -&gt; <a href="../../types/#Real">Real</a>[_,_]?</p>
+<p class="admonition-title">abstract function getRealMatrix() -&gt; <a href="../../types/#Real">Real</a>[_,_]?</p>
 <p>Get this as a matrix of reals.</p>
 <p>Return: An optional with a value if this is an array where all elements
 are themselves arrays of the same length and compatible type.</p>
@@ -8527,7 +8527,7 @@ are themselves arrays of the same length and compatible type.</p>
 <h4 id="getrealvector">getRealVector</h4>
 <p><a name="getrealvector"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function getRealVector() -&gt; <a href="../../types/#Real">Real</a>[_]?</p>
+<p class="admonition-title">abstract function getRealVector() -&gt; <a href="../../types/#Real">Real</a>[_]?</p>
 <p>Get this as a vector of reals.</p>
 <p>Return: An optional with a value if this is an array with all elements
 of a compatible type.</p>
@@ -8544,7 +8544,7 @@ of a compatible type.</p>
 <h4 id="getstring">getString</h4>
 <p><a name="getstring"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function getString() -&gt; <a href="../../types/#String">String</a>?</p>
+<p class="admonition-title">abstract function getString() -&gt; <a href="../../types/#String">String</a>?</p>
 <p>Get this as a string.</p>
 <p>Return: An optional with a value if this is of a compatible type.</p>
 </div>
@@ -8560,7 +8560,7 @@ compatible type.</p>
 <h4 id="push">push</h4>
 <p><a name="push"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function push() -&gt; <a href="./">Buffer</a></p>
+<p class="admonition-title">abstract function push() -&gt; <a href="./">Buffer</a></p>
 <p>Push a new element onto the end of an array.</p>
 </div>
 <h4 id="set">set</h4>
@@ -8770,7 +8770,7 @@ compatible type.</p>
 <h4 id="setarray">setArray</h4>
 <p><a name="setarray"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function setArray() -&gt; <a href="./">Buffer</a></p>
+<p class="admonition-title">abstract function setArray() -&gt; <a href="./">Buffer</a></p>
 <p>Set this as an array.</p>
 </div>
 <div class="admonition quote">
@@ -8783,7 +8783,7 @@ compatible type.</p>
 <h4 id="setboolean">setBoolean</h4>
 <p><a name="setboolean"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function setBoolean(value:<a href="../../types/#Boolean">Boolean</a>?)</p>
+<p class="admonition-title">abstract function setBoolean(value:<a href="../../types/#Boolean">Boolean</a>?)</p>
 <p>Set this as a Boolean.</p>
 <ul>
 <li>value: Value.</li>
@@ -8800,7 +8800,7 @@ compatible type.</p>
 <h4 id="setbooleanmatrix">setBooleanMatrix</h4>
 <p><a name="setbooleanmatrix"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function setBooleanMatrix(value:<a href="../../types/#Boolean">Boolean</a>[_,_]?)</p>
+<p class="admonition-title">abstract function setBooleanMatrix(value:<a href="../../types/#Boolean">Boolean</a>[_,_]?)</p>
 <p>Set this as matrix of Booleans.</p>
 <ul>
 <li>value: Value.</li>
@@ -8817,7 +8817,7 @@ compatible type.</p>
 <h4 id="setbooleanvector">setBooleanVector</h4>
 <p><a name="setbooleanvector"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function setBooleanVector(value:<a href="../../types/#Boolean">Boolean</a>[_]?)</p>
+<p class="admonition-title">abstract function setBooleanVector(value:<a href="../../types/#Boolean">Boolean</a>[_]?)</p>
 <p>Set this as a vector of Booleans.</p>
 <ul>
 <li>value: Value.</li>
@@ -8834,13 +8834,13 @@ compatible type.</p>
 <h4 id="setchild">setChild</h4>
 <p><a name="setchild"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function setChild(name:<a href="../../types/#String">String</a>) -&gt; <a href="./">Buffer</a></p>
+<p class="admonition-title">abstract function setChild(name:<a href="../../types/#String">String</a>) -&gt; <a href="./">Buffer</a></p>
 <p>Set child.</p>
 </div>
 <h4 id="setinteger">setInteger</h4>
 <p><a name="setinteger"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function setInteger(value:<a href="../../types/#Integer">Integer</a>?)</p>
+<p class="admonition-title">abstract function setInteger(value:<a href="../../types/#Integer">Integer</a>?)</p>
 <p>Set this as an integer.</p>
 <ul>
 <li>value: Value.</li>
@@ -8857,7 +8857,7 @@ compatible type.</p>
 <h4 id="setintegermatrix">setIntegerMatrix</h4>
 <p><a name="setintegermatrix"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function setIntegerMatrix(value:<a href="../../types/#Integer">Integer</a>[_,_]?)</p>
+<p class="admonition-title">abstract function setIntegerMatrix(value:<a href="../../types/#Integer">Integer</a>[_,_]?)</p>
 <p>Set this as a matrix of integers.</p>
 <ul>
 <li>value: Value.</li>
@@ -8874,7 +8874,7 @@ compatible type.</p>
 <h4 id="setintegervector">setIntegerVector</h4>
 <p><a name="setintegervector"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function setIntegerVector(value:<a href="../../types/#Integer">Integer</a>[_]?)</p>
+<p class="admonition-title">abstract function setIntegerVector(value:<a href="../../types/#Integer">Integer</a>[_]?)</p>
 <p>Set this as a vector of integers.</p>
 <ul>
 <li>value: Value.</li>
@@ -8891,7 +8891,7 @@ compatible type.</p>
 <h4 id="setnil">setNil</h4>
 <p><a name="setnil"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function setNil()</p>
+<p class="admonition-title">abstract function setNil()</p>
 <p>Set this as nil.</p>
 </div>
 <div class="admonition quote">
@@ -8904,7 +8904,7 @@ compatible type.</p>
 <h4 id="setobject">setObject</h4>
 <p><a name="setobject"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function setObject() -&gt; <a href="./">Buffer</a></p>
+<p class="admonition-title">abstract function setObject() -&gt; <a href="./">Buffer</a></p>
 <p>Set this as an object.</p>
 </div>
 <div class="admonition quote">
@@ -8917,7 +8917,7 @@ compatible type.</p>
 <h4 id="setobjectmatrix">setObjectMatrix</h4>
 <p><a name="setobjectmatrix"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function setObjectMatrix(value:<a href="../Object/">Object</a>[_,_]?)</p>
+<p class="admonition-title">abstract function setObjectMatrix(value:<a href="../Object/">Object</a>[_,_]?)</p>
 <p>Set this as a matrix of objects.</p>
 <ul>
 <li>value: Value.</li>
@@ -8934,7 +8934,7 @@ compatible type.</p>
 <h4 id="setobjectvector">setObjectVector</h4>
 <p><a name="setobjectvector"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function setObjectVector(value:<a href="../Object/">Object</a>[_]?)</p>
+<p class="admonition-title">abstract function setObjectVector(value:<a href="../Object/">Object</a>[_]?)</p>
 <p>Set this as a vector of objects.</p>
 <ul>
 <li>value: Value.</li>
@@ -8951,7 +8951,7 @@ compatible type.</p>
 <h4 id="setreal">setReal</h4>
 <p><a name="setreal"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function setReal(value:<a href="../../types/#Real">Real</a>?)</p>
+<p class="admonition-title">abstract function setReal(value:<a href="../../types/#Real">Real</a>?)</p>
 <p>Set this as a real.</p>
 <ul>
 <li>value: Value.</li>
@@ -8968,7 +8968,7 @@ compatible type.</p>
 <h4 id="setrealmatrix">setRealMatrix</h4>
 <p><a name="setrealmatrix"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function setRealMatrix(value:<a href="../../types/#Real">Real</a>[_,_]?)</p>
+<p class="admonition-title">abstract function setRealMatrix(value:<a href="../../types/#Real">Real</a>[_,_]?)</p>
 <p>Set this as a matrix of reals.</p>
 <ul>
 <li>value: Value.</li>
@@ -8985,7 +8985,7 @@ compatible type.</p>
 <h4 id="setrealvector">setRealVector</h4>
 <p><a name="setrealvector"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function setRealVector(value:<a href="../../types/#Real">Real</a>[_]?)</p>
+<p class="admonition-title">abstract function setRealVector(value:<a href="../../types/#Real">Real</a>[_]?)</p>
 <p>Set this as a vector of reals.</p>
 <ul>
 <li>value: Value.</li>
@@ -9002,7 +9002,7 @@ compatible type.</p>
 <h4 id="setstring">setString</h4>
 <p><a name="setstring"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function setString(value:<a href="../../types/#String">String</a>?)</p>
+<p class="admonition-title">abstract function setString(value:<a href="../../types/#String">String</a>?)</p>
 <p>Set this as a string.</p>
 <ul>
 <li>value: Value.</li>
@@ -9019,7 +9019,7 @@ compatible type.</p>
 <h4 id="size">size</h4>
 <p><a name="size"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function size() -&gt; <a href="../../types/#Integer">Integer</a></p>
+<p class="admonition-title">abstract function size() -&gt; <a href="../../types/#Integer">Integer</a></p>
 <p>Get the size of an array.</p>
 </div>
 <div class="admonition quote">
@@ -9030,7 +9030,7 @@ compatible type.</p>
 <h4 id="walk">walk</h4>
 <p><a name="walk"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">fiber walk() -&gt; <a href="./">Buffer</a></p>
+<p class="admonition-title">abstract fiber walk() -&gt; <a href="./">Buffer</a></p>
 <p>Iterate through the elements of an array.</p>
 </div>
 <div class="admonition quote">

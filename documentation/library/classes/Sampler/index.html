@@ -7235,7 +7235,7 @@
                 
                 <p><a name="sampler"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">class Sampler &lt; <a href="../Object/">Object</a></p>
+<p class="admonition-title">abstract class Sampler &lt; <a href="../Object/">Object</a></p>
 <p>Abstract sampler.</p>
 <p>The Sampler class hierarchy is as follows:
 <center>
@@ -7295,7 +7295,7 @@
 <h4 id="setarchetype">setArchetype</h4>
 <p><a name="setarchetype"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function setArchetype(m:<a href="../Model/">Model</a>)</p>
+<p class="admonition-title">abstract function setArchetype(m:<a href="../Model/">Model</a>)</p>
 <p>Set the archetype. This is an instance of the model of interest with
 zero or more random variates already assigned in order to condition on
 those assigned values. It represents the target distribution of the
@@ -7306,7 +7306,7 @@ an appropriate type, and may produce an error if this is not the case.</p>
 <h4 id="sample">sample</h4>
 <p><a name="sample"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">fiber sample() -&gt; (<a href="../Model/">Model</a>, <a href="../../types/#Real">Real</a>)</p>
+<p class="admonition-title">abstract fiber sample() -&gt; (<a href="../Model/">Model</a>, <a href="../../types/#Real">Real</a>)</p>
 <p>Sample the model.</p>
 <p>Yield: weighted samples.</p>
 </div>

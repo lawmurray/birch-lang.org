@@ -7433,7 +7433,7 @@
                 
                 <p><a name="distribution"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">class Distribution&lt;Value&gt; &lt; <a href="../Object/">Object</a></p>
+<p class="admonition-title">abstract class Distribution&lt;Value&gt; &lt; <a href="../Object/">Object</a></p>
 <p>Probability distribution.</p>
 <ul>
 <li>Value: Value type.</li>
@@ -7623,7 +7623,7 @@ undoes the effects of an update().</p>
 <h4 id="graft">graft</h4>
 <p><a name="graft"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function graft(force:<a href="../../types/#Boolean">Boolean</a>)</p>
+<p class="admonition-title">abstract function graft(force:<a href="../../types/#Boolean">Boolean</a>)</p>
 <p>Graft this onto the delayed sampling graph.</p>
 <ul>
 <li>force: If true, a node is always grafted onto the delayed sampling
@@ -7658,7 +7658,7 @@ giving the log pdf (or pmf) of that variate under the distribution.</p>
 <h4 id="observeforward">observeForward</h4>
 <p><a name="observeforward"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function observeForward(x:Value) -&gt; <a href="../../types/#Real">Real</a></p>
+<p class="admonition-title">abstract function observeForward(x:Value) -&gt; <a href="../../types/#Real">Real</a></p>
 <p>As observe(), but forcing a forward evaluation. See valueForward() for
 further details.</p>
 </div>
@@ -7724,7 +7724,7 @@ updating the delayed sampling graph accordingly.</p>
 <h4 id="valueforward">valueForward</h4>
 <p><a name="valueforward"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function valueForward() -&gt; Value</p>
+<p class="admonition-title">abstract function valueForward() -&gt; Value</p>
 <p>As value(), but forcing a forward simulation. This requires that the
 distribution has not already grafted a node onto the delayed sampling
 graph. To ensure consistency it may, as a side effect, realize one

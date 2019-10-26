@@ -7363,7 +7363,7 @@
                 
                 <p><a name="event"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">class Event &lt; <a href="../Object/">Object</a></p>
+<p class="admonition-title">abstract class Event &lt; <a href="../Object/">Object</a></p>
 <p>Abstract event triggered by the simulation of a model.</p>
 </div>
 <h3 id="member-functions">Member Functions</h3>
@@ -7447,7 +7447,7 @@
 <h4 id="downdateimmediate">downdateImmediate</h4>
 <p><a name="downdateimmediate"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function downdateImmediate(trace:<a href="../Queue/">Queue</a>&lt;<a href="../Record/">Record</a>&gt;) -&gt; <a href="../../types/#Real">Real</a></p>
+<p class="admonition-title">abstract function downdateImmediate(trace:<a href="../Queue/">Queue</a>&lt;<a href="../Record/">Record</a>&gt;) -&gt; <a href="../../types/#Real">Real</a></p>
 <p>Act as appropriate for <code>DOWNDATE_IMMEDIATE</code> mode.</p>
 </div>
 <h4 id="isassume">isAssume</h4>
@@ -7489,13 +7489,13 @@
 <h4 id="playimmediate">playImmediate</h4>
 <p><a name="playimmediate"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function playImmediate() -&gt; <a href="../../types/#Real">Real</a></p>
+<p class="admonition-title">abstract function playImmediate() -&gt; <a href="../../types/#Real">Real</a></p>
 <p>Act as appropriate for <code>PLAY_IMMEDIATE</code> mode.</p>
 </div>
 <h4 id="proposeimmediate">proposeImmediate</h4>
 <p><a name="proposeimmediate"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function proposeImmediate(trace:<a href="../Queue/">Queue</a>&lt;<a href="../Record/">Record</a>&gt;) -&gt; <a href="../../types/#Real">Real</a></p>
+<p class="admonition-title">abstract function proposeImmediate(trace:<a href="../Queue/">Queue</a>&lt;<a href="../Record/">Record</a>&gt;) -&gt; <a href="../../types/#Real">Real</a></p>
 <p>Act as appropriate for <code>PROPOSE_IMMEDIATE</code> mode.</p>
 </div>
 <h4 id="record">record</h4>
@@ -7515,7 +7515,7 @@ required for replay.</p>
 <h4 id="replayimmediate">replayImmediate</h4>
 <p><a name="replayimmediate"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function replayImmediate(trace:<a href="../Queue/">Queue</a>&lt;<a href="../Record/">Record</a>&gt;) -&gt; <a href="../../types/#Real">Real</a></p>
+<p class="admonition-title">abstract function replayImmediate(trace:<a href="../Queue/">Queue</a>&lt;<a href="../Record/">Record</a>&gt;) -&gt; <a href="../../types/#Real">Real</a></p>
 <p>Act as appropriate for <code>REPLAY_IMMEDIATE</code> mode.</p>
 </div>
 <h4 id="skipdelay">skipDelay</h4>
@@ -7527,7 +7527,7 @@ required for replay.</p>
 <h4 id="skipimmediate">skipImmediate</h4>
 <p><a name="skipimmediate"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function skipImmediate(trace:<a href="../Queue/">Queue</a>&lt;<a href="../Record/">Record</a>&gt;) -&gt; <a href="../../types/#Real">Real</a></p>
+<p class="admonition-title">abstract function skipImmediate(trace:<a href="../Queue/">Queue</a>&lt;<a href="../Record/">Record</a>&gt;) -&gt; <a href="../../types/#Real">Real</a></p>
 <p>Act as appropriate for <code>SKIP_IMMEDIATE</code> mode.</p>
 </div>
                 
