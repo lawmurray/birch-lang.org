@@ -79,19 +79,93 @@ $(function() {
 <a href="Label_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacelibbirch.html">libbirch</a> {</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">class </span>LazyLabel;</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">class </span>EagerLabel;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#if ENABLE_LAZY_DEEP_CLONE</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="namespacelibbirch.html#ab12497ee57b7557c4be2b8bb952753d2">   15</a></span>&#160;<span class="keyword">using</span> <a class="code" href="classlibbirch_1_1LazyLabel.html">Label</a> = <a class="code" href="classlibbirch_1_1LazyLabel.html">LazyLabel</a>;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">using</span> <a class="code" href="classlibbirch_1_1LazyLabel.html">Label</a> = EagerLabel;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;}</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Any_8hpp.html">libbirch/Any.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Counted_8hpp.html">libbirch/Counted.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="SharedPtr_8hpp.html">libbirch/SharedPtr.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ExclusiveLock_8hpp.html">libbirch/ExclusiveLock.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Memo_8hpp.html">libbirch/Memo.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacelibbirch.html">libbirch</a> {</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="classlibbirch_1_1Label.html">   18</a></span>&#160;<span class="keyword">class </span><a class="code" href="classlibbirch_1_1Label.html">Label</a>: <span class="keyword">public</span> <a class="code" href="classlibbirch_1_1Counted.html">Counted</a> {</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  <span class="keyword">friend</span> <span class="keyword">class </span>List;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  <span class="keyword">using</span> <a class="code" href="classlibbirch_1_1Label.html">class_type_</a> = <a class="code" href="classlibbirch_1_1Label.html#a28653e9c5c29602fd0295cb5c3aa9713">Label</a>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <a class="code" href="classlibbirch_1_1Label.html#a28653e9c5c29602fd0295cb5c3aa9713">Label</a>();</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <a class="code" href="classlibbirch_1_1Label.html#a28653e9c5c29602fd0295cb5c3aa9713">Label</a>(<a class="code" href="classlibbirch_1_1Label.html">Label</a>* parent);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="classlibbirch_1_1Label.html#a5e78f4c9eb7667a565e14233bba6fa27">~Label</a>();</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <a class="code" href="classlibbirch_1_1Label.html">Label</a>* <a class="code" href="classlibbirch_1_1Label.html#ab20b794c6aec854e2ee03a5d6667374b">fork</a>();</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <a class="code" href="classlibbirch_1_1Any.html">Any</a>* <a class="code" href="classlibbirch_1_1Label.html#a3de40019c29760a312cee1cfff3485ee">get</a>(<a class="code" href="classlibbirch_1_1Any.html">Any</a>* o);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <a class="code" href="classlibbirch_1_1Any.html">Any</a>* <a class="code" href="classlibbirch_1_1Label.html#a9b440a1b842987223dc5a257260a7bb4">pull</a>(<a class="code" href="classlibbirch_1_1Any.html">Any</a>* o);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  <a class="code" href="classlibbirch_1_1Any.html">Any</a>* <a class="code" href="classlibbirch_1_1Label.html#a9cc763704223b590bff578da63590382">copy</a>(<a class="code" href="classlibbirch_1_1Any.html">Any</a>* o);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classlibbirch_1_1Label.html#abd8698b462ce90fe56b15ce7a0192d3e">freeze</a>();</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classlibbirch_1_1Label.html#a5c3fa4bdf9e1b4a8c6d606d19515068b">thaw</a>();</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="classlibbirch_1_1Label.html#a6249994a90affe4e8b9fbcb9191508b1">   74</a></span>&#160;  <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="classlibbirch_1_1Label.html#a6249994a90affe4e8b9fbcb9191508b1">name_</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordflow">return</span> <span class="stringliteral">&quot;Label&quot;</span>;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  }</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  <a class="code" href="classlibbirch_1_1LazyMemo.html">LazyMemo</a> m;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  <a class="code" href="classlibbirch_1_1ExclusiveLock.html">ExclusiveLock</a> l;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  <span class="keywordtype">bool</span> frozen;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;};</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;}</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno"><a class="line" href="classlibbirch_1_1Label.html#a28653e9c5c29602fd0295cb5c3aa9713">   97</a></span>&#160;<span class="keyword">inline</span> <a class="code" href="classlibbirch_1_1Label.html#a28653e9c5c29602fd0295cb5c3aa9713">libbirch::Label::Label</a>() :</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    frozen(false) {</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;  <span class="comment">//</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;}</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00102"></a><span class="lineno"><a class="line" href="classlibbirch_1_1Label.html#a891f91f7d1044f4df43d806b56430493">  102</a></span>&#160;<span class="keyword">inline</span> <a class="code" href="classlibbirch_1_1Label.html#a28653e9c5c29602fd0295cb5c3aa9713">libbirch::Label::Label</a>(<a class="code" href="classlibbirch_1_1Label.html">Label</a>* parent) :</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    frozen(parent-&gt;frozen) {</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  assert(parent);</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;  parent-&gt;l.<a class="code" href="classlibbirch_1_1ExclusiveLock.html#a62bbebcdc34a8056c32d0b1a26026717">set</a>();</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  m.<a class="code" href="classlibbirch_1_1LazyMemo.html#acd0e9d33c5c78c127bb66843134ebdc1">copy</a>(parent-&gt;m);</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;  parent-&gt;l.<a class="code" href="classlibbirch_1_1ExclusiveLock.html#ada10f9e419878019c6d304e90157a330">unset</a>();</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;}</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
+<div class="line"><a name="l00110"></a><span class="lineno"><a class="line" href="classlibbirch_1_1Label.html#a5e78f4c9eb7667a565e14233bba6fa27">  110</a></span>&#160;<span class="keyword">inline</span> <a class="code" href="classlibbirch_1_1Label.html#a5e78f4c9eb7667a565e14233bba6fa27">libbirch::Label::~Label</a>() {</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;  <span class="comment">//</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;}</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
+<div class="line"><a name="l00114"></a><span class="lineno"><a class="line" href="classlibbirch_1_1Label.html#ab20b794c6aec854e2ee03a5d6667374b">  114</a></span>&#160;<span class="keyword">inline</span> <a class="code" href="classlibbirch_1_1Label.html">libbirch::Label</a>* <a class="code" href="classlibbirch_1_1Label.html#ab20b794c6aec854e2ee03a5d6667374b">libbirch::Label::fork</a>() {</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;  <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="classlibbirch_1_1Label.html">Label</a>(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclasslibbirch_1_1Counted_html"><div class="ttname"><a href="classlibbirch_1_1Counted.html">libbirch::Counted</a></div><div class="ttdoc">Base class for reference counted objects.</div><div class="ttdef"><b>Definition:</b> <a href="Counted_8hpp_source.html#l00021">Counted.hpp:21</a></div></div>
+<div class="ttc" id="aclasslibbirch_1_1ExclusiveLock_html_a62bbebcdc34a8056c32d0b1a26026717"><div class="ttname"><a href="classlibbirch_1_1ExclusiveLock.html#a62bbebcdc34a8056c32d0b1a26026717">libbirch::ExclusiveLock::set</a></div><div class="ttdeci">void set()</div><div class="ttdoc">Obtain exclusive use.</div><div class="ttdef"><b>Definition:</b> <a href="ExclusiveLock_8hpp_source.html#l00055">ExclusiveLock.hpp:55</a></div></div>
+<div class="ttc" id="aSharedPtr_8hpp_html"><div class="ttname"><a href="SharedPtr_8hpp.html">SharedPtr.hpp</a></div></div>
+<div class="ttc" id="aclasslibbirch_1_1Label_html_a28653e9c5c29602fd0295cb5c3aa9713"><div class="ttname"><a href="classlibbirch_1_1Label.html#a28653e9c5c29602fd0295cb5c3aa9713">libbirch::Label::Label</a></div><div class="ttdeci">Label()</div><div class="ttdoc">Constructor for root node.</div><div class="ttdef"><b>Definition:</b> <a href="Label_8hpp_source.html#l00097">Label.hpp:97</a></div></div>
+<div class="ttc" id="aMemo_8hpp_html"><div class="ttname"><a href="Memo_8hpp.html">Memo.hpp</a></div></div>
+<div class="ttc" id="aclasslibbirch_1_1Label_html_abd8698b462ce90fe56b15ce7a0192d3e"><div class="ttname"><a href="classlibbirch_1_1Label.html#abd8698b462ce90fe56b15ce7a0192d3e">libbirch::Label::freeze</a></div><div class="ttdeci">void freeze()</div><div class="ttdoc">Freeze all values in the memo.</div><div class="ttdef"><b>Definition:</b> <a href="Label_8cpp_source.html#l00065">Label.cpp:65</a></div></div>
+<div class="ttc" id="aclasslibbirch_1_1LazyMemo_html_acd0e9d33c5c78c127bb66843134ebdc1"><div class="ttname"><a href="classlibbirch_1_1LazyMemo.html#acd0e9d33c5c78c127bb66843134ebdc1">libbirch::LazyMemo::copy</a></div><div class="ttdeci">void copy(LazyMemo &amp;o)</div><div class="ttdoc">Copy entries from another map into this one, removing any that are obsolete.</div><div class="ttdef"><b>Definition:</b> <a href="Memo_8cpp_source.html#l00071">Memo.cpp:71</a></div></div>
+<div class="ttc" id="aclasslibbirch_1_1LazyMemo_html"><div class="ttname"><a href="classlibbirch_1_1LazyMemo.html">libbirch::LazyMemo</a></div><div class="ttdoc">Memo of object mappings.</div><div class="ttdef"><b>Definition:</b> <a href="Memo_8hpp_source.html#l00017">Memo.hpp:17</a></div></div>
+<div class="ttc" id="aclasslibbirch_1_1Label_html_a9cc763704223b590bff578da63590382"><div class="ttname"><a href="classlibbirch_1_1Label.html#a9cc763704223b590bff578da63590382">libbirch::Label::copy</a></div><div class="ttdeci">Any * copy(Any *o)</div><div class="ttdoc">Shallow copy.</div><div class="ttdef"><b>Definition:</b> <a href="Label_8cpp_source.html#l00055">Label.cpp:55</a></div></div>
+<div class="ttc" id="aclasslibbirch_1_1Label_html_a3de40019c29760a312cee1cfff3485ee"><div class="ttname"><a href="classlibbirch_1_1Label.html#a3de40019c29760a312cee1cfff3485ee">libbirch::Label::get</a></div><div class="ttdeci">Any * get(Any *o)</div><div class="ttdoc">Map an object that may not yet have been cloned, cloning it if necessary.</div><div class="ttdef"><b>Definition:</b> <a href="Label_8cpp_source.html#l00006">Label.cpp:6</a></div></div>
+<div class="ttc" id="aclasslibbirch_1_1Label_html_a9b440a1b842987223dc5a257260a7bb4"><div class="ttname"><a href="classlibbirch_1_1Label.html#a9b440a1b842987223dc5a257260a7bb4">libbirch::Label::pull</a></div><div class="ttdeci">Any * pull(Any *o)</div><div class="ttdoc">Map an object that may not yet have been cloned, without cloning it.</div><div class="ttdef"><b>Definition:</b> <a href="Label_8cpp_source.html#l00035">Label.cpp:35</a></div></div>
+<div class="ttc" id="aclasslibbirch_1_1ExclusiveLock_html_ada10f9e419878019c6d304e90157a330"><div class="ttname"><a href="classlibbirch_1_1ExclusiveLock.html#ada10f9e419878019c6d304e90157a330">libbirch::ExclusiveLock::unset</a></div><div class="ttdeci">void unset()</div><div class="ttdoc">Release exclusive use.</div><div class="ttdef"><b>Definition:</b> <a href="ExclusiveLock_8hpp_source.html#l00060">ExclusiveLock.hpp:60</a></div></div>
+<div class="ttc" id="aclasslibbirch_1_1Label_html_a5c3fa4bdf9e1b4a8c6d606d19515068b"><div class="ttname"><a href="classlibbirch_1_1Label.html#a5c3fa4bdf9e1b4a8c6d606d19515068b">libbirch::Label::thaw</a></div><div class="ttdeci">void thaw()</div><div class="ttdoc">Thaw the memo.</div><div class="ttdef"><b>Definition:</b> <a href="Label_8cpp_source.html#l00074">Label.cpp:74</a></div></div>
+<div class="ttc" id="aclasslibbirch_1_1Label_html_a6249994a90affe4e8b9fbcb9191508b1"><div class="ttname"><a href="classlibbirch_1_1Label.html#a6249994a90affe4e8b9fbcb9191508b1">libbirch::Label::name_</a></div><div class="ttdeci">virtual const char * name_() const</div><div class="ttdoc">Name of the class.</div><div class="ttdef"><b>Definition:</b> <a href="Label_8hpp_source.html#l00074">Label.hpp:74</a></div></div>
+<div class="ttc" id="aclasslibbirch_1_1Label_html_ab20b794c6aec854e2ee03a5d6667374b"><div class="ttname"><a href="classlibbirch_1_1Label.html#ab20b794c6aec854e2ee03a5d6667374b">libbirch::Label::fork</a></div><div class="ttdeci">Label * fork()</div><div class="ttdoc">Fork to create a new child label.</div><div class="ttdef"><b>Definition:</b> <a href="Label_8hpp_source.html#l00114">Label.hpp:114</a></div></div>
+<div class="ttc" id="aCounted_8hpp_html"><div class="ttname"><a href="Counted_8hpp.html">Counted.hpp</a></div></div>
+<div class="ttc" id="aExclusiveLock_8hpp_html"><div class="ttname"><a href="ExclusiveLock_8hpp.html">ExclusiveLock.hpp</a></div></div>
 <div class="ttc" id="anamespacelibbirch_html"><div class="ttname"><a href="namespacelibbirch.html">libbirch</a></div><div class="ttdoc">LibBirch.</div><div class="ttdef"><b>Definition:</b> <a href="Allocator_8hpp_source.html#l00008">Allocator.hpp:8</a></div></div>
-<div class="ttc" id="aclasslibbirch_1_1LazyLabel_html"><div class="ttname"><a href="classlibbirch_1_1LazyLabel.html">libbirch::LazyLabel</a></div><div class="ttdoc">Label for bookkeeping lazy deep clones.</div><div class="ttdef"><b>Definition:</b> <a href="LazyLabel_8hpp_source.html#l00019">LazyLabel.hpp:19</a></div></div>
+<div class="ttc" id="aclasslibbirch_1_1Label_html"><div class="ttname"><a href="classlibbirch_1_1Label.html">libbirch::Label</a></div><div class="ttdoc">Label for bookkeeping lazy deep clones.</div><div class="ttdef"><b>Definition:</b> <a href="Label_8hpp_source.html#l00018">Label.hpp:18</a></div></div>
+<div class="ttc" id="aclasslibbirch_1_1ExclusiveLock_html"><div class="ttname"><a href="classlibbirch_1_1ExclusiveLock.html">libbirch::ExclusiveLock</a></div><div class="ttdoc">Lock with exclusive use semantics.</div><div class="ttdef"><b>Definition:</b> <a href="ExclusiveLock_8hpp_source.html#l00015">ExclusiveLock.hpp:15</a></div></div>
+<div class="ttc" id="aclasslibbirch_1_1Any_html"><div class="ttname"><a href="classlibbirch_1_1Any.html">libbirch::Any</a></div><div class="ttdoc">Base for all class types when lazy deep clone is used.</div><div class="ttdef"><b>Definition:</b> <a href="Any_8hpp_source.html#l00019">Any.hpp:19</a></div></div>
+<div class="ttc" id="aAny_8hpp_html"><div class="ttname"><a href="Any_8hpp.html">Any.hpp</a></div></div>
+<div class="ttc" id="aclasslibbirch_1_1Label_html_a5e78f4c9eb7667a565e14233bba6fa27"><div class="ttname"><a href="classlibbirch_1_1Label.html#a5e78f4c9eb7667a565e14233bba6fa27">libbirch::Label::~Label</a></div><div class="ttdeci">virtual ~Label()</div><div class="ttdoc">Destructor.</div><div class="ttdef"><b>Definition:</b> <a href="Label_8hpp_source.html#l00110">Label.hpp:110</a></div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

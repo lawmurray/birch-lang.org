@@ -83,21 +83,19 @@ $(function() {
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="EntryExitLock_8hpp.html">libbirch/EntryExitLock.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacelibbirch.html">libbirch</a> {</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">class </span>LazyLabel;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">class </span>Label;</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#if ENABLE_LAZY_DEEP_CLONE</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">extern</span> LazyLabel* <a class="code" href="namespacelibbirch.html#aa880359e61864c2a36ce7fd38e696abc">rootContext</a>;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">extern</span> EntryExitLock <a class="code" href="namespacelibbirch.html#a9ee6e84341e197dee91560358f118bb1">freezeLock</a>;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">extern</span> EntryExitLock <a class="code" href="namespacelibbirch.html#afd5822bb99c0a3d64f2750dfb6d48467">finishLock</a>;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;}</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">extern</span> Label* <a class="code" href="namespacelibbirch.html#a29f3d5ec8ef34444759860189a0cd41c">rootContext</a>;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">extern</span> EntryExitLock <a class="code" href="namespacelibbirch.html#a9ee6e84341e197dee91560358f118bb1">freezeLock</a>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">extern</span> EntryExitLock <a class="code" href="namespacelibbirch.html#afd5822bb99c0a3d64f2750dfb6d48467">finishLock</a>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="anamespacelibbirch_html_afd5822bb99c0a3d64f2750dfb6d48467"><div class="ttname"><a href="namespacelibbirch.html#afd5822bb99c0a3d64f2750dfb6d48467">libbirch::finishLock</a></div><div class="ttdeci">EntryExitLock finishLock</div><div class="ttdoc">Global finish lock.</div><div class="ttdef"><b>Definition:</b> <a href="global_8cpp_source.html#l00052">global.cpp:52</a></div></div>
 <div class="ttc" id="aexternal_8hpp_html"><div class="ttname"><a href="external_8hpp.html">external.hpp</a></div></div>
-<div class="ttc" id="anamespacelibbirch_html_aa880359e61864c2a36ce7fd38e696abc"><div class="ttname"><a href="namespacelibbirch.html#aa880359e61864c2a36ce7fd38e696abc">libbirch::rootContext</a></div><div class="ttdeci">LazyLabel * rootContext</div><div class="ttdoc">The root context.</div><div class="ttdef"><b>Definition:</b> <a href="global_8cpp_source.html#l00050">global.cpp:50</a></div></div>
+<div class="ttc" id="anamespacelibbirch_html_a29f3d5ec8ef34444759860189a0cd41c"><div class="ttname"><a href="namespacelibbirch.html#a29f3d5ec8ef34444759860189a0cd41c">libbirch::rootContext</a></div><div class="ttdeci">Label * rootContext</div><div class="ttdoc">The root context.</div><div class="ttdef"><b>Definition:</b> <a href="global_8cpp_source.html#l00050">global.cpp:50</a></div></div>
 <div class="ttc" id="aEntryExitLock_8hpp_html"><div class="ttname"><a href="EntryExitLock_8hpp.html">EntryExitLock.hpp</a></div></div>
 <div class="ttc" id="anamespacelibbirch_html"><div class="ttname"><a href="namespacelibbirch.html">libbirch</a></div><div class="ttdoc">LibBirch.</div><div class="ttdef"><b>Definition:</b> <a href="Allocator_8hpp_source.html#l00008">Allocator.hpp:8</a></div></div>
 <div class="ttc" id="anamespacelibbirch_html_a9ee6e84341e197dee91560358f118bb1"><div class="ttname"><a href="namespacelibbirch.html#a9ee6e84341e197dee91560358f118bb1">libbirch::freezeLock</a></div><div class="ttdeci">EntryExitLock freezeLock</div><div class="ttdoc">Global freeze lock.</div><div class="ttdef"><b>Definition:</b> <a href="global_8cpp_source.html#l00051">global.cpp:51</a></div></div>

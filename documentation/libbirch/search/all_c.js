@@ -1,13 +1,11 @@
 var searchData=
 [
-  ['name_5f_173',['name_',['../classlibbirch_1_1Counted.html#a6249994a90affe4e8b9fbcb9191508b1',1,'libbirch::Counted::name_()'],['../classlibbirch_1_1LazyAny.html#ab656061dc71346338fe3a91542a974a0',1,'libbirch::LazyAny::name_()'],['../classlibbirch_1_1LazyLabel.html#a6249994a90affe4e8b9fbcb9191508b1',1,'libbirch::LazyLabel::name_()']]],
-  ['nil_174',['Nil',['../classlibbirch_1_1Nil.html',1,'libbirch']]],
-  ['nil_2ehpp_175',['Nil.hpp',['../Nil_8hpp.html',1,'']]],
-  ['nonemptyframe_176',['NonemptyFrame',['../structlibbirch_1_1NonemptyFrame.html',1,'NonemptyFrame&lt; Head, Tail &gt;'],['../structlibbirch_1_1NonemptyFrame.html#ac8093a40823ae996ba93e13074ae6c19',1,'libbirch::NonemptyFrame::NonemptyFrame()'],['../structlibbirch_1_1NonemptyFrame.html#a9c28dd4a8121ac77a993b6e0c2783d9e',1,'libbirch::NonemptyFrame::NonemptyFrame(const Head1 head, const Tail1 tail)'],['../structlibbirch_1_1NonemptyFrame.html#a0ba546a9bc6e03647bbfd8d9daf7cb82',1,'libbirch::NonemptyFrame::NonemptyFrame(const NonemptyFrame&lt; Head, Tail &gt; &amp;o)=default'],['../structlibbirch_1_1NonemptyFrame.html#a6a78d35c944c494e5b22bd72cbd005c2',1,'libbirch::NonemptyFrame::NonemptyFrame(const NonemptyFrame&lt; Head1, Tail1 &gt; &amp;o)']]],
-  ['nonemptyview_177',['NonemptyView',['../structlibbirch_1_1NonemptyView.html',1,'NonemptyView&lt; Head, Tail &gt;'],['../structlibbirch_1_1NonemptyView.html#aed20bd62c9ad6e106c93b1014aef1527',1,'libbirch::NonemptyView::NonemptyView()'],['../structlibbirch_1_1NonemptyView.html#ae084266c3ca2dd9f4927a21e17f569cd',1,'libbirch::NonemptyView::NonemptyView(const Head1 head, const Tail1 tail)'],['../structlibbirch_1_1NonemptyView.html#acf749c2abb11601979c21cf51f21ae16',1,'libbirch::NonemptyView::NonemptyView(const NonemptyView&lt; Head, Tail &gt; &amp;o)=default'],['../structlibbirch_1_1NonemptyView.html#a6f4d2f5ff086c78d27afd93a0b110e80',1,'libbirch::NonemptyView::NonemptyView(const NonemptyView&lt; Head1, Tail1 &gt; &amp;o)']]],
-  ['npoints_5f_178',['npoints_',['../classlibbirch_1_1FiberState.html#a62d8d4a7d285ffdfe507f5c242dc67fe',1,'libbirch::FiberState']]],
-  ['nummemo_179',['numMemo',['../classlibbirch_1_1Counted.html#ae3ba14b36bb88b7fedb51d3d555cd4de',1,'libbirch::Counted']]],
-  ['numshared_180',['numShared',['../classlibbirch_1_1Counted.html#a2f8fced40a31c46ea8ef724aa6fd0cfd',1,'libbirch::Counted']]],
-  ['numusage_181',['numUsage',['../classlibbirch_1_1Buffer.html#ad1db77f7846deb10ebf972e58c3bcd8c',1,'libbirch::Buffer']]],
-  ['numweak_182',['numWeak',['../classlibbirch_1_1Counted.html#a6d72bcfa0479f6b1f1350e3df7f74061',1,'libbirch::Counted']]]
+  ['name_5f_163',['name_',['../classlibbirch_1_1Any.html#ab656061dc71346338fe3a91542a974a0',1,'libbirch::Any::name_()'],['../classlibbirch_1_1Counted.html#a6249994a90affe4e8b9fbcb9191508b1',1,'libbirch::Counted::name_()'],['../classlibbirch_1_1Label.html#a6249994a90affe4e8b9fbcb9191508b1',1,'libbirch::Label::name_()']]],
+  ['nil_164',['Nil',['../classlibbirch_1_1Nil.html',1,'libbirch']]],
+  ['nil_2ehpp_165',['Nil.hpp',['../Nil_8hpp.html',1,'']]],
+  ['npoints_5f_166',['npoints_',['../classlibbirch_1_1FiberState.html#a62d8d4a7d285ffdfe507f5c242dc67fe',1,'libbirch::FiberState']]],
+  ['nummemo_167',['numMemo',['../classlibbirch_1_1Counted.html#ae3ba14b36bb88b7fedb51d3d555cd4de',1,'libbirch::Counted']]],
+  ['numshared_168',['numShared',['../classlibbirch_1_1Counted.html#a2f8fced40a31c46ea8ef724aa6fd0cfd',1,'libbirch::Counted']]],
+  ['numusage_169',['numUsage',['../classlibbirch_1_1Buffer.html#ad1db77f7846deb10ebf972e58c3bcd8c',1,'libbirch::Buffer']]],
+  ['numweak_170',['numWeak',['../classlibbirch_1_1Counted.html#a6d72bcfa0479f6b1f1350e3df7f74061',1,'libbirch::Counted']]]
 ];

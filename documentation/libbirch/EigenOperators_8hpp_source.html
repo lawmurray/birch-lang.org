@@ -86,8 +86,8 @@ $(function() {
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> * A unary operator.</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#define UNARY_OPERATOR(op) \</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">  template&lt;class Type, class Frame&gt; \</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">  auto operator op(const libbirch::Array&lt;Type,Frame&gt;&amp; x) { \</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">  template&lt;class T, class F&gt; \</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">  auto operator op(const libbirch::Array&lt;T,F&gt;&amp; x) { \</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">    return op x.toEigen(); \</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">  }</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
@@ -95,42 +95,42 @@ $(function() {
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment"> * A binary operator.</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#define BINARY_OPERATOR(op) \</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">  template&lt;class Type1, class Type2, class Frame2&gt; \</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">  auto operator op(const Eigen::MatrixBase&lt;Type1&gt;&amp; x, const libbirch::Array&lt;Type2,Frame2&gt;&amp; y) { \</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">  template&lt;class T, class U, class G&gt; \</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">  auto operator op(const Eigen::MatrixBase&lt;T&gt;&amp; x, const libbirch::Array&lt;U,G&gt;&amp; y) { \</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">    return x op y.toEigen(); \</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">  } \</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">  \</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">  template&lt;class Type1, class Frame1, class Type2&gt; \</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">  auto operator op(const libbirch::Array&lt;Type1,Frame1&gt;&amp; x, const Eigen::MatrixBase&lt;Type2&gt;&amp; y) { \</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">  template&lt;class T, class F, class U&gt; \</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">  auto operator op(const libbirch::Array&lt;T,F&gt;&amp; x, const Eigen::MatrixBase&lt;U&gt;&amp; y) { \</span></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">    return x.toEigen() op y; \</span></div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">  } \</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">  template&lt;class Type1, class Frame1, class Type2, class Frame2&gt; \</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">  auto operator op(const libbirch::Array&lt;Type1,Frame1&gt;&amp; x, \</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">      const libbirch::Array&lt;Type2,Frame2&gt;&amp; y) { \</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">  template&lt;class T, class F, class U, class G&gt; \</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">  auto operator op(const libbirch::Array&lt;T,F&gt;&amp; x, \</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">      const libbirch::Array&lt;U,G&gt;&amp; y) { \</span></div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">    return x.toEigen() op y.toEigen(); \</span></div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">  }</span></div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
 <div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="EigenOperators_8hpp.html#a46f04b437b5a0d9b0033ff03ff86acde">   42</a></span>&#160;<span class="preprocessor">#define LEFT_SCALAR_BINARY_OPERATOR(op) \</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">  template&lt;class Type1, class Frame1&gt; \</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">  auto operator op(const Type1&amp; x, const libbirch::Array&lt;Type1,Frame1&gt;&amp; y) { \</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">  template&lt;class T, class F&gt; \</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">  auto operator op(const T&amp; x, const libbirch::Array&lt;T,F&gt;&amp; y) { \</span></div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">    return (x op y.toEigen().array()).matrix(); \</span></div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">  }</span></div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
 <div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="EigenOperators_8hpp.html#a158baa9bee1ca1a614eeb267a2249f02">   51</a></span>&#160;<span class="preprocessor">#define RIGHT_SCALAR_BINARY_OPERATOR(op) \</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">  template&lt;class Type1, class Frame1&gt; \</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">  auto operator op(const libbirch::Array&lt;Type1,Frame1&gt;&amp; x, const Type1&amp; y) { \</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">  template&lt;class T, class F&gt; \</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">  auto operator op(const libbirch::Array&lt;T,F&gt;&amp; x, const T&amp; y) { \</span></div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">    return (x.toEigen().array() op y).matrix(); \</span></div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">  }</span></div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
 <div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="EigenOperators_8hpp.html#afbce81ecd53a75b1364425b49d755d74">   61</a></span>&#160;<span class="preprocessor">#define LEFT_EXTRA_SCALAR_BINARY_OPERATOR(op) \</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor">  template&lt;class Type1, class Type2, typename = std::enable_if_t&lt;std::is_same&lt;Type1,typename Type2::value_type&gt;::value&gt;&gt; \</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="preprocessor">  auto operator op(const Type1&amp; x, const Eigen::MatrixBase&lt;Type2&gt;&amp; y) { \</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor">  template&lt;class T, class U, typename = std::enable_if_t&lt;std::is_same&lt;T,typename U::value_type&gt;::value&gt;&gt; \</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="preprocessor">  auto operator op(const T&amp; x, const Eigen::MatrixBase&lt;U&gt;&amp; y) { \</span></div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="preprocessor">    return (x op y.array()).matrix(); \</span></div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="preprocessor">  }</span></div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
 <div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="EigenOperators_8hpp.html#a2992e0f0dcee309c5444689a4ea535a3">   71</a></span>&#160;<span class="preprocessor">#define RIGHT_EXTRA_SCALAR_BINARY_OPERATOR(op) \</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor">  template&lt;class Type1, class Type2, typename = std::enable_if_t&lt;std::is_same&lt;Type2,typename Type1::value_type&gt;::value&gt;&gt; \</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="preprocessor">  auto operator op(const Eigen::MatrixBase&lt;Type1&gt;&amp; x, const Type2&amp; y) { \</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor">  template&lt;class T, class U, typename = std::enable_if_t&lt;std::is_same&lt;U,typename T::value_type&gt;::value&gt;&gt; \</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="preprocessor">  auto operator op(const Eigen::MatrixBase&lt;T&gt;&amp; x, const U&amp; y) { \</span></div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor">    return (x.array() op y).matrix(); \</span></div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="preprocessor">  }</span></div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>

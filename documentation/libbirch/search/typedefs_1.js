@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['head_5ftype_572',['head_type',['../structlibbirch_1_1NonemptyFrame.html#a925170fd7a31285f9e01cf9c1ba9ce28',1,'libbirch::NonemptyFrame::head_type()'],['../structlibbirch_1_1NonemptyView.html#a925170fd7a31285f9e01cf9c1ba9ce28',1,'libbirch::NonemptyView::head_type()']]]
+  ['key_5ftype_539',['key_type',['../classlibbirch_1_1LazyMemo.html#a9b8b40c78d7dfa7e7c48c298f839e4ea',1,'libbirch::LazyMemo']]]
 ];

@@ -81,7 +81,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="structlibbirch_1_1Range.html" title="Range.">Range</a>.  
+<p><a class="el" href="structlibbirch_1_1Range.html" title="Range, used within a slice to indicate a range of elements of a dimension.">Range</a>, used within a slice to indicate a range of elements of a dimension.  
  <a href="structlibbirch_1_1Range.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -108,15 +108,15 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a8a457a67926ebef25b5bb5a7ddf2d94f"><td class="memItemLeft" align="right" valign="top">static constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlibbirch_1_1Range.html#a8a457a67926ebef25b5bb5a7ddf2d94f">rangeCount</a> ()</td></tr>
-<tr class="memdesc:a8a457a67926ebef25b5bb5a7ddf2d94f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to count the number of ranges in a view.  <a href="structlibbirch_1_1Range.html#a8a457a67926ebef25b5bb5a7ddf2d94f">More...</a><br /></td></tr>
+<tr class="memdesc:a8a457a67926ebef25b5bb5a7ddf2d94f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to count the number of ranges in a slice.  <a href="structlibbirch_1_1Range.html#a8a457a67926ebef25b5bb5a7ddf2d94f">More...</a><br /></td></tr>
 <tr class="separator:a8a457a67926ebef25b5bb5a7ddf2d94f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;int64_t offset_value = 0, int64_t length_value = mutable_value&gt;<br />
 struct libbirch::Range&lt; offset_value, length_value &gt;</h3>
 
-<p><a class="el" href="structlibbirch_1_1Range.html" title="Range.">Range</a>. </p>
-<p>A <a class="el" href="structlibbirch_1_1Range.html" title="Range.">Range</a> describes the active elements along one dimension of an array. It combines an <a class="el" href="structlibbirch_1_1Offset.html" title="Offset.">Offset</a> and <a class="el" href="structlibbirch_1_1Length.html" title="Length.">Length</a>. Each of these may have either a static value (indicated by a template parameter giving that value) or a dynamic value (indicated by a template parameter of mutable_value and initial value given in the constructor). </p>
+<p><a class="el" href="structlibbirch_1_1Range.html" title="Range, used within a slice to indicate a range of elements of a dimension.">Range</a>, used within a slice to indicate a range of elements of a dimension. </p>
+<p>A <a class="el" href="structlibbirch_1_1Range.html" title="Range, used within a slice to indicate a range of elements of a dimension.">Range</a> describes the active elements along one dimension of an array. It combines an <a class="el" href="structlibbirch_1_1Offset.html" title="Offset.">Offset</a> and <a class="el" href="structlibbirch_1_1Length.html" title="Length.">Length</a>. Each of these may have either a static value (indicated by a template argument giving that value) or a dynamic value (indicated by a template argument of mutable_value and initial value given in the constructor). </p>
 
 <p class="definition">Definition at line <a class="el" href="Range_8hpp_source.html#l00022">22</a> of file <a class="el" href="Range_8hpp_source.html">Range.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -278,7 +278,7 @@ struct libbirch::Range&lt; offset_value, length_value &gt;</h3>
 </table>
 </div><div class="memdoc">
 
-<p>Used to count the number of ranges in a view. </p>
+<p>Used to count the number of ranges in a slice. </p>
 
 <p class="definition">Definition at line <a class="el" href="Range_8hpp_source.html#l00075">75</a> of file <a class="el" href="Range_8hpp_source.html">Range.hpp</a>.</p>
 

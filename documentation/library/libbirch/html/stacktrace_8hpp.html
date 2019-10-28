@@ -73,7 +73,6 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
@@ -84,12 +83,6 @@ $(function() {
 
 <p><a href="stacktrace_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlibbirch_1_1StackFunction.html">StackFunction</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Temporary type for pushing functions onto the stack trace.  <a href="structlibbirch_1_1StackFunction.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespacelibbirch"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html">libbirch</a></td></tr>
@@ -98,7 +91,7 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a3cba91f029bacd756600dfd01ed5e319"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stacktrace_8hpp.html#a3cba91f029bacd756600dfd01ed5e319">libbirch_function_</a>(func,  file,  n)&#160;&#160;&#160;<a class="el" href="structlibbirch_1_1StackFunction.html">libbirch::StackFunction</a> function_(func, file, n)</td></tr>
+<tr class="memitem:a3cba91f029bacd756600dfd01ed5e319"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stacktrace_8hpp.html#a3cba91f029bacd756600dfd01ed5e319">libbirch_function_</a>(func,  file,  n)&#160;&#160;&#160;libbirch::StackFunction function_(func, file, n)</td></tr>
 <tr class="separator:a3cba91f029bacd756600dfd01ed5e319"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af014804910e55c7708059b7bddb24ab7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stacktrace_8hpp.html#af014804910e55c7708059b7bddb24ab7">libbirch_line_</a>(n)&#160;&#160;&#160;<a class="el" href="namespacelibbirch.html#ab2b9d6a85028488049862464c42af3f1">libbirch::line</a>(n)</td></tr>
 <tr class="separator:af014804910e55c7708059b7bddb24ab7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -106,7 +99,7 @@ Macros</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ab2b9d6a85028488049862464c42af3f1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#ab2b9d6a85028488049862464c42af3f1">line</a> (const int n)</td></tr>
-<tr class="memdesc:ab2b9d6a85028488049862464c42af3f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the line number of the top frame of the stack trace.  <a href="namespacelibbirch.html#ab2b9d6a85028488049862464c42af3f1">More...</a><br /></td></tr>
+<tr class="memdesc:ab2b9d6a85028488049862464c42af3f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the line number of the top shape of the stack trace.  <a href="namespacelibbirch.html#ab2b9d6a85028488049862464c42af3f1">More...</a><br /></td></tr>
 <tr class="separator:ab2b9d6a85028488049862464c42af3f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac54f53dc342019e8db34f4aa581a5792"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#ac54f53dc342019e8db34f4aa581a5792">abort</a> ()</td></tr>
 <tr class="memdesc:ac54f53dc342019e8db34f4aa581a5792"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print stack trace and abort.  <a href="namespacelibbirch.html#ac54f53dc342019e8db34f4aa581a5792">More...</a><br /></td></tr>
@@ -143,11 +136,11 @@ Functions</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;<a class="el" href="structlibbirch_1_1StackFunction.html">libbirch::StackFunction</a> function_(func, file, n)</td>
+          <td></td><td>&#160;&#160;&#160;libbirch::StackFunction function_(func, file, n)</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Push a new frame onto the stack trace. </p>
+<p>Push a new shape onto the stack trace. </p>
 
 <p class="definition">Definition at line <a class="el" href="stacktrace_8hpp_source.html#l00015">15</a> of file <a class="el" href="stacktrace_8hpp_source.html">stacktrace.hpp</a>.</p>
 
@@ -168,7 +161,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Update the line number of the top frame of the stack trace. </p>
+<p>Update the line number of the top shape of the stack trace. </p>
 
 <p class="definition">Definition at line <a class="el" href="stacktrace_8hpp_source.html#l00026">26</a> of file <a class="el" href="stacktrace_8hpp_source.html">stacktrace.hpp</a>.</p>
 

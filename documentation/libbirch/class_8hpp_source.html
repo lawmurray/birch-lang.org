@@ -79,15 +79,11 @@ $(function() {
 <a href="class_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#if ENABLE_LAZY_DEEP_CLONE</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="class_8hpp.html#a55ff14b01e69338cdff610076140399f">   12</a></span>&#160;<span class="preprocessor">#define libbirch_swap_context_ [[maybe_unused]] auto context_ = libbirch::Any::getLabel();</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#define libbirch_swap_context_</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="class_8hpp.html#a1e4027ad5d9713cb452f6a2fe31dd899">   22</a></span>&#160;<span class="preprocessor">#define libbirch_declare_self_ libbirch::Init&lt;this_type_&gt; self(context_, libbirch::InitPtr&lt;this_type_&gt;(this));</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="class_8hpp.html#a82f078b4c7c5d51af482bbe2917ad585">   29</a></span>&#160;<span class="preprocessor">#define libbirch_declare_local_ libbirch::Init&lt;class_type_&gt; local(context_, libbirch::InitPtr&lt;class_type_&gt;(this));</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="class_8hpp.html#a55ff14b01e69338cdff610076140399f">   11</a></span>&#160;<span class="preprocessor">#define libbirch_swap_context_ [[maybe_unused]] auto context_ = libbirch::Any::getLabel();</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="class_8hpp.html#a1e4027ad5d9713cb452f6a2fe31dd899">   18</a></span>&#160;<span class="preprocessor">#define libbirch_declare_self_ libbirch::Lazy&lt;libbirch::InitPtr&lt;this_type_&gt;&gt; self(context_, libbirch::InitPtr&lt;this_type_&gt;(this));</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="class_8hpp.html#a82f078b4c7c5d51af482bbe2917ad585">   25</a></span>&#160;<span class="preprocessor">#define libbirch_declare_local_ libbirch::Lazy&lt;libbirch::InitPtr&lt;class_type_&gt;&gt; local(context_, libbirch::InitPtr&lt;class_type_&gt;(this));</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

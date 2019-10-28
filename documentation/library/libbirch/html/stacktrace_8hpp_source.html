@@ -95,9 +95,12 @@ $(function() {
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacelibbirch.html">libbirch</a> {</div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="structlibbirch_1_1StackFunction.html">   35</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structlibbirch_1_1StackFunction.html">StackFunction</a> {</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <a class="code" href="structlibbirch_1_1StackFunction.html">StackFunction</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* func, <span class="keyword">const</span> <span class="keywordtype">char</span>* file = <span class="keyword">nullptr</span>, <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="namespacelibbirch.html#ab2b9d6a85028488049862464c42af3f1">line</a> = 0);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  ~<a class="code" href="structlibbirch_1_1StackFunction.html">StackFunction</a>();</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment"> * Temporary type for pushing functions onto the stack trace.</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">struct </span>StackFunction {</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  StackFunction(<span class="keyword">const</span> <span class="keywordtype">char</span>* func, <span class="keyword">const</span> <span class="keywordtype">char</span>* file = <span class="keyword">nullptr</span>, <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="namespacelibbirch.html#ab2b9d6a85028488049862464c42af3f1">line</a> = 0);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  ~StackFunction();</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;};</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespacelibbirch.html#ab2b9d6a85028488049862464c42af3f1">line</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> n);</div>
@@ -109,10 +112,9 @@ $(function() {
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="anamespacelibbirch_html_ac54f53dc342019e8db34f4aa581a5792"><div class="ttname"><a href="namespacelibbirch.html#ac54f53dc342019e8db34f4aa581a5792">libbirch::abort</a></div><div class="ttdeci">void abort()</div><div class="ttdoc">Print stack trace and abort.</div><div class="ttdef"><b>Definition:</b> <a href="stacktrace_8cpp_source.html#l00032">stacktrace.cpp:32</a></div></div>
 <div class="ttc" id="aAllocator_8hpp_html"><div class="ttname"><a href="Allocator_8hpp.html">Allocator.hpp</a></div></div>
-<div class="ttc" id="anamespacelibbirch_html_ab2b9d6a85028488049862464c42af3f1"><div class="ttname"><a href="namespacelibbirch.html#ab2b9d6a85028488049862464c42af3f1">libbirch::line</a></div><div class="ttdeci">void line(const int n)</div><div class="ttdoc">Update the line number of the top frame of the stack trace.</div><div class="ttdef"><b>Definition:</b> <a href="stacktrace_8cpp_source.html#l00028">stacktrace.cpp:28</a></div></div>
+<div class="ttc" id="anamespacelibbirch_html_ab2b9d6a85028488049862464c42af3f1"><div class="ttname"><a href="namespacelibbirch.html#ab2b9d6a85028488049862464c42af3f1">libbirch::line</a></div><div class="ttdeci">void line(const int n)</div><div class="ttdoc">Update the line number of the top shape of the stack trace.</div><div class="ttdef"><b>Definition:</b> <a href="stacktrace_8cpp_source.html#l00028">stacktrace.cpp:28</a></div></div>
 <div class="ttc" id="aexternal_8hpp_html"><div class="ttname"><a href="external_8hpp.html">external.hpp</a></div></div>
 <div class="ttc" id="anamespacelibbirch_html"><div class="ttname"><a href="namespacelibbirch.html">libbirch</a></div><div class="ttdoc">LibBirch.</div><div class="ttdef"><b>Definition:</b> <a href="Allocator_8hpp_source.html#l00008">Allocator.hpp:8</a></div></div>
-<div class="ttc" id="astructlibbirch_1_1StackFunction_html"><div class="ttname"><a href="structlibbirch_1_1StackFunction.html">libbirch::StackFunction</a></div><div class="ttdoc">Temporary type for pushing functions onto the stack trace.</div><div class="ttdef"><b>Definition:</b> <a href="stacktrace_8hpp_source.html#l00035">stacktrace.hpp:35</a></div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

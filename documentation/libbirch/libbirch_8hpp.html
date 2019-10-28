@@ -86,8 +86,8 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlibbirch_1_1DefaultView.html">DefaultView&lt; D &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default view for <code>D</code>-dimensional indexing of a single element.  <a href="structlibbirch_1_1DefaultView.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlibbirch_1_1DefaultSlice.html">DefaultSlice&lt; D &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default slice for <code>D</code>-dimensional indexing of a single element.  <a href="structlibbirch_1_1DefaultSlice.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -98,76 +98,88 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:af274cdc237a577eb6b5563773b5c0922"><td class="memTemplParams" colspan="2">template&lt;class T , int D&gt; </td></tr>
-<tr class="memitem:af274cdc237a577eb6b5563773b5c0922"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#af274cdc237a577eb6b5563773b5c0922">DefaultArray</a> = Array&lt; T, typename DefaultFrame&lt; D &gt;::type &gt;</td></tr>
-<tr class="memdesc:af274cdc237a577eb6b5563773b5c0922"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default array for <code>D</code> dimensions.  <a href="namespacelibbirch.html#af274cdc237a577eb6b5563773b5c0922">More...</a><br /></td></tr>
-<tr class="separator:af274cdc237a577eb6b5563773b5c0922"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e629ec19c1abf264beaced30d97d166"><td class="memTemplParams" colspan="2">template&lt;class T , int D&gt; </td></tr>
+<tr class="memitem:a7e629ec19c1abf264beaced30d97d166"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#a7e629ec19c1abf264beaced30d97d166">DefaultArray</a> = Array&lt; T, typename DefaultShape&lt; D &gt;::type &gt;</td></tr>
+<tr class="memdesc:a7e629ec19c1abf264beaced30d97d166"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default array for <code>D</code> dimensions.  <a href="namespacelibbirch.html#a7e629ec19c1abf264beaced30d97d166">More...</a><br /></td></tr>
+<tr class="separator:a7e629ec19c1abf264beaced30d97d166"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75e5f59b1ea1647334acdc40facce7d4"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:a75e5f59b1ea1647334acdc40facce7d4"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#a75e5f59b1ea1647334acdc40facce7d4">LazySharedPtr</a> = Lazy&lt; SharedPtr&lt; T &gt; &gt;</td></tr>
+<tr class="memdesc:a75e5f59b1ea1647334acdc40facce7d4"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classlibbirch_1_1Lazy.html" title="Wraps a pointer type to apply lazy deep clone semantics.">Lazy</a> shared pointer.  <a href="namespacelibbirch.html#a75e5f59b1ea1647334acdc40facce7d4">More...</a><br /></td></tr>
+<tr class="separator:a75e5f59b1ea1647334acdc40facce7d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aadef455bc7d072615d587365e0448b77"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:aadef455bc7d072615d587365e0448b77"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#aadef455bc7d072615d587365e0448b77">LazyWeakPtr</a> = Lazy&lt; WeakPtr&lt; T &gt; &gt;</td></tr>
+<tr class="memdesc:aadef455bc7d072615d587365e0448b77"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classlibbirch_1_1Lazy.html" title="Wraps a pointer type to apply lazy deep clone semantics.">Lazy</a> weak pointer.  <a href="namespacelibbirch.html#aadef455bc7d072615d587365e0448b77">More...</a><br /></td></tr>
+<tr class="separator:aadef455bc7d072615d587365e0448b77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3834da403847dd9a513d0960a6982c60"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:a3834da403847dd9a513d0960a6982c60"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#a3834da403847dd9a513d0960a6982c60">LazyInitPtr</a> = Lazy&lt; InitPtr&lt; T &gt; &gt;</td></tr>
+<tr class="memdesc:a3834da403847dd9a513d0960a6982c60"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classlibbirch_1_1Lazy.html" title="Wraps a pointer type to apply lazy deep clone semantics.">Lazy</a> init pointer.  <a href="namespacelibbirch.html#a3834da403847dd9a513d0960a6982c60">More...</a><br /></td></tr>
+<tr class="separator:a3834da403847dd9a513d0960a6982c60"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a25fad708745e7b380749ffdcbf2b20f6"><td class="memItemLeft" align="right" valign="top">Range&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#a25fad708745e7b380749ffdcbf2b20f6">make_range</a> (const int64_t start, const int64_t end)</td></tr>
 <tr class="memdesc:a25fad708745e7b380749ffdcbf2b20f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make a range.  <a href="namespacelibbirch.html#a25fad708745e7b380749ffdcbf2b20f6">More...</a><br /></td></tr>
 <tr class="separator:a25fad708745e7b380749ffdcbf2b20f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af345d9d7fd0049c2600b18accc50ccc6"><td class="memItemLeft" align="right" valign="top">EmptyFrame&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#af345d9d7fd0049c2600b18accc50ccc6">make_frame</a> ()</td></tr>
-<tr class="memdesc:af345d9d7fd0049c2600b18accc50ccc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make a frame, no arguments.  <a href="namespacelibbirch.html#af345d9d7fd0049c2600b18accc50ccc6">More...</a><br /></td></tr>
-<tr class="separator:af345d9d7fd0049c2600b18accc50ccc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7fdd64ba3b2aea0964fec0d86a22b33a"><td class="memItemLeft" align="right" valign="top">NonemptyFrame&lt; Span&lt;&gt;, EmptyFrame &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#a7fdd64ba3b2aea0964fec0d86a22b33a">make_frame</a> (const int64_t arg)</td></tr>
-<tr class="memdesc:a7fdd64ba3b2aea0964fec0d86a22b33a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make a frame, single argument.  <a href="namespacelibbirch.html#a7fdd64ba3b2aea0964fec0d86a22b33a">More...</a><br /></td></tr>
-<tr class="separator:a7fdd64ba3b2aea0964fec0d86a22b33a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9e0a683b35f8812d5ae0f2d41fc6df97"><td class="memTemplParams" colspan="2">template&lt;class ... Args&gt; </td></tr>
-<tr class="memitem:a9e0a683b35f8812d5ae0f2d41fc6df97"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#a9e0a683b35f8812d5ae0f2d41fc6df97">make_frame</a> (const int64_t arg, Args ... args)</td></tr>
-<tr class="memdesc:a9e0a683b35f8812d5ae0f2d41fc6df97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make a frame, multiple arguments.  <a href="namespacelibbirch.html#a9e0a683b35f8812d5ae0f2d41fc6df97">More...</a><br /></td></tr>
-<tr class="separator:a9e0a683b35f8812d5ae0f2d41fc6df97"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d5b8efe499aa21c8fce8571e04c6fe0"><td class="memTemplParams" colspan="2">template&lt;class ... Args&gt; </td></tr>
-<tr class="memitem:a2d5b8efe499aa21c8fce8571e04c6fe0"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#a2d5b8efe499aa21c8fce8571e04c6fe0">make_frame</a> (const int64_t arg, const NonemptyFrame&lt; Args... &gt; &amp;tail)</td></tr>
-<tr class="memdesc:a2d5b8efe499aa21c8fce8571e04c6fe0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make a frame, recursively.  <a href="namespacelibbirch.html#a2d5b8efe499aa21c8fce8571e04c6fe0">More...</a><br /></td></tr>
-<tr class="separator:a2d5b8efe499aa21c8fce8571e04c6fe0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a93ed9c31449f7c64c9e1d24d07541a2a"><td class="memItemLeft" align="right" valign="top">EmptyView&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#a93ed9c31449f7c64c9e1d24d07541a2a">make_view</a> ()</td></tr>
-<tr class="memdesc:a93ed9c31449f7c64c9e1d24d07541a2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make a view, no arguments.  <a href="namespacelibbirch.html#a93ed9c31449f7c64c9e1d24d07541a2a">More...</a><br /></td></tr>
-<tr class="separator:a93ed9c31449f7c64c9e1d24d07541a2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a39cdb6e707eb27f2382c6a7779a34077"><td class="memTemplParams" colspan="2">template&lt;int64_t offset_value, int64_t length_value&gt; </td></tr>
-<tr class="memitem:a39cdb6e707eb27f2382c6a7779a34077"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#a39cdb6e707eb27f2382c6a7779a34077">make_view</a> (const Range&lt; offset_value, length_value &gt; &amp;arg)</td></tr>
-<tr class="memdesc:a39cdb6e707eb27f2382c6a7779a34077"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make a view, single argument.  <a href="namespacelibbirch.html#a39cdb6e707eb27f2382c6a7779a34077">More...</a><br /></td></tr>
-<tr class="separator:a39cdb6e707eb27f2382c6a7779a34077"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8ba6c4dc4f7f39bf80d203975ef5fe97"><td class="memItemLeft" align="right" valign="top">NonemptyView&lt; Index&lt;&gt;, EmptyView &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#a8ba6c4dc4f7f39bf80d203975ef5fe97">make_view</a> (const int64_t arg)</td></tr>
-<tr class="memdesc:a8ba6c4dc4f7f39bf80d203975ef5fe97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make a view, single argument.  <a href="namespacelibbirch.html#a8ba6c4dc4f7f39bf80d203975ef5fe97">More...</a><br /></td></tr>
-<tr class="separator:a8ba6c4dc4f7f39bf80d203975ef5fe97"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a22837841e6c58077f56c6a24a627e1bd"><td class="memTemplParams" colspan="2">template&lt;int64_t offset_value, int64_t length_value, class ... Args&gt; </td></tr>
-<tr class="memitem:a22837841e6c58077f56c6a24a627e1bd"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#a22837841e6c58077f56c6a24a627e1bd">make_view</a> (const Range&lt; offset_value, length_value &gt; &amp;arg, Args ... args)</td></tr>
-<tr class="memdesc:a22837841e6c58077f56c6a24a627e1bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make a view, multiple arguments.  <a href="namespacelibbirch.html#a22837841e6c58077f56c6a24a627e1bd">More...</a><br /></td></tr>
-<tr class="separator:a22837841e6c58077f56c6a24a627e1bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a43846679bde7089403cec58ba951587b"><td class="memTemplParams" colspan="2">template&lt;class ... Args&gt; </td></tr>
-<tr class="memitem:a43846679bde7089403cec58ba951587b"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#a43846679bde7089403cec58ba951587b">make_view</a> (const int64_t arg, Args ... args)</td></tr>
-<tr class="memdesc:a43846679bde7089403cec58ba951587b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make a view, multiple arguments.  <a href="namespacelibbirch.html#a43846679bde7089403cec58ba951587b">More...</a><br /></td></tr>
-<tr class="separator:a43846679bde7089403cec58ba951587b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad216a7b8022dfb9ea6707e4e91a75954"><td class="memTemplParams" colspan="2">template&lt;class Type , class Frame , class ... Args&gt; </td></tr>
-<tr class="memitem:ad216a7b8022dfb9ea6707e4e91a75954"><td class="memTemplItemLeft" align="right" valign="top">Array&lt; Type, Frame &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#ad216a7b8022dfb9ea6707e4e91a75954">make_array</a> (const Frame &amp;frame, const Args &amp;... args)</td></tr>
-<tr class="memdesc:ad216a7b8022dfb9ea6707e4e91a75954"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make an array of value type.  <a href="namespacelibbirch.html#ad216a7b8022dfb9ea6707e4e91a75954">More...</a><br /></td></tr>
-<tr class="separator:ad216a7b8022dfb9ea6707e4e91a75954"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6ccafc24219af0575d4e1cf6e47cefaa"><td class="memTemplParams" colspan="2">template&lt;class Type , class Frame , class ... Args&gt; </td></tr>
-<tr class="memitem:a6ccafc24219af0575d4e1cf6e47cefaa"><td class="memTemplItemLeft" align="right" valign="top">Array&lt; Type, Frame &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#a6ccafc24219af0575d4e1cf6e47cefaa">make_array</a> (Label *context, const Frame &amp;frame, const Args &amp;... args)</td></tr>
-<tr class="memdesc:a6ccafc24219af0575d4e1cf6e47cefaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make an array of non-value type.  <a href="namespacelibbirch.html#a6ccafc24219af0575d4e1cf6e47cefaa">More...</a><br /></td></tr>
-<tr class="separator:a6ccafc24219af0575d4e1cf6e47cefaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa5d783019cb37eb3667a4f65bad80b7e"><td class="memTemplParams" colspan="2">template&lt;class Type , class Frame , class Value &gt; </td></tr>
-<tr class="memitem:aa5d783019cb37eb3667a4f65bad80b7e"><td class="memTemplItemLeft" align="right" valign="top">Array&lt; Type, Frame &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#aa5d783019cb37eb3667a4f65bad80b7e">make_array_and_assign</a> (const Frame &amp;frame, const Value &amp;value)</td></tr>
-<tr class="memdesc:aa5d783019cb37eb3667a4f65bad80b7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make an array and assign a value to it.  <a href="namespacelibbirch.html#aa5d783019cb37eb3667a4f65bad80b7e">More...</a><br /></td></tr>
-<tr class="separator:aa5d783019cb37eb3667a4f65bad80b7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a07c32c4c0901f878e475b6c7c1dc2296"><td class="memTemplParams" colspan="2">template&lt;class Type , class ... Args&gt; </td></tr>
-<tr class="memitem:a07c32c4c0901f878e475b6c7c1dc2296"><td class="memTemplItemLeft" align="right" valign="top">Type *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#a07c32c4c0901f878e475b6c7c1dc2296">make_object</a> (Label *context, const Args &amp;... args)</td></tr>
-<tr class="memdesc:a07c32c4c0901f878e475b6c7c1dc2296"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make an object.  <a href="namespacelibbirch.html#a07c32c4c0901f878e475b6c7c1dc2296">More...</a><br /></td></tr>
-<tr class="separator:a07c32c4c0901f878e475b6c7c1dc2296"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae087a046690cbd0fca1fb71163f10525"><td class="memTemplParams" colspan="2">template&lt;class Type &gt; </td></tr>
-<tr class="memitem:ae087a046690cbd0fca1fb71163f10525"><td class="memTemplItemLeft" align="right" valign="top">Type *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#ae087a046690cbd0fca1fb71163f10525">clone_object</a> (Label *context, const Type *o)</td></tr>
-<tr class="memdesc:ae087a046690cbd0fca1fb71163f10525"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clone an object.  <a href="namespacelibbirch.html#ae087a046690cbd0fca1fb71163f10525">More...</a><br /></td></tr>
-<tr class="separator:ae087a046690cbd0fca1fb71163f10525"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a022e89b8485e3b77ef1680d27501bd1a"><td class="memItemLeft" align="right" valign="top">EmptyShape&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#a022e89b8485e3b77ef1680d27501bd1a">make_shape</a> ()</td></tr>
+<tr class="memdesc:a022e89b8485e3b77ef1680d27501bd1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make a shape, no arguments.  <a href="namespacelibbirch.html#a022e89b8485e3b77ef1680d27501bd1a">More...</a><br /></td></tr>
+<tr class="separator:a022e89b8485e3b77ef1680d27501bd1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a196218067cb37591b38f4955286a0a8c"><td class="memItemLeft" align="right" valign="top">Shape&lt; Dimension&lt;&gt;, EmptyShape &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#a196218067cb37591b38f4955286a0a8c">make_shape</a> (const int64_t arg)</td></tr>
+<tr class="memdesc:a196218067cb37591b38f4955286a0a8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make a shape, single argument.  <a href="namespacelibbirch.html#a196218067cb37591b38f4955286a0a8c">More...</a><br /></td></tr>
+<tr class="separator:a196218067cb37591b38f4955286a0a8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17a3b9d961e883a0488fab4cc5d8c9f1"><td class="memTemplParams" colspan="2">template&lt;class ... Args&gt; </td></tr>
+<tr class="memitem:a17a3b9d961e883a0488fab4cc5d8c9f1"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#a17a3b9d961e883a0488fab4cc5d8c9f1">make_shape</a> (const int64_t arg, Args ... args)</td></tr>
+<tr class="memdesc:a17a3b9d961e883a0488fab4cc5d8c9f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make a shape, multiple arguments.  <a href="namespacelibbirch.html#a17a3b9d961e883a0488fab4cc5d8c9f1">More...</a><br /></td></tr>
+<tr class="separator:a17a3b9d961e883a0488fab4cc5d8c9f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09f3482349b9944a25baeefab1fcd28c"><td class="memTemplParams" colspan="2">template&lt;class ... Args&gt; </td></tr>
+<tr class="memitem:a09f3482349b9944a25baeefab1fcd28c"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#a09f3482349b9944a25baeefab1fcd28c">make_shape</a> (const int64_t arg, const Shape&lt; Args... &gt; &amp;tail)</td></tr>
+<tr class="memdesc:a09f3482349b9944a25baeefab1fcd28c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make a shape, recursively.  <a href="namespacelibbirch.html#a09f3482349b9944a25baeefab1fcd28c">More...</a><br /></td></tr>
+<tr class="separator:a09f3482349b9944a25baeefab1fcd28c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a045458c4507e9b50ff1eeb786dc58809"><td class="memItemLeft" align="right" valign="top">EmptySlice&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#a045458c4507e9b50ff1eeb786dc58809">make_slice</a> ()</td></tr>
+<tr class="memdesc:a045458c4507e9b50ff1eeb786dc58809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make a slice, no arguments.  <a href="namespacelibbirch.html#a045458c4507e9b50ff1eeb786dc58809">More...</a><br /></td></tr>
+<tr class="separator:a045458c4507e9b50ff1eeb786dc58809"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aefbdad4c08e6db239dcafe0a312c0b23"><td class="memTemplParams" colspan="2">template&lt;int64_t offset_value, int64_t length_value&gt; </td></tr>
+<tr class="memitem:aefbdad4c08e6db239dcafe0a312c0b23"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#aefbdad4c08e6db239dcafe0a312c0b23">make_slice</a> (const Range&lt; offset_value, length_value &gt; &amp;arg)</td></tr>
+<tr class="memdesc:aefbdad4c08e6db239dcafe0a312c0b23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make a slice, single argument.  <a href="namespacelibbirch.html#aefbdad4c08e6db239dcafe0a312c0b23">More...</a><br /></td></tr>
+<tr class="separator:aefbdad4c08e6db239dcafe0a312c0b23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1e4435902a12571e052096fe32d6f20"><td class="memItemLeft" align="right" valign="top">Slice&lt; Index&lt;&gt;, EmptySlice &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#ad1e4435902a12571e052096fe32d6f20">make_slice</a> (const int64_t arg)</td></tr>
+<tr class="memdesc:ad1e4435902a12571e052096fe32d6f20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make a slice, single argument.  <a href="namespacelibbirch.html#ad1e4435902a12571e052096fe32d6f20">More...</a><br /></td></tr>
+<tr class="separator:ad1e4435902a12571e052096fe32d6f20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7fb1230903190779d28669257c2a8c8e"><td class="memTemplParams" colspan="2">template&lt;int64_t offset_value, int64_t length_value, class ... Args&gt; </td></tr>
+<tr class="memitem:a7fb1230903190779d28669257c2a8c8e"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#a7fb1230903190779d28669257c2a8c8e">make_slice</a> (const Range&lt; offset_value, length_value &gt; &amp;arg, Args ... args)</td></tr>
+<tr class="memdesc:a7fb1230903190779d28669257c2a8c8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make a slice, multiple arguments.  <a href="namespacelibbirch.html#a7fb1230903190779d28669257c2a8c8e">More...</a><br /></td></tr>
+<tr class="separator:a7fb1230903190779d28669257c2a8c8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a036d66c940642dca4a8f92ae7d97a963"><td class="memTemplParams" colspan="2">template&lt;class ... Args&gt; </td></tr>
+<tr class="memitem:a036d66c940642dca4a8f92ae7d97a963"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#a036d66c940642dca4a8f92ae7d97a963">make_slice</a> (const int64_t arg, Args ... args)</td></tr>
+<tr class="memdesc:a036d66c940642dca4a8f92ae7d97a963"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make a slice, multiple arguments.  <a href="namespacelibbirch.html#a036d66c940642dca4a8f92ae7d97a963">More...</a><br /></td></tr>
+<tr class="separator:a036d66c940642dca4a8f92ae7d97a963"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49fe03196134fff2740a134225563ff3"><td class="memTemplParams" colspan="2">template&lt;class T , class F , class ... Args&gt; </td></tr>
+<tr class="memitem:a49fe03196134fff2740a134225563ff3"><td class="memTemplItemLeft" align="right" valign="top">Array&lt; T, F &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#a49fe03196134fff2740a134225563ff3">make_array</a> (const F &amp;shape, const Args &amp;... args)</td></tr>
+<tr class="memdesc:a49fe03196134fff2740a134225563ff3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make an array of value type.  <a href="namespacelibbirch.html#a49fe03196134fff2740a134225563ff3">More...</a><br /></td></tr>
+<tr class="separator:a49fe03196134fff2740a134225563ff3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3718c34a0fe5d2160492883e70b79958"><td class="memTemplParams" colspan="2">template&lt;class T , class F , class ... Args&gt; </td></tr>
+<tr class="memitem:a3718c34a0fe5d2160492883e70b79958"><td class="memTemplItemLeft" align="right" valign="top">Array&lt; T, F &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#a3718c34a0fe5d2160492883e70b79958">make_array</a> (Label *context, const F &amp;shape, const Args &amp;... args)</td></tr>
+<tr class="memdesc:a3718c34a0fe5d2160492883e70b79958"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make an array of non-value type.  <a href="namespacelibbirch.html#a3718c34a0fe5d2160492883e70b79958">More...</a><br /></td></tr>
+<tr class="separator:a3718c34a0fe5d2160492883e70b79958"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81224b64d18b022751faa99fbe2b48fb"><td class="memTemplParams" colspan="2">template&lt;class T , class F , class Value &gt; </td></tr>
+<tr class="memitem:a81224b64d18b022751faa99fbe2b48fb"><td class="memTemplItemLeft" align="right" valign="top">Array&lt; T, F &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#a81224b64d18b022751faa99fbe2b48fb">make_array_and_assign</a> (const F &amp;shape, const Value &amp;value)</td></tr>
+<tr class="memdesc:a81224b64d18b022751faa99fbe2b48fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make an array and assign a value to it.  <a href="namespacelibbirch.html#a81224b64d18b022751faa99fbe2b48fb">More...</a><br /></td></tr>
+<tr class="separator:a81224b64d18b022751faa99fbe2b48fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a254ae6c2c3926f3e909157be23c28c4e"><td class="memTemplParams" colspan="2">template&lt;class T , class ... Args&gt; </td></tr>
+<tr class="memitem:a254ae6c2c3926f3e909157be23c28c4e"><td class="memTemplItemLeft" align="right" valign="top">T *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#a254ae6c2c3926f3e909157be23c28c4e">make_object</a> (Label *context, const Args &amp;... args)</td></tr>
+<tr class="memdesc:a254ae6c2c3926f3e909157be23c28c4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make an object.  <a href="namespacelibbirch.html#a254ae6c2c3926f3e909157be23c28c4e">More...</a><br /></td></tr>
+<tr class="separator:a254ae6c2c3926f3e909157be23c28c4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96cd48c6a93f9304bfd923ae8a77cf76"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:a96cd48c6a93f9304bfd923ae8a77cf76"><td class="memTemplItemLeft" align="right" valign="top">T *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#a96cd48c6a93f9304bfd923ae8a77cf76">clone_object</a> (Label *context, const T *o)</td></tr>
+<tr class="memdesc:a96cd48c6a93f9304bfd923ae8a77cf76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clone an object.  <a href="namespacelibbirch.html#a96cd48c6a93f9304bfd923ae8a77cf76">More...</a><br /></td></tr>
+<tr class="separator:a96cd48c6a93f9304bfd923ae8a77cf76"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afaf28559de9d37d19b16766a95a8e6ac"><td class="memTemplParams" colspan="2">template&lt;class P , class ... Args&gt; </td></tr>
 <tr class="memitem:afaf28559de9d37d19b16766a95a8e6ac"><td class="memTemplItemLeft" align="right" valign="top">P&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#afaf28559de9d37d19b16766a95a8e6ac">make_pointer</a> (Label *context, const Args &amp;... args)</td></tr>
 <tr class="memdesc:afaf28559de9d37d19b16766a95a8e6ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make a pointer, with in-place object construction.  <a href="namespacelibbirch.html#afaf28559de9d37d19b16766a95a8e6ac">More...</a><br /></td></tr>
 <tr class="separator:afaf28559de9d37d19b16766a95a8e6ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aae8fe3583080f2e5a42eddf088c34294"><td class="memTemplParams" colspan="2">template&lt;class StateType , class ... Args&gt; </td></tr>
-<tr class="memitem:aae8fe3583080f2e5a42eddf088c34294"><td class="memTemplItemLeft" align="right" valign="top">Fiber&lt; typename StateType::yield_type_ &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#aae8fe3583080f2e5a42eddf088c34294">make_fiber</a> (Label *context, const Args &amp;... args)</td></tr>
-<tr class="memdesc:aae8fe3583080f2e5a42eddf088c34294"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make a fiber.  <a href="namespacelibbirch.html#aae8fe3583080f2e5a42eddf088c34294">More...</a><br /></td></tr>
-<tr class="separator:aae8fe3583080f2e5a42eddf088c34294"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d43a71e81d5c4e2d37e58aa4bde99c3"><td class="memTemplParams" colspan="2">template&lt;class T , class ... Args&gt; </td></tr>
+<tr class="memitem:a6d43a71e81d5c4e2d37e58aa4bde99c3"><td class="memTemplItemLeft" align="right" valign="top">Fiber&lt; typename T::yield_type_ &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#a6d43a71e81d5c4e2d37e58aa4bde99c3">make_fiber</a> (Label *context, const Args &amp;... args)</td></tr>
+<tr class="memdesc:a6d43a71e81d5c4e2d37e58aa4bde99c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make a fiber.  <a href="namespacelibbirch.html#a6d43a71e81d5c4e2d37e58aa4bde99c3">More...</a><br /></td></tr>
+<tr class="separator:a6d43a71e81d5c4e2d37e58aa4bde99c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9a0a2abfed1494c484bef842e1312a0b"><td class="memTemplParams" colspan="2">template&lt;class Head , class... Tail&gt; </td></tr>
 <tr class="memitem:a9a0a2abfed1494c484bef842e1312a0b"><td class="memTemplItemLeft" align="right" valign="top">Tuple&lt; Head, Tail... &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#a9a0a2abfed1494c484bef842e1312a0b">make_tuple</a> (const Head &amp;head, const Tail &amp;... tail)</td></tr>
 <tr class="memdesc:a9a0a2abfed1494c484bef842e1312a0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make a tuple.  <a href="namespacelibbirch.html#a9a0a2abfed1494c484bef842e1312a0b">More...</a><br /></td></tr>
@@ -184,22 +196,18 @@ Functions</h2></td></tr>
 <tr class="memitem:ac0c0286071907e22e29792eb3ba181b7"><td class="memTemplItemLeft" align="right" valign="top">Tie&lt; Head &amp;, Tail &amp;... &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#ac0c0286071907e22e29792eb3ba181b7">tie</a> (Label *context, Head &amp;head, Tail &amp;... tail)</td></tr>
 <tr class="memdesc:ac0c0286071907e22e29792eb3ba181b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make an assignable tuple.  <a href="namespacelibbirch.html#ac0c0286071907e22e29792eb3ba181b7">More...</a><br /></td></tr>
 <tr class="separator:ac0c0286071907e22e29792eb3ba181b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae8403a7ba209873172ce171f3eb08921"><td class="memTemplParams" colspan="2">template&lt;class Type , IS_VALUE(Type) &gt; </td></tr>
-<tr class="memitem:ae8403a7ba209873172ce171f3eb08921"><td class="memTemplItemLeft" align="right" valign="top">Optional&lt; Type &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#ae8403a7ba209873172ce171f3eb08921">make</a> (Label *context)</td></tr>
-<tr class="memdesc:ae8403a7ba209873172ce171f3eb08921"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make a value.  <a href="namespacelibbirch.html#ae8403a7ba209873172ce171f3eb08921">More...</a><br /></td></tr>
-<tr class="separator:ae8403a7ba209873172ce171f3eb08921"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa759ed01f9806b6e873dfce121233e3f"><td class="memTemplParams" colspan="2">template&lt;class Type , IS_POINTER(Type) , IS_DEFAULT_CONSTRUCTIBLE(Type) &gt; </td></tr>
-<tr class="memitem:aa759ed01f9806b6e873dfce121233e3f"><td class="memTemplItemLeft" align="right" valign="top">Optional&lt; Type &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#aa759ed01f9806b6e873dfce121233e3f">make</a> (Label *context)</td></tr>
-<tr class="memdesc:aa759ed01f9806b6e873dfce121233e3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make an object.  <a href="namespacelibbirch.html#aa759ed01f9806b6e873dfce121233e3f">More...</a><br /></td></tr>
-<tr class="separator:aa759ed01f9806b6e873dfce121233e3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adb88cade0d4d33cf8c560bee36953b99"><td class="memTemplParams" colspan="2">template&lt;class To , class From &gt; </td></tr>
-<tr class="memitem:adb88cade0d4d33cf8c560bee36953b99"><td class="memTemplItemLeft" align="right" valign="top">Optional&lt; To &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#adb88cade0d4d33cf8c560bee36953b99">dynamic_pointer_cast</a> (Label *context, const Shared&lt; From &gt; &amp;from)</td></tr>
-<tr class="memdesc:adb88cade0d4d33cf8c560bee36953b99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cast an object.  <a href="namespacelibbirch.html#adb88cade0d4d33cf8c560bee36953b99">More...</a><br /></td></tr>
-<tr class="separator:adb88cade0d4d33cf8c560bee36953b99"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7366af511439cb945eab4648471824d1"><td class="memTemplParams" colspan="2">template&lt;class To , class From &gt; </td></tr>
-<tr class="memitem:a7366af511439cb945eab4648471824d1"><td class="memTemplItemLeft" align="right" valign="top">Optional&lt; To &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#a7366af511439cb945eab4648471824d1">dynamic_pointer_cast</a> (Label *context, const Optional&lt; Shared&lt; From &gt;&gt; &amp;from)</td></tr>
-<tr class="memdesc:a7366af511439cb945eab4648471824d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cast an object optional.  <a href="namespacelibbirch.html#a7366af511439cb945eab4648471824d1">More...</a><br /></td></tr>
-<tr class="separator:a7366af511439cb945eab4648471824d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1acc71f99a1817ff17105b96c6ded624"><td class="memTemplParams" colspan="2">template&lt;class T , IS_VALUE(T) &gt; </td></tr>
+<tr class="memitem:a1acc71f99a1817ff17105b96c6ded624"><td class="memTemplItemLeft" align="right" valign="top">Optional&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#a1acc71f99a1817ff17105b96c6ded624">make</a> (Label *context)</td></tr>
+<tr class="memdesc:a1acc71f99a1817ff17105b96c6ded624"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make a value.  <a href="namespacelibbirch.html#a1acc71f99a1817ff17105b96c6ded624">More...</a><br /></td></tr>
+<tr class="separator:a1acc71f99a1817ff17105b96c6ded624"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3fd17e3066c27893b05daea66e03e8b"><td class="memTemplParams" colspan="2">template&lt;class To , class From &gt; </td></tr>
+<tr class="memitem:ae3fd17e3066c27893b05daea66e03e8b"><td class="memTemplItemLeft" align="right" valign="top">Optional&lt; To &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#ae3fd17e3066c27893b05daea66e03e8b">dynamic_pointer_cast</a> (Label *context, const LazySharedPtr&lt; From &gt; &amp;from)</td></tr>
+<tr class="memdesc:ae3fd17e3066c27893b05daea66e03e8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cast an object.  <a href="namespacelibbirch.html#ae3fd17e3066c27893b05daea66e03e8b">More...</a><br /></td></tr>
+<tr class="separator:ae3fd17e3066c27893b05daea66e03e8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91bed5ec1e14387cd7f7cf5cc792bbca"><td class="memTemplParams" colspan="2">template&lt;class To , class From &gt; </td></tr>
+<tr class="memitem:a91bed5ec1e14387cd7f7cf5cc792bbca"><td class="memTemplItemLeft" align="right" valign="top">Optional&lt; To &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#a91bed5ec1e14387cd7f7cf5cc792bbca">dynamic_pointer_cast</a> (Label *context, const Optional&lt; LazySharedPtr&lt; From &gt;&gt; &amp;from)</td></tr>
+<tr class="memdesc:a91bed5ec1e14387cd7f7cf5cc792bbca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cast an object optional.  <a href="namespacelibbirch.html#a91bed5ec1e14387cd7f7cf5cc792bbca">More...</a><br /></td></tr>
+<tr class="separator:a91bed5ec1e14387cd7f7cf5cc792bbca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab971cea81f9ca49b9de9a7c2064e67f2"><td class="memTemplParams" colspan="2">template&lt;class To , class From &gt; </td></tr>
 <tr class="memitem:ab971cea81f9ca49b9de9a7c2064e67f2"><td class="memTemplItemLeft" align="right" valign="top">Optional&lt; To &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelibbirch.html#ab971cea81f9ca49b9de9a7c2064e67f2">check_cast</a> (const From &amp;from)</td></tr>
 <tr class="memdesc:ab971cea81f9ca49b9de9a7c2064e67f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cast anything else.  <a href="namespacelibbirch.html#ab971cea81f9ca49b9de9a7c2064e67f2">More...</a><br /></td></tr>

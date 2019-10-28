@@ -81,7 +81,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="structlibbirch_1_1Index.html" title="Index.">Index</a>.  
+<p><a class="el" href="structlibbirch_1_1Index.html" title="Index, used within a slice to indicate a single element of a dimension.">Index</a>, used within a slice to indicate a single element of a dimension.  
  <a href="structlibbirch_1_1Index.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -108,17 +108,17 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a8a457a67926ebef25b5bb5a7ddf2d94f"><td class="memItemLeft" align="right" valign="top">static constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlibbirch_1_1Index.html#a8a457a67926ebef25b5bb5a7ddf2d94f">rangeCount</a> ()</td></tr>
-<tr class="memdesc:a8a457a67926ebef25b5bb5a7ddf2d94f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to count the number of ranges in a view.  <a href="structlibbirch_1_1Index.html#a8a457a67926ebef25b5bb5a7ddf2d94f">More...</a><br /></td></tr>
+<tr class="memdesc:a8a457a67926ebef25b5bb5a7ddf2d94f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to count the number of ranges in a slice.  <a href="structlibbirch_1_1Index.html#a8a457a67926ebef25b5bb5a7ddf2d94f">More...</a><br /></td></tr>
 <tr class="separator:a8a457a67926ebef25b5bb5a7ddf2d94f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><h3>template&lt;int64_t offset_value = 0&gt;<br />
 struct libbirch::Index&lt; offset_value &gt;</h3>
 
-<p><a class="el" href="structlibbirch_1_1Index.html" title="Index.">Index</a>. </p>
-<p>An <a class="el" href="structlibbirch_1_1Index.html" title="Index.">Index</a> indicates one element along one dimension of an array. </p>
+<p><a class="el" href="structlibbirch_1_1Index.html" title="Index, used within a slice to indicate a single element of a dimension.">Index</a>, used within a slice to indicate a single element of a dimension. </p>
+<p>An <a class="el" href="structlibbirch_1_1Index.html" title="Index, used within a slice to indicate a single element of a dimension.">Index</a> indicates one element along one dimension of an array. It consists of an <a class="el" href="structlibbirch_1_1Offset.html" title="Offset.">Offset</a> only, which may have either a static value (indicated by a template argument giving that value) or a dynamic value (indicated by a template argument of mutable_value and initial value given in the constructor). </p>
 
-<p class="definition">Definition at line <a class="el" href="Index_8hpp_source.html#l00017">17</a> of file <a class="el" href="Index_8hpp_source.html">Index.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Index_8hpp_source.html#l00021">21</a> of file <a class="el" href="Index_8hpp_source.html">Index.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="addb4f1e1eb1d90b3129e115e2d8b3179"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#addb4f1e1eb1d90b3129e115e2d8b3179">&#9670;&nbsp;</a></span>Index() <span class="overload">[1/3]</span></h2>
@@ -145,7 +145,7 @@ struct libbirch::Index&lt; offset_value &gt;</h3>
 </dl>
 <p>For static values, the initial values given must match the static values or an error is given. </p>
 
-<p class="definition">Definition at line <a class="el" href="Index_8hpp_source.html#l00029">29</a> of file <a class="el" href="Index_8hpp_source.html">Index.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Index_8hpp_source.html#l00033">33</a> of file <a class="el" href="Index_8hpp_source.html">Index.hpp</a>.</p>
 
 </div>
 </div>
@@ -195,7 +195,7 @@ struct libbirch::Index&lt; offset_value &gt;</h3>
 
 <p>Generic copy constructor. </p>
 
-<p class="definition">Definition at line <a class="el" href="Index_8hpp_source.html#l00043">43</a> of file <a class="el" href="Index_8hpp_source.html">Index.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Index_8hpp_source.html#l00047">47</a> of file <a class="el" href="Index_8hpp_source.html">Index.hpp</a>.</p>
 
 </div>
 </div>
@@ -218,7 +218,7 @@ struct libbirch::Index&lt; offset_value &gt;</h3>
 
 <p>Generic inequality operator. </p>
 
-<p class="definition">Definition at line <a class="el" href="Index_8hpp_source.html#l00061">61</a> of file <a class="el" href="Index_8hpp_source.html">Index.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Index_8hpp_source.html#l00064">64</a> of file <a class="el" href="Index_8hpp_source.html">Index.hpp</a>.</p>
 
 </div>
 </div>
@@ -239,9 +239,8 @@ struct libbirch::Index&lt; offset_value &gt;</h3>
 </div><div class="memdoc">
 
 <p>Generic equality operator. </p>
-<p>Two spans are considered equal if they have the same offset and length. </p>
 
-<p class="definition">Definition at line <a class="el" href="Index_8hpp_source.html#l00053">53</a> of file <a class="el" href="Index_8hpp_source.html">Index.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Index_8hpp_source.html#l00056">56</a> of file <a class="el" href="Index_8hpp_source.html">Index.hpp</a>.</p>
 
 </div>
 </div>
@@ -268,9 +267,9 @@ struct libbirch::Index&lt; offset_value &gt;</h3>
 </table>
 </div><div class="memdoc">
 
-<p>Used to count the number of ranges in a view. </p>
+<p>Used to count the number of ranges in a slice. </p>
 
-<p class="definition">Definition at line <a class="el" href="Index_8hpp_source.html#l00068">68</a> of file <a class="el" href="Index_8hpp_source.html">Index.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Index_8hpp_source.html#l00071">71</a> of file <a class="el" href="Index_8hpp_source.html">Index.hpp</a>.</p>
 
 </div>
 </div>

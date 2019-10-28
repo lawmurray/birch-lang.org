@@ -1,7 +1,9 @@
 var searchData=
 [
-  ['thread_2ehpp_383',['thread.hpp',['../thread_8hpp.html',1,'']]],
-  ['tie_2ehpp_384',['Tie.hpp',['../Tie_8hpp.html',1,'']]],
-  ['tuple_2ehpp_385',['Tuple.hpp',['../Tuple_8hpp.html',1,'']]],
-  ['type_2ehpp_386',['type.hpp',['../type_8hpp.html',1,'']]]
+  ['shape_2ehpp_350',['Shape.hpp',['../Shape_8hpp.html',1,'']]],
+  ['sharedptr_2ehpp_351',['SharedPtr.hpp',['../SharedPtr_8hpp.html',1,'']]],
+  ['slice_2ehpp_352',['Slice.hpp',['../Slice_8hpp.html',1,'']]],
+  ['stacktrace_2ecpp_353',['stacktrace.cpp',['../stacktrace_8cpp.html',1,'']]],
+  ['stacktrace_2ehpp_354',['stacktrace.hpp',['../stacktrace_8hpp.html',1,'']]],
+  ['stride_2ehpp_355',['Stride.hpp',['../Stride_8hpp.html',1,'']]]
 ];

@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['defaultframe_291',['DefaultFrame',['../structlibbirch_1_1DefaultFrame.html',1,'libbirch']]],
-  ['defaultview_292',['DefaultView',['../structlibbirch_1_1DefaultView.html',1,'libbirch']]]
+  ['defaultshape_274',['DefaultShape',['../structlibbirch_1_1DefaultShape.html',1,'libbirch']]],
+  ['defaultslice_275',['DefaultSlice',['../structlibbirch_1_1DefaultSlice.html',1,'libbirch']]],
+  ['dimension_276',['Dimension',['../structlibbirch_1_1Dimension.html',1,'libbirch']]]
 ];

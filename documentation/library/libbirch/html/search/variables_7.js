@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['rootcontext_563',['rootContext',['../namespacelibbirch.html#aa880359e61864c2a36ce7fd38e696abc',1,'libbirch']]]
+  ['rootcontext_529',['rootContext',['../namespacelibbirch.html#a29f3d5ec8ef34444759860189a0cd41c',1,'libbirch']]]
 ];
