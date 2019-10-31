@@ -120,12 +120,12 @@ $(function() {
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;T* <a class="code" href="classlibbirch_1_1Allocator.html">libbirch::Allocator&lt;T&gt;::reallocate</a>(T* ptr1, <span class="keyword">const</span> <span class="keywordtype">size_t</span> n1, <span class="keyword">const</span> <span class="keywordtype">size_t</span> n2) {</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  <span class="keywordflow">return</span> static_cast&lt;T*&gt;(<a class="code" href="namespacelibbirch.html#a3c12d37e89b48f44d12513703ebb2015">libbirch::reallocate</a>(ptr1, n1 * <span class="keyword">sizeof</span>(T), omp_get_thread_num(), n2 * <span class="keyword">sizeof</span>(T)));</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  <span class="keywordflow">return</span> static_cast&lt;T*&gt;(<a class="code" href="namespacelibbirch.html#a3c12d37e89b48f44d12513703ebb2015">libbirch::reallocate</a>(ptr1, n1 * <span class="keyword">sizeof</span>(T), get_thread_num(), n2 * <span class="keyword">sizeof</span>(T)));</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;}</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keywordtype">void</span> <a class="code" href="classlibbirch_1_1Allocator.html">libbirch::Allocator&lt;T&gt;::deallocate</a>(T* ptr, <span class="keyword">const</span> <span class="keywordtype">size_t</span> n) {</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  <a class="code" href="namespacelibbirch.html#a97f70d84226e99eaa620a5e72636f192">libbirch::deallocate</a>(ptr, n * <span class="keyword">sizeof</span>(T), omp_get_thread_num());</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  <a class="code" href="namespacelibbirch.html#a97f70d84226e99eaa620a5e72636f192">libbirch::deallocate</a>(ptr, n * <span class="keyword">sizeof</span>(T), get_thread_num());</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="amemory_8hpp_html"><div class="ttname"><a href="memory_8hpp.html">memory.hpp</a></div></div>

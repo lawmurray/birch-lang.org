@@ -1,0 +1,209 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - cov.info - /usr/local/include/eigen3/Eigen/src/Core/products/SelfadjointProduct.h</title>
+  <link rel="stylesheet" type="text/css" href="../../../../../../../../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../../../../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../../../../../../../../index.html">top level</a> - <a href="index.html">usr/local/include/eigen3/Eigen/src/Core/products</a> - SelfadjointProduct.h<span style="font-size: 80%;"> (source / <a href="SelfadjointProduct.h.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">cov.info</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">12</td>
+            <td class="headerCovTableEntry">12</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2019-10-27 21:42:07</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">2</td>
+            <td class="headerCovTableEntry">2</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
+          </tr>
+          <tr><td><img src="../../../../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../../../../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : // This file is part of Eigen, a lightweight C++ template library</a>
+<a name="2"><span class="lineNum">       2 </span>            : // for linear algebra.</a>
+<a name="3"><span class="lineNum">       3 </span>            : //</a>
+<a name="4"><span class="lineNum">       4 </span>            : // Copyright (C) 2009 Gael Guennebaud &lt;gael.guennebaud@inria.fr&gt;</a>
+<a name="5"><span class="lineNum">       5 </span>            : //</a>
+<a name="6"><span class="lineNum">       6 </span>            : // This Source Code Form is subject to the terms of the Mozilla</a>
+<a name="7"><span class="lineNum">       7 </span>            : // Public License v. 2.0. If a copy of the MPL was not distributed</a>
+<a name="8"><span class="lineNum">       8 </span>            : // with this file, You can obtain one at http://mozilla.org/MPL/2.0/.</a>
+<a name="9"><span class="lineNum">       9 </span>            : </a>
+<a name="10"><span class="lineNum">      10 </span>            : #ifndef EIGEN_SELFADJOINT_PRODUCT_H</a>
+<a name="11"><span class="lineNum">      11 </span>            : #define EIGEN_SELFADJOINT_PRODUCT_H</a>
+<a name="12"><span class="lineNum">      12 </span>            : </a>
+<a name="13"><span class="lineNum">      13 </span>            : /**********************************************************************</a>
+<a name="14"><span class="lineNum">      14 </span>            : * This file implements a self adjoint product: C += A A^T updating only</a>
+<a name="15"><span class="lineNum">      15 </span>            : * half of the selfadjoint matrix C.</a>
+<a name="16"><span class="lineNum">      16 </span>            : * It corresponds to the level 3 SYRK and level 2 SYR Blas routines.</a>
+<a name="17"><span class="lineNum">      17 </span>            : **********************************************************************/</a>
+<a name="18"><span class="lineNum">      18 </span>            : </a>
+<a name="19"><span class="lineNum">      19 </span>            : namespace Eigen { </a>
+<a name="20"><span class="lineNum">      20 </span>            : </a>
+<a name="21"><span class="lineNum">      21 </span>            : </a>
+<a name="22"><span class="lineNum">      22 </span>            : template&lt;typename Scalar, typename Index, int UpLo, bool ConjLhs, bool ConjRhs&gt;</a>
+<a name="23"><span class="lineNum">      23 </span>            : struct selfadjoint_rank1_update&lt;Scalar,Index,ColMajor,UpLo,ConjLhs,ConjRhs&gt;</a>
+<a name="24"><span class="lineNum">      24 </span>            : {</a>
+<a name="25"><span class="lineNum">      25 </span>            :   static void run(Index size, Scalar* mat, Index stride, const Scalar* vecX, const Scalar* vecY, const Scalar&amp; alpha)</a>
+<a name="26"><span class="lineNum">      26 </span>            :   {</a>
+<a name="27"><span class="lineNum">      27 </span>            :     internal::conj_if&lt;ConjRhs&gt; cj;</a>
+<a name="28"><span class="lineNum">      28 </span>            :     typedef Map&lt;const Matrix&lt;Scalar,Dynamic,1&gt; &gt; OtherMap;</a>
+<a name="29"><span class="lineNum">      29 </span>            :     typedef typename internal::conditional&lt;ConjLhs,typename OtherMap::ConjugateReturnType,const OtherMap&amp;&gt;::type ConjLhsType;</a>
+<a name="30"><span class="lineNum">      30 </span>            :     for (Index i=0; i&lt;size; ++i)</a>
+<a name="31"><span class="lineNum">      31 </span>            :     {</a>
+<a name="32"><span class="lineNum">      32 </span>            :       Map&lt;Matrix&lt;Scalar,Dynamic,1&gt; &gt;(mat+stride*i+(UpLo==Lower ? i : 0), (UpLo==Lower ? size-i : (i+1)))</a>
+<a name="33"><span class="lineNum">      33 </span>            :           += (alpha * cj(vecY[i])) * ConjLhsType(OtherMap(vecX+(UpLo==Lower ? i : 0),UpLo==Lower ? size-i : (i+1)));</a>
+<a name="34"><span class="lineNum">      34 </span>            :     }</a>
+<a name="35"><span class="lineNum">      35 </span>            :   }</a>
+<a name="36"><span class="lineNum">      36 </span>            : };</a>
+<a name="37"><span class="lineNum">      37 </span>            : </a>
+<a name="38"><span class="lineNum">      38 </span>            : template&lt;typename Scalar, typename Index, int UpLo, bool ConjLhs, bool ConjRhs&gt;</a>
+<a name="39"><span class="lineNum">      39 </span>            : struct selfadjoint_rank1_update&lt;Scalar,Index,RowMajor,UpLo,ConjLhs,ConjRhs&gt;</a>
+<a name="40"><span class="lineNum">      40 </span>            : {</a>
+<a name="41"><span class="lineNum">      41 </span>            :   static void run(Index size, Scalar* mat, Index stride, const Scalar* vecX, const Scalar* vecY, const Scalar&amp; alpha)</a>
+<a name="42"><span class="lineNum">      42 </span>            :   {</a>
+<a name="43"><span class="lineNum">      43 </span>            :     selfadjoint_rank1_update&lt;Scalar,Index,ColMajor,UpLo==Lower?Upper:Lower,ConjRhs,ConjLhs&gt;::run(size,mat,stride,vecY,vecX,alpha);</a>
+<a name="44"><span class="lineNum">      44 </span>            :   }</a>
+<a name="45"><span class="lineNum">      45 </span>            : };</a>
+<a name="46"><span class="lineNum">      46 </span>            : </a>
+<a name="47"><span class="lineNum">      47 </span>            : template&lt;typename MatrixType, typename OtherType, int UpLo, bool OtherIsVector = OtherType::IsVectorAtCompileTime&gt;</a>
+<a name="48"><span class="lineNum">      48 </span>            : struct selfadjoint_product_selector;</a>
+<a name="49"><span class="lineNum">      49 </span>            : </a>
+<a name="50"><span class="lineNum">      50 </span>            : template&lt;typename MatrixType, typename OtherType, int UpLo&gt;</a>
+<a name="51"><span class="lineNum">      51 </span>            : struct selfadjoint_product_selector&lt;MatrixType,OtherType,UpLo,true&gt;</a>
+<a name="52"><span class="lineNum">      52 </span>            : {</a>
+<a name="53"><span class="lineNum">      53 </span>            :   static void run(MatrixType&amp; mat, const OtherType&amp; other, const typename MatrixType::Scalar&amp; alpha)</a>
+<a name="54"><span class="lineNum">      54 </span>            :   {</a>
+<a name="55"><span class="lineNum">      55 </span>            :     typedef typename MatrixType::Scalar Scalar;</a>
+<a name="56"><span class="lineNum">      56 </span>            :     typedef internal::blas_traits&lt;OtherType&gt; OtherBlasTraits;</a>
+<a name="57"><span class="lineNum">      57 </span>            :     typedef typename OtherBlasTraits::DirectLinearAccessType ActualOtherType;</a>
+<a name="58"><span class="lineNum">      58 </span>            :     typedef typename internal::remove_all&lt;ActualOtherType&gt;::type _ActualOtherType;</a>
+<a name="59"><span class="lineNum">      59 </span>            :     typename internal::add_const_on_value_type&lt;ActualOtherType&gt;::type actualOther = OtherBlasTraits::extract(other.derived());</a>
+<a name="60"><span class="lineNum">      60 </span>            : </a>
+<a name="61"><span class="lineNum">      61 </span>            :     Scalar actualAlpha = alpha * OtherBlasTraits::extractScalarFactor(other.derived());</a>
+<a name="62"><span class="lineNum">      62 </span>            : </a>
+<a name="63"><span class="lineNum">      63 </span>            :     enum {</a>
+<a name="64"><span class="lineNum">      64 </span>            :       StorageOrder = (internal::traits&lt;MatrixType&gt;::Flags&amp;RowMajorBit) ? RowMajor : ColMajor,</a>
+<a name="65"><span class="lineNum">      65 </span>            :       UseOtherDirectly = _ActualOtherType::InnerStrideAtCompileTime==1</a>
+<a name="66"><span class="lineNum">      66 </span>            :     };</a>
+<a name="67"><span class="lineNum">      67 </span>            :     internal::gemv_static_vector_if&lt;Scalar,OtherType::SizeAtCompileTime,OtherType::MaxSizeAtCompileTime,!UseOtherDirectly&gt; static_other;</a>
+<a name="68"><span class="lineNum">      68 </span>            : </a>
+<a name="69"><span class="lineNum">      69 </span>            :     ei_declare_aligned_stack_constructed_variable(Scalar, actualOtherPtr, other.size(),</a>
+<a name="70"><span class="lineNum">      70 </span>            :       (UseOtherDirectly ? const_cast&lt;Scalar*&gt;(actualOther.data()) : static_other.data()));</a>
+<a name="71"><span class="lineNum">      71 </span>            :       </a>
+<a name="72"><span class="lineNum">      72 </span>            :     if(!UseOtherDirectly)</a>
+<a name="73"><span class="lineNum">      73 </span>            :       Map&lt;typename _ActualOtherType::PlainObject&gt;(actualOtherPtr, actualOther.size()) = actualOther;</a>
+<a name="74"><span class="lineNum">      74 </span>            :     </a>
+<a name="75"><span class="lineNum">      75 </span>            :     selfadjoint_rank1_update&lt;Scalar,Index,StorageOrder,UpLo,</a>
+<a name="76"><span class="lineNum">      76 </span>            :                               OtherBlasTraits::NeedToConjugate  &amp;&amp; NumTraits&lt;Scalar&gt;::IsComplex,</a>
+<a name="77"><span class="lineNum">      77 </span>            :                             (!OtherBlasTraits::NeedToConjugate) &amp;&amp; NumTraits&lt;Scalar&gt;::IsComplex&gt;</a>
+<a name="78"><span class="lineNum">      78 </span>            :           ::run(other.size(), mat.data(), mat.outerStride(), actualOtherPtr, actualOtherPtr, actualAlpha);</a>
+<a name="79"><span class="lineNum">      79 </span>            :   }</a>
+<a name="80"><span class="lineNum">      80 </span>            : };</a>
+<a name="81"><span class="lineNum">      81 </span>            : </a>
+<a name="82"><span class="lineNum">      82 </span>            : template&lt;typename MatrixType, typename OtherType, int UpLo&gt;</a>
+<a name="83"><span class="lineNum">      83 </span>            : struct selfadjoint_product_selector&lt;MatrixType,OtherType,UpLo,false&gt;</a>
+<a name="84"><span class="lineNum">      84 </span>            : {</a>
+<a name="85"><span class="lineNum">      85 </span>            :   static void run(MatrixType&amp; mat, const OtherType&amp; other, const typename MatrixType::Scalar&amp; alpha)</a>
+<a name="86"><span class="lineNum">      86 </span>            :   {</a>
+<a name="87"><span class="lineNum">      87 </span>            :     typedef typename MatrixType::Scalar Scalar;</a>
+<a name="88"><span class="lineNum">      88 </span>            :     typedef internal::blas_traits&lt;OtherType&gt; OtherBlasTraits;</a>
+<a name="89"><span class="lineNum">      89 </span>            :     typedef typename OtherBlasTraits::DirectLinearAccessType ActualOtherType;</a>
+<a name="90"><span class="lineNum">      90 </span>            :     typedef typename internal::remove_all&lt;ActualOtherType&gt;::type _ActualOtherType;</a>
+<a name="91"><span class="lineNum">      91 </span><span class="lineCov">         18 :     typename internal::add_const_on_value_type&lt;ActualOtherType&gt;::type actualOther = OtherBlasTraits::extract(other.derived());</span></a>
+<a name="92"><span class="lineNum">      92 </span>            : </a>
+<a name="93"><span class="lineNum">      93 </span><span class="lineCov">         18 :     Scalar actualAlpha = alpha * OtherBlasTraits::extractScalarFactor(other.derived());</span></a>
+<a name="94"><span class="lineNum">      94 </span>            : </a>
+<a name="95"><span class="lineNum">      95 </span>            :     enum {</a>
+<a name="96"><span class="lineNum">      96 </span>            :       IsRowMajor = (internal::traits&lt;MatrixType&gt;::Flags&amp;RowMajorBit) ? 1 : 0,</a>
+<a name="97"><span class="lineNum">      97 </span>            :       OtherIsRowMajor = _ActualOtherType::Flags&amp;RowMajorBit ? 1 : 0</a>
+<a name="98"><span class="lineNum">      98 </span>            :     };</a>
+<a name="99"><span class="lineNum">      99 </span>            : </a>
+<a name="100"><span class="lineNum">     100 </span><span class="lineCov">         18 :     Index size = mat.cols();</span></a>
+<a name="101"><span class="lineNum">     101 </span><span class="lineCov">         18 :     Index depth = actualOther.cols();</span></a>
+<a name="102"><span class="lineNum">     102 </span>            : </a>
+<a name="103"><span class="lineNum">     103 </span>            :     typedef internal::gemm_blocking_space&lt;IsRowMajor ? RowMajor : ColMajor,Scalar,Scalar,</a>
+<a name="104"><span class="lineNum">     104 </span>            :               MatrixType::MaxColsAtCompileTime, MatrixType::MaxColsAtCompileTime, _ActualOtherType::MaxColsAtCompileTime&gt; BlockingType;</a>
+<a name="105"><span class="lineNum">     105 </span>            : </a>
+<a name="106"><span class="lineNum">     106 </span><span class="lineCov">         18 :     BlockingType blocking(size, size, depth, 1, false);</span></a>
+<a name="107"><span class="lineNum">     107 </span>            : </a>
+<a name="108"><span class="lineNum">     108 </span>            : </a>
+<a name="109"><span class="lineNum">     109 </span><span class="lineCov">         18 :     internal::general_matrix_matrix_triangular_product&lt;Index,</span></a>
+<a name="110"><span class="lineNum">     110 </span>            :       Scalar, OtherIsRowMajor ? RowMajor : ColMajor,   OtherBlasTraits::NeedToConjugate  &amp;&amp; NumTraits&lt;Scalar&gt;::IsComplex,</a>
+<a name="111"><span class="lineNum">     111 </span>            :       Scalar, OtherIsRowMajor ? ColMajor : RowMajor, (!OtherBlasTraits::NeedToConjugate) &amp;&amp; NumTraits&lt;Scalar&gt;::IsComplex,</a>
+<a name="112"><span class="lineNum">     112 </span>            :       IsRowMajor ? RowMajor : ColMajor, UpLo&gt;</a>
+<a name="113"><span class="lineNum">     113 </span><span class="lineCov">         18 :       ::run(size, depth,</span></a>
+<a name="114"><span class="lineNum">     114 </span><span class="lineCov">         72 :             &amp;actualOther.coeffRef(0,0), actualOther.outerStride(), &amp;actualOther.coeffRef(0,0), actualOther.outerStride(),</span></a>
+<a name="115"><span class="lineNum">     115 </span><span class="lineCov">         54 :             mat.data(), mat.outerStride(), actualAlpha, blocking);</span></a>
+<a name="116"><span class="lineNum">     116 </span><span class="lineCov">         18 :   }</span></a>
+<a name="117"><span class="lineNum">     117 </span>            : };</a>
+<a name="118"><span class="lineNum">     118 </span>            : </a>
+<a name="119"><span class="lineNum">     119 </span>            : // high level API</a>
+<a name="120"><span class="lineNum">     120 </span>            : </a>
+<a name="121"><span class="lineNum">     121 </span>            : template&lt;typename MatrixType, unsigned int UpLo&gt;</a>
+<a name="122"><span class="lineNum">     122 </span>            : template&lt;typename DerivedU&gt;</a>
+<a name="123"><span class="lineNum">     123 </span>            : SelfAdjointView&lt;MatrixType,UpLo&gt;&amp; SelfAdjointView&lt;MatrixType,UpLo&gt;</a>
+<a name="124"><span class="lineNum">     124 </span>            : ::rankUpdate(const MatrixBase&lt;DerivedU&gt;&amp; u, const Scalar&amp; alpha)</a>
+<a name="125"><span class="lineNum">     125 </span>            : {</a>
+<a name="126"><span class="lineNum">     126 </span><span class="lineCov">         18 :   selfadjoint_product_selector&lt;MatrixType,DerivedU,UpLo&gt;::run(_expression().const_cast_derived(), u.derived(), alpha);</span></a>
+<a name="127"><span class="lineNum">     127 </span>            : </a>
+<a name="128"><span class="lineNum">     128 </span><span class="lineCov">         18 :   return *this;</span></a>
+<a name="129"><span class="lineNum">     129 </span>            : }</a>
+<a name="130"><span class="lineNum">     130 </span>            : </a>
+<a name="131"><span class="lineNum">     131 </span>            : } // end namespace Eigen</a>
+<a name="132"><span class="lineNum">     132 </span>            : </a>
+<a name="133"><span class="lineNum">     133 </span>            : #endif // EIGEN_SELFADJOINT_PRODUCT_H</a>
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../../../../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.14</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

@@ -1,4 +1,0 @@
-<map id="LazyPtr&lt; P &gt;" name="LazyPtr&lt; P &gt;">
-<area shape="rect" id="node1" title="Wraps another pointer type to apply lazy deep clone semantics." alt="" coords="5,95,104,121"/>
-<area shape="rect" id="node2" href="$classlibbirch_1_1ContextPtr.html" title="Pointer to a Context object." alt="" coords="12,5,97,32"/>
-</map>

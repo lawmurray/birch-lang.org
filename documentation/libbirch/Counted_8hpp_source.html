@@ -108,7 +108,7 @@ $(function() {
 <div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="classlibbirch_1_1Counted.html#a97108c6955492cb802db05624a375c6e">   57</a></span>&#160;  <span class="keywordtype">void</span>* <span class="keyword">operator</span> <span class="keyword">new</span>(std::size_t <a class="code" href="classlibbirch_1_1Counted.html#a245260f6f74972558f61b85227df5aae">size</a>) {</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keyword">auto</span> ptr = (<a class="code" href="classlibbirch_1_1Counted.html">Counted</a>*)<a class="code" href="namespacelibbirch.html#a0e20e2173dd2d123724de79fb2ff31e3">allocate</a>(<a class="code" href="classlibbirch_1_1Counted.html#a245260f6f74972558f61b85227df5aae">size</a>);</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    ptr-&gt;size = (unsigned)<a class="code" href="classlibbirch_1_1Counted.html#a245260f6f74972558f61b85227df5aae">size</a>;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    ptr-&gt;tid = (unsigned)omp_get_thread_num();</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    ptr-&gt;tid = get_thread_num();</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordflow">return</span> ptr;</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  }</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>

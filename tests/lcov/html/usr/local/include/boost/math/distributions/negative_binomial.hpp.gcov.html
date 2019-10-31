@@ -1,0 +1,683 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - cov.info - /usr/local/include/boost/math/distributions/negative_binomial.hpp</title>
+  <link rel="stylesheet" type="text/css" href="../../../../../../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../../../../../../index.html">top level</a> - <a href="index.html">usr/local/include/boost/math/distributions</a> - negative_binomial.hpp<span style="font-size: 80%;"> (source / <a href="negative_binomial.hpp.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">cov.info</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">55</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2019-10-27 21:42:07</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">10</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr><td><img src="../../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : // boost\math\special_functions\negative_binomial.hpp</a>
+<a name="2"><span class="lineNum">       2 </span>            : </a>
+<a name="3"><span class="lineNum">       3 </span>            : // Copyright Paul A. Bristow 2007.</a>
+<a name="4"><span class="lineNum">       4 </span>            : // Copyright John Maddock 2007.</a>
+<a name="5"><span class="lineNum">       5 </span>            : </a>
+<a name="6"><span class="lineNum">       6 </span>            : // Use, modification and distribution are subject to the</a>
+<a name="7"><span class="lineNum">       7 </span>            : // Boost Software License, Version 1.0.</a>
+<a name="8"><span class="lineNum">       8 </span>            : // (See accompanying file LICENSE_1_0.txt</a>
+<a name="9"><span class="lineNum">       9 </span>            : // or copy at http://www.boost.org/LICENSE_1_0.txt)</a>
+<a name="10"><span class="lineNum">      10 </span>            : </a>
+<a name="11"><span class="lineNum">      11 </span>            : // http://en.wikipedia.org/wiki/negative_binomial_distribution</a>
+<a name="12"><span class="lineNum">      12 </span>            : // http://mathworld.wolfram.com/NegativeBinomialDistribution.html</a>
+<a name="13"><span class="lineNum">      13 </span>            : // http://documents.wolfram.com/teachersedition/Teacher/Statistics/DiscreteDistributions.html</a>
+<a name="14"><span class="lineNum">      14 </span>            : </a>
+<a name="15"><span class="lineNum">      15 </span>            : // The negative binomial distribution NegativeBinomialDistribution[n, p]</a>
+<a name="16"><span class="lineNum">      16 </span>            : // is the distribution of the number (k) of failures that occur in a sequence of trials before</a>
+<a name="17"><span class="lineNum">      17 </span>            : // r successes have occurred, where the probability of success in each trial is p.</a>
+<a name="18"><span class="lineNum">      18 </span>            : </a>
+<a name="19"><span class="lineNum">      19 </span>            : // In a sequence of Bernoulli trials or events</a>
+<a name="20"><span class="lineNum">      20 </span>            : // (independent, yes or no, succeed or fail) with success_fraction probability p,</a>
+<a name="21"><span class="lineNum">      21 </span>            : // negative_binomial is the probability that k or fewer failures</a>
+<a name="22"><span class="lineNum">      22 </span>            : // preceed the r th trial's success.</a>
+<a name="23"><span class="lineNum">      23 </span>            : // random variable k is the number of failures (NOT the probability).</a>
+<a name="24"><span class="lineNum">      24 </span>            : </a>
+<a name="25"><span class="lineNum">      25 </span>            : // Negative_binomial distribution is a discrete probability distribution.</a>
+<a name="26"><span class="lineNum">      26 </span>            : // But note that the negative binomial distribution</a>
+<a name="27"><span class="lineNum">      27 </span>            : // (like others including the binomial, Poisson &amp; Bernoulli)</a>
+<a name="28"><span class="lineNum">      28 </span>            : // is strictly defined as a discrete function: only integral values of k are envisaged.</a>
+<a name="29"><span class="lineNum">      29 </span>            : // However because of the method of calculation using a continuous gamma function,</a>
+<a name="30"><span class="lineNum">      30 </span>            : // it is convenient to treat it as if a continous function,</a>
+<a name="31"><span class="lineNum">      31 </span>            : // and permit non-integral values of k.</a>
+<a name="32"><span class="lineNum">      32 </span>            : </a>
+<a name="33"><span class="lineNum">      33 </span>            : // However, by default the policy is to use discrete_quantile_policy.</a>
+<a name="34"><span class="lineNum">      34 </span>            : </a>
+<a name="35"><span class="lineNum">      35 </span>            : // To enforce the strict mathematical model, users should use conversion</a>
+<a name="36"><span class="lineNum">      36 </span>            : // on k outside this function to ensure that k is integral.</a>
+<a name="37"><span class="lineNum">      37 </span>            : </a>
+<a name="38"><span class="lineNum">      38 </span>            : // MATHCAD cumulative negative binomial pnbinom(k, n, p)</a>
+<a name="39"><span class="lineNum">      39 </span>            : </a>
+<a name="40"><span class="lineNum">      40 </span>            : // Implementation note: much greater speed, and perhaps greater accuracy,</a>
+<a name="41"><span class="lineNum">      41 </span>            : // might be achieved for extreme values by using a normal approximation.</a>
+<a name="42"><span class="lineNum">      42 </span>            : // This is NOT been tested or implemented.</a>
+<a name="43"><span class="lineNum">      43 </span>            : </a>
+<a name="44"><span class="lineNum">      44 </span>            : #ifndef BOOST_MATH_SPECIAL_NEGATIVE_BINOMIAL_HPP</a>
+<a name="45"><span class="lineNum">      45 </span>            : #define BOOST_MATH_SPECIAL_NEGATIVE_BINOMIAL_HPP</a>
+<a name="46"><span class="lineNum">      46 </span>            : </a>
+<a name="47"><span class="lineNum">      47 </span>            : #include &lt;boost/math/distributions/fwd.hpp&gt;</a>
+<a name="48"><span class="lineNum">      48 </span>            : #include &lt;boost/math/special_functions/beta.hpp&gt; // for ibeta(a, b, x) == Ix(a, b).</a>
+<a name="49"><span class="lineNum">      49 </span>            : #include &lt;boost/math/distributions/complement.hpp&gt; // complement.</a>
+<a name="50"><span class="lineNum">      50 </span>            : #include &lt;boost/math/distributions/detail/common_error_handling.hpp&gt; // error checks domain_error &amp; logic_error.</a>
+<a name="51"><span class="lineNum">      51 </span>            : #include &lt;boost/math/special_functions/fpclassify.hpp&gt; // isnan.</a>
+<a name="52"><span class="lineNum">      52 </span>            : #include &lt;boost/math/tools/roots.hpp&gt; // for root finding.</a>
+<a name="53"><span class="lineNum">      53 </span>            : #include &lt;boost/math/distributions/detail/inv_discrete_quantile.hpp&gt;</a>
+<a name="54"><span class="lineNum">      54 </span>            : </a>
+<a name="55"><span class="lineNum">      55 </span>            : #include &lt;boost/type_traits/is_floating_point.hpp&gt;</a>
+<a name="56"><span class="lineNum">      56 </span>            : #include &lt;boost/type_traits/is_integral.hpp&gt;</a>
+<a name="57"><span class="lineNum">      57 </span>            : #include &lt;boost/type_traits/is_same.hpp&gt;</a>
+<a name="58"><span class="lineNum">      58 </span>            : #include &lt;boost/mpl/if.hpp&gt;</a>
+<a name="59"><span class="lineNum">      59 </span>            : </a>
+<a name="60"><span class="lineNum">      60 </span>            : #include &lt;limits&gt; // using std::numeric_limits;</a>
+<a name="61"><span class="lineNum">      61 </span>            : #include &lt;utility&gt;</a>
+<a name="62"><span class="lineNum">      62 </span>            : </a>
+<a name="63"><span class="lineNum">      63 </span>            : #if defined (BOOST_MSVC)</a>
+<a name="64"><span class="lineNum">      64 </span>            : #  pragma warning(push)</a>
+<a name="65"><span class="lineNum">      65 </span>            : // This believed not now necessary, so commented out.</a>
+<a name="66"><span class="lineNum">      66 </span>            : //#  pragma warning(disable: 4702) // unreachable code.</a>
+<a name="67"><span class="lineNum">      67 </span>            : // in domain_error_imp in error_handling.</a>
+<a name="68"><span class="lineNum">      68 </span>            : #endif</a>
+<a name="69"><span class="lineNum">      69 </span>            : </a>
+<a name="70"><span class="lineNum">      70 </span>            : namespace boost</a>
+<a name="71"><span class="lineNum">      71 </span>            : {</a>
+<a name="72"><span class="lineNum">      72 </span>            :   namespace math</a>
+<a name="73"><span class="lineNum">      73 </span>            :   {</a>
+<a name="74"><span class="lineNum">      74 </span>            :     namespace negative_binomial_detail</a>
+<a name="75"><span class="lineNum">      75 </span>            :     {</a>
+<a name="76"><span class="lineNum">      76 </span>            :       // Common error checking routines for negative binomial distribution functions:</a>
+<a name="77"><span class="lineNum">      77 </span>            :       template &lt;class RealType, class Policy&gt;</a>
+<a name="78"><span class="lineNum">      78 </span>            :       inline bool check_successes(const char* function, const RealType&amp; r, RealType* result, const Policy&amp; pol)</a>
+<a name="79"><span class="lineNum">      79 </span>            :       {</a>
+<a name="80"><span class="lineNum">      80 </span><span class="lineNoCov">          0 :         if( !(boost::math::isfinite)(r) || (r &lt;= 0) )</span></a>
+<a name="81"><span class="lineNum">      81 </span>            :         {</a>
+<a name="82"><span class="lineNum">      82 </span><span class="lineNoCov">          0 :           *result = policies::raise_domain_error&lt;RealType&gt;(</span></a>
+<a name="83"><span class="lineNum">      83 </span><span class="lineNoCov">          0 :             function,</span></a>
+<a name="84"><span class="lineNum">      84 </span><span class="lineNoCov">          0 :             &quot;Number of successes argument is %1%, but must be &gt; 0 !&quot;, r, pol);</span></a>
+<a name="85"><span class="lineNum">      85 </span><span class="lineNoCov">          0 :           return false;</span></a>
+<a name="86"><span class="lineNum">      86 </span>            :         }</a>
+<a name="87"><span class="lineNum">      87 </span><span class="lineNoCov">          0 :         return true;</span></a>
+<a name="88"><span class="lineNum">      88 </span><span class="lineNoCov">          0 :       }</span></a>
+<a name="89"><span class="lineNum">      89 </span>            :       template &lt;class RealType, class Policy&gt;</a>
+<a name="90"><span class="lineNum">      90 </span>            :       inline bool check_success_fraction(const char* function, const RealType&amp; p, RealType* result, const Policy&amp; pol)</a>
+<a name="91"><span class="lineNum">      91 </span>            :       {</a>
+<a name="92"><span class="lineNum">      92 </span><span class="lineNoCov">          0 :         if( !(boost::math::isfinite)(p) || (p &lt; 0) || (p &gt; 1) )</span></a>
+<a name="93"><span class="lineNum">      93 </span>            :         {</a>
+<a name="94"><span class="lineNum">      94 </span><span class="lineNoCov">          0 :           *result = policies::raise_domain_error&lt;RealType&gt;(</span></a>
+<a name="95"><span class="lineNum">      95 </span><span class="lineNoCov">          0 :             function,</span></a>
+<a name="96"><span class="lineNum">      96 </span><span class="lineNoCov">          0 :             &quot;Success fraction argument is %1%, but must be &gt;= 0 and &lt;= 1 !&quot;, p, pol);</span></a>
+<a name="97"><span class="lineNum">      97 </span><span class="lineNoCov">          0 :           return false;</span></a>
+<a name="98"><span class="lineNum">      98 </span>            :         }</a>
+<a name="99"><span class="lineNum">      99 </span><span class="lineNoCov">          0 :         return true;</span></a>
+<a name="100"><span class="lineNum">     100 </span><span class="lineNoCov">          0 :       }</span></a>
+<a name="101"><span class="lineNum">     101 </span>            :       template &lt;class RealType, class Policy&gt;</a>
+<a name="102"><span class="lineNum">     102 </span>            :       inline bool check_dist(const char* function, const RealType&amp; r, const RealType&amp; p, RealType* result, const Policy&amp; pol)</a>
+<a name="103"><span class="lineNum">     103 </span>            :       {</a>
+<a name="104"><span class="lineNum">     104 </span><span class="lineNoCov">          0 :         return check_success_fraction(function, p, result, pol)</span></a>
+<a name="105"><span class="lineNum">     105 </span><span class="lineNoCov">          0 :           &amp;&amp; check_successes(function, r, result, pol);</span></a>
+<a name="106"><span class="lineNum">     106 </span>            :       }</a>
+<a name="107"><span class="lineNum">     107 </span>            :       template &lt;class RealType, class Policy&gt;</a>
+<a name="108"><span class="lineNum">     108 </span>            :       inline bool check_dist_and_k(const char* function, const RealType&amp; r, const RealType&amp; p, RealType k, RealType* result, const Policy&amp; pol)</a>
+<a name="109"><span class="lineNum">     109 </span>            :       {</a>
+<a name="110"><span class="lineNum">     110 </span><span class="lineNoCov">          0 :         if(check_dist(function, r, p, result, pol) == false)</span></a>
+<a name="111"><span class="lineNum">     111 </span>            :         {</a>
+<a name="112"><span class="lineNum">     112 </span><span class="lineNoCov">          0 :           return false;</span></a>
+<a name="113"><span class="lineNum">     113 </span>            :         }</a>
+<a name="114"><span class="lineNum">     114 </span><span class="lineNoCov">          0 :         if( !(boost::math::isfinite)(k) || (k &lt; 0) )</span></a>
+<a name="115"><span class="lineNum">     115 </span>            :         { // Check k failures.</a>
+<a name="116"><span class="lineNum">     116 </span><span class="lineNoCov">          0 :           *result = policies::raise_domain_error&lt;RealType&gt;(</span></a>
+<a name="117"><span class="lineNum">     117 </span><span class="lineNoCov">          0 :             function,</span></a>
+<a name="118"><span class="lineNum">     118 </span><span class="lineNoCov">          0 :             &quot;Number of failures argument is %1%, but must be &gt;= 0 !&quot;, k, pol);</span></a>
+<a name="119"><span class="lineNum">     119 </span><span class="lineNoCov">          0 :           return false;</span></a>
+<a name="120"><span class="lineNum">     120 </span>            :         }</a>
+<a name="121"><span class="lineNum">     121 </span><span class="lineNoCov">          0 :         return true;</span></a>
+<a name="122"><span class="lineNum">     122 </span><span class="lineNoCov">          0 :       } // Check_dist_and_k</span></a>
+<a name="123"><span class="lineNum">     123 </span>            : </a>
+<a name="124"><span class="lineNum">     124 </span>            :       template &lt;class RealType, class Policy&gt;</a>
+<a name="125"><span class="lineNum">     125 </span>            :       inline bool check_dist_and_prob(const char* function, const RealType&amp; r, RealType p, RealType prob, RealType* result, const Policy&amp; pol)</a>
+<a name="126"><span class="lineNum">     126 </span>            :       {</a>
+<a name="127"><span class="lineNum">     127 </span>            :         if((check_dist(function, r, p, result, pol) &amp;&amp; detail::check_probability(function, prob, result, pol)) == false)</a>
+<a name="128"><span class="lineNum">     128 </span>            :         {</a>
+<a name="129"><span class="lineNum">     129 </span>            :           return false;</a>
+<a name="130"><span class="lineNum">     130 </span>            :         }</a>
+<a name="131"><span class="lineNum">     131 </span>            :         return true;</a>
+<a name="132"><span class="lineNum">     132 </span>            :       } // check_dist_and_prob</a>
+<a name="133"><span class="lineNum">     133 </span>            :     } //  namespace negative_binomial_detail</a>
+<a name="134"><span class="lineNum">     134 </span>            : </a>
+<a name="135"><span class="lineNum">     135 </span>            :     template &lt;class RealType = double, class Policy = policies::policy&lt;&gt; &gt;</a>
+<a name="136"><span class="lineNum">     136 </span>            :     class negative_binomial_distribution</a>
+<a name="137"><span class="lineNum">     137 </span>            :     {</a>
+<a name="138"><span class="lineNum">     138 </span>            :     public:</a>
+<a name="139"><span class="lineNum">     139 </span>            :       typedef RealType value_type;</a>
+<a name="140"><span class="lineNum">     140 </span>            :       typedef Policy policy_type;</a>
+<a name="141"><span class="lineNum">     141 </span>            : </a>
+<a name="142"><span class="lineNum">     142 </span><span class="lineNoCov">          0 :       negative_binomial_distribution(RealType r, RealType p) : m_r(r), m_p(p)</span></a>
+<a name="143"><span class="lineNum">     143 </span><span class="lineNoCov">          0 :       { // Constructor.</span></a>
+<a name="144"><span class="lineNum">     144 </span>            :         RealType result;</a>
+<a name="145"><span class="lineNum">     145 </span><span class="lineNoCov">          0 :         negative_binomial_detail::check_dist(</span></a>
+<a name="146"><span class="lineNum">     146 </span>            :           &quot;negative_binomial_distribution&lt;%1%&gt;::negative_binomial_distribution&quot;,</a>
+<a name="147"><span class="lineNum">     147 </span><span class="lineNoCov">          0 :           m_r, // Check successes r &gt; 0.</span></a>
+<a name="148"><span class="lineNum">     148 </span><span class="lineNoCov">          0 :           m_p, // Check success_fraction 0 &lt;= p &lt;= 1.</span></a>
+<a name="149"><span class="lineNum">     149 </span>            :           &amp;result, Policy());</a>
+<a name="150"><span class="lineNum">     150 </span><span class="lineNoCov">          0 :       } // negative_binomial_distribution constructor.</span></a>
+<a name="151"><span class="lineNum">     151 </span>            : </a>
+<a name="152"><span class="lineNum">     152 </span>            :       // Private data getter class member functions.</a>
+<a name="153"><span class="lineNum">     153 </span>            :       RealType success_fraction() const</a>
+<a name="154"><span class="lineNum">     154 </span>            :       { // Probability of success as fraction in range 0 to 1.</a>
+<a name="155"><span class="lineNum">     155 </span><span class="lineNoCov">          0 :         return m_p;</span></a>
+<a name="156"><span class="lineNum">     156 </span>            :       }</a>
+<a name="157"><span class="lineNum">     157 </span>            :       RealType successes() const</a>
+<a name="158"><span class="lineNum">     158 </span>            :       { // Total number of successes r.</a>
+<a name="159"><span class="lineNum">     159 </span><span class="lineNoCov">          0 :         return m_r;</span></a>
+<a name="160"><span class="lineNum">     160 </span>            :       }</a>
+<a name="161"><span class="lineNum">     161 </span>            : </a>
+<a name="162"><span class="lineNum">     162 </span>            :       static RealType find_lower_bound_on_p(</a>
+<a name="163"><span class="lineNum">     163 </span>            :         RealType trials,</a>
+<a name="164"><span class="lineNum">     164 </span>            :         RealType successes,</a>
+<a name="165"><span class="lineNum">     165 </span>            :         RealType alpha) // alpha 0.05 equivalent to 95% for one-sided test.</a>
+<a name="166"><span class="lineNum">     166 </span>            :       {</a>
+<a name="167"><span class="lineNum">     167 </span>            :         static const char* function = &quot;boost::math::negative_binomial&lt;%1%&gt;::find_lower_bound_on_p&quot;;</a>
+<a name="168"><span class="lineNum">     168 </span>            :         RealType result = 0;  // of error checks.</a>
+<a name="169"><span class="lineNum">     169 </span>            :         RealType failures = trials - successes;</a>
+<a name="170"><span class="lineNum">     170 </span>            :         if(false == detail::check_probability(function, alpha, &amp;result, Policy())</a>
+<a name="171"><span class="lineNum">     171 </span>            :           &amp;&amp; negative_binomial_detail::check_dist_and_k(</a>
+<a name="172"><span class="lineNum">     172 </span>            :           function, successes, RealType(0), failures, &amp;result, Policy()))</a>
+<a name="173"><span class="lineNum">     173 </span>            :         {</a>
+<a name="174"><span class="lineNum">     174 </span>            :           return result;</a>
+<a name="175"><span class="lineNum">     175 </span>            :         }</a>
+<a name="176"><span class="lineNum">     176 </span>            :         // Use complement ibeta_inv function for lower bound.</a>
+<a name="177"><span class="lineNum">     177 </span>            :         // This is adapted from the corresponding binomial formula</a>
+<a name="178"><span class="lineNum">     178 </span>            :         // here: http://www.itl.nist.gov/div898/handbook/prc/section2/prc241.htm</a>
+<a name="179"><span class="lineNum">     179 </span>            :         // This is a Clopper-Pearson interval, and may be overly conservative,</a>
+<a name="180"><span class="lineNum">     180 </span>            :         // see also &quot;A Simple Improved Inferential Method for Some</a>
+<a name="181"><span class="lineNum">     181 </span>            :         // Discrete Distributions&quot; Yong CAI and K. KRISHNAMOORTHY</a>
+<a name="182"><span class="lineNum">     182 </span>            :         // http://www.ucs.louisiana.edu/~kxk4695/Discrete_new.pdf</a>
+<a name="183"><span class="lineNum">     183 </span>            :         //</a>
+<a name="184"><span class="lineNum">     184 </span>            :         return ibeta_inv(successes, failures + 1, alpha, static_cast&lt;RealType*&gt;(0), Policy());</a>
+<a name="185"><span class="lineNum">     185 </span>            :       } // find_lower_bound_on_p</a>
+<a name="186"><span class="lineNum">     186 </span>            : </a>
+<a name="187"><span class="lineNum">     187 </span>            :       static RealType find_upper_bound_on_p(</a>
+<a name="188"><span class="lineNum">     188 </span>            :         RealType trials,</a>
+<a name="189"><span class="lineNum">     189 </span>            :         RealType successes,</a>
+<a name="190"><span class="lineNum">     190 </span>            :         RealType alpha) // alpha 0.05 equivalent to 95% for one-sided test.</a>
+<a name="191"><span class="lineNum">     191 </span>            :       {</a>
+<a name="192"><span class="lineNum">     192 </span>            :         static const char* function = &quot;boost::math::negative_binomial&lt;%1%&gt;::find_upper_bound_on_p&quot;;</a>
+<a name="193"><span class="lineNum">     193 </span>            :         RealType result = 0;  // of error checks.</a>
+<a name="194"><span class="lineNum">     194 </span>            :         RealType failures = trials - successes;</a>
+<a name="195"><span class="lineNum">     195 </span>            :         if(false == negative_binomial_detail::check_dist_and_k(</a>
+<a name="196"><span class="lineNum">     196 </span>            :           function, successes, RealType(0), failures, &amp;result, Policy())</a>
+<a name="197"><span class="lineNum">     197 </span>            :           &amp;&amp; detail::check_probability(function, alpha, &amp;result, Policy()))</a>
+<a name="198"><span class="lineNum">     198 </span>            :         {</a>
+<a name="199"><span class="lineNum">     199 </span>            :           return result;</a>
+<a name="200"><span class="lineNum">     200 </span>            :         }</a>
+<a name="201"><span class="lineNum">     201 </span>            :         if(failures == 0)</a>
+<a name="202"><span class="lineNum">     202 </span>            :            return 1;</a>
+<a name="203"><span class="lineNum">     203 </span>            :         // Use complement ibetac_inv function for upper bound.</a>
+<a name="204"><span class="lineNum">     204 </span>            :         // Note adjusted failures value: *not* failures+1 as usual.</a>
+<a name="205"><span class="lineNum">     205 </span>            :         // This is adapted from the corresponding binomial formula</a>
+<a name="206"><span class="lineNum">     206 </span>            :         // here: http://www.itl.nist.gov/div898/handbook/prc/section2/prc241.htm</a>
+<a name="207"><span class="lineNum">     207 </span>            :         // This is a Clopper-Pearson interval, and may be overly conservative,</a>
+<a name="208"><span class="lineNum">     208 </span>            :         // see also &quot;A Simple Improved Inferential Method for Some</a>
+<a name="209"><span class="lineNum">     209 </span>            :         // Discrete Distributions&quot; Yong CAI and K. KRISHNAMOORTHY</a>
+<a name="210"><span class="lineNum">     210 </span>            :         // http://www.ucs.louisiana.edu/~kxk4695/Discrete_new.pdf</a>
+<a name="211"><span class="lineNum">     211 </span>            :         //</a>
+<a name="212"><span class="lineNum">     212 </span>            :         return ibetac_inv(successes, failures, alpha, static_cast&lt;RealType*&gt;(0), Policy());</a>
+<a name="213"><span class="lineNum">     213 </span>            :       } // find_upper_bound_on_p</a>
+<a name="214"><span class="lineNum">     214 </span>            : </a>
+<a name="215"><span class="lineNum">     215 </span>            :       // Estimate number of trials :</a>
+<a name="216"><span class="lineNum">     216 </span>            :       // &quot;How many trials do I need to be P% sure of seeing k or fewer failures?&quot;</a>
+<a name="217"><span class="lineNum">     217 </span>            : </a>
+<a name="218"><span class="lineNum">     218 </span>            :       static RealType find_minimum_number_of_trials(</a>
+<a name="219"><span class="lineNum">     219 </span>            :         RealType k,     // number of failures (k &gt;= 0).</a>
+<a name="220"><span class="lineNum">     220 </span>            :         RealType p,     // success fraction 0 &lt;= p &lt;= 1.</a>
+<a name="221"><span class="lineNum">     221 </span>            :         RealType alpha) // risk level threshold 0 &lt;= alpha &lt;= 1.</a>
+<a name="222"><span class="lineNum">     222 </span>            :       {</a>
+<a name="223"><span class="lineNum">     223 </span>            :         static const char* function = &quot;boost::math::negative_binomial&lt;%1%&gt;::find_minimum_number_of_trials&quot;;</a>
+<a name="224"><span class="lineNum">     224 </span>            :         // Error checks:</a>
+<a name="225"><span class="lineNum">     225 </span>            :         RealType result = 0;</a>
+<a name="226"><span class="lineNum">     226 </span>            :         if(false == negative_binomial_detail::check_dist_and_k(</a>
+<a name="227"><span class="lineNum">     227 </span>            :           function, RealType(1), p, k, &amp;result, Policy())</a>
+<a name="228"><span class="lineNum">     228 </span>            :           &amp;&amp; detail::check_probability(function, alpha, &amp;result, Policy()))</a>
+<a name="229"><span class="lineNum">     229 </span>            :         { return result; }</a>
+<a name="230"><span class="lineNum">     230 </span>            : </a>
+<a name="231"><span class="lineNum">     231 </span>            :         result = ibeta_inva(k + 1, p, alpha, Policy());  // returns n - k</a>
+<a name="232"><span class="lineNum">     232 </span>            :         return result + k;</a>
+<a name="233"><span class="lineNum">     233 </span>            :       } // RealType find_number_of_failures</a>
+<a name="234"><span class="lineNum">     234 </span>            : </a>
+<a name="235"><span class="lineNum">     235 </span>            :       static RealType find_maximum_number_of_trials(</a>
+<a name="236"><span class="lineNum">     236 </span>            :         RealType k,     // number of failures (k &gt;= 0).</a>
+<a name="237"><span class="lineNum">     237 </span>            :         RealType p,     // success fraction 0 &lt;= p &lt;= 1.</a>
+<a name="238"><span class="lineNum">     238 </span>            :         RealType alpha) // risk level threshold 0 &lt;= alpha &lt;= 1.</a>
+<a name="239"><span class="lineNum">     239 </span>            :       {</a>
+<a name="240"><span class="lineNum">     240 </span>            :         static const char* function = &quot;boost::math::negative_binomial&lt;%1%&gt;::find_maximum_number_of_trials&quot;;</a>
+<a name="241"><span class="lineNum">     241 </span>            :         // Error checks:</a>
+<a name="242"><span class="lineNum">     242 </span>            :         RealType result = 0;</a>
+<a name="243"><span class="lineNum">     243 </span>            :         if(false == negative_binomial_detail::check_dist_and_k(</a>
+<a name="244"><span class="lineNum">     244 </span>            :           function, RealType(1), p, k, &amp;result, Policy())</a>
+<a name="245"><span class="lineNum">     245 </span>            :           &amp;&amp;  detail::check_probability(function, alpha, &amp;result, Policy()))</a>
+<a name="246"><span class="lineNum">     246 </span>            :         { return result; }</a>
+<a name="247"><span class="lineNum">     247 </span>            : </a>
+<a name="248"><span class="lineNum">     248 </span>            :         result = ibetac_inva(k + 1, p, alpha, Policy());  // returns n - k</a>
+<a name="249"><span class="lineNum">     249 </span>            :         return result + k;</a>
+<a name="250"><span class="lineNum">     250 </span>            :       } // RealType find_number_of_trials complemented</a>
+<a name="251"><span class="lineNum">     251 </span>            : </a>
+<a name="252"><span class="lineNum">     252 </span>            :     private:</a>
+<a name="253"><span class="lineNum">     253 </span>            :       RealType m_r; // successes.</a>
+<a name="254"><span class="lineNum">     254 </span>            :       RealType m_p; // success_fraction</a>
+<a name="255"><span class="lineNum">     255 </span>            :     }; // template &lt;class RealType, class Policy&gt; class negative_binomial_distribution</a>
+<a name="256"><span class="lineNum">     256 </span>            : </a>
+<a name="257"><span class="lineNum">     257 </span>            :     typedef negative_binomial_distribution&lt;double&gt; negative_binomial; // Reserved name of type double.</a>
+<a name="258"><span class="lineNum">     258 </span>            : </a>
+<a name="259"><span class="lineNum">     259 </span>            :     template &lt;class RealType, class Policy&gt;</a>
+<a name="260"><span class="lineNum">     260 </span>            :     inline const std::pair&lt;RealType, RealType&gt; range(const negative_binomial_distribution&lt;RealType, Policy&gt;&amp; /* dist */)</a>
+<a name="261"><span class="lineNum">     261 </span>            :     { // Range of permissible values for random variable k.</a>
+<a name="262"><span class="lineNum">     262 </span>            :        using boost::math::tools::max_value;</a>
+<a name="263"><span class="lineNum">     263 </span>            :        return std::pair&lt;RealType, RealType&gt;(static_cast&lt;RealType&gt;(0), max_value&lt;RealType&gt;()); // max_integer?</a>
+<a name="264"><span class="lineNum">     264 </span>            :     }</a>
+<a name="265"><span class="lineNum">     265 </span>            : </a>
+<a name="266"><span class="lineNum">     266 </span>            :     template &lt;class RealType, class Policy&gt;</a>
+<a name="267"><span class="lineNum">     267 </span>            :     inline const std::pair&lt;RealType, RealType&gt; support(const negative_binomial_distribution&lt;RealType, Policy&gt;&amp; /* dist */)</a>
+<a name="268"><span class="lineNum">     268 </span>            :     { // Range of supported values for random variable k.</a>
+<a name="269"><span class="lineNum">     269 </span>            :        // This is range where cdf rises from 0 to 1, and outside it, the pdf is zero.</a>
+<a name="270"><span class="lineNum">     270 </span>            :        using boost::math::tools::max_value;</a>
+<a name="271"><span class="lineNum">     271 </span>            :        return std::pair&lt;RealType, RealType&gt;(static_cast&lt;RealType&gt;(0),  max_value&lt;RealType&gt;()); // max_integer?</a>
+<a name="272"><span class="lineNum">     272 </span>            :     }</a>
+<a name="273"><span class="lineNum">     273 </span>            : </a>
+<a name="274"><span class="lineNum">     274 </span>            :     template &lt;class RealType, class Policy&gt;</a>
+<a name="275"><span class="lineNum">     275 </span>            :     inline RealType mean(const negative_binomial_distribution&lt;RealType, Policy&gt;&amp; dist)</a>
+<a name="276"><span class="lineNum">     276 </span>            :     { // Mean of Negative Binomial distribution = r(1-p)/p.</a>
+<a name="277"><span class="lineNum">     277 </span>            :       return dist.successes() * (1 - dist.success_fraction() ) / dist.success_fraction();</a>
+<a name="278"><span class="lineNum">     278 </span>            :     } // mean</a>
+<a name="279"><span class="lineNum">     279 </span>            : </a>
+<a name="280"><span class="lineNum">     280 </span>            :     //template &lt;class RealType, class Policy&gt;</a>
+<a name="281"><span class="lineNum">     281 </span>            :     //inline RealType median(const negative_binomial_distribution&lt;RealType, Policy&gt;&amp; dist)</a>
+<a name="282"><span class="lineNum">     282 </span>            :     //{ // Median of negative_binomial_distribution is not defined.</a>
+<a name="283"><span class="lineNum">     283 </span>            :     //  return policies::raise_domain_error&lt;RealType&gt;(BOOST_CURRENT_FUNCTION, &quot;Median is not implemented, result is %1%!&quot;, std::numeric_limits&lt;RealType&gt;::quiet_NaN());</a>
+<a name="284"><span class="lineNum">     284 </span>            :     //} // median</a>
+<a name="285"><span class="lineNum">     285 </span>            :     // Now implemented via quantile(half) in derived accessors.</a>
+<a name="286"><span class="lineNum">     286 </span>            : </a>
+<a name="287"><span class="lineNum">     287 </span>            :     template &lt;class RealType, class Policy&gt;</a>
+<a name="288"><span class="lineNum">     288 </span>            :     inline RealType mode(const negative_binomial_distribution&lt;RealType, Policy&gt;&amp; dist)</a>
+<a name="289"><span class="lineNum">     289 </span>            :     { // Mode of Negative Binomial distribution = floor[(r-1) * (1 - p)/p]</a>
+<a name="290"><span class="lineNum">     290 </span>            :       BOOST_MATH_STD_USING // ADL of std functions.</a>
+<a name="291"><span class="lineNum">     291 </span>            :       return floor((dist.successes() -1) * (1 - dist.success_fraction()) / dist.success_fraction());</a>
+<a name="292"><span class="lineNum">     292 </span>            :     } // mode</a>
+<a name="293"><span class="lineNum">     293 </span>            : </a>
+<a name="294"><span class="lineNum">     294 </span>            :     template &lt;class RealType, class Policy&gt;</a>
+<a name="295"><span class="lineNum">     295 </span>            :     inline RealType skewness(const negative_binomial_distribution&lt;RealType, Policy&gt;&amp; dist)</a>
+<a name="296"><span class="lineNum">     296 </span>            :     { // skewness of Negative Binomial distribution = 2-p / (sqrt(r(1-p))</a>
+<a name="297"><span class="lineNum">     297 </span>            :       BOOST_MATH_STD_USING // ADL of std functions.</a>
+<a name="298"><span class="lineNum">     298 </span>            :       RealType p = dist.success_fraction();</a>
+<a name="299"><span class="lineNum">     299 </span>            :       RealType r = dist.successes();</a>
+<a name="300"><span class="lineNum">     300 </span>            : </a>
+<a name="301"><span class="lineNum">     301 </span>            :       return (2 - p) /</a>
+<a name="302"><span class="lineNum">     302 </span>            :         sqrt(r * (1 - p));</a>
+<a name="303"><span class="lineNum">     303 </span>            :     } // skewness</a>
+<a name="304"><span class="lineNum">     304 </span>            : </a>
+<a name="305"><span class="lineNum">     305 </span>            :     template &lt;class RealType, class Policy&gt;</a>
+<a name="306"><span class="lineNum">     306 </span>            :     inline RealType kurtosis(const negative_binomial_distribution&lt;RealType, Policy&gt;&amp; dist)</a>
+<a name="307"><span class="lineNum">     307 </span>            :     { // kurtosis of Negative Binomial distribution</a>
+<a name="308"><span class="lineNum">     308 </span>            :       // http://en.wikipedia.org/wiki/Negative_binomial is kurtosis_excess so add 3</a>
+<a name="309"><span class="lineNum">     309 </span>            :       RealType p = dist.success_fraction();</a>
+<a name="310"><span class="lineNum">     310 </span>            :       RealType r = dist.successes();</a>
+<a name="311"><span class="lineNum">     311 </span>            :       return 3 + (6 / r) + ((p * p) / (r * (1 - p)));</a>
+<a name="312"><span class="lineNum">     312 </span>            :     } // kurtosis</a>
+<a name="313"><span class="lineNum">     313 </span>            : </a>
+<a name="314"><span class="lineNum">     314 </span>            :      template &lt;class RealType, class Policy&gt;</a>
+<a name="315"><span class="lineNum">     315 </span>            :     inline RealType kurtosis_excess(const negative_binomial_distribution&lt;RealType, Policy&gt;&amp; dist)</a>
+<a name="316"><span class="lineNum">     316 </span>            :     { // kurtosis excess of Negative Binomial distribution</a>
+<a name="317"><span class="lineNum">     317 </span>            :       // http://mathworld.wolfram.com/Kurtosis.html table of kurtosis_excess</a>
+<a name="318"><span class="lineNum">     318 </span>            :       RealType p = dist.success_fraction();</a>
+<a name="319"><span class="lineNum">     319 </span>            :       RealType r = dist.successes();</a>
+<a name="320"><span class="lineNum">     320 </span>            :       return (6 - p * (6-p)) / (r * (1-p));</a>
+<a name="321"><span class="lineNum">     321 </span>            :     } // kurtosis_excess</a>
+<a name="322"><span class="lineNum">     322 </span>            : </a>
+<a name="323"><span class="lineNum">     323 </span>            :     template &lt;class RealType, class Policy&gt;</a>
+<a name="324"><span class="lineNum">     324 </span>            :     inline RealType variance(const negative_binomial_distribution&lt;RealType, Policy&gt;&amp; dist)</a>
+<a name="325"><span class="lineNum">     325 </span>            :     { // Variance of Binomial distribution = r (1-p) / p^2.</a>
+<a name="326"><span class="lineNum">     326 </span>            :       return  dist.successes() * (1 - dist.success_fraction())</a>
+<a name="327"><span class="lineNum">     327 </span>            :         / (dist.success_fraction() * dist.success_fraction());</a>
+<a name="328"><span class="lineNum">     328 </span>            :     } // variance</a>
+<a name="329"><span class="lineNum">     329 </span>            : </a>
+<a name="330"><span class="lineNum">     330 </span>            :     // RealType standard_deviation(const negative_binomial_distribution&lt;RealType, Policy&gt;&amp; dist)</a>
+<a name="331"><span class="lineNum">     331 </span>            :     // standard_deviation provided by derived accessors.</a>
+<a name="332"><span class="lineNum">     332 </span>            :     // RealType hazard(const negative_binomial_distribution&lt;RealType, Policy&gt;&amp; dist)</a>
+<a name="333"><span class="lineNum">     333 </span>            :     // hazard of Negative Binomial distribution provided by derived accessors.</a>
+<a name="334"><span class="lineNum">     334 </span>            :     // RealType chf(const negative_binomial_distribution&lt;RealType, Policy&gt;&amp; dist)</a>
+<a name="335"><span class="lineNum">     335 </span>            :     // chf of Negative Binomial distribution provided by derived accessors.</a>
+<a name="336"><span class="lineNum">     336 </span>            : </a>
+<a name="337"><span class="lineNum">     337 </span>            :     template &lt;class RealType, class Policy&gt;</a>
+<a name="338"><span class="lineNum">     338 </span>            :     inline RealType pdf(const negative_binomial_distribution&lt;RealType, Policy&gt;&amp; dist, const RealType&amp; k)</a>
+<a name="339"><span class="lineNum">     339 </span>            :     { // Probability Density/Mass Function.</a>
+<a name="340"><span class="lineNum">     340 </span>            :       BOOST_FPU_EXCEPTION_GUARD</a>
+<a name="341"><span class="lineNum">     341 </span>            : </a>
+<a name="342"><span class="lineNum">     342 </span>            :       static const char* function = &quot;boost::math::pdf(const negative_binomial_distribution&lt;%1%&gt;&amp;, %1%)&quot;;</a>
+<a name="343"><span class="lineNum">     343 </span>            : </a>
+<a name="344"><span class="lineNum">     344 </span><span class="lineNoCov">          0 :       RealType r = dist.successes();</span></a>
+<a name="345"><span class="lineNum">     345 </span><span class="lineNoCov">          0 :       RealType p = dist.success_fraction();</span></a>
+<a name="346"><span class="lineNum">     346 </span><span class="lineNoCov">          0 :       RealType result = 0;</span></a>
+<a name="347"><span class="lineNum">     347 </span><span class="lineNoCov">          0 :       if(false == negative_binomial_detail::check_dist_and_k(</span></a>
+<a name="348"><span class="lineNum">     348 </span><span class="lineNoCov">          0 :         function,</span></a>
+<a name="349"><span class="lineNum">     349 </span>            :         r,</a>
+<a name="350"><span class="lineNum">     350 </span><span class="lineNoCov">          0 :         dist.success_fraction(),</span></a>
+<a name="351"><span class="lineNum">     351 </span><span class="lineNoCov">          0 :         k,</span></a>
+<a name="352"><span class="lineNum">     352 </span>            :         &amp;result, Policy()))</a>
+<a name="353"><span class="lineNum">     353 </span>            :       {</a>
+<a name="354"><span class="lineNum">     354 </span><span class="lineNoCov">          0 :         return result;</span></a>
+<a name="355"><span class="lineNum">     355 </span>            :       }</a>
+<a name="356"><span class="lineNum">     356 </span>            : </a>
+<a name="357"><span class="lineNum">     357 </span><span class="lineNoCov">          0 :       result = (p/(r + k)) * ibeta_derivative(r, static_cast&lt;RealType&gt;(k+1), p, Policy());</span></a>
+<a name="358"><span class="lineNum">     358 </span>            :       // Equivalent to:</a>
+<a name="359"><span class="lineNum">     359 </span>            :       // return exp(lgamma(r + k) - lgamma(r) - lgamma(k+1)) * pow(p, r) * pow((1-p), k);</a>
+<a name="360"><span class="lineNum">     360 </span><span class="lineNoCov">          0 :       return result;</span></a>
+<a name="361"><span class="lineNum">     361 </span><span class="lineNoCov">          0 :     } // negative_binomial_pdf</span></a>
+<a name="362"><span class="lineNum">     362 </span>            : </a>
+<a name="363"><span class="lineNum">     363 </span>            :     template &lt;class RealType, class Policy&gt;</a>
+<a name="364"><span class="lineNum">     364 </span>            :     inline RealType cdf(const negative_binomial_distribution&lt;RealType, Policy&gt;&amp; dist, const RealType&amp; k)</a>
+<a name="365"><span class="lineNum">     365 </span>            :     { // Cumulative Distribution Function of Negative Binomial.</a>
+<a name="366"><span class="lineNum">     366 </span>            :       static const char* function = &quot;boost::math::cdf(const negative_binomial_distribution&lt;%1%&gt;&amp;, %1%)&quot;;</a>
+<a name="367"><span class="lineNum">     367 </span>            :       using boost::math::ibeta; // Regularized incomplete beta function.</a>
+<a name="368"><span class="lineNum">     368 </span>            :       // k argument may be integral, signed, or unsigned, or floating point.</a>
+<a name="369"><span class="lineNum">     369 </span>            :       // If necessary, it has already been promoted from an integral type.</a>
+<a name="370"><span class="lineNum">     370 </span><span class="lineNoCov">          0 :       RealType p = dist.success_fraction();</span></a>
+<a name="371"><span class="lineNum">     371 </span><span class="lineNoCov">          0 :       RealType r = dist.successes();</span></a>
+<a name="372"><span class="lineNum">     372 </span>            :       // Error check:</a>
+<a name="373"><span class="lineNum">     373 </span><span class="lineNoCov">          0 :       RealType result = 0;</span></a>
+<a name="374"><span class="lineNum">     374 </span><span class="lineNoCov">          0 :       if(false == negative_binomial_detail::check_dist_and_k(</span></a>
+<a name="375"><span class="lineNum">     375 </span><span class="lineNoCov">          0 :         function,</span></a>
+<a name="376"><span class="lineNum">     376 </span>            :         r,</a>
+<a name="377"><span class="lineNum">     377 </span><span class="lineNoCov">          0 :         dist.success_fraction(),</span></a>
+<a name="378"><span class="lineNum">     378 </span><span class="lineNoCov">          0 :         k,</span></a>
+<a name="379"><span class="lineNum">     379 </span>            :         &amp;result, Policy()))</a>
+<a name="380"><span class="lineNum">     380 </span>            :       {</a>
+<a name="381"><span class="lineNum">     381 </span><span class="lineNoCov">          0 :         return result;</span></a>
+<a name="382"><span class="lineNum">     382 </span>            :       }</a>
+<a name="383"><span class="lineNum">     383 </span>            : </a>
+<a name="384"><span class="lineNum">     384 </span><span class="lineNoCov">          0 :       RealType probability = ibeta(r, static_cast&lt;RealType&gt;(k+1), p, Policy());</span></a>
+<a name="385"><span class="lineNum">     385 </span>            :       // Ip(r, k+1) = ibeta(r, k+1, p)</a>
+<a name="386"><span class="lineNum">     386 </span><span class="lineNoCov">          0 :       return probability;</span></a>
+<a name="387"><span class="lineNum">     387 </span><span class="lineNoCov">          0 :     } // cdf Cumulative Distribution Function Negative Binomial.</span></a>
+<a name="388"><span class="lineNum">     388 </span>            : </a>
+<a name="389"><span class="lineNum">     389 </span>            :       template &lt;class RealType, class Policy&gt;</a>
+<a name="390"><span class="lineNum">     390 </span>            :       inline RealType cdf(const complemented2_type&lt;negative_binomial_distribution&lt;RealType, Policy&gt;, RealType&gt;&amp; c)</a>
+<a name="391"><span class="lineNum">     391 </span>            :       { // Complemented Cumulative Distribution Function Negative Binomial.</a>
+<a name="392"><span class="lineNum">     392 </span>            : </a>
+<a name="393"><span class="lineNum">     393 </span>            :       static const char* function = &quot;boost::math::cdf(const negative_binomial_distribution&lt;%1%&gt;&amp;, %1%)&quot;;</a>
+<a name="394"><span class="lineNum">     394 </span>            :       using boost::math::ibetac; // Regularized incomplete beta function complement.</a>
+<a name="395"><span class="lineNum">     395 </span>            :       // k argument may be integral, signed, or unsigned, or floating point.</a>
+<a name="396"><span class="lineNum">     396 </span>            :       // If necessary, it has already been promoted from an integral type.</a>
+<a name="397"><span class="lineNum">     397 </span>            :       RealType const&amp; k = c.param;</a>
+<a name="398"><span class="lineNum">     398 </span>            :       negative_binomial_distribution&lt;RealType, Policy&gt; const&amp; dist = c.dist;</a>
+<a name="399"><span class="lineNum">     399 </span>            :       RealType p = dist.success_fraction();</a>
+<a name="400"><span class="lineNum">     400 </span>            :       RealType r = dist.successes();</a>
+<a name="401"><span class="lineNum">     401 </span>            :       // Error check:</a>
+<a name="402"><span class="lineNum">     402 </span>            :       RealType result = 0;</a>
+<a name="403"><span class="lineNum">     403 </span>            :       if(false == negative_binomial_detail::check_dist_and_k(</a>
+<a name="404"><span class="lineNum">     404 </span>            :         function,</a>
+<a name="405"><span class="lineNum">     405 </span>            :         r,</a>
+<a name="406"><span class="lineNum">     406 </span>            :         p,</a>
+<a name="407"><span class="lineNum">     407 </span>            :         k,</a>
+<a name="408"><span class="lineNum">     408 </span>            :         &amp;result, Policy()))</a>
+<a name="409"><span class="lineNum">     409 </span>            :       {</a>
+<a name="410"><span class="lineNum">     410 </span>            :         return result;</a>
+<a name="411"><span class="lineNum">     411 </span>            :       }</a>
+<a name="412"><span class="lineNum">     412 </span>            :       // Calculate cdf negative binomial using the incomplete beta function.</a>
+<a name="413"><span class="lineNum">     413 </span>            :       // Use of ibeta here prevents cancellation errors in calculating</a>
+<a name="414"><span class="lineNum">     414 </span>            :       // 1-p if p is very small, perhaps smaller than machine epsilon.</a>
+<a name="415"><span class="lineNum">     415 </span>            :       // Ip(k+1, r) = ibetac(r, k+1, p)</a>
+<a name="416"><span class="lineNum">     416 </span>            :       // constrain_probability here?</a>
+<a name="417"><span class="lineNum">     417 </span>            :      RealType probability = ibetac(r, static_cast&lt;RealType&gt;(k+1), p, Policy());</a>
+<a name="418"><span class="lineNum">     418 </span>            :       // Numerical errors might cause probability to be slightly outside the range &lt; 0 or &gt; 1.</a>
+<a name="419"><span class="lineNum">     419 </span>            :       // This might cause trouble downstream, so warn, possibly throw exception, but constrain to the limits.</a>
+<a name="420"><span class="lineNum">     420 </span>            :       return probability;</a>
+<a name="421"><span class="lineNum">     421 </span>            :     } // cdf Cumulative Distribution Function Negative Binomial.</a>
+<a name="422"><span class="lineNum">     422 </span>            : </a>
+<a name="423"><span class="lineNum">     423 </span>            :     template &lt;class RealType, class Policy&gt;</a>
+<a name="424"><span class="lineNum">     424 </span>            :     inline RealType quantile(const negative_binomial_distribution&lt;RealType, Policy&gt;&amp; dist, const RealType&amp; P)</a>
+<a name="425"><span class="lineNum">     425 </span>            :     { // Quantile, percentile/100 or Percent Point Negative Binomial function.</a>
+<a name="426"><span class="lineNum">     426 </span>            :       // Return the number of expected failures k for a given probability p.</a>
+<a name="427"><span class="lineNum">     427 </span>            : </a>
+<a name="428"><span class="lineNum">     428 </span>            :       // Inverse cumulative Distribution Function or Quantile (percentile / 100) of negative_binomial Probability.</a>
+<a name="429"><span class="lineNum">     429 </span>            :       // MAthCAD pnbinom return smallest k such that negative_binomial(k, n, p) &gt;= probability.</a>
+<a name="430"><span class="lineNum">     430 </span>            :       // k argument may be integral, signed, or unsigned, or floating point.</a>
+<a name="431"><span class="lineNum">     431 </span>            :       // BUT Cephes/CodeCogs says: finds argument p (0 to 1) such that cdf(k, n, p) = y</a>
+<a name="432"><span class="lineNum">     432 </span>            :       static const char* function = &quot;boost::math::quantile(const negative_binomial_distribution&lt;%1%&gt;&amp;, %1%)&quot;;</a>
+<a name="433"><span class="lineNum">     433 </span>            :       BOOST_MATH_STD_USING // ADL of std functions.</a>
+<a name="434"><span class="lineNum">     434 </span>            : </a>
+<a name="435"><span class="lineNum">     435 </span>            :       RealType p = dist.success_fraction();</a>
+<a name="436"><span class="lineNum">     436 </span>            :       RealType r = dist.successes();</a>
+<a name="437"><span class="lineNum">     437 </span>            :       // Check dist and P.</a>
+<a name="438"><span class="lineNum">     438 </span>            :       RealType result = 0;</a>
+<a name="439"><span class="lineNum">     439 </span>            :       if(false == negative_binomial_detail::check_dist_and_prob</a>
+<a name="440"><span class="lineNum">     440 </span>            :         (function, r, p, P, &amp;result, Policy()))</a>
+<a name="441"><span class="lineNum">     441 </span>            :       {</a>
+<a name="442"><span class="lineNum">     442 </span>            :         return result;</a>
+<a name="443"><span class="lineNum">     443 </span>            :       }</a>
+<a name="444"><span class="lineNum">     444 </span>            : </a>
+<a name="445"><span class="lineNum">     445 </span>            :       // Special cases.</a>
+<a name="446"><span class="lineNum">     446 </span>            :       if (P == 1)</a>
+<a name="447"><span class="lineNum">     447 </span>            :       {  // Would need +infinity failures for total confidence.</a>
+<a name="448"><span class="lineNum">     448 </span>            :         result = policies::raise_overflow_error&lt;RealType&gt;(</a>
+<a name="449"><span class="lineNum">     449 </span>            :             function,</a>
+<a name="450"><span class="lineNum">     450 </span>            :             &quot;Probability argument is 1, which implies infinite failures !&quot;, Policy());</a>
+<a name="451"><span class="lineNum">     451 </span>            :         return result;</a>
+<a name="452"><span class="lineNum">     452 </span>            :        // usually means return +std::numeric_limits&lt;RealType&gt;::infinity();</a>
+<a name="453"><span class="lineNum">     453 </span>            :        // unless #define BOOST_MATH_THROW_ON_OVERFLOW_ERROR</a>
+<a name="454"><span class="lineNum">     454 </span>            :       }</a>
+<a name="455"><span class="lineNum">     455 </span>            :       if (P == 0)</a>
+<a name="456"><span class="lineNum">     456 </span>            :       { // No failures are expected if P = 0.</a>
+<a name="457"><span class="lineNum">     457 </span>            :         return 0; // Total trials will be just dist.successes.</a>
+<a name="458"><span class="lineNum">     458 </span>            :       }</a>
+<a name="459"><span class="lineNum">     459 </span>            :       if (P &lt;= pow(dist.success_fraction(), dist.successes()))</a>
+<a name="460"><span class="lineNum">     460 </span>            :       { // p &lt;= pdf(dist, 0) == cdf(dist, 0)</a>
+<a name="461"><span class="lineNum">     461 </span>            :         return 0;</a>
+<a name="462"><span class="lineNum">     462 </span>            :       }</a>
+<a name="463"><span class="lineNum">     463 </span>            :       if(p == 0)</a>
+<a name="464"><span class="lineNum">     464 </span>            :       {  // Would need +infinity failures for total confidence.</a>
+<a name="465"><span class="lineNum">     465 </span>            :          result = policies::raise_overflow_error&lt;RealType&gt;(</a>
+<a name="466"><span class="lineNum">     466 </span>            :             function,</a>
+<a name="467"><span class="lineNum">     467 </span>            :             &quot;Success fraction is 0, which implies infinite failures !&quot;, Policy());</a>
+<a name="468"><span class="lineNum">     468 </span>            :          return result;</a>
+<a name="469"><span class="lineNum">     469 </span>            :          // usually means return +std::numeric_limits&lt;RealType&gt;::infinity();</a>
+<a name="470"><span class="lineNum">     470 </span>            :          // unless #define BOOST_MATH_THROW_ON_OVERFLOW_ERROR</a>
+<a name="471"><span class="lineNum">     471 </span>            :       }</a>
+<a name="472"><span class="lineNum">     472 </span>            :       /*</a>
+<a name="473"><span class="lineNum">     473 </span>            :       // Calculate quantile of negative_binomial using the inverse incomplete beta function.</a>
+<a name="474"><span class="lineNum">     474 </span>            :       using boost::math::ibeta_invb;</a>
+<a name="475"><span class="lineNum">     475 </span>            :       return ibeta_invb(r, p, P, Policy()) - 1; //</a>
+<a name="476"><span class="lineNum">     476 </span>            :       */</a>
+<a name="477"><span class="lineNum">     477 </span>            :       RealType guess = 0;</a>
+<a name="478"><span class="lineNum">     478 </span>            :       RealType factor = 5;</a>
+<a name="479"><span class="lineNum">     479 </span>            :       if(r * r * r * P * p &gt; 0.005)</a>
+<a name="480"><span class="lineNum">     480 </span>            :          guess = detail::inverse_negative_binomial_cornish_fisher(r, p, RealType(1-p), P, RealType(1-P), Policy());</a>
+<a name="481"><span class="lineNum">     481 </span>            : </a>
+<a name="482"><span class="lineNum">     482 </span>            :       if(guess &lt; 10)</a>
+<a name="483"><span class="lineNum">     483 </span>            :       {</a>
+<a name="484"><span class="lineNum">     484 </span>            :          //</a>
+<a name="485"><span class="lineNum">     485 </span>            :          // Cornish-Fisher Negative binomial approximation not accurate in this area:</a>
+<a name="486"><span class="lineNum">     486 </span>            :          //</a>
+<a name="487"><span class="lineNum">     487 </span>            :          guess = (std::min)(RealType(r * 2), RealType(10));</a>
+<a name="488"><span class="lineNum">     488 </span>            :       }</a>
+<a name="489"><span class="lineNum">     489 </span>            :       else</a>
+<a name="490"><span class="lineNum">     490 </span>            :          factor = (1-P &lt; sqrt(tools::epsilon&lt;RealType&gt;())) ? 2 : (guess &lt; 20 ? 1.2f : 1.1f);</a>
+<a name="491"><span class="lineNum">     491 </span>            :       BOOST_MATH_INSTRUMENT_CODE(&quot;guess = &quot; &lt;&lt; guess);</a>
+<a name="492"><span class="lineNum">     492 </span>            :       //</a>
+<a name="493"><span class="lineNum">     493 </span>            :       // Max iterations permitted:</a>
+<a name="494"><span class="lineNum">     494 </span>            :       //</a>
+<a name="495"><span class="lineNum">     495 </span>            :       boost::uintmax_t max_iter = policies::get_max_root_iterations&lt;Policy&gt;();</a>
+<a name="496"><span class="lineNum">     496 </span>            :       typedef typename Policy::discrete_quantile_type discrete_type;</a>
+<a name="497"><span class="lineNum">     497 </span>            :       return detail::inverse_discrete_quantile(</a>
+<a name="498"><span class="lineNum">     498 </span>            :          dist,</a>
+<a name="499"><span class="lineNum">     499 </span>            :          P,</a>
+<a name="500"><span class="lineNum">     500 </span>            :          false,</a>
+<a name="501"><span class="lineNum">     501 </span>            :          guess,</a>
+<a name="502"><span class="lineNum">     502 </span>            :          factor,</a>
+<a name="503"><span class="lineNum">     503 </span>            :          RealType(1),</a>
+<a name="504"><span class="lineNum">     504 </span>            :          discrete_type(),</a>
+<a name="505"><span class="lineNum">     505 </span>            :          max_iter);</a>
+<a name="506"><span class="lineNum">     506 </span>            :     } // RealType quantile(const negative_binomial_distribution dist, p)</a>
+<a name="507"><span class="lineNum">     507 </span>            : </a>
+<a name="508"><span class="lineNum">     508 </span>            :     template &lt;class RealType, class Policy&gt;</a>
+<a name="509"><span class="lineNum">     509 </span>            :     inline RealType quantile(const complemented2_type&lt;negative_binomial_distribution&lt;RealType, Policy&gt;, RealType&gt;&amp; c)</a>
+<a name="510"><span class="lineNum">     510 </span>            :     {  // Quantile or Percent Point Binomial function.</a>
+<a name="511"><span class="lineNum">     511 </span>            :        // Return the number of expected failures k for a given</a>
+<a name="512"><span class="lineNum">     512 </span>            :        // complement of the probability Q = 1 - P.</a>
+<a name="513"><span class="lineNum">     513 </span>            :        static const char* function = &quot;boost::math::quantile(const negative_binomial_distribution&lt;%1%&gt;&amp;, %1%)&quot;;</a>
+<a name="514"><span class="lineNum">     514 </span>            :        BOOST_MATH_STD_USING</a>
+<a name="515"><span class="lineNum">     515 </span>            : </a>
+<a name="516"><span class="lineNum">     516 </span>            :        // Error checks:</a>
+<a name="517"><span class="lineNum">     517 </span>            :        RealType Q = c.param;</a>
+<a name="518"><span class="lineNum">     518 </span>            :        const negative_binomial_distribution&lt;RealType, Policy&gt;&amp; dist = c.dist;</a>
+<a name="519"><span class="lineNum">     519 </span>            :        RealType p = dist.success_fraction();</a>
+<a name="520"><span class="lineNum">     520 </span>            :        RealType r = dist.successes();</a>
+<a name="521"><span class="lineNum">     521 </span>            :        RealType result = 0;</a>
+<a name="522"><span class="lineNum">     522 </span>            :        if(false == negative_binomial_detail::check_dist_and_prob(</a>
+<a name="523"><span class="lineNum">     523 </span>            :           function,</a>
+<a name="524"><span class="lineNum">     524 </span>            :           r,</a>
+<a name="525"><span class="lineNum">     525 </span>            :           p,</a>
+<a name="526"><span class="lineNum">     526 </span>            :           Q,</a>
+<a name="527"><span class="lineNum">     527 </span>            :           &amp;result, Policy()))</a>
+<a name="528"><span class="lineNum">     528 </span>            :        {</a>
+<a name="529"><span class="lineNum">     529 </span>            :           return result;</a>
+<a name="530"><span class="lineNum">     530 </span>            :        }</a>
+<a name="531"><span class="lineNum">     531 </span>            : </a>
+<a name="532"><span class="lineNum">     532 </span>            :        // Special cases:</a>
+<a name="533"><span class="lineNum">     533 </span>            :        //</a>
+<a name="534"><span class="lineNum">     534 </span>            :        if(Q == 1)</a>
+<a name="535"><span class="lineNum">     535 </span>            :        {  // There may actually be no answer to this question,</a>
+<a name="536"><span class="lineNum">     536 </span>            :           // since the probability of zero failures may be non-zero,</a>
+<a name="537"><span class="lineNum">     537 </span>            :           return 0; // but zero is the best we can do:</a>
+<a name="538"><span class="lineNum">     538 </span>            :        }</a>
+<a name="539"><span class="lineNum">     539 </span>            :        if(Q == 0)</a>
+<a name="540"><span class="lineNum">     540 </span>            :        {  // Probability 1 - Q  == 1 so infinite failures to achieve certainty.</a>
+<a name="541"><span class="lineNum">     541 </span>            :           // Would need +infinity failures for total confidence.</a>
+<a name="542"><span class="lineNum">     542 </span>            :           result = policies::raise_overflow_error&lt;RealType&gt;(</a>
+<a name="543"><span class="lineNum">     543 </span>            :              function,</a>
+<a name="544"><span class="lineNum">     544 </span>            :              &quot;Probability argument complement is 0, which implies infinite failures !&quot;, Policy());</a>
+<a name="545"><span class="lineNum">     545 </span>            :           return result;</a>
+<a name="546"><span class="lineNum">     546 </span>            :           // usually means return +std::numeric_limits&lt;RealType&gt;::infinity();</a>
+<a name="547"><span class="lineNum">     547 </span>            :           // unless #define BOOST_MATH_THROW_ON_OVERFLOW_ERROR</a>
+<a name="548"><span class="lineNum">     548 </span>            :        }</a>
+<a name="549"><span class="lineNum">     549 </span>            :        if (-Q &lt;= boost::math::powm1(dist.success_fraction(), dist.successes(), Policy()))</a>
+<a name="550"><span class="lineNum">     550 </span>            :        {  // q &lt;= cdf(complement(dist, 0)) == pdf(dist, 0)</a>
+<a name="551"><span class="lineNum">     551 </span>            :           return 0; //</a>
+<a name="552"><span class="lineNum">     552 </span>            :        }</a>
+<a name="553"><span class="lineNum">     553 </span>            :        if(p == 0)</a>
+<a name="554"><span class="lineNum">     554 </span>            :        {  // Success fraction is 0 so infinite failures to achieve certainty.</a>
+<a name="555"><span class="lineNum">     555 </span>            :           // Would need +infinity failures for total confidence.</a>
+<a name="556"><span class="lineNum">     556 </span>            :           result = policies::raise_overflow_error&lt;RealType&gt;(</a>
+<a name="557"><span class="lineNum">     557 </span>            :              function,</a>
+<a name="558"><span class="lineNum">     558 </span>            :              &quot;Success fraction is 0, which implies infinite failures !&quot;, Policy());</a>
+<a name="559"><span class="lineNum">     559 </span>            :           return result;</a>
+<a name="560"><span class="lineNum">     560 </span>            :           // usually means return +std::numeric_limits&lt;RealType&gt;::infinity();</a>
+<a name="561"><span class="lineNum">     561 </span>            :           // unless #define BOOST_MATH_THROW_ON_OVERFLOW_ERROR</a>
+<a name="562"><span class="lineNum">     562 </span>            :        }</a>
+<a name="563"><span class="lineNum">     563 </span>            :        //return ibetac_invb(r, p, Q, Policy()) -1;</a>
+<a name="564"><span class="lineNum">     564 </span>            :        RealType guess = 0;</a>
+<a name="565"><span class="lineNum">     565 </span>            :        RealType factor = 5;</a>
+<a name="566"><span class="lineNum">     566 </span>            :        if(r * r * r * (1-Q) * p &gt; 0.005)</a>
+<a name="567"><span class="lineNum">     567 </span>            :           guess = detail::inverse_negative_binomial_cornish_fisher(r, p, RealType(1-p), RealType(1-Q), Q, Policy());</a>
+<a name="568"><span class="lineNum">     568 </span>            : </a>
+<a name="569"><span class="lineNum">     569 </span>            :        if(guess &lt; 10)</a>
+<a name="570"><span class="lineNum">     570 </span>            :        {</a>
+<a name="571"><span class="lineNum">     571 </span>            :           //</a>
+<a name="572"><span class="lineNum">     572 </span>            :           // Cornish-Fisher Negative binomial approximation not accurate in this area:</a>
+<a name="573"><span class="lineNum">     573 </span>            :           //</a>
+<a name="574"><span class="lineNum">     574 </span>            :           guess = (std::min)(RealType(r * 2), RealType(10));</a>
+<a name="575"><span class="lineNum">     575 </span>            :        }</a>
+<a name="576"><span class="lineNum">     576 </span>            :        else</a>
+<a name="577"><span class="lineNum">     577 </span>            :           factor = (Q &lt; sqrt(tools::epsilon&lt;RealType&gt;())) ? 2 : (guess &lt; 20 ? 1.2f : 1.1f);</a>
+<a name="578"><span class="lineNum">     578 </span>            :        BOOST_MATH_INSTRUMENT_CODE(&quot;guess = &quot; &lt;&lt; guess);</a>
+<a name="579"><span class="lineNum">     579 </span>            :        //</a>
+<a name="580"><span class="lineNum">     580 </span>            :        // Max iterations permitted:</a>
+<a name="581"><span class="lineNum">     581 </span>            :        //</a>
+<a name="582"><span class="lineNum">     582 </span>            :        boost::uintmax_t max_iter = policies::get_max_root_iterations&lt;Policy&gt;();</a>
+<a name="583"><span class="lineNum">     583 </span>            :        typedef typename Policy::discrete_quantile_type discrete_type;</a>
+<a name="584"><span class="lineNum">     584 </span>            :        return detail::inverse_discrete_quantile(</a>
+<a name="585"><span class="lineNum">     585 </span>            :           dist,</a>
+<a name="586"><span class="lineNum">     586 </span>            :           Q,</a>
+<a name="587"><span class="lineNum">     587 </span>            :           true,</a>
+<a name="588"><span class="lineNum">     588 </span>            :           guess,</a>
+<a name="589"><span class="lineNum">     589 </span>            :           factor,</a>
+<a name="590"><span class="lineNum">     590 </span>            :           RealType(1),</a>
+<a name="591"><span class="lineNum">     591 </span>            :           discrete_type(),</a>
+<a name="592"><span class="lineNum">     592 </span>            :           max_iter);</a>
+<a name="593"><span class="lineNum">     593 </span>            :     } // quantile complement</a>
+<a name="594"><span class="lineNum">     594 </span>            : </a>
+<a name="595"><span class="lineNum">     595 </span>            :  } // namespace math</a>
+<a name="596"><span class="lineNum">     596 </span>            : } // namespace boost</a>
+<a name="597"><span class="lineNum">     597 </span>            : </a>
+<a name="598"><span class="lineNum">     598 </span>            : // This include must be at the end, *after* the accessors</a>
+<a name="599"><span class="lineNum">     599 </span>            : // for this distribution have been defined, in order to</a>
+<a name="600"><span class="lineNum">     600 </span>            : // keep compilers that support two-phase lookup happy.</a>
+<a name="601"><span class="lineNum">     601 </span>            : #include &lt;boost/math/distributions/detail/derived_accessors.hpp&gt;</a>
+<a name="602"><span class="lineNum">     602 </span>            : </a>
+<a name="603"><span class="lineNum">     603 </span>            : #if defined (BOOST_MSVC)</a>
+<a name="604"><span class="lineNum">     604 </span>            : # pragma warning(pop)</a>
+<a name="605"><span class="lineNum">     605 </span>            : #endif</a>
+<a name="606"><span class="lineNum">     606 </span>            : </a>
+<a name="607"><span class="lineNum">     607 </span>            : #endif // BOOST_MATH_SPECIAL_NEGATIVE_BINOMIAL_HPP</a>
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.14</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>
