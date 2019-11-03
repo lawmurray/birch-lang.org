@@ -21,10 +21,11 @@ var searchData=
   ['is_5fpointer_106',['IS_POINTER',['../type_8hpp.html#afd51df53b94d7c2461f56bc6f9dc7b97',1,'type.hpp']]],
   ['is_5fvalue_107',['IS_VALUE',['../type_8hpp.html#ab5aecfb223648c3a6740c408689e3594',1,'type.hpp']]],
   ['is_5fvalue2_108',['IS_VALUE2',['../type_8hpp.html#ab0fd14194acfba66a1748d63322c5f31',1,'type.hpp']]],
-  ['isfinished_109',['isFinished',['../classlibbirch_1_1Any.html#a489985f47db5f016d8ee9629140f1854',1,'libbirch::Any']]],
-  ['isfrozen_110',['isFrozen',['../classlibbirch_1_1Any.html#a3da65a2c91114b08bf601ee73c11e25c',1,'libbirch::Any']]],
-  ['isreachable_111',['isReachable',['../classlibbirch_1_1Counted.html#a8859152c823676b08b9ea86f9adb9127',1,'libbirch::Counted']]],
-  ['issingle_112',['isSingle',['../classlibbirch_1_1Any.html#af2a0a0acfa733587a561f83038c6a6bd',1,'libbirch::Any']]],
-  ['iterator_113',['Iterator',['../classlibbirch_1_1Iterator.html',1,'Iterator&lt; T, F &gt;'],['../classlibbirch_1_1Iterator.html#a0abfde06fed68ba79ce839135798f83e',1,'libbirch::Iterator::Iterator()']]],
-  ['iterator_2ehpp_114',['Iterator.hpp',['../Iterator_8hpp.html',1,'']]]
+  ['iscross_109',['isCross',['../classlibbirch_1_1Lazy.html#afff13d247f46b3c9fe5bbe920b58f745',1,'libbirch::Lazy']]],
+  ['isfinished_110',['isFinished',['../classlibbirch_1_1Any.html#a489985f47db5f016d8ee9629140f1854',1,'libbirch::Any']]],
+  ['isfrozen_111',['isFrozen',['../classlibbirch_1_1Any.html#a3da65a2c91114b08bf601ee73c11e25c',1,'libbirch::Any']]],
+  ['isreachable_112',['isReachable',['../classlibbirch_1_1Counted.html#a8859152c823676b08b9ea86f9adb9127',1,'libbirch::Counted']]],
+  ['issingle_113',['isSingle',['../classlibbirch_1_1Any.html#af2a0a0acfa733587a561f83038c6a6bd',1,'libbirch::Any']]],
+  ['iterator_114',['Iterator',['../classlibbirch_1_1Iterator.html',1,'Iterator&lt; T, F &gt;'],['../classlibbirch_1_1Iterator.html#a0abfde06fed68ba79ce839135798f83e',1,'libbirch::Iterator::Iterator()']]],
+  ['iterator_2ehpp_115',['Iterator.hpp',['../Iterator_8hpp.html',1,'']]]
 ];

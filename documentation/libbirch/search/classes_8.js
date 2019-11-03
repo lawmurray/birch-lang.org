@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['nil_293',['Nil',['../classlibbirch_1_1Nil.html',1,'libbirch']]]
+  ['memo_300',['Memo',['../classlibbirch_1_1Memo.html',1,'libbirch']]]
 ];
