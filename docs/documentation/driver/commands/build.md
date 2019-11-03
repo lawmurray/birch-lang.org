@@ -32,7 +32,7 @@ After searching these directories, the Birch compiler will search the environmen
 
 C++ compiler options are controlled automatically by the driver. A GNU Autotools build system (`autoconf`, `automake`, `libtool`) is used internally, such that there is some scope to modify compiler flags using environment variables such as `CPPFLAGS` and `CXXFLAGS`.
 
-The following Birch-specific options are available. The defaults have been set to be appropriate for most models. Small performance gains might be realized by tweaking these, and indeed the `tune` command is provided for this purpose.
+The following Birch-specific options are available. The defaults have been set to be appropriate for most models. Small performance gains might be realized by tweaking these.
 
   - `--enable-memory-pool` / `--disable-memory-pool` (default enabled): Enable/ disable the memory pool allocator. This is typically a little faster than standard `malloc`/`realloc`/`free` but uses more memory overall.
   - `--enable-lazy-deep-clone` / `--disable-lazy-deep-clone` (default enabled): Enable/disable lazy deep clone instead of eager deep clone of objects.
