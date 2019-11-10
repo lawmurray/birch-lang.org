@@ -41,6 +41,8 @@ A simple linear-Gaussian state-space model written in Birch.
 
 ## Papers
 
+* A. Wigren, R.S. Risuleo, L.M. Murray and F. Lindsten (2019). [Parameter elimination in particle Gibbs sampling](https://arxiv.org/abs/1910.14145). *Advances in Neural Information Processing Systems*. [[arxiv]](https://arxiv.org/abs/1910.14145)
+
 * J. Kudlicka, L.M. Murray, F. Ronquist and T.B. Schön (2019). [Probabilistic programming for birth-death models of evolution using an alive particle filter with delayed sampling](https://arxiv.org/abs/1907.04615). *Uncertainty in Artificial Intelligence*. [[online]](http://auai.org/uai2019/accepted.php) [[arxiv]](https://arxiv.org/abs/1907.04615)
 
 * L.M. Murray and T.B. Schön (2018). [Automated learning with a probabilistic programming language: Birch](https://dx.doi.org/10.1016/j.arcontrol.2018.10.013). *Annual Reviews in Control* **46**:29--43. [[arxiv]](https://arxiv.org/abs/1810.01539)

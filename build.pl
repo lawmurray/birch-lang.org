@@ -1,6 +1,10 @@
 #!/usr/bin/perl
 
 `mkdir -p git`;
+if (!-e 'git/Birch') {
+  `git clone https://github.com/lawmurray/Birch.git git/Birch`;
+}
+`cd git/Birch; git pull; doxygen; cd ../..`;
 if (!-e 'git/Birch.Standard') {
   `git clone https://github.com/lawmurray/Birch.Standard.git git/Birch.Standard`;
 }
@@ -8,8 +12,12 @@ if (!-e 'git/Birch.Standard') {
 
 `rm -rf docs/documentation/library`;
 `cp -r git/Birch.Standard/docs docs/documentation/library`;
-`rm -rf docs/documentation/libbirch`;
-`cp -r git/Birch.Standard/docs/libbirch/html docs/documentation/libbirch`;
+
+`rm -rf docs/development/libbirch`;
+`cp -r git/Birch.Standard/docs/libbirch/html docs/development/libbirch`;
+
+`rm -rf docs/development/birch`;
+`cp -r git/Birch/docs/html docs/development/birch`;
 
 `cp mkdocs.start mkdocs.yml`;
 open(MKDOCS, ">>mkdocs.yml");

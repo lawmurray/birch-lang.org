@@ -8,7 +8,6 @@
       - 'uninstall': documentation/driver/commands/uninstall.md
       - 'dist': documentation/driver/commands/dist.md
       - 'docs': documentation/driver/commands/docs.md
-      - 'tune': documentation/driver/commands/tune.md
       - 'clean': documentation/driver/commands/clean.md
     - 'How To':
       - 'Birch How-To Guides': documentation/how-to/index.md
@@ -16,5 +15,10 @@
       - 'Use Eclipse': documentation/how-to/using-eclipse.md
       - 'Use Travis CI': documentation/how-to/using-travis-ci.md
       - 'Use Cairo': documentation/how-to/2d-graphics-with-cairo.md
-    - 'LibBirch C++ Library': documentation/libbirch/index.html
+  - 'Development':
+    - 'Developer Resources': development/index.md
+    - 'LibBirch C++ library source docs': development/libbirch/index.html
+    - 'LibBirch C++ library test coverage': development/lcov/libbirch/index.html
+    - 'Birch standard library test coverage': development/lcov/standard/index.html
+    - 'Birch compiler source docs': development/birch/index.html
   - 'About': about/index.md

@@ -65,9 +65,6 @@ Variables in Birch are typed, and declared with the syntax `name:Type`. Lines al
 
     Another option is to copy and paste from a character map.
 
-!!! info "Getting involved"
-    What is the best approach for other operating systems?
-
 Next, we need to establish the joint distribution of these random variables. The [Model](/documentation/library/classes/Model) class has a [*member fiber*](/documentation/language/classes/#member-fibers) called `simulate` that we override to specify the joint distribution of our model.
 
 A [*fiber*](/documentation/language/fibers/) is a particular language construct in Birch. It is essentially a function for which execution can be paused and resumed. This is critical for many inference methods. For the purposes of this tutorial, we accept its use here as idiomatic.
@@ -113,13 +110,7 @@ The data set has been preprocessed to convert categorical variables into multipl
 
 The file is in [JSON](http://www.json.org) format, which is the current standard file format for input and output in Birch. You can view and edit these files by hand with a text editor, or for larger files, there are packages available for most programming languages that will allow you to write pre- and post-processing scripts for your data. Birch will support more formats in time.
 
-!!! tip
-    In MATLAB, you can use [JSONlab](https://www.mathworks.com/matlabcentral/fileexchange/33381-jsonlab--a-toolbox-to-encode-decode-json-files) to read and write JSON files
-
-!!! info "Getting involved"
-    What are appropriate packages for R, Julia, others?
-
-For now, have a look at the contents of the file in a text editor. It contains two variables: a matrix `X` and a vector `y`. We need to get these into our model.
+For now, have a look at the contents of the file in a text editor or web browser. It contains two variables: a matrix `X` and a vector `y`. We need to get these into our model.
 
 The [Model](/documentation/library/classes/Model) class has a member function called `read` that we can override for this purpose. Similarly, it has a member function called `write` that we can override for output.
 

@@ -6,9 +6,6 @@ You can use Eclipse with Birch, too. A plugin is available for syntax highlighti
 
 ![Screenshot of Eclipse on macOS with syntax highlighting for Birch source files and terminal for running Birch commands.](/images/eclipse-screenshot.png)
 
-!!! info "Getting involved"
-    Contributions to further improve support for Birch within Eclipse would be welcome. A project wizard plugin to automate some of the steps below would be particularly useful.
-
 
 ## Preliminaries
 
