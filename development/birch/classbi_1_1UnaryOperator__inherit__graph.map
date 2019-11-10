@@ -1,0 +1,13 @@
+<map id="UnaryOperator" name="UnaryOperator">
+<area shape="rect" id="node1" title="Unary operator." alt="" coords="413,155,520,181"/>
+<area shape="rect" id="node2" href="$classbi_1_1Statement.html" title="Statement." alt="" coords="5,80,88,107"/>
+<area shape="rect" id="node3" href="$classbi_1_1Located.html" title="Object with a location within a file being parsed." alt="" coords="13,5,81,32"/>
+<area shape="rect" id="node4" href="$classbi_1_1Annotated.html" title="Annotated object." alt="" coords="113,80,194,107"/>
+<area shape="rect" id="node5" href="$classbi_1_1Named.html" title="Named object." alt="" coords="219,80,283,107"/>
+<area shape="rect" id="node6" href="$classbi_1_1Numbered.html" title="A uniquely numbered object." alt="" coords="307,80,389,107"/>
+<area shape="rect" id="node7" href="$classbi_1_1Parameterised.html" title="Parameterised statement." alt="" coords="413,80,520,107"/>
+<area shape="rect" id="node8" href="$classbi_1_1ReturnTyped.html" title="ReturnTyped expression or statement." alt="" coords="544,80,640,107"/>
+<area shape="rect" id="node9" href="$classbi_1_1Typed.html" title="Typed expression or statement." alt="" coords="665,80,722,107"/>
+<area shape="rect" id="node10" href="$classbi_1_1Scoped.html" title="Statement with a scope." alt="" coords="747,80,813,107"/>
+<area shape="rect" id="node11" href="$classbi_1_1Braced.html" title="Object with braces." alt="" coords="838,80,901,107"/>
+</map>

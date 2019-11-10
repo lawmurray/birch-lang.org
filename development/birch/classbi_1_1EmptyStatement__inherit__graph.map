@@ -1,0 +1,5 @@
+<map id="EmptyStatement" name="EmptyStatement">
+<area shape="rect" id="node1" title="Empty statement." alt="" coords="5,155,125,181"/>
+<area shape="rect" id="node2" href="$classbi_1_1Statement.html" title="Statement." alt="" coords="24,80,107,107"/>
+<area shape="rect" id="node3" href="$classbi_1_1Located.html" title="Object with a location within a file being parsed." alt="" coords="31,5,99,32"/>
+</map>

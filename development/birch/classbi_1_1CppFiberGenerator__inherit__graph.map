@@ -1,0 +1,7 @@
+<map id="CppFiberGenerator" name="CppFiberGenerator">
+<area shape="rect" id="node1" title="C++ code generator for fibers." alt="" coords="29,229,161,256"/>
+<area shape="rect" id="node5" href="$classbi_1_1CppMemberFiberGenerator.html" title="C++ code generator for member Fibers." alt="" coords="5,304,184,331"/>
+<area shape="rect" id="node2" href="$classbi_1_1CppBaseGenerator.html" title="C++ code generator." alt="" coords="28,155,161,181"/>
+<area shape="rect" id="node3" href="$classbi_1_1indentable__ostream.html" title="Output stream with indenting and basic output for names and literals." alt="" coords="27,80,162,107"/>
+<area shape="rect" id="node4" href="$classbi_1_1Visitor.html" title="Visitor." alt="" coords="65,5,124,32"/>
+</map>

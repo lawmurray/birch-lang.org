@@ -1,0 +1,14 @@
+<map id="indentable_ostream" name="indentable_ostream">
+<area shape="rect" id="node1" title="Output stream with indenting and basic output for names and literals." alt="" coords="284,80,419,107"/>
+<area shape="rect" id="node3" href="$classbi_1_1bi__ostream.html" title="Output stream for Birch source files." alt="" coords="92,155,179,181"/>
+<area shape="rect" id="node6" href="$classbi_1_1CppBaseGenerator.html" title="C++ code generator." alt="" coords="285,155,418,181"/>
+<area shape="rect" id="node12" href="$classbi_1_1CppRawGenerator.html" title="C++ code generator for raw code at global scope." alt="" coords="442,155,573,181"/>
+<area shape="rect" id="node2" href="$classbi_1_1Visitor.html" title="Visitor." alt="" coords="322,5,381,32"/>
+<area shape="rect" id="node4" href="$classbi_1_1bih__ostream.html" title="Output stream for Birch header files." alt="" coords="6,229,99,256"/>
+<area shape="rect" id="node5" href="$classbi_1_1md__ostream.html" title="Output stream for Markdown files." alt="" coords="5,304,100,331"/>
+<area shape="rect" id="node7" href="$classbi_1_1CppClassGenerator.html" title="C++ code generator for types." alt="" coords="124,229,261,256"/>
+<area shape="rect" id="node8" href="$classbi_1_1CppFiberGenerator.html" title="C++ code generator for fibers." alt="" coords="285,229,417,256"/>
+<area shape="rect" id="node10" href="$classbi_1_1CppPackageGenerator.html" title="C++ code generator for header files." alt="" coords="442,229,597,256"/>
+<area shape="rect" id="node11" href="$classbi_1_1hpp__ostream.html" title="Output stream for C++ header files." alt="" coords="621,229,719,256"/>
+<area shape="rect" id="node9" href="$classbi_1_1CppMemberFiberGenerator.html" title="C++ code generator for member Fibers." alt="" coords="262,304,441,331"/>
+</map>

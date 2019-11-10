@@ -1,0 +1,18 @@
+<map id="Type" name="Type">
+<area shape="rect" id="node1" title="Type." alt="" coords="121,335,172,361"/>
+<area shape="rect" id="node3" href="$classbi_1_1ArrayType.html" title="Array type." alt="" coords="232,5,313,32"/>
+<area shape="rect" id="node4" href="$classbi_1_1BasicType.html" title="Basic type." alt="" coords="231,56,314,83"/>
+<area shape="rect" id="node5" href="$classbi_1_1BinaryType.html" title="Type of operands to a binary operator." alt="" coords="229,107,316,133"/>
+<area shape="rect" id="node6" href="$classbi_1_1ClassType.html" title="Class type." alt="" coords="231,157,315,184"/>
+<area shape="rect" id="node7" href="$classbi_1_1EmptyType.html" title="Empty type." alt="" coords="229,208,317,235"/>
+<area shape="rect" id="node8" href="$classbi_1_1FiberType.html" title="Fiber type." alt="" coords="233,259,312,285"/>
+<area shape="rect" id="node9" href="$classbi_1_1FunctionType.html" title="Function type." alt="" coords="223,309,323,336"/>
+<area shape="rect" id="node10" href="$classbi_1_1GenericType.html" title="Generic type." alt="" coords="225,360,320,387"/>
+<area shape="rect" id="node11" href="$classbi_1_1MemberType.html" title="Membership operator type expression." alt="" coords="224,411,321,437"/>
+<area shape="rect" id="node12" href="$classbi_1_1NilType.html" title="Type of nil literal." alt="" coords="239,461,306,488"/>
+<area shape="rect" id="node13" href="$classbi_1_1OptionalType.html" title="Optional type." alt="" coords="223,512,322,539"/>
+<area shape="rect" id="node14" href="$classbi_1_1TupleType.html" title="Tuple type." alt="" coords="231,563,314,589"/>
+<area shape="rect" id="node15" href="$classbi_1_1TypeList.html" title="List type." alt="" coords="237,613,308,640"/>
+<area shape="rect" id="node16" href="$classbi_1_1UnknownType.html" title="Unknown type at parse time." alt="" coords="220,664,325,691"/>
+<area shape="rect" id="node2" href="$classbi_1_1Located.html" title="Object with a location within a file being parsed." alt="" coords="5,335,73,361"/>
+</map>

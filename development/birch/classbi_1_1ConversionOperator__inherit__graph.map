@@ -1,0 +1,8 @@
+<map id="ConversionOperator" name="ConversionOperator">
+<area shape="rect" id="node1" title="Type conversion operator." alt="" coords="143,155,281,181"/>
+<area shape="rect" id="node2" href="$classbi_1_1Statement.html" title="Statement." alt="" coords="5,80,88,107"/>
+<area shape="rect" id="node3" href="$classbi_1_1Located.html" title="Object with a location within a file being parsed." alt="" coords="13,5,81,32"/>
+<area shape="rect" id="node4" href="$classbi_1_1ReturnTyped.html" title="ReturnTyped expression or statement." alt="" coords="112,80,208,107"/>
+<area shape="rect" id="node5" href="$classbi_1_1Scoped.html" title="Statement with a scope." alt="" coords="232,80,299,107"/>
+<area shape="rect" id="node6" href="$classbi_1_1Braced.html" title="Object with braces." alt="" coords="323,80,386,107"/>
+</map>

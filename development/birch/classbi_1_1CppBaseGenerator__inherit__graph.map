@@ -1,0 +1,10 @@
+<map id="CppBaseGenerator" name="CppBaseGenerator">
+<area shape="rect" id="node1" title="C++ code generator." alt="" coords="250,155,383,181"/>
+<area shape="rect" id="node4" href="$classbi_1_1CppClassGenerator.html" title="C++ code generator for types." alt="" coords="5,229,143,256"/>
+<area shape="rect" id="node5" href="$classbi_1_1CppFiberGenerator.html" title="C++ code generator for fibers." alt="" coords="167,229,299,256"/>
+<area shape="rect" id="node7" href="$classbi_1_1CppPackageGenerator.html" title="C++ code generator for header files." alt="" coords="323,229,478,256"/>
+<area shape="rect" id="node8" href="$classbi_1_1hpp__ostream.html" title="Output stream for C++ header files." alt="" coords="503,229,600,256"/>
+<area shape="rect" id="node2" href="$classbi_1_1indentable__ostream.html" title="Output stream with indenting and basic output for names and literals." alt="" coords="249,80,384,107"/>
+<area shape="rect" id="node3" href="$classbi_1_1Visitor.html" title="Visitor." alt="" coords="287,5,346,32"/>
+<area shape="rect" id="node6" href="$classbi_1_1CppMemberFiberGenerator.html" title="C++ code generator for member Fibers." alt="" coords="143,304,322,331"/>
+</map>

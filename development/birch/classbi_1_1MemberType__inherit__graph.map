@@ -1,0 +1,7 @@
+<map id="MemberType" name="MemberType">
+<area shape="rect" id="node1" title="Membership operator type expression." alt="" coords="43,171,140,197"/>
+<area shape="rect" id="node2" href="$classbi_1_1Type.html" title="Type." alt="" coords="14,95,65,121"/>
+<area shape="rect" id="node3" href="$classbi_1_1Located.html" title="Object with a location within a file being parsed." alt="" coords="5,5,73,32"/>
+<area shape="rect" id="node4" href="$classbi_1_1Couple.html" title=" " alt="" coords="89,95,203,121"/>
+<area shape="rect" id="node5" href="$classbi_1_1Couple.html" title="Object containing two other objects, denoted left and right." alt="" coords="99,5,193,32"/>
+</map>

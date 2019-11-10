@@ -1,0 +1,7 @@
+<map id="bih_ostream" name="bih_ostream">
+<area shape="rect" id="node1" title="Output stream for Birch header files." alt="" coords="26,229,119,256"/>
+<area shape="rect" id="node5" href="$classbi_1_1md__ostream.html" title="Output stream for Markdown files." alt="" coords="25,304,120,331"/>
+<area shape="rect" id="node2" href="$classbi_1_1bi__ostream.html" title="Output stream for Birch source files." alt="" coords="29,155,116,181"/>
+<area shape="rect" id="node3" href="$classbi_1_1indentable__ostream.html" title="Output stream with indenting and basic output for names and literals." alt="" coords="5,80,140,107"/>
+<area shape="rect" id="node4" href="$classbi_1_1Visitor.html" title="Visitor." alt="" coords="43,5,102,32"/>
+</map>

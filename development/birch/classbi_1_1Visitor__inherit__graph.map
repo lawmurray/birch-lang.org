@@ -1,0 +1,19 @@
+<map id="Visitor" name="Visitor">
+<area shape="rect" id="node1" title="Visitor." alt="" coords="5,146,64,172"/>
+<area shape="rect" id="node2" href="$classbi_1_1Gatherer.html" title="Gathers formal parameters and arguments for a function call." alt="" coords="129,111,233,138"/>
+<area shape="rect" id="node3" href="$classbi_1_1Gatherer.html" title=" " alt="" coords="428,8,603,35"/>
+<area shape="rect" id="node4" href="$classbi_1_1Gatherer.html" title=" " alt="" coords="444,98,587,124"/>
+<area shape="rect" id="node5" href="$classbi_1_1Gatherer.html" title=" " alt="" coords="420,150,611,176"/>
+<area shape="rect" id="node6" href="$classbi_1_1indentable__ostream.html" title="Output stream with indenting and basic output for names and literals." alt="" coords="113,240,248,267"/>
+<area shape="rect" id="node17" href="$classbi_1_1IsValue.html" title="Determines whether an expression, statement or type contains contains any class types." alt="" coords="148,291,213,318"/>
+<area shape="rect" id="node7" href="$classbi_1_1bi__ostream.html" title="Output stream for Birch source files." alt="" coords="472,203,559,230"/>
+<area shape="rect" id="node10" href="$classbi_1_1CppBaseGenerator.html" title="C++ code generator." alt="" coords="449,256,582,283"/>
+<area shape="rect" id="node16" href="$classbi_1_1CppRawGenerator.html" title="C++ code generator for raw code at global scope." alt="" coords="450,307,581,334"/>
+<area shape="rect" id="node8" href="$classbi_1_1bih__ostream.html" title="Output stream for Birch header files." alt="" coords="691,155,784,182"/>
+<area shape="rect" id="node9" href="$classbi_1_1md__ostream.html" title="Output stream for Markdown files." alt="" coords="906,155,1001,182"/>
+<area shape="rect" id="node11" href="$classbi_1_1CppClassGenerator.html" title="C++ code generator for types." alt="" coords="669,358,806,384"/>
+<area shape="rect" id="node12" href="$classbi_1_1CppFiberGenerator.html" title="C++ code generator for fibers." alt="" coords="671,206,803,232"/>
+<area shape="rect" id="node14" href="$classbi_1_1CppPackageGenerator.html" title="C++ code generator for header files." alt="" coords="660,256,815,283"/>
+<area shape="rect" id="node15" href="$classbi_1_1hpp__ostream.html" title="Output stream for C++ header files." alt="" coords="689,307,786,334"/>
+<area shape="rect" id="node13" href="$classbi_1_1CppMemberFiberGenerator.html" title="C++ code generator for member Fibers." alt="" coords="864,206,1043,232"/>
+</map>

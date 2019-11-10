@@ -1,0 +1,7 @@
+<map id="Bracketed" name="Bracketed">
+<area shape="rect" id="node1" title="Object with brackets." alt="" coords="209,5,291,32"/>
+<area shape="rect" id="node2" href="$classbi_1_1GlobalVariable.html" title="Global variable." alt="" coords="5,80,111,107"/>
+<area shape="rect" id="node3" href="$classbi_1_1LocalVariable.html" title="Local variable." alt="" coords="135,80,234,107"/>
+<area shape="rect" id="node4" href="$classbi_1_1MemberVariable.html" title="Class member variable." alt="" coords="258,80,373,107"/>
+<area shape="rect" id="node5" href="$classbi_1_1Slice.html" title="Expression with proceeding square brackets." alt="" coords="397,80,447,107"/>
+</map>

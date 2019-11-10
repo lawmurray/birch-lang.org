@@ -1,0 +1,6 @@
+<map id="Assert" name="Assert">
+<area shape="rect" id="node1" title="Assertion statement." alt="" coords="71,155,131,181"/>
+<area shape="rect" id="node2" href="$classbi_1_1Statement.html" title="Statement." alt="" coords="5,80,88,107"/>
+<area shape="rect" id="node3" href="$classbi_1_1Located.html" title="Object with a location within a file being parsed." alt="" coords="13,5,81,32"/>
+<area shape="rect" id="node4" href="$classbi_1_1Conditioned.html" title="Statement with a condition (e.g." alt="" coords="112,80,203,107"/>
+</map>

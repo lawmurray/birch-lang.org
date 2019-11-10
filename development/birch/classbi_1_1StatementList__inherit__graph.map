@@ -1,0 +1,5 @@
+<map id="StatementList" name="StatementList">
+<area shape="rect" id="node1" title="Parameter list." alt="" coords="5,155,108,181"/>
+<area shape="rect" id="node2" href="$classbi_1_1Statement.html" title="Statement." alt="" coords="15,80,98,107"/>
+<area shape="rect" id="node3" href="$classbi_1_1Located.html" title="Object with a location within a file being parsed." alt="" coords="23,5,91,32"/>
+</map>
