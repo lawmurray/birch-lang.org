@@ -2,17 +2,11 @@
 
 ![Birch trunk](/images/trunk.jpg)
 
-Birch is an imperative, object-oriented, universal probabilistic
-programming language. It compiles to C++14 with shared-memory parallelism
-provided by [OpenMP](https://www.openmp.org/) and fast numerics by [Eigen](http://eigen.tuxfamily.org/). It is free and open source software for Linux, macOS and Windows.
+Birch is an imperative, object-oriented, universal probabilistic programming language. It provides automatic marginalization and automatic conjugacy computations, in combination with Sequential Monte Carlo (SMC) inference algorithms, and efficient memory management to leverage the path coalescence inherent in these algorithms.
 
-Probabilistic models are specified in Birch by writing a program to
-simulate the joint distribution. Inference methods are also written in
-the language. Sequential Monte Carlo (SMC) is currently supported, with
-analytical optimizations&mdash;such as locally-optimal proposals and
-Rao&ndash;Blackwellization&mdash;applied automatically, and efficient memory management via a pooled and copy-on-write memory manager that leverages the path coalescence inherent in these algorithms.
+Birch is free and open source software for Linux, macOS and Windows. It compiles to C++14 with shared-memory parallelism provided by [OpenMP](https://www.openmp.org/) and fast numerics by [Eigen](http://eigen.tuxfamily.org/).
 
-Research and development of Birch is ongoing, but the above already makes it very useful. See [Getting Started](/getting-started/installing) to try it yourself.
+Research and development is ongoing. See [Getting Started](/getting-started/installing) to try it yourself.
 
 ## Example
 
@@ -26,12 +20,14 @@ A simple linear-Gaussian state-space model written in Birch.
 
     x[1] ~ Gaussian(0.0, σ2);
     y[1] ~ Gaussian(x[1], σ2);  
-    for (t:Integer in 2..T) {
+    for t in 2..T {
       x[t] ~ Gaussian(β*x[t - 1], σ2);
       y[t] ~ Gaussian(x[t], σ2);
     }
 
 ## Talks
+
+* [NeurIPS 2019](http://neurips.cc) in Vancouver. [Anna Wigren](https://www.it.uu.se/katalog/annwi999/main) on *Parameter elimination in particle Gibbs sampling*.
 
 * [PROBPROG 2018](http://probprog.cc) in Boston. [Lawrence Murray](https://www.indii.org/research) on *Automated learning with a probabilistic programming language: Birch*. [[slides]](/talks/automated-learning-slides.pdf)
 

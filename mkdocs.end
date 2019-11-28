@@ -1,5 +1,5 @@
     - 'Driver':
-      - 'The Birch Driver Program': documentation/driver/index.md
+      - 'Birch Driver Program': documentation/driver/index.md
       - 'Meta file': documentation/driver/meta_file.md
       - 'init': documentation/driver/commands/init.md
       - 'check': documentation/driver/commands/check.md
@@ -11,14 +11,10 @@
       - 'clean': documentation/driver/commands/clean.md
     - 'How To':
       - 'Birch How-To Guides': documentation/how-to/index.md
-      - 'Install without root access': documentation/how-to/install-locally.md
-      - 'Use Eclipse': documentation/how-to/using-eclipse.md
-      - 'Use Travis CI': documentation/how-to/using-travis-ci.md
-      - 'Use Cairo': documentation/how-to/2d-graphics-with-cairo.md
-  - 'Development':
-    - 'Developer Resources': development/index.md
-    - 'LibBirch C++ library source docs': development/libbirch/index.html
-    - 'LibBirch C++ library test coverage': development/lcov/libbirch/index.html
-    - 'Birch standard library test coverage': development/lcov/standard/index.html
-    - 'Birch compiler source docs': development/birch/index.html
+      - 'Installation without root access': documentation/how-to/install-locally.md
+      - 'Integrated development with Eclipse': documentation/how-to/using-eclipse.md
+      - 'Testing with Travis CI': documentation/how-to/using-travis-ci.md
+      - '2d graphics with Cairo': documentation/how-to/2d-graphics-with-cairo.md
+      - 'Databases with SQLite': documentation/how-to/databases-with-sqlite.md
+  - 'Development': development/index.md
   - 'About': about/index.md

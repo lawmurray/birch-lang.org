@@ -1,4 +1,4 @@
-# How to use Eclipse
+# Integrated development with Eclipse
 
 [Eclipse](http://www.eclipse.org) is a popular open-source integrated development environment (IDE) with support for Java, C/C++, PHP, and a host of other programming languages via an ecosystem of extensions.
 

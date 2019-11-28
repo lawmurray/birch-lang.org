@@ -96,9 +96,10 @@ Recall that it is important to add all source files to the [`META.json`](/docume
 We can now build the project and run it.
 
 !!! example "Exercise"
-    Build the project with:
+    Build and install with:
 
         birch build
+        birch install
 
 If you receive an error message at this point, there may be a problem with your installation.
 
@@ -107,6 +108,6 @@ If you receive an error message at this point, there may be a problem with your 
 
         birch sample --model TestModel
 
-If this succeeds, you will see some basic output giving the marginal log-likelihood of the run (zero for no observations). If this produces an error message, there may be a problem with your installation.
+If this succeeds, you will see a filled progress bar. If this produces an error message, there may be a problem with your installation.
 
 The [sample](/documentation/library/programs/sample) program that you have just run is part of the Birch standard library. It provides a common interface to the available inference methods.

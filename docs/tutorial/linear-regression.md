@@ -4,11 +4,11 @@ Now that we have a trivial model running, we can do something more interesting. 
 
 The model is given by:
 $$\begin{align}
-\sigma^2 &\sim \mathrm{Inv\text{-}Gamma}(3, 4/10) \\
+\sigma^2 &\sim \mathcal{IG}(3, 4/10) \\
 \boldsymbol{\beta} &\sim \mathcal{N}(0, I\sigma^2) \\
 y_n &\sim \mathcal{N}(\mathbf{x}_n^{\top}\boldsymbol{\beta}, \sigma^2)
 \end{align}$$
-where $\mathrm{Inv\text{-}Gamma}$ denotes the [inverse-Gamma distribution](https://en.wikipedia.org/wiki/Inverse-gamma_distribution), and $\mathcal{N}$ the [multivariate normal distribution](https://en.wikipedia.org/wiki/Multivariate_normal_distribution). The parameters of the model are the noise variance $\sigma^2$ and vector of coefficients $\boldsymbol{\beta}$. The data consists of observations $y_n$ and explanatory variables $\mathbf{x}_n$ for $n=1,\ldots,N$.
+where $\mathcal{IG}$ denotes the [inverse-gamma distribution](https://en.wikipedia.org/wiki/Inverse-gamma_distribution), and $\mathcal{N}$ the [multivariate normal distribution](https://en.wikipedia.org/wiki/Multivariate_normal_distribution). The parameters of the model are the noise variance $\sigma^2$ and vector of coefficients $\boldsymbol{\beta}$. The data consists of observations $y_n$ and explanatory variables $\mathbf{x}_n$ for $n=1,\ldots,N$.
 
 
 ## Implementation
@@ -59,11 +59,7 @@ Variables in Birch are typed, and declared with the syntax `name:Type`. Lines al
   * `Random<Type>` declares a *random* (variable) of given `Type`. The use of such randoms is optional, but it enables the use of the *delayed sampling* mechanism of Birch for full or partial analytical solutions to inference problems[^2]. It is particularly useful for this example.
 
 !!! tip
-    You can use Greek letters in Birch code! To enter them, you may need to install a separate keyboard in your operating system:
-
-      * On macOS, go to *System Preferences > Keyboard > Input Sources*. You can switch between keyboard layouts with *Command + Space Bar*.
-
-    Another option is to copy and paste from a character map.
+    You can use Greek letters in Birch code. To enter them, you may need to install a separate keyboard in your operating system, or copy and paste from a character map.
 
 Next, we need to establish the joint distribution of these random variables. The [Model](/documentation/library/classes/Model) class has a [*member fiber*](/documentation/language/classes/#member-fibers) called `simulate` that we override to specify the joint distribution of our model.
 
@@ -75,7 +71,7 @@ A [*fiber*](/documentation/language/fibers/) is a particular language construct 
         fiber simulate() -> Event {
           N:Integer <- rows(X);
           P:Integer <- columns(X);
-          if (N > 0 && P > 0) {
+          if N > 0 && P > 0 {
             σ2 ~ InverseGamma(3.0, 0.4);
             β ~ Gaussian(vector(0.0, P), identity(P)*σ2);
             y ~ Gaussian(X*β, σ2);
@@ -87,6 +83,7 @@ Hopefully, this looks similar enough to the equations given above that its meani
 It is worth building at this point to check that there are no errors in the code you have entered so far:
 
     birch build
+    birch install
 
 As before, we can run the model with
 
@@ -95,7 +92,7 @@ As before, we can run the model with
 although this will not yet do anything interesting; for that, we need data.
 
 !!! error
-    If you receive an error message such as, `LinearRegressionModel must be a subtype of Model with no initialization parameters`, then you have probably forgotten to add `LinearRegressionModel.bi` to `META.json`.
+    If you receive an error message such as, `could not create model`, then you probably forgot to add `LinearRegressionModel.bi` to `META.json`.
 
 ## Data
 
@@ -133,9 +130,6 @@ The [Model](/documentation/library/classes/Model) class has a member function ca
 
 This `read` member function reads from the input file into the variables `X` and `y`. The strings `"X"` and `"y"` name elements in the input file. While the names correspond in this case, they need not in general. Similarly, the `write` function writes to the output file.
 
-!!! tip
-    We have not used Greek letters in the names of variables that appear in the file. We would like to, but this appears unsupported by some other software (such as MATLAB) when reading in the file.
-
 The [Buffer](/documentation/library/classes/Buffer) class provides the interface for easily reading and writing these. Its `get()` style member functions return [*optionals*](/documentation/language/optionals/), as the requested variable may not exist in the file, or may not have the correct type. We are being somewhat lazy with the above code by using the `!` operator after each call, essentially assuming that the variables do exist.
 
 Optionals are quite common in Birch code. They are useful for handling missing values. A more idiomatic usage is as follows:
@@ -164,44 +158,19 @@ In more recent versions of Birch, the `<-?` operator provides a shortcut for pre
 !!! tip
     Debugging mode is enabled by default, which dramatically slows down execution times when running `birch`. It is recommended that you keep debugging mode enabled when developing and testing code (perhaps on small problems), but disable it when running tested code.
 
-    To disable it, you must rebuild both the standard library and your project with the `--disable-debug` option:
+    To disable it, you must build both the standard library and your project with the `--disable-debug` option:
 
-        birch clean
         birch build --disable-debug
+        birch install --disable-debug
 
-    This will be streamlined in future.
+The particular model that we have written has an analytical solution, and has been written in such a way that Birch will recognise this and compute it accordingly via its delayed sampling heuristic[^2]. The above command will output to `output/linear_regression.json`. You can open this file in a text editor to inspect the result.
 
-The particular model that we have written has an analytical solution, and has been written in such a way that Birch will recognise this and compute it accordingly via its delayed sampling heuristic[^2]. For output, however, it will sample from this distribution, being the mission of the `sample` program (and the entirety of Birch, at this stage). The above command will output one sample from the posterior distribution to `output/linear_regression.json`. You can open this in a text editor to inspect the result.
+!!! note
+    For technical reasons that continue to evolve, you may find that Birch outputs a posterior sample of both `β` and `σ2`, or chooses to marginalize out one or both variables to output distribution objects.
 
-Birch does not yet include a facility for plotting (although see the [Birch.Cairo](https://www.github.com/lawmurray/Birch.Cairo) package for basic 2d graphics functionality based on the [Cairo](https://cairographics.org) library). You can use an environment such as MATLAB, R, or Julia for this task.
+Birch does not yet include a facility for plotting (although see the [Birch.Cairo](https://www.github.com/lawmurray/Birch.Cairo) package for basic 2d graphics functionality based on the [Cairo](https://cairographics.org) library). You can use an environment such as that provided by Python, Julia, R, GNU Octave or MATLAB for this task. All of these provide facilities for reading and writing JSON files.
 
 Keep in mind when inspecting the result that you are seeing a *single posterior sample* in this output file, not a mean or any other summary.
-
-!!! tip
-    In MATLAB, using [JSONlab](https://www.mathworks.com/matlabcentral/fileexchange/33381-jsonlab--a-toolbox-to-encode-decode-json-files), you can plot the results with something like this:
-
-        % read in files
-        input = loadjson('input/bike_share.json');
-        output = loadjson('output/linear_regression.json');
-
-        % predict
-        Z = [];
-        for n = 1:length(output)
-          Z = [ Z; output{n}.sample.beta*input.X' ];
-        end
-        q = quantile(Z, [0.025 0.5 0.975]);
-
-        % plot
-        plot(q(2,:), '-b', 'linewidth', 2);
-        hold on;
-        plot(q(1,:), '-b');
-        plot(q(3,:), '-b');
-        plot(input.y, 'or');
-        hold off;
-
-        xlabel('Day');
-        ylabel('(log) Number of bike hires');
-        legend('Estimated median', 'Estimated 2.5% quantile', 'Estimated 97.5% quantile', 'True');
 
 [^1]: H. Fanaee-T & J. Gama (2014). [Event labeling combining ensemble detectors and background knowledge](http://dx.doi.org/10.1007/s13748-013-0040-3). *Progress in Artificial Intelligence*. **2**:113-127.
 

@@ -1,4 +1,4 @@
-# How to install without root access
+# Installation without root access
 
 When using Linux systems, the user account does not typically have root access, and cannot be used to install to standard system-wide directories such as `/usr/local`. If your user account has appropriate permissions, you may be able to simply use `sudo` when installing. If not, follow the instructions here, which will set you up to install in your home directory instead.
 

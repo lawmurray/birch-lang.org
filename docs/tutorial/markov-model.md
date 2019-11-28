@@ -9,10 +9,10 @@ The model is described in three parts: a *parameter* model, an *initial* model, 
 The parameter model is:
 $$\begin{align}
 \lambda &= 10 \\
-\delta &\sim \mathrm{Beta}(2,2) \\
-\gamma &\sim \mathrm{Beta}(2,2),
+\delta &\sim \mathcal{B}(2,2) \\
+\gamma &\sim \mathcal{B}(2,2),
 \end{align}$$
-where $\lambda$ is a rate of interaction in the population, $\delta$ the probability of infection when a susceptible individual interacts with an infectious individual, and $\gamma$ the daily recovery probability.
+where $\mathcal{B}$ denotes the [beta distribution](https://en.wikipedia.org/wiki/beta_distribution), $\lambda$ is a rate of interaction in the population, $\delta$ the probability of infection when a susceptible individual interacts with an infectious individual, and $\gamma$ the daily recovery probability.
 
 ### Initial model
 
@@ -188,8 +188,7 @@ As suggested by their names and parameters:
   * the second is for the initial model, providing the initial state as the `x` argument, and parameters as the `θ` argument,
   * the third is for the transition model, providing the current state as the `x'` argument, the previous state as the `x` argument, and the parameters as the `θ` argument.
 
-!!! tip
-    Here, `x'` is just the name of a variable. The prime `'` is a valid character for variable names in Birch, useful where it might also be used in mathematics.
+Here, `x'` is just the name of a variable. The prime `'` is a valid character for variable names in Birch, useful where it might also be used in mathematics.
 
 The initial model is empty by choice. While we could implement the initial model described above, it is specific to the data set that we will use. We would prefer not to hardcode it, in order that we might reuse this model for other data sets. Instead, we have elected to include the initial state in the input file that we will set up below.
 
@@ -199,6 +198,7 @@ The transition model uses [Delta](/documentation/library/classes/Delta/) distrib
     Build the project with
 
         birch build
+        birch install
 
 ## Data
 
@@ -219,29 +219,32 @@ We are nearly ready to perform inference. Unlike the [linear regression](/docume
 The particle filter requires some configuration. This is provided in a configuration file.
 
 !!! example "Exercise"
-    Create a file `config/sir_model.json`, add it to `META.json` under `manifest.other`, and enter the following contents:
+    Create a file `config/sir.json`, add it to `META.json` under `manifest.other`, and enter the following contents:
 
         {
+          "model": {
+            "class": "SIRModel"
+          },
           "sampler": {
-            "nsamples": 10,
+            "nsamples": 10
+          },
+          "filter": {
             "nparticles": 128
-          }
+          },
+          "input": "input/russian_influenza.json",
+          "output": "output/sir.json"
         }
 
-This simply sets the number of posterior samples to draw, and the number of particles to use when running the particle filter.
+This sets the number of posterior samples to draw, and the number of particles to use when running the particle filter. It also sets the model class, input file, and output file, which we previously provided on the command line instead. Usually it is easier---and preferable for reproducibility---to use configuration files rather than having to provide too much information on the command line.
 
 Now we can perform inference.
 
 !!! example "Exercise"
     Sample from the posterior distribution with
 
-        birch sample \
-          --model SIRModel \
-          --config config/sir_model.json \
-          --input input/russian_influenza.json \
-          --output output/sir_model.json
+        birch sample --config config/sir.json
 
-As before, you can inspect the results of the inference in `output/sir_model.json`, and perhaps plot them. Be aware that the output here is an *importance sample*. Each sample is assigned a weight, the logarithm of which is given by the associated `lweight` element in the output file.
+As before, you can inspect the results of the inference in `output/sir.json`, and perhaps plot them. Be aware that the output here is an *importance sample*. Each sample is assigned a weight, the logarithm of which is given by the associated `lweight` element in the output file.
 
 [^1]: Anonymous (1978). Influenza in a boarding school. *British Medical Journal*. **1**:587.
 

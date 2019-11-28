@@ -36,15 +36,15 @@ nav:
       - 'macOS': getting-started/macos.md
       - 'Windows 10': getting-started/windows.md
   - 'Tutorial':
-    - 'The Birch Tutorial': tutorial/index.md
+    - 'Birch Tutorial': tutorial/index.md
     - 'Exercise #1: Preliminaries': tutorial/preliminaries.md
     - 'Exercise #2: Linear regression': tutorial/linear-regression.md
     - 'Exercise #3: Markov model': tutorial/markov-model.md
-    - 'Further reading': tutorial/further-reading.md
+    - 'Next steps': tutorial/further-reading.md
   - 'Documentation':
     - 'Birch Documentation': documentation/index.md
     - 'Language':
-      - 'The Birch Language': documentation/language/index.md
+      - 'Birch Language': documentation/language/index.md
       - 'Comments': documentation/language/comments.md
       - 'Variables': documentation/language/variables.md
       - 'Types': documentation/language/types.md

@@ -1,14 +1,11 @@
 #!/usr/bin/perl
 
-`mkdir -p git`;
-if (!-e 'git/Birch') {
-  `git clone https://github.com/lawmurray/Birch.git git/Birch`;
-}
-`cd git/Birch; git pull; doxygen; cd ../..`;
-if (!-e 'git/Birch.Standard') {
-  `git clone https://github.com/lawmurray/Birch.Standard.git git/Birch.Standard`;
-}
-`cd git/Birch.Standard; git pull; birch docs; doxygen; cd ../..`;
+`rm -rf git`;
+`git clone --depth 1 https://github.com/lawmurray/Birch.git git/Birch`;
+`git clone --depth 1 https://github.com/lawmurray/Birch.Standard.git git/Birch.Standard`;
+
+`cd git/Birch; doxygen; cd ../..`;
+`cd git/Birch.Standard; birch docs; doxygen; cd ../..`;
 
 `rm -rf docs/documentation/library`;
 `cp -r git/Birch.Standard/docs docs/documentation/library`;
