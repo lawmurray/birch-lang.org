@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2019-11-10 13:04:00</td>
+            <td class="headerValue">2019-11-26 20:15:26</td>
             <td></td>
           </tr>
           <tr><td><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
@@ -59,11 +59,11 @@
 <a name="1"><span class="lineNum">       1 </span>            : /*</a>
 <a name="2"><span class="lineNum">       2 </span>            :  * Test uniform cdf evaluations.</a>
 <a name="3"><span class="lineNum">       3 </span>            :  */</a>
-<a name="4"><span class="lineNum">       4 </span><span class="lineCov">         11 : program test_cdf_uniform(N:Integer &lt;- 10000) {</span></a>
-<a name="5"><span class="lineNum">       5 </span><span class="lineCov">          4 :   auto l &lt;- simulate_uniform(-10.0, 10.0);</span></a>
-<a name="6"><span class="lineNum">       6 </span><span class="lineCov">          2 :   auto u &lt;- simulate_uniform(l, l + 20.0);</span></a>
-<a name="7"><span class="lineNum">       7 </span><span class="lineCov">          3 :   auto q &lt;- Uniform(l, u);  </span></a>
-<a name="8"><span class="lineNum">       8 </span><span class="lineCov">          3 :   test_cdf(q, N);</span></a>
+<a name="4"><span class="lineNum">       4 </span><span class="lineCov">         14 : program test_cdf_uniform(N:Integer &lt;- 10000) {</span></a>
+<a name="5"><span class="lineNum">       5 </span><span class="lineCov">          5 :   auto l &lt;- simulate_uniform(-10.0, 10.0);</span></a>
+<a name="6"><span class="lineNum">       6 </span><span class="lineCov">          3 :   auto u &lt;- simulate_uniform(l, l + 20.0);</span></a>
+<a name="7"><span class="lineNum">       7 </span><span class="lineCov">          4 :   auto q &lt;- Uniform(l, u);  </span></a>
+<a name="8"><span class="lineNum">       8 </span><span class="lineCov">          4 :   test_cdf(q, N);</span></a>
 <a name="9"><span class="lineNum">       9 </span>            : }</a>
 </pre>
       </td>

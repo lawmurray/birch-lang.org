@@ -31,13 +31,13 @@
             <td class="headerValue">standard.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">9</td>
+            <td class="headerCovTableEntry">0</td>
             <td class="headerCovTableEntry">75</td>
-            <td class="headerCovTableEntryLo">12.0 %</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2019-11-10 13:04:00</td>
+            <td class="headerValue">2019-11-26 20:15:26</td>
             <td></td>
           </tr>
           <tr><td><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
@@ -63,13 +63,13 @@
 <a name="5"><span class="lineNum">       5 </span>            :  * - init: Initial value.</a>
 <a name="6"><span class="lineNum">       6 </span>            :  * - op: Operator.</a>
 <a name="7"><span class="lineNum">       7 </span>            :  */</a>
-<a name="8"><span class="lineNum">       8 </span><span class="lineCov">         60 : function reduce(x:Real!, init:Real, op:@(Real, Real) -&gt; Real) -&gt; Real {</span></a>
-<a name="9"><span class="lineNum">       9 </span><span class="lineCov">         60 :   auto result &lt;- init;</span></a>
-<a name="10"><span class="lineNum">      10 </span><span class="lineCov">      34182 :   while x? {</span></a>
-<a name="11"><span class="lineNum">      11 </span><span class="lineCov">      34002 :     result &lt;- op(result, x!);</span></a>
+<a name="8"><span class="lineNum">       8 </span><span class="lineNoCov">          0 : function reduce(x:Real!, init:Real, op:@(Real, Real) -&gt; Real) -&gt; Real {</span></a>
+<a name="9"><span class="lineNum">       9 </span><span class="lineNoCov">          0 :   auto result &lt;- init;</span></a>
+<a name="10"><span class="lineNum">      10 </span><span class="lineNoCov">          0 :   while x? {</span></a>
+<a name="11"><span class="lineNum">      11 </span><span class="lineNoCov">          0 :     result &lt;- op(result, x!);</span></a>
 <a name="12"><span class="lineNum">      12 </span>            :   }</a>
-<a name="13"><span class="lineNum">      13 </span><span class="lineCov">         60 :   return result;</span></a>
-<a name="14"><span class="lineNum">      14 </span><span class="lineCov">         60 : }</span></a>
+<a name="13"><span class="lineNum">      13 </span><span class="lineNoCov">          0 :   return result;</span></a>
+<a name="14"><span class="lineNum">      14 </span><span class="lineNoCov">          0 : }</span></a>
 <a name="15"><span class="lineNum">      15 </span>            : </a>
 <a name="16"><span class="lineNum">      16 </span>            : /**</a>
 <a name="17"><span class="lineNum">      17 </span>            :  * Iterator reduction.</a>
@@ -104,10 +104,10 @@
 <a name="46"><span class="lineNum">      46 </span>            : /**</a>
 <a name="47"><span class="lineNum">      47 </span>            :  * Sum over range.</a>
 <a name="48"><span class="lineNum">      48 </span>            :  */</a>
-<a name="49"><span class="lineNum">      49 </span><span class="lineCov">         60 : function sum(x:Real!) -&gt; Real {</span></a>
-<a name="50"><span class="lineNum">      50 </span><span class="lineCov">      11574 :   return reduce(x, 0.0, @(x:Real, y:Real) -&gt; Real { return x + y; });</span></a>
+<a name="49"><span class="lineNum">      49 </span><span class="lineNoCov">          0 : function sum(x:Real!) -&gt; Real {</span></a>
+<a name="50"><span class="lineNum">      50 </span><span class="lineNoCov">          0 :   return reduce(x, 0.0, @(x:Real, y:Real) -&gt; Real { return x + y; });</span></a>
 <a name="51"><span class="lineNum">      51 </span>            : }</a>
-<a name="52"><span class="lineNum">      52 </span><span class="lineCov">         60 : </span></a>
+<a name="52"><span class="lineNum">      52 </span><span class="lineNoCov">          0 : </span></a>
 <a name="53"><span class="lineNum">      53 </span>            : /**</a>
 <a name="54"><span class="lineNum">      54 </span>            :  * Sum over range.</a>
 <a name="55"><span class="lineNum">      55 </span>            :  */</a>

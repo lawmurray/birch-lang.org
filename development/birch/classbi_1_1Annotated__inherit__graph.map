@@ -1,18 +1,21 @@
 <map id="Annotated" name="Annotated">
-<area shape="rect" id="node1" title="Annotated object." alt="" coords="5,360,87,387"/>
+<area shape="rect" id="node1" title="Annotated object." alt="" coords="5,436,87,463"/>
 <area shape="rect" id="node2" href="$classbi_1_1Basic.html" title="Basic type." alt="" coords="167,5,221,32"/>
 <area shape="rect" id="node3" href="$classbi_1_1BinaryOperator.html" title="Binary operator." alt="" coords="139,56,249,83"/>
 <area shape="rect" id="node4" href="$classbi_1_1Class.html" title="Class." alt="" coords="166,107,222,133"/>
 <area shape="rect" id="node5" href="$classbi_1_1Fiber.html" title="Fiber." alt="" coords="169,157,219,184"/>
 <area shape="rect" id="node6" href="$classbi_1_1For.html" title="For loop." alt="" coords="173,208,215,235"/>
-<area shape="rect" id="node7" href="$classbi_1_1Function.html" title="Function." alt="" coords="158,259,230,285"/>
-<area shape="rect" id="node8" href="$classbi_1_1Generic.html" title="Generic type." alt="" coords="161,309,227,336"/>
-<area shape="rect" id="node9" href="$classbi_1_1GlobalVariable.html" title="Global variable." alt="" coords="141,360,247,387"/>
-<area shape="rect" id="node10" href="$classbi_1_1LocalVariable.html" title="Local variable." alt="" coords="145,411,243,437"/>
-<area shape="rect" id="node11" href="$classbi_1_1MemberFiber.html" title="Class member Fiber." alt="" coords="145,461,243,488"/>
-<area shape="rect" id="node12" href="$classbi_1_1MemberFunction.html" title="Class member function." alt="" coords="135,512,253,539"/>
-<area shape="rect" id="node13" href="$classbi_1_1MemberVariable.html" title="Class member variable." alt="" coords="137,563,251,589"/>
-<area shape="rect" id="node14" href="$classbi_1_1Parameter.html" title="Parameter to a function, fiber, program or operator." alt="" coords="153,613,235,640"/>
-<area shape="rect" id="node15" href="$classbi_1_1UnaryOperator.html" title="Unary operator." alt="" coords="141,664,247,691"/>
-<area shape="rect" id="node16" href="$classbi_1_1Unknown.html" title="Placeholder for unknown target type." alt="" coords="155,715,233,741"/>
+<area shape="rect" id="node7" href="$classbi_1_1ForVariable.html" title="Index variable in a for loop." alt="" coords="151,259,237,285"/>
+<area shape="rect" id="node8" href="$classbi_1_1Function.html" title="Function." alt="" coords="158,309,230,336"/>
+<area shape="rect" id="node9" href="$classbi_1_1Generic.html" title="Generic type." alt="" coords="161,360,227,387"/>
+<area shape="rect" id="node10" href="$classbi_1_1GlobalVariable.html" title="Global variable." alt="" coords="141,411,247,437"/>
+<area shape="rect" id="node11" href="$classbi_1_1LocalVariable.html" title="Local variable." alt="" coords="145,461,243,488"/>
+<area shape="rect" id="node12" href="$classbi_1_1MemberFiber.html" title="Class member Fiber." alt="" coords="145,512,243,539"/>
+<area shape="rect" id="node13" href="$classbi_1_1MemberFunction.html" title="Class member function." alt="" coords="135,563,253,589"/>
+<area shape="rect" id="node14" href="$classbi_1_1MemberVariable.html" title="Class member variable." alt="" coords="137,613,251,640"/>
+<area shape="rect" id="node15" href="$classbi_1_1Parallel.html" title="Parallel loop." alt="" coords="161,664,227,691"/>
+<area shape="rect" id="node16" href="$classbi_1_1ParallelVariable.html" title="Index variable in a parallel loop." alt="" coords="139,715,249,741"/>
+<area shape="rect" id="node17" href="$classbi_1_1Parameter.html" title="Parameter to a function, member function, operator, program, or class." alt="" coords="153,765,235,792"/>
+<area shape="rect" id="node18" href="$classbi_1_1UnaryOperator.html" title="Unary operator." alt="" coords="141,816,247,843"/>
+<area shape="rect" id="node19" href="$classbi_1_1Unknown.html" title="Placeholder for unknown target type." alt="" coords="155,867,233,893"/>
 </map>

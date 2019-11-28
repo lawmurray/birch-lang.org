@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2019-11-10 13:05:17</td>
+            <td class="headerValue">2019-11-26 20:15:42</td>
             <td></td>
           </tr>
           <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
@@ -186,19 +186,19 @@
 <a name="128"><span class="lineNum">     128 </span>            : }</a>
 <a name="129"><span class="lineNum">     129 </span>            : </a>
 <a name="130"><span class="lineNum">     130 </span>            : inline bool libbirch::Memo::empty() const {</a>
-<a name="131"><span class="lineNum">     131 </span><span class="lineCov">  132151744 :   return nentries == 0u;</span></a>
+<a name="131"><span class="lineNum">     131 </span><span class="lineCov">  164394398 :   return nentries == 0u;</span></a>
 <a name="132"><span class="lineNum">     132 </span>            : }</a>
 <a name="133"><span class="lineNum">     133 </span>            : </a>
 <a name="134"><span class="lineNum">     134 </span>            : inline unsigned libbirch::Memo::hash(const key_type key, const unsigned nentries) {</a>
-<a name="135"><span class="lineNum">     135 </span><span class="lineCov">  347870475 :   assert(nentries &gt; 0u);</span></a>
-<a name="136"><span class="lineNum">     136 </span><span class="lineCov">  348416726 :   return static_cast&lt;unsigned&gt;(reinterpret_cast&lt;size_t&gt;(key) &gt;&gt; 6ull)</span></a>
-<a name="137"><span class="lineNum">     137 </span><span class="lineCov">  174208363 :       &amp; (nentries - 1u);</span></a>
+<a name="135"><span class="lineNum">     135 </span><span class="lineCov">  446190260 :   assert(nentries &gt; 0u);</span></a>
+<a name="136"><span class="lineNum">     136 </span><span class="lineCov">  446977786 :   return static_cast&lt;unsigned&gt;(reinterpret_cast&lt;size_t&gt;(key) &gt;&gt; 6ull)</span></a>
+<a name="137"><span class="lineNum">     137 </span><span class="lineCov">  223488893 :       &amp; (nentries - 1u);</span></a>
 <a name="138"><span class="lineNum">     138 </span>            : }</a>
 <a name="139"><span class="lineNum">     139 </span>            : </a>
 <a name="140"><span class="lineNum">     140 </span>            : inline unsigned libbirch::Memo::crowd() const {</a>
 <a name="141"><span class="lineNum">     141 </span>            :   /* the table is considered crowded if more than three-quarters of its</a>
 <a name="142"><span class="lineNum">     142 </span>            :    * entries are occupied */</a>
-<a name="143"><span class="lineNum">     143 </span><span class="lineCov">   10756843 :   return (nentries &gt;&gt; 1u) + (nentries &gt;&gt; 2u);</span></a>
+<a name="143"><span class="lineNum">     143 </span><span class="lineCov">   18414826 :   return (nentries &gt;&gt; 1u) + (nentries &gt;&gt; 2u);</span></a>
 <a name="144"><span class="lineNum">     144 </span>            : }</a>
 </pre>
       </td>

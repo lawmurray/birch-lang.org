@@ -1,5 +1,5 @@
 <map id="Statement" name="Statement">
-<area shape="rect" id="node1" title="Statement." alt="" coords="121,664,204,691"/>
+<area shape="rect" id="node1" title="Statement." alt="" coords="121,765,204,792"/>
 <area shape="rect" id="node3" href="$classbi_1_1Assert.html" title="Assertion statement." alt="" coords="295,5,355,32"/>
 <area shape="rect" id="node4" href="$classbi_1_1AssignmentOperator.html" title="Assignment operator." alt="" coords="255,56,396,83"/>
 <area shape="rect" id="node5" href="$classbi_1_1Assume.html" title="Statement using ~ or &lt;&#45;? operator." alt="" coords="290,107,361,133"/>
@@ -13,19 +13,23 @@
 <area shape="rect" id="node13" href="$classbi_1_1ExpressionStatement.html" title="ExpressionStatement." alt="" coords="252,512,399,539"/>
 <area shape="rect" id="node14" href="$classbi_1_1Fiber.html" title="Fiber." alt="" coords="300,563,351,589"/>
 <area shape="rect" id="node15" href="$classbi_1_1For.html" title="For loop." alt="" coords="305,613,346,640"/>
-<area shape="rect" id="node16" href="$classbi_1_1Function.html" title="Function." alt="" coords="289,664,361,691"/>
-<area shape="rect" id="node17" href="$classbi_1_1GlobalVariable.html" title="Global variable." alt="" coords="273,715,378,741"/>
-<area shape="rect" id="node18" href="$classbi_1_1If.html" title="If." alt="" coords="306,765,345,792"/>
-<area shape="rect" id="node19" href="$classbi_1_1Instantiated.html" title="Statement indicating that a particular instantiation of a generic object has been compiled by a depen..." alt="" coords="264,816,387,843"/>
-<area shape="rect" id="node20" href="$classbi_1_1MemberFiber.html" title="Class member Fiber." alt="" coords="276,867,375,893"/>
-<area shape="rect" id="node21" href="$classbi_1_1MemberFunction.html" title="Class member function." alt="" coords="266,917,385,944"/>
-<area shape="rect" id="node22" href="$classbi_1_1MemberVariable.html" title="Class member variable." alt="" coords="268,968,383,995"/>
-<area shape="rect" id="node23" href="$classbi_1_1Program.html" title="Program parameter." alt="" coords="290,1019,361,1045"/>
-<area shape="rect" id="node24" href="$classbi_1_1Raw.html" title="Raw C++ block." alt="" coords="301,1069,350,1096"/>
-<area shape="rect" id="node25" href="$classbi_1_1Return.html" title="Return statement." alt="" coords="295,1120,356,1147"/>
-<area shape="rect" id="node26" href="$classbi_1_1StatementList.html" title="Parameter list." alt="" coords="274,1171,377,1197"/>
-<area shape="rect" id="node27" href="$classbi_1_1UnaryOperator.html" title="Unary operator." alt="" coords="272,1221,379,1248"/>
-<area shape="rect" id="node28" href="$classbi_1_1While.html" title="While loop." alt="" coords="298,1272,353,1299"/>
-<area shape="rect" id="node29" href="$classbi_1_1Yield.html" title="Yield statement." alt="" coords="300,1323,351,1349"/>
-<area shape="rect" id="node2" href="$classbi_1_1Located.html" title="Object with a location within a file being parsed." alt="" coords="5,664,73,691"/>
+<area shape="rect" id="node16" href="$classbi_1_1ForVariable.html" title="Index variable in a for loop." alt="" coords="282,664,369,691"/>
+<area shape="rect" id="node17" href="$classbi_1_1Function.html" title="Function." alt="" coords="289,715,361,741"/>
+<area shape="rect" id="node18" href="$classbi_1_1GlobalVariable.html" title="Global variable." alt="" coords="273,765,378,792"/>
+<area shape="rect" id="node19" href="$classbi_1_1If.html" title="If." alt="" coords="306,816,345,843"/>
+<area shape="rect" id="node20" href="$classbi_1_1Instantiated.html" title="Statement indicating that a particular instantiation of a generic object has been compiled by a depen..." alt="" coords="264,867,387,893"/>
+<area shape="rect" id="node21" href="$classbi_1_1LocalVariable.html" title="Local variable." alt="" coords="276,917,375,944"/>
+<area shape="rect" id="node22" href="$classbi_1_1MemberFiber.html" title="Class member Fiber." alt="" coords="276,968,375,995"/>
+<area shape="rect" id="node23" href="$classbi_1_1MemberFunction.html" title="Class member function." alt="" coords="266,1019,385,1045"/>
+<area shape="rect" id="node24" href="$classbi_1_1MemberVariable.html" title="Class member variable." alt="" coords="268,1069,383,1096"/>
+<area shape="rect" id="node25" href="$classbi_1_1Parallel.html" title="Parallel loop." alt="" coords="293,1120,358,1147"/>
+<area shape="rect" id="node26" href="$classbi_1_1ParallelVariable.html" title="Index variable in a parallel loop." alt="" coords="270,1171,381,1197"/>
+<area shape="rect" id="node27" href="$classbi_1_1Program.html" title="Program parameter." alt="" coords="290,1221,361,1248"/>
+<area shape="rect" id="node28" href="$classbi_1_1Raw.html" title="Raw C++ block." alt="" coords="301,1272,350,1299"/>
+<area shape="rect" id="node29" href="$classbi_1_1Return.html" title="Return statement." alt="" coords="295,1323,356,1349"/>
+<area shape="rect" id="node30" href="$classbi_1_1StatementList.html" title="Parameter list." alt="" coords="274,1373,377,1400"/>
+<area shape="rect" id="node31" href="$classbi_1_1UnaryOperator.html" title="Unary operator." alt="" coords="272,1424,379,1451"/>
+<area shape="rect" id="node32" href="$classbi_1_1While.html" title="While loop." alt="" coords="298,1475,353,1501"/>
+<area shape="rect" id="node33" href="$classbi_1_1Yield.html" title="Yield statement." alt="" coords="300,1525,351,1552"/>
+<area shape="rect" id="node2" href="$classbi_1_1Located.html" title="Object with a location within a file being parsed." alt="" coords="5,765,73,792"/>
 </map>

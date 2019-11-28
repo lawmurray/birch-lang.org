@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2019-11-10 13:05:17</td>
+            <td class="headerValue">2019-11-26 20:15:42</td>
             <td></td>
           </tr>
           <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
@@ -63,86 +63,86 @@
 <a name="5"><span class="lineNum">       5 </span>            : </a>
 <a name="6"><span class="lineNum">       6 </span>            : #if ENABLE_MEMORY_POOL</a>
 <a name="7"><span class="lineNum">       7 </span>            : libbirch::Pool&amp; libbirch::pool(const int i) {</a>
-<a name="8"><span class="lineNum">       8 </span><span class="lineCov">  610756730 :   static libbirch::Pool* pools = new libbirch::Pool[64*get_max_threads()];</span></a>
-<a name="9"><span class="lineNum">       9 </span><span class="lineCov">  611593371 :   return pools[i];</span></a>
+<a name="8"><span class="lineNum">       8 </span><span class="lineCov">  820851840 :   static libbirch::Pool* pools = new libbirch::Pool[64*get_max_threads()];</span></a>
+<a name="9"><span class="lineNum">       9 </span><span class="lineCov">  820652815 :   return pools[i];</span></a>
 <a name="10"><span class="lineNum">      10 </span><span class="lineNoCov">          0 : }</span></a>
 <a name="11"><span class="lineNum">      11 </span>            : #endif</a>
 <a name="12"><span class="lineNum">      12 </span>            : </a>
 <a name="13"><span class="lineNum">      13 </span>            : void* libbirch::allocate(const size_t n) {</a>
-<a name="14"><span class="lineNum">      14 </span><span class="lineCov">  602051181 :   assert(n &gt; 0u);</span></a>
+<a name="14"><span class="lineNum">      14 </span><span class="lineCov">  806497408 :   assert(n &gt; 0u);</span></a>
 <a name="15"><span class="lineNum">      15 </span>            : </a>
-<a name="16"><span class="lineNum">      16 </span><span class="lineCov">  310102694 :   memoryUse.add(n);</span></a>
+<a name="16"><span class="lineNum">      16 </span><span class="lineCov">  415103597 :   memoryUse.add(n);</span></a>
 <a name="17"><span class="lineNum">      17 </span>            : #if !ENABLE_MEMORY_POOL</a>
 <a name="18"><span class="lineNum">      18 </span>            :   return std::malloc(n);</a>
 <a name="19"><span class="lineNum">      19 </span>            : #else</a>
-<a name="20"><span class="lineNum">      20 </span><span class="lineCov">  310102694 :   int tid = get_thread_num();</span></a>
-<a name="21"><span class="lineNum">      21 </span><span class="lineCov">  310102694 :   int i = bin(n);       // determine which pool</span></a>
-<a name="22"><span class="lineNum">      22 </span><span class="lineCov">  310102694 :   auto ptr = pool(64*tid + i).pop();  // attempt to reuse from this pool</span></a>
-<a name="23"><span class="lineNum">      23 </span><span class="lineCov">  310102694 :   if (!ptr) {           // otherwise allocate new</span></a>
-<a name="24"><span class="lineNum">      24 </span><span class="lineCov">    3273635 :     size_t m = unbin(i);</span></a>
-<a name="25"><span class="lineNum">      25 </span><span class="lineCov">    3273635 :     ptr = (buffer += m) - m;</span></a>
-<a name="26"><span class="lineNum">      26 </span><span class="lineCov">    6547987 :     assert((char*)ptr + m &lt;= bufferStart + bufferSize); // otherwise out of memory</span></a>
-<a name="27"><span class="lineNum">      27 </span><span class="lineCov">    3275528 :   }</span></a>
-<a name="28"><span class="lineNum">      28 </span><span class="lineCov">  620464256 :   assert(ptr);</span></a>
-<a name="29"><span class="lineNum">      29 </span><span class="lineCov">  310378286 :   return ptr;</span></a>
+<a name="20"><span class="lineNum">      20 </span><span class="lineCov">  415103597 :   int tid = get_thread_num();</span></a>
+<a name="21"><span class="lineNum">      21 </span><span class="lineCov">  415103597 :   int i = bin(n);       // determine which pool</span></a>
+<a name="22"><span class="lineNum">      22 </span><span class="lineCov">  415103597 :   auto ptr = pool(64*tid + i).pop();  // attempt to reuse from this pool</span></a>
+<a name="23"><span class="lineNum">      23 </span><span class="lineCov">  415103597 :   if (!ptr) {           // otherwise allocate new</span></a>
+<a name="24"><span class="lineNum">      24 </span><span class="lineCov">    4868120 :     size_t m = unbin(i);</span></a>
+<a name="25"><span class="lineNum">      25 </span><span class="lineCov">    4868120 :     ptr = (buffer += m) - m;</span></a>
+<a name="26"><span class="lineNum">      26 </span><span class="lineCov">    9737460 :     assert((char*)ptr + m &lt;= bufferStart + bufferSize); // otherwise out of memory</span></a>
+<a name="27"><span class="lineNum">      27 </span><span class="lineCov">    4871434 :   }</span></a>
+<a name="28"><span class="lineNum">      28 </span><span class="lineCov">  829995541 :   assert(ptr);</span></a>
+<a name="29"><span class="lineNum">      29 </span><span class="lineCov">  415320816 :   return ptr;</span></a>
 <a name="30"><span class="lineNum">      30 </span>            : #endif</a>
 <a name="31"><span class="lineNum">      31 </span>            : }</a>
 <a name="32"><span class="lineNum">      32 </span>            : </a>
 <a name="33"><span class="lineNum">      33 </span>            : void libbirch::deallocate(void* ptr, const size_t n, const int tid) {</a>
-<a name="34"><span class="lineNum">      34 </span><span class="lineCov">  138584921 :   assert(ptr);</span></a>
-<a name="35"><span class="lineNum">      35 </span><span class="lineCov">  138863549 :   assert(n &gt; 0u);</span></a>
-<a name="36"><span class="lineNum">      36 </span><span class="lineCov">  139273639 :   assert(tid &lt; get_max_threads());</span></a>
+<a name="34"><span class="lineNum">      34 </span><span class="lineCov">  211330135 :   assert(ptr);</span></a>
+<a name="35"><span class="lineNum">      35 </span><span class="lineCov">  211590452 :   assert(n &gt; 0u);</span></a>
+<a name="36"><span class="lineNum">      36 </span><span class="lineCov">  212075231 :   assert(tid &lt; get_max_threads());</span></a>
 <a name="37"><span class="lineNum">      37 </span>            : </a>
-<a name="38"><span class="lineNum">      38 </span><span class="lineCov">   69718464 :   memoryUse.subtract(n);</span></a>
+<a name="38"><span class="lineNum">      38 </span><span class="lineCov">  106144287 :   memoryUse.subtract(n);</span></a>
 <a name="39"><span class="lineNum">      39 </span>            : #if !ENABLE_MEMORY_POOL</a>
 <a name="40"><span class="lineNum">      40 </span>            :   std::free(ptr);</a>
 <a name="41"><span class="lineNum">      41 </span>            : #else</a>
-<a name="42"><span class="lineNum">      42 </span><span class="lineCov">   69718464 :   int i = bin(n);</span></a>
-<a name="43"><span class="lineNum">      43 </span><span class="lineCov">   69718464 :   pool(64*tid + i).push(ptr);</span></a>
+<a name="42"><span class="lineNum">      42 </span><span class="lineCov">  106144287 :   int i = bin(n);</span></a>
+<a name="43"><span class="lineNum">      43 </span><span class="lineCov">  106144287 :   pool(64*tid + i).push(ptr);</span></a>
 <a name="44"><span class="lineNum">      44 </span>            : #endif</a>
-<a name="45"><span class="lineNum">      45 </span><span class="lineCov">   69718464 : }</span></a>
+<a name="45"><span class="lineNum">      45 </span><span class="lineCov">  106144287 : }</span></a>
 <a name="46"><span class="lineNum">      46 </span>            : </a>
 <a name="47"><span class="lineNum">      47 </span>            : void libbirch::deallocate(void* ptr, const unsigned n, const int tid) {</a>
-<a name="48"><span class="lineNum">      48 </span><span class="lineCov">  445469682 :   assert(ptr);</span></a>
-<a name="49"><span class="lineNum">      49 </span><span class="lineCov">  450032182 :   assert(n &gt; 0u);</span></a>
-<a name="50"><span class="lineNum">      50 </span><span class="lineCov">  465550927 :   assert(tid &lt; get_max_threads());</span></a>
+<a name="48"><span class="lineNum">      48 </span><span class="lineCov">  615870493 :   assert(ptr);</span></a>
+<a name="49"><span class="lineNum">      49 </span><span class="lineCov">  617537398 :   assert(n &gt; 0u);</span></a>
+<a name="50"><span class="lineNum">      50 </span><span class="lineCov">  619875342 :   assert(tid &lt; get_max_threads());</span></a>
 <a name="51"><span class="lineNum">      51 </span>            : </a>
-<a name="52"><span class="lineNum">      52 </span><span class="lineCov">  233120078 :   memoryUse.subtract(n);</span></a>
+<a name="52"><span class="lineNum">      52 </span><span class="lineCov">  310166753 :   memoryUse.subtract(n);</span></a>
 <a name="53"><span class="lineNum">      53 </span>            : #if !ENABLE_MEMORY_POOL</a>
 <a name="54"><span class="lineNum">      54 </span>            :   std::free(ptr);</a>
 <a name="55"><span class="lineNum">      55 </span>            : #else</a>
-<a name="56"><span class="lineNum">      56 </span><span class="lineCov">  233120078 :   int i = bin(n);</span></a>
-<a name="57"><span class="lineNum">      57 </span><span class="lineCov">  233120078 :   pool(64*tid + i).push(ptr);</span></a>
+<a name="56"><span class="lineNum">      56 </span><span class="lineCov">  310166753 :   int i = bin(n);</span></a>
+<a name="57"><span class="lineNum">      57 </span><span class="lineCov">  310166753 :   pool(64*tid + i).push(ptr);</span></a>
 <a name="58"><span class="lineNum">      58 </span>            : #endif</a>
-<a name="59"><span class="lineNum">      59 </span><span class="lineCov">  233120078 : }</span></a>
+<a name="59"><span class="lineNum">      59 </span><span class="lineCov">  310166753 : }</span></a>
 <a name="60"><span class="lineNum">      60 </span>            : </a>
 <a name="61"><span class="lineNum">      61 </span>            : void* libbirch::reallocate(void* ptr1, const size_t n1, const int tid1,</a>
 <a name="62"><span class="lineNum">      62 </span>            :     const size_t n2) {</a>
-<a name="63"><span class="lineNum">      63 </span><span class="lineCov">    3946962 :   assert(ptr1);</span></a>
-<a name="64"><span class="lineNum">      64 </span><span class="lineCov">    3950154 :   assert(n1 &gt; 0u);</span></a>
-<a name="65"><span class="lineNum">      65 </span><span class="lineCov">    3954332 :   assert(tid1 &lt; get_max_threads());</span></a>
-<a name="66"><span class="lineNum">      66 </span><span class="lineCov">    3955417 :   assert(n2 &gt; 0u);</span></a>
+<a name="63"><span class="lineNum">      63 </span><span class="lineCov">    5423241 :   assert(ptr1);</span></a>
+<a name="64"><span class="lineNum">      64 </span><span class="lineCov">    5425870 :   assert(n1 &gt; 0u);</span></a>
+<a name="65"><span class="lineNum">      65 </span><span class="lineCov">    5430130 :   assert(tid1 &lt; get_max_threads());</span></a>
+<a name="66"><span class="lineNum">      66 </span><span class="lineCov">    5430804 :   assert(n2 &gt; 0u);</span></a>
 <a name="67"><span class="lineNum">      67 </span>            : </a>
-<a name="68"><span class="lineNum">      68 </span><span class="lineCov">    1977961 :   if (n2 &gt; n1) {</span></a>
-<a name="69"><span class="lineNum">      69 </span><span class="lineCov">    1119345 :     memoryUse.add(n2 - n1);</span></a>
-<a name="70"><span class="lineNum">      70 </span><span class="lineCov">    1978263 :   } else if (n1 &gt; n2) {</span></a>
-<a name="71"><span class="lineNum">      71 </span><span class="lineCov">     858982 :     memoryUse.subtract(n1 - n2);</span></a>
-<a name="72"><span class="lineNum">      72 </span><span class="lineCov">     858982 :   }</span></a>
+<a name="68"><span class="lineNum">      68 </span><span class="lineCov">    2715773 :   if (n2 &gt; n1) {</span></a>
+<a name="69"><span class="lineNum">      69 </span><span class="lineCov">    1941379 :     memoryUse.add(n2 - n1);</span></a>
+<a name="70"><span class="lineNum">      70 </span><span class="lineCov">    2716057 :   } else if (n1 &gt; n2) {</span></a>
+<a name="71"><span class="lineNum">      71 </span><span class="lineCov">     774364 :     memoryUse.subtract(n1 - n2);</span></a>
+<a name="72"><span class="lineNum">      72 </span><span class="lineCov">     774364 :   }</span></a>
 <a name="73"><span class="lineNum">      73 </span>            : #if !ENABLE_MEMORY_POOL</a>
 <a name="74"><span class="lineNum">      74 </span>            :   return std::realloc(ptr1, n2);</a>
 <a name="75"><span class="lineNum">      75 </span>            : #else</a>
-<a name="76"><span class="lineNum">      76 </span><span class="lineCov">    1979323 :   int i1 = bin(n1);</span></a>
-<a name="77"><span class="lineNum">      77 </span><span class="lineCov">    1979323 :   int i2 = bin(n2);</span></a>
-<a name="78"><span class="lineNum">      78 </span><span class="lineCov">    1979323 :   void* ptr2 = ptr1;</span></a>
-<a name="79"><span class="lineNum">      79 </span><span class="lineCov">    1979323 :   if (i1 != i2) {</span></a>
+<a name="76"><span class="lineNum">      76 </span><span class="lineCov">    2717020 :   int i1 = bin(n1);</span></a>
+<a name="77"><span class="lineNum">      77 </span><span class="lineCov">    2717020 :   int i2 = bin(n2);</span></a>
+<a name="78"><span class="lineNum">      78 </span><span class="lineCov">    2717020 :   void* ptr2 = ptr1;</span></a>
+<a name="79"><span class="lineNum">      79 </span><span class="lineCov">    2717020 :   if (i1 != i2) {</span></a>
 <a name="80"><span class="lineNum">      80 </span>            :     /* can't continue using current allocation */</a>
-<a name="81"><span class="lineNum">      81 </span><span class="lineCov">     153584 :     ptr2 = allocate(n2);</span></a>
-<a name="82"><span class="lineNum">      82 </span><span class="lineCov">     307175 :     if (ptr1 &amp;&amp; ptr2) {</span></a>
-<a name="83"><span class="lineNum">      83 </span><span class="lineCov">     153591 :       std::memcpy(ptr2, ptr1, std::min(n1, n2));</span></a>
-<a name="84"><span class="lineNum">      84 </span><span class="lineCov">     153591 :     }</span></a>
-<a name="85"><span class="lineNum">      85 </span><span class="lineCov">     153379 :     deallocate(ptr1, n1, tid1);</span></a>
-<a name="86"><span class="lineNum">      86 </span><span class="lineCov">     153379 :   }</span></a>
-<a name="87"><span class="lineNum">      87 </span><span class="lineCov">    1979187 :   return ptr2;</span></a>
+<a name="81"><span class="lineNum">      81 </span><span class="lineCov">     162166 :     ptr2 = allocate(n2);</span></a>
+<a name="82"><span class="lineNum">      82 </span><span class="lineCov">     324337 :     if (ptr1 &amp;&amp; ptr2) {</span></a>
+<a name="83"><span class="lineNum">      83 </span><span class="lineCov">     162174 :       std::memcpy(ptr2, ptr1, std::min(n1, n2));</span></a>
+<a name="84"><span class="lineNum">      84 </span><span class="lineCov">     162174 :     }</span></a>
+<a name="85"><span class="lineNum">      85 </span><span class="lineCov">     161871 :     deallocate(ptr1, n1, tid1);</span></a>
+<a name="86"><span class="lineNum">      86 </span><span class="lineCov">     161871 :   }</span></a>
+<a name="87"><span class="lineNum">      87 </span><span class="lineCov">    2716695 :   return ptr2;</span></a>
 <a name="88"><span class="lineNum">      88 </span>            : #endif</a>
 <a name="89"><span class="lineNum">      89 </span>            : }</a>
 </pre>

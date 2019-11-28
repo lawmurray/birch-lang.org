@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2019-11-10 13:05:17</td>
+            <td class="headerValue">2019-11-26 20:15:42</td>
             <td></td>
           </tr>
           <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
@@ -90,11 +90,11 @@
 <a name="32"><span class="lineNum">      32 </span>            :    * Constructor.</a>
 <a name="33"><span class="lineNum">      33 </span>            :    */</a>
 <a name="34"><span class="lineNum">      34 </span>            :   Lazy(const Nil&amp; = nil) :</a>
-<a name="35"><span class="lineNum">      35 </span><span class="lineCov">  117403267 :       object(),</span></a>
-<a name="36"><span class="lineNum">      36 </span><span class="lineCov">  117403267 :       label(0),</span></a>
-<a name="37"><span class="lineNum">      37 </span><span class="lineCov">  234171229 :       cross(false) {</span></a>
+<a name="35"><span class="lineNum">      35 </span><span class="lineCov">  143415427 :       object(),</span></a>
+<a name="36"><span class="lineNum">      36 </span><span class="lineCov">  143415427 :       label(0),</span></a>
+<a name="37"><span class="lineNum">      37 </span><span class="lineCov">  286484338 :       cross(false) {</span></a>
 <a name="38"><span class="lineNum">      38 </span>            :     //</a>
-<a name="39"><span class="lineNum">      39 </span><span class="lineCov">  234171229 :   }</span></a>
+<a name="39"><span class="lineNum">      39 </span><span class="lineCov">  286484338 :   }</span></a>
 <a name="40"><span class="lineNum">      40 </span>            : </a>
 <a name="41"><span class="lineNum">      41 </span>            :   /**</a>
 <a name="42"><span class="lineNum">      42 </span>            :    * Constructor.</a>
@@ -110,161 +110,161 @@
 <a name="52"><span class="lineNum">      52 </span>            :    * Constructor.</a>
 <a name="53"><span class="lineNum">      53 </span>            :    */</a>
 <a name="54"><span class="lineNum">      54 </span>            :   Lazy(Label* context, value_type* object, const bool cross = false) :</a>
-<a name="55"><span class="lineNum">      55 </span><span class="lineCov">  100453683 :       object(object),</span></a>
-<a name="56"><span class="lineNum">      56 </span><span class="lineCov">  100453683 :       label(0),</span></a>
-<a name="57"><span class="lineNum">      57 </span><span class="lineCov">  202445560 :       cross(false) {</span></a>
-<a name="58"><span class="lineNum">      58 </span><span class="lineCov">  100453683 :     if (object) {</span></a>
-<a name="59"><span class="lineNum">      59 </span><span class="lineCov">  102444593 :       setLabel(context, false);</span></a>
-<a name="60"><span class="lineNum">      60 </span><span class="lineCov">  102730273 :     }</span></a>
-<a name="61"><span class="lineNum">      61 </span><span class="lineCov">  204766518 :   }</span></a>
+<a name="55"><span class="lineNum">      55 </span><span class="lineCov">  139579229 :       object(object),</span></a>
+<a name="56"><span class="lineNum">      56 </span><span class="lineCov">  139579229 :       label(0),</span></a>
+<a name="57"><span class="lineNum">      57 </span><span class="lineCov">  281064507 :       cross(false) {</span></a>
+<a name="58"><span class="lineNum">      58 </span><span class="lineCov">  139579229 :     if (object) {</span></a>
+<a name="59"><span class="lineNum">      59 </span><span class="lineCov">  141907903 :       setLabel(context, false);</span></a>
+<a name="60"><span class="lineNum">      60 </span><span class="lineCov">  142382084 :     }</span></a>
+<a name="61"><span class="lineNum">      61 </span><span class="lineCov">  284052103 :   }</span></a>
 <a name="62"><span class="lineNum">      62 </span>            : </a>
 <a name="63"><span class="lineNum">      63 </span>            :   /**</a>
 <a name="64"><span class="lineNum">      64 </span>            :    * Constructor.</a>
 <a name="65"><span class="lineNum">      65 </span>            :    */</a>
 <a name="66"><span class="lineNum">      66 </span>            :   Lazy(Label* context, const P&amp; object, const bool cross = false) :</a>
-<a name="67"><span class="lineNum">      67 </span><span class="lineCov">  582224915 :       object(object),</span></a>
-<a name="68"><span class="lineNum">      68 </span><span class="lineCov">  582224915 :       label(0),</span></a>
-<a name="69"><span class="lineNum">      69 </span><span class="lineCov"> 1168048191 :       cross(false) {</span></a>
-<a name="70"><span class="lineNum">      70 </span><span class="lineCov"> 1169176568 :     if (object) {</span></a>
-<a name="71"><span class="lineNum">      71 </span><span class="lineCov">  595096739 :       setLabel(context, false);</span></a>
-<a name="72"><span class="lineNum">      72 </span><span class="lineCov">  598303450 :     }</span></a>
-<a name="73"><span class="lineNum">      73 </span><span class="lineCov"> 1184727537 :   }</span></a>
+<a name="67"><span class="lineNum">      67 </span><span class="lineCov">  676051215 :       object(object),</span></a>
+<a name="68"><span class="lineNum">      68 </span><span class="lineCov">  676051215 :       label(0),</span></a>
+<a name="69"><span class="lineNum">      69 </span><span class="lineCov"> 1355995015 :       cross(false) {</span></a>
+<a name="70"><span class="lineNum">      70 </span><span class="lineCov"> 1357954739 :     if (object) {</span></a>
+<a name="71"><span class="lineNum">      71 </span><span class="lineCov">  689657736 :       setLabel(context, false);</span></a>
+<a name="72"><span class="lineNum">      72 </span><span class="lineCov">  693178305 :     }</span></a>
+<a name="73"><span class="lineNum">      73 </span><span class="lineCov"> 1373868311 :   }</span></a>
 <a name="74"><span class="lineNum">      74 </span>            : </a>
 <a name="75"><span class="lineNum">      75 </span>            :   /**</a>
 <a name="76"><span class="lineNum">      76 </span>            :    * Copy constructor.</a>
 <a name="77"><span class="lineNum">      77 </span>            :    */</a>
 <a name="78"><span class="lineNum">      78 </span>            :   Lazy(const Lazy&amp; o) :</a>
-<a name="79"><span class="lineNum">      79 </span><span class="lineCov">    1941047 :       object(o.get()),</span></a>
-<a name="80"><span class="lineNum">      80 </span><span class="lineCov">    1941047 :       label(o.label),</span></a>
-<a name="81"><span class="lineNum">      81 </span><span class="lineCov">    3849297 :       cross(o.cross) {</span></a>
-<a name="82"><span class="lineNum">      82 </span><span class="lineCov">    3886803 :     if (isCross()) {</span></a>
-<a name="83"><span class="lineNum">      83 </span><span class="lineCov">      36514 :       getLabel()-&gt;incShared();</span></a>
-<a name="84"><span class="lineNum">      84 </span><span class="lineCov">      18257 :     }</span></a>
-<a name="85"><span class="lineNum">      85 </span><span class="lineCov">    3855711 :   }</span></a>
+<a name="79"><span class="lineNum">      79 </span><span class="lineCov">    4756134 :       object(o.get()),</span></a>
+<a name="80"><span class="lineNum">      80 </span><span class="lineCov">    4756134 :       label(o.label),</span></a>
+<a name="81"><span class="lineNum">      81 </span><span class="lineCov">    9512268 :       cross(o.cross) {</span></a>
+<a name="82"><span class="lineNum">      82 </span><span class="lineCov">    9512268 :     if (isCross()) {</span></a>
+<a name="83"><span class="lineNum">      83 </span><span class="lineCov">        248 :       getLabel()-&gt;incShared();</span></a>
+<a name="84"><span class="lineNum">      84 </span><span class="lineCov">        124 :     }</span></a>
+<a name="85"><span class="lineNum">      85 </span><span class="lineCov">    9512268 :   }</span></a>
 <a name="86"><span class="lineNum">      86 </span>            : </a>
 <a name="87"><span class="lineNum">      87 </span>            :   /**</a>
 <a name="88"><span class="lineNum">      88 </span>            :    * Copy constructor.</a>
 <a name="89"><span class="lineNum">      89 </span>            :    */</a>
 <a name="90"><span class="lineNum">      90 </span>            :   template&lt;class Q, IS_CONVERTIBLE(Q,P)&gt;</a>
 <a name="91"><span class="lineNum">      91 </span>            :   Lazy(const Lazy&lt;Q&gt;&amp; o) :</a>
-<a name="92"><span class="lineNum">      92 </span><span class="lineCov">    5738158 :       object(o.get()),</span></a>
-<a name="93"><span class="lineNum">      93 </span><span class="lineCov">    2879846 :       label(o.label),</span></a>
-<a name="94"><span class="lineNum">      94 </span><span class="lineCov">    5758419 :       cross(o.cross) {</span></a>
-<a name="95"><span class="lineNum">      95 </span><span class="lineCov">    5761774 :     if (isCross()) {</span></a>
+<a name="92"><span class="lineNum">      92 </span><span class="lineCov">   12410027 :       object(o.get()),</span></a>
+<a name="93"><span class="lineNum">      93 </span><span class="lineCov">    6226410 :       label(o.label),</span></a>
+<a name="94"><span class="lineNum">      94 </span><span class="lineCov">   12454509 :       cross(o.cross) {</span></a>
+<a name="95"><span class="lineNum">      95 </span><span class="lineCov">   12455896 :     if (isCross()) {</span></a>
 <a name="96"><span class="lineNum">      96 </span><span class="lineNoCov">          0 :       getLabel()-&gt;incShared();</span></a>
 <a name="97"><span class="lineNum">      97 </span><span class="lineNoCov">          0 :     }</span></a>
-<a name="98"><span class="lineNum">      98 </span><span class="lineCov">    5760518 :   }</span></a>
+<a name="98"><span class="lineNum">      98 </span><span class="lineCov">   12455517 :   }</span></a>
 <a name="99"><span class="lineNum">      99 </span>            : </a>
 <a name="100"><span class="lineNum">     100 </span>            :   /**</a>
 <a name="101"><span class="lineNum">     101 </span>            :    * Copy constructor.</a>
 <a name="102"><span class="lineNum">     102 </span>            :    */</a>
 <a name="103"><span class="lineNum">     103 </span>            :   Lazy(Label* context, const Lazy&amp; o) :</a>
-<a name="104"><span class="lineNum">     104 </span><span class="lineCov">   90322467 :       object(o.get()),</span></a>
-<a name="105"><span class="lineNum">     105 </span><span class="lineCov">   90322467 :       label(0),</span></a>
-<a name="106"><span class="lineNum">     106 </span><span class="lineCov">  183763553 :       cross(false) {</span></a>
-<a name="107"><span class="lineNum">     107 </span><span class="lineCov">  185625556 :     if (object) {</span></a>
-<a name="108"><span class="lineNum">     108 </span><span class="lineCov">  282511366 :       setLabel(o.getLabel(), o.getLabel() != context);</span></a>
-<a name="109"><span class="lineNum">     109 </span><span class="lineCov">   95480967 :     }</span></a>
-<a name="110"><span class="lineNum">     110 </span><span class="lineCov">  188930184 :   }</span></a>
+<a name="104"><span class="lineNum">     104 </span><span class="lineCov">  119010059 :       object(o.get()),</span></a>
+<a name="105"><span class="lineNum">     105 </span><span class="lineCov">  119010059 :       label(0),</span></a>
+<a name="106"><span class="lineNum">     106 </span><span class="lineCov">  241969500 :       cross(false) {</span></a>
+<a name="107"><span class="lineNum">     107 </span><span class="lineCov">  244638742 :     if (object) {</span></a>
+<a name="108"><span class="lineNum">     108 </span><span class="lineCov">  371557361 :       setLabel(o.getLabel(), o.getLabel() != context);</span></a>
+<a name="109"><span class="lineNum">     109 </span><span class="lineCov">  125009372 :     }</span></a>
+<a name="110"><span class="lineNum">     110 </span><span class="lineCov">  247990731 :   }</span></a>
 <a name="111"><span class="lineNum">     111 </span>            : </a>
 <a name="112"><span class="lineNum">     112 </span>            :   /**</a>
 <a name="113"><span class="lineNum">     113 </span>            :    * Copy constructor.</a>
 <a name="114"><span class="lineNum">     114 </span>            :    */</a>
 <a name="115"><span class="lineNum">     115 </span>            :   template&lt;class Q, IS_CONVERTIBLE(Q,P)&gt;</a>
 <a name="116"><span class="lineNum">     116 </span>            :   Lazy(Label* context, const Lazy&lt;Q&gt;&amp; o) :</a>
-<a name="117"><span class="lineNum">     117 </span><span class="lineCov">   25736063 :       object(o.get()),</span></a>
-<a name="118"><span class="lineNum">     118 </span><span class="lineCov">   12885745 :       label(0),</span></a>
-<a name="119"><span class="lineNum">     119 </span><span class="lineCov">   25994143 :       cross(false) {</span></a>
-<a name="120"><span class="lineNum">     120 </span><span class="lineCov">   25975717 :     if (object) {</span></a>
-<a name="121"><span class="lineNum">     121 </span><span class="lineCov">   39298090 :       setLabel(o.getLabel(), o.getLabel() != context);</span></a>
-<a name="122"><span class="lineNum">     122 </span><span class="lineCov">   13199260 :     }</span></a>
-<a name="123"><span class="lineNum">     123 </span><span class="lineCov">   26311801 :   }</span></a>
+<a name="117"><span class="lineNum">     117 </span><span class="lineCov">   79994734 :       object(o.get()),</span></a>
+<a name="118"><span class="lineNum">     118 </span><span class="lineCov">   40062253 :       label(0),</span></a>
+<a name="119"><span class="lineNum">     119 </span><span class="lineCov">   81035364 :       cross(false) {</span></a>
+<a name="120"><span class="lineNum">     120 </span><span class="lineCov">   80899676 :     if (object) {</span></a>
+<a name="121"><span class="lineNum">     121 </span><span class="lineCov">  122481856 :       setLabel(o.getLabel(), o.getLabel() != context);</span></a>
+<a name="122"><span class="lineNum">     122 </span><span class="lineCov">   41163699 :     }</span></a>
+<a name="123"><span class="lineNum">     123 </span><span class="lineCov">   82162587 :   }</span></a>
 <a name="124"><span class="lineNum">     124 </span>            : </a>
 <a name="125"><span class="lineNum">     125 </span>            :   /**</a>
 <a name="126"><span class="lineNum">     126 </span>            :    * Move constructor.</a>
 <a name="127"><span class="lineNum">     127 </span>            :    */</a>
 <a name="128"><span class="lineNum">     128 </span>            :   Lazy(Lazy&amp;&amp; o) :</a>
-<a name="129"><span class="lineNum">     129 </span><span class="lineCov">     433375 :       object(std::move(o.object)),</span></a>
-<a name="130"><span class="lineNum">     130 </span><span class="lineCov">     433375 :       label(o.label),</span></a>
-<a name="131"><span class="lineNum">     131 </span><span class="lineCov">     866750 :       cross(o.cross) {</span></a>
-<a name="132"><span class="lineNum">     132 </span><span class="lineCov">     433375 :     o.label = 0;</span></a>
-<a name="133"><span class="lineNum">     133 </span><span class="lineCov">     433375 :     o.cross = false;</span></a>
-<a name="134"><span class="lineNum">     134 </span><span class="lineCov">     866750 :   }</span></a>
+<a name="129"><span class="lineNum">     129 </span><span class="lineCov">    1597267 :       object(std::move(o.object)),</span></a>
+<a name="130"><span class="lineNum">     130 </span><span class="lineCov">    1597267 :       label(o.label),</span></a>
+<a name="131"><span class="lineNum">     131 </span><span class="lineCov">    3198980 :       cross(o.cross) {</span></a>
+<a name="132"><span class="lineNum">     132 </span><span class="lineCov">    1597267 :     o.label = 0;</span></a>
+<a name="133"><span class="lineNum">     133 </span><span class="lineCov">    1597267 :     o.cross = false;</span></a>
+<a name="134"><span class="lineNum">     134 </span><span class="lineCov">    3198980 :   }</span></a>
 <a name="135"><span class="lineNum">     135 </span>            : </a>
 <a name="136"><span class="lineNum">     136 </span>            :   /**</a>
 <a name="137"><span class="lineNum">     137 </span>            :    * Move constructor.</a>
 <a name="138"><span class="lineNum">     138 </span>            :    */</a>
 <a name="139"><span class="lineNum">     139 </span>            :   template&lt;class Q, IS_CONVERTIBLE(Q,P)&gt;</a>
 <a name="140"><span class="lineNum">     140 </span>            :   Lazy(Lazy&lt;Q&gt;&amp;&amp; o) :</a>
-<a name="141"><span class="lineNum">     141 </span><span class="lineCov">     543273 :       object(std::move(o.object)),</span></a>
-<a name="142"><span class="lineNum">     142 </span><span class="lineCov">     543273 :       label(o.label),</span></a>
-<a name="143"><span class="lineNum">     143 </span><span class="lineCov">    1086546 :       cross(o.cross) {</span></a>
-<a name="144"><span class="lineNum">     144 </span><span class="lineCov">     543273 :     o.label = 0;</span></a>
-<a name="145"><span class="lineNum">     145 </span><span class="lineCov">     543273 :     o.cross = false;</span></a>
-<a name="146"><span class="lineNum">     146 </span><span class="lineCov">    1086546 :   }</span></a>
+<a name="141"><span class="lineNum">     141 </span><span class="lineCov">    5339587 :       object(std::move(o.object)),</span></a>
+<a name="142"><span class="lineNum">     142 </span><span class="lineCov">    5339587 :       label(o.label),</span></a>
+<a name="143"><span class="lineNum">     143 </span><span class="lineCov">   10693150 :       cross(o.cross) {</span></a>
+<a name="144"><span class="lineNum">     144 </span><span class="lineCov">    5339587 :     o.label = 0;</span></a>
+<a name="145"><span class="lineNum">     145 </span><span class="lineCov">    5339587 :     o.cross = false;</span></a>
+<a name="146"><span class="lineNum">     146 </span><span class="lineCov">   10693150 :   }</span></a>
 <a name="147"><span class="lineNum">     147 </span>            : </a>
 <a name="148"><span class="lineNum">     148 </span>            :   /**</a>
 <a name="149"><span class="lineNum">     149 </span>            :    * Move constructor.</a>
 <a name="150"><span class="lineNum">     150 </span>            :    */</a>
 <a name="151"><span class="lineNum">     151 </span>            :   Lazy(Label* context, Lazy&amp;&amp; o) :</a>
-<a name="152"><span class="lineNum">     152 </span><span class="lineCov">    7995178 :       object(std::move(o.object)),</span></a>
-<a name="153"><span class="lineNum">     153 </span><span class="lineCov">    7995178 :       label(0),</span></a>
-<a name="154"><span class="lineNum">     154 </span><span class="lineCov">   16085564 :       cross(false) {</span></a>
-<a name="155"><span class="lineNum">     155 </span><span class="lineCov">   16094733 :     if (object) {</span></a>
-<a name="156"><span class="lineNum">     156 </span><span class="lineCov">   24031342 :       setLabel(o.getLabel(), o.getLabel() != context);</span></a>
-<a name="157"><span class="lineNum">     157 </span><span class="lineCov">    8095841 :     }</span></a>
-<a name="158"><span class="lineNum">     158 </span><span class="lineCov">   16233928 :   }</span></a>
+<a name="152"><span class="lineNum">     152 </span><span class="lineCov">   36092949 :       object(std::move(o.object)),</span></a>
+<a name="153"><span class="lineNum">     153 </span><span class="lineCov">   36092949 :       label(0),</span></a>
+<a name="154"><span class="lineNum">     154 </span><span class="lineCov">   73050362 :       cross(false) {</span></a>
+<a name="155"><span class="lineNum">     155 </span><span class="lineCov">   73040104 :     if (object) {</span></a>
+<a name="156"><span class="lineNum">     156 </span><span class="lineCov">  110066935 :       setLabel(o.getLabel(), o.getLabel() != context);</span></a>
+<a name="157"><span class="lineNum">     157 </span><span class="lineCov">   37387937 :     }</span></a>
+<a name="158"><span class="lineNum">     158 </span><span class="lineCov">   74385981 :   }</span></a>
 <a name="159"><span class="lineNum">     159 </span>            : </a>
 <a name="160"><span class="lineNum">     160 </span>            :   /**</a>
 <a name="161"><span class="lineNum">     161 </span>            :    * Move constructor.</a>
 <a name="162"><span class="lineNum">     162 </span>            :    */</a>
 <a name="163"><span class="lineNum">     163 </span>            :   template&lt;class Q, IS_CONVERTIBLE(Q,P)&gt;</a>
 <a name="164"><span class="lineNum">     164 </span>            :   Lazy(Label* context, Lazy&lt;Q&gt;&amp;&amp; o) :</a>
-<a name="165"><span class="lineNum">     165 </span><span class="lineCov">   42277752 :       object(std::move(o.object)),</span></a>
-<a name="166"><span class="lineNum">     166 </span><span class="lineCov">   42277752 :       label(0),</span></a>
-<a name="167"><span class="lineNum">     167 </span><span class="lineCov">   85257672 :       cross(false) {</span></a>
-<a name="168"><span class="lineNum">     168 </span><span class="lineCov">   85235332 :     if (object) {</span></a>
-<a name="169"><span class="lineNum">     169 </span><span class="lineCov">  129234662 :       setLabel(o.getLabel(), o.getLabel() != context);</span></a>
-<a name="170"><span class="lineNum">     170 </span><span class="lineCov">   43709134 :     }</span></a>
-<a name="171"><span class="lineNum">     171 </span><span class="lineCov">   86700809 :   }</span></a>
+<a name="165"><span class="lineNum">     165 </span><span class="lineCov">   48340554 :       object(std::move(o.object)),</span></a>
+<a name="166"><span class="lineNum">     166 </span><span class="lineCov">   48340554 :       label(0),</span></a>
+<a name="167"><span class="lineNum">     167 </span><span class="lineCov">   97500557 :       cross(false) {</span></a>
+<a name="168"><span class="lineNum">     168 </span><span class="lineCov">   97418894 :     if (object) {</span></a>
+<a name="169"><span class="lineNum">     169 </span><span class="lineCov">  147776289 :       setLabel(o.getLabel(), o.getLabel() != context);</span></a>
+<a name="170"><span class="lineNum">     170 </span><span class="lineCov">   49922738 :     }</span></a>
+<a name="171"><span class="lineNum">     171 </span><span class="lineCov">   99102079 :   }</span></a>
 <a name="172"><span class="lineNum">     172 </span>            : </a>
 <a name="173"><span class="lineNum">     173 </span>            :   /**</a>
 <a name="174"><span class="lineNum">     174 </span>            :    * Deep copy constructor.</a>
 <a name="175"><span class="lineNum">     175 </span>            :    */</a>
 <a name="176"><span class="lineNum">     176 </span>            :   Lazy(Label* context, Label* label, const Lazy&amp; o) :</a>
-<a name="177"><span class="lineNum">     177 </span><span class="lineCov">   46585447 :       object(),</span></a>
-<a name="178"><span class="lineNum">     178 </span><span class="lineCov">   46585447 :       label(0),</span></a>
-<a name="179"><span class="lineNum">     179 </span><span class="lineCov">   93183242 :       cross(false) {</span></a>
-<a name="180"><span class="lineNum">     180 </span><span class="lineCov">   93175156 :     assert(context == label);</span></a>
-<a name="181"><span class="lineNum">     181 </span><span class="lineCov">   92946394 :     if (o.object) {</span></a>
-<a name="182"><span class="lineNum">     182 </span><span class="lineCov">   56492838 :       if (o.isCross()) {</span></a>
+<a name="177"><span class="lineNum">     177 </span><span class="lineCov">   72910353 :       object(),</span></a>
+<a name="178"><span class="lineNum">     178 </span><span class="lineCov">   72910353 :       label(0),</span></a>
+<a name="179"><span class="lineNum">     179 </span><span class="lineCov">  145880583 :       cross(false) {</span></a>
+<a name="180"><span class="lineNum">     180 </span><span class="lineCov">  145852929 :     assert(context == label);</span></a>
+<a name="181"><span class="lineNum">     181 </span><span class="lineCov">  145034973 :     if (o.object) {</span></a>
+<a name="182"><span class="lineNum">     182 </span><span class="lineCov">  105349644 :       if (o.isCross()) {</span></a>
 <a name="183"><span class="lineNum">     183 </span><span class="lineNoCov">          0 :         o.finish();</span></a>
 <a name="184"><span class="lineNum">     184 </span><span class="lineNoCov">          0 :         o.freeze();</span></a>
 <a name="185"><span class="lineNum">     185 </span><span class="lineNoCov">          0 :       }</span></a>
-<a name="186"><span class="lineNum">     186 </span><span class="lineCov">   28082376 :       object = o.object;</span></a>
-<a name="187"><span class="lineNum">     187 </span><span class="lineCov">   28453735 :       setLabel(label, false);</span></a>
-<a name="188"><span class="lineNum">     188 </span><span class="lineCov">   28477016 :     }</span></a>
-<a name="189"><span class="lineNum">     189 </span><span class="lineCov">   93333025 :   }</span></a>
+<a name="186"><span class="lineNum">     186 </span><span class="lineCov">   52141660 :       object = o.object;</span></a>
+<a name="187"><span class="lineNum">     187 </span><span class="lineCov">   53347605 :       setLabel(label, false);</span></a>
+<a name="188"><span class="lineNum">     188 </span><span class="lineCov">   53412575 :     }</span></a>
+<a name="189"><span class="lineNum">     189 </span><span class="lineCov">  146272039 :   }</span></a>
 <a name="190"><span class="lineNum">     190 </span>            : </a>
 <a name="191"><span class="lineNum">     191 </span>            :   /**</a>
 <a name="192"><span class="lineNum">     192 </span>            :    * Destructor.</a>
 <a name="193"><span class="lineNum">     193 </span>            :    */</a>
-<a name="194"><span class="lineNum">     194 </span><span class="lineCov"> 1010039916 :   ~Lazy() {</span></a>
-<a name="195"><span class="lineNum">     195 </span><span class="lineCov"> 1013543203 :     releaseLabel();</span></a>
-<a name="196"><span class="lineNum">     196 </span><span class="lineCov"> 2025766194 :   }</span></a>
+<a name="194"><span class="lineNum">     194 </span><span class="lineCov"> 1313128940 :   ~Lazy() {</span></a>
+<a name="195"><span class="lineNum">     195 </span><span class="lineCov"> 1317254472 :     releaseLabel();</span></a>
+<a name="196"><span class="lineNum">     196 </span><span class="lineCov"> 2633231081 :   }</span></a>
 <a name="197"><span class="lineNum">     197 </span>            : </a>
 <a name="198"><span class="lineNum">     198 </span>            :   /**</a>
 <a name="199"><span class="lineNum">     199 </span>            :    * Copy assignment.</a>
 <a name="200"><span class="lineNum">     200 </span>            :    */</a>
 <a name="201"><span class="lineNum">     201 </span>            :   template&lt;class Q&gt;</a>
 <a name="202"><span class="lineNum">     202 </span>            :   Lazy&amp; assign(Label* context, const Lazy&lt;Q&gt;&amp; o) {</a>
-<a name="203"><span class="lineNum">     203 </span><span class="lineCov">     593130 :     if (o.query()) {</span></a>
-<a name="204"><span class="lineNum">     204 </span><span class="lineCov">     593130 :       replaceLabel(o.getLabel(), o.getLabel() != context);</span></a>
-<a name="205"><span class="lineNum">     205 </span><span class="lineCov">    1186260 :       object = o.get();</span></a>
-<a name="206"><span class="lineNum">     206 </span><span class="lineCov">     593130 :     } else {</span></a>
+<a name="203"><span class="lineNum">     203 </span><span class="lineCov">    4890398 :     if (o.query()) {</span></a>
+<a name="204"><span class="lineNum">     204 </span><span class="lineCov">    4890398 :       replaceLabel(o.getLabel(), o.getLabel() != context);</span></a>
+<a name="205"><span class="lineNum">     205 </span><span class="lineCov">    9780796 :       object = o.get();</span></a>
+<a name="206"><span class="lineNum">     206 </span><span class="lineCov">    4890398 :     } else {</span></a>
 <a name="207"><span class="lineNum">     207 </span><span class="lineNoCov">          0 :       release();</span></a>
 <a name="208"><span class="lineNum">     208 </span>            :     }</a>
-<a name="209"><span class="lineNum">     209 </span><span class="lineCov">     593130 :     return *this;</span></a>
+<a name="209"><span class="lineNum">     209 </span><span class="lineCov">    4890398 :     return *this;</span></a>
 <a name="210"><span class="lineNum">     210 </span><span class="lineNoCov">          0 :   }</span></a>
 <a name="211"><span class="lineNum">     211 </span>            : </a>
 <a name="212"><span class="lineNum">     212 </span>            :   /**</a>
@@ -272,13 +272,13 @@
 <a name="214"><span class="lineNum">     214 </span>            :    */</a>
 <a name="215"><span class="lineNum">     215 </span>            :   template&lt;class Q&gt;</a>
 <a name="216"><span class="lineNum">     216 </span>            :   Lazy&amp; assign(Label* context, Lazy&lt;Q&gt;&amp;&amp; o) {</a>
-<a name="217"><span class="lineNum">     217 </span><span class="lineCov">   77797796 :     if (o.query()) {</span></a>
-<a name="218"><span class="lineNum">     218 </span><span class="lineCov">   45110161 :       replaceLabel(o.getLabel(), o.getLabel() != context);</span></a>
-<a name="219"><span class="lineNum">     219 </span><span class="lineCov">   45110161 :       object = std::move(o.object);</span></a>
-<a name="220"><span class="lineNum">     220 </span><span class="lineCov">   45110161 :     } else {</span></a>
-<a name="221"><span class="lineNum">     221 </span><span class="lineCov">   32744759 :       release();</span></a>
+<a name="217"><span class="lineNum">     217 </span><span class="lineCov">  116799659 :     if (o.query()) {</span></a>
+<a name="218"><span class="lineNum">     218 </span><span class="lineCov">   74782695 :       replaceLabel(o.getLabel(), o.getLabel() != context);</span></a>
+<a name="219"><span class="lineNum">     219 </span><span class="lineCov">   74782695 :       object = std::move(o.object);</span></a>
+<a name="220"><span class="lineNum">     220 </span><span class="lineCov">   74782695 :     } else {</span></a>
+<a name="221"><span class="lineNum">     221 </span><span class="lineCov">   42134470 :       release();</span></a>
 <a name="222"><span class="lineNum">     222 </span>            :     }</a>
-<a name="223"><span class="lineNum">     223 </span><span class="lineCov">   78753636 :     return *this;</span></a>
+<a name="223"><span class="lineNum">     223 </span><span class="lineCov">  117359182 :     return *this;</span></a>
 <a name="224"><span class="lineNum">     224 </span>            :   }</a>
 <a name="225"><span class="lineNum">     225 </span>            : </a>
 <a name="226"><span class="lineNum">     226 </span>            :   /**</a>
@@ -294,63 +294,63 @@
 <a name="236"><span class="lineNum">     236 </span>            :    * Release the pointer.</a>
 <a name="237"><span class="lineNum">     237 </span>            :    */</a>
 <a name="238"><span class="lineNum">     238 </span>            :   void release() {</a>
-<a name="239"><span class="lineNum">     239 </span><span class="lineCov">   33187379 :     releaseLabel();</span></a>
-<a name="240"><span class="lineNum">     240 </span><span class="lineCov">   33187379 :     object.release();</span></a>
-<a name="241"><span class="lineNum">     241 </span><span class="lineCov">   33187379 :   }</span></a>
+<a name="239"><span class="lineNum">     239 </span><span class="lineCov">   42944006 :     releaseLabel();</span></a>
+<a name="240"><span class="lineNum">     240 </span><span class="lineCov">   42944006 :     object.release();</span></a>
+<a name="241"><span class="lineNum">     241 </span><span class="lineCov">   42944006 :   }</span></a>
 <a name="242"><span class="lineNum">     242 </span>            : </a>
 <a name="243"><span class="lineNum">     243 </span>            :   /**</a>
 <a name="244"><span class="lineNum">     244 </span>            :    * Value conversion.</a>
 <a name="245"><span class="lineNum">     245 </span>            :    */</a>
 <a name="246"><span class="lineNum">     246 </span>            :   template&lt;class U, IS_CONVERTIBLE(value_type,U)&gt;</a>
 <a name="247"><span class="lineNum">     247 </span>            :   operator U() const {</a>
-<a name="248"><span class="lineNum">     248 </span><span class="lineCov">  172796823 :     return static_cast&lt;U&gt;(*get());</span></a>
+<a name="248"><span class="lineNum">     248 </span><span class="lineCov">  166411571 :     return static_cast&lt;U&gt;(*get());</span></a>
 <a name="249"><span class="lineNum">     249 </span><span class="lineNoCov">          0 :   }</span></a>
 <a name="250"><span class="lineNum">     250 </span>            : </a>
 <a name="251"><span class="lineNum">     251 </span>            :   /**</a>
 <a name="252"><span class="lineNum">     252 </span>            :    * Is the pointer not null?</a>
 <a name="253"><span class="lineNum">     253 </span>            :    */</a>
 <a name="254"><span class="lineNum">     254 </span>            :   bool query() const {</a>
-<a name="255"><span class="lineNum">     255 </span><span class="lineCov">  408479343 :     return static_cast&lt;bool&gt;(object);</span></a>
+<a name="255"><span class="lineNum">     255 </span><span class="lineCov">  549328338 :     return static_cast&lt;bool&gt;(object);</span></a>
 <a name="256"><span class="lineNum">     256 </span>            :   }</a>
 <a name="257"><span class="lineNum">     257 </span>            : </a>
 <a name="258"><span class="lineNum">     258 </span>            :   /**</a>
 <a name="259"><span class="lineNum">     259 </span>            :    * Get the raw pointer, with lazy cloning.</a>
 <a name="260"><span class="lineNum">     260 </span>            :    */</a>
 <a name="261"><span class="lineNum">     261 </span>            :   P&amp; get() {</a>
-<a name="262"><span class="lineNum">     262 </span><span class="lineCov"> 1158663734 :     getLabel()-&gt;get(object);</span></a>
-<a name="263"><span class="lineNum">     263 </span><span class="lineCov"> 1158663734 :     return object;</span></a>
+<a name="262"><span class="lineNum">     262 </span><span class="lineCov"> 1571068113 :     getLabel()-&gt;get(object);</span></a>
+<a name="263"><span class="lineNum">     263 </span><span class="lineCov"> 1571068113 :     return object;</span></a>
 <a name="264"><span class="lineNum">     264 </span>            :   }</a>
 <a name="265"><span class="lineNum">     265 </span>            : </a>
 <a name="266"><span class="lineNum">     266 </span>            :   /**</a>
 <a name="267"><span class="lineNum">     267 </span>            :    * Get the raw pointer, with lazy cloning.</a>
 <a name="268"><span class="lineNum">     268 </span>            :    */</a>
 <a name="269"><span class="lineNum">     269 </span>            :   auto get() const {</a>
-<a name="270"><span class="lineNum">     270 </span><span class="lineCov"> 1157070566 :     return const_cast&lt;Lazy*&gt;(this)-&gt;get();</span></a>
+<a name="270"><span class="lineNum">     270 </span><span class="lineCov"> 1565037207 :     return const_cast&lt;Lazy*&gt;(this)-&gt;get();</span></a>
 <a name="271"><span class="lineNum">     271 </span>            :   }</a>
 <a name="272"><span class="lineNum">     272 </span>            : </a>
 <a name="273"><span class="lineNum">     273 </span>            :   /**</a>
 <a name="274"><span class="lineNum">     274 </span>            :    * Get the raw pointer for read-only use, without cloning.</a>
 <a name="275"><span class="lineNum">     275 </span>            :    */</a>
 <a name="276"><span class="lineNum">     276 </span>            :   P&amp; pull() {</a>
-<a name="277"><span class="lineNum">     277 </span><span class="lineCov">  428034647 :     getLabel()-&gt;pull(object);</span></a>
-<a name="278"><span class="lineNum">     278 </span><span class="lineCov">  428034647 :     return object;</span></a>
+<a name="277"><span class="lineNum">     277 </span><span class="lineCov">  434694979 :     getLabel()-&gt;pull(object);</span></a>
+<a name="278"><span class="lineNum">     278 </span><span class="lineCov">  434694979 :     return object;</span></a>
 <a name="279"><span class="lineNum">     279 </span>            :   }</a>
 <a name="280"><span class="lineNum">     280 </span>            : </a>
 <a name="281"><span class="lineNum">     281 </span>            :   /**</a>
 <a name="282"><span class="lineNum">     282 </span>            :    * Get the raw pointer for read-only use, without cloning.</a>
 <a name="283"><span class="lineNum">     283 </span>            :    */</a>
 <a name="284"><span class="lineNum">     284 </span>            :   auto pull() const {</a>
-<a name="285"><span class="lineNum">     285 </span><span class="lineCov">    7478304 :     return const_cast&lt;Lazy*&gt;(this)-&gt;pull();</span></a>
+<a name="285"><span class="lineNum">     285 </span><span class="lineCov">   10255570 :     return const_cast&lt;Lazy*&gt;(this)-&gt;pull();</span></a>
 <a name="286"><span class="lineNum">     286 </span>            :   }</a>
 <a name="287"><span class="lineNum">     287 </span>            : </a>
 <a name="288"><span class="lineNum">     288 </span>            :   /**</a>
 <a name="289"><span class="lineNum">     289 </span>            :    * Start lazy deep clone.</a>
 <a name="290"><span class="lineNum">     290 </span>            :    */</a>
 <a name="291"><span class="lineNum">     291 </span>            :   Lazy clone(Label* context) const {</a>
-<a name="292"><span class="lineNum">     292 </span><span class="lineCov">    3566339 :     assert(object);</span></a>
-<a name="293"><span class="lineNum">     293 </span><span class="lineCov">    1783630 :     pull();</span></a>
-<a name="294"><span class="lineNum">     294 </span><span class="lineCov">    1783630 :     startFreeze();</span></a>
-<a name="295"><span class="lineNum">     295 </span><span class="lineCov">    1783630 :     return Lazy(getLabel()-&gt;fork(), object, true);</span></a>
+<a name="292"><span class="lineNum">     292 </span><span class="lineCov">    6669546 :     assert(object);</span></a>
+<a name="293"><span class="lineNum">     293 </span><span class="lineCov">    3339891 :     pull();</span></a>
+<a name="294"><span class="lineNum">     294 </span><span class="lineCov">    3339891 :     startFreeze();</span></a>
+<a name="295"><span class="lineNum">     295 </span><span class="lineCov">    3339891 :     return Lazy(getLabel()-&gt;fork(), object, true);</span></a>
 <a name="296"><span class="lineNum">     296 </span>            :   }</a>
 <a name="297"><span class="lineNum">     297 </span>            : </a>
 <a name="298"><span class="lineNum">     298 </span>            :   /**</a>
@@ -358,30 +358,30 @@
 <a name="300"><span class="lineNum">     300 </span>            :    * safety on entry and exit.</a>
 <a name="301"><span class="lineNum">     301 </span>            :    */</a>
 <a name="302"><span class="lineNum">     302 </span>            :   void startFreeze() {</a>
-<a name="303"><span class="lineNum">     303 </span><span class="lineCov">    1784697 :     if (object) {</span></a>
-<a name="304"><span class="lineNum">     304 </span><span class="lineCov">    1785137 :       freezeLock.enter();</span></a>
-<a name="305"><span class="lineNum">     305 </span><span class="lineCov">    1785137 :       freeze();</span></a>
-<a name="306"><span class="lineNum">     306 </span><span class="lineCov">    1785137 :       freezeLock.exit();</span></a>
-<a name="307"><span class="lineNum">     307 </span><span class="lineCov">    1785137 :     }</span></a>
-<a name="308"><span class="lineNum">     308 </span><span class="lineCov">    1459224 :   }</span></a>
+<a name="303"><span class="lineNum">     303 </span><span class="lineCov">    3433561 :     if (object) {</span></a>
+<a name="304"><span class="lineNum">     304 </span><span class="lineCov">    3438464 :       freezeLock.enter();</span></a>
+<a name="305"><span class="lineNum">     305 </span><span class="lineCov">    3438464 :       freeze();</span></a>
+<a name="306"><span class="lineNum">     306 </span><span class="lineCov">    3438464 :       freezeLock.exit();</span></a>
+<a name="307"><span class="lineNum">     307 </span><span class="lineCov">    3438464 :     }</span></a>
+<a name="308"><span class="lineNum">     308 </span><span class="lineCov">    2649337 :   }</span></a>
 <a name="309"><span class="lineNum">     309 </span>            : </a>
 <a name="310"><span class="lineNum">     310 </span>            :   /**</a>
 <a name="311"><span class="lineNum">     311 </span>            :    * Start a freeze operation. This is just like freeze(), but manages thread</a>
 <a name="312"><span class="lineNum">     312 </span>            :    * safety on entry and exit.</a>
 <a name="313"><span class="lineNum">     313 </span>            :    */</a>
 <a name="314"><span class="lineNum">     314 </span>            :   void startFreeze() const {</a>
-<a name="315"><span class="lineNum">     315 </span><span class="lineCov">    1789048 :     return const_cast&lt;Lazy*&gt;(this)-&gt;startFreeze();</span></a>
+<a name="315"><span class="lineNum">     315 </span><span class="lineCov">    3458901 :     return const_cast&lt;Lazy*&gt;(this)-&gt;startFreeze();</span></a>
 <a name="316"><span class="lineNum">     316 </span>            :   }</a>
 <a name="317"><span class="lineNum">     317 </span>            : </a>
 <a name="318"><span class="lineNum">     318 </span>            :   /**</a>
 <a name="319"><span class="lineNum">     319 </span>            :    * Freeze.</a>
 <a name="320"><span class="lineNum">     320 </span>            :    */</a>
 <a name="321"><span class="lineNum">     321 </span>            :   void freeze() {</a>
-<a name="322"><span class="lineNum">     322 </span><span class="lineCov">   18134350 :     if (object) {</span></a>
-<a name="323"><span class="lineNum">     323 </span><span class="lineCov">   18146634 :       object-&gt;freeze();</span></a>
-<a name="324"><span class="lineNum">     324 </span><span class="lineCov">   18146634 :       getLabel()-&gt;freeze();</span></a>
-<a name="325"><span class="lineNum">     325 </span><span class="lineCov">   18146634 :     }</span></a>
-<a name="326"><span class="lineNum">     326 </span><span class="lineCov">   18196024 :   }</span></a>
+<a name="322"><span class="lineNum">     322 </span><span class="lineCov">   23901781 :     if (object) {</span></a>
+<a name="323"><span class="lineNum">     323 </span><span class="lineCov">   23954279 :       object-&gt;freeze();</span></a>
+<a name="324"><span class="lineNum">     324 </span><span class="lineCov">   23954279 :       getLabel()-&gt;freeze();</span></a>
+<a name="325"><span class="lineNum">     325 </span><span class="lineCov">   23954279 :     }</span></a>
+<a name="326"><span class="lineNum">     326 </span><span class="lineCov">   23949624 :   }</span></a>
 <a name="327"><span class="lineNum">     327 </span>            : </a>
 <a name="328"><span class="lineNum">     328 </span>            :   /**</a>
 <a name="329"><span class="lineNum">     329 </span>            :    * Freeze.</a>
@@ -394,14 +394,14 @@
 <a name="336"><span class="lineNum">     336 </span>            :    * Thaw.</a>
 <a name="337"><span class="lineNum">     337 </span>            :    */</a>
 <a name="338"><span class="lineNum">     338 </span>            :   void thaw(Label* label) {</a>
-<a name="339"><span class="lineNum">     339 </span><span class="lineCov">      97148 :     if (isCross()) {</span></a>
+<a name="339"><span class="lineNum">     339 </span><span class="lineCov">        188 :     if (isCross()) {</span></a>
 <a name="340"><span class="lineNum">     340 </span><span class="lineNoCov">          0 :       startFinish();</span></a>
 <a name="341"><span class="lineNum">     341 </span><span class="lineNoCov">          0 :       startFreeze();</span></a>
 <a name="342"><span class="lineNum">     342 </span><span class="lineNoCov">          0 :     }</span></a>
-<a name="343"><span class="lineNum">     343 </span><span class="lineCov">      97149 :     if (object) {</span></a>
-<a name="344"><span class="lineNum">     344 </span><span class="lineCov">      97149 :       this-&gt;label = reinterpret_cast&lt;intptr_t&gt;(label);</span></a>
-<a name="345"><span class="lineNum">     345 </span><span class="lineCov">      97149 :     }</span></a>
-<a name="346"><span class="lineNum">     346 </span><span class="lineCov">      97162 :   }</span></a>
+<a name="343"><span class="lineNum">     343 </span><span class="lineCov">        188 :     if (object) {</span></a>
+<a name="344"><span class="lineNum">     344 </span><span class="lineCov">        188 :       this-&gt;label = reinterpret_cast&lt;intptr_t&gt;(label);</span></a>
+<a name="345"><span class="lineNum">     345 </span><span class="lineCov">        188 :     }</span></a>
+<a name="346"><span class="lineNum">     346 </span><span class="lineCov">        188 :   }</span></a>
 <a name="347"><span class="lineNum">     347 </span>            : </a>
 <a name="348"><span class="lineNum">     348 </span>            :   /**</a>
 <a name="349"><span class="lineNum">     349 </span>            :    * Thaw.</a>
@@ -458,7 +458,7 @@
 <a name="400"><span class="lineNum">     400 </span>            :    * Member access.</a>
 <a name="401"><span class="lineNum">     401 </span>            :    */</a>
 <a name="402"><span class="lineNum">     402 </span>            :   auto operator-&gt;() const {</a>
-<a name="403"><span class="lineNum">     403 </span><span class="lineCov"> 1036094775 :     return get();</span></a>
+<a name="403"><span class="lineNum">     403 </span><span class="lineCov"> 1403931311 :     return get();</span></a>
 <a name="404"><span class="lineNum">     404 </span>            :   }</a>
 <a name="405"><span class="lineNum">     405 </span>            : </a>
 <a name="406"><span class="lineNum">     406 </span>            :   /**</a>
@@ -482,9 +482,9 @@
 <a name="424"><span class="lineNum">     424 </span>            :    */</a>
 <a name="425"><span class="lineNum">     425 </span>            :   template&lt;class U&gt;</a>
 <a name="426"><span class="lineNum">     426 </span>            :   auto dynamic_pointer_cast(Label* context) const {</a>
-<a name="427"><span class="lineNum">     427 </span><span class="lineCov">    7564002 :     auto cast = get().template dynamic_pointer_cast&lt;typename U::pointer_type&gt;();</span></a>
-<a name="428"><span class="lineNum">     428 </span><span class="lineCov">    7687267 :     return Lazy&lt;decltype(cast)&gt;(getLabel(), cast);</span></a>
-<a name="429"><span class="lineNum">     429 </span><span class="lineCov">    3913175 :   }</span></a>
+<a name="427"><span class="lineNum">     427 </span><span class="lineCov">   20136233 :     auto cast = get().template dynamic_pointer_cast&lt;typename U::pointer_type&gt;();</span></a>
+<a name="428"><span class="lineNum">     428 </span><span class="lineCov">   20643485 :     return Lazy&lt;decltype(cast)&gt;(getLabel(), cast);</span></a>
+<a name="429"><span class="lineNum">     429 </span><span class="lineCov">   10595192 :   }</span></a>
 <a name="430"><span class="lineNum">     430 </span>            : </a>
 <a name="431"><span class="lineNum">     431 </span>            :   /**</a>
 <a name="432"><span class="lineNum">     432 </span>            :    * Static cast.</a>
@@ -499,7 +499,7 @@
 <a name="441"><span class="lineNum">     441 </span>            :    * Get the label.</a>
 <a name="442"><span class="lineNum">     442 </span>            :    */</a>
 <a name="443"><span class="lineNum">     443 </span>            :   Label* getLabel() const {</a>
-<a name="444"><span class="lineNum">     444 </span><span class="lineCov"> 2746826749 :     return reinterpret_cast&lt;Label*&gt;(this-&gt;label);</span></a>
+<a name="444"><span class="lineNum">     444 </span><span class="lineCov"> 3618837694 :     return reinterpret_cast&lt;Label*&gt;(this-&gt;label);</span></a>
 <a name="445"><span class="lineNum">     445 </span>            :   }</a>
 <a name="446"><span class="lineNum">     446 </span>            : </a>
 <a name="447"><span class="lineNum">     447 </span>            :   /**</a>
@@ -508,7 +508,7 @@
 <a name="450"><span class="lineNum">     450 </span>            :    * object to which it belongs).</a>
 <a name="451"><span class="lineNum">     451 </span>            :    */</a>
 <a name="452"><span class="lineNum">     452 </span>            :   bool isCross() const {</a>
-<a name="453"><span class="lineNum">     453 </span><span class="lineCov">  977320629 :     return cross;</span></a>
+<a name="453"><span class="lineNum">     453 </span><span class="lineCov"> 1278150486 :     return cross;</span></a>
 <a name="454"><span class="lineNum">     454 </span>            :   }</a>
 <a name="455"><span class="lineNum">     455 </span>            : </a>
 <a name="456"><span class="lineNum">     456 </span>            : private:</a>
@@ -528,43 +528,43 @@
 <a name="470"><span class="lineNum">     470 </span>            :    * Set the label.</a>
 <a name="471"><span class="lineNum">     471 </span>            :    */</a>
 <a name="472"><span class="lineNum">     472 </span>            :   void setLabel(Label* label, bool cross) {</a>
-<a name="473"><span class="lineNum">     473 </span><span class="lineCov"> 1593803784 :     assert(this-&gt;label == 0);</span></a>
-<a name="474"><span class="lineNum">     474 </span><span class="lineCov"> 1603423354 :     assert(!this-&gt;cross);</span></a>
-<a name="475"><span class="lineNum">     475 </span><span class="lineCov">  805589430 :     this-&gt;label = reinterpret_cast&lt;intptr_t&gt;(label);</span></a>
-<a name="476"><span class="lineNum">     476 </span><span class="lineCov">  805589430 :     this-&gt;cross = cross;</span></a>
-<a name="477"><span class="lineNum">     477 </span><span class="lineCov"> 1611883816 :     if (label &amp;&amp; cross) {</span></a>
-<a name="478"><span class="lineNum">     478 </span><span class="lineCov">     620530 :       label-&gt;incShared();</span></a>
-<a name="479"><span class="lineNum">     479 </span><span class="lineCov">     620530 :     }</span></a>
-<a name="480"><span class="lineNum">     480 </span><span class="lineCov">  807592284 :   }</span></a>
+<a name="473"><span class="lineNum">     473 </span><span class="lineCov"> 2023790800 :     assert(this-&gt;label == 0);</span></a>
+<a name="474"><span class="lineNum">     474 </span><span class="lineCov"> 2034756978 :     assert(!this-&gt;cross);</span></a>
+<a name="475"><span class="lineNum">     475 </span><span class="lineCov"> 1021098243 :     this-&gt;label = reinterpret_cast&lt;intptr_t&gt;(label);</span></a>
+<a name="476"><span class="lineNum">     476 </span><span class="lineCov"> 1021098243 :     this-&gt;cross = cross;</span></a>
+<a name="477"><span class="lineNum">     477 </span><span class="lineCov"> 2042101010 :     if (label &amp;&amp; cross) {</span></a>
+<a name="478"><span class="lineNum">     478 </span><span class="lineCov">    9582661 :       label-&gt;incShared();</span></a>
+<a name="479"><span class="lineNum">     479 </span><span class="lineCov">    9582661 :     }</span></a>
+<a name="480"><span class="lineNum">     480 </span><span class="lineCov"> 1023025162 :   }</span></a>
 <a name="481"><span class="lineNum">     481 </span>            : </a>
 <a name="482"><span class="lineNum">     482 </span>            :   /**</a>
 <a name="483"><span class="lineNum">     483 </span>            :    * Replace the label.</a>
 <a name="484"><span class="lineNum">     484 </span>            :    */</a>
 <a name="485"><span class="lineNum">     485 </span>            :   void replaceLabel(Label* label, bool cross) {</a>
-<a name="486"><span class="lineNum">     486 </span><span class="lineCov">   46125950 :     auto oldLabel = this-&gt;getLabel();</span></a>
-<a name="487"><span class="lineNum">     487 </span><span class="lineCov">   46125950 :     auto oldCross = this-&gt;isCross();</span></a>
-<a name="488"><span class="lineNum">     488 </span><span class="lineCov">   46125950 :     this-&gt;label = reinterpret_cast&lt;intptr_t&gt;(label);</span></a>
-<a name="489"><span class="lineNum">     489 </span><span class="lineCov">   46125950 :     this-&gt;cross = cross;</span></a>
-<a name="490"><span class="lineNum">     490 </span><span class="lineCov">   92280356 :     if (label &amp;&amp; cross) {</span></a>
-<a name="491"><span class="lineNum">     491 </span><span class="lineCov">    1198172 :       label-&gt;incShared();</span></a>
-<a name="492"><span class="lineNum">     492 </span><span class="lineCov">    1198172 :     }</span></a>
-<a name="493"><span class="lineNum">     493 </span><span class="lineCov">   60829176 :     if (oldLabel &amp;&amp; oldCross) {</span></a>
-<a name="494"><span class="lineNum">     494 </span><span class="lineCov">    1173612 :       oldLabel-&gt;decShared();</span></a>
-<a name="495"><span class="lineNum">     495 </span><span class="lineCov">    1173612 :     }</span></a>
-<a name="496"><span class="lineNum">     496 </span><span class="lineCov">   46189084 :   }</span></a>
+<a name="486"><span class="lineNum">     486 </span><span class="lineCov">   79452157 :     auto oldLabel = this-&gt;getLabel();</span></a>
+<a name="487"><span class="lineNum">     487 </span><span class="lineCov">   79452157 :     auto oldCross = this-&gt;isCross();</span></a>
+<a name="488"><span class="lineNum">     488 </span><span class="lineCov">   79452157 :     this-&gt;label = reinterpret_cast&lt;intptr_t&gt;(label);</span></a>
+<a name="489"><span class="lineNum">     489 </span><span class="lineCov">   79452157 :     this-&gt;cross = cross;</span></a>
+<a name="490"><span class="lineNum">     490 </span><span class="lineCov">  158905310 :     if (label &amp;&amp; cross) {</span></a>
+<a name="491"><span class="lineNum">     491 </span><span class="lineCov">    2571362 :       label-&gt;incShared();</span></a>
+<a name="492"><span class="lineNum">     492 </span><span class="lineCov">    2571362 :     }</span></a>
+<a name="493"><span class="lineNum">     493 </span><span class="lineCov">  104345417 :     if (oldLabel &amp;&amp; oldCross) {</span></a>
+<a name="494"><span class="lineNum">     494 </span><span class="lineCov">    2632264 :       oldLabel-&gt;decShared();</span></a>
+<a name="495"><span class="lineNum">     495 </span><span class="lineCov">    2632264 :     }</span></a>
+<a name="496"><span class="lineNum">     496 </span><span class="lineCov">   79518702 :   }</span></a>
 <a name="497"><span class="lineNum">     497 </span>            : </a>
 <a name="498"><span class="lineNum">     498 </span>            :   /**</a>
 <a name="499"><span class="lineNum">     499 </span>            :    * Release the label.</a>
 <a name="500"><span class="lineNum">     500 </span>            :    */</a>
 <a name="501"><span class="lineNum">     501 </span>            :   void releaseLabel() {</a>
-<a name="502"><span class="lineNum">     502 </span><span class="lineCov">  913671824 :     auto label = getLabel();</span></a>
-<a name="503"><span class="lineNum">     503 </span><span class="lineCov">  913671824 :     auto cross = isCross();</span></a>
-<a name="504"><span class="lineNum">     504 </span><span class="lineCov">  913671824 :     this-&gt;label = 0;</span></a>
-<a name="505"><span class="lineNum">     505 </span><span class="lineCov">  913671824 :     this-&gt;cross = false;</span></a>
-<a name="506"><span class="lineNum">     506 </span><span class="lineCov"> 1706979163 :     if (label &amp;&amp; cross) {</span></a>
-<a name="507"><span class="lineNum">     507 </span><span class="lineCov">     656007 :       label-&gt;decShared();</span></a>
-<a name="508"><span class="lineNum">     508 </span><span class="lineCov">     656007 :     }</span></a>
-<a name="509"><span class="lineNum">     509 </span><span class="lineCov">  916219005 :   }</span></a>
+<a name="502"><span class="lineNum">     502 </span><span class="lineCov"> 1171958623 :     auto label = getLabel();</span></a>
+<a name="503"><span class="lineNum">     503 </span><span class="lineCov"> 1171958623 :     auto cross = isCross();</span></a>
+<a name="504"><span class="lineNum">     504 </span><span class="lineCov"> 1171958623 :     this-&gt;label = 0;</span></a>
+<a name="505"><span class="lineNum">     505 </span><span class="lineCov"> 1171958623 :     this-&gt;cross = false;</span></a>
+<a name="506"><span class="lineNum">     506 </span><span class="lineCov"> 2203568407 :     if (label &amp;&amp; cross) {</span></a>
+<a name="507"><span class="lineNum">     507 </span><span class="lineCov">    9464409 :       label-&gt;decShared();</span></a>
+<a name="508"><span class="lineNum">     508 </span><span class="lineCov">    9464409 :     }</span></a>
+<a name="509"><span class="lineNum">     509 </span><span class="lineCov"> 1174793857 :   }</span></a>
 <a name="510"><span class="lineNum">     510 </span>            : </a>
 <a name="511"><span class="lineNum">     511 </span>            :   /**</a>
 <a name="512"><span class="lineNum">     512 </span>            :    * Object.</a>

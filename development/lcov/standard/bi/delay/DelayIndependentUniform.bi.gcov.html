@@ -31,13 +31,13 @@
             <td class="headerValue">standard.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">13</td>
-            <td class="headerCovTableEntry">20</td>
-            <td class="headerCovTableEntryLo">65.0 %</td>
+            <td class="headerCovTableEntry">14</td>
+            <td class="headerCovTableEntry">22</td>
+            <td class="headerCovTableEntryLo">63.6 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2019-11-10 13:04:00</td>
+            <td class="headerValue">2019-11-26 20:15:26</td>
             <td></td>
           </tr>
           <tr><td><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
@@ -60,7 +60,7 @@
 <a name="2"><span class="lineNum">       2 </span>            :  * Delayed multivariate uniform random variable.</a>
 <a name="3"><span class="lineNum">       3 </span>            :  */</a>
 <a name="4"><span class="lineNum">       4 </span><span class="lineCov">          2 : final class DelayIndependentUniform(future:Real[_]?, futureUpdate:Boolean,</span></a>
-<a name="5"><span class="lineNum">       5 </span><span class="lineNoCov">          0 :     l:Real[_], u:Real[_]) &lt; DelayValue&lt;Real[_]&gt;(future, futureUpdate) {</span></a>
+<a name="5"><span class="lineNum">       5 </span>            :     l:Real[_], u:Real[_]) &lt; DelayValue&lt;Real[_]&gt;(future, futureUpdate) {</a>
 <a name="6"><span class="lineNum">       6 </span>            :   /**</a>
 <a name="7"><span class="lineNum">       7 </span>            :    * Lower bound.</a>
 <a name="8"><span class="lineNum">       8 </span>            :    */</a>
@@ -72,11 +72,11 @@
 <a name="14"><span class="lineNum">      14 </span><span class="lineCov">          4 :   u:Real[_] &lt;- u;</span></a>
 <a name="15"><span class="lineNum">      15 </span>            : </a>
 <a name="16"><span class="lineNum">      16 </span><span class="lineCov">      20006 :   function simulate() -&gt; Real[_] {</span></a>
-<a name="17"><span class="lineNum">      17 </span><span class="lineCov">      50010 :     return simulate_independent_uniform(l, u);</span></a>
+<a name="17"><span class="lineNum">      17 </span><span class="lineCov">      60012 :     return simulate_independent_uniform(l, u);</span></a>
 <a name="18"><span class="lineNum">      18 </span><span class="lineCov">      10002 :   }</span></a>
 <a name="19"><span class="lineNum">      19 </span>            :   </a>
 <a name="20"><span class="lineNum">      20 </span><span class="lineCov">     401004 :   function logpdf(x:Real[_]) -&gt; Real {</span></a>
-<a name="21"><span class="lineNum">      21 </span><span class="lineCov">    1002510 :     return logpdf_independent_uniform(x, l, u);</span></a>
+<a name="21"><span class="lineNum">      21 </span><span class="lineCov">    1203012 :     return logpdf_independent_uniform(x, l, u);</span></a>
 <a name="22"><span class="lineNum">      22 </span><span class="lineCov">     200502 :   }</span></a>
 <a name="23"><span class="lineNum">      23 </span>            : </a>
 <a name="24"><span class="lineNum">      24 </span><span class="lineNoCov">          0 :   function write(buffer:Buffer) {</span></a>
@@ -89,8 +89,8 @@
 <a name="31"><span class="lineNum">      31 </span>            : </a>
 <a name="32"><span class="lineNum">      32 </span><span class="lineCov">          1 : function DelayIndependentUniform(future:Real[_]?, futureUpdate:Boolean,</span></a>
 <a name="33"><span class="lineNum">      33 </span>            :     l:Real[_], u:Real[_]) -&gt; DelayIndependentUniform {</a>
-<a name="34"><span class="lineNum">      34 </span><span class="lineCov">          1 :   m:DelayIndependentUniform(future, futureUpdate, l, u);</span></a>
-<a name="35"><span class="lineNum">      35 </span><span class="lineCov">          1 :   return m;</span></a>
+<a name="34"><span class="lineNum">      34 </span><span class="lineCov">          2 :   m:DelayIndependentUniform(future, futureUpdate, l, u);</span></a>
+<a name="35"><span class="lineNum">      35 </span><span class="lineCov">          2 :   return m;</span></a>
 <a name="36"><span class="lineNum">      36 </span><span class="lineCov">          2 : }</span></a>
 </pre>
       </td>

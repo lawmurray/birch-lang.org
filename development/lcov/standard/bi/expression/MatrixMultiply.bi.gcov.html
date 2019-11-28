@@ -31,13 +31,13 @@
             <td class="headerValue">standard.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">32</td>
+            <td class="headerCovTableEntry">31</td>
             <td class="headerCovTableEntry">47</td>
-            <td class="headerCovTableEntryLo">68.1 %</td>
+            <td class="headerCovTableEntryLo">66.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2019-11-10 13:04:00</td>
+            <td class="headerValue">2019-11-26 20:15:26</td>
             <td></td>
           </tr>
           <tr><td><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
@@ -59,20 +59,20 @@
 <a name="1"><span class="lineNum">       1 </span>            : /*</a>
 <a name="2"><span class="lineNum">       2 </span>            :  * Lazy multivariate multiplication.</a>
 <a name="3"><span class="lineNum">       3 </span>            :  */</a>
-<a name="4"><span class="lineNum">       4 </span><span class="lineCov">      87950 : final class MatrixMultiply&lt;Left,Right,Value&gt;(left:Expression&lt;Left&gt;,</span></a>
+<a name="4"><span class="lineNum">       4 </span><span class="lineCov">    1704145 : final class MatrixMultiply&lt;Left,Right,Value&gt;(left:Expression&lt;Left&gt;,</span></a>
 <a name="5"><span class="lineNum">       5 </span>            :     right:Expression&lt;Right&gt;) &lt; Expression&lt;Value&gt; {  </a>
 <a name="6"><span class="lineNum">       6 </span>            :   /**</a>
 <a name="7"><span class="lineNum">       7 </span>            :    * Left operand.</a>
 <a name="8"><span class="lineNum">       8 </span>            :    */</a>
-<a name="9"><span class="lineNum">       9 </span><span class="lineCov">      87950 :   left:Expression&lt;Left&gt; &lt;- left;</span></a>
+<a name="9"><span class="lineNum">       9 </span><span class="lineCov">    1704141 :   left:Expression&lt;Left&gt; &lt;- left;</span></a>
 <a name="10"><span class="lineNum">      10 </span>            :   </a>
 <a name="11"><span class="lineNum">      11 </span>            :   /**</a>
 <a name="12"><span class="lineNum">      12 </span>            :    * Right operand.</a>
 <a name="13"><span class="lineNum">      13 </span>            :    */</a>
-<a name="14"><span class="lineNum">      14 </span><span class="lineCov">     351856 :   right:Expression&lt;Right&gt; &lt;- right;</span></a>
-<a name="15"><span class="lineNum">      15 </span><span class="lineCov">          4 :   </span></a>
-<a name="16"><span class="lineNum">      16 </span><span class="lineCov">     255971 :   function value() -&gt; Value {</span></a>
-<a name="17"><span class="lineNum">      17 </span><span class="lineCov">     520000 :     return left.value()*right.value();</span></a>
+<a name="14"><span class="lineNum">      14 </span><span class="lineCov">    6829907 :   right:Expression&lt;Right&gt; &lt;- right;</span></a>
+<a name="15"><span class="lineNum">      15 </span>            :   </a>
+<a name="16"><span class="lineNum">      16 </span><span class="lineCov">    3501889 :   function value() -&gt; Value {</span></a>
+<a name="17"><span class="lineNum">      17 </span><span class="lineCov">     560000 :     return left.value()*right.value();</span></a>
 <a name="18"><span class="lineNum">      18 </span><span class="lineCov">      40000 :   }</span></a>
 <a name="19"><span class="lineNum">      19 </span>            : </a>
 <a name="20"><span class="lineNum">      20 </span><span class="lineNoCov">          0 :   function graftLinearMatrixGaussian() -&gt;</span></a>
@@ -91,46 +91,46 @@
 <a name="33"><span class="lineNum">      33 </span>            :   </a>
 <a name="34"><span class="lineNum">      34 </span><span class="lineCov">      80002 :   function graftLinearMatrixNormalInverseGamma() -&gt;</span></a>
 <a name="35"><span class="lineNum">      35 </span>            :       TransformLinearMatrix&lt;DelayMatrixNormalInverseGamma&gt;? {</a>
-<a name="36"><span class="lineNum">      36 </span><span class="lineCov">      40001 :     y:TransformLinearMatrix&lt;DelayMatrixNormalInverseGamma&gt;?;</span></a>
-<a name="37"><span class="lineNum">      37 </span><span class="lineCov">      40001 :     z:DelayMatrixNormalInverseGamma?;</span></a>
+<a name="36"><span class="lineNum">      36 </span><span class="lineCov">      80002 :     y:TransformLinearMatrix&lt;DelayMatrixNormalInverseGamma&gt;?;</span></a>
+<a name="37"><span class="lineNum">      37 </span><span class="lineCov">      80002 :     z:DelayMatrixNormalInverseGamma?;</span></a>
 <a name="38"><span class="lineNum">      38 </span>            : </a>
-<a name="39"><span class="lineNum">      39 </span><span class="lineCov">     320008 :     if (y &lt;- right.graftLinearMatrixNormalInverseGamma())? {</span></a>
+<a name="39"><span class="lineNum">      39 </span><span class="lineCov">     360009 :     if (y &lt;- right.graftLinearMatrixNormalInverseGamma())? {</span></a>
 <a name="40"><span class="lineNum">      40 </span><span class="lineNoCov">          0 :       y!.leftMultiply(left.value());</span></a>
-<a name="41"><span class="lineNum">      41 </span><span class="lineCov">     320008 :     } else if (z &lt;- right.graftMatrixNormalInverseGamma())? {</span></a>
-<a name="42"><span class="lineNum">      42 </span><span class="lineCov">     200010 :       y &lt;- TransformLinearMatrix&lt;DelayMatrixNormalInverseGamma&gt;(</span></a>
+<a name="41"><span class="lineNum">      41 </span><span class="lineCov">     440013 :     } else if (z &lt;- right.graftMatrixNormalInverseGamma())? {</span></a>
+<a name="42"><span class="lineNum">      42 </span><span class="lineCov">     220011 :       y &lt;- TransformLinearMatrix&lt;DelayMatrixNormalInverseGamma&gt;(</span></a>
 <a name="43"><span class="lineNum">      43 </span><span class="lineCov">      20001 :           left.value(), z!);</span></a>
 <a name="44"><span class="lineNum">      44 </span>            :     }</a>
-<a name="45"><span class="lineNum">      45 </span><span class="lineCov">      40001 :     return y;</span></a>
+<a name="45"><span class="lineNum">      45 </span><span class="lineCov">     120002 :     return y;</span></a>
 <a name="46"><span class="lineNum">      46 </span><span class="lineCov">      80002 :   }</span></a>
 <a name="47"><span class="lineNum">      47 </span>            : </a>
-<a name="48"><span class="lineNum">      48 </span><span class="lineCov">      95780 :   function graftLinearMatrixNormalInverseWishart() -&gt;</span></a>
-<a name="49"><span class="lineNum">      49 </span>            :       TransformLinearMatrix&lt;DelayMatrixNormalInverseWishart&gt;? {</a>
-<a name="50"><span class="lineNum">      50 </span><span class="lineCov">      47930 :     y:TransformLinearMatrix&lt;DelayMatrixNormalInverseWishart&gt;?;</span></a>
-<a name="51"><span class="lineNum">      51 </span><span class="lineCov">      47921 :     z:DelayMatrixNormalInverseWishart?;</span></a>
+<a name="48"><span class="lineNum">      48 </span><span class="lineCov">    3295022 :   function graftLinearMatrixNormalInverseWishart() -&gt;</span></a>
+<a name="49"><span class="lineNum">      49 </span><span class="lineNoCov">          0 :       TransformLinearMatrix&lt;DelayMatrixNormalInverseWishart&gt;? {</span></a>
+<a name="50"><span class="lineNum">      50 </span><span class="lineCov">    3306859 :     y:TransformLinearMatrix&lt;DelayMatrixNormalInverseWishart&gt;?;</span></a>
+<a name="51"><span class="lineNum">      51 </span><span class="lineCov">    3302306 :     z:DelayMatrixNormalInverseWishart?;</span></a>
 <a name="52"><span class="lineNum">      52 </span>            : </a>
-<a name="53"><span class="lineNum">      53 </span><span class="lineCov">     383385 :     if (y &lt;- right.graftLinearMatrixNormalInverseWishart())? {</span></a>
+<a name="53"><span class="lineNum">      53 </span><span class="lineCov">   14916698 :     if (y &lt;- right.graftLinearMatrixNormalInverseWishart())? {</span></a>
 <a name="54"><span class="lineNum">      54 </span><span class="lineNoCov">          0 :       y!.leftMultiply(left.value());</span></a>
-<a name="55"><span class="lineNum">      55 </span><span class="lineCov">     383172 :     } else if (z &lt;- right.graftMatrixNormalInverseWishart())? {</span></a>
-<a name="56"><span class="lineNum">      56 </span><span class="lineCov">     279143 :       y &lt;- TransformLinearMatrix&lt;DelayMatrixNormalInverseWishart&gt;(</span></a>
-<a name="57"><span class="lineNum">      57 </span><span class="lineCov">      27975 :           left.value(), z!);</span></a>
+<a name="55"><span class="lineNum">      55 </span><span class="lineCov">   14844053 :     } else if (z &lt;- right.graftMatrixNormalInverseWishart())? {</span></a>
+<a name="56"><span class="lineNum">      56 </span><span class="lineCov">   17925950 :       y &lt;- TransformLinearMatrix&lt;DelayMatrixNormalInverseWishart&gt;(</span></a>
+<a name="57"><span class="lineNum">      57 </span><span class="lineCov">    1646665 :           left.value(), z!);</span></a>
 <a name="58"><span class="lineNum">      58 </span>            :     }</a>
-<a name="59"><span class="lineNum">      59 </span><span class="lineCov">      47999 :     return y;</span></a>
-<a name="60"><span class="lineNum">      60 </span><span class="lineCov">      95992 :   }</span></a>
+<a name="59"><span class="lineNum">      59 </span><span class="lineCov">    3346182 :     return y;</span></a>
+<a name="60"><span class="lineNum">      60 </span><span class="lineCov">    3355315 :   }</span></a>
 <a name="61"><span class="lineNum">      61 </span>            : }</a>
 <a name="62"><span class="lineNum">      62 </span>            : </a>
-<a name="63"><span class="lineNum">      63 </span>            : operator (left:Expression&lt;Real[_,_]&gt;*right:Expression&lt;Real[_,_]&gt;) -&gt;</a>
-<a name="64"><span class="lineNum">      64 </span><span class="lineCov">       7976 :     MatrixMultiply&lt;Real[_,_],Real[_,_],Real[_,_]&gt; {</span></a>
-<a name="65"><span class="lineNum">      65 </span><span class="lineCov">       7976 :   m:MatrixMultiply&lt;Real[_,_],Real[_,_],Real[_,_]&gt;(left, right);</span></a>
-<a name="66"><span class="lineNum">      66 </span><span class="lineCov">       7988 :   return m;</span></a>
-<a name="67"><span class="lineNum">      67 </span><span class="lineCov">      15974 : }</span></a>
+<a name="63"><span class="lineNum">      63 </span><span class="lineCov">    1619059 : operator (left:Expression&lt;Real[_,_]&gt;*right:Expression&lt;Real[_,_]&gt;) -&gt;</span></a>
+<a name="64"><span class="lineNum">      64 </span>            :     MatrixMultiply&lt;Real[_,_],Real[_,_],Real[_,_]&gt; {</a>
+<a name="65"><span class="lineNum">      65 </span><span class="lineCov">    3242189 :   m:MatrixMultiply&lt;Real[_,_],Real[_,_],Real[_,_]&gt;(left, right);</span></a>
+<a name="66"><span class="lineNum">      66 </span><span class="lineCov">    3264805 :   return m;</span></a>
+<a name="67"><span class="lineNum">      67 </span><span class="lineCov">    3265870 : }</span></a>
 <a name="68"><span class="lineNum">      68 </span>            : </a>
-<a name="69"><span class="lineNum">      69 </span>            : operator (left:Real[_,_]*right:Expression&lt;Real[_,_]&gt;) -&gt;</a>
-<a name="70"><span class="lineNum">      70 </span><span class="lineCov">       7896 :     MatrixMultiply&lt;Real[_,_],Real[_,_],Real[_,_]&gt; {</span></a>
-<a name="71"><span class="lineNum">      71 </span><span class="lineCov">      31793 :   return Boxed(left)*right;</span></a>
-<a name="72"><span class="lineNum">      72 </span><span class="lineCov">       7990 : }</span></a>
+<a name="69"><span class="lineNum">      69 </span><span class="lineCov">    1616416 : operator (left:Real[_,_]*right:Expression&lt;Real[_,_]&gt;) -&gt;</span></a>
+<a name="70"><span class="lineNum">      70 </span>            :     MatrixMultiply&lt;Real[_,_],Real[_,_],Real[_,_]&gt; {</a>
+<a name="71"><span class="lineNum">      71 </span><span class="lineCov">    8114911 :   return Boxed(left)*right;</span></a>
+<a name="72"><span class="lineNum">      72 </span><span class="lineCov">    1636254 : }</span></a>
 <a name="73"><span class="lineNum">      73 </span>            : </a>
-<a name="74"><span class="lineNum">      74 </span>            : operator (left:Expression&lt;Real[_,_]&gt;*right:Real[_,_]) -&gt;</a>
-<a name="75"><span class="lineNum">      75 </span><span class="lineNoCov">          0 :     MatrixMultiply&lt;Real[_,_],Real[_,_],Real[_,_]&gt; {</span></a>
+<a name="74"><span class="lineNum">      74 </span><span class="lineNoCov">          0 : operator (left:Expression&lt;Real[_,_]&gt;*right:Real[_,_]) -&gt;</span></a>
+<a name="75"><span class="lineNum">      75 </span>            :     MatrixMultiply&lt;Real[_,_],Real[_,_],Real[_,_]&gt; {</a>
 <a name="76"><span class="lineNum">      76 </span><span class="lineNoCov">          0 :   return left*Boxed(right);</span></a>
 <a name="77"><span class="lineNum">      77 </span><span class="lineNoCov">          0 : }</span></a>
 </pre>

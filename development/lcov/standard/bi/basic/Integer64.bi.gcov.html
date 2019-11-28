@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2019-11-10 13:04:00</td>
+            <td class="headerValue">2019-11-26 20:15:26</td>
             <td></td>
           </tr>
           <tr><td><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
@@ -64,16 +64,16 @@
 <a name="6"><span class="lineNum">       6 </span>            : /**</a>
 <a name="7"><span class="lineNum">       7 </span>            :  * Convert to Integer64.</a>
 <a name="8"><span class="lineNum">       8 </span>            :  */</a>
-<a name="9"><span class="lineNum">       9 </span><span class="lineCov">      47022 : function Integer64(x:Integer64) -&gt; Integer64 {</span></a>
-<a name="10"><span class="lineNum">      10 </span><span class="lineCov">      47022 :   return x;</span></a>
-<a name="11"><span class="lineNum">      11 </span><span class="lineCov">      47022 : }</span></a>
+<a name="9"><span class="lineNum">       9 </span><span class="lineCov">      47230 : function Integer64(x:Integer64) -&gt; Integer64 {</span></a>
+<a name="10"><span class="lineNum">      10 </span><span class="lineCov">      94506 :   return x;</span></a>
+<a name="11"><span class="lineNum">      11 </span><span class="lineCov">      47276 : }</span></a>
 <a name="12"><span class="lineNum">      12 </span>            : </a>
 <a name="13"><span class="lineNum">      13 </span>            : /**</a>
 <a name="14"><span class="lineNum">      14 </span>            :  * Convert to Integer64.</a>
 <a name="15"><span class="lineNum">      15 </span>            :  */</a>
-<a name="16"><span class="lineNum">      16 </span><span class="lineCov">    2166743 : function Integer64(x:Real64) -&gt; Integer64 {</span></a>
-<a name="17"><span class="lineNum">      17 </span><span class="lineCov">    2166743 :   cpp{{</span></a>
-<a name="18"><span class="lineNum">      18 </span><span class="lineCov">    2166743 :   return static_cast&lt;bi::type::Integer64&gt;(x);</span></a>
+<a name="16"><span class="lineNum">      16 </span><span class="lineCov">    3652747 : function Integer64(x:Real64) -&gt; Integer64 {</span></a>
+<a name="17"><span class="lineNum">      17 </span><span class="lineCov">    3652747 :   cpp{{</span></a>
+<a name="18"><span class="lineNum">      18 </span><span class="lineCov">    3652747 :   return static_cast&lt;bi::type::Integer64&gt;(x);</span></a>
 <a name="19"><span class="lineNum">      19 </span>            :   }}</a>
 <a name="20"><span class="lineNum">      20 </span>            : }</a>
 <a name="21"><span class="lineNum">      21 </span>            : </a>
@@ -214,9 +214,9 @@
 <a name="156"><span class="lineNum">     156 </span>            : /**</a>
 <a name="157"><span class="lineNum">     157 </span>            :  * Absolute value.</a>
 <a name="158"><span class="lineNum">     158 </span>            :  */</a>
-<a name="159"><span class="lineNum">     159 </span><span class="lineCov">    1410831 : function abs(x:Integer64) -&gt; Integer64 {</span></a>
-<a name="160"><span class="lineNum">     160 </span><span class="lineCov">    1410831 :   cpp {{</span></a>
-<a name="161"><span class="lineNum">     161 </span><span class="lineCov">    1410831 :   return std::abs(x);</span></a>
+<a name="159"><span class="lineNum">     159 </span><span class="lineCov">    1414190 : function abs(x:Integer64) -&gt; Integer64 {</span></a>
+<a name="160"><span class="lineNum">     160 </span><span class="lineCov">    1414190 :   cpp {{</span></a>
+<a name="161"><span class="lineNum">     161 </span><span class="lineCov">    1414190 :   return std::abs(x);</span></a>
 <a name="162"><span class="lineNum">     162 </span>            :   }}</a>
 <a name="163"><span class="lineNum">     163 </span>            : }</a>
 <a name="164"><span class="lineNum">     164 </span>            : </a>
@@ -241,18 +241,18 @@
 <a name="183"><span class="lineNum">     183 </span>            : /**</a>
 <a name="184"><span class="lineNum">     184 </span>            :  * Maximum of two values.</a>
 <a name="185"><span class="lineNum">     185 </span>            :  */</a>
-<a name="186"><span class="lineNum">     186 </span><span class="lineCov">      36427 : function max(x:Integer64, y:Integer64) -&gt; Integer64 {</span></a>
-<a name="187"><span class="lineNum">     187 </span><span class="lineCov">      72908 :   cpp {{</span></a>
-<a name="188"><span class="lineNum">     188 </span><span class="lineCov">      36481 :   return std::max(x, y);</span></a>
+<a name="186"><span class="lineNum">     186 </span><span class="lineCov">      36453 : function max(x:Integer64, y:Integer64) -&gt; Integer64 {</span></a>
+<a name="187"><span class="lineNum">     187 </span><span class="lineCov">      73026 :   cpp {{</span></a>
+<a name="188"><span class="lineNum">     188 </span><span class="lineCov">      36573 :   return std::max(x, y);</span></a>
 <a name="189"><span class="lineNum">     189 </span>            :   }}</a>
 <a name="190"><span class="lineNum">     190 </span>            : }</a>
 <a name="191"><span class="lineNum">     191 </span>            : </a>
 <a name="192"><span class="lineNum">     192 </span>            : /**</a>
 <a name="193"><span class="lineNum">     193 </span>            :  * Minimum of two values.</a>
 <a name="194"><span class="lineNum">     194 </span>            :  */</a>
-<a name="195"><span class="lineNum">     195 </span><span class="lineCov">    2127080 : function min(x:Integer64, y:Integer64) -&gt; Integer64 {</span></a>
-<a name="196"><span class="lineNum">     196 </span><span class="lineCov">    4254182 :   cpp {{</span></a>
-<a name="197"><span class="lineNum">     197 </span><span class="lineCov">    2127102 :   return std::min(x, y);</span></a>
+<a name="195"><span class="lineNum">     195 </span><span class="lineCov">    3625681 : function min(x:Integer64, y:Integer64) -&gt; Integer64 {</span></a>
+<a name="196"><span class="lineNum">     196 </span><span class="lineCov">    7251402 :   cpp {{</span></a>
+<a name="197"><span class="lineNum">     197 </span><span class="lineCov">    3625721 :   return std::min(x, y);</span></a>
 <a name="198"><span class="lineNum">     198 </span>            :   }}</a>
 <a name="199"><span class="lineNum">     199 </span>            : }</a>
 </pre>

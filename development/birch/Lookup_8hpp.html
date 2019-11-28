@@ -58,11 +58,15 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbi_1_1lookup__result_3_01Parameter_01_4.html">lookup_result&lt; Parameter &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbi_1_1lookup__result_3_01LocalVariable_01_4.html">lookup_result&lt; LocalVariable &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbi_1_1lookup__result_3_01GlobalVariable_01_4.html">lookup_result&lt; GlobalVariable &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbi_1_1lookup__result_3_01MemberVariable_01_4.html">lookup_result&lt; MemberVariable &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbi_1_1lookup__result_3_01GlobalVariable_01_4.html">lookup_result&lt; GlobalVariable &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbi_1_1lookup__result_3_01LocalVariable_01_4.html">lookup_result&lt; LocalVariable &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbi_1_1lookup__result_3_01ParallelVariable_01_4.html">lookup_result&lt; ParallelVariable &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbi_1_1lookup__result_3_01ForVariable_01_4.html">lookup_result&lt; ForVariable &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbi_1_1lookup__result_3_01Function_01_4.html">lookup_result&lt; Function &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -86,23 +90,26 @@ Namespaces</h2></td></tr>
 Enumerations</h2></td></tr>
 <tr class="memitem:a9b2ad316b6b753837a1756533290b010"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacebi.html#a9b2ad316b6b753837a1756533290b010">Lookup</a> { <br />
 &#160;&#160;<a class="el" href="namespacebi.html#a9b2ad316b6b753837a1756533290b010a194cde856bd2d79eac8adb9741c55940">PARAMETER</a>, 
-<a class="el" href="namespacebi.html#a9b2ad316b6b753837a1756533290b010ab69e983085cf66fbd623b2626c18d5bb">LOCAL_VARIABLE</a>, 
-<a class="el" href="namespacebi.html#a9b2ad316b6b753837a1756533290b010a9648fd396c3037fed976bcd9684cc609">MEMBER_VARIABLE</a>, 
 <a class="el" href="namespacebi.html#a9b2ad316b6b753837a1756533290b010a41c851a10adb999d331ec1633d75a572">GLOBAL_VARIABLE</a>, 
+<a class="el" href="namespacebi.html#a9b2ad316b6b753837a1756533290b010a9648fd396c3037fed976bcd9684cc609">MEMBER_VARIABLE</a>, 
+<a class="el" href="namespacebi.html#a9b2ad316b6b753837a1756533290b010ab69e983085cf66fbd623b2626c18d5bb">LOCAL_VARIABLE</a>, 
 <br />
-&#160;&#160;<a class="el" href="namespacebi.html#a9b2ad316b6b753837a1756533290b010aab8c4d8135967b887502fda4f76deaa6">FUNCTION</a>, 
+&#160;&#160;<a class="el" href="namespacebi.html#a9b2ad316b6b753837a1756533290b010abe31002b6d4a32e18fe569707a1b09f1">FOR_VARIABLE</a>, 
+<a class="el" href="namespacebi.html#a9b2ad316b6b753837a1756533290b010a6edb06c5d74247e186b2191a89cdbb6a">PARALLEL_VARIABLE</a>, 
+<a class="el" href="namespacebi.html#a9b2ad316b6b753837a1756533290b010aab8c4d8135967b887502fda4f76deaa6">FUNCTION</a>, 
 <a class="el" href="namespacebi.html#a9b2ad316b6b753837a1756533290b010a1c579ddc0c89df6874c23997c9131d6d">MEMBER_FUNCTION</a>, 
-<a class="el" href="namespacebi.html#a9b2ad316b6b753837a1756533290b010a620be12224d93c829befd45a11e0de7f">FIBER</a>, 
+<br />
+&#160;&#160;<a class="el" href="namespacebi.html#a9b2ad316b6b753837a1756533290b010a620be12224d93c829befd45a11e0de7f">FIBER</a>, 
 <a class="el" href="namespacebi.html#a9b2ad316b6b753837a1756533290b010a5f31c524f4a47fa4cec2db1d194ff65b">MEMBER_FIBER</a>, 
-<br />
-&#160;&#160;<a class="el" href="namespacebi.html#a9b2ad316b6b753837a1756533290b010a9ad4a97e6e18d3ea164797398bf5548d">UNARY_OPERATOR</a>, 
+<a class="el" href="namespacebi.html#a9b2ad316b6b753837a1756533290b010a9ad4a97e6e18d3ea164797398bf5548d">UNARY_OPERATOR</a>, 
 <a class="el" href="namespacebi.html#a9b2ad316b6b753837a1756533290b010a7718a80f1296726018caea03d74b7679">BINARY_OPERATOR</a>, 
-<a class="el" href="namespacebi.html#a9b2ad316b6b753837a1756533290b010a13c45196813cb44e6e81e9c48a5ec1b4">BASIC</a>, 
-<a class="el" href="namespacebi.html#a9b2ad316b6b753837a1756533290b010a8dabc58c34c5df57f2151d6f233d6c15">CLASS</a>, 
 <br />
-&#160;&#160;<a class="el" href="namespacebi.html#a9b2ad316b6b753837a1756533290b010a1b4725697f8ee851acd7552d490ddab5">ALIAS</a>, 
+&#160;&#160;<a class="el" href="namespacebi.html#a9b2ad316b6b753837a1756533290b010a13c45196813cb44e6e81e9c48a5ec1b4">BASIC</a>, 
+<a class="el" href="namespacebi.html#a9b2ad316b6b753837a1756533290b010a8dabc58c34c5df57f2151d6f233d6c15">CLASS</a>, 
+<a class="el" href="namespacebi.html#a9b2ad316b6b753837a1756533290b010a1b4725697f8ee851acd7552d490ddab5">ALIAS</a>, 
 <a class="el" href="namespacebi.html#a9b2ad316b6b753837a1756533290b010a9e022e6380da28dd73210ed34b137c36">GENERIC</a>, 
-<a class="el" href="namespacebi.html#a9b2ad316b6b753837a1756533290b010add34e323cbfc10e56499d492dd2c3a66">UNRESOLVED</a>
+<br />
+&#160;&#160;<a class="el" href="namespacebi.html#a9b2ad316b6b753837a1756533290b010add34e323cbfc10e56499d492dd2c3a66">UNRESOLVED</a>
 <br />
  }</td></tr>
 <tr class="memdesc:a9b2ad316b6b753837a1756533290b010"><td class="mdescLeft">&#160;</td><td class="mdescRight">Categories of objects for identifier lookups.  <a href="namespacebi.html#a9b2ad316b6b753837a1756533290b010">More...</a><br /></td></tr>

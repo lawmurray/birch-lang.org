@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2019-11-10 13:04:00</td>
+            <td class="headerValue">2019-11-26 20:15:26</td>
             <td></td>
           </tr>
           <tr><td><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
@@ -223,10 +223,10 @@
 <a name="165"><span class="lineNum">     165 </span>            : /**</a>
 <a name="166"><span class="lineNum">     166 </span>            :  * Logarithm of the determinant of a matrix.</a>
 <a name="167"><span class="lineNum">     167 </span>            :  */</a>
-<a name="168"><span class="lineNum">     168 </span><span class="lineCov">    1516986 : function ldet(X:Real[_,_]) -&gt; Real {</span></a>
+<a name="168"><span class="lineNum">     168 </span><span class="lineCov">    2323145 : function ldet(X:Real[_,_]) -&gt; Real {</span></a>
 <a name="169"><span class="lineNum">     169 </span>            :   ///@todo Use Eigen LU module</a>
-<a name="170"><span class="lineNum">     170 </span><span class="lineCov">    3034011 :   return log(det(X));</span></a>
-<a name="171"><span class="lineNum">     171 </span><span class="lineCov">    1517026 : }</span></a>
+<a name="170"><span class="lineNum">     170 </span><span class="lineCov">    6964507 :   return log(det(X));</span></a>
+<a name="171"><span class="lineNum">     171 </span><span class="lineCov">    2331512 : }</span></a>
 <a name="172"><span class="lineNum">     172 </span>            : </a>
 <a name="173"><span class="lineNum">     173 </span>            : /**</a>
 <a name="174"><span class="lineNum">     174 </span>            :  * Inverse of a matrix.</a>
@@ -338,15 +338,15 @@
 <a name="280"><span class="lineNum">     280 </span>            :  *</a>
 <a name="281"><span class="lineNum">     281 </span>            :  * Returns: the lower-triangular factor $L$.</a>
 <a name="282"><span class="lineNum">     282 </span>            :  */</a>
-<a name="283"><span class="lineNum">     283 </span><span class="lineCov">    4143658 : function cholesky(X:Real[_,_]) -&gt; Real[_,_] {</span></a>
-<a name="284"><span class="lineNum">     284 </span><span class="lineCov">   12450062 :   assert rows(X) == columns(X);</span></a>
+<a name="283"><span class="lineNum">     283 </span><span class="lineCov">    5754770 : function cholesky(X:Real[_,_]) -&gt; Real[_,_] {</span></a>
+<a name="284"><span class="lineNum">     284 </span><span class="lineCov">   23025001 :   assert rows(X) == columns(X);</span></a>
 <a name="285"><span class="lineNum">     285 </span>            :   </a>
-<a name="286"><span class="lineNum">     286 </span><span class="lineCov">   16581300 :   L:Real[rows(X),columns(X)];</span></a>
-<a name="287"><span class="lineNum">     287 </span><span class="lineCov">   24887303 :   cpp{{</span></a>
+<a name="286"><span class="lineNum">     286 </span><span class="lineCov">   28727117 :   L:Real[rows(X),columns(X)];</span></a>
+<a name="287"><span class="lineNum">     287 </span><span class="lineCov">   34188754 :   cpp{{</span></a>
 <a name="288"><span class="lineNum">     288 </span>            :   L.toEigen() = X.toEigen().llt().matrixL();</a>
 <a name="289"><span class="lineNum">     289 </span>            :   }}</a>
-<a name="290"><span class="lineNum">     290 </span><span class="lineCov">    4161904 :   return L;</span></a>
-<a name="291"><span class="lineNum">     291 </span><span class="lineCov">    8324050 : }</span></a>
+<a name="290"><span class="lineNum">     290 </span><span class="lineCov">   11543397 :   return L;</span></a>
+<a name="291"><span class="lineNum">     291 </span><span class="lineCov">   11560404 : }</span></a>
 <a name="292"><span class="lineNum">     292 </span>            : </a>
 <a name="293"><span class="lineNum">     293 </span>            : function sqrt(x:Real[_]) -&gt; Real[_];</a>
 </pre>

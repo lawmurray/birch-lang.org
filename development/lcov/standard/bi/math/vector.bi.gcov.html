@@ -31,13 +31,13 @@
             <td class="headerValue">standard.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">54</td>
-            <td class="headerCovTableEntry">214</td>
-            <td class="headerCovTableEntryLo">25.2 %</td>
+            <td class="headerCovTableEntry">57</td>
+            <td class="headerCovTableEntry">220</td>
+            <td class="headerCovTableEntryLo">25.9 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2019-11-10 13:04:00</td>
+            <td class="headerValue">2019-11-26 20:15:26</td>
             <td></td>
           </tr>
           <tr><td><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
@@ -59,24 +59,24 @@
 <a name="1"><span class="lineNum">       1 </span>            : /**</a>
 <a name="2"><span class="lineNum">       2 </span>            :  * Create vector filled with a given scalar.</a>
 <a name="3"><span class="lineNum">       3 </span>            :  */</a>
-<a name="4"><span class="lineNum">       4 </span><span class="lineCov">    2319848 : function vector(x:Real, length:Integer) -&gt; Real[_] {</span></a>
-<a name="5"><span class="lineNum">       5 </span><span class="lineCov">    4621462 :   z:Real[length];</span></a>
-<a name="6"><span class="lineNum">       6 </span><span class="lineCov">    7007285 :   cpp{{</span></a>
+<a name="4"><span class="lineNum">       4 </span><span class="lineCov">    2559249 : function vector(x:Real, length:Integer) -&gt; Real[_] {</span></a>
+<a name="5"><span class="lineNum">       5 </span><span class="lineCov">    7681114 :   z:Real[length];</span></a>
+<a name="6"><span class="lineNum">       6 </span><span class="lineCov">    7670089 :   cpp{{</span></a>
 <a name="7"><span class="lineNum">       7 </span>            :   std::fill(z.begin(), z.end(), x);</a>
 <a name="8"><span class="lineNum">       8 </span>            :   }}</a>
-<a name="9"><span class="lineNum">       9 </span><span class="lineCov">    2376693 :   return z;</span></a>
-<a name="10"><span class="lineNum">      10 </span><span class="lineCov">    4755617 : }</span></a>
+<a name="9"><span class="lineNum">       9 </span><span class="lineCov">    5238137 :   return z;</span></a>
+<a name="10"><span class="lineNum">      10 </span><span class="lineCov">    5249029 : }</span></a>
 <a name="11"><span class="lineNum">      11 </span>            : </a>
 <a name="12"><span class="lineNum">      12 </span>            : /**</a>
 <a name="13"><span class="lineNum">      13 </span>            :  * Create vector filled with a given value.</a>
 <a name="14"><span class="lineNum">      14 </span>            :  */</a>
-<a name="15"><span class="lineNum">      15 </span><span class="lineCov">      20389 : function vector(x:Integer, length:Integer) -&gt; Integer[_] {</span></a>
-<a name="16"><span class="lineNum">      16 </span><span class="lineCov">      40778 :   z:Integer[length];</span></a>
-<a name="17"><span class="lineNum">      17 </span><span class="lineCov">      61167 :   cpp{{</span></a>
+<a name="15"><span class="lineNum">      15 </span><span class="lineCov">      24893 : function vector(x:Integer, length:Integer) -&gt; Integer[_] {</span></a>
+<a name="16"><span class="lineNum">      16 </span><span class="lineCov">      74656 :   z:Integer[length];</span></a>
+<a name="17"><span class="lineNum">      17 </span><span class="lineCov">      74547 :   cpp{{</span></a>
 <a name="18"><span class="lineNum">      18 </span>            :   std::fill(z.begin(), z.end(), x);</a>
 <a name="19"><span class="lineNum">      19 </span>            :   }}</a>
-<a name="20"><span class="lineNum">      20 </span><span class="lineCov">      20389 :   return z;</span></a>
-<a name="21"><span class="lineNum">      21 </span><span class="lineCov">      40778 : }</span></a>
+<a name="20"><span class="lineNum">      20 </span><span class="lineCov">      49854 :   return z;</span></a>
+<a name="21"><span class="lineNum">      21 </span><span class="lineCov">      49854 : }</span></a>
 <a name="22"><span class="lineNum">      22 </span>            : </a>
 <a name="23"><span class="lineNum">      23 </span>            : /**</a>
 <a name="24"><span class="lineNum">      24 </span>            :  * Create vector filled with a given value.</a>
@@ -109,13 +109,13 @@
 <a name="51"><span class="lineNum">      51 </span>            :  * - x: Initial value.</a>
 <a name="52"><span class="lineNum">      52 </span>            :  * - length: Length.</a>
 <a name="53"><span class="lineNum">      53 </span>            :  */</a>
-<a name="54"><span class="lineNum">      54 </span><span class="lineCov">       3376 : function iota(x:Integer, length:Integer) -&gt; Integer[_] {</span></a>
-<a name="55"><span class="lineNum">      55 </span><span class="lineCov">       6752 :   z:Integer[length];</span></a>
-<a name="56"><span class="lineNum">      56 </span><span class="lineCov">      10128 :   cpp{{</span></a>
+<a name="54"><span class="lineNum">      54 </span><span class="lineCov">         25 : function iota(x:Integer, length:Integer) -&gt; Integer[_] {</span></a>
+<a name="55"><span class="lineNum">      55 </span><span class="lineCov">         75 :   z:Integer[length];</span></a>
+<a name="56"><span class="lineNum">      56 </span><span class="lineCov">         75 :   cpp{{</span></a>
 <a name="57"><span class="lineNum">      57 </span>            :   std::iota(z.begin(), z.end(), x);</a>
 <a name="58"><span class="lineNum">      58 </span>            :   }}</a>
-<a name="59"><span class="lineNum">      59 </span><span class="lineCov">       3376 :   return z;</span></a>
-<a name="60"><span class="lineNum">      60 </span><span class="lineCov">       6752 : }</span></a>
+<a name="59"><span class="lineNum">      59 </span><span class="lineCov">         50 :   return z;</span></a>
+<a name="60"><span class="lineNum">      60 </span><span class="lineCov">         50 : }</span></a>
 <a name="61"><span class="lineNum">      61 </span>            : </a>
 <a name="62"><span class="lineNum">      62 </span>            : /**</a>
 <a name="63"><span class="lineNum">      63 </span>            :  * Create vector filled with a sequentially incrementing values.</a>
@@ -134,10 +134,10 @@
 <a name="76"><span class="lineNum">      76 </span>            : /**</a>
 <a name="77"><span class="lineNum">      77 </span>            :  * Convert single-element vector to scalar value.</a>
 <a name="78"><span class="lineNum">      78 </span>            :  */</a>
-<a name="79"><span class="lineNum">      79 </span><span class="lineCov">     331901 : function scalar(x:Real[_]) -&gt; Real {</span></a>
-<a name="80"><span class="lineNum">      80 </span><span class="lineCov">     699581 :   assert length(x) == 1;  </span></a>
-<a name="81"><span class="lineNum">      81 </span><span class="lineCov">    1054479 :   return x[1];</span></a>
-<a name="82"><span class="lineNum">      82 </span><span class="lineCov">     356237 : }</span></a>
+<a name="79"><span class="lineNum">      79 </span><span class="lineCov">     651728 : function scalar(x:Real[_]) -&gt; Real {</span></a>
+<a name="80"><span class="lineNum">      80 </span><span class="lineCov">    2015020 :   assert length(x) == 1;  </span></a>
+<a name="81"><span class="lineNum">      81 </span><span class="lineCov">    2710987 :   return x[1];</span></a>
+<a name="82"><span class="lineNum">      82 </span><span class="lineCov">     691850 : }</span></a>
 <a name="83"><span class="lineNum">      83 </span>            : </a>
 <a name="84"><span class="lineNum">      84 </span>            : /**</a>
 <a name="85"><span class="lineNum">      85 </span>            :  * Convert single-element vector to scalar value.</a>
@@ -159,7 +159,7 @@
 <a name="101"><span class="lineNum">     101 </span>            :  * Convert vector to vector (identity operation).</a>
 <a name="102"><span class="lineNum">     102 </span>            :  */</a>
 <a name="103"><span class="lineNum">     103 </span><span class="lineCov">     140000 : function vector(x:Real[_]) -&gt; Real[_] {</span></a>
-<a name="104"><span class="lineNum">     104 </span><span class="lineCov">     140000 :   return x;</span></a>
+<a name="104"><span class="lineNum">     104 </span><span class="lineCov">     280000 :   return x;</span></a>
 <a name="105"><span class="lineNum">     105 </span><span class="lineCov">     140000 : }</span></a>
 <a name="106"><span class="lineNum">     106 </span>            : </a>
 <a name="107"><span class="lineNum">     107 </span>            : /**</a>
@@ -182,7 +182,7 @@
 <a name="124"><span class="lineNum">     124 </span><span class="lineNoCov">          0 : function matrix(x:Boolean[_], rows:Integer, cols:Integer) -&gt; Boolean[_,_] {</span></a>
 <a name="125"><span class="lineNum">     125 </span><span class="lineNoCov">          0 :   assert rows*cols == length(x);</span></a>
 <a name="126"><span class="lineNum">     126 </span><span class="lineNoCov">          0 :   X:Boolean[rows,cols];</span></a>
-<a name="127"><span class="lineNum">     127 </span><span class="lineNoCov">          0 :   for auto i in 1..rows {</span></a>
+<a name="127"><span class="lineNum">     127 </span><span class="lineNoCov">          0 :   for i in 1..rows {</span></a>
 <a name="128"><span class="lineNum">     128 </span><span class="lineNoCov">          0 :     X[i,1..cols] &lt;- x[(i - 1)*cols + 1..i*cols];</span></a>
 <a name="129"><span class="lineNum">     129 </span><span class="lineNoCov">          0 :   }</span></a>
 <a name="130"><span class="lineNum">     130 </span><span class="lineNoCov">          0 :   return X;</span></a>
@@ -192,12 +192,12 @@
 <a name="134"><span class="lineNum">     134 </span>            :  * Convert vector to matrix (identity operation).</a>
 <a name="135"><span class="lineNum">     135 </span>            :  */</a>
 <a name="136"><span class="lineNum">     136 </span><span class="lineCov">    1814000 : function matrix(x:Real[_], rows:Integer, cols:Integer) -&gt; Real[_,_] {</span></a>
-<a name="137"><span class="lineNum">     137 </span><span class="lineCov">    3628000 :   assert rows*cols == length(x);</span></a>
-<a name="138"><span class="lineNum">     138 </span><span class="lineCov">    3628000 :   X:Real[rows,cols];</span></a>
-<a name="139"><span class="lineNum">     139 </span><span class="lineCov">   20560000 :   for auto i in 1..rows {</span></a>
-<a name="140"><span class="lineNum">     140 </span><span class="lineCov">   67728000 :     X[i,1..cols] &lt;- x[(i - 1)*cols + 1..i*cols];</span></a>
-<a name="141"><span class="lineNum">     141 </span><span class="lineCov">    8466000 :   }</span></a>
-<a name="142"><span class="lineNum">     142 </span><span class="lineCov">    1814000 :   return X;</span></a>
+<a name="137"><span class="lineNum">     137 </span><span class="lineCov">    5442000 :   assert rows*cols == length(x);</span></a>
+<a name="138"><span class="lineNum">     138 </span><span class="lineCov">    5442000 :   X:Real[rows,cols];</span></a>
+<a name="139"><span class="lineNum">     139 </span><span class="lineCov">   22375000 :   for i in 1..rows {</span></a>
+<a name="140"><span class="lineNum">     140 </span><span class="lineCov">   76198500 :     X[i,1..cols] &lt;- x[(i - 1)*cols + 1..i*cols];</span></a>
+<a name="141"><span class="lineNum">     141 </span><span class="lineCov">    8466500 :   }</span></a>
+<a name="142"><span class="lineNum">     142 </span><span class="lineCov">    3628000 :   return X;</span></a>
 <a name="143"><span class="lineNum">     143 </span><span class="lineCov">    3628000 : }</span></a>
 <a name="144"><span class="lineNum">     144 </span>            : </a>
 <a name="145"><span class="lineNum">     145 </span>            : /**</a>
@@ -206,7 +206,7 @@
 <a name="148"><span class="lineNum">     148 </span><span class="lineNoCov">          0 : function matrix(x:Integer[_], rows:Integer, cols:Integer) -&gt; Integer[_,_] {</span></a>
 <a name="149"><span class="lineNum">     149 </span><span class="lineNoCov">          0 :   assert rows*cols == length(x);</span></a>
 <a name="150"><span class="lineNum">     150 </span><span class="lineNoCov">          0 :   X:Integer[rows,cols];</span></a>
-<a name="151"><span class="lineNum">     151 </span><span class="lineNoCov">          0 :   for auto i in 1..rows {</span></a>
+<a name="151"><span class="lineNum">     151 </span><span class="lineNoCov">          0 :   for i in 1..rows {</span></a>
 <a name="152"><span class="lineNum">     152 </span><span class="lineNoCov">          0 :     X[i,1..cols] &lt;- x[(i - 1)*cols + 1..i*cols];</span></a>
 <a name="153"><span class="lineNum">     153 </span><span class="lineNoCov">          0 :   }</span></a>
 <a name="154"><span class="lineNum">     154 </span><span class="lineNoCov">          0 :   return X;</span></a>
@@ -215,27 +215,27 @@
 <a name="157"><span class="lineNum">     157 </span>            : /**</a>
 <a name="158"><span class="lineNum">     158 </span>            :  * Length of a vector.</a>
 <a name="159"><span class="lineNum">     159 </span>            :  */</a>
-<a name="160"><span class="lineNum">     160 </span><span class="lineNoCov">          0 : function length(x:Object[_]) -&gt; Integer {</span></a>
-<a name="161"><span class="lineNum">     161 </span><span class="lineNoCov">          0 :   cpp{{</span></a>
-<a name="162"><span class="lineNum">     162 </span><span class="lineNoCov">          0 :   return x.rows();</span></a>
+<a name="160"><span class="lineNum">     160 </span><span class="lineCov">     823698 : function length(x:Object[_]) -&gt; Integer {</span></a>
+<a name="161"><span class="lineNum">     161 </span><span class="lineCov">     823698 :   cpp{{</span></a>
+<a name="162"><span class="lineNum">     162 </span><span class="lineCov">     823698 :   return x.rows();</span></a>
 <a name="163"><span class="lineNum">     163 </span>            :   }}</a>
 <a name="164"><span class="lineNum">     164 </span>            : }</a>
 <a name="165"><span class="lineNum">     165 </span>            : </a>
 <a name="166"><span class="lineNum">     166 </span>            : /**</a>
 <a name="167"><span class="lineNum">     167 </span>            :  * Length of a vector.</a>
 <a name="168"><span class="lineNum">     168 </span>            :  */</a>
-<a name="169"><span class="lineNum">     169 </span><span class="lineCov">   87701543 : function length(x:Real[_]) -&gt; Integer {</span></a>
-<a name="170"><span class="lineNum">     170 </span><span class="lineCov">   87701543 :   cpp{{</span></a>
-<a name="171"><span class="lineNum">     171 </span><span class="lineCov">   87845209 :   return x.rows();</span></a>
+<a name="169"><span class="lineNum">     169 </span><span class="lineCov">   87316004 : function length(x:Real[_]) -&gt; Integer {</span></a>
+<a name="170"><span class="lineNum">     170 </span><span class="lineCov">   87316004 :   cpp{{</span></a>
+<a name="171"><span class="lineNum">     171 </span><span class="lineCov">   87482366 :   return x.rows();</span></a>
 <a name="172"><span class="lineNum">     172 </span>            :   }}</a>
 <a name="173"><span class="lineNum">     173 </span>            : }</a>
 <a name="174"><span class="lineNum">     174 </span>            : </a>
 <a name="175"><span class="lineNum">     175 </span>            : /**</a>
 <a name="176"><span class="lineNum">     176 </span>            :  * Length of a vector.</a>
 <a name="177"><span class="lineNum">     177 </span>            :  */</a>
-<a name="178"><span class="lineNum">     178 </span><span class="lineCov">     387740 : function length(x:Integer[_]) -&gt; Integer {</span></a>
-<a name="179"><span class="lineNum">     179 </span><span class="lineCov">     387740 :   cpp{{</span></a>
-<a name="180"><span class="lineNum">     180 </span><span class="lineCov">     388172 :   return x.rows();</span></a>
+<a name="178"><span class="lineNum">     178 </span><span class="lineCov">     444815 : function length(x:Integer[_]) -&gt; Integer {</span></a>
+<a name="179"><span class="lineNum">     179 </span><span class="lineCov">     444815 :   cpp{{</span></a>
+<a name="180"><span class="lineNum">     180 </span><span class="lineCov">     445255 :   return x.rows();</span></a>
 <a name="181"><span class="lineNum">     181 </span>            :   }}</a>
 <a name="182"><span class="lineNum">     182 </span>            : }</a>
 <a name="183"><span class="lineNum">     183 </span>            : </a>
@@ -287,19 +287,19 @@
 <a name="229"><span class="lineNum">     229 </span>            : /**</a>
 <a name="230"><span class="lineNum">     230 </span>            :  * Sum of a vector.</a>
 <a name="231"><span class="lineNum">     231 </span>            :  */</a>
-<a name="232"><span class="lineNum">     232 </span><span class="lineCov">    1801290 : function sum(x:Real[_]) -&gt; Real {</span></a>
-<a name="233"><span class="lineNum">     233 </span><span class="lineCov">    5420854 :   return reduce&lt;Real&gt;(x, 0.0, @(x:Real, y:Real) -&gt; Real {</span></a>
-<a name="234"><span class="lineNum">     234 </span><span class="lineCov">   23047385 :       return x + y; });</span></a>
+<a name="232"><span class="lineNum">     232 </span><span class="lineCov">    1628384 : function sum(x:Real[_]) -&gt; Real {</span></a>
+<a name="233"><span class="lineNum">     233 </span><span class="lineCov">    6541536 :   return reduce&lt;Real&gt;(x, 0.0, @(x:Real, y:Real) -&gt; Real {</span></a>
+<a name="234"><span class="lineNum">     234 </span><span class="lineCov">   20983929 :       return x + y; });</span></a>
 <a name="235"><span class="lineNum">     235 </span>            : }</a>
-<a name="236"><span class="lineNum">     236 </span><span class="lineCov">    1811753 : </span></a>
+<a name="236"><span class="lineNum">     236 </span><span class="lineCov">    1643744 : </span></a>
 <a name="237"><span class="lineNum">     237 </span>            : /**</a>
 <a name="238"><span class="lineNum">     238 </span>            :  * Sum of a vector.</a>
 <a name="239"><span class="lineNum">     239 </span>            :  */</a>
-<a name="240"><span class="lineNum">     240 </span><span class="lineCov">     379634 : function sum(x:Integer[_]) -&gt; Integer {</span></a>
-<a name="241"><span class="lineNum">     241 </span><span class="lineCov">    1143106 :   return reduce&lt;Integer&gt;(x, 0, @(x:Integer, y:Integer) -&gt; Integer {</span></a>
-<a name="242"><span class="lineNum">     242 </span><span class="lineCov">    2793553 :       return x + y; });</span></a>
+<a name="240"><span class="lineNum">     240 </span><span class="lineCov">     379587 : function sum(x:Integer[_]) -&gt; Integer {</span></a>
+<a name="241"><span class="lineNum">     241 </span><span class="lineCov">    1524362 :   return reduce&lt;Integer&gt;(x, 0, @(x:Integer, y:Integer) -&gt; Integer {</span></a>
+<a name="242"><span class="lineNum">     242 </span><span class="lineCov">    2794113 :       return x + y; });</span></a>
 <a name="243"><span class="lineNum">     243 </span>            : }</a>
-<a name="244"><span class="lineNum">     244 </span><span class="lineCov">     383482 : </span></a>
+<a name="244"><span class="lineNum">     244 </span><span class="lineCov">     383712 : </span></a>
 <a name="245"><span class="lineNum">     245 </span>            : /**</a>
 <a name="246"><span class="lineNum">     246 </span>            :  * Sum of a vector.</a>
 <a name="247"><span class="lineNum">     247 </span>            :  */</a>
@@ -335,12 +335,12 @@
 <a name="277"><span class="lineNum">     277 </span>            : /**</a>
 <a name="278"><span class="lineNum">     278 </span>            :  * Maximum of a vector.</a>
 <a name="279"><span class="lineNum">     279 </span>            :  */</a>
-<a name="280"><span class="lineNum">     280 </span><span class="lineCov">       9688 : function max(x:Real[_]) -&gt; Real {</span></a>
-<a name="281"><span class="lineNum">     281 </span><span class="lineCov">      19376 :   assert length(x) &gt; 0;</span></a>
-<a name="282"><span class="lineNum">     282 </span><span class="lineCov">      48440 :   return reduce&lt;Real&gt;(x, x[1], @(x:Real, y:Real) -&gt; Real {</span></a>
-<a name="283"><span class="lineNum">     283 </span><span class="lineCov">   23379284 :       return max(x, y); });</span></a>
+<a name="280"><span class="lineNum">     280 </span><span class="lineCov">      12148 : function max(x:Real[_]) -&gt; Real {</span></a>
+<a name="281"><span class="lineNum">     281 </span><span class="lineCov">      36444 :   assert length(x) &gt; 0;</span></a>
+<a name="282"><span class="lineNum">     282 </span><span class="lineCov">      72888 :   return reduce&lt;Real&gt;(x, x[1], @(x:Real, y:Real) -&gt; Real {</span></a>
+<a name="283"><span class="lineNum">     283 </span><span class="lineCov">   26608612 :       return max(x, y); });</span></a>
 <a name="284"><span class="lineNum">     284 </span>            : }</a>
-<a name="285"><span class="lineNum">     285 </span><span class="lineCov">       9688 : </span></a>
+<a name="285"><span class="lineNum">     285 </span><span class="lineCov">      12148 : </span></a>
 <a name="286"><span class="lineNum">     286 </span>            : /**</a>
 <a name="287"><span class="lineNum">     287 </span>            :  * Maximum of a vector.</a>
 <a name="288"><span class="lineNum">     288 </span>            :  */</a>
@@ -363,8 +363,8 @@
 <a name="305"><span class="lineNum">     305 </span>            :  * Minimum of a vector.</a>
 <a name="306"><span class="lineNum">     306 </span>            :  */</a>
 <a name="307"><span class="lineNum">     307 </span><span class="lineCov">       1560 : function min(x:Real[_]) -&gt; Real {</span></a>
-<a name="308"><span class="lineNum">     308 </span><span class="lineCov">       3120 :   assert length(x) &gt; 0;</span></a>
-<a name="309"><span class="lineNum">     309 </span><span class="lineCov">       7800 :   return reduce&lt;Real&gt;(x, x[1], @(x:Real, y:Real) -&gt; Real {</span></a>
+<a name="308"><span class="lineNum">     308 </span><span class="lineCov">       4680 :   assert length(x) &gt; 0;</span></a>
+<a name="309"><span class="lineNum">     309 </span><span class="lineCov">       9360 :   return reduce&lt;Real&gt;(x, x[1], @(x:Real, y:Real) -&gt; Real {</span></a>
 <a name="310"><span class="lineNum">     310 </span><span class="lineCov">   15600000 :       return min(x, y); });</span></a>
 <a name="311"><span class="lineNum">     311 </span>            : }</a>
 <a name="312"><span class="lineNum">     312 </span><span class="lineCov">       1560 : </span></a>
@@ -440,66 +440,74 @@
 <a name="382"><span class="lineNum">     382 </span><span class="lineNoCov">          0 :   cpp{{</span></a>
 <a name="383"><span class="lineNum">     383 </span>            :   std::stringstream buf;</a>
 <a name="384"><span class="lineNum">     384 </span>            :   }}</a>
-<a name="385"><span class="lineNum">     385 </span><span class="lineNoCov">          0 :   for auto i in 1..length(x) {</span></a>
-<a name="386"><span class="lineNum">     386 </span><span class="lineNoCov">          0 :     auto value &lt;- String(x[i]);</span></a>
+<a name="385"><span class="lineNum">     385 </span><span class="lineNoCov">          0 :   for i in 1..length(x) {</span></a>
+<a name="386"><span class="lineNum">     386 </span><span class="lineNoCov">          0 :     auto value &lt;- x[i];</span></a>
 <a name="387"><span class="lineNum">     387 </span><span class="lineNoCov">          0 :     cpp{{</span></a>
 <a name="388"><span class="lineNum">     388 </span><span class="lineNoCov">          0 :     if (i &gt; 1) {</span></a>
 <a name="389"><span class="lineNum">     389 </span><span class="lineNoCov">          0 :       buf &lt;&lt; ' ';</span></a>
 <a name="390"><span class="lineNum">     390 </span><span class="lineNoCov">          0 :     }</span></a>
-<a name="391"><span class="lineNum">     391 </span><span class="lineNoCov">          0 :     buf &lt;&lt; value;</span></a>
-<a name="392"><span class="lineNum">     392 </span>            :     }}</a>
-<a name="393"><span class="lineNum">     393 </span>            :   }</a>
-<a name="394"><span class="lineNum">     394 </span><span class="lineNoCov">          0 :   cpp{{</span></a>
-<a name="395"><span class="lineNum">     395 </span>            :   result = buf.str();</a>
-<a name="396"><span class="lineNum">     396 </span>            :   }}</a>
-<a name="397"><span class="lineNum">     397 </span><span class="lineNoCov">          0 :   return result;</span></a>
-<a name="398"><span class="lineNum">     398 </span><span class="lineNoCov">          0 : }</span></a>
-<a name="399"><span class="lineNum">     399 </span>            : </a>
-<a name="400"><span class="lineNum">     400 </span>            : /**</a>
-<a name="401"><span class="lineNum">     401 </span>            :  * Convert vector to String.</a>
-<a name="402"><span class="lineNum">     402 </span>            :  */</a>
-<a name="403"><span class="lineNum">     403 </span><span class="lineNoCov">          0 : function String(x:Integer[_]) -&gt; String {</span></a>
-<a name="404"><span class="lineNum">     404 </span><span class="lineNoCov">          0 :   result:String;</span></a>
-<a name="405"><span class="lineNum">     405 </span><span class="lineNoCov">          0 :   cpp{{</span></a>
-<a name="406"><span class="lineNum">     406 </span>            :   std::stringstream buf;</a>
-<a name="407"><span class="lineNum">     407 </span>            :   }}</a>
-<a name="408"><span class="lineNum">     408 </span><span class="lineNoCov">          0 :   for auto i in 1..length(x) {</span></a>
-<a name="409"><span class="lineNum">     409 </span><span class="lineNoCov">          0 :     auto value &lt;- String(x[i]);</span></a>
-<a name="410"><span class="lineNum">     410 </span><span class="lineNoCov">          0 :     cpp{{</span></a>
-<a name="411"><span class="lineNum">     411 </span><span class="lineNoCov">          0 :     if (i &gt; 1) {</span></a>
-<a name="412"><span class="lineNum">     412 </span><span class="lineNoCov">          0 :       buf &lt;&lt; ' ';</span></a>
-<a name="413"><span class="lineNum">     413 </span><span class="lineNoCov">          0 :     }</span></a>
-<a name="414"><span class="lineNum">     414 </span><span class="lineNoCov">          0 :     buf &lt;&lt; value;</span></a>
-<a name="415"><span class="lineNum">     415 </span>            :     }}</a>
-<a name="416"><span class="lineNum">     416 </span>            :   }</a>
-<a name="417"><span class="lineNum">     417 </span><span class="lineNoCov">          0 :   cpp{{</span></a>
-<a name="418"><span class="lineNum">     418 </span>            :   result = buf.str();</a>
-<a name="419"><span class="lineNum">     419 </span>            :   }}</a>
-<a name="420"><span class="lineNum">     420 </span><span class="lineNoCov">          0 :   return result;</span></a>
-<a name="421"><span class="lineNum">     421 </span><span class="lineNoCov">          0 : }</span></a>
-<a name="422"><span class="lineNum">     422 </span>            : </a>
-<a name="423"><span class="lineNum">     423 </span>            : /**</a>
-<a name="424"><span class="lineNum">     424 </span>            :  * Convert vector to String.</a>
-<a name="425"><span class="lineNum">     425 </span>            :  */</a>
-<a name="426"><span class="lineNum">     426 </span><span class="lineNoCov">          0 : function String(x:Boolean[_]) -&gt; String {</span></a>
-<a name="427"><span class="lineNum">     427 </span><span class="lineNoCov">          0 :   result:String;</span></a>
-<a name="428"><span class="lineNum">     428 </span><span class="lineNoCov">          0 :   cpp{{</span></a>
-<a name="429"><span class="lineNum">     429 </span>            :   std::stringstream buf;</a>
-<a name="430"><span class="lineNum">     430 </span>            :   }}</a>
-<a name="431"><span class="lineNum">     431 </span><span class="lineNoCov">          0 :   for auto i in 1..length(x) {</span></a>
-<a name="432"><span class="lineNum">     432 </span><span class="lineNoCov">          0 :     auto value &lt;- String(x[i]);</span></a>
-<a name="433"><span class="lineNum">     433 </span><span class="lineNoCov">          0 :     cpp{{</span></a>
-<a name="434"><span class="lineNum">     434 </span><span class="lineNoCov">          0 :     if (i &gt; 1) {</span></a>
-<a name="435"><span class="lineNum">     435 </span><span class="lineNoCov">          0 :       buf &lt;&lt; ' ';</span></a>
-<a name="436"><span class="lineNum">     436 </span><span class="lineNoCov">          0 :     }</span></a>
-<a name="437"><span class="lineNum">     437 </span><span class="lineNoCov">          0 :     buf &lt;&lt; value;</span></a>
-<a name="438"><span class="lineNum">     438 </span>            :     }}</a>
-<a name="439"><span class="lineNum">     439 </span>            :   }</a>
-<a name="440"><span class="lineNum">     440 </span><span class="lineNoCov">          0 :   cpp{{</span></a>
-<a name="441"><span class="lineNum">     441 </span>            :   result = buf.str();</a>
-<a name="442"><span class="lineNum">     442 </span>            :   }}</a>
-<a name="443"><span class="lineNum">     443 </span><span class="lineNoCov">          0 :   return result;</span></a>
-<a name="444"><span class="lineNum">     444 </span><span class="lineNoCov">          0 : }</span></a>
+<a name="391"><span class="lineNum">     391 </span><span class="lineNoCov">          0 :     if (value == floor(value)) {</span></a>
+<a name="392"><span class="lineNum">     392 </span><span class="lineNoCov">          0 :       buf &lt;&lt; (int64_t)value &lt;&lt; &quot;.0&quot;;</span></a>
+<a name="393"><span class="lineNum">     393 </span><span class="lineNoCov">          0 :     } else {</span></a>
+<a name="394"><span class="lineNum">     394 </span>            :       buf &lt;&lt; std::scientific &lt;&lt; std::setprecision(6) &lt;&lt; value;</a>
+<a name="395"><span class="lineNum">     395 </span><span class="lineNoCov">          0 :     }</span></a>
+<a name="396"><span class="lineNum">     396 </span>            :     }}</a>
+<a name="397"><span class="lineNum">     397 </span>            :   }</a>
+<a name="398"><span class="lineNum">     398 </span><span class="lineNoCov">          0 :   cpp{{</span></a>
+<a name="399"><span class="lineNum">     399 </span>            :   result = buf.str();</a>
+<a name="400"><span class="lineNum">     400 </span>            :   }}</a>
+<a name="401"><span class="lineNum">     401 </span><span class="lineNoCov">          0 :   return result;</span></a>
+<a name="402"><span class="lineNum">     402 </span><span class="lineNoCov">          0 : }</span></a>
+<a name="403"><span class="lineNum">     403 </span>            : </a>
+<a name="404"><span class="lineNum">     404 </span>            : /**</a>
+<a name="405"><span class="lineNum">     405 </span>            :  * Convert vector to String.</a>
+<a name="406"><span class="lineNum">     406 </span>            :  */</a>
+<a name="407"><span class="lineNum">     407 </span><span class="lineNoCov">          0 : function String(x:Integer[_]) -&gt; String {</span></a>
+<a name="408"><span class="lineNum">     408 </span><span class="lineNoCov">          0 :   result:String;</span></a>
+<a name="409"><span class="lineNum">     409 </span><span class="lineNoCov">          0 :   cpp{{</span></a>
+<a name="410"><span class="lineNum">     410 </span>            :   std::stringstream buf;</a>
+<a name="411"><span class="lineNum">     411 </span>            :   }}</a>
+<a name="412"><span class="lineNum">     412 </span><span class="lineNoCov">          0 :   for i in 1..length(x) {</span></a>
+<a name="413"><span class="lineNum">     413 </span><span class="lineNoCov">          0 :     auto value &lt;- x[i];</span></a>
+<a name="414"><span class="lineNum">     414 </span><span class="lineNoCov">          0 :     cpp{{</span></a>
+<a name="415"><span class="lineNum">     415 </span><span class="lineNoCov">          0 :     if (i &gt; 1) {</span></a>
+<a name="416"><span class="lineNum">     416 </span><span class="lineNoCov">          0 :       buf &lt;&lt; ' ';</span></a>
+<a name="417"><span class="lineNum">     417 </span><span class="lineNoCov">          0 :     }</span></a>
+<a name="418"><span class="lineNum">     418 </span><span class="lineNoCov">          0 :     buf &lt;&lt; value;</span></a>
+<a name="419"><span class="lineNum">     419 </span>            :     }}</a>
+<a name="420"><span class="lineNum">     420 </span>            :   }</a>
+<a name="421"><span class="lineNum">     421 </span><span class="lineNoCov">          0 :   cpp{{</span></a>
+<a name="422"><span class="lineNum">     422 </span>            :   result = buf.str();</a>
+<a name="423"><span class="lineNum">     423 </span>            :   }}</a>
+<a name="424"><span class="lineNum">     424 </span><span class="lineNoCov">          0 :   return result;</span></a>
+<a name="425"><span class="lineNum">     425 </span><span class="lineNoCov">          0 : }</span></a>
+<a name="426"><span class="lineNum">     426 </span>            : </a>
+<a name="427"><span class="lineNum">     427 </span>            : /**</a>
+<a name="428"><span class="lineNum">     428 </span>            :  * Convert vector to String.</a>
+<a name="429"><span class="lineNum">     429 </span>            :  */</a>
+<a name="430"><span class="lineNum">     430 </span><span class="lineNoCov">          0 : function String(x:Boolean[_]) -&gt; String {</span></a>
+<a name="431"><span class="lineNum">     431 </span><span class="lineNoCov">          0 :   result:String;</span></a>
+<a name="432"><span class="lineNum">     432 </span><span class="lineNoCov">          0 :   cpp{{</span></a>
+<a name="433"><span class="lineNum">     433 </span>            :   std::stringstream buf;</a>
+<a name="434"><span class="lineNum">     434 </span>            :   }}</a>
+<a name="435"><span class="lineNum">     435 </span><span class="lineNoCov">          0 :   for i in 1..length(x) {</span></a>
+<a name="436"><span class="lineNum">     436 </span><span class="lineNoCov">          0 :     auto value &lt;- x[i];</span></a>
+<a name="437"><span class="lineNum">     437 </span><span class="lineNoCov">          0 :     cpp{{</span></a>
+<a name="438"><span class="lineNum">     438 </span><span class="lineNoCov">          0 :     if (i &gt; 1) {</span></a>
+<a name="439"><span class="lineNum">     439 </span><span class="lineNoCov">          0 :       buf &lt;&lt; ' ';</span></a>
+<a name="440"><span class="lineNum">     440 </span><span class="lineNoCov">          0 :     }</span></a>
+<a name="441"><span class="lineNum">     441 </span><span class="lineNoCov">          0 :     if (value) {</span></a>
+<a name="442"><span class="lineNum">     442 </span><span class="lineNoCov">          0 :       buf &lt;&lt; &quot;true&quot;;</span></a>
+<a name="443"><span class="lineNum">     443 </span><span class="lineNoCov">          0 :     } else {</span></a>
+<a name="444"><span class="lineNum">     444 </span>            :       buf &lt;&lt; &quot;false&quot;;</a>
+<a name="445"><span class="lineNum">     445 </span><span class="lineNoCov">          0 :     }</span></a>
+<a name="446"><span class="lineNum">     446 </span>            :     }}</a>
+<a name="447"><span class="lineNum">     447 </span>            :   }</a>
+<a name="448"><span class="lineNum">     448 </span><span class="lineNoCov">          0 :   cpp{{</span></a>
+<a name="449"><span class="lineNum">     449 </span>            :   result = buf.str();</a>
+<a name="450"><span class="lineNum">     450 </span>            :   }}</a>
+<a name="451"><span class="lineNum">     451 </span><span class="lineNoCov">          0 :   return result;</span></a>
+<a name="452"><span class="lineNum">     452 </span><span class="lineNoCov">          0 : }</span></a>
 </pre>
       </td>
     </tr>

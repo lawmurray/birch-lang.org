@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2019-11-10 13:04:00</td>
+            <td class="headerValue">2019-11-26 20:15:26</td>
             <td></td>
           </tr>
           <tr><td><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
@@ -60,19 +60,19 @@
 <a name="2"><span class="lineNum">       2 </span>            :  * Test deep clone of an object, where the destination object is modified</a>
 <a name="3"><span class="lineNum">       3 </span>            :  * after the clone.</a>
 <a name="4"><span class="lineNum">       4 </span>            :  */</a>
-<a name="5"><span class="lineNum">       5 </span><span class="lineCov">          1 : program test_fiber_deep_clone_modify_dst() {</span></a>
+<a name="5"><span class="lineNum">       5 </span><span class="lineCov">          3 : program test_fiber_deep_clone_modify_dst() {</span></a>
 <a name="6"><span class="lineNum">       6 </span><span class="lineCov">          1 :   /* create a fiber */</span></a>
-<a name="7"><span class="lineNum">       7 </span><span class="lineCov">          3 :   auto f &lt;- deep_clone_fiber();</span></a>
-<a name="8"><span class="lineNum">       8 </span><span class="lineCov">          1 :   f?;</span></a>
+<a name="7"><span class="lineNum">       7 </span><span class="lineCov">          4 :   auto f &lt;- deep_clone_fiber();</span></a>
+<a name="8"><span class="lineNum">       8 </span><span class="lineCov">          2 :   f?;</span></a>
 <a name="9"><span class="lineNum">       9 </span>            :   </a>
 <a name="10"><span class="lineNum">      10 </span>            :   /* clone it */</a>
-<a name="11"><span class="lineNum">      11 </span><span class="lineCov">          4 :   auto g &lt;- clone&lt;Integer!&gt;(f);</span></a>
+<a name="11"><span class="lineNum">      11 </span><span class="lineCov">          5 :   auto g &lt;- clone&lt;Integer!&gt;(f);</span></a>
 <a name="12"><span class="lineNum">      12 </span>            : </a>
 <a name="13"><span class="lineNum">      13 </span>            :   /* modify the destination */</a>
-<a name="14"><span class="lineNum">      14 </span><span class="lineCov">          1 :   g?;</span></a>
+<a name="14"><span class="lineNum">      14 </span><span class="lineCov">          2 :   g?;</span></a>
 <a name="15"><span class="lineNum">      15 </span>            :   </a>
 <a name="16"><span class="lineNum">      16 </span>            :   /* check that the source is unchanged */</a>
-<a name="17"><span class="lineNum">      17 </span><span class="lineCov">          2 :   if f! != 1 {</span></a>
+<a name="17"><span class="lineNum">      17 </span><span class="lineCov">          3 :   if f! != 1 {</span></a>
 <a name="18"><span class="lineNum">      18 </span><span class="lineNoCov">          0 :     exit(1);</span></a>
 <a name="19"><span class="lineNum">      19 </span><span class="lineNoCov">          0 :   }</span></a>
 <a name="20"><span class="lineNum">      20 </span>            : }</a>

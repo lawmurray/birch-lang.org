@@ -245,11 +245,16 @@ $(function() {
 <div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;  Head&amp; head;</div>
 <div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;};</div>
 <div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160; </div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span>... Args&gt;</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;<span class="keyword">struct </span>is_value&lt;Tie&lt;Args...&gt;&gt; {</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;  <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">bool</span> value = is_value&lt;Args...&gt;::value;</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class </span>Head, <span class="keyword">class </span>...Tail&gt;</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;<span class="keyword">struct </span>is_value&lt;Tie&lt;Head,Tail...&gt;&gt; {</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;  <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">bool</span> value = is_value&lt;Head&gt;::value &amp;&amp; is_value&lt;Tie&lt;Tail...&gt;&gt;::value;</div>
 <div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;};</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;}</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> Head&gt;</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;<span class="keyword">struct </span>is_value&lt;Tie&lt;Head&gt;&gt; {</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;  <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">bool</span> value = is_value&lt;Head&gt;::value;</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;};</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160; </div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclasslibbirch_1_1Tie_html_a468588528812c9c0889edf97948901d7"><div class="ttname"><a href="classlibbirch_1_1Tie.html#a468588528812c9c0889edf97948901d7">libbirch::Tie::assign</a></div><div class="ttdeci">Tie &amp; assign(const Tuple&lt; Head1, Tail1... &gt; &amp;o)</div><div class="ttdoc">Copy assignment.</div><div class="ttdef"><b>Definition:</b> <a href="Tie_8hpp_source.html#l00066">Tie.hpp:66</a></div></div>
 <div class="ttc" id="aclasslibbirch_1_1Tie_html_a40f1cc51e7211c80e6d0649dae2d7c8a"><div class="ttname"><a href="classlibbirch_1_1Tie.html#a40f1cc51e7211c80e6d0649dae2d7c8a">libbirch::Tie::Tie</a></div><div class="ttdeci">Tie(Head &amp;head, Tail &amp;... tail)</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition:</b> <a href="Tie_8hpp_source.html#l00037">Tie.hpp:37</a></div></div>

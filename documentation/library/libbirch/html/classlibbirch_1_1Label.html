@@ -112,9 +112,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a5c3fa4bdf9e1b4a8c6d606d19515068b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibbirch_1_1Label.html#a5c3fa4bdf9e1b4a8c6d606d19515068b">thaw</a> ()</td></tr>
 <tr class="memdesc:a5c3fa4bdf9e1b4a8c6d606d19515068b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Thaw the memo.  <a href="classlibbirch_1_1Label.html#a5c3fa4bdf9e1b4a8c6d606d19515068b">More...</a><br /></td></tr>
 <tr class="separator:a5c3fa4bdf9e1b4a8c6d606d19515068b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6249994a90affe4e8b9fbcb9191508b1"><td class="memItemLeft" align="right" valign="top">virtual const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibbirch_1_1Label.html#a6249994a90affe4e8b9fbcb9191508b1">name_</a> () const</td></tr>
-<tr class="memdesc:a6249994a90affe4e8b9fbcb9191508b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Name of the class.  <a href="classlibbirch_1_1Label.html#a6249994a90affe4e8b9fbcb9191508b1">More...</a><br /></td></tr>
-<tr class="separator:a6249994a90affe4e8b9fbcb9191508b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03b8b5a278c33b2d9e225ceb286f350e"><td class="memItemLeft" align="right" valign="top">virtual const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibbirch_1_1Label.html#a03b8b5a278c33b2d9e225ceb286f350e">getClassName</a> () const</td></tr>
+<tr class="memdesc:a03b8b5a278c33b2d9e225ceb286f350e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Name of the class.  <a href="classlibbirch_1_1Label.html#a03b8b5a278c33b2d9e225ceb286f350e">More...</a><br /></td></tr>
+<tr class="separator:a03b8b5a278c33b2d9e225ceb286f350e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a97108c6955492cb802db05624a375c6e"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibbirch_1_1Counted.html#a97108c6955492cb802db05624a375c6e">operator new</a> (std::size_t <a class="el" href="classlibbirch_1_1Counted.html#a245260f6f74972558f61b85227df5aae">size</a>)</td></tr>
 <tr class="memdesc:a97108c6955492cb802db05624a375c6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">New operator.  <a href="classlibbirch_1_1Counted.html#a97108c6955492cb802db05624a375c6e">More...</a><br /></td></tr>
 <tr class="separator:a97108c6955492cb802db05624a375c6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -550,6 +550,37 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a03b8b5a278c33b2d9e225ceb286f350e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03b8b5a278c33b2d9e225ceb286f350e">&#9670;&nbsp;</a></span>getClassName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual const char* getClassName </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Name of the class. </p>
+
+<p>Reimplemented from <a class="el" href="classlibbirch_1_1Counted.html#a03b8b5a278c33b2d9e225ceb286f350e">Counted</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="Label_8hpp_source.html#l00072">72</a> of file <a class="el" href="Label_8hpp_source.html">Label.hpp</a>.</p>
+
+</div>
+</div>
 <a id="a5756f37da68a0b34ddd54f0fb9c62895"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5756f37da68a0b34ddd54f0fb9c62895">&#9670;&nbsp;</a></span>getSize()</h2>
 
@@ -723,37 +754,6 @@ Protected Attributes</h2></td></tr>
 <p>When the weak count equals the memo count (it cannot be less), the object is only reachable via keys in memos, which will never be triggered, and so the object is not considered reachable. </p>
 
 <p class="definition">Definition at line <a class="el" href="Counted_8hpp_source.html#l00287">287</a> of file <a class="el" href="Counted_8hpp_source.html">Counted.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a6249994a90affe4e8b9fbcb9191508b1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6249994a90affe4e8b9fbcb9191508b1">&#9670;&nbsp;</a></span>name_()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual const char* name_ </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Name of the class. </p>
-
-<p>Reimplemented from <a class="el" href="classlibbirch_1_1Counted.html#a6249994a90affe4e8b9fbcb9191508b1">Counted</a>.</p>
-
-<p class="definition">Definition at line <a class="el" href="Label_8hpp_source.html#l00072">72</a> of file <a class="el" href="Label_8hpp_source.html">Label.hpp</a>.</p>
 
 </div>
 </div>

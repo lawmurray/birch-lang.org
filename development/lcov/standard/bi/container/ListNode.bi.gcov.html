@@ -31,13 +31,13 @@
             <td class="headerValue">standard.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">6</td>
-            <td class="headerCovTableEntry">50</td>
-            <td class="headerCovTableEntryLo">12.0 %</td>
+            <td class="headerCovTableEntry">7</td>
+            <td class="headerCovTableEntry">51</td>
+            <td class="headerCovTableEntryLo">13.7 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2019-11-10 13:04:00</td>
+            <td class="headerValue">2019-11-26 20:15:26</td>
             <td></td>
           </tr>
           <tr><td><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
@@ -59,11 +59,11 @@
 <a name="1"><span class="lineNum">       1 </span>            : /*</a>
 <a name="2"><span class="lineNum">       2 </span>            :  * List node.</a>
 <a name="3"><span class="lineNum">       3 </span>            :  */</a>
-<a name="4"><span class="lineNum">       4 </span><span class="lineCov">         34 : final class ListNode&lt;Type&gt;(x:Type) {</span></a>
-<a name="5"><span class="lineNum">       5 </span><span class="lineCov">         28 :   x:Type &lt;- x;</span></a>
-<a name="6"><span class="lineNum">       6 </span><span class="lineCov">         16 :   prev:ListNode&lt;Type&gt;&amp;?;</span></a>
-<a name="7"><span class="lineNum">       7 </span><span class="lineCov">         58 :   next:ListNode&lt;Type&gt;?;</span></a>
-<a name="8"><span class="lineNum">       8 </span><span class="lineCov">          6 : </span></a>
+<a name="4"><span class="lineNum">       4 </span><span class="lineCov">         40 : final class ListNode&lt;Type&gt;(x:Type) {</span></a>
+<a name="5"><span class="lineNum">       5 </span><span class="lineCov">         34 :   x:Type &lt;- x;</span></a>
+<a name="6"><span class="lineNum">       6 </span><span class="lineCov">         22 :   prev:ListNode&lt;Type&gt;&amp;?;</span></a>
+<a name="7"><span class="lineNum">       7 </span><span class="lineCov">         64 :   next:ListNode&lt;Type&gt;?;</span></a>
+<a name="8"><span class="lineNum">       8 </span>            : </a>
 <a name="9"><span class="lineNum">       9 </span><span class="lineCov">         20 :   /**</span></a>
 <a name="10"><span class="lineNum">      10 </span>            :    * Get value.</a>
 <a name="11"><span class="lineNum">      11 </span>            :    */</a>
@@ -89,11 +89,11 @@
 <a name="31"><span class="lineNum">      31 </span>            :    * Insert a new node just before this one in the list.</a>
 <a name="32"><span class="lineNum">      32 </span>            :    *</a>
 <a name="33"><span class="lineNum">      33 </span>            :    * - node: the new node.</a>
-<a name="34"><span class="lineNum">      34 </span>            :    */</a>
+<a name="34"><span class="lineNum">      34 </span><span class="lineCov">   28933353 :    */</span></a>
 <a name="35"><span class="lineNum">      35 </span><span class="lineNoCov">          0 :   function insert(node:ListNode&lt;Type&gt;) {</span></a>
 <a name="36"><span class="lineNum">      36 </span><span class="lineNoCov">          0 :     prev:ListNode&lt;Type&gt;? &lt;- this.prev;</span></a>
 <a name="37"><span class="lineNum">      37 </span><span class="lineNoCov">          0 :     assert prev?;</span></a>
-<a name="38"><span class="lineNum">      38 </span>            : </a>
+<a name="38"><span class="lineNum">      38 </span><span class="lineCov">     901976 : </span></a>
 <a name="39"><span class="lineNum">      39 </span><span class="lineNoCov">          0 :     node.prev &lt;- prev;</span></a>
 <a name="40"><span class="lineNum">      40 </span><span class="lineNoCov">          0 :     node.next &lt;- this;</span></a>
 <a name="41"><span class="lineNum">      41 </span><span class="lineNoCov">          0 :     prev!.next &lt;- node;</span></a>

@@ -80,9 +80,9 @@ $(function() {
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="external_8hpp.html">libbirch/external.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="assert_8hpp.html#a81b21f5c63268197bfea11276b61d576">   13</a></span>&#160;<span class="preprocessor">#define libbirch_error_(cond) if (!(cond)) { libbirch::line(__LINE__); libbirch::abort(); }</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="assert_8hpp.html#a81b21f5c63268197bfea11276b61d576">   13</a></span>&#160;<span class="preprocessor">#define libbirch_error_(cond) if (!(cond)) { libbirch::abort(); }</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="assert_8hpp.html#ac1c28ade7b7ce8ffad8a4e22e8ef022b">   20</a></span>&#160;<span class="preprocessor">#define libbirch_error_msg_(cond, msg) if (!(cond)) { libbirch::line(__LINE__); std::stringstream buf_; buf_ &lt;&lt; msg; libbirch::abort(buf_.str()); }</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="assert_8hpp.html#ac1c28ade7b7ce8ffad8a4e22e8ef022b">   20</a></span>&#160;<span class="preprocessor">#define libbirch_error_msg_(cond, msg) if (!(cond)) { std::stringstream buf_; buf_ &lt;&lt; msg; libbirch::abort(buf_.str()); }</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#ifndef NDEBUG</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="assert_8hpp.html#a698fe6d6d9258a13709e10b5b67fad2a">   28</a></span>&#160;<span class="preprocessor">#define libbirch_assert_(cond) libbirch_error_(cond)</span></div>

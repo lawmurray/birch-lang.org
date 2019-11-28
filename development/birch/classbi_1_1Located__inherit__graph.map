@@ -1,9 +1,9 @@
 <map id="Located" name="Located">
-<area shape="rect" id="node1" title="Object with a location within a file being parsed." alt="" coords="5,1769,73,1796"/>
-<area shape="rect" id="node2" href="$classbi_1_1Expression.html" title="Expression." alt="" coords="121,664,208,691"/>
-<area shape="rect" id="node29" href="$classbi_1_1Statement.html" title="Statement." alt="" coords="123,1744,206,1771"/>
-<area shape="rect" id="node48" href="$classbi_1_1Type.html" title="Type." alt="" coords="139,1795,190,1821"/>
-<area shape="rect" id="node49" href="$classbi_1_1Unknown.html" title="Placeholder for unknown target type." alt="" coords="126,1845,203,1872"/>
+<area shape="rect" id="node1" title="Object with a location within a file being parsed." alt="" coords="5,1744,73,1771"/>
+<area shape="rect" id="node2" href="$classbi_1_1Expression.html" title="Expression." alt="" coords="121,639,208,665"/>
+<area shape="rect" id="node28" href="$classbi_1_1Statement.html" title="Statement." alt="" coords="123,1719,206,1745"/>
+<area shape="rect" id="node48" href="$classbi_1_1Type.html" title="Type." alt="" coords="139,1769,190,1796"/>
+<area shape="rect" id="node49" href="$classbi_1_1Unknown.html" title="Placeholder for unknown target type." alt="" coords="126,1820,203,1847"/>
 <area shape="rect" id="node3" href="$classbi_1_1Assign.html" title="Expression using &lt;&#45;, &lt;~ or ~&gt; operator." alt="" coords="306,5,369,32"/>
 <area shape="rect" id="node4" href="$classbi_1_1Binary.html" title="Operands to a binary operator." alt="" coords="308,56,367,83"/>
 <area shape="rect" id="node5" href="$classbi_1_1Call.html" title="Call to a function." alt="" coords="270,107,405,133"/>
@@ -17,35 +17,35 @@
 <area shape="rect" id="node13" href="$classbi_1_1Index.html" title="Index expression." alt="" coords="310,512,365,539"/>
 <area shape="rect" id="node14" href="$classbi_1_1LambdaFunction.html" title="Lambda function." alt="" coords="278,563,397,589"/>
 <area shape="rect" id="node15" href="$classbi_1_1Literal.html" title="Literal." alt="" coords="289,613,385,640"/>
-<area shape="rect" id="node16" href="$classbi_1_1LocalVariable.html" title="Local variable." alt="" coords="288,664,387,691"/>
-<area shape="rect" id="node17" href="$classbi_1_1Member.html" title="Membership operator expression." alt="" coords="303,715,372,741"/>
-<area shape="rect" id="node18" href="$classbi_1_1Nil.html" title="Nil literal." alt="" coords="318,765,357,792"/>
-<area shape="rect" id="node19" href="$classbi_1_1OverloadedIdentifier.html" title="Identifier for overloaded function." alt="" coords="268,817,407,858"/>
-<area shape="rect" id="node20" href="$classbi_1_1Parameter.html" title="Parameter to a function, fiber, program or operator." alt="" coords="296,883,379,909"/>
-<area shape="rect" id="node21" href="$classbi_1_1Parentheses.html" title="Expression in parentheses." alt="" coords="290,933,385,960"/>
-<area shape="rect" id="node22" href="$classbi_1_1Query.html" title="Query expression." alt="" coords="309,984,366,1011"/>
-<area shape="rect" id="node23" href="$classbi_1_1Range.html" title="Range expression." alt="" coords="307,1035,367,1061"/>
-<area shape="rect" id="node24" href="$classbi_1_1Sequence.html" title="Sequence expression." alt="" coords="297,1085,377,1112"/>
-<area shape="rect" id="node25" href="$classbi_1_1Slice.html" title="Expression with proceeding square brackets." alt="" coords="312,1136,363,1163"/>
-<area shape="rect" id="node26" href="$classbi_1_1Span.html" title="Span expression." alt="" coords="311,1187,363,1213"/>
-<area shape="rect" id="node27" href="$classbi_1_1Super.html" title="Keyword super." alt="" coords="309,1237,365,1264"/>
-<area shape="rect" id="node28" href="$classbi_1_1This.html" title="Keyword this." alt="" coords="314,1288,361,1315"/>
-<area shape="rect" id="node30" href="$classbi_1_1Assert.html" title="Assertion statement." alt="" coords="307,1339,367,1365"/>
-<area shape="rect" id="node31" href="$classbi_1_1AssignmentOperator.html" title="Assignment operator." alt="" coords="267,1389,408,1416"/>
-<area shape="rect" id="node32" href="$classbi_1_1Assume.html" title="Statement using ~ or &lt;&#45;? operator." alt="" coords="302,1440,373,1467"/>
-<area shape="rect" id="node33" href="$classbi_1_1Basic.html" title="Basic type." alt="" coords="310,1491,365,1517"/>
-<area shape="rect" id="node34" href="$classbi_1_1BinaryOperator.html" title="Binary operator." alt="" coords="283,1541,392,1568"/>
-<area shape="rect" id="node35" href="$classbi_1_1Braces.html" title="Statement in braces." alt="" coords="306,1592,369,1619"/>
-<area shape="rect" id="node36" href="$classbi_1_1Class.html" title="Class." alt="" coords="309,1643,365,1669"/>
-<area shape="rect" id="node37" href="$classbi_1_1ConversionOperator.html" title="Type conversion operator." alt="" coords="268,1693,407,1720"/>
-<area shape="rect" id="node38" href="$classbi_1_1DoWhile.html" title="DoWhile loop." alt="" coords="301,1744,373,1771"/>
-<area shape="rect" id="node39" href="$classbi_1_1EmptyStatement.html" title="Empty statement." alt="" coords="277,1795,397,1821"/>
-<area shape="rect" id="node40" href="$classbi_1_1ExpressionStatement.html" title="ExpressionStatement." alt="" coords="264,1845,411,1872"/>
-<area shape="rect" id="node41" href="$classbi_1_1Fiber.html" title="Fiber." alt="" coords="312,1896,363,1923"/>
-<area shape="rect" id="node42" href="$classbi_1_1For.html" title="For loop." alt="" coords="317,1947,358,1973"/>
+<area shape="rect" id="node16" href="$classbi_1_1Member.html" title="Membership operator expression." alt="" coords="303,664,372,691"/>
+<area shape="rect" id="node17" href="$classbi_1_1Nil.html" title="Nil literal." alt="" coords="318,715,357,741"/>
+<area shape="rect" id="node18" href="$classbi_1_1OverloadedIdentifier.html" title="Identifier for overloaded function." alt="" coords="268,766,407,807"/>
+<area shape="rect" id="node19" href="$classbi_1_1Parameter.html" title="Parameter to a function, member function, operator, program, or class." alt="" coords="296,832,379,859"/>
+<area shape="rect" id="node20" href="$classbi_1_1Parentheses.html" title="Expression in parentheses." alt="" coords="290,883,385,909"/>
+<area shape="rect" id="node21" href="$classbi_1_1Query.html" title="Query expression." alt="" coords="309,933,366,960"/>
+<area shape="rect" id="node22" href="$classbi_1_1Range.html" title="Range expression." alt="" coords="307,984,367,1011"/>
+<area shape="rect" id="node23" href="$classbi_1_1Sequence.html" title="Sequence expression." alt="" coords="297,1035,377,1061"/>
+<area shape="rect" id="node24" href="$classbi_1_1Slice.html" title="Expression with proceeding square brackets." alt="" coords="312,1085,363,1112"/>
+<area shape="rect" id="node25" href="$classbi_1_1Span.html" title="Span expression." alt="" coords="311,1136,363,1163"/>
+<area shape="rect" id="node26" href="$classbi_1_1Super.html" title="Keyword super." alt="" coords="309,1187,365,1213"/>
+<area shape="rect" id="node27" href="$classbi_1_1This.html" title="Keyword this." alt="" coords="314,1237,361,1264"/>
+<area shape="rect" id="node29" href="$classbi_1_1Assert.html" title="Assertion statement." alt="" coords="307,1288,367,1315"/>
+<area shape="rect" id="node30" href="$classbi_1_1AssignmentOperator.html" title="Assignment operator." alt="" coords="267,1339,408,1365"/>
+<area shape="rect" id="node31" href="$classbi_1_1Assume.html" title="Statement using ~ or &lt;&#45;? operator." alt="" coords="302,1389,373,1416"/>
+<area shape="rect" id="node32" href="$classbi_1_1Basic.html" title="Basic type." alt="" coords="310,1440,365,1467"/>
+<area shape="rect" id="node33" href="$classbi_1_1BinaryOperator.html" title="Binary operator." alt="" coords="283,1491,392,1517"/>
+<area shape="rect" id="node34" href="$classbi_1_1Braces.html" title="Statement in braces." alt="" coords="306,1541,369,1568"/>
+<area shape="rect" id="node35" href="$classbi_1_1Class.html" title="Class." alt="" coords="309,1592,365,1619"/>
+<area shape="rect" id="node36" href="$classbi_1_1ConversionOperator.html" title="Type conversion operator." alt="" coords="268,1643,407,1669"/>
+<area shape="rect" id="node37" href="$classbi_1_1DoWhile.html" title="DoWhile loop." alt="" coords="301,1693,373,1720"/>
+<area shape="rect" id="node38" href="$classbi_1_1EmptyStatement.html" title="Empty statement." alt="" coords="277,1744,397,1771"/>
+<area shape="rect" id="node39" href="$classbi_1_1ExpressionStatement.html" title="ExpressionStatement." alt="" coords="264,1795,411,1821"/>
+<area shape="rect" id="node40" href="$classbi_1_1Fiber.html" title="Fiber." alt="" coords="312,1845,363,1872"/>
+<area shape="rect" id="node41" href="$classbi_1_1For.html" title="For loop." alt="" coords="317,1896,358,1923"/>
+<area shape="rect" id="node42" href="$classbi_1_1ForVariable.html" title="Index variable in a for loop." alt="" coords="294,1947,381,1973"/>
 <area shape="rect" id="node43" href="$classbi_1_1Function.html" title="Function." alt="" coords="301,1997,373,2024"/>
 <area shape="rect" id="node44" href="$classbi_1_1GlobalVariable.html" title="Global variable." alt="" coords="285,2048,390,2075"/>
 <area shape="rect" id="node45" href="$classbi_1_1If.html" title="If." alt="" coords="318,2099,357,2125"/>
 <area shape="rect" id="node46" href="$classbi_1_1Instantiated.html" title="Statement indicating that a particular instantiation of a generic object has been compiled by a depen..." alt="" coords="276,2149,399,2176"/>
-<area shape="rect" id="node47" href="$classbi_1_1MemberFiber.html" title="Class member Fiber." alt="" coords="288,2200,387,2227"/>
+<area shape="rect" id="node47" href="$classbi_1_1LocalVariable.html" title="Local variable." alt="" coords="288,2200,387,2227"/>
 </map>

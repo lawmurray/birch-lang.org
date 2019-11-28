@@ -31,13 +31,13 @@
             <td class="headerValue">standard.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">28</td>
+            <td class="headerCovTableEntry">29</td>
             <td class="headerCovTableEntry">42</td>
-            <td class="headerCovTableEntryLo">66.7 %</td>
+            <td class="headerCovTableEntryLo">69.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2019-11-10 13:04:00</td>
+            <td class="headerValue">2019-11-26 20:15:26</td>
             <td></td>
           </tr>
           <tr><td><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
@@ -87,27 +87,27 @@
 <a name="29"><span class="lineNum">      29 </span>            :    * Variance scales.</a>
 <a name="30"><span class="lineNum">      30 </span>            :    */</a>
 <a name="31"><span class="lineNum">      31 </span><span class="lineCov">     120012 :   σ2:DelayIndependentInverseGamma&amp; &lt;- σ2;</span></a>
-<a name="32"><span class="lineNum">      32 </span><span class="lineNoCov">          0 : </span></a>
+<a name="32"><span class="lineNum">      32 </span>            : </a>
 <a name="33"><span class="lineNum">      33 </span><span class="lineCov">      60006 :   function rows() -&gt; Integer {</span></a>
 <a name="34"><span class="lineNum">      34 </span><span class="lineNoCov">          0 :     return global.rows(N);</span></a>
 <a name="35"><span class="lineNum">      35 </span><span class="lineNoCov">          0 :   }</span></a>
 <a name="36"><span class="lineNum">      36 </span>            :   </a>
 <a name="37"><span class="lineNum">      37 </span><span class="lineCov">      40002 :   function columns() -&gt; Integer {</span></a>
-<a name="38"><span class="lineNum">      38 </span><span class="lineCov">      60003 :     return global.columns(N);</span></a>
+<a name="38"><span class="lineNum">      38 </span><span class="lineCov">      80004 :     return global.columns(N);</span></a>
 <a name="39"><span class="lineNum">      39 </span><span class="lineCov">      20001 :   }</span></a>
 <a name="40"><span class="lineNum">      40 </span>            : </a>
-<a name="41"><span class="lineNum">      41 </span><span class="lineCov">      80014 :   function simulate() -&gt; Real[_,_] {</span></a>
-<a name="42"><span class="lineNum">      42 </span><span class="lineCov">     680119 :     return simulate_matrix_normal_inverse_gamma(N, Λ, α,</span></a>
-<a name="43"><span class="lineNum">      43 </span><span class="lineCov">      40007 :         gamma_to_beta(γ, N, Λ));</span></a>
+<a name="41"><span class="lineNum">      41 </span><span class="lineCov">      80012 :   function simulate() -&gt; Real[_,_] {</span></a>
+<a name="42"><span class="lineNum">      42 </span><span class="lineCov">     720108 :     return simulate_matrix_normal_inverse_gamma(N, Λ, α,</span></a>
+<a name="43"><span class="lineNum">      43 </span><span class="lineCov">      40006 :         gamma_to_beta(γ, N, Λ));</span></a>
 <a name="44"><span class="lineNum">      44 </span>            :   }</a>
 <a name="45"><span class="lineNum">      45 </span>            :   </a>
-<a name="46"><span class="lineNum">      46 </span><span class="lineCov">     606014 :   function logpdf(X:Real[_,_]) -&gt; Real {</span></a>
-<a name="47"><span class="lineNum">      47 </span><span class="lineCov">    5151119 :     return logpdf_matrix_normal_inverse_gamma(X, N, Λ, α,</span></a>
-<a name="48"><span class="lineNum">      48 </span><span class="lineCov">     303007 :         gamma_to_beta(γ, N, Λ));</span></a>
+<a name="46"><span class="lineNum">      46 </span><span class="lineCov">     605012 :   function logpdf(X:Real[_,_]) -&gt; Real {</span></a>
+<a name="47"><span class="lineNum">      47 </span><span class="lineCov">    5445108 :     return logpdf_matrix_normal_inverse_gamma(X, N, Λ, α,</span></a>
+<a name="48"><span class="lineNum">      48 </span><span class="lineCov">     302506 :         gamma_to_beta(γ, N, Λ));</span></a>
 <a name="49"><span class="lineNum">      49 </span>            :   }</a>
 <a name="50"><span class="lineNum">      50 </span>            : </a>
 <a name="51"><span class="lineNum">      51 </span><span class="lineCov">      60000 :   function update(X:Real[_,_]) {</span></a>
-<a name="52"><span class="lineNum">      52 </span><span class="lineCov">     810000 :     (σ2.α, σ2.β) &lt;- update_matrix_normal_inverse_gamma(X, N, Λ, α,</span></a>
+<a name="52"><span class="lineNum">      52 </span><span class="lineCov">     840000 :     (σ2.α, σ2.β) &lt;- update_matrix_normal_inverse_gamma(X, N, Λ, α,</span></a>
 <a name="53"><span class="lineNum">      53 </span><span class="lineCov">      30000 :         gamma_to_beta(γ, N, Λ));</span></a>
 <a name="54"><span class="lineNum">      54 </span>            :   }</a>
 <a name="55"><span class="lineNum">      55 </span>            : </a>
@@ -117,7 +117,7 @@
 <a name="59"><span class="lineNum">      59 </span>            :   }</a>
 <a name="60"><span class="lineNum">      60 </span>            : </a>
 <a name="61"><span class="lineNum">      61 </span><span class="lineNoCov">          0 :   function write(buffer:Buffer) {</span></a>
-<a name="62"><span class="lineNum">      62 </span><span class="lineNoCov">          0 :     prune();</span></a>
+<a name="62"><span class="lineNum">      62 </span><span class="lineCov">          2 :     prune();</span></a>
 <a name="63"><span class="lineNum">      63 </span><span class="lineNoCov">          0 :     buffer.set(&quot;class&quot;, &quot;MatrixNormalInverseGamma&quot;);</span></a>
 <a name="64"><span class="lineNum">      64 </span><span class="lineNoCov">          0 :     buffer.set(&quot;M&quot;, solve(Λ, N));</span></a>
 <a name="65"><span class="lineNum">      65 </span><span class="lineNoCov">          0 :     buffer.set(&quot;Σ&quot;, inv(Λ));</span></a>
@@ -125,13 +125,13 @@
 <a name="67"><span class="lineNum">      67 </span><span class="lineNoCov">          0 :     buffer.set(&quot;β&quot;, gamma_to_beta(γ, N, Λ));</span></a>
 <a name="68"><span class="lineNum">      68 </span><span class="lineNoCov">          0 :   }</span></a>
 <a name="69"><span class="lineNum">      69 </span>            : }</a>
-<a name="70"><span class="lineNum">      70 </span>            : </a>
+<a name="70"><span class="lineNum">      70 </span><span class="lineNoCov">          0 : </span></a>
 <a name="71"><span class="lineNum">      71 </span><span class="lineCov">      30003 : function DelayMatrixNormalInverseGamma(future:Real[_,_]?,</span></a>
 <a name="72"><span class="lineNum">      72 </span>            :     futureUpdate:Boolean, M:Real[_,_], Σ:Real[_,_],</a>
 <a name="73"><span class="lineNum">      73 </span>            :     σ2:DelayIndependentInverseGamma) -&gt; DelayMatrixNormalInverseGamma {</a>
-<a name="74"><span class="lineNum">      74 </span><span class="lineCov">      30003 :   m:DelayMatrixNormalInverseGamma(future, futureUpdate, M, Σ, σ2);</span></a>
-<a name="75"><span class="lineNum">      75 </span><span class="lineCov">     150015 :   σ2.setChild(m);</span></a>
-<a name="76"><span class="lineNum">      76 </span><span class="lineCov">      30003 :   return m;</span></a>
+<a name="74"><span class="lineNum">      74 </span><span class="lineCov">      60006 :   m:DelayMatrixNormalInverseGamma(future, futureUpdate, M, Σ, σ2);</span></a>
+<a name="75"><span class="lineNum">      75 </span><span class="lineCov">     180018 :   σ2.setChild(m);</span></a>
+<a name="76"><span class="lineNum">      76 </span><span class="lineCov">      60006 :   return m;</span></a>
 <a name="77"><span class="lineNum">      77 </span><span class="lineCov">      60006 : }</span></a>
 <a name="78"><span class="lineNum">      78 </span>            : </a>
 <a name="79"><span class="lineNum">      79 </span>            : </a>
@@ -139,10 +139,10 @@
 <a name="81"><span class="lineNum">      81 </span>            :  * Compute the variance scaleσ from the variance scale accumulatorσ and other</a>
 <a name="82"><span class="lineNum">      82 </span>            :  * parameters.</a>
 <a name="83"><span class="lineNum">      83 </span>            :  */</a>
-<a name="84"><span class="lineNum">      84 </span><span class="lineCov">     373014 : function gamma_to_beta(γ:Real[_], N:Real[_,_], Λ:LLT) -&gt; Real[_] {</span></a>
-<a name="85"><span class="lineNum">      85 </span><span class="lineCov">    1492056 :   auto A &lt;- solve(cholesky(Λ), N);</span></a>
-<a name="86"><span class="lineNum">      86 </span><span class="lineCov">    2238084 :   return γ - 0.5*diagonal(transpose(A)*A);</span></a>
-<a name="87"><span class="lineNum">      87 </span><span class="lineCov">     373014 : }</span></a>
+<a name="84"><span class="lineNum">      84 </span><span class="lineCov">     372512 : function gamma_to_beta(γ:Real[_], N:Real[_,_], Λ:LLT) -&gt; Real[_] {</span></a>
+<a name="85"><span class="lineNum">      85 </span><span class="lineCov">    1862560 :   auto A &lt;- solve(cholesky(Λ), N);</span></a>
+<a name="86"><span class="lineNum">      86 </span><span class="lineCov">    2607584 :   return γ - 0.5*diagonal(transpose(A)*A);</span></a>
+<a name="87"><span class="lineNum">      87 </span><span class="lineCov">     372512 : }</span></a>
 </pre>
       </td>
     </tr>

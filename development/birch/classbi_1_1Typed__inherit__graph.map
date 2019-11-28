@@ -1,14 +1,17 @@
 <map id="Typed" name="Typed">
-<area shape="rect" id="node1" title="Typed expression or statement." alt="" coords="5,791,63,817"/>
-<area shape="rect" id="node2" href="$classbi_1_1BinaryOperator.html" title="Binary operator." alt="" coords="115,588,225,615"/>
-<area shape="rect" id="node3" href="$classbi_1_1Expression.html" title="Expression." alt="" coords="127,639,213,665"/>
-<area shape="rect" id="node30" href="$classbi_1_1Fiber.html" title="Fiber." alt="" coords="145,689,195,716"/>
-<area shape="rect" id="node31" href="$classbi_1_1Function.html" title="Function." alt="" coords="134,740,206,767"/>
-<area shape="rect" id="node32" href="$classbi_1_1GlobalVariable.html" title="Global variable." alt="" coords="117,791,223,817"/>
-<area shape="rect" id="node33" href="$classbi_1_1MemberFiber.html" title="Class member Fiber." alt="" coords="121,841,219,868"/>
-<area shape="rect" id="node34" href="$classbi_1_1MemberFunction.html" title="Class member function." alt="" coords="111,892,229,919"/>
-<area shape="rect" id="node35" href="$classbi_1_1MemberVariable.html" title="Class member variable." alt="" coords="113,943,227,969"/>
-<area shape="rect" id="node36" href="$classbi_1_1UnaryOperator.html" title="Unary operator." alt="" coords="117,993,223,1020"/>
+<area shape="rect" id="node1" title="Typed expression or statement." alt="" coords="5,841,63,868"/>
+<area shape="rect" id="node2" href="$classbi_1_1BinaryOperator.html" title="Binary operator." alt="" coords="115,563,225,589"/>
+<area shape="rect" id="node3" href="$classbi_1_1Expression.html" title="Expression." alt="" coords="127,613,213,640"/>
+<area shape="rect" id="node29" href="$classbi_1_1Fiber.html" title="Fiber." alt="" coords="145,664,195,691"/>
+<area shape="rect" id="node30" href="$classbi_1_1ForVariable.html" title="Index variable in a for loop." alt="" coords="127,715,213,741"/>
+<area shape="rect" id="node31" href="$classbi_1_1Function.html" title="Function." alt="" coords="134,765,206,792"/>
+<area shape="rect" id="node32" href="$classbi_1_1GlobalVariable.html" title="Global variable." alt="" coords="117,816,223,843"/>
+<area shape="rect" id="node33" href="$classbi_1_1LocalVariable.html" title="Local variable." alt="" coords="121,867,219,893"/>
+<area shape="rect" id="node34" href="$classbi_1_1MemberFiber.html" title="Class member Fiber." alt="" coords="121,917,219,944"/>
+<area shape="rect" id="node35" href="$classbi_1_1MemberFunction.html" title="Class member function." alt="" coords="111,968,229,995"/>
+<area shape="rect" id="node36" href="$classbi_1_1MemberVariable.html" title="Class member variable." alt="" coords="113,1019,227,1045"/>
+<area shape="rect" id="node37" href="$classbi_1_1ParallelVariable.html" title="Index variable in a parallel loop." alt="" coords="115,1069,225,1096"/>
+<area shape="rect" id="node38" href="$classbi_1_1UnaryOperator.html" title="Unary operator." alt="" coords="117,1120,223,1147"/>
 <area shape="rect" id="node4" href="$classbi_1_1Assign.html" title="Expression using &lt;&#45;, &lt;~ or ~&gt; operator." alt="" coords="327,5,390,32"/>
 <area shape="rect" id="node5" href="$classbi_1_1Binary.html" title="Operands to a binary operator." alt="" coords="329,56,388,83"/>
 <area shape="rect" id="node6" href="$classbi_1_1Call.html" title="Call to a function." alt="" coords="291,107,426,133"/>
@@ -22,17 +25,16 @@
 <area shape="rect" id="node14" href="$classbi_1_1Index.html" title="Index expression." alt="" coords="331,512,386,539"/>
 <area shape="rect" id="node15" href="$classbi_1_1LambdaFunction.html" title="Lambda function." alt="" coords="299,563,418,589"/>
 <area shape="rect" id="node16" href="$classbi_1_1Literal.html" title="Literal." alt="" coords="311,613,407,640"/>
-<area shape="rect" id="node17" href="$classbi_1_1LocalVariable.html" title="Local variable." alt="" coords="309,664,408,691"/>
-<area shape="rect" id="node18" href="$classbi_1_1Member.html" title="Membership operator expression." alt="" coords="324,715,393,741"/>
-<area shape="rect" id="node19" href="$classbi_1_1Nil.html" title="Nil literal." alt="" coords="339,765,378,792"/>
-<area shape="rect" id="node20" href="$classbi_1_1OverloadedIdentifier.html" title="Identifier for overloaded function." alt="" coords="289,817,428,858"/>
-<area shape="rect" id="node21" href="$classbi_1_1Parameter.html" title="Parameter to a function, fiber, program or operator." alt="" coords="317,883,400,909"/>
-<area shape="rect" id="node22" href="$classbi_1_1Parentheses.html" title="Expression in parentheses." alt="" coords="311,933,406,960"/>
-<area shape="rect" id="node23" href="$classbi_1_1Query.html" title="Query expression." alt="" coords="330,984,387,1011"/>
-<area shape="rect" id="node24" href="$classbi_1_1Range.html" title="Range expression." alt="" coords="329,1035,389,1061"/>
-<area shape="rect" id="node25" href="$classbi_1_1Sequence.html" title="Sequence expression." alt="" coords="319,1085,399,1112"/>
-<area shape="rect" id="node26" href="$classbi_1_1Slice.html" title="Expression with proceeding square brackets." alt="" coords="333,1136,384,1163"/>
-<area shape="rect" id="node27" href="$classbi_1_1Span.html" title="Span expression." alt="" coords="333,1187,385,1213"/>
-<area shape="rect" id="node28" href="$classbi_1_1Super.html" title="Keyword super." alt="" coords="331,1237,387,1264"/>
-<area shape="rect" id="node29" href="$classbi_1_1This.html" title="Keyword this." alt="" coords="335,1288,382,1315"/>
+<area shape="rect" id="node17" href="$classbi_1_1Member.html" title="Membership operator expression." alt="" coords="324,664,393,691"/>
+<area shape="rect" id="node18" href="$classbi_1_1Nil.html" title="Nil literal." alt="" coords="339,715,378,741"/>
+<area shape="rect" id="node19" href="$classbi_1_1OverloadedIdentifier.html" title="Identifier for overloaded function." alt="" coords="289,766,428,807"/>
+<area shape="rect" id="node20" href="$classbi_1_1Parameter.html" title="Parameter to a function, member function, operator, program, or class." alt="" coords="317,832,400,859"/>
+<area shape="rect" id="node21" href="$classbi_1_1Parentheses.html" title="Expression in parentheses." alt="" coords="311,883,406,909"/>
+<area shape="rect" id="node22" href="$classbi_1_1Query.html" title="Query expression." alt="" coords="330,933,387,960"/>
+<area shape="rect" id="node23" href="$classbi_1_1Range.html" title="Range expression." alt="" coords="329,984,389,1011"/>
+<area shape="rect" id="node24" href="$classbi_1_1Sequence.html" title="Sequence expression." alt="" coords="319,1035,399,1061"/>
+<area shape="rect" id="node25" href="$classbi_1_1Slice.html" title="Expression with proceeding square brackets." alt="" coords="333,1085,384,1112"/>
+<area shape="rect" id="node26" href="$classbi_1_1Span.html" title="Span expression." alt="" coords="333,1136,385,1163"/>
+<area shape="rect" id="node27" href="$classbi_1_1Super.html" title="Keyword super." alt="" coords="331,1187,387,1213"/>
+<area shape="rect" id="node28" href="$classbi_1_1This.html" title="Keyword this." alt="" coords="335,1237,382,1264"/>
 </map>

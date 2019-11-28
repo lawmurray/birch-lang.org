@@ -82,9 +82,9 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a81b21f5c63268197bfea11276b61d576"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="assert_8hpp.html#a81b21f5c63268197bfea11276b61d576">libbirch_error_</a>(cond)&#160;&#160;&#160;if (!(cond)) { <a class="el" href="namespacelibbirch.html#ab2b9d6a85028488049862464c42af3f1">libbirch::line</a>(__LINE__); <a class="el" href="namespacelibbirch.html#ac54f53dc342019e8db34f4aa581a5792">libbirch::abort</a>(); }</td></tr>
+<tr class="memitem:a81b21f5c63268197bfea11276b61d576"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="assert_8hpp.html#a81b21f5c63268197bfea11276b61d576">libbirch_error_</a>(cond)&#160;&#160;&#160;if (!(cond)) { <a class="el" href="namespacelibbirch.html#ac54f53dc342019e8db34f4aa581a5792">libbirch::abort</a>(); }</td></tr>
 <tr class="separator:a81b21f5c63268197bfea11276b61d576"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac1c28ade7b7ce8ffad8a4e22e8ef022b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="assert_8hpp.html#ac1c28ade7b7ce8ffad8a4e22e8ef022b">libbirch_error_msg_</a>(cond,  msg)&#160;&#160;&#160;if (!(cond)) { <a class="el" href="namespacelibbirch.html#ab2b9d6a85028488049862464c42af3f1">libbirch::line</a>(__LINE__); std::stringstream buf_; buf_ &lt;&lt; msg; <a class="el" href="namespacelibbirch.html#ac54f53dc342019e8db34f4aa581a5792">libbirch::abort</a>(buf_.str()); }</td></tr>
+<tr class="memitem:ac1c28ade7b7ce8ffad8a4e22e8ef022b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="assert_8hpp.html#ac1c28ade7b7ce8ffad8a4e22e8ef022b">libbirch_error_msg_</a>(cond,  msg)&#160;&#160;&#160;if (!(cond)) { std::stringstream buf_; buf_ &lt;&lt; msg; <a class="el" href="namespacelibbirch.html#ac54f53dc342019e8db34f4aa581a5792">libbirch::abort</a>(buf_.str()); }</td></tr>
 <tr class="separator:ac1c28ade7b7ce8ffad8a4e22e8ef022b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a698fe6d6d9258a13709e10b5b67fad2a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="assert_8hpp.html#a698fe6d6d9258a13709e10b5b67fad2a">libbirch_assert_</a>(cond)&#160;&#160;&#160;<a class="el" href="assert_8hpp.html#a81b21f5c63268197bfea11276b61d576">libbirch_error_</a>(cond)</td></tr>
 <tr class="separator:a698fe6d6d9258a13709e10b5b67fad2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -155,7 +155,7 @@ Macros</h2></td></tr>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">cond</td><td>)</td>
-          <td>&#160;&#160;&#160;if (!(cond)) { <a class="el" href="namespacelibbirch.html#ab2b9d6a85028488049862464c42af3f1">libbirch::line</a>(__LINE__); <a class="el" href="namespacelibbirch.html#ac54f53dc342019e8db34f4aa581a5792">libbirch::abort</a>(); }</td>
+          <td>&#160;&#160;&#160;if (!(cond)) { <a class="el" href="namespacelibbirch.html#ac54f53dc342019e8db34f4aa581a5792">libbirch::abort</a>(); }</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -186,7 +186,7 @@ Macros</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;if (!(cond)) { <a class="el" href="namespacelibbirch.html#ab2b9d6a85028488049862464c42af3f1">libbirch::line</a>(__LINE__); std::stringstream buf_; buf_ &lt;&lt; msg; <a class="el" href="namespacelibbirch.html#ac54f53dc342019e8db34f4aa581a5792">libbirch::abort</a>(buf_.str()); }</td>
+          <td></td><td>&#160;&#160;&#160;if (!(cond)) { std::stringstream buf_; buf_ &lt;&lt; msg; <a class="el" href="namespacelibbirch.html#ac54f53dc342019e8db34f4aa581a5792">libbirch::abort</a>(buf_.str()); }</td>
         </tr>
       </table>
 </div><div class="memdoc">

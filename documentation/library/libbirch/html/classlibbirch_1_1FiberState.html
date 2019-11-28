@@ -127,9 +127,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a6dfe1abe0d1eb3ddc1ca081de98b5342"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibbirch_1_1Any.html#a6dfe1abe0d1eb3ddc1ca081de98b5342">finish</a> ()</td></tr>
 <tr class="memdesc:a6dfe1abe0d1eb3ddc1ca081de98b5342"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deep finish of lazy clone.  <a href="classlibbirch_1_1Any.html#a6dfe1abe0d1eb3ddc1ca081de98b5342">More...</a><br /></td></tr>
 <tr class="separator:a6dfe1abe0d1eb3ddc1ca081de98b5342"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab656061dc71346338fe3a91542a974a0"><td class="memItemLeft" align="right" valign="top">virtual const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibbirch_1_1Any.html#ab656061dc71346338fe3a91542a974a0">name_</a> () const =0</td></tr>
-<tr class="memdesc:ab656061dc71346338fe3a91542a974a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Name of the class.  <a href="classlibbirch_1_1Any.html#ab656061dc71346338fe3a91542a974a0">More...</a><br /></td></tr>
-<tr class="separator:ab656061dc71346338fe3a91542a974a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a389d0304fd575c18770889539ad84ae1"><td class="memItemLeft" align="right" valign="top">virtual const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibbirch_1_1Any.html#a389d0304fd575c18770889539ad84ae1">getClassName</a> () const =0</td></tr>
+<tr class="memdesc:a389d0304fd575c18770889539ad84ae1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Name of the class.  <a href="classlibbirch_1_1Any.html#a389d0304fd575c18770889539ad84ae1">More...</a><br /></td></tr>
+<tr class="separator:a389d0304fd575c18770889539ad84ae1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a97108c6955492cb802db05624a375c6e"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlibbirch_1_1Counted.html#a97108c6955492cb802db05624a375c6e">operator new</a> (std::size_t <a class="el" href="classlibbirch_1_1Counted.html#a245260f6f74972558f61b85227df5aae">size</a>)</td></tr>
 <tr class="memdesc:a97108c6955492cb802db05624a375c6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">New operator.  <a href="classlibbirch_1_1Counted.html#a97108c6955492cb802db05624a375c6e">More...</a><br /></td></tr>
 <tr class="separator:a97108c6955492cb802db05624a375c6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -765,6 +765,35 @@ class libbirch::FiberState&lt; YieldType &gt;</h3>
 
 </div>
 </div>
+<a id="a389d0304fd575c18770889539ad84ae1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a389d0304fd575c18770889539ad84ae1">&#9670;&nbsp;</a></span>getClassName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual const char* getClassName </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Name of the class. </p>
+
+<p>Reimplemented from <a class="el" href="classlibbirch_1_1Counted.html#a03b8b5a278c33b2d9e225ceb286f350e">Counted</a>.</p>
+
+</div>
+</div>
 <a id="ada219516d630ea7c13a166bf2855f0d6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ada219516d630ea7c13a166bf2855f0d6">&#9670;&nbsp;</a></span>getLabel()</h2>
 
@@ -1055,35 +1084,6 @@ class libbirch::FiberState&lt; YieldType &gt;</h3>
 <p>If frozen, at the time of freezing, was the reference count only one? </p>
 
 <p class="definition">Definition at line <a class="el" href="Any_8hpp_source.html#l00171">171</a> of file <a class="el" href="Any_8hpp_source.html">Any.hpp</a>.</p>
-
-</div>
-</div>
-<a id="ab656061dc71346338fe3a91542a974a0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab656061dc71346338fe3a91542a974a0">&#9670;&nbsp;</a></span>name_()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual const char* name_ </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span><span class="mlabel">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Name of the class. </p>
-
-<p>Reimplemented from <a class="el" href="classlibbirch_1_1Counted.html#a6249994a90affe4e8b9fbcb9191508b1">Counted</a>.</p>
 
 </div>
 </div>

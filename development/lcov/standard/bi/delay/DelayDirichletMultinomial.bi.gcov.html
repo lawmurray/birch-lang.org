@@ -31,13 +31,13 @@
             <td class="headerValue">standard.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">14</td>
-            <td class="headerCovTableEntry">21</td>
-            <td class="headerCovTableEntryLo">66.7 %</td>
+            <td class="headerCovTableEntry">15</td>
+            <td class="headerCovTableEntry">22</td>
+            <td class="headerCovTableEntryLo">68.2 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2019-11-10 13:04:00</td>
+            <td class="headerValue">2019-11-26 20:15:26</td>
             <td></td>
           </tr>
           <tr><td><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
@@ -71,9 +71,9 @@
 <a name="13"><span class="lineNum">      13 </span>            :    * Category probabilities.</a>
 <a name="14"><span class="lineNum">      14 </span>            :    */</a>
 <a name="15"><span class="lineNum">      15 </span><span class="lineCov">      40000 :   ρ:DelayDirichlet&amp; &lt;- ρ;</span></a>
-<a name="16"><span class="lineNum">      16 </span><span class="lineNoCov">          0 : </span></a>
+<a name="16"><span class="lineNum">      16 </span>            : </a>
 <a name="17"><span class="lineNum">      17 </span><span class="lineCov">      40000 :   function simulate() -&gt; Integer[_] {</span></a>
-<a name="18"><span class="lineNum">      18 </span><span class="lineCov">      80000 :     return simulate_dirichlet_multinomial(n, ρ.α);</span></a>
+<a name="18"><span class="lineNum">      18 </span><span class="lineCov">      90000 :     return simulate_dirichlet_multinomial(n, ρ.α);</span></a>
 <a name="19"><span class="lineNum">      19 </span><span class="lineCov">      10000 :   }</span></a>
 <a name="20"><span class="lineNum">      20 </span>            :   </a>
 <a name="21"><span class="lineNum">      21 </span><span class="lineNoCov">          0 :   function logpdf(x:Integer[_]) -&gt; Real {</span></a>
@@ -81,7 +81,7 @@
 <a name="23"><span class="lineNum">      23 </span><span class="lineNoCov">          0 :   }</span></a>
 <a name="24"><span class="lineNum">      24 </span>            : </a>
 <a name="25"><span class="lineNum">      25 </span><span class="lineCov">      20000 :   function update(x:Integer[_]) {</span></a>
-<a name="26"><span class="lineNum">      26 </span><span class="lineCov">     130000 :     ρ.α &lt;- update_dirichlet_multinomial(x, n, ρ.α);</span></a>
+<a name="26"><span class="lineNum">      26 </span><span class="lineCov">     140000 :     ρ.α &lt;- update_dirichlet_multinomial(x, n, ρ.α);</span></a>
 <a name="27"><span class="lineNum">      27 </span><span class="lineCov">      10000 :   }</span></a>
 <a name="28"><span class="lineNum">      28 </span>            : </a>
 <a name="29"><span class="lineNum">      29 </span><span class="lineNoCov">          0 :   function downdate(x:Integer[_]) {</span></a>
@@ -91,9 +91,9 @@
 <a name="33"><span class="lineNum">      33 </span>            : </a>
 <a name="34"><span class="lineNum">      34 </span><span class="lineCov">      10000 : function DelayDirichletMultinomial(future:Integer[_]?, futureUpdate:Boolean,</span></a>
 <a name="35"><span class="lineNum">      35 </span>            :     n:Integer, ρ:DelayDirichlet) -&gt; DelayDirichletMultinomial {</a>
-<a name="36"><span class="lineNum">      36 </span><span class="lineCov">      10000 :   m:DelayDirichletMultinomial(future, futureUpdate, n, ρ);</span></a>
-<a name="37"><span class="lineNum">      37 </span><span class="lineCov">      50000 :   ρ.setChild(m);</span></a>
-<a name="38"><span class="lineNum">      38 </span><span class="lineCov">      10000 :   return m;</span></a>
+<a name="36"><span class="lineNum">      36 </span><span class="lineCov">      20000 :   m:DelayDirichletMultinomial(future, futureUpdate, n, ρ);</span></a>
+<a name="37"><span class="lineNum">      37 </span><span class="lineCov">      60000 :   ρ.setChild(m);</span></a>
+<a name="38"><span class="lineNum">      38 </span><span class="lineCov">      20000 :   return m;</span></a>
 <a name="39"><span class="lineNum">      39 </span><span class="lineCov">      20000 : }</span></a>
 </pre>
       </td>

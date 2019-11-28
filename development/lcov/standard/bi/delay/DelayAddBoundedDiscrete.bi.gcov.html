@@ -32,12 +32,12 @@
             <td></td>
             <td class="headerItem">Lines:</td>
             <td class="headerCovTableEntry">41</td>
-            <td class="headerCovTableEntry">54</td>
-            <td class="headerCovTableEntryMed">75.9 %</td>
+            <td class="headerCovTableEntry">53</td>
+            <td class="headerCovTableEntryMed">77.4 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2019-11-10 13:04:00</td>
+            <td class="headerValue">2019-11-26 20:15:26</td>
             <td></td>
           </tr>
           <tr><td><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
@@ -71,7 +71,7 @@
 <a name="13"><span class="lineNum">      13 </span>            :    * Second node.</a>
 <a name="14"><span class="lineNum">      14 </span>            :    */</a>
 <a name="15"><span class="lineNum">      15 </span><span class="lineCov">      40000 :   x2:DelayBoundedDiscrete&amp; &lt;- x2;</span></a>
-<a name="16"><span class="lineNum">      16 </span><span class="lineNoCov">          0 :   </span></a>
+<a name="16"><span class="lineNum">      16 </span>            :   </a>
 <a name="17"><span class="lineNum">      17 </span><span class="lineCov">      20000 :   /**</span></a>
 <a name="18"><span class="lineNum">      18 </span>            :    * Value for which conditional probabilities have been enumerated.</a>
 <a name="19"><span class="lineNum">      19 </span>            :    */</a>
@@ -94,49 +94,49 @@
 <a name="36"><span class="lineNum">      36 </span><span class="lineNoCov">          0 :   Z:Real;</span></a>
 <a name="37"><span class="lineNum">      37 </span>            : </a>
 <a name="38"><span class="lineNum">      38 </span><span class="lineCov">      40000 :   function enumerate(x:Integer) {</span></a>
-<a name="39"><span class="lineNum">      39 </span><span class="lineCov">     120000 :     if (!this.x? || this.x! != x) {</span></a>
-<a name="40"><span class="lineNum">      40 </span><span class="lineCov">     100000 :       l:Integer &lt;- max(x1.l, x - x2.u);</span></a>
-<a name="41"><span class="lineNum">      41 </span><span class="lineCov">     100000 :       u:Integer &lt;- min(x1.u, x - x2.l);</span></a>
+<a name="39"><span class="lineNum">      39 </span><span class="lineCov">     140000 :     if (!this.x? || this.x! != x) {</span></a>
+<a name="40"><span class="lineNum">      40 </span><span class="lineCov">     110000 :       l:Integer &lt;- max(x1.l, x - x2.u);</span></a>
+<a name="41"><span class="lineNum">      41 </span><span class="lineCov">     110000 :       u:Integer &lt;- min(x1.u, x - x2.l);</span></a>
 <a name="42"><span class="lineNum">      42 </span>            :     </a>
-<a name="43"><span class="lineNum">      43 </span><span class="lineCov">      30000 :       x0 &lt;- l;</span></a>
-<a name="44"><span class="lineNum">      44 </span><span class="lineCov">      30000 :       Z &lt;- 0.0;</span></a>
-<a name="45"><span class="lineNum">      45 </span><span class="lineCov">      10000 :       if (l &lt;= u) {</span></a>
+<a name="43"><span class="lineNum">      43 </span><span class="lineCov">      40000 :       x0 &lt;- l;</span></a>
+<a name="44"><span class="lineNum">      44 </span><span class="lineCov">      40000 :       Z &lt;- 0.0;</span></a>
+<a name="45"><span class="lineNum">      45 </span><span class="lineCov">      20000 :       if (l &lt;= u) {</span></a>
 <a name="46"><span class="lineNum">      46 </span>            :         /* distribution over possible pairs that produce the given sum */</a>
-<a name="47"><span class="lineNum">      47 </span><span class="lineCov">      50000 :         z &lt;- vector(0.0, u - l + 1);</span></a>
-<a name="48"><span class="lineNum">      48 </span><span class="lineCov">     101274 :         for (n:Integer in l..u) {</span></a>
-<a name="49"><span class="lineNum">      49 </span><span class="lineCov">     609555 :           z[n - l + 1] &lt;- x1.pdf(n)*x2.pdf(x - n);</span></a>
-<a name="50"><span class="lineNum">      50 </span><span class="lineCov">     365733 :           Z &lt;- Z + z[n - l + 1];</span></a>
-<a name="51"><span class="lineNum">      51 </span><span class="lineCov">      40637 :         }</span></a>
+<a name="47"><span class="lineNum">      47 </span><span class="lineCov">      60000 :         z &lt;- vector(0.0, u - l + 1);</span></a>
+<a name="48"><span class="lineNum">      48 </span><span class="lineCov">     111766 :         for n in l..u {</span></a>
+<a name="49"><span class="lineNum">      49 </span><span class="lineCov">     654128 :           z[n - l + 1] &lt;- x1.pdf(n)*x2.pdf(x - n);</span></a>
+<a name="50"><span class="lineNum">      50 </span><span class="lineCov">     408830 :           Z &lt;- Z + z[n - l + 1];</span></a>
+<a name="51"><span class="lineNum">      51 </span><span class="lineCov">      40883 :         }</span></a>
 <a name="52"><span class="lineNum">      52 </span><span class="lineCov">      10000 :       }</span></a>
-<a name="53"><span class="lineNum">      53 </span><span class="lineCov">      50000 :       this.x &lt;- x;</span></a>
+<a name="53"><span class="lineNum">      53 </span><span class="lineCov">      60000 :       this.x &lt;- x;</span></a>
 <a name="54"><span class="lineNum">      54 </span><span class="lineCov">      10000 :     }</span></a>
 <a name="55"><span class="lineNum">      55 </span><span class="lineCov">      20000 :   }</span></a>
 <a name="56"><span class="lineNum">      56 </span>            : </a>
 <a name="57"><span class="lineNum">      57 </span><span class="lineCov">      20000 :   function simulate() -&gt; Integer {</span></a>
-<a name="58"><span class="lineNum">      58 </span><span class="lineCov">      40000 :     if value? {</span></a>
-<a name="59"><span class="lineNum">      59 </span><span class="lineCov">      40000 :       return value!;</span></a>
+<a name="58"><span class="lineNum">      58 </span><span class="lineCov">      50000 :     if value? {</span></a>
+<a name="59"><span class="lineNum">      59 </span><span class="lineCov">      50000 :       return value!;</span></a>
 <a name="60"><span class="lineNum">      60 </span>            :     } else {</a>
 <a name="61"><span class="lineNum">      61 </span><span class="lineNoCov">          0 :       return simulate_delta(x1.simulate() + x2.simulate());</span></a>
 <a name="62"><span class="lineNum">      62 </span>            :     }</a>
 <a name="63"><span class="lineNum">      63 </span><span class="lineCov">      10000 :   }</span></a>
 <a name="64"><span class="lineNum">      64 </span>            :   </a>
 <a name="65"><span class="lineNum">      65 </span><span class="lineCov">      20000 :   function logpdf(x:Integer) -&gt; Real {</span></a>
-<a name="66"><span class="lineNum">      66 </span><span class="lineCov">      40000 :     assert !value?;</span></a>
-<a name="67"><span class="lineNum">      67 </span><span class="lineCov">      40000 :     enumerate(x);</span></a>
-<a name="68"><span class="lineNum">      68 </span><span class="lineCov">      30000 :     return log(Z);</span></a>
+<a name="66"><span class="lineNum">      66 </span><span class="lineCov">      50000 :     assert !value?;</span></a>
+<a name="67"><span class="lineNum">      67 </span><span class="lineCov">     174854 :     enumerate(x);</span></a>
+<a name="68"><span class="lineNum">      68 </span><span class="lineCov">      40000 :     return log(Z);</span></a>
 <a name="69"><span class="lineNum">      69 </span><span class="lineCov">      10000 :   }</span></a>
 <a name="70"><span class="lineNum">      70 </span>            :   </a>
-<a name="71"><span class="lineNum">      71 </span><span class="lineCov">      20000 :   function update(x:Integer) {</span></a>
+<a name="71"><span class="lineNum">      71 </span><span class="lineCov">      35156 :   function update(x:Integer) {</span></a>
 <a name="72"><span class="lineNum">      72 </span>            :     /* choose a pair with the given sum and clamp parents */</a>
-<a name="73"><span class="lineNum">      73 </span><span class="lineCov">      40000 :     enumerate(x);</span></a>
-<a name="74"><span class="lineNum">      74 </span><span class="lineCov">      80000 :     n:Integer &lt;- simulate_categorical(z, Z) + x0 - 1;</span></a>
-<a name="75"><span class="lineNum">      75 </span><span class="lineCov">      60000 :     x1.clamp(n);</span></a>
-<a name="76"><span class="lineNum">      76 </span><span class="lineCov">      60000 :     x2.clamp(x - n);</span></a>
+<a name="73"><span class="lineNum">      73 </span><span class="lineCov">      50000 :     enumerate(x);</span></a>
+<a name="74"><span class="lineNum">      74 </span><span class="lineCov">      90000 :     n:Integer &lt;- simulate_categorical(z, Z) + x0 - 1;</span></a>
+<a name="75"><span class="lineNum">      75 </span><span class="lineCov">      70000 :     x1.clamp(n);</span></a>
+<a name="76"><span class="lineNum">      76 </span><span class="lineCov">      70000 :     x2.clamp(x - n);</span></a>
 <a name="77"><span class="lineNum">      77 </span><span class="lineCov">      10000 :   }</span></a>
 <a name="78"><span class="lineNum">      78 </span>            : </a>
 <a name="79"><span class="lineNum">      79 </span><span class="lineNoCov">          0 :   function cdf(x:Integer) -&gt; Real? {</span></a>
 <a name="80"><span class="lineNum">      80 </span><span class="lineNoCov">          0 :     P:Real &lt;- 0.0;</span></a>
-<a name="81"><span class="lineNum">      81 </span><span class="lineNoCov">          0 :     for (n:Integer in l..x) {</span></a>
+<a name="81"><span class="lineNum">      81 </span><span class="lineNoCov">          0 :     for n in l..x {</span></a>
 <a name="82"><span class="lineNum">      82 </span><span class="lineNoCov">          0 :       P &lt;- P + pdf(n);</span></a>
 <a name="83"><span class="lineNum">      83 </span><span class="lineNoCov">          0 :     }</span></a>
 <a name="84"><span class="lineNum">      84 </span><span class="lineNoCov">          0 :     return P;</span></a>
@@ -146,10 +146,10 @@
 <a name="88"><span class="lineNum">      88 </span><span class="lineCov">      10000 : function DelayAddBoundedDiscrete(future:Integer?, futureUpdate:Boolean,</span></a>
 <a name="89"><span class="lineNum">      89 </span>            :     x1:DelayBoundedDiscrete, x2:DelayBoundedDiscrete) -&gt;</a>
 <a name="90"><span class="lineNum">      90 </span>            :     DelayAddBoundedDiscrete {</a>
-<a name="91"><span class="lineNum">      91 </span><span class="lineCov">      10000 :   m:DelayAddBoundedDiscrete(future, futureUpdate, x1, x2);</span></a>
-<a name="92"><span class="lineNum">      92 </span><span class="lineCov">      50000 :   x1.setChild(m);</span></a>
-<a name="93"><span class="lineNum">      93 </span><span class="lineCov">      50000 :   x2.setChild(m);</span></a>
-<a name="94"><span class="lineNum">      94 </span><span class="lineCov">      10000 :   return m;</span></a>
+<a name="91"><span class="lineNum">      91 </span><span class="lineCov">      20000 :   m:DelayAddBoundedDiscrete(future, futureUpdate, x1, x2);</span></a>
+<a name="92"><span class="lineNum">      92 </span><span class="lineCov">      60000 :   x1.setChild(m);</span></a>
+<a name="93"><span class="lineNum">      93 </span><span class="lineCov">      60000 :   x2.setChild(m);</span></a>
+<a name="94"><span class="lineNum">      94 </span><span class="lineCov">      20000 :   return m;</span></a>
 <a name="95"><span class="lineNum">      95 </span><span class="lineCov">      20000 : }</span></a>
 </pre>
       </td>

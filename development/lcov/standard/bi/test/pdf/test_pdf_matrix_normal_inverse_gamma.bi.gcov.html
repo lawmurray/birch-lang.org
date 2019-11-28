@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2019-11-10 13:04:00</td>
+            <td class="headerValue">2019-11-26 20:15:26</td>
             <td></td>
           </tr>
           <tr><td><img src="../../../glass.png" width=3 height=3 alt=""></td></tr>
@@ -59,30 +59,30 @@
 <a name="1"><span class="lineNum">       1 </span>            : /*</a>
 <a name="2"><span class="lineNum">       2 </span>            :  * Test matrix normal-inverse-gamma pdf evaluations.</a>
 <a name="3"><span class="lineNum">       3 </span>            :  */</a>
-<a name="4"><span class="lineNum">       4 </span><span class="lineCov">         11 : program test_pdf_matrix_normal_inverse_gamma(R:Integer &lt;- 4, C:Integer &lt;- 3,</span></a>
-<a name="5"><span class="lineNum">       5 </span><span class="lineCov">          2 :     N:Integer &lt;- 10000, B:Integer &lt;- 500, S:Integer &lt;- 30) {</span></a>
-<a name="6"><span class="lineNum">       6 </span><span class="lineCov">          2 :   M:Real[R,C];</span></a>
-<a name="7"><span class="lineNum">       7 </span><span class="lineCov">          2 :   U:Real[R,R];</span></a>
-<a name="8"><span class="lineNum">       8 </span><span class="lineCov">          2 :   α:Real &lt;- simulate_uniform(2.0, 10.0);</span></a>
-<a name="9"><span class="lineNum">       9 </span><span class="lineCov">          2 :   v:Real[C];</span></a>
+<a name="4"><span class="lineNum">       4 </span><span class="lineCov">         10 : program test_pdf_matrix_normal_inverse_gamma(R:Integer &lt;- 4, C:Integer &lt;- 3,</span></a>
+<a name="5"><span class="lineNum">       5 </span><span class="lineCov">          5 :     N:Integer &lt;- 10000, B:Integer &lt;- 500, S:Integer &lt;- 30) {</span></a>
+<a name="6"><span class="lineNum">       6 </span><span class="lineCov">          4 :   M:Real[R,C];</span></a>
+<a name="7"><span class="lineNum">       7 </span><span class="lineCov">          3 :   U:Real[R,R];</span></a>
+<a name="8"><span class="lineNum">       8 </span><span class="lineCov">          3 :   α:Real &lt;- simulate_uniform(2.0, 10.0);</span></a>
+<a name="9"><span class="lineNum">       9 </span><span class="lineCov">          3 :   v:Real[C];</span></a>
 <a name="10"><span class="lineNum">      10 </span>            : </a>
-<a name="11"><span class="lineNum">      11 </span><span class="lineCov">         10 :   for auto i in 1..R {</span></a>
-<a name="12"><span class="lineNum">      12 </span><span class="lineCov">         32 :     for auto j in 1..C {</span></a>
-<a name="13"><span class="lineNum">      13 </span><span class="lineCov">         48 :       M[i,j] &lt;- simulate_uniform(-10.0, 10.0);</span></a>
+<a name="11"><span class="lineNum">      11 </span><span class="lineCov">         11 :   for i in 1..R {</span></a>
+<a name="12"><span class="lineNum">      12 </span><span class="lineCov">         36 :     for j in 1..C {</span></a>
+<a name="13"><span class="lineNum">      13 </span><span class="lineCov">         60 :       M[i,j] &lt;- simulate_uniform(-10.0, 10.0);</span></a>
 <a name="14"><span class="lineNum">      14 </span><span class="lineCov">         12 :     }</span></a>
 <a name="15"><span class="lineNum">      15 </span><span class="lineCov">          4 :   }</span></a>
-<a name="16"><span class="lineNum">      16 </span><span class="lineCov">         10 :   for auto i in 1..R {</span></a>
-<a name="17"><span class="lineNum">      17 </span><span class="lineCov">         40 :     for auto j in 1..R {</span></a>
-<a name="18"><span class="lineNum">      18 </span><span class="lineCov">         64 :       U[i,j] &lt;- simulate_uniform(-2.0, 2.0);</span></a>
+<a name="16"><span class="lineNum">      16 </span><span class="lineCov">         11 :   for i in 1..R {</span></a>
+<a name="17"><span class="lineNum">      17 </span><span class="lineCov">         44 :     for j in 1..R {</span></a>
+<a name="18"><span class="lineNum">      18 </span><span class="lineCov">         80 :       U[i,j] &lt;- simulate_uniform(-2.0, 2.0);</span></a>
 <a name="19"><span class="lineNum">      19 </span><span class="lineCov">         16 :     }</span></a>
 <a name="20"><span class="lineNum">      20 </span><span class="lineCov">          4 :   }</span></a>
-<a name="21"><span class="lineNum">      21 </span><span class="lineCov">          8 :   for auto i in 1..C {</span></a>
-<a name="22"><span class="lineNum">      22 </span><span class="lineCov">         15 :     v[i] &lt;- pow(simulate_uniform(-2.0, 2.0), 2.0);</span></a>
+<a name="21"><span class="lineNum">      21 </span><span class="lineCov">          9 :   for i in 1..C {</span></a>
+<a name="22"><span class="lineNum">      22 </span><span class="lineCov">         18 :     v[i] &lt;- pow(simulate_uniform(-2.0, 2.0), 2.0);</span></a>
 <a name="23"><span class="lineNum">      23 </span><span class="lineCov">          3 :   }</span></a>
-<a name="24"><span class="lineNum">      24 </span><span class="lineCov">          5 :   U &lt;- U*transpose(U);</span></a>
+<a name="24"><span class="lineNum">      24 </span><span class="lineCov">          6 :   U &lt;- U*transpose(U);</span></a>
 <a name="25"><span class="lineNum">      25 </span>            : </a>
-<a name="26"><span class="lineNum">      26 </span><span class="lineCov">          6 :   π:MatrixNormalInverseGamma(Boxed(M), Boxed(U), Boxed(α), Boxed(v));</span></a>
-<a name="27"><span class="lineNum">      27 </span><span class="lineCov">          3 :   test_pdf(π, R, C, N, B, S);</span></a>
+<a name="26"><span class="lineNum">      26 </span><span class="lineCov">          7 :   π:MatrixNormalInverseGamma(Boxed(M), Boxed(U), Boxed(α), Boxed(v));</span></a>
+<a name="27"><span class="lineNum">      27 </span><span class="lineCov">          4 :   test_pdf(π, R, C, N, B, S);</span></a>
 <a name="28"><span class="lineNum">      28 </span>            : }</a>
 </pre>
       </td>

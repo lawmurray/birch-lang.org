@@ -31,13 +31,13 @@
             <td class="headerValue">standard.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">9</td>
-            <td class="headerCovTableEntry">20</td>
-            <td class="headerCovTableEntryLo">45.0 %</td>
+            <td class="headerCovTableEntry">7</td>
+            <td class="headerCovTableEntry">23</td>
+            <td class="headerCovTableEntryLo">30.4 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2019-11-10 13:04:00</td>
+            <td class="headerValue">2019-11-26 20:15:26</td>
             <td></td>
           </tr>
           <tr><td><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
@@ -56,30 +56,30 @@
       <td>
 <pre class="sourceHeading">          Line data    Source code</pre>
 <pre class="source">
-<a name="1"><span class="lineNum">       1 </span><span class="lineCov">         95 : /**</span></a>
-<a name="2"><span class="lineNum">       2 </span><span class="lineNoCov">          0 :  * Boolean value.</span></a>
+<a name="1"><span class="lineNum">       1 </span><span class="lineCov">          4 : /**</span></a>
+<a name="2"><span class="lineNum">       2 </span>            :  * Boolean value.</a>
 <a name="3"><span class="lineNum">       3 </span>            :  */</a>
 <a name="4"><span class="lineNum">       4 </span>            : class BooleanValue(value:Boolean) &lt; Value {</a>
 <a name="5"><span class="lineNum">       5 </span>            :   /**</a>
 <a name="6"><span class="lineNum">       6 </span>            :    * The value.</a>
 <a name="7"><span class="lineNum">       7 </span>            :    */</a>
-<a name="8"><span class="lineNum">       8 </span><span class="lineCov">        285 :   value:Boolean &lt;- value;</span></a>
+<a name="8"><span class="lineNum">       8 </span><span class="lineCov">         12 :   value:Boolean &lt;- value;</span></a>
 <a name="9"><span class="lineNum">       9 </span>            :   </a>
-<a name="10"><span class="lineNum">      10 </span><span class="lineCov">        190 :   operator -&gt; Boolean {</span></a>
+<a name="10"><span class="lineNum">      10 </span><span class="lineCov">          8 :   operator -&gt; Boolean {</span></a>
 <a name="11"><span class="lineNum">      11 </span><span class="lineNoCov">          0 :     return value;</span></a>
 <a name="12"><span class="lineNum">      12 </span><span class="lineNoCov">          0 :   }</span></a>
 <a name="13"><span class="lineNum">      13 </span>            : </a>
-<a name="14"><span class="lineNum">      14 </span><span class="lineCov">        180 :   function accept(writer:Writer) {</span></a>
-<a name="15"><span class="lineNum">      15 </span><span class="lineCov">        450 :     writer.visit(this);</span></a>
-<a name="16"><span class="lineNum">      16 </span><span class="lineCov">         90 :   }</span></a>
+<a name="14"><span class="lineNum">      14 </span><span class="lineNoCov">          0 :   function accept(writer:Writer) {</span></a>
+<a name="15"><span class="lineNum">      15 </span><span class="lineNoCov">          0 :     writer.visit(this);</span></a>
+<a name="16"><span class="lineNum">      16 </span><span class="lineNoCov">          0 :   }</span></a>
 <a name="17"><span class="lineNum">      17 </span>            : </a>
 <a name="18"><span class="lineNum">      18 </span><span class="lineNoCov">          0 :   function isScalar() -&gt; Boolean {</span></a>
-<a name="19"><span class="lineNum">      19 </span>            :     return true;</a>
+<a name="19"><span class="lineNum">      19 </span><span class="lineNoCov">          0 :     return true;</span></a>
 <a name="20"><span class="lineNum">      20 </span><span class="lineNoCov">          0 :   }</span></a>
 <a name="21"><span class="lineNum">      21 </span>            :   </a>
-<a name="22"><span class="lineNum">      22 </span><span class="lineCov">         10 :   function getBoolean() -&gt; Boolean? {</span></a>
-<a name="23"><span class="lineNum">      23 </span><span class="lineCov">         15 :     return value;</span></a>
-<a name="24"><span class="lineNum">      24 </span><span class="lineCov">          5 :   }</span></a>
+<a name="22"><span class="lineNum">      22 </span><span class="lineCov">          8 :   function getBoolean() -&gt; Boolean? {</span></a>
+<a name="23"><span class="lineNum">      23 </span><span class="lineCov">         16 :     return value;</span></a>
+<a name="24"><span class="lineNum">      24 </span><span class="lineCov">          4 :   }</span></a>
 <a name="25"><span class="lineNum">      25 </span>            : </a>
 <a name="26"><span class="lineNum">      26 </span><span class="lineNoCov">          0 :   function getBooleanVector() -&gt; Boolean[_]? {</span></a>
 <a name="27"><span class="lineNum">      27 </span><span class="lineNoCov">          0 :     return vector(value, 1);</span></a>

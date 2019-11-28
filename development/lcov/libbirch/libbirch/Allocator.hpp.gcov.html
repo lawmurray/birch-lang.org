@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2019-11-10 13:05:17</td>
+            <td class="headerValue">2019-11-26 20:15:42</td>
             <td></td>
           </tr>
           <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
@@ -106,7 +106,7 @@
 <a name="48"><span class="lineNum">      48 </span>            : </a>
 <a name="49"><span class="lineNum">      49 </span>            : template&lt;class T&gt;</a>
 <a name="50"><span class="lineNum">      50 </span>            : T* libbirch::Allocator&lt;T&gt;::allocate(const size_t n) {</a>
-<a name="51"><span class="lineNum">      51 </span><span class="lineCov">        778 :   return static_cast&lt;T*&gt;(libbirch::allocate(n * sizeof(T)));</span></a>
+<a name="51"><span class="lineNum">      51 </span><span class="lineCov">        793 :   return static_cast&lt;T*&gt;(libbirch::allocate(n * sizeof(T)));</span></a>
 <a name="52"><span class="lineNum">      52 </span>            : }</a>
 <a name="53"><span class="lineNum">      53 </span>            : </a>
 <a name="54"><span class="lineNum">      54 </span>            : template&lt;class T&gt;</a>
@@ -116,8 +116,8 @@
 <a name="58"><span class="lineNum">      58 </span>            : </a>
 <a name="59"><span class="lineNum">      59 </span>            : template&lt;class T&gt;</a>
 <a name="60"><span class="lineNum">      60 </span>            : void libbirch::Allocator&lt;T&gt;::deallocate(T* ptr, const size_t n) {</a>
-<a name="61"><span class="lineNum">      61 </span><span class="lineCov">        794 :   libbirch::deallocate(ptr, n * sizeof(T), get_thread_num());</span></a>
-<a name="62"><span class="lineNum">      62 </span><span class="lineCov">        794 : }</span></a>
+<a name="61"><span class="lineNum">      61 </span><span class="lineCov">        804 :   libbirch::deallocate(ptr, n * sizeof(T), get_thread_num());</span></a>
+<a name="62"><span class="lineNum">      62 </span><span class="lineCov">        804 : }</span></a>
 </pre>
       </td>
     </tr>

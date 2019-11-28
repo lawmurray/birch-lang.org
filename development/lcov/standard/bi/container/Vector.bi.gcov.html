@@ -32,12 +32,12 @@
             <td></td>
             <td class="headerItem">Lines:</td>
             <td class="headerCovTableEntry">26</td>
-            <td class="headerCovTableEntry">93</td>
-            <td class="headerCovTableEntryLo">28.0 %</td>
+            <td class="headerCovTableEntry">97</td>
+            <td class="headerCovTableEntryLo">26.8 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2019-11-10 13:04:00</td>
+            <td class="headerValue">2019-11-26 20:15:26</td>
             <td></td>
           </tr>
           <tr><td><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
@@ -59,23 +59,23 @@
 <a name="1"><span class="lineNum">       1 </span>            : /**</a>
 <a name="2"><span class="lineNum">       2 </span>            :  * Resizeable vector with $O(1)$ random access.</a>
 <a name="3"><span class="lineNum">       3 </span>            :  */</a>
-<a name="4"><span class="lineNum">       4 </span><span class="lineCov">     759230 : final class Vector&lt;Type&gt; {</span></a>
+<a name="4"><span class="lineNum">       4 </span><span class="lineCov">    9359524 : final class Vector&lt;Type&gt; {</span></a>
 <a name="5"><span class="lineNum">       5 </span>            :   /**</a>
 <a name="6"><span class="lineNum">       6 </span>            :    * Elements.</a>
 <a name="7"><span class="lineNum">       7 </span>            :    */</a>
 <a name="8"><span class="lineNum">       8 </span><span class="lineNoCov">          0 :   values:Type[_];</span></a>
-<a name="9"><span class="lineNum">       9 </span><span class="lineNoCov">          0 :   </span></a>
+<a name="9"><span class="lineNum">       9 </span>            :   </a>
 <a name="10"><span class="lineNum">      10 </span>            :   /**</a>
 <a name="11"><span class="lineNum">      11 </span>            :    * Number of elements.</a>
 <a name="12"><span class="lineNum">      12 </span>            :    */</a>
-<a name="13"><span class="lineNum">      13 </span><span class="lineCov">    1518460 :   nelements:Integer &lt;- 0;</span></a>
+<a name="13"><span class="lineNum">      13 </span><span class="lineCov">   18719048 :   nelements:Integer &lt;- 0;</span></a>
 <a name="14"><span class="lineNum">      14 </span>            : </a>
-<a name="15"><span class="lineNum">      15 </span><span class="lineCov">     759230 :   /**</span></a>
+<a name="15"><span class="lineNum">      15 </span><span class="lineCov">    9359524 :   /**</span></a>
 <a name="16"><span class="lineNum">      16 </span>            :    * Number of elements.</a>
 <a name="17"><span class="lineNum">      17 </span>            :    */</a>
-<a name="18"><span class="lineNum">      18 </span><span class="lineCov">      91764 :   function size() -&gt; Integer {</span></a>
-<a name="19"><span class="lineNum">      19 </span><span class="lineCov">     137646 :     return nelements;</span></a>
-<a name="20"><span class="lineNum">      20 </span><span class="lineCov">      45882 :   }</span></a>
+<a name="18"><span class="lineNum">      18 </span><span class="lineCov">      91320 :   function size() -&gt; Integer {</span></a>
+<a name="19"><span class="lineNum">      19 </span><span class="lineCov">     182640 :     return nelements;</span></a>
+<a name="20"><span class="lineNum">      20 </span><span class="lineCov">      45660 :   }</span></a>
 <a name="21"><span class="lineNum">      21 </span>            : </a>
 <a name="22"><span class="lineNum">      22 </span>            :   /**</a>
 <a name="23"><span class="lineNum">      23 </span>            :    * Is this empty?</a>
@@ -95,7 +95,7 @@
 <a name="37"><span class="lineNum">      37 </span>            :   </a>
 <a name="38"><span class="lineNum">      38 </span>            :   /**</a>
 <a name="39"><span class="lineNum">      39 </span>            :    * Get an element.</a>
-<a name="40"><span class="lineNum">      40 </span>            :    *</a>
+<a name="40"><span class="lineNum">      40 </span><span class="lineCov">    1724850 :    *</span></a>
 <a name="41"><span class="lineNum">      41 </span>            :    * - i: Position.</a>
 <a name="42"><span class="lineNum">      42 </span>            :    */</a>
 <a name="43"><span class="lineNum">      43 </span><span class="lineNoCov">          0 :   function get(i:Integer) -&gt; Type {</span></a>
@@ -103,7 +103,7 @@
 <a name="45"><span class="lineNum">      45 </span><span class="lineNoCov">          0 :   }</span></a>
 <a name="46"><span class="lineNum">      46 </span>            : </a>
 <a name="47"><span class="lineNum">      47 </span>            :   /**</a>
-<a name="48"><span class="lineNum">      48 </span>            :    * Set an element.</a>
+<a name="48"><span class="lineNum">      48 </span><span class="lineNoCov">          0 :    * Set an element.</span></a>
 <a name="49"><span class="lineNum">      49 </span>            :    *</a>
 <a name="50"><span class="lineNum">      50 </span>            :    * - i: Position.</a>
 <a name="51"><span class="lineNum">      51 </span>            :    * - x: Value.</a>
@@ -133,18 +133,18 @@
 <a name="75"><span class="lineNum">      75 </span>            :    *</a>
 <a name="76"><span class="lineNum">      76 </span>            :    * - x: Value.</a>
 <a name="77"><span class="lineNum">      77 </span>            :    */</a>
-<a name="78"><span class="lineNum">      78 </span><span class="lineNoCov">          0 :   function pushFront(x:Type) {</span></a>
+<a name="78"><span class="lineNum">      78 </span><span class="lineCov">   20695048 :   function pushFront(x:Type) {</span></a>
 <a name="79"><span class="lineNum">      79 </span><span class="lineNoCov">          0 :     insert(1, x);</span></a>
 <a name="80"><span class="lineNum">      80 </span><span class="lineNoCov">          0 :   }</span></a>
-<a name="81"><span class="lineNum">      81 </span>            : </a>
-<a name="82"><span class="lineNum">      82 </span>            :   /**</a>
+<a name="81"><span class="lineNum">      81 </span><span class="lineCov">    9305382 : </span></a>
+<a name="82"><span class="lineNum">      82 </span><span class="lineNoCov">          0 :   /**</span></a>
 <a name="83"><span class="lineNum">      83 </span>            :    * Insert a new element at the end.</a>
 <a name="84"><span class="lineNum">      84 </span>            :    *</a>
-<a name="85"><span class="lineNum">      85 </span>            :    * - x: Value.</a>
+<a name="85"><span class="lineNum">      85 </span><span class="lineNoCov">          0 :    * - x: Value.</span></a>
 <a name="86"><span class="lineNum">      86 </span>            :    */</a>
-<a name="87"><span class="lineNum">      87 </span><span class="lineCov">     561166 :   function pushBack(x:Type) {</span></a>
-<a name="88"><span class="lineNum">      88 </span><span class="lineCov">    1683498 :     insert(nelements + 1, x);</span></a>
-<a name="89"><span class="lineNum">      89 </span><span class="lineCov">     280583 :   }</span></a>
+<a name="87"><span class="lineNum">      87 </span><span class="lineCov">    4031860 :   function pushBack(x:Type) {</span></a>
+<a name="88"><span class="lineNum">      88 </span><span class="lineCov">   14111510 :     insert(nelements + 1, x);</span></a>
+<a name="89"><span class="lineNum">      89 </span><span class="lineCov">    2015930 :   }</span></a>
 <a name="90"><span class="lineNum">      90 </span>            : </a>
 <a name="91"><span class="lineNum">      91 </span>            :   /**</a>
 <a name="92"><span class="lineNum">      92 </span>            :    * Remove the first element.</a>
@@ -170,14 +170,14 @@
 <a name="112"><span class="lineNum">     112 </span>            :    * position `i`. To insert at the end of the container, use a position that</a>
 <a name="113"><span class="lineNum">     113 </span>            :    * is one more than the current size, or `pushBack()`.</a>
 <a name="114"><span class="lineNum">     114 </span>            :    */</a>
-<a name="115"><span class="lineNum">     115 </span><span class="lineCov">     561166 :   function insert(i:Integer, x:Type) {</span></a>
-<a name="116"><span class="lineNum">     116 </span><span class="lineCov">    1122332 :     assert 1 &lt;= i &amp;&amp; i &lt;= nelements + 1;</span></a>
-<a name="117"><span class="lineNum">     117 </span><span class="lineCov">    1683498 :     enlarge(nelements + 1, x);</span></a>
-<a name="118"><span class="lineNum">     118 </span><span class="lineCov">     841749 :     if (i &lt; nelements) {</span></a>
+<a name="115"><span class="lineNum">     115 </span><span class="lineCov">    4031860 :   function insert(i:Integer, x:Type) {</span></a>
+<a name="116"><span class="lineNum">     116 </span><span class="lineCov">   10079650 :     assert 1 &lt;= i &amp;&amp; i &lt;= nelements + 1;</span></a>
+<a name="117"><span class="lineNum">     117 </span><span class="lineCov">   14111510 :     enlarge(nelements + 1, x);</span></a>
+<a name="118"><span class="lineNum">     118 </span><span class="lineCov">    8063720 :     if i &lt; nelements {</span></a>
 <a name="119"><span class="lineNum">     119 </span><span class="lineNoCov">          0 :       values[(i + 1)..nelements] &lt;- values[i..(nelements - 1)];</span></a>
 <a name="120"><span class="lineNum">     120 </span><span class="lineNoCov">          0 :     }</span></a>
-<a name="121"><span class="lineNum">     121 </span><span class="lineCov">    1683498 :     values[i] &lt;- x;</span></a>
-<a name="122"><span class="lineNum">     122 </span><span class="lineCov">     280583 :   }</span></a>
+<a name="121"><span class="lineNum">     121 </span><span class="lineCov">   14111510 :     values[i] &lt;- x;</span></a>
+<a name="122"><span class="lineNum">     122 </span><span class="lineCov">    2015930 :   }</span></a>
 <a name="123"><span class="lineNum">     123 </span>            : </a>
 <a name="124"><span class="lineNum">     124 </span>            :   /**</a>
 <a name="125"><span class="lineNum">     125 </span>            :    * Erase an element.</a>
@@ -197,10 +197,10 @@
 <a name="139"><span class="lineNum">     139 </span>            :    *</a>
 <a name="140"><span class="lineNum">     140 </span>            :    * Return: a fiber object that yields each element in forward order.</a>
 <a name="141"><span class="lineNum">     141 </span>            :    */</a>
-<a name="142"><span class="lineNum">     142 </span><span class="lineCov">    2137463 :   fiber walk() -&gt; Type {</span></a>
-<a name="143"><span class="lineNum">     143 </span><span class="lineCov">    3482443 :     for (i:Integer in 1..nelements) {</span></a>
-<a name="144"><span class="lineNum">     144 </span><span class="lineCov">    3952968 :       yield values[i];</span></a>
-<a name="145"><span class="lineNum">     145 </span><span class="lineCov">     311894 :     }</span></a>
+<a name="142"><span class="lineNum">     142 </span><span class="lineCov">   26145893 :   fiber walk() -&gt; Type {</span></a>
+<a name="143"><span class="lineNum">     143 </span><span class="lineCov">   39077438 :     for i in 1..nelements {</span></a>
+<a name="144"><span class="lineNum">     144 </span><span class="lineCov">   31907685 :       yield values[i];</span></a>
+<a name="145"><span class="lineNum">     145 </span><span class="lineCov">    2871938 :     }</span></a>
 <a name="146"><span class="lineNum">     146 </span>            :   }</a>
 <a name="147"><span class="lineNum">     147 </span>            : </a>
 <a name="148"><span class="lineNum">     148 </span>            :   /**</a>
@@ -225,19 +225,19 @@
 <a name="167"><span class="lineNum">     167 </span>            :    *</a>
 <a name="168"><span class="lineNum">     168 </span>            :    * The current contents are preserved.</a>
 <a name="169"><span class="lineNum">     169 </span>            :    */</a>
-<a name="170"><span class="lineNum">     170 </span><span class="lineCov">     561226 :   function enlarge(n:Integer, x:Type) {</span></a>
-<a name="171"><span class="lineNum">     171 </span><span class="lineCov">    1403065 :     cpp{{</span></a>
+<a name="170"><span class="lineNum">     170 </span><span class="lineCov">    4031860 :   function enlarge(n:Integer, x:Type) {</span></a>
+<a name="171"><span class="lineNum">     171 </span><span class="lineCov">   10079650 :     cpp{{</span></a>
 <a name="172"><span class="lineNum">     172 </span>            :     self-&gt;values.enlarge(libbirch::make_shape(n), x);</a>
 <a name="173"><span class="lineNum">     173 </span>            :     }}</a>
-<a name="174"><span class="lineNum">     174 </span><span class="lineCov">     841839 :     nelements &lt;- n;</span></a>
-<a name="175"><span class="lineNum">     175 </span><span class="lineCov">     280613 :   }</span></a>
+<a name="174"><span class="lineNum">     174 </span><span class="lineCov">    8063720 :     nelements &lt;- n;</span></a>
+<a name="175"><span class="lineNum">     175 </span><span class="lineCov">    2015930 :   }</span></a>
 <a name="176"><span class="lineNum">     176 </span>            : </a>
 <a name="177"><span class="lineNum">     177 </span>            :   /**</a>
 <a name="178"><span class="lineNum">     178 </span>            :    * Convert to array.</a>
 <a name="179"><span class="lineNum">     179 </span>            :    */</a>
-<a name="180"><span class="lineNum">     180 </span><span class="lineCov">         60 :   function toArray() -&gt; Type[_] {</span></a>
-<a name="181"><span class="lineNum">     181 </span><span class="lineCov">        120 :     return values;</span></a>
-<a name="182"><span class="lineNum">     182 </span><span class="lineCov">         30 :   }</span></a>
+<a name="180"><span class="lineNum">     180 </span><span class="lineNoCov">          0 :   function toArray() -&gt; Type[_] {</span></a>
+<a name="181"><span class="lineNum">     181 </span><span class="lineNoCov">          0 :     return values;</span></a>
+<a name="182"><span class="lineNum">     182 </span><span class="lineNoCov">          0 :   }</span></a>
 <a name="183"><span class="lineNum">     183 </span>            :   </a>
 <a name="184"><span class="lineNum">     184 </span>            :   /**</a>
 <a name="185"><span class="lineNum">     185 </span>            :    * Convert from array.</a>

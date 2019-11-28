@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2019-11-10 13:05:17</td>
+            <td class="headerValue">2019-11-26 20:15:42</td>
             <td></td>
           </tr>
           <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
@@ -92,16 +92,16 @@
 <a name="34"><span class="lineNum">      34 </span>            :    *</a>
 <a name="35"><span class="lineNum">      35 </span>            :    * @param value Initial value.</a>
 <a name="36"><span class="lineNum">      36 </span>            :    */</a>
-<a name="37"><span class="lineNum">      37 </span><span class="lineCov"> 1197730045 :   explicit Atomic(const T&amp; value) {</span></a>
-<a name="38"><span class="lineNum">      38 </span><span class="lineCov"> 1201628412 :     init(value);</span></a>
-<a name="39"><span class="lineNum">      39 </span><span class="lineCov"> 2399358457 :   }</span></a>
+<a name="37"><span class="lineNum">      37 </span><span class="lineCov"> 1540214814 :   explicit Atomic(const T&amp; value) {</span></a>
+<a name="38"><span class="lineNum">      38 </span><span class="lineCov"> 1547469501 :     init(value);</span></a>
+<a name="39"><span class="lineNum">      39 </span><span class="lineCov"> 3087684315 :   }</span></a>
 <a name="40"><span class="lineNum">      40 </span>            : </a>
 <a name="41"><span class="lineNum">      41 </span>            :   /**</a>
 <a name="42"><span class="lineNum">      42 </span>            :    * Initialize the value, not atomically.</a>
 <a name="43"><span class="lineNum">      43 </span>            :    */</a>
 <a name="44"><span class="lineNum">      44 </span>            :   void init(const T&amp; value) {</a>
-<a name="45"><span class="lineNum">      45 </span><span class="lineCov">  257863835 :     this-&gt;value = value;</span></a>
-<a name="46"><span class="lineNum">      46 </span><span class="lineCov">  257863835 :   }</span></a>
+<a name="45"><span class="lineNum">      45 </span><span class="lineCov">  257293765 :     this-&gt;value = value;</span></a>
+<a name="46"><span class="lineNum">      46 </span><span class="lineCov">  257293765 :   }</span></a>
 <a name="47"><span class="lineNum">      47 </span>            : </a>
 <a name="48"><span class="lineNum">      48 </span>            :   /**</a>
 <a name="49"><span class="lineNum">      49 </span>            :    * Load the value, atomically.</a>
@@ -109,18 +109,18 @@
 <a name="51"><span class="lineNum">      51 </span>            :   T load() const {</a>
 <a name="52"><span class="lineNum">      52 </span>            :     T value;</a>
 <a name="53"><span class="lineNum">      53 </span>            :     #pragma omp atomic read</a>
-<a name="54"><span class="lineNum">      54 </span><span class="lineCov">  689319462 :     value = this-&gt;value;</span></a>
+<a name="54"><span class="lineNum">      54 </span><span class="lineCov">  685533263 :     value = this-&gt;value;</span></a>
 <a name="55"><span class="lineNum">      55 </span>            : </a>
-<a name="56"><span class="lineNum">      56 </span><span class="lineCov">  689319462 :     return value;</span></a>
+<a name="56"><span class="lineNum">      56 </span><span class="lineCov">  685533263 :     return value;</span></a>
 <a name="57"><span class="lineNum">      57 </span>            :   }</a>
 <a name="58"><span class="lineNum">      58 </span>            : </a>
 <a name="59"><span class="lineNum">      59 </span>            :   /**</a>
 <a name="60"><span class="lineNum">      60 </span>            :    * Store the value, atomically.</a>
 <a name="61"><span class="lineNum">      61 </span>            :    */</a>
 <a name="62"><span class="lineNum">      62 </span>            :   void store(const T&amp; value) {</a>
-<a name="63"><span class="lineNum">      63 </span><span class="lineCov">  104766922 :     #pragma omp atomic write</span></a>
-<a name="64"><span class="lineNum">      64 </span><span class="lineCov">  209533844 :     this-&gt;value = value;</span></a>
-<a name="65"><span class="lineNum">      65 </span><span class="lineCov">  104766922 :   }</span></a>
+<a name="63"><span class="lineNum">      63 </span><span class="lineCov">  104509137 :     #pragma omp atomic write</span></a>
+<a name="64"><span class="lineNum">      64 </span><span class="lineCov">  209018274 :     this-&gt;value = value;</span></a>
+<a name="65"><span class="lineNum">      65 </span><span class="lineCov">  104509137 :   }</span></a>
 <a name="66"><span class="lineNum">      66 </span>            : </a>
 <a name="67"><span class="lineNum">      67 </span>            :   /**</a>
 <a name="68"><span class="lineNum">      68 </span>            :    * Exchange the value with another, atomically.</a>
@@ -131,12 +131,12 @@
 <a name="73"><span class="lineNum">      73 </span>            :    */</a>
 <a name="74"><span class="lineNum">      74 </span>            :   T exchange(const T&amp; value) {</a>
 <a name="75"><span class="lineNum">      75 </span>            :     T old;</a>
-<a name="76"><span class="lineNum">      76 </span><span class="lineCov">  104766922 :     #pragma omp atomic capture</span></a>
-<a name="77"><span class="lineNum">      77 </span><span class="lineCov">  314300766 :     {</span></a>
+<a name="76"><span class="lineNum">      76 </span><span class="lineCov">  104509137 :     #pragma omp atomic capture</span></a>
+<a name="77"><span class="lineNum">      77 </span><span class="lineCov">  313527411 :     {</span></a>
 <a name="78"><span class="lineNum">      78 </span>            :       old = this-&gt;value;</a>
-<a name="79"><span class="lineNum">      79 </span><span class="lineCov">  209533844 :       this-&gt;value = value;</span></a>
+<a name="79"><span class="lineNum">      79 </span><span class="lineCov">  209018274 :       this-&gt;value = value;</span></a>
 <a name="80"><span class="lineNum">      80 </span>            :     }</a>
-<a name="81"><span class="lineNum">      81 </span><span class="lineCov">  104766922 :     return old;</span></a>
+<a name="81"><span class="lineNum">      81 </span><span class="lineCov">  104509137 :     return old;</span></a>
 <a name="82"><span class="lineNum">      82 </span>            :   }</a>
 <a name="83"><span class="lineNum">      83 </span>            : </a>
 <a name="84"><span class="lineNum">      84 </span>            :   /**</a>
@@ -145,8 +145,8 @@
 <a name="87"><span class="lineNum">      87 </span>            :    */</a>
 <a name="88"><span class="lineNum">      88 </span>            :   void increment() {</a>
 <a name="89"><span class="lineNum">      89 </span>            :     #pragma omp atomic update</a>
-<a name="90"><span class="lineNum">      90 </span><span class="lineCov">  167147018 :     ++value;</span></a>
-<a name="91"><span class="lineNum">      91 </span><span class="lineCov">  167147018 :   }</span></a>
+<a name="90"><span class="lineNum">      90 </span><span class="lineCov">  166124357 :     ++value;</span></a>
+<a name="91"><span class="lineNum">      91 </span><span class="lineCov">  166124357 :   }</span></a>
 <a name="92"><span class="lineNum">      92 </span>            : </a>
 <a name="93"><span class="lineNum">      93 </span>            :   /**</a>
 <a name="94"><span class="lineNum">      94 </span>            :    * Increment the value by two, atomically, but without capturing the</a>
@@ -154,8 +154,8 @@
 <a name="96"><span class="lineNum">      96 </span>            :    */</a>
 <a name="97"><span class="lineNum">      97 </span>            :   void doubleIncrement() {</a>
 <a name="98"><span class="lineNum">      98 </span>            :     #pragma omp atomic update</a>
-<a name="99"><span class="lineNum">      99 </span><span class="lineCov">   86779554 :     value += 2;</span></a>
-<a name="100"><span class="lineNum">     100 </span><span class="lineCov">   86779554 :   }</span></a>
+<a name="99"><span class="lineNum">      99 </span><span class="lineCov">  167511922 :     value += 2;</span></a>
+<a name="100"><span class="lineNum">     100 </span><span class="lineCov">  167511922 :   }</span></a>
 <a name="101"><span class="lineNum">     101 </span>            : </a>
 <a name="102"><span class="lineNum">     102 </span>            :   /**</a>
 <a name="103"><span class="lineNum">     103 </span>            :    * Decrement the value by one, atomically, but without capturing the</a>
@@ -163,8 +163,8 @@
 <a name="105"><span class="lineNum">     105 </span>            :    */</a>
 <a name="106"><span class="lineNum">     106 </span>            :   void decrement() {</a>
 <a name="107"><span class="lineNum">     107 </span>            :     #pragma omp atomic update</a>
-<a name="108"><span class="lineNum">     108 </span><span class="lineCov">   78568638 :     --value;</span></a>
-<a name="109"><span class="lineNum">     109 </span><span class="lineCov">   78568638 :   }</span></a>
+<a name="108"><span class="lineNum">     108 </span><span class="lineCov">   77556048 :     --value;</span></a>
+<a name="109"><span class="lineNum">     109 </span><span class="lineCov">   77556048 :   }</span></a>
 <a name="110"><span class="lineNum">     110 </span>            : </a>
 <a name="111"><span class="lineNum">     111 </span>            :   /**</a>
 <a name="112"><span class="lineNum">     112 </span>            :    * Decrement the value by two, atomically, but without capturing the</a>
@@ -180,9 +180,9 @@
 <a name="122"><span class="lineNum">     122 </span>            :    */</a>
 <a name="123"><span class="lineNum">     123 </span>            :   template&lt;class U&gt;</a>
 <a name="124"><span class="lineNum">     124 </span>            :   void add(const U&amp; value) {</a>
-<a name="125"><span class="lineNum">     125 </span><span class="lineCov">  302085797 :     #pragma omp atomic update</span></a>
-<a name="126"><span class="lineNum">     126 </span><span class="lineCov">  604171594 :     this-&gt;value += value;</span></a>
-<a name="127"><span class="lineNum">     127 </span><span class="lineCov">  302085797 :   }</span></a>
+<a name="125"><span class="lineNum">     125 </span><span class="lineCov">  405042438 :     #pragma omp atomic update</span></a>
+<a name="126"><span class="lineNum">     126 </span><span class="lineCov">  810084876 :     this-&gt;value += value;</span></a>
+<a name="127"><span class="lineNum">     127 </span><span class="lineCov">  405042438 :   }</span></a>
 <a name="128"><span class="lineNum">     128 </span>            : </a>
 <a name="129"><span class="lineNum">     129 </span>            :   /**</a>
 <a name="130"><span class="lineNum">     130 </span>            :    * Subtract from the value, atomically, but without capturing the current</a>
@@ -190,26 +190,26 @@
 <a name="132"><span class="lineNum">     132 </span>            :    */</a>
 <a name="133"><span class="lineNum">     133 </span>            :   template&lt;class U&gt;</a>
 <a name="134"><span class="lineNum">     134 </span>            :   void subtract(const U&amp; value) {</a>
-<a name="135"><span class="lineNum">     135 </span><span class="lineCov">  306401431 :     #pragma omp atomic update</span></a>
-<a name="136"><span class="lineNum">     136 </span><span class="lineCov">  612802862 :     this-&gt;value -= value;</span></a>
-<a name="137"><span class="lineNum">     137 </span><span class="lineCov">  306401431 :   }</span></a>
+<a name="135"><span class="lineNum">     135 </span><span class="lineCov">  417445991 :     #pragma omp atomic update</span></a>
+<a name="136"><span class="lineNum">     136 </span><span class="lineCov">  834891982 :     this-&gt;value -= value;</span></a>
+<a name="137"><span class="lineNum">     137 </span><span class="lineCov">  417445991 :   }</span></a>
 <a name="138"><span class="lineNum">     138 </span>            : </a>
 <a name="139"><span class="lineNum">     139 </span>            :   template&lt;class U&gt;</a>
 <a name="140"><span class="lineNum">     140 </span>            :   T operator+=(const U&amp; value) {</a>
 <a name="141"><span class="lineNum">     141 </span>            :     T result;</a>
-<a name="142"><span class="lineNum">     142 </span><span class="lineCov">    3262935 :     #pragma omp atomic capture</span></a>
-<a name="143"><span class="lineNum">     143 </span><span class="lineCov">   13111949 :     result = this-&gt;value += value;</span></a>
+<a name="142"><span class="lineNum">     142 </span><span class="lineCov">    4844242 :     #pragma omp atomic capture</span></a>
+<a name="143"><span class="lineNum">     143 </span><span class="lineCov">   19509121 :     result = this-&gt;value += value;</span></a>
 <a name="144"><span class="lineNum">     144 </span>            : </a>
-<a name="145"><span class="lineNum">     145 </span><span class="lineCov">    3277335 :     return result;</span></a>
+<a name="145"><span class="lineNum">     145 </span><span class="lineCov">    4877072 :     return result;</span></a>
 <a name="146"><span class="lineNum">     146 </span>            :   }</a>
 <a name="147"><span class="lineNum">     147 </span>            : </a>
 <a name="148"><span class="lineNum">     148 </span>            :   template&lt;class U&gt;</a>
 <a name="149"><span class="lineNum">     149 </span>            :   T operator-=(const U&amp; value) {</a>
 <a name="150"><span class="lineNum">     150 </span>            :     T result;</a>
-<a name="151"><span class="lineNum">     151 </span><span class="lineCov">   81287433 :     #pragma omp atomic capture</span></a>
-<a name="152"><span class="lineNum">     152 </span><span class="lineCov">  162574866 :     result = this-&gt;value -= value;</span></a>
+<a name="151"><span class="lineNum">     151 </span><span class="lineCov">  174490306 :     #pragma omp atomic capture</span></a>
+<a name="152"><span class="lineNum">     152 </span><span class="lineCov">  348980612 :     result = this-&gt;value -= value;</span></a>
 <a name="153"><span class="lineNum">     153 </span>            : </a>
-<a name="154"><span class="lineNum">     154 </span><span class="lineCov">   81287433 :     return result;</span></a>
+<a name="154"><span class="lineNum">     154 </span><span class="lineCov">  174490306 :     return result;</span></a>
 <a name="155"><span class="lineNum">     155 </span>            :   }</a>
 <a name="156"><span class="lineNum">     156 </span>            : </a>
 <a name="157"><span class="lineNum">     157 </span>            :   T operator++() {</a>
@@ -231,9 +231,9 @@
 <a name="173"><span class="lineNum">     173 </span>            :   T operator--() {</a>
 <a name="174"><span class="lineNum">     174 </span>            :     T value;</a>
 <a name="175"><span class="lineNum">     175 </span>            :     #pragma omp atomic capture</a>
-<a name="176"><span class="lineNum">     176 </span><span class="lineCov">  149212693 :     value = --this-&gt;value;</span></a>
+<a name="176"><span class="lineNum">     176 </span><span class="lineCov">  148784659 :     value = --this-&gt;value;</span></a>
 <a name="177"><span class="lineNum">     177 </span>            : </a>
-<a name="178"><span class="lineNum">     178 </span><span class="lineCov">  149212693 :     return value;</span></a>
+<a name="178"><span class="lineNum">     178 </span><span class="lineCov">  148784659 :     return value;</span></a>
 <a name="179"><span class="lineNum">     179 </span>            :   }</a>
 <a name="180"><span class="lineNum">     180 </span>            : </a>
 <a name="181"><span class="lineNum">     181 </span>            :   T operator--(int) {</a>

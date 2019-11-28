@@ -31,13 +31,13 @@
             <td class="headerValue">libbirch.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">65</td>
-            <td class="headerCovTableEntry">85</td>
-            <td class="headerCovTableEntryMed">76.5 %</td>
+            <td class="headerCovTableEntry">68</td>
+            <td class="headerCovTableEntry">86</td>
+            <td class="headerCovTableEntryMed">79.1 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2019-11-10 13:05:17</td>
+            <td class="headerValue">2019-11-26 20:15:42</td>
             <td></td>
           </tr>
           <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
@@ -73,8 +73,8 @@
 <a name="15"><span class="lineNum">      15 </span>            :  * @tparam T Type type.</a>
 <a name="16"><span class="lineNum">      16 </span>            :  */</a>
 <a name="17"><span class="lineNum">      17 </span>            : template&lt;class T, class Enable = void&gt;</a>
-<a name="18"><span class="lineNum">      18 </span><span class="lineCov">   48822573 : class Optional {</span></a>
-<a name="19"><span class="lineNum">      19 </span><span class="lineCov">   98667644 :   template&lt;class U, class Enable1&gt; friend class Optional;</span></a>
+<a name="18"><span class="lineNum">      18 </span><span class="lineCov">   59174776 : class Optional {</span></a>
+<a name="19"><span class="lineNum">      19 </span><span class="lineCov">  170869980 :   template&lt;class U, class Enable1&gt; friend class Optional;</span></a>
 <a name="20"><span class="lineNum">      20 </span>            : </a>
 <a name="21"><span class="lineNum">      21 </span>            :   static_assert(!std::is_lvalue_reference&lt;T&gt;::value,</a>
 <a name="22"><span class="lineNum">      22 </span>            :       &quot;Optional does not support lvalue reference types.&quot;);</a>
@@ -83,10 +83,10 @@
 <a name="25"><span class="lineNum">      25 </span>            :    * Constructor.</a>
 <a name="26"><span class="lineNum">      26 </span>            :    */</a>
 <a name="27"><span class="lineNum">      27 </span>            :   Optional(const Nil&amp; = nil) :</a>
-<a name="28"><span class="lineNum">      28 </span><span class="lineCov">   36863051 :       value(),</span></a>
-<a name="29"><span class="lineNum">      29 </span><span class="lineCov">   73809809 :       hasValue(false) {</span></a>
+<a name="28"><span class="lineNum">      28 </span><span class="lineCov">   51043593 :       value(),</span></a>
+<a name="29"><span class="lineNum">      29 </span><span class="lineCov">  102183811 :       hasValue(false) {</span></a>
 <a name="30"><span class="lineNum">      30 </span>            :     //</a>
-<a name="31"><span class="lineNum">      31 </span><span class="lineCov">   73809809 :   }</span></a>
+<a name="31"><span class="lineNum">      31 </span><span class="lineCov">  102183811 :   }</span></a>
 <a name="32"><span class="lineNum">      32 </span>            : </a>
 <a name="33"><span class="lineNum">      33 </span>            :   /**</a>
 <a name="34"><span class="lineNum">      34 </span>            :    * Constructor.</a>
@@ -103,20 +103,20 @@
 <a name="45"><span class="lineNum">      45 </span>            :    */</a>
 <a name="46"><span class="lineNum">      46 </span>            :   template&lt;class U, IS_CONVERTIBLE(U,T)&gt;</a>
 <a name="47"><span class="lineNum">      47 </span>            :   Optional(const U&amp; value) :</a>
-<a name="48"><span class="lineNum">      48 </span><span class="lineCov">    2689774 :       value(value),</span></a>
-<a name="49"><span class="lineNum">      49 </span><span class="lineCov">    5379800 :       hasValue(true) {</span></a>
+<a name="48"><span class="lineNum">      48 </span><span class="lineCov">    6117584 :       value(value),</span></a>
+<a name="49"><span class="lineNum">      49 </span><span class="lineCov">   12235873 :       hasValue(true) {</span></a>
 <a name="50"><span class="lineNum">      50 </span>            :     //</a>
-<a name="51"><span class="lineNum">      51 </span><span class="lineCov">    5379800 :   }</span></a>
+<a name="51"><span class="lineNum">      51 </span><span class="lineCov">   12235873 :   }</span></a>
 <a name="52"><span class="lineNum">      52 </span>            : </a>
 <a name="53"><span class="lineNum">      53 </span>            :   /**</a>
 <a name="54"><span class="lineNum">      54 </span>            :    * Value copy constructor.</a>
 <a name="55"><span class="lineNum">      55 </span>            :    */</a>
 <a name="56"><span class="lineNum">      56 </span>            :   template&lt;class U, IS_NOT_VALUE(T), IS_CONVERTIBLE(U,T)&gt;</a>
 <a name="57"><span class="lineNum">      57 </span>            :   Optional(Label* context, const U&amp; value) :</a>
-<a name="58"><span class="lineNum">      58 </span>            :       value(context, value),</a>
-<a name="59"><span class="lineNum">      59 </span>            :       hasValue(true) {</a>
+<a name="58"><span class="lineNum">      58 </span><span class="lineCov">        201 :       value(context, value),</span></a>
+<a name="59"><span class="lineNum">      59 </span><span class="lineCov">        402 :       hasValue(true) {</span></a>
 <a name="60"><span class="lineNum">      60 </span>            :     //</a>
-<a name="61"><span class="lineNum">      61 </span>            :   }</a>
+<a name="61"><span class="lineNum">      61 </span><span class="lineCov">        402 :   }</span></a>
 <a name="62"><span class="lineNum">      62 </span>            : </a>
 <a name="63"><span class="lineNum">      63 </span>            :   /**</a>
 <a name="64"><span class="lineNum">      64 </span>            :    * Value move constructor.</a>
@@ -124,10 +124,10 @@
 <a name="66"><span class="lineNum">      66 </span>            :    * @todo Make generic while avoiding use of universal reference.</a>
 <a name="67"><span class="lineNum">      67 </span>            :    */</a>
 <a name="68"><span class="lineNum">      68 </span>            :   Optional(T&amp;&amp; value) :</a>
-<a name="69"><span class="lineNum">      69 </span><span class="lineCov">   10956941 :       value(std::move(value)),</span></a>
-<a name="70"><span class="lineNum">      70 </span><span class="lineCov">   21920710 :       hasValue(true) {</span></a>
+<a name="69"><span class="lineNum">      69 </span><span class="lineCov">   17293805 :       value(std::move(value)),</span></a>
+<a name="70"><span class="lineNum">      70 </span><span class="lineCov">   34600458 :       hasValue(true) {</span></a>
 <a name="71"><span class="lineNum">      71 </span>            :     //</a>
-<a name="72"><span class="lineNum">      72 </span><span class="lineCov">   21920710 :   }</span></a>
+<a name="72"><span class="lineNum">      72 </span><span class="lineCov">   34600458 :   }</span></a>
 <a name="73"><span class="lineNum">      73 </span>            : </a>
 <a name="74"><span class="lineNum">      74 </span>            :   /**</a>
 <a name="75"><span class="lineNum">      75 </span>            :    * Value move constructor.</a>
@@ -157,10 +157,10 @@
 <a name="99"><span class="lineNum">      99 </span>            :    * Copy constructor.</a>
 <a name="100"><span class="lineNum">     100 </span>            :    */</a>
 <a name="101"><span class="lineNum">     101 </span>            :   Optional(const Optional&lt;T&gt;&amp; o) :</a>
-<a name="102"><span class="lineNum">     102 </span><span class="lineCov">   53437854 :       value(o.value),</span></a>
-<a name="103"><span class="lineNum">     103 </span><span class="lineCov">  106941475 :       hasValue(o.hasValue) {</span></a>
+<a name="102"><span class="lineNum">     102 </span><span class="lineCov">  107161682 :       value(o.value),</span></a>
+<a name="103"><span class="lineNum">     103 </span><span class="lineCov">  214382078 :       hasValue(o.hasValue) {</span></a>
 <a name="104"><span class="lineNum">     104 </span>            :     //</a>
-<a name="105"><span class="lineNum">     105 </span><span class="lineCov">  106941475 :   }</span></a>
+<a name="105"><span class="lineNum">     105 </span><span class="lineCov">  214382078 :   }</span></a>
 <a name="106"><span class="lineNum">     106 </span>            : </a>
 <a name="107"><span class="lineNum">     107 </span>            :   /**</a>
 <a name="108"><span class="lineNum">     108 </span>            :    * Copy constructor.</a>
@@ -240,14 +240,14 @@
 <a name="182"><span class="lineNum">     182 </span>            :    */</a>
 <a name="183"><span class="lineNum">     183 </span>            :   template&lt;IS_VALUE(T)&gt;</a>
 <a name="184"><span class="lineNum">     184 </span>            :   Optional&amp; operator=(const T&amp; value) {</a>
-<a name="185"><span class="lineNum">     185 </span><span class="lineCov">          9 :     return assign(value);</span></a>
+<a name="185"><span class="lineNum">     185 </span><span class="lineCov">         10 :     return assign(value);</span></a>
 <a name="186"><span class="lineNum">     186 </span>            :   }</a>
 <a name="187"><span class="lineNum">     187 </span>            : </a>
 <a name="188"><span class="lineNum">     188 </span>            :   /**</a>
 <a name="189"><span class="lineNum">     189 </span>            :    * Move assignment operator.</a>
 <a name="190"><span class="lineNum">     190 </span>            :    */</a>
 <a name="191"><span class="lineNum">     191 </span>            :   Optional&amp; operator=(Optional&lt;T&gt;&amp;&amp; o) {</a>
-<a name="192"><span class="lineNum">     192 </span><span class="lineCov">    3654409 :     return assign(std::move(o));</span></a>
+<a name="192"><span class="lineNum">     192 </span><span class="lineCov">    4353317 :     return assign(std::move(o));</span></a>
 <a name="193"><span class="lineNum">     193 </span>            :   }</a>
 <a name="194"><span class="lineNum">     194 </span>            : </a>
 <a name="195"><span class="lineNum">     195 </span>            :   /**</a>
@@ -255,30 +255,30 @@
 <a name="197"><span class="lineNum">     197 </span>            :    */</a>
 <a name="198"><span class="lineNum">     198 </span>            :   template&lt;IS_VALUE(T)&gt;</a>
 <a name="199"><span class="lineNum">     199 </span>            :   Optional&amp; operator=(T&amp;&amp; value) {</a>
-<a name="200"><span class="lineNum">     200 </span><span class="lineCov">         35 :     return assign(std::move(value));</span></a>
+<a name="200"><span class="lineNum">     200 </span><span class="lineCov">         27 :     return assign(std::move(value));</span></a>
 <a name="201"><span class="lineNum">     201 </span><span class="lineNoCov">          0 :   }</span></a>
 <a name="202"><span class="lineNum">     202 </span>            : </a>
 <a name="203"><span class="lineNum">     203 </span>            :   /**</a>
 <a name="204"><span class="lineNum">     204 </span>            :    * Is there a value?</a>
 <a name="205"><span class="lineNum">     205 </span>            :    */</a>
 <a name="206"><span class="lineNum">     206 </span>            :   bool query() const {</a>
-<a name="207"><span class="lineNum">     207 </span><span class="lineCov">   19553952 :     return hasValue;</span></a>
+<a name="207"><span class="lineNum">     207 </span><span class="lineCov">   19566936 :     return hasValue;</span></a>
 <a name="208"><span class="lineNum">     208 </span>            :   }</a>
 <a name="209"><span class="lineNum">     209 </span>            : </a>
 <a name="210"><span class="lineNum">     210 </span>            :   /**</a>
 <a name="211"><span class="lineNum">     211 </span>            :    * Get the value.</a>
 <a name="212"><span class="lineNum">     212 </span>            :    */</a>
 <a name="213"><span class="lineNum">     213 </span>            :   T&amp; get() {</a>
-<a name="214"><span class="lineNum">     214 </span><span class="lineCov">   13776954 :     libbirch_assert_msg_(hasValue, &quot;optional has no value&quot;);</span></a>
-<a name="215"><span class="lineNum">     215 </span><span class="lineCov">   13776414 :     return value;</span></a>
+<a name="214"><span class="lineNum">     214 </span><span class="lineCov">   13768005 :     libbirch_assert_msg_(hasValue, &quot;optional has no value&quot;);</span></a>
+<a name="215"><span class="lineNum">     215 </span><span class="lineCov">   13767110 :     return value;</span></a>
 <a name="216"><span class="lineNum">     216 </span><span class="lineNoCov">          0 :   }</span></a>
 <a name="217"><span class="lineNum">     217 </span>            : </a>
 <a name="218"><span class="lineNum">     218 </span>            :   /**</a>
 <a name="219"><span class="lineNum">     219 </span>            :    * Get the value.</a>
 <a name="220"><span class="lineNum">     220 </span>            :    */</a>
 <a name="221"><span class="lineNum">     221 </span>            :   const T&amp; get() const {</a>
-<a name="222"><span class="lineNum">     222 </span><span class="lineCov">     239799 :     libbirch_assert_msg_(hasValue, &quot;optional has no value&quot;);</span></a>
-<a name="223"><span class="lineNum">     223 </span><span class="lineCov">     239799 :     return value;</span></a>
+<a name="222"><span class="lineNum">     222 </span><span class="lineCov">    1143221 :     libbirch_assert_msg_(hasValue, &quot;optional has no value&quot;);</span></a>
+<a name="223"><span class="lineNum">     223 </span><span class="lineCov">    1143221 :     return value;</span></a>
 <a name="224"><span class="lineNum">     224 </span><span class="lineNoCov">          0 :   }</span></a>
 <a name="225"><span class="lineNum">     225 </span>            : </a>
 <a name="226"><span class="lineNum">     226 </span>            :   /**</a>
@@ -306,9 +306,9 @@
 <a name="248"><span class="lineNum">     248 </span>            :    */</a>
 <a name="249"><span class="lineNum">     249 </span>            :   template&lt;IS_VALUE(T)&gt;</a>
 <a name="250"><span class="lineNum">     250 </span>            :   Optional&amp; assign(Optional&lt;T&gt;&amp;&amp; o) {</a>
-<a name="251"><span class="lineNum">     251 </span><span class="lineCov">    3658065 :     value = std::move(o.value);</span></a>
-<a name="252"><span class="lineNum">     252 </span><span class="lineCov">    3658065 :     hasValue = o.hasValue;</span></a>
-<a name="253"><span class="lineNum">     253 </span><span class="lineCov">    3658065 :     return *this;</span></a>
+<a name="251"><span class="lineNum">     251 </span><span class="lineCov">    4353035 :     value = std::move(o.value);</span></a>
+<a name="252"><span class="lineNum">     252 </span><span class="lineCov">    4353035 :     hasValue = o.hasValue;</span></a>
+<a name="253"><span class="lineNum">     253 </span><span class="lineCov">    4353035 :     return *this;</span></a>
 <a name="254"><span class="lineNum">     254 </span>            :   }</a>
 <a name="255"><span class="lineNum">     255 </span>            : </a>
 <a name="256"><span class="lineNum">     256 </span>            :   /**</a>
@@ -379,7 +379,7 @@
 <a name="321"><span class="lineNum">     321 </span>            :  */</a>
 <a name="322"><span class="lineNum">     322 </span>            : template&lt;class T&gt;</a>
 <a name="323"><span class="lineNum">     323 </span>            : class Optional&lt;T,IS_POINTER(T)&gt; {</a>
-<a name="324"><span class="lineNum">     324 </span><span class="lineCov">  293173525 :   template&lt;class U, class Enable1&gt; friend class Optional;</span></a>
+<a name="324"><span class="lineNum">     324 </span><span class="lineCov">  419671210 :   template&lt;class U, class Enable1&gt; friend class Optional;</span></a>
 <a name="325"><span class="lineNum">     325 </span>            : </a>
 <a name="326"><span class="lineNum">     326 </span>            :   static_assert(!std::is_lvalue_reference&lt;T&gt;::value,</a>
 <a name="327"><span class="lineNum">     327 </span>            :       &quot;Optional does not support lvalue reference types.&quot;);</a>
@@ -391,35 +391,35 @@
 <a name="333"><span class="lineNum">     333 </span>            :    * Constructor.</a>
 <a name="334"><span class="lineNum">     334 </span>            :    */</a>
 <a name="335"><span class="lineNum">     335 </span>            :   Optional(const Nil&amp; = nil) :</a>
-<a name="336"><span class="lineNum">     336 </span><span class="lineCov">  215962323 :       value() {</span></a>
+<a name="336"><span class="lineNum">     336 </span><span class="lineCov">  244403113 :       value() {</span></a>
 <a name="337"><span class="lineNum">     337 </span>            :     //</a>
-<a name="338"><span class="lineNum">     338 </span><span class="lineCov">  215962323 :   }</span></a>
+<a name="338"><span class="lineNum">     338 </span><span class="lineCov">  244403113 :   }</span></a>
 <a name="339"><span class="lineNum">     339 </span>            : </a>
 <a name="340"><span class="lineNum">     340 </span>            :   /**</a>
 <a name="341"><span class="lineNum">     341 </span>            :    * Constructor.</a>
 <a name="342"><span class="lineNum">     342 </span>            :    */</a>
 <a name="343"><span class="lineNum">     343 </span>            :   Optional(Label* context, const Nil&amp; = nil) :</a>
-<a name="344"><span class="lineNum">     344 </span><span class="lineCov">   16150277 :       value() {</span></a>
+<a name="344"><span class="lineNum">     344 </span><span class="lineCov">   39469606 :       value() {</span></a>
 <a name="345"><span class="lineNum">     345 </span>            :     //</a>
-<a name="346"><span class="lineNum">     346 </span><span class="lineCov">   16150277 :   }</span></a>
+<a name="346"><span class="lineNum">     346 </span><span class="lineCov">   39469606 :   }</span></a>
 <a name="347"><span class="lineNum">     347 </span>            : </a>
 <a name="348"><span class="lineNum">     348 </span>            :   /**</a>
 <a name="349"><span class="lineNum">     349 </span>            :    * Value copy constructor.</a>
 <a name="350"><span class="lineNum">     350 </span>            :    */</a>
 <a name="351"><span class="lineNum">     351 </span>            :   template&lt;class U, IS_CONVERTIBLE(U,T)&gt;</a>
 <a name="352"><span class="lineNum">     352 </span>            :   Optional(const U&amp; value) :</a>
-<a name="353"><span class="lineNum">     353 </span><span class="lineCov">    5133130 :       value(value) {</span></a>
+<a name="353"><span class="lineNum">     353 </span><span class="lineCov">    6948266 :       value(value) {</span></a>
 <a name="354"><span class="lineNum">     354 </span>            :     //</a>
-<a name="355"><span class="lineNum">     355 </span><span class="lineCov">    5133130 :   }</span></a>
+<a name="355"><span class="lineNum">     355 </span><span class="lineCov">    6948266 :   }</span></a>
 <a name="356"><span class="lineNum">     356 </span>            : </a>
 <a name="357"><span class="lineNum">     357 </span>            :   /**</a>
 <a name="358"><span class="lineNum">     358 </span>            :    * Value copy constructor.</a>
 <a name="359"><span class="lineNum">     359 </span>            :    */</a>
 <a name="360"><span class="lineNum">     360 </span>            :   template&lt;class U, IS_CONVERTIBLE(U,T)&gt;</a>
 <a name="361"><span class="lineNum">     361 </span>            :   Optional(Label* context, const U&amp; value) :</a>
-<a name="362"><span class="lineNum">     362 </span><span class="lineCov">   40310596 :       value(context, value) {</span></a>
+<a name="362"><span class="lineNum">     362 </span><span class="lineCov">   70504659 :       value(context, value) {</span></a>
 <a name="363"><span class="lineNum">     363 </span>            :     //</a>
-<a name="364"><span class="lineNum">     364 </span><span class="lineCov">   40310596 :   }</span></a>
+<a name="364"><span class="lineNum">     364 </span><span class="lineCov">   70504659 :   }</span></a>
 <a name="365"><span class="lineNum">     365 </span>            : </a>
 <a name="366"><span class="lineNum">     366 </span>            :   /**</a>
 <a name="367"><span class="lineNum">     367 </span>            :    * Value move constructor.</a>
@@ -427,9 +427,9 @@
 <a name="369"><span class="lineNum">     369 </span>            :    * @todo Make generic while avoiding use of universal reference.</a>
 <a name="370"><span class="lineNum">     370 </span>            :    */</a>
 <a name="371"><span class="lineNum">     371 </span>            :   Optional(T&amp;&amp; value) :</a>
-<a name="372"><span class="lineNum">     372 </span><span class="lineCov">     123978 :       value(std::move(value)) {</span></a>
+<a name="372"><span class="lineNum">     372 </span><span class="lineCov">     872279 :       value(std::move(value)) {</span></a>
 <a name="373"><span class="lineNum">     373 </span>            :     //</a>
-<a name="374"><span class="lineNum">     374 </span><span class="lineCov">     123978 :   }</span></a>
+<a name="374"><span class="lineNum">     374 </span><span class="lineCov">     872279 :   }</span></a>
 <a name="375"><span class="lineNum">     375 </span>            : </a>
 <a name="376"><span class="lineNum">     376 </span>            :   /**</a>
 <a name="377"><span class="lineNum">     377 </span>            :    * Value move constructor.</a>
@@ -437,43 +437,43 @@
 <a name="379"><span class="lineNum">     379 </span>            :    * @todo Make generic while avoiding use of universal reference.</a>
 <a name="380"><span class="lineNum">     380 </span>            :    */</a>
 <a name="381"><span class="lineNum">     381 </span>            :   Optional(Label* context, T&amp;&amp; value) :</a>
-<a name="382"><span class="lineNum">     382 </span><span class="lineCov">   12294108 :       value(context, std::move(value)) {</span></a>
+<a name="382"><span class="lineNum">     382 </span><span class="lineCov">   29179181 :       value(context, std::move(value)) {</span></a>
 <a name="383"><span class="lineNum">     383 </span>            :     //</a>
-<a name="384"><span class="lineNum">     384 </span><span class="lineCov">   12294108 :   }</span></a>
+<a name="384"><span class="lineNum">     384 </span><span class="lineCov">   29179181 :   }</span></a>
 <a name="385"><span class="lineNum">     385 </span>            : </a>
 <a name="386"><span class="lineNum">     386 </span>            :   /**</a>
 <a name="387"><span class="lineNum">     387 </span>            :    * Copy constructor.</a>
 <a name="388"><span class="lineNum">     388 </span>            :    */</a>
 <a name="389"><span class="lineNum">     389 </span>            :   Optional(const Optional&lt;T&gt;&amp; o) :</a>
-<a name="390"><span class="lineNum">     390 </span><span class="lineCov">      29136 :       value(o.value) {</span></a>
+<a name="390"><span class="lineNum">     390 </span><span class="lineCov">      28634 :       value(o.value) {</span></a>
 <a name="391"><span class="lineNum">     391 </span>            :     //</a>
-<a name="392"><span class="lineNum">     392 </span><span class="lineCov">      29136 :   }</span></a>
+<a name="392"><span class="lineNum">     392 </span><span class="lineCov">      28634 :   }</span></a>
 <a name="393"><span class="lineNum">     393 </span>            : </a>
 <a name="394"><span class="lineNum">     394 </span>            :   /**</a>
 <a name="395"><span class="lineNum">     395 </span>            :    * Copy constructor.</a>
 <a name="396"><span class="lineNum">     396 </span>            :    */</a>
 <a name="397"><span class="lineNum">     397 </span>            :   template&lt;class U, IS_CONVERTIBLE(U,T)&gt;</a>
 <a name="398"><span class="lineNum">     398 </span>            :   Optional(const Optional&lt;U&gt;&amp; o) :</a>
-<a name="399"><span class="lineNum">     399 </span><span class="lineCov">     256003 :       value(o.value) {</span></a>
+<a name="399"><span class="lineNum">     399 </span><span class="lineCov">    3497111 :       value(o.value) {</span></a>
 <a name="400"><span class="lineNum">     400 </span>            :     //</a>
-<a name="401"><span class="lineNum">     401 </span><span class="lineCov">     256003 :   }</span></a>
+<a name="401"><span class="lineNum">     401 </span><span class="lineCov">    3497111 :   }</span></a>
 <a name="402"><span class="lineNum">     402 </span>            : </a>
 <a name="403"><span class="lineNum">     403 </span>            :   /**</a>
 <a name="404"><span class="lineNum">     404 </span>            :    * Copy constructor.</a>
 <a name="405"><span class="lineNum">     405 </span>            :    */</a>
 <a name="406"><span class="lineNum">     406 </span>            :   template&lt;class U, IS_CONVERTIBLE(U,T)&gt;</a>
 <a name="407"><span class="lineNum">     407 </span>            :   Optional(Label* context, const Optional&lt;U&gt;&amp; o) :</a>
-<a name="408"><span class="lineNum">     408 </span><span class="lineNoCov">          0 :       value(context, o.value) {</span></a>
+<a name="408"><span class="lineNum">     408 </span><span class="lineCov">         50 :       value(context, o.value) {</span></a>
 <a name="409"><span class="lineNum">     409 </span>            :     //</a>
-<a name="410"><span class="lineNum">     410 </span><span class="lineNoCov">          0 :   }</span></a>
+<a name="410"><span class="lineNum">     410 </span><span class="lineCov">         50 :   }</span></a>
 <a name="411"><span class="lineNum">     411 </span>            : </a>
 <a name="412"><span class="lineNum">     412 </span>            :   /**</a>
 <a name="413"><span class="lineNum">     413 </span>            :    * Move constructor.</a>
 <a name="414"><span class="lineNum">     414 </span>            :    */</a>
 <a name="415"><span class="lineNum">     415 </span>            :   Optional(Optional&lt;T&gt;&amp;&amp; o) :</a>
-<a name="416"><span class="lineNum">     416 </span><span class="lineCov">        792 :       value(std::move(o.value)) {</span></a>
+<a name="416"><span class="lineNum">     416 </span>            :       value(std::move(o.value)) {</a>
 <a name="417"><span class="lineNum">     417 </span>            :     //</a>
-<a name="418"><span class="lineNum">     418 </span><span class="lineCov">        792 :   }</span></a>
+<a name="418"><span class="lineNum">     418 </span>            :   }</a>
 <a name="419"><span class="lineNum">     419 </span>            : </a>
 <a name="420"><span class="lineNum">     420 </span>            :   /**</a>
 <a name="421"><span class="lineNum">     421 </span>            :    * Move constructor.</a>
@@ -489,68 +489,68 @@
 <a name="431"><span class="lineNum">     431 </span>            :    */</a>
 <a name="432"><span class="lineNum">     432 </span>            :   template&lt;class U, IS_CONVERTIBLE(U,T)&gt;</a>
 <a name="433"><span class="lineNum">     433 </span>            :   Optional(Label* context, Optional&lt;U&gt;&amp;&amp; o) :</a>
-<a name="434"><span class="lineNum">     434 </span><span class="lineCov">     726974 :       value(context, std::move(o.value)) {</span></a>
+<a name="434"><span class="lineNum">     434 </span><span class="lineCov">    4910071 :       value(context, std::move(o.value)) {</span></a>
 <a name="435"><span class="lineNum">     435 </span>            :     //</a>
-<a name="436"><span class="lineNum">     436 </span><span class="lineCov">     726974 :   }</span></a>
+<a name="436"><span class="lineNum">     436 </span><span class="lineCov">    4910071 :   }</span></a>
 <a name="437"><span class="lineNum">     437 </span>            : </a>
 <a name="438"><span class="lineNum">     438 </span>            :   /**</a>
 <a name="439"><span class="lineNum">     439 </span>            :    * Deep copy constructor.</a>
 <a name="440"><span class="lineNum">     440 </span>            :    */</a>
 <a name="441"><span class="lineNum">     441 </span>            :   Optional(Label* context, Label* label, const Optional&amp; o) :</a>
-<a name="442"><span class="lineNum">     442 </span><span class="lineCov">   53993421 :       value(context, label, o.value) {</span></a>
+<a name="442"><span class="lineNum">     442 </span><span class="lineCov">   80805224 :       value(context, label, o.value) {</span></a>
 <a name="443"><span class="lineNum">     443 </span>            :     //</a>
-<a name="444"><span class="lineNum">     444 </span><span class="lineCov">   53993421 :   }</span></a>
+<a name="444"><span class="lineNum">     444 </span><span class="lineCov">   80805224 :   }</span></a>
 <a name="445"><span class="lineNum">     445 </span>            : </a>
 <a name="446"><span class="lineNum">     446 </span>            :   /**</a>
 <a name="447"><span class="lineNum">     447 </span>            :    * Is there a value?</a>
 <a name="448"><span class="lineNum">     448 </span>            :    */</a>
 <a name="449"><span class="lineNum">     449 </span>            :   bool query() const {</a>
-<a name="450"><span class="lineNum">     450 </span><span class="lineCov">  328105654 :     return value.query();</span></a>
+<a name="450"><span class="lineNum">     450 </span><span class="lineCov">  422944470 :     return value.query();</span></a>
 <a name="451"><span class="lineNum">     451 </span>            :   }</a>
 <a name="452"><span class="lineNum">     452 </span>            : </a>
 <a name="453"><span class="lineNum">     453 </span>            :   /**</a>
 <a name="454"><span class="lineNum">     454 </span>            :    * Get the value.</a>
 <a name="455"><span class="lineNum">     455 </span>            :    */</a>
 <a name="456"><span class="lineNum">     456 </span>            :   T&amp; get() {</a>
-<a name="457"><span class="lineNum">     457 </span><span class="lineCov">   95692072 :     libbirch_assert_msg_(query(), &quot;optional has no value&quot;);</span></a>
-<a name="458"><span class="lineNum">     458 </span><span class="lineCov">   95157252 :     return value;</span></a>
+<a name="457"><span class="lineNum">     457 </span><span class="lineCov">  136175905 :     libbirch_assert_msg_(query(), &quot;optional has no value&quot;);</span></a>
+<a name="458"><span class="lineNum">     458 </span><span class="lineCov">  135216139 :     return value;</span></a>
 <a name="459"><span class="lineNum">     459 </span><span class="lineNoCov">          0 :   }</span></a>
 <a name="460"><span class="lineNum">     460 </span>            : </a>
 <a name="461"><span class="lineNum">     461 </span>            :   /**</a>
 <a name="462"><span class="lineNum">     462 </span>            :    * Get the value.</a>
 <a name="463"><span class="lineNum">     463 </span>            :    */</a>
 <a name="464"><span class="lineNum">     464 </span>            :   const T&amp; get() const {</a>
-<a name="465"><span class="lineNum">     465 </span><span class="lineCov">    4054974 :     libbirch_assert_msg_(query(), &quot;optional has no value&quot;);</span></a>
-<a name="466"><span class="lineNum">     466 </span><span class="lineCov">    4045896 :     return value;</span></a>
+<a name="465"><span class="lineNum">     465 </span><span class="lineCov">   10033212 :     libbirch_assert_msg_(query(), &quot;optional has no value&quot;);</span></a>
+<a name="466"><span class="lineNum">     466 </span><span class="lineCov">    9992209 :     return value;</span></a>
 <a name="467"><span class="lineNum">     467 </span><span class="lineNoCov">          0 :   }</span></a>
 <a name="468"><span class="lineNum">     468 </span>            : </a>
 <a name="469"><span class="lineNum">     469 </span>            :   /**</a>
 <a name="470"><span class="lineNum">     470 </span>            :    * Copy assignment.</a>
 <a name="471"><span class="lineNum">     471 </span>            :    */</a>
 <a name="472"><span class="lineNum">     472 </span>            :   Optional&amp; assign(Label* context, const Optional&lt;T&gt;&amp; o) {</a>
-<a name="473"><span class="lineNum">     473 </span><span class="lineCov">        311 :     this-&gt;value.assign(context, o.value);</span></a>
-<a name="474"><span class="lineNum">     474 </span><span class="lineCov">        311 :     return *this;</span></a>
+<a name="473"><span class="lineNum">     473 </span><span class="lineCov">          6 :     this-&gt;value.assign(context, o.value);</span></a>
+<a name="474"><span class="lineNum">     474 </span><span class="lineCov">          6 :     return *this;</span></a>
 <a name="475"><span class="lineNum">     475 </span>            :   }</a>
 <a name="476"><span class="lineNum">     476 </span>            : </a>
 <a name="477"><span class="lineNum">     477 </span>            :   /**</a>
 <a name="478"><span class="lineNum">     478 </span>            :    * Move assignment.</a>
 <a name="479"><span class="lineNum">     479 </span>            :    */</a>
 <a name="480"><span class="lineNum">     480 </span>            :   Optional&amp; assign(Label* context, Optional&lt;T&gt;&amp;&amp; o) {</a>
-<a name="481"><span class="lineNum">     481 </span><span class="lineCov">   76134432 :     this-&gt;value.assign(context, std::move(o.value));</span></a>
-<a name="482"><span class="lineNum">     482 </span><span class="lineCov">   76134432 :     return *this;</span></a>
+<a name="481"><span class="lineNum">     481 </span><span class="lineCov">  110858255 :     this-&gt;value.assign(context, std::move(o.value));</span></a>
+<a name="482"><span class="lineNum">     482 </span><span class="lineCov">  110858255 :     return *this;</span></a>
 <a name="483"><span class="lineNum">     483 </span>            :   }</a>
 <a name="484"><span class="lineNum">     484 </span>            : </a>
 <a name="485"><span class="lineNum">     485 </span>            :   void freeze() {</a>
-<a name="486"><span class="lineNum">     486 </span><span class="lineCov">   12028600 :     if (query()) {</span></a>
-<a name="487"><span class="lineNum">     487 </span><span class="lineCov">    6735026 :       get().freeze();</span></a>
-<a name="488"><span class="lineNum">     488 </span><span class="lineCov">    6735026 :     }</span></a>
-<a name="489"><span class="lineNum">     489 </span><span class="lineCov">   12056017 :   }</span></a>
+<a name="486"><span class="lineNum">     486 </span><span class="lineCov">   15407563 :     if (query()) {</span></a>
+<a name="487"><span class="lineNum">     487 </span><span class="lineCov">    9400984 :       get().freeze();</span></a>
+<a name="488"><span class="lineNum">     488 </span><span class="lineCov">    9400984 :     }</span></a>
+<a name="489"><span class="lineNum">     489 </span><span class="lineCov">   15428569 :   }</span></a>
 <a name="490"><span class="lineNum">     490 </span>            : </a>
 <a name="491"><span class="lineNum">     491 </span>            :   void thaw(Label* label) {</a>
-<a name="492"><span class="lineNum">     492 </span><span class="lineCov">     321150 :     if (query()) {</span></a>
-<a name="493"><span class="lineNum">     493 </span><span class="lineCov">      24418 :       get().thaw(label);</span></a>
-<a name="494"><span class="lineNum">     494 </span><span class="lineCov">      24418 :     }</span></a>
-<a name="495"><span class="lineNum">     495 </span><span class="lineCov">     321156 :   }</span></a>
+<a name="492"><span class="lineNum">     492 </span><span class="lineCov">        125 :     if (query()) {</span></a>
+<a name="493"><span class="lineNum">     493 </span><span class="lineCov">         91 :       get().thaw(label);</span></a>
+<a name="494"><span class="lineNum">     494 </span><span class="lineCov">         91 :     }</span></a>
+<a name="495"><span class="lineNum">     495 </span><span class="lineCov">        125 :   }</span></a>
 <a name="496"><span class="lineNum">     496 </span>            : </a>
 <a name="497"><span class="lineNum">     497 </span>            :   void finish() {</a>
 <a name="498"><span class="lineNum">     498 </span><span class="lineNoCov">          0 :     if (query()) {</span></a>

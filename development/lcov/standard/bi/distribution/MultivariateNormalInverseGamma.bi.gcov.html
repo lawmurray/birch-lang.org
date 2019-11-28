@@ -31,13 +31,13 @@
             <td class="headerValue">standard.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">0</td>
-            <td class="headerCovTableEntry">20</td>
-            <td class="headerCovTableEntryLo">0.0 %</td>
+            <td class="headerCovTableEntry">1</td>
+            <td class="headerCovTableEntry">22</td>
+            <td class="headerCovTableEntryLo">4.5 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2019-11-10 13:04:00</td>
+            <td class="headerValue">2019-11-26 20:15:26</td>
             <td></td>
           </tr>
           <tr><td><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
@@ -101,7 +101,7 @@
 <a name="43"><span class="lineNum">      43 </span>            :    * Covariance.</a>
 <a name="44"><span class="lineNum">      44 </span>            :    */</a>
 <a name="45"><span class="lineNum">      45 </span><span class="lineNoCov">          0 :   σ2:InverseGamma(α, β);</span></a>
-<a name="46"><span class="lineNum">      46 </span><span class="lineNoCov">          0 :   </span></a>
+<a name="46"><span class="lineNum">      46 </span>            :   </a>
 <a name="47"><span class="lineNum">      47 </span><span class="lineNoCov">          0 :   function valueForward() -&gt; Real[_] {</span></a>
 <a name="48"><span class="lineNum">      48 </span><span class="lineNoCov">          0 :     assert !delay?;</span></a>
 <a name="49"><span class="lineNum">      49 </span><span class="lineNoCov">          0 :     return simulate_multivariate_normal_inverse_gamma(μ, llt(Σ), σ2.α, σ2.β);</span></a>

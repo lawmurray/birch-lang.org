@@ -31,13 +31,13 @@
             <td class="headerValue">standard.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">44</td>
-            <td class="headerCovTableEntry">117</td>
-            <td class="headerCovTableEntryLo">37.6 %</td>
+            <td class="headerCovTableEntry">45</td>
+            <td class="headerCovTableEntry">118</td>
+            <td class="headerCovTableEntryLo">38.1 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2019-11-10 13:04:00</td>
+            <td class="headerValue">2019-11-26 20:15:26</td>
             <td></td>
           </tr>
           <tr><td><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
@@ -62,14 +62,14 @@
 <a name="4"><span class="lineNum">       4 </span>            :  * - x: Operand.</a>
 <a name="5"><span class="lineNum">       5 </span>            :  * - f: Operator.</a>
 <a name="6"><span class="lineNum">       6 </span>            :  */</a>
-<a name="7"><span class="lineNum">       7 </span><span class="lineCov">      70387 : function transform&lt;Value&gt;(x:Value[_], f:@(Value) -&gt; Value) -&gt; Value[_] {</span></a>
+<a name="7"><span class="lineNum">       7 </span><span class="lineCov">      70696 : function transform&lt;Value&gt;(x:Value[_], f:@(Value) -&gt; Value) -&gt; Value[_] {</span></a>
 <a name="8"><span class="lineNum">       8 </span>            :   // in C++17 can use std::transform</a>
-<a name="9"><span class="lineNum">       9 </span><span class="lineCov">     211161 :   y:Value[length(x)];</span></a>
-<a name="10"><span class="lineNum">      10 </span><span class="lineCov">    1870845 :   for auto i in 1..length(x) {</span></a>
-<a name="11"><span class="lineNum">      11 </span><span class="lineCov">    3319368 :     y[i] &lt;- f(x[i]);</span></a>
-<a name="12"><span class="lineNum">      12 </span><span class="lineCov">     553228 :   }</span></a>
-<a name="13"><span class="lineNum">      13 </span><span class="lineCov">      70387 :   return y;</span></a>
-<a name="14"><span class="lineNum">      14 </span><span class="lineCov">     140774 : }</span></a>
+<a name="9"><span class="lineNum">       9 </span><span class="lineCov">     282784 :   y:Value[length(x)];</span></a>
+<a name="10"><span class="lineNum">      10 </span><span class="lineCov">    1864156 :   for i in 1..length(x) {</span></a>
+<a name="11"><span class="lineNum">      11 </span><span class="lineCov">    3689868 :     y[i] &lt;- f(x[i]);</span></a>
+<a name="12"><span class="lineNum">      12 </span><span class="lineCov">     527124 :   }</span></a>
+<a name="13"><span class="lineNum">      13 </span><span class="lineCov">     141392 :   return y;</span></a>
+<a name="14"><span class="lineNum">      14 </span><span class="lineCov">     141392 : }</span></a>
 <a name="15"><span class="lineNum">      15 </span>            : </a>
 <a name="16"><span class="lineNum">      16 </span>            : /**</a>
 <a name="17"><span class="lineNum">      17 </span>            :  * Unary transformation.</a>
@@ -77,16 +77,16 @@
 <a name="19"><span class="lineNum">      19 </span>            :  * - X: Operand.</a>
 <a name="20"><span class="lineNum">      20 </span>            :  * - f: Operator.</a>
 <a name="21"><span class="lineNum">      21 </span>            :  */</a>
-<a name="22"><span class="lineNum">      22 </span><span class="lineCov">       3940 : function transform&lt;Value&gt;(X:Value[_,_], f:@(Value) -&gt; Value) -&gt; Value[_,_] {</span></a>
+<a name="22"><span class="lineNum">      22 </span><span class="lineCov">     801815 : function transform&lt;Value&gt;(X:Value[_,_], f:@(Value) -&gt; Value) -&gt; Value[_,_] {</span></a>
 <a name="23"><span class="lineNum">      23 </span>            :   // in C++17 can use std::transform</a>
-<a name="24"><span class="lineNum">      24 </span><span class="lineCov">      15782 :   Y:Value[rows(X),columns(X)];</span></a>
-<a name="25"><span class="lineNum">      25 </span><span class="lineCov">      23886 :   for auto i in 1..rows(X) {</span></a>
-<a name="26"><span class="lineNum">      26 </span><span class="lineCov">     394424 :     for auto j in 1..columns(X) {</span></a>
-<a name="27"><span class="lineNum">      27 </span><span class="lineCov">     763080 :       Y[i,j] &lt;- f(X[i,j]);</span></a>
-<a name="28"><span class="lineNum">      28 </span><span class="lineCov">     127945 :     }</span></a>
-<a name="29"><span class="lineNum">      29 </span><span class="lineCov">       4000 :   }</span></a>
-<a name="30"><span class="lineNum">      30 </span><span class="lineCov">       3999 :   return Y;</span></a>
-<a name="31"><span class="lineNum">      31 </span><span class="lineCov">       7998 : }</span></a>
+<a name="24"><span class="lineNum">      24 </span><span class="lineCov">    3994939 :   Y:Value[rows(X),columns(X)];</span></a>
+<a name="25"><span class="lineNum">      25 </span><span class="lineCov">    5680248 :   for i in 1..rows(X) {</span></a>
+<a name="26"><span class="lineNum">      26 </span><span class="lineCov">   42224863 :     for j in 1..columns(X) {</span></a>
+<a name="27"><span class="lineNum">      27 </span><span class="lineCov">   90550483 :       Y[i,j] &lt;- f(X[i,j]);</span></a>
+<a name="28"><span class="lineNum">      28 </span><span class="lineCov">   13102271 :     }</span></a>
+<a name="29"><span class="lineNum">      29 </span><span class="lineCov">     818924 :   }</span></a>
+<a name="30"><span class="lineNum">      30 </span><span class="lineCov">    1635644 :   return Y;</span></a>
+<a name="31"><span class="lineNum">      31 </span><span class="lineCov">    1637827 : }</span></a>
 <a name="32"><span class="lineNum">      32 </span>            : </a>
 <a name="33"><span class="lineNum">      33 </span>            : /**</a>
 <a name="34"><span class="lineNum">      34 </span>            :  * Binary transformation.</a>
@@ -99,7 +99,7 @@
 <a name="41"><span class="lineNum">      41 </span>            :     f:@(Value, Value) -&gt; Value) -&gt; Value[_] {</a>
 <a name="42"><span class="lineNum">      42 </span><span class="lineNoCov">          0 :   assert length(x) == length(y);</span></a>
 <a name="43"><span class="lineNum">      43 </span><span class="lineNoCov">          0 :   z:Value[length(x)];</span></a>
-<a name="44"><span class="lineNum">      44 </span><span class="lineNoCov">          0 :   for auto i in 1..length(x) {</span></a>
+<a name="44"><span class="lineNum">      44 </span><span class="lineNoCov">          0 :   for i in 1..length(x) {</span></a>
 <a name="45"><span class="lineNum">      45 </span><span class="lineNoCov">          0 :     z[i] &lt;- f(x[i], y[i]);</span></a>
 <a name="46"><span class="lineNum">      46 </span><span class="lineNoCov">          0 :   }</span></a>
 <a name="47"><span class="lineNum">      47 </span><span class="lineNoCov">          0 :   return y;</span></a>
@@ -117,8 +117,8 @@
 <a name="59"><span class="lineNum">      59 </span><span class="lineNoCov">          0 :   assert rows(X) == rows(Y);</span></a>
 <a name="60"><span class="lineNum">      60 </span><span class="lineNoCov">          0 :   assert columns(X) == columns(Y);</span></a>
 <a name="61"><span class="lineNum">      61 </span><span class="lineNoCov">          0 :   Z:Value[rows(X),columns(X)];</span></a>
-<a name="62"><span class="lineNum">      62 </span><span class="lineNoCov">          0 :   for auto i in 1..rows(X) {</span></a>
-<a name="63"><span class="lineNum">      63 </span><span class="lineNoCov">          0 :     for auto j in 1..columns(X) {</span></a>
+<a name="62"><span class="lineNum">      62 </span><span class="lineNoCov">          0 :   for i in 1..rows(X) {</span></a>
+<a name="63"><span class="lineNum">      63 </span><span class="lineNoCov">          0 :     for j in 1..columns(X) {</span></a>
 <a name="64"><span class="lineNum">      64 </span><span class="lineNoCov">          0 :       Z[i,j] &lt;- f(X[i,j], Y[i,j]);</span></a>
 <a name="65"><span class="lineNum">      65 </span><span class="lineNoCov">          0 :     }</span></a>
 <a name="66"><span class="lineNum">      66 </span><span class="lineNoCov">          0 :   }</span></a>
@@ -138,7 +138,7 @@
 <a name="80"><span class="lineNum">      80 </span><span class="lineNoCov">          0 :   assert length(x) == length(y);</span></a>
 <a name="81"><span class="lineNum">      81 </span><span class="lineNoCov">          0 :   assert length(y) == length(z);</span></a>
 <a name="82"><span class="lineNum">      82 </span><span class="lineNoCov">          0 :   a:Value[length(x)];</span></a>
-<a name="83"><span class="lineNum">      83 </span><span class="lineNoCov">          0 :   for auto i in 1..length(x) {</span></a>
+<a name="83"><span class="lineNum">      83 </span><span class="lineNoCov">          0 :   for i in 1..length(x) {</span></a>
 <a name="84"><span class="lineNum">      84 </span><span class="lineNoCov">          0 :     a[i] &lt;- f(x[i], y[i], z[i]);</span></a>
 <a name="85"><span class="lineNum">      85 </span><span class="lineNoCov">          0 :   }</span></a>
 <a name="86"><span class="lineNum">      86 </span><span class="lineNoCov">          0 :   return a;</span></a>
@@ -159,8 +159,8 @@
 <a name="101"><span class="lineNum">     101 </span><span class="lineNoCov">          0 :   assert columns(X) == columns(Y);</span></a>
 <a name="102"><span class="lineNum">     102 </span><span class="lineNoCov">          0 :   assert columns(Y) == columns(Z);</span></a>
 <a name="103"><span class="lineNum">     103 </span><span class="lineNoCov">          0 :   A:Value[rows(X),columns(X)];</span></a>
-<a name="104"><span class="lineNum">     104 </span><span class="lineNoCov">          0 :   for auto i in 1..rows(X) {</span></a>
-<a name="105"><span class="lineNum">     105 </span><span class="lineNoCov">          0 :     for auto j in 1..columns(X) {</span></a>
+<a name="104"><span class="lineNum">     104 </span><span class="lineNoCov">          0 :   for i in 1..rows(X) {</span></a>
+<a name="105"><span class="lineNum">     105 </span><span class="lineNoCov">          0 :     for j in 1..columns(X) {</span></a>
 <a name="106"><span class="lineNum">     106 </span><span class="lineNoCov">          0 :       A[i,j] &lt;- f(X[i,j], Y[i,j], Z[i,j]);</span></a>
 <a name="107"><span class="lineNum">     107 </span><span class="lineNoCov">          0 :     }</span></a>
 <a name="108"><span class="lineNum">     108 </span><span class="lineNoCov">          0 :   }</span></a>
@@ -174,16 +174,16 @@
 <a name="116"><span class="lineNum">     116 </span>            :  * - init: Initial value.</a>
 <a name="117"><span class="lineNum">     117 </span>            :  * - op: Operator.</a>
 <a name="118"><span class="lineNum">     118 </span>            :  */</a>
-<a name="119"><span class="lineNum">     119 </span><span class="lineCov">    2179918 : function reduce&lt;Value&gt;(x:Value[_], init:Value,</span></a>
+<a name="119"><span class="lineNum">     119 </span><span class="lineCov">    2014886 : function reduce&lt;Value&gt;(x:Value[_], init:Value,</span></a>
 <a name="120"><span class="lineNum">     120 </span>            :     op:@(Value, Value) -&gt; Value) -&gt; Value {</a>
-<a name="121"><span class="lineNum">     121 </span>            :   result:Value;</a>
-<a name="122"><span class="lineNum">     122 </span><span class="lineCov">    2179918 :   cpp{{</span></a>
+<a name="121"><span class="lineNum">     121 </span><span class="lineCov">    2014886 :   result:Value;</span></a>
+<a name="122"><span class="lineNum">     122 </span><span class="lineCov">    2025739 :   cpp{{</span></a>
 <a name="123"><span class="lineNum">     123 </span>            :   x.pin();</a>
 <a name="124"><span class="lineNum">     124 </span>            :   // result = return std::reduce(x.begin(), x.end(), init, op);</a>
-<a name="125"><span class="lineNum">     125 </span><span class="lineCov">   10932405 :   // ^ C++17</span></a>
-<a name="126"><span class="lineNum">     126 </span><span class="lineCov">    2207812 :   result = std::accumulate(x.begin(), x.end(), init, op);</span></a>
-<a name="127"><span class="lineNum">     127 </span><span class="lineCov">    2212406 :   x.unpin();</span></a>
-<a name="128"><span class="lineNum">     128 </span><span class="lineCov">    2212406 :   return result;</span></a>
+<a name="125"><span class="lineNum">     125 </span><span class="lineCov">   10095550 :   // ^ C++17</span></a>
+<a name="126"><span class="lineNum">     126 </span><span class="lineCov">    2040927 :   result = std::accumulate(x.begin(), x.end(), init, op);</span></a>
+<a name="127"><span class="lineNum">     127 </span><span class="lineCov">    2045914 :   x.unpin();</span></a>
+<a name="128"><span class="lineNum">     128 </span><span class="lineCov">    2045914 :   return result;</span></a>
 <a name="129"><span class="lineNum">     129 </span>            :   }}</a>
 <a name="130"><span class="lineNum">     130 </span>            : }</a>
 <a name="131"><span class="lineNum">     131 </span>            : </a>
@@ -195,14 +195,14 @@
 <a name="137"><span class="lineNum">     137 </span>            :  * - op1: Reduction operator.</a>
 <a name="138"><span class="lineNum">     138 </span>            :  * - op2: Transformation operator.</a>
 <a name="139"><span class="lineNum">     139 </span>            :  */</a>
-<a name="140"><span class="lineNum">     140 </span><span class="lineCov">     908520 : function transform_reduce&lt;Value&gt;(x:Value[_], init:Value,</span></a>
+<a name="140"><span class="lineNum">     140 </span><span class="lineCov">     908019 : function transform_reduce&lt;Value&gt;(x:Value[_], init:Value,</span></a>
 <a name="141"><span class="lineNum">     141 </span>            :     op1:@(Value, Value) -&gt; Value, op2:@(Value) -&gt; Value) -&gt; Value {</a>
-<a name="142"><span class="lineNum">     142 </span><span class="lineCov">     908520 :   auto y &lt;- init;</span></a>
-<a name="143"><span class="lineNum">     143 </span><span class="lineCov">    9085701 :   for auto n in 1..length(x) {</span></a>
-<a name="144"><span class="lineNum">     144 </span><span class="lineCov">   10600235 :     y &lt;- op1(y, op2(x[n]));</span></a>
-<a name="145"><span class="lineNum">     145 </span><span class="lineCov">    2120047 :   }</span></a>
-<a name="146"><span class="lineNum">     146 </span><span class="lineCov">     908520 :   return y;</span></a>
-<a name="147"><span class="lineNum">     147 </span><span class="lineCov">     908520 : }</span></a>
+<a name="142"><span class="lineNum">     142 </span><span class="lineCov">    1816038 :   auto y &lt;- init;</span></a>
+<a name="143"><span class="lineNum">     143 </span><span class="lineCov">    9987708 :   for n in 1..length(x) {</span></a>
+<a name="144"><span class="lineNum">     144 </span><span class="lineCov">   12711264 :     y &lt;- op1(y, op2(x[n]));</span></a>
+<a name="145"><span class="lineNum">     145 </span><span class="lineCov">    2118544 :   }</span></a>
+<a name="146"><span class="lineNum">     146 </span><span class="lineCov">    1816038 :   return y;</span></a>
+<a name="147"><span class="lineNum">     147 </span><span class="lineCov">     908019 : }</span></a>
 <a name="148"><span class="lineNum">     148 </span>            : </a>
 <a name="149"><span class="lineNum">     149 </span>            : /**</a>
 <a name="150"><span class="lineNum">     150 </span>            :  * Binary transformation and reduction.</a>
@@ -213,15 +213,15 @@
 <a name="155"><span class="lineNum">     155 </span>            :  * - op1: Reduction operator.</a>
 <a name="156"><span class="lineNum">     156 </span>            :  * - op2: Transformation operator.</a>
 <a name="157"><span class="lineNum">     157 </span>            :  */</a>
-<a name="158"><span class="lineNum">     158 </span><span class="lineCov">     201003 : function transform_reduce&lt;Value&gt;(x:Value[_], y:Value[_], init:Value,</span></a>
+<a name="158"><span class="lineNum">     158 </span><span class="lineCov">     202005 : function transform_reduce&lt;Value&gt;(x:Value[_], y:Value[_], init:Value,</span></a>
 <a name="159"><span class="lineNum">     159 </span>            :     op1:@(Value, Value) -&gt; Value, op2:@(Value, Value) -&gt; Value) -&gt; Value {</a>
-<a name="160"><span class="lineNum">     160 </span><span class="lineCov">     603009 :   assert length(x) == length(y);</span></a>
-<a name="161"><span class="lineNum">     161 </span><span class="lineCov">     201003 :   auto z &lt;- init;</span></a>
-<a name="162"><span class="lineNum">     162 </span><span class="lineCov">    3015045 :   for auto n in 1..length(x) {</span></a>
-<a name="163"><span class="lineNum">     163 </span><span class="lineCov">    5628084 :     z &lt;- op1(z, op2(x[n], y[n]));</span></a>
-<a name="164"><span class="lineNum">     164 </span><span class="lineCov">     804012 :   }</span></a>
-<a name="165"><span class="lineNum">     165 </span><span class="lineCov">     201003 :   return z;</span></a>
-<a name="166"><span class="lineNum">     166 </span><span class="lineCov">     201003 : }</span></a>
+<a name="160"><span class="lineNum">     160 </span><span class="lineCov">     808020 :   assert length(x) == length(y);</span></a>
+<a name="161"><span class="lineNum">     161 </span><span class="lineCov">     404010 :   auto z &lt;- init;</span></a>
+<a name="162"><span class="lineNum">     162 </span><span class="lineCov">    3232080 :   for n in 1..length(x) {</span></a>
+<a name="163"><span class="lineNum">     163 </span><span class="lineCov">    6464160 :     z &lt;- op1(z, op2(x[n], y[n]));</span></a>
+<a name="164"><span class="lineNum">     164 </span><span class="lineCov">     808020 :   }</span></a>
+<a name="165"><span class="lineNum">     165 </span><span class="lineCov">     404010 :   return z;</span></a>
+<a name="166"><span class="lineNum">     166 </span><span class="lineCov">     202005 : }</span></a>
 <a name="167"><span class="lineNum">     167 </span>            : </a>
 <a name="168"><span class="lineNum">     168 </span>            : /**</a>
 <a name="169"><span class="lineNum">     169 </span>            :  * Ternary transformation and reduction.</a>
@@ -239,7 +239,7 @@
 <a name="181"><span class="lineNum">     181 </span><span class="lineNoCov">          0 :   assert length(x) == length(y);</span></a>
 <a name="182"><span class="lineNum">     182 </span><span class="lineNoCov">          0 :   assert length(y) == length(z);</span></a>
 <a name="183"><span class="lineNum">     183 </span><span class="lineNoCov">          0 :   auto a &lt;- init;</span></a>
-<a name="184"><span class="lineNum">     184 </span><span class="lineNoCov">          0 :   for auto n in 1..length(x) {</span></a>
+<a name="184"><span class="lineNum">     184 </span><span class="lineNoCov">          0 :   for n in 1..length(x) {</span></a>
 <a name="185"><span class="lineNum">     185 </span><span class="lineNoCov">          0 :     a &lt;- op1(a, op2(x[n], y[n], z[n]));</span></a>
 <a name="186"><span class="lineNum">     186 </span><span class="lineNoCov">          0 :   }</span></a>
 <a name="187"><span class="lineNum">     187 </span><span class="lineNoCov">          0 :   return a;</span></a>
@@ -279,7 +279,7 @@
 <a name="221"><span class="lineNum">     221 </span>            :   // ^ C++17</a>
 <a name="222"><span class="lineNum">     222 </span>            :   //}}</a>
 <a name="223"><span class="lineNum">     223 </span><span class="lineNoCov">          0 :   y[1] &lt;- init;</span></a>
-<a name="224"><span class="lineNum">     224 </span><span class="lineNoCov">          0 :   for auto i in 2..length(x) {</span></a>
+<a name="224"><span class="lineNum">     224 </span><span class="lineNoCov">          0 :   for i in 2..length(x) {</span></a>
 <a name="225"><span class="lineNum">     225 </span><span class="lineNoCov">          0 :     y[i] &lt;- y[i - 1] + x[i - 1];</span></a>
 <a name="226"><span class="lineNum">     226 </span><span class="lineNoCov">          0 :   }</span></a>
 <a name="227"><span class="lineNum">     227 </span><span class="lineNoCov">          0 :   return y;</span></a>
@@ -303,19 +303,77 @@
 <a name="245"><span class="lineNum">     245 </span><span class="lineNoCov">          0 : }</span></a>
 <a name="246"><span class="lineNum">     246 </span>            : </a>
 <a name="247"><span class="lineNum">     247 </span>            : /**</a>
-<a name="248"><span class="lineNum">     248 </span>            :  * Sort.</a>
+<a name="248"><span class="lineNum">     248 </span>            :  * Sort a vector.</a>
 <a name="249"><span class="lineNum">     249 </span>            :  *</a>
 <a name="250"><span class="lineNum">     250 </span>            :  * - x: Vector.</a>
-<a name="251"><span class="lineNum">     251 </span>            :  */</a>
-<a name="252"><span class="lineNum">     252 </span><span class="lineCov">       1560 : function sort&lt;Value&gt;(x:Value[_]) -&gt; Value[_] {</span></a>
-<a name="253"><span class="lineNum">     253 </span><span class="lineCov">       1560 :   auto y &lt;- x;</span></a>
-<a name="254"><span class="lineNum">     254 </span><span class="lineCov">       1560 :   cpp{{</span></a>
-<a name="255"><span class="lineNum">     255 </span><span class="lineCov">       4680 :   y.pinWrite();</span></a>
-<a name="256"><span class="lineNum">     256 </span><span class="lineCov">       1560 :   std::sort(y.begin(), y.end());</span></a>
-<a name="257"><span class="lineNum">     257 </span>            :   y.unpin();</a>
-<a name="258"><span class="lineNum">     258 </span>            :   }}</a>
-<a name="259"><span class="lineNum">     259 </span><span class="lineCov">       1560 :   return y;</span></a>
-<a name="260"><span class="lineNum">     260 </span><span class="lineCov">       3120 : }</span></a>
+<a name="251"><span class="lineNum">     251 </span>            :  *</a>
+<a name="252"><span class="lineNum">     252 </span>            :  * Returns: A vector giving the elements of `x` in ascending order.</a>
+<a name="253"><span class="lineNum">     253 </span>            :  */</a>
+<a name="254"><span class="lineNum">     254 </span><span class="lineCov">       1560 : function sort&lt;Value&gt;(x:Value[_]) -&gt; Value[_] {</span></a>
+<a name="255"><span class="lineNum">     255 </span><span class="lineCov">       3120 :   auto y &lt;- x;</span></a>
+<a name="256"><span class="lineNum">     256 </span><span class="lineCov">       1560 :   cpp{{</span></a>
+<a name="257"><span class="lineNum">     257 </span><span class="lineCov">       4680 :   y.pinWrite();</span></a>
+<a name="258"><span class="lineNum">     258 </span><span class="lineCov">       1560 :   std::sort(y.begin(), y.end());</span></a>
+<a name="259"><span class="lineNum">     259 </span>            :   y.unpin();</a>
+<a name="260"><span class="lineNum">     260 </span>            :   }}</a>
+<a name="261"><span class="lineNum">     261 </span><span class="lineCov">       3120 :   return y;</span></a>
+<a name="262"><span class="lineNum">     262 </span><span class="lineCov">       3120 : }</span></a>
+<a name="263"><span class="lineNum">     263 </span>            : </a>
+<a name="264"><span class="lineNum">     264 </span>            : /**</a>
+<a name="265"><span class="lineNum">     265 </span>            :  * Sort a vector.</a>
+<a name="266"><span class="lineNum">     266 </span>            :  *</a>
+<a name="267"><span class="lineNum">     267 </span>            :  * - x: Vector.</a>
+<a name="268"><span class="lineNum">     268 </span>            :  *</a>
+<a name="269"><span class="lineNum">     269 </span>            :  * Returns: A vector giving the indices of elements in `x` in ascending</a>
+<a name="270"><span class="lineNum">     270 </span>            :  * order.</a>
+<a name="271"><span class="lineNum">     271 </span>            :  */</a>
+<a name="272"><span class="lineNum">     272 </span>            : function sort_index&lt;Value&gt;(x:Value[_]) -&gt; Integer[_] {</a>
+<a name="273"><span class="lineNum">     273 </span>            :   auto a &lt;- iota(1, length(x));</a>
+<a name="274"><span class="lineNum">     274 </span>            :   cpp{{</a>
+<a name="275"><span class="lineNum">     275 </span>            :   x.pin();</a>
+<a name="276"><span class="lineNum">     276 </span>            :   std::sort(a.begin(), a.end(), [=](bi::type::Integer i, bi::type::Integer j) {</a>
+<a name="277"><span class="lineNum">     277 </span>            :       return x(libbirch::make_slice(i - 1)) &lt; x(libbirch::make_slice(j - 1));</a>
+<a name="278"><span class="lineNum">     278 </span>            :     });</a>
+<a name="279"><span class="lineNum">     279 </span>            :   x.unpin();</a>
+<a name="280"><span class="lineNum">     280 </span>            :   }}</a>
+<a name="281"><span class="lineNum">     281 </span>            :   return a;</a>
+<a name="282"><span class="lineNum">     282 </span>            : }</a>
+<a name="283"><span class="lineNum">     283 </span>            : </a>
+<a name="284"><span class="lineNum">     284 </span>            : /**</a>
+<a name="285"><span class="lineNum">     285 </span>            :  * Gather.</a>
+<a name="286"><span class="lineNum">     286 </span>            :  *</a>
+<a name="287"><span class="lineNum">     287 </span>            :  * - a: Indices.</a>
+<a name="288"><span class="lineNum">     288 </span>            :  * - x: Source vector.</a>
+<a name="289"><span class="lineNum">     289 </span>            :  *</a>
+<a name="290"><span class="lineNum">     290 </span>            :  * Returns: a vector `y` where `y[n] == x[a[n]]`.</a>
+<a name="291"><span class="lineNum">     291 </span>            :  */</a>
+<a name="292"><span class="lineNum">     292 </span>            : function gather&lt;Value&gt;(a:Integer[_], x:Value[_]) -&gt; Value[_] {</a>
+<a name="293"><span class="lineNum">     293 </span>            :   auto N &lt;- length(a);</a>
+<a name="294"><span class="lineNum">     294 </span>            :   y:Value[N];</a>
+<a name="295"><span class="lineNum">     295 </span>            :   for n in 1..N {</a>
+<a name="296"><span class="lineNum">     296 </span>            :     y[n] &lt;- x[a[n]];</a>
+<a name="297"><span class="lineNum">     297 </span>            :   }</a>
+<a name="298"><span class="lineNum">     298 </span>            :   return y;</a>
+<a name="299"><span class="lineNum">     299 </span>            : }</a>
+<a name="300"><span class="lineNum">     300 </span>            : </a>
+<a name="301"><span class="lineNum">     301 </span>            : /**</a>
+<a name="302"><span class="lineNum">     302 </span>            :  * Scatter.</a>
+<a name="303"><span class="lineNum">     303 </span>            :  *</a>
+<a name="304"><span class="lineNum">     304 </span>            :  * - a: Indices.</a>
+<a name="305"><span class="lineNum">     305 </span>            :  * - x: Source vector.</a>
+<a name="306"><span class="lineNum">     306 </span>            :  *</a>
+<a name="307"><span class="lineNum">     307 </span>            :  * Returns: a vector `y` where `y[a[n]] == x[n]`.</a>
+<a name="308"><span class="lineNum">     308 </span>            :  *</a>
+<a name="309"><span class="lineNum">     309 </span>            :  * If the same index appears more than once in `a`, the result is undefined.</a>
+<a name="310"><span class="lineNum">     310 </span>            :  */</a>
+<a name="311"><span class="lineNum">     311 </span>            : function scatter&lt;Value&gt;(a:Integer[_], x:Value[_]) -&gt; Value[_] {</a>
+<a name="312"><span class="lineNum">     312 </span>            :   auto N &lt;- length(a);</a>
+<a name="313"><span class="lineNum">     313 </span>            :   y:Value[N];</a>
+<a name="314"><span class="lineNum">     314 </span>            :   for n in 1..N {</a>
+<a name="315"><span class="lineNum">     315 </span>            :     y[a[n]] &lt;- x[n];</a>
+<a name="316"><span class="lineNum">     316 </span>            :   }</a>
+<a name="317"><span class="lineNum">     317 </span>            :   return y;</a>
+<a name="318"><span class="lineNum">     318 </span>            : }</a>
 </pre>
       </td>
     </tr>
