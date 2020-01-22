@@ -6152,6 +6152,30 @@
 
 
   <li class="md-nav__item">
+    <a href="../SkipDelayHandler/" title="SkipDelayHandler" class="md-nav__link">
+      SkipDelayHandler
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../SkipPlayHandler/" title="SkipPlayHandler" class="md-nav__link">
+      SkipPlayHandler
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../Stack/" title="Stack" class="md-nav__link">
       Stack
     </a>
@@ -6879,11 +6903,11 @@
 <td>Future value. This is set for situations where delayed sampling is used, but when ultimately realized, a particular value (this one) should be assigned, and updates or downdates applied accordingly. It is typically used when replaying traces.</td>
 </tr>
 <tr>
-<td>futureUpdate:<a href="../../types/#Boolean">Boolean</a></td>
+<td>futureUpdate:Boolean</td>
 <td>When assigned, should the future value trigger an update? (Otherwise a downdate.)</td>
 </tr>
 <tr>
-<td>delay:DelayValue&lt;Value&gt;?</td>
+<td>delay:DelayValue<Value>?</td>
 <td>Associated node on delayed sampling <script type="math/tex">M</script>-path.</td>
 </tr>
 </tbody>
@@ -6991,13 +7015,13 @@
 <h4 id="assume">assume</h4>
 <p><a name="assume"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function assume(v:<a href="../Random/">Random</a>&lt;Value&gt;)</p>
+<p class="admonition-title">function assume(v:Random<Value>)</p>
 <p>Assume a distribution for this random variate. When a value is required,
 it will be simulated from this distribution and trigger an update on
 the delayed sampling graph.</p>
 </div>
 <div class="admonition quote">
-<p class="admonition-title">function assume(v:<a href="../Random/">Random</a>&lt;Value&gt;, future:Value)</p>
+<p class="admonition-title">function assume(v:Random<Value>, future:Value)</p>
 <p>Assume a distribution for this random variate. When a value is required,
 it will be assigned according to the <code>future</code> value given here, and
 trigger an update on the delayed sampling graph.</p>
@@ -7009,13 +7033,13 @@ trigger an update on the delayed sampling graph.</p>
 <h4 id="assumewithdowndate">assumeWithDowndate</h4>
 <p><a name="assumewithdowndate"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function assumeWithDowndate(v:<a href="../Random/">Random</a>&lt;Value&gt;)</p>
+<p class="admonition-title">function assumeWithDowndate(v:Random<Value>)</p>
 <p>Assume a distribution for this random variate. When a value is required,
 it will be simulated from this distribution and trigger a downdate on
 the delayed sampling graph.</p>
 </div>
 <div class="admonition quote">
-<p class="admonition-title">function assumeWithDowndate(v:<a href="../Random/">Random</a>&lt;Value&gt;, future:Value)</p>
+<p class="admonition-title">function assumeWithDowndate(v:Random<Value>, future:Value)</p>
 <p>Assume a distribution for this random variate. When a value is required,
 it will be assigned according to the <code>future</code> value given here, and
 trigger a downdate on the delayed sampling graph.</p>
@@ -7027,7 +7051,7 @@ trigger a downdate on the delayed sampling graph.</p>
 <h4 id="cdf">cdf</h4>
 <p><a name="cdf"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function cdf(x:Value) -&gt; <a href="../../types/#Real">Real</a>?</p>
+<p class="admonition-title">function cdf(x:Value) -&gt; Real?</p>
 <p>Evaluate the cumulative distribution function at a value.</p>
 <ul>
 <li>x: The value.</li>
@@ -7053,7 +7077,7 @@ undoes the effects of an update().</p>
 <h4 id="graft">graft</h4>
 <p><a name="graft"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">abstract function graft(force:<a href="../../types/#Boolean">Boolean</a>)</p>
+<p class="admonition-title">abstract function graft(force:Boolean)</p>
 <p>Graft this onto the delayed sampling graph.</p>
 <ul>
 <li>force: If true, a node is always grafted onto the delayed sampling
@@ -7064,7 +7088,7 @@ undoes the effects of an update().</p>
 <h4 id="logpdf">logpdf</h4>
 <p><a name="logpdf"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function logpdf(x:Value) -&gt; <a href="../../types/#Real">Real</a></p>
+<p class="admonition-title">function logpdf(x:Value) -&gt; Real</p>
 <p>Evaluate the probability density (or mass) function, if it exists.</p>
 <ul>
 <li>x: The value.</li>
@@ -7080,7 +7104,7 @@ undoes the effects of an update().</p>
 <h4 id="observe">observe</h4>
 <p><a name="observe"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function observe(x:Value) -&gt; <a href="../../types/#Real">Real</a></p>
+<p class="admonition-title">function observe(x:Value) -&gt; Real</p>
 <p>Observe a value for a random variate associated with the distribution,
 updating the delayed sampling graph accordingly, and returning a weight
 giving the log pdf (or pmf) of that variate under the distribution.</p>
@@ -7088,14 +7112,14 @@ giving the log pdf (or pmf) of that variate under the distribution.</p>
 <h4 id="observeforward">observeForward</h4>
 <p><a name="observeforward"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">abstract function observeForward(x:Value) -&gt; <a href="../../types/#Real">Real</a></p>
+<p class="admonition-title">abstract function observeForward(x:Value) -&gt; Real</p>
 <p>As observe(), but forcing a forward evaluation. See valueForward() for
 further details.</p>
 </div>
 <h4 id="observewithdowndate">observeWithDowndate</h4>
 <p><a name="observewithdowndate"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function observeWithDowndate(x:Value) -&gt; <a href="../../types/#Real">Real</a></p>
+<p class="admonition-title">function observeWithDowndate(x:Value) -&gt; Real</p>
 <p>Observe a value for a random variate associated with the distribution,
 downdating the delayed sampling graph accordingly, and returning a weight
 giving the log pdf (or pmf) of that variate under the distribution.</p>
@@ -7103,7 +7127,7 @@ giving the log pdf (or pmf) of that variate under the distribution.</p>
 <h4 id="pdf">pdf</h4>
 <p><a name="pdf"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function pdf(x:Value) -&gt; <a href="../../types/#Real">Real</a></p>
+<p class="admonition-title">function pdf(x:Value) -&gt; Real</p>
 <p>Evaluate the probability density (or mass) function, if it exists.</p>
 <ul>
 <li>x: The value.</li>
@@ -7113,7 +7137,7 @@ giving the log pdf (or pmf) of that variate under the distribution.</p>
 <h4 id="quantile">quantile</h4>
 <p><a name="quantile"></a></p>
 <div class="admonition quote">
-<p class="admonition-title">function quantile(p:<a href="../../types/#Real">Real</a>) -&gt; Value?</p>
+<p class="admonition-title">function quantile(p:Real) -&gt; Value?</p>
 <p>Evaluate the quantile function at a cumulative probability.</p>
 <ul>
 <li>x: The cumulative probability.</li>
