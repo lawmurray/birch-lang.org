@@ -37,6 +37,8 @@ A simple linear-Gaussian state-space model written in Birch.
 
 ## Papers
 
+* L.M. Murray (2020). [Lazy object copy as a platform for population-based probabilistic programming](https://arxiv.org/abs/2001.05293). [[arxiv]](https://arxiv.org/abs/2001.05293)
+
 * A. Wigren, R.S. Risuleo, L.M. Murray and F. Lindsten (2019). [Parameter elimination in particle Gibbs sampling](https://arxiv.org/abs/1910.14145). *Advances in Neural Information Processing Systems*. [[arxiv]](https://arxiv.org/abs/1910.14145)
 
 * J. Kudlicka, L.M. Murray, F. Ronquist and T.B. Schön (2019). [Probabilistic programming for birth-death models of evolution using an alive particle filter with delayed sampling](https://arxiv.org/abs/1907.04615). *Uncertainty in Artificial Intelligence*. [[online]](http://auai.org/uai2019/accepted.php) [[arxiv]](https://arxiv.org/abs/1907.04615)
