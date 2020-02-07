@@ -115,8 +115,8 @@ The [Model](/documentation/library/classes/Model) class has a member function ca
     Enter the following between the curly braces of the `LinearRegressionModel` class:
 
         function read(buffer:Buffer) {
-          X <- buffer.getRealMatrix("X")!;
-          y <- buffer.getRealVector("y")!;
+          X <-? buffer.getRealMatrix("X");
+          y <-? buffer.getRealVector("y");
         }
 
         function write(buffer:Buffer) {
@@ -130,20 +130,7 @@ The [Model](/documentation/library/classes/Model) class has a member function ca
 
 This `read` member function reads from the input file into the variables `X` and `y`. The strings `"X"` and `"y"` name elements in the input file. While the names correspond in this case, they need not in general. Similarly, the `write` function writes to the output file.
 
-The [Buffer](/documentation/library/classes/Buffer) class provides the interface for easily reading and writing these. Its `get()` style member functions return [*optionals*](/documentation/language/optionals/), as the requested variable may not exist in the file, or may not have the correct type. We are being somewhat lazy with the above code by using the `!` operator after each call, essentially assuming that the variables do exist.
-
-Optionals are quite common in Birch code. They are useful for handling missing values. A more idiomatic usage is as follows:
-
-    Z:Real[_,_]? <- buffer.getRealMatrix("X");
-    if Z? {
-      X <- Z!;
-    }
-
-The `?` after the type declares an optional variable, the `?` operator in the `if` statement condition checks if it has a value, the `!` operator in the `if` body retrieves that value, if it exists.
-
-In more recent versions of Birch, the `<-?` operator provides a shortcut for precisely the above code, and it is possible to write the simpler:
-
-    X <-? buffer.getRealMatrix("X");
+The [Buffer](/documentation/library/classes/Buffer) class provides the interface for easily reading and writing these. Its `get()` style member functions return [*optionals*](/documentation/language/optionals/), as the requested variable may not exist in the file, or may not have the correct type. The `<-?` assignment operates only if the optional on the right actually has a value.
 
 ## Inference
 
