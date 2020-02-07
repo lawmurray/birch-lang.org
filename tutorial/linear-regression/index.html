@@ -6700,8 +6700,8 @@ birch install
 <p class="admonition-title">Exercise</p>
 <p>Enter the following between the curly braces of the <code>LinearRegressionModel</code> class:</p>
 <pre><code>function read(buffer:Buffer) {
-  X &lt;- buffer.getRealMatrix("X")!;
-  y &lt;- buffer.getRealVector("y")!;
+  X &lt;-? buffer.getRealMatrix("X");
+  y &lt;-? buffer.getRealVector("y");
 }
 
 function write(buffer:Buffer) {
@@ -6714,17 +6714,7 @@ function write(buffer:Buffer) {
 </code></pre>
 </div>
 <p>This <code>read</code> member function reads from the input file into the variables <code>X</code> and <code>y</code>. The strings <code>"X"</code> and <code>"y"</code> name elements in the input file. While the names correspond in this case, they need not in general. Similarly, the <code>write</code> function writes to the output file.</p>
-<p>The <a href="/documentation/library/classes/Buffer">Buffer</a> class provides the interface for easily reading and writing these. Its <code>get()</code> style member functions return <a href="/documentation/language/optionals/"><em>optionals</em></a>, as the requested variable may not exist in the file, or may not have the correct type. We are being somewhat lazy with the above code by using the <code>!</code> operator after each call, essentially assuming that the variables do exist.</p>
-<p>Optionals are quite common in Birch code. They are useful for handling missing values. A more idiomatic usage is as follows:</p>
-<pre><code>Z:Real[_,_]? &lt;- buffer.getRealMatrix("X");
-if Z? {
-  X &lt;- Z!;
-}
-</code></pre>
-<p>The <code>?</code> after the type declares an optional variable, the <code>?</code> operator in the <code>if</code> statement condition checks if it has a value, the <code>!</code> operator in the <code>if</code> body retrieves that value, if it exists.</p>
-<p>In more recent versions of Birch, the <code>&lt;-?</code> operator provides a shortcut for precisely the above code, and it is possible to write the simpler:</p>
-<pre><code>X &lt;-? buffer.getRealMatrix("X");
-</code></pre>
+<p>The <a href="/documentation/library/classes/Buffer">Buffer</a> class provides the interface for easily reading and writing these. Its <code>get()</code> style member functions return <a href="/documentation/language/optionals/"><em>optionals</em></a>, as the requested variable may not exist in the file, or may not have the correct type. The <code>&lt;-?</code> assignment operates only if the optional on the right actually has a value.</p>
 <h2 id="inference">Inference</h2>
 <div class="admonition example">
 <p class="admonition-title">Exercise</p>
