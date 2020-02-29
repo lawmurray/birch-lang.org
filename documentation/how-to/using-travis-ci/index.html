@@ -6425,38 +6425,9 @@
       
     
     
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Testing with Travis CI
-      </label>
-    
     <a href="./" title="Testing with Travis CI" class="md-nav__link md-nav__link--active">
       Testing with Travis CI
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#pre-2019" title="Pre 2019" class="md-nav__link">
-    Pre 2019
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
     
   </li>
 
@@ -6536,22 +6507,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#pre-2019" title="Pre 2019" class="md-nav__link">
-    Pre 2019
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -6575,6 +6530,7 @@ matrix:
       osx_image: xcode10.3
       addons:
         homebrew:
+          update: true
           packages:
             - flex
             - bison
@@ -6616,75 +6572,6 @@ cache:
 </code></pre>
 
 <p>This sets up both macOS and Ubuntu builds, and caches the Birch compiler and Birch standard library to recompile them only when necessary. Anecdotally, for <a href="http://www.github.com/lawmurray/Birch.Standard">Birch.Standard</a>, we observe that tests take 6-8 minutes for each instance, reducing to 3-4 minutes with an up-to-date cache.</p>
-<h2 id="pre-2019">Pre 2019</h2>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>This section is kept for reference.</p>
-</div>
-<p>Setting up Travis CI for Birch projects is much easier now that Ubuntu 16.04 Xenial is supported, as well as a Homebrew addon for macOS. Previously, it was necessary to use Ubuntu 14.04 Trusty. The default <code>gcc</code> provided with Trusty does not support C++14 language features required by Birch. Furthermore, no sufficiently recent version of Eigen is available through <code>apt</code>. This complicates the configuration somewhat:</p>
-<pre><code class="yml">language: cpp
-matrix:
-  include:
-    # macOS environment
-    - os: osx
-      compiler: clang
-      osx_image: xcode9.3
-
-    # Ubuntu 14.04 environment
-    - os: linux
-      dist: trusty
-      compiler: gcc
-      addons:
-        apt:
-          sources:
-            - ubuntu-toolchain-r-test
-          packages:
-            - gcc-7
-            - g++-7
-            - autoconf
-            - libtool
-            - flex
-            - bison
-            - libboost-all-dev
-before_install:
-  # OS-specific things
-  - if [[ &quot;$TRAVIS_OS_NAME&quot; == &quot;linux&quot; ]]; then
-      export CC=gcc-7;
-      export CXX=g++-7;
-      export CXXFLAGS=&quot;-DBOOST_NO_CXX11_SCOPED_ENUMS&quot;;
-      wget http://bitbucket.org/eigen/eigen/get/3.3.4.tar.gz &amp;&amp; tar xzf 3.3.4.tar.gz &amp;&amp; sudo cp -Rp eigen-eigen-5a0156e40feb /usr/local/include/eigen3;
-    elif [[ &quot;$TRAVIS_OS_NAME&quot; == &quot;osx&quot; ]]; then
-      export HOMEBREW_NO_AUTO_UPDATE=1;
-      brew install flex bison eigen libomp;
-      brew link --force flex bison;
-    fi
-
-  # Checkout Birch, which may be cached, and (re)build
-  - git clone &quot;https://github.com/lawmurray/Birch.git&quot; || cd .
-  - cd Birch &amp;&amp; git pull &amp;&amp; git checkout master &amp;&amp; cd ..
-  - cd Birch &amp;&amp; ./autogen.sh &amp;&amp; ./configure &amp;&amp; make -j 2 &amp;&amp; sudo make install &amp;&amp; cd ..
-
-  # Checkout Birch.Standard, which may be cached, and (re)build
-  - git clone &quot;https://github.com/lawmurray/Birch.Standard.git&quot; || cd .
-  - cd Birch.Standard &amp;&amp; git pull &amp;&amp; git checkout master &amp;&amp; cd ..
-  - cd Birch.Standard &amp;&amp; birch build --enable-unity &amp;&amp; sudo birch install --enable-unity &amp;&amp; cd ..
-
-install:
-  - birch build --enable-unity &amp;&amp; sudo birch install --enable-unity
-script:
-  - birch run
-cache:
-  directories:
-    - Birch
-    - Birch.Standard
-</code></pre>
-
-<p>This configuration file:</p>
-<ul>
-<li>sets up both macOS and Ubuntu Linux build environments,</li>
-<li>updates <code>gcc</code> and <code>Eigen</code> in the Ubuntu Linux build environment, and</li>
-<li>includes caching of the Birch compiler and Birch standard library so that they are only recompiled when necessary.</li>
-</ul>
                 
                   
                 
