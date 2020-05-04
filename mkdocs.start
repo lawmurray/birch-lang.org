@@ -2,8 +2,10 @@ site_name: 'Birch'
 site_description: 'A probabilistic object-oriented programming language for machine learning and statistics.'
 theme:
   name: 'material'
-  logo:
-    icon: 'code'
+  favicon: fontawesome/solid/leaf
+  icon:
+    logo: fontawesome/solid/leaf
+    repo: fontawesome/brands/github
   font:
     text: 'Lato'
     monospace: 'Monaco'
@@ -21,8 +23,8 @@ extra_javascript:
   - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'
 extra:
   social:
-    - type: 'github'
-      link: 'https://github.com/lawmurray'
+    - icon: fontawesome/brands/github
+      link: https://github.com/lawmurray
 google_analytics:
   - 'UA-115470196-1'
   - 'auto'
