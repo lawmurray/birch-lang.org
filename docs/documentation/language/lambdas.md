@@ -24,7 +24,7 @@ and to call it:
 
 Functions can accept lambdas as arguments. Such a function may be declared:
 
-    function g(f:@(a:A, b:B) -> C) -> D {
+    function g(f:@(A, B) -> C) -> D {
       d:D;
       // do something
       return d;
@@ -38,6 +38,6 @@ and be called with:
           return c;
         });
 
-or, if the lambda was previously assigned to a variable `f:@(a:A, b:B) -> C` as above:
+or, if the lambda was previously assigned to a variable `f:@(A, B) -> C` as above:
 
       g(f);
