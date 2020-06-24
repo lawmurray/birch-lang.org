@@ -1,7 +1,8 @@
-site_name: 'Birch'
-site_description: 'A probabilistic object-oriented programming language for machine learning and statistics.'
+site_name: Birch
+site_description: 'Birch is an open source probabilistic programming language, based on imperative and object-oriented paradigms. It provides the trio of automatic differentiation, automatic marginalization, and automatic conjugacy, combined in an inference engine in the framework of Sequential Monte Carlo (SMC).'
 theme:
-  name: 'material'
+  name: material
+  custom_dir: material
   favicon: fontawesome/solid/leaf
   icon:
     logo: fontawesome/solid/leaf
@@ -10,17 +11,19 @@ theme:
     text: 'Lato'
     monospace: 'Monaco'
   palette:
-    primary: 'white'
-    accent: 'light green'
+    scheme: default
+    primary: 'green'
+    accent: 'green'
+  features:
+    - tabs
 markdown_extensions:
   - admonition
   - footnotes
-  - mdx_math:
-      enable_dollar_delimiter: true
+  - pymdownx.arithmatex
 extra_css:
   - 'stylesheets/extra.css'
 extra_javascript:
-  - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'
+  - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML
 extra:
   social:
     - icon: fontawesome/brands/github

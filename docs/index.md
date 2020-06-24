@@ -1,29 +1,5 @@
-# Probabilistic Programming in Birch
-
-![Birch trunk](/images/trunk.jpg)
-
-Birch is an imperative, object-oriented, universal probabilistic programming language. It provides automatic marginalization and automatic conjugacy computations, in combination with Sequential Monte Carlo (SMC) inference algorithms, and efficient memory management to leverage the path coalescence inherent in these algorithms.
-
-Birch is free and open source software for Linux, macOS and Windows. It compiles to C++14 with shared-memory parallelism provided by [OpenMP](https://www.openmp.org/) and fast numerics by [Eigen](http://eigen.tuxfamily.org/).
-
-Research and development is ongoing. See [Getting Started](/getting-started/installing) to try it yourself.
-
-## Example
-
-A simple linear-Gaussian state-space model written in Birch.
-
-    β:Real <- 0.9;
-    σ2:Real <- 1.0;
-    T:Integer <- 10;
-    x:Random<Real>[T];
-    y:Random<Real>[T];
-
-    x[1] ~ Gaussian(0.0, σ2);
-    y[1] ~ Gaussian(x[1], σ2);  
-    for t in 2..T {
-      x[t] ~ Gaussian(β*x[t - 1], σ2);
-      y[t] ~ Gaussian(x[t], σ2);
-    }
+template: overrides/home.html
+---
 
 ## Talks
 
