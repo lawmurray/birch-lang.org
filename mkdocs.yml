@@ -1,0 +1,92 @@
+site_name: Birch
+site_description: 'Birch is an open source probabilistic programming language, based on imperative and object-oriented paradigms. It provides the trio of automatic differentiation, automatic marginalization, and automatic conjugacy, combined in an inference engine in the framework of Sequential Monte Carlo (SMC).'
+theme:
+  name: material
+  custom_dir: material
+  favicon: fontawesome/solid/leaf
+  icon:
+    logo: fontawesome/solid/leaf
+    repo: fontawesome/brands/github
+  font:
+    text: 'Lato'
+    monospace: 'Monaco'
+  palette:
+    scheme: default
+    primary: 'green'
+    accent: 'green'
+  features:
+    - tabs
+markdown_extensions:
+  - admonition
+  - footnotes
+  - pymdownx.arithmatex
+extra_css:
+  - 'stylesheets/extra.css'
+extra_javascript:
+  - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/lawmurray
+google_analytics:
+  - 'UA-115470196-1'
+  - 'auto'
+nav:
+  - 'Home': index.md
+  - 'Getting Started':
+    - 'Installing': getting-started/installing.md
+    - 'Updating': getting-started/updating.md
+    - 'Platform guides':
+      - 'Ubuntu Linux': getting-started/ubuntu.md
+      - 'macOS': getting-started/macos.md
+      - 'Windows 10': getting-started/windows.md
+  - 'Tutorial':
+    - 'Birch Tutorial': tutorial/index.md
+    - 'Exercise #1: Preliminaries': tutorial/preliminaries.md
+    - 'Exercise #2: Linear regression': tutorial/linear-regression.md
+    - 'Exercise #3: Markov model': tutorial/markov-model.md
+    - 'Next steps': tutorial/further-reading.md
+  - 'Language':
+    - 'Birch Language': language/index.md
+    - 'Comments': language/comments.md
+    - 'Variables': language/variables.md
+    - 'Types': language/types.md
+    - 'Assignments': language/assignments.md
+    - 'Control Flow': language/control_flow.md
+    - 'Arrays': language/arrays.md
+    - 'Optionals': language/optionals.md
+    - 'Tuples': language/tuples.md
+    - 'Functions': language/functions.md
+    - 'Lambdas': language/lambdas.md
+    - 'Fibers': language/fibers.md
+    - 'Programs': language/programs.md
+    - 'Operators': language/operators.md
+    - 'Classes': language/classes.md
+    - 'Aliases': language/aliases.md
+    - 'Casts': language/casts.md
+    - 'Weak References': language/weak_references.md
+    - 'Special Topics': language/special_topics.md
+  - 'Documentation':
+    - 'Birch Documentation': documentation/index.md
+    - 'Driver':
+      - 'Birch Driver Program': documentation/driver/index.md
+      - 'Meta file': documentation/driver/meta_file.md
+      - 'init': documentation/driver/commands/init.md
+      - 'check': documentation/driver/commands/check.md
+      - 'build': documentation/driver/commands/build.md
+      - 'install': documentation/driver/commands/install.md
+      - 'uninstall': documentation/driver/commands/uninstall.md
+      - 'dist': documentation/driver/commands/dist.md
+      - 'docs': documentation/driver/commands/docs.md
+      - 'clean': documentation/driver/commands/clean.md
+    - 'How To':
+      - 'Birch How-To Guides': documentation/how-to/index.md
+      - 'Installation without root access': documentation/how-to/install-locally.md
+      - 'Integrated development with Eclipse': documentation/how-to/using-eclipse.md
+      - 'Testing with Travis CI': documentation/how-to/using-travis-ci.md
+      - '2d graphics with Cairo': documentation/how-to/2d-graphics-with-cairo.md
+      - 'Databases with SQLite': documentation/how-to/databases-with-sqlite.md
+  - 'Research':
+    - 'Research': research/index.md
+  - 'About':
+    - 'About': about/index.md
