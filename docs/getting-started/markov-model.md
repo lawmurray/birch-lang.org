@@ -1,3 +1,5 @@
+# Exercise: Markov Model
+
 We will now look at implementing a [Markov model](https://en.wikipedia.org/wiki/Markov_model), specifically a simple SIR (susceptible-infectious-recovered) compartmental model for an influenza epidemic, using a classic data set of an outbreak of Russian influenza at a boarding school.
 
 ## Model

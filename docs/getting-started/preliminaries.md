@@ -1,3 +1,5 @@
+# Preliminaries
+
 In this first exercise, you will learn how to use the `birch` [driver](/documentation/driver) program to create a new project, and understand the typical workflow.
 
 
