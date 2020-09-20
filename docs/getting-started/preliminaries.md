@@ -18,10 +18,9 @@ The standard structure for Birch projects consists of the subdirectories:
 
   * `birch/` for source code,
   * `config/` for configuration files, typically setting various options for a chosen inference method,
-  * `input/` for input files, and
-  * `output/` for output files.
-
-and a number of other meta files in the base directory. The most important of these meta files is [`META.json`](/documentation/driver/meta_file), which contains meta information such as a name, version, and description of the project, and a manifest of files. As you add files to the project you should add them to this [`META.json`](/documentation/driver/meta_file) file. This is particularly important for `*.bi` source files in the `bi/` subdirectory, so that they are included when building.
+  * `input/` for input files,
+  * `output/` for output files,
+  * and a number of other meta files in the base directory.
 
 !!! tip
     Now is a good time to set up version control with this initial set of files. For Git:
@@ -39,12 +38,6 @@ To build the project, use:
 When building, Birch will create a number of additional files in the current working directory. To delete all of these additional files, use:
 
     birch clean
-
-To check for possible issues, e.g. files missing from [`META.json`](/documentation/driver/meta_file) or files listed there that do not exist, use:
-
-    birch check
-
-No output indicates no issues.
 
 More information on these commands is available in the documentation of the [driver](/documentation/driver) program.
 
@@ -66,27 +59,6 @@ A model is specified in Birch by creating a class that inherits from [Model](/do
 Comments are written in Birch by either enclosing the comment text with `/*` and `*/`, or putting the comment text on the end of a line, preceded by `//`.
 
 The special `/**` `*/` comment used above acts like an ordinary comment, but is extracted by the [docs](/documentation/driver/commands/docs) command to create reference documentation for your project. It is recommended that you use such a comment for all classes and functions that should be visible to a user of your package.
-
-Recall that it is important to add all source files to the [`META.json`](/documentation/driver/meta_file) file in order to include them in the build.
-
-!!! example "Exercise"
-    Open the `META.json` file of your project and add `birch/TestModel.birch` to the list under `manifest.source`. It should then look something like this:
-
-        {
-          "name": "Tutorial",
-          "version": "0.0.0",
-          "description": "",
-          "manifest": {
-            "source": [
-              "bi/TestModel.bi"
-            ],
-            "other": [
-              "LICENSE",
-              "META.json",
-              "README.md"
-            ]
-          }
-        }
 
 We can now build the project and run it.
 

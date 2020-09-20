@@ -52,15 +52,12 @@ To specify this model in Birch, we again need to create a class that inherits fr
 
 As well as easing implementation, the other advantage of [MarkovModel](/documentation/library/classes/MarkovModel) is that it reveals something about the structure of the model, which may be useful to enable, or optimize, specific inference methods. It is expected that more classes for specific model structures, and more methods to make use of them, will be available in future.
 
-!!! example "Exercise"
-    Create a file `birch/SIRModel.birch`, add it to `META.json`.
-
 [MarkovModel](/documentation/library/classes/MarkovModel) is a [*generic*](/documentation/language/classes/#generic-parameters) class. It requires two other classes, one to contain the parameters of the model, and one to contain the state variables of the model. We will create these classes first, to be called `SIRParameter` and `SIRState`, respectively. We will then specify the parameter, initial and transition models in a class `SIRModel`, to inherit from `MarkovModel<SIRParameter,SIRState>`.
 
 We will start with the `SIRParameter` class.
 
 !!! example "Exercise"
-    Add the following code to the file `birch/SIRModel.birch`:
+    Add the following code to the file `birch/SIRParameter.birch`:
 
         /**
          * SIR model parameters.
@@ -99,7 +96,7 @@ This just groups all the parameters into one class, and overrides the standard `
 The `SIRState` class is similar.
 
 !!! example "Exercise"
-    Add the following code to the file `birch/SIRModel.birch`:
+    Add the following code to the file `birch/SIRState.birch`:
 
         /**
          * SIR model state.
@@ -214,8 +211,6 @@ We will use a data set of the outbreak of Russian influenza at a boy's boarding 
 !!! example "Exercise"
     Download the data set [here](/tutorial/influenza.json) and place it in your project's `input/` directory as `input/influenza.json`.
 
-    Add the file to `META.json` under `manifest.data`.
-
 Have a look at the contents of the file in a text editor. It contains an array of states. The first state sets the values of all state variables, while for subsequent states it sets only $i_t$, the number of infectious individuals.
 
 
@@ -226,7 +221,7 @@ We are nearly ready to perform inference. Unlike the [linear regression](/docume
 The particle filter requires some configuration. This is provided in a configuration file.
 
 !!! example "Exercise"
-    Create a file `config/sir.json`, add it to `META.json` under `manifest.other`, and enter the following contents:
+    Create a file `config/sir.json` and enter the following contents:
 
         {
           "model": {

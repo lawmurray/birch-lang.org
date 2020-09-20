@@ -26,8 +26,6 @@ To specify this model in Birch, we again create a class that inherits from [Mode
 
         }
 
-    Don't forget to add the file to `META.json` so that it is included in the build.
-
 Next, we declare the random variables of the model. These are usually declared as member variables of the class.
 
 !!! example "Exercise"
@@ -101,8 +99,6 @@ The data set has been preprocessed to convert categorical variables into multipl
 
 !!! example "Exercise"
     Download the data set [here](/tutorial/bike_share.json) and place it in your project's `input/` directory as `input/bike_share.json`.
-
-    Add the file to `META.json` under `manifest.data`.
 
 The file is in [JSON](http://www.json.org) format. Birch supports both JSON and YAML file formats. You can view and edit these files by hand with a text editor, or for larger files, write programs to generate them.
 
