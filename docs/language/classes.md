@@ -80,8 +80,6 @@ All member functions are virtual. To delegate a call to a member function of the
       }
     }
 
-Member functions cannot be generic.
-
 A member function may be marked `final` to indicate that it cannot be overridden by a derived class:
 
     final function f(a:A, b:B) {
@@ -92,18 +90,15 @@ A member function may be marked `abstract` to indicate that it must be overridde
 
     abstract function f(a:A, b:B);
 
+A member function may be marked `override` to indicate that it is intended to override a member function in a base class, producing an error if it does not. While it is unnecesary to use `override` in order to override a member function, it is good practice to catch errors:
+
+    override function f(a:A, b:B) {
+      // do something
+    }
+
 A final member function must have a body. An abstract member function must not have a body. A class with one or more abstract member functions must be marked as an abstract class.
 
-!!! info
-    Some constraints on abstract and final member functions are currently enforced by the C++ compiler, not the Birch compiler, and so will produce C++ compilation error messages, rather than Birch compilation error messages. These are still reasonably interpretable.
-
-### Member fibers
-
-Fiber declarations that appear within the body of a class are *member fibers*. Their behavior is analogous to member functions. They may similar be declared as abstract or final member fibers.
-
-Member functions cannot be generic.
-
-### Generic classes
+### Generics
 
 A class declaration may include parameters for generic types that are to be specified when the class is used. These are declared using angle brackets in the class declaration:
 
@@ -125,6 +120,9 @@ These arguments may be of any type. Within the body of the class, the type param
         return u;
       }
     }
+
+A member function may also be generic. Such functions are non-virtual, that is, they are never overridden, even by member functions in a derived class with the same parameters.
+
 
 ### Initialization
 

@@ -28,15 +28,14 @@ When calling a function without parameters, use empty parentheses:
 
 ### Generic functions
 
-A function declaration may include parameters for generic types that are to be specified when the function is called. These are declared using angle brackets in the function declaration:
+A function declaration may include type parameters that are provided arguments when the function is called. These are declared using angle brackets in the function declaration:
 
     function f<T,U>(a:T, b:U) {
       // do something
     }
 
-Such a function is a *generic function*. When a generic function is called, type arguments are specified for the type parameters, also using angle brackets:
+Such a function is a *generic function*. When a generic function is called, type arguments can be provided:
 
     f<Real,Integer>(1.0, 2);
 
-!!! info
-    At this stage the type arguments must be explicitly specified and cannot be inferred. This may be possible in future.
+Here, `T` becomes `Real` and `U` becomes `Integer`. In many cases it is unnecessary to explicitly provide these type arguments, however, as the compiler can deduce them itself. In this particular example, using `f(1.0, 2)` is sufficient. Sometimes the compiler cannot deduce them itself, and they must be specified explicitly.

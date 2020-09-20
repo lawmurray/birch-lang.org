@@ -45,16 +45,16 @@
       display: none;
     }*/
 
-    /* Gradient background + blob */
+    /* blob */
     .tx-container {
       padding-top: 1rem;
-      background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1123 258'><path d='M1124,2c0,0 0,256 0,256l-1125,0l0,-48c0,0 16,5 55,5c116,0 197,-92 325,-92c121,0 114,46 254,46c140,0 214,-167 572,-166Z' style='fill: white' /></svg>") no-repeat bottom rgb(130,130,125);
+      background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1123 258'><path d='M1124,2c0,0 0,256 0,256l-1125,0l0,-48c0,0 16,5 55,5c116,0 197,-92 325,-92c121,0 114,46 254,46c140,0 214,-167 572,-166Z' style='fill: white' /></svg>") no-repeat bottom rgb(47 49 72);
     }
 
     /* Set inverted text color on hero */
     .tx-hero {
       margin: 0 .8rem;
-      color: var(--md-primary-bg-color);
+      color: var(--md-primary-fg-color);
     }
 
     /* Make main headline thicker */
@@ -73,7 +73,7 @@
     .tx-hero .md-button {
       margin-top: .5rem;
       margin-right: .5rem;
-      color: var(--md-primary-bg-color);
+      color: var(--md-primary-fg-color);
     }
 
     /* Invert primary button */
@@ -93,21 +93,24 @@
 
     /* [mobile portrait -]: Adjust headline */
     @media screen and (max-width: 30em) {
-
       /* Make main headline smaller */
       .tx-hero h1 {
         font-size: 1.4rem;
       }
-    }
 
-    /* [tablet landscape +]: Display content and image next to each other */
-    @media screen and (min-width: 60em) {
+      /* Increase bottom spacing and set dimensions */
+      .tx-hero__content {
+        padding-bottom: 8vw;
+      }
 
       /* Hide table of contents */
       .md-sidebar--secondary {
         display: none;
       }
+    }
 
+    /* [tablet landscape +]: Display content and image next to each other */
+    @media screen and (min-width: 45em) {
       /* Use flex layout to align items */
       .tx-hero {
         display: flex;
@@ -116,30 +119,46 @@
 
       /* Increase bottom spacing and set dimensions */
       .tx-hero__content {
-        max-width: 19rem;
+        max-width: 18rem;
+      }
+
+      /* Swap with teaser and set dimensions */
+      .tx-hero__image {
+        width: 25rem;
+      }
+    }
+
+    /* [tablet landscape +]: Display content and image next to each other */
+    @media screen and (min-width: 50em) {
+      /* Use flex layout to align items */
+      .tx-hero {
+        display: flex;
+        align-items: stretch;
+      }
+
+      /* Increase bottom spacing and set dimensions */
+      .tx-hero__content {
+        max-width: 18rem;
         margin-top: 3.5rem;
         padding-bottom: 14vw;
       }
 
       /* Swap with teaser and set dimensions */
       .tx-hero__image {
-        width: 38rem;
-        order: 1;
-        transform: translateX(4rem);
+        width: 25rem;
       }
     }
 
     /* [screen +]: Adjust spacing */
     @media screen and (min-width: 76.25em) {
-
-      /* Hide navigation */
-      .md-sidebar--primary {
-        display: none;
-      }
-
       /* Ensure the image aligns with the repository information */
       .tx-hero__image {
         transform: translateX(8rem);
+      }
+
+      /* Hide table of contents */
+      .md-sidebar--primary {
+        display: none;
       }
     }
   </style>
@@ -149,36 +168,35 @@
     <div class="md-grid md-typeset">
       <div class="tx-hero">
 
-        <!-- Hero image -->
-        <div class="tx-hero__image">
-          <img
-            src="/images/hero.png"
-            alt=""
-            width="1024"
-            height="1024"
-            draggable="false"
-          >
-        </div>
-
         <!-- Hero content -->
         <div class="tx-hero__content">
           <h1>Probabilistic inference, <br/>Programmatic models</h1>
           <p>Birch is an open source probabilistic programming language. It combines <strong>automatic differentiation</strong>, <strong>automatic marginalization</strong>, and <strong>automatic conjugacy</strong> to bring advanced modeling tools to statisticians, data scientists, and machine learning engineers.</p>
           <a
-            href="{{ page.next_page.url | url }}"
-            title="{{ page.next_page.title | striptags }}"
+            href="/getting-started"
+            title="Get started"
             class="md-button md-button--primary"
           >
             Get started
           </a>
           <a
-            href="{{ config.repo_url }}"
-            title="{{ lang.t('source.link.title') }}"
+            href="/about"
+            title="About"
             class="md-button"
           >
-            Learn more
+            About
           </a>
         </div>
+
+        <!-- Hero image -->
+        <div class="tx-hero__image">
+          <img
+            src="/images/hero.png"
+            alt=""
+            draggable="false"
+          >
+        </div>
+
       </div>
     </div>
   </section>

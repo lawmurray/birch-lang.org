@@ -8,14 +8,13 @@ We will start by creating a new project.
 !!! example "Exercise"
     Create a new directory named `Tutorial`. From within this directory, run
 
-        birch init --name Tutorial
+        birch init --package Tutorial
 
 This creates the standard files and subdirectories for a Birch project. It is recommended that you maintain this standard structure for all of your projects to make their management and distribution easier.
 
 The standard structure for Birch projects consists of the subdirectories:
 
-  * `bi/` for source code,
-  * `build/` for build artifacts (managed by Birch),
+  * `birch/` for source code,
   * `config/` for configuration files, typically setting various options for a chosen inference method,
   * `input/` for input files, and
   * `output/` for output files.
@@ -29,17 +28,13 @@ and a number of other meta files in the base directory. The most important of th
         git add * .gitignore
         git commit -m "Added initial project files."
 
-    Typically, files in the `bi/` and `input/` subdirectories are included in a source repository, whereas those in `build/` and `output/` are generated from other files, and so not included.  
+    Typically, files in the `birch/` and `input/` subdirectories are included in a source repository, whereas those in  `output/` are generated from other files, and so not included.  
 
 To build the project, use:
 
     birch build
 
-To install the project (which may be required to run, depending on the platform), use:
-
-    birch install
-
-When building, Birch will create a number of additional files in the current working directory. Most of these are created in the `build/` subdirectory, although some will appear in the root directory of the project. To delete all of these additional files, use:
+When building, Birch will create a number of additional files in the current working directory. To delete all of these additional files, use:
 
     birch clean
 
@@ -48,8 +43,6 @@ To check for possible issues, e.g. files missing from [`META.json`](/documentati
     birch check
 
 No output indicates no issues.
-
-By convention, packages will also set up `birch run` to perform some interesting task to demonstrate the functionality of the package, although this may or may not be supported by a package.
 
 More information on these commands is available in the documentation of the [driver](/documentation/driver) program.
 
@@ -75,7 +68,7 @@ The special `/**` `*/` comment used above acts like an ordinary comment, but is 
 Recall that it is important to add all source files to the [`META.json`](/documentation/driver/meta_file) file in order to include them in the build.
 
 !!! example "Exercise"
-    Open the `META.json` file of your project and add `bi/TestModel.bi` to the list under `manifest.source`. It should then look something like this:
+    Open the `META.json` file of your project and add `birch/TestModel.birch` to the list under `manifest.source`. It should then look something like this:
 
         {
           "name": "Tutorial",
@@ -96,18 +89,14 @@ Recall that it is important to add all source files to the [`META.json`](/docume
 We can now build the project and run it.
 
 !!! example "Exercise"
-    Build and install with:
+    Build with:
 
         birch build
-        birch install
 
-If you receive an error message at this point, there may be a problem with your installation.
-
-!!! example "Exercise"
-    Sample from the (empty!) model with:
+    Then sample from the (empty!) model with:
 
         birch sample --model TestModel
 
 If this succeeds, you will see a filled progress bar. If this produces an error message, there may be a problem with your installation.
 
-The [sample](/documentation/library/programs/sample) program that you have just run is part of the Birch standard library. It provides a common interface to the available inference methods.
+The [sample](/documentation/library/programs/sample) program that you have just run is part of the Birch standard library.

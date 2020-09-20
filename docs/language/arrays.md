@@ -49,7 +49,7 @@ The vector `d` is now a copy of `a`, with size 4. Its previous value is discarde
 When slicing an array on the left side of an assignment, suggesting a view of the existing array, sizes must match on the left and right:
 
     d[1..2] <- a[1..2];  // OK! Both left and right have size 2
-    d[1..2] <- a;          // ERROR! Left has size 2, right has size 4
+    d[1..2] <- a;        // ERROR! Left has size 2, right has size 4
 
 Assignment may be used to resize an array, but not to change its number of dimensions. The number of dimensions of an array is a fundamental part of its type.
 

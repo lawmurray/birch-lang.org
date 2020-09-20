@@ -7,7 +7,7 @@ For `A < B`, with `a:A`, `b:B`, and `c:A?`:
 
 The optional `c` may be used to check whether the cast succeeded, and if so, to retrieve the result:
 
-    if (c?) {
+    if c? {
       f(c!);  // cast was successful, can do something with c
     }
 

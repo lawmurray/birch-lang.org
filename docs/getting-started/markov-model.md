@@ -7,16 +7,19 @@ The model is described in three parts: a *parameter* model, an *initial* model, 
 ### Parameter model
 
 The parameter model is:
+
 $$\begin{align}
 \lambda &= 10 \\
 \delta &\sim \mathcal{B}(2,2) \\
 \gamma &\sim \mathcal{B}(2,2),
 \end{align}$$
+
 where $\mathcal{B}$ denotes the [beta distribution](https://en.wikipedia.org/wiki/beta_distribution), $\lambda$ is a rate of interaction in the population, $\delta$ the probability of infection when a susceptible individual interacts with an infectious individual, and $\gamma$ the daily recovery probability.
 
 ### Initial model
 
 The initial model for time $t = 0$ depends on the data set. For the data set introduced below, it is as follows:
+
 $$\begin{align}
 s_0 &= 760 \\
 i_0 &= 3 \\
@@ -26,12 +29,15 @@ r_0 &= 0.
 ### Transition model
 
 The transition model for time $t$ is:
+
 $$\begin{align}
 \tau_t &\sim \mathrm{Binomial}\left(s_{t-1}, 1 - \exp\left(\frac{-\lambda i_{t-1} }{s_{t-1} + i_{t-1} + r_{t-1}}\right) \right) \\
 \Delta i_t &\sim \mathrm{Binomial}(\tau_t, \delta) \\
 \Delta r_t &\sim \mathrm{Binomial}(i_{t-1}, \gamma),
 \end{align}$$
+
 where $\tau_t$ is the number of interactions between infectious and susceptible individuals, $\Delta i_t$ the number of newly infected individuals, and $\Delta r_t$ the number of newly recovered individuals. Population counts are then updated:
+
 $$\begin{align}
 s_t &= s_{t-1} - \Delta i_t \\
 i_t &= i_{t-1} + \Delta i_t - \Delta r_t \\
@@ -45,14 +51,14 @@ To specify this model in Birch, we again need to create a class that inherits fr
 As well as easing implementation, the other advantage of [MarkovModel](/documentation/library/classes/MarkovModel) is that it reveals something about the structure of the model, which may be useful to enable, or optimize, specific inference methods. It is expected that more classes for specific model structures, and more methods to make use of them, will be available in future.
 
 !!! example "Exercise"
-    Create a file `bi/SIRModel.bi`, add it to `META.json`.
+    Create a file `birch/SIRModel.birch`, add it to `META.json`.
 
 [MarkovModel](/documentation/library/classes/MarkovModel) is a [*generic*](/documentation/language/classes/#generic-parameters) class. It requires two other classes, one to contain the parameters of the model, and one to contain the state variables of the model. We will create these classes first, to be called `SIRParameter` and `SIRState`, respectively. We will then specify the parameter, initial and transition models in a class `SIRModel`, to inherit from `MarkovModel<SIRParameter,SIRState>`.
 
 We will start with the `SIRParameter` class.
 
 !!! example "Exercise"
-    Add the following code to the file `bi/SIRModel.bi`:
+    Add the following code to the file `birch/SIRModel.birch`:
 
         /**
          * SIR model parameters.
@@ -91,7 +97,7 @@ This just groups all the parameters into one class, and overrides the standard `
 The `SIRState` class is similar.
 
 !!! example "Exercise"
-    Add the following code to the file `bi/SIRModel.bi`:
+    Add the following code to the file `birch/SIRModel.birch`:
 
         /**
          * SIR model state.
@@ -149,23 +155,23 @@ This just groups all the state variables into one class, and overrides the stand
 Finally, we create the class `SIRModel`, where most of the work happens. This inherits from `MarkovModel<SIRParameter,SIRState>`. It must implement member fibers `parameter`, `initial` and `transition` to specify the Markov model.
 
 !!! example "Exercise"
-    Add the following code to the file `bi/SIRModel.bi`:
+    Add the following code to the file `birch/SIRModel.bi`:
 
         /**
          * SIR model.
          */
         class SIRModel < MarkovModel<SIRParameter,SIRState> {
-          fiber parameter(θ:SIRParameter) -> Event {
+          function parameter(θ:SIRParameter) {
             θ.λ ~ Gamma(2.0, 5.0);
             θ.δ ~ Beta(2.0, 2.0);
             θ.γ ~ Beta(2.0, 2.0);
           }
 
-          fiber initial(x:SIRState, θ:SIRParameter) -> Event {
+          function initial(x:SIRState, θ:SIRParameter) {
             //
           }
 
-          fiber transition(x':SIRState, x:SIRState, θ:SIRParameter) -> Event {
+          function transition(x':SIRState, x:SIRState, θ:SIRParameter) {
             x'.τ ~ Binomial(x.s, 1.0 - exp(-θ.λ*x.i/(x.s + x.i + x.r)));
             x'.Δi ~ Binomial(x'.τ, θ.δ);
             x'.Δr ~ Binomial(x.i, θ.γ);
@@ -176,11 +182,11 @@ Finally, we create the class `SIRModel`, where most of the work happens. This in
           }
         }
 
-Notice the three member fibers in the above code:
+Notice the three member functions in the above code:
 
-    fiber parameter(θ:SIRParameter) -> Event;
-    fiber initial(x:SIRState, θ:SIRParameter) -> Event;
-    fiber transition(x':SIRState, x:SIRState, θ:SIRParameter) -> Event;
+    function parameter(θ:SIRParameter);
+    function initial(x:SIRState, θ:SIRParameter);
+    function transition(x':SIRState, x:SIRState, θ:SIRParameter);
 
 As suggested by their names and parameters:
 
@@ -195,17 +201,16 @@ The initial model is empty by choice. While we could implement the initial model
 The transition model uses [Delta](/documentation/library/classes/Delta/) distributions rather than simple assignment statements. This is because we have declared the variables `s`, `i` and `r` to be of type `Random<Integer>`, not just `Integer`. Using the [Delta](/documentation/library/classes/Delta/) distributions ensures proper handling of the two possible situations for each variable: that it already has a value&mdash;in which case we observe that value&mdash;or that its value is missing&mdash;in which case we simulate it. Indeed, the code, as written, handles all cases, according to what is provided in the input file.
 
 !!! example "Exercise"
-    Build the project with
+    Build with
 
         birch build
-        birch install
 
 ## Data
 
 We will use a data set of the outbreak of Russian influenza at a boy's boarding school in northern England[^1].
 
 !!! example "Exercise"
-    Download the data set [here](/tutorial/russian_influenza.json) and place it in your project's `input/` directory as `input/russian_influenza.json`.
+    Download the data set [here](/tutorial/influenza.json) and place it in your project's `input/` directory as `input/influenza.json`.
 
     Add the file to `META.json` under `manifest.data`.
 
@@ -231,7 +236,7 @@ The particle filter requires some configuration. This is provided in a configura
           "filter": {
             "nparticles": 128
           },
-          "input": "input/russian_influenza.json",
+          "input": "input/influenza.json",
           "output": "output/sir.json"
         }
 
