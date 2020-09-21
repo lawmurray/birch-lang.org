@@ -1,8 +1,0 @@
-<map id="Argumented" name="Argumented">
-<area shape="rect" id="node1" title="Expression with arguments." alt="" coords="252,5,344,32"/>
-<area shape="rect" id="node2" href="$classbi_1_1Call.html" title="Call to a function." alt="" coords="5,80,140,107"/>
-<area shape="rect" id="node3" href="$classbi_1_1Class.html" title="Class." alt="" coords="165,80,221,107"/>
-<area shape="rect" id="node4" href="$classbi_1_1GlobalVariable.html" title="Global variable." alt="" coords="245,80,351,107"/>
-<area shape="rect" id="node5" href="$classbi_1_1LocalVariable.html" title="Local variable." alt="" coords="375,80,474,107"/>
-<area shape="rect" id="node6" href="$classbi_1_1MemberVariable.html" title="Class member variable." alt="" coords="498,80,613,107"/>
-</map>

@@ -1,7 +1,0 @@
-<map id="FiberType" name="FiberType">
-<area shape="rect" id="node1" title="Fiber type." alt="" coords="52,171,131,197"/>
-<area shape="rect" id="node2" href="$classbi_1_1Type.html" title="Type." alt="" coords="14,95,65,121"/>
-<area shape="rect" id="node3" href="$classbi_1_1Located.html" title="Object with a location within a file being parsed." alt="" coords="5,5,73,32"/>
-<area shape="rect" id="node4" href="$classbi_1_1Single.html" title=" " alt="" coords="89,95,200,121"/>
-<area shape="rect" id="node5" href="$classbi_1_1Single.html" title="Object containing another single object." alt="" coords="99,5,190,32"/>
-</map>

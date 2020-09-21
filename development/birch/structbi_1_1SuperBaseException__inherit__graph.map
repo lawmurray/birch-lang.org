@@ -1,5 +1,0 @@
-<map id="SuperBaseException" name="SuperBaseException">
-<area shape="rect" id="node1" title="Use of &quot;super&quot; keyword outside of a class with a base." alt="" coords="5,155,149,181"/>
-<area shape="rect" id="node2" href="$structbi_1_1CompilerException.html" title="Compiler exception." alt="" coords="11,80,143,107"/>
-<area shape="rect" id="node3" href="$structbi_1_1Exception.html" title="Exception." alt="" coords="37,5,117,32"/>
-</map>

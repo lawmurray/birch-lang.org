@@ -1,8 +1,0 @@
-<map id="Sequence" name="Sequence">
-<area shape="rect" id="node1" title="Sequence expression." alt="" coords="134,171,214,197"/>
-<area shape="rect" id="node2" href="$classbi_1_1Expression.html" title="Expression." alt="" coords="61,95,148,121"/>
-<area shape="rect" id="node3" href="$classbi_1_1Located.html" title="Object with a location within a file being parsed." alt="" coords="5,5,73,32"/>
-<area shape="rect" id="node4" href="$classbi_1_1Typed.html" title="Typed expression or statement." alt="" coords="97,5,155,32"/>
-<area shape="rect" id="node5" href="$classbi_1_1Single.html" title=" " alt="" coords="173,95,319,121"/>
-<area shape="rect" id="node6" href="$classbi_1_1Single.html" title="Object containing another single object." alt="" coords="201,5,291,32"/>
-</map>

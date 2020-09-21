@@ -1,5 +1,0 @@
-<map id="ConditionException" name="ConditionException">
-<area shape="rect" id="node1" title="Incorrect type for condition in conditional or loop." alt="" coords="5,155,140,181"/>
-<area shape="rect" id="node2" href="$structbi_1_1CompilerException.html" title="Compiler exception." alt="" coords="7,80,139,107"/>
-<area shape="rect" id="node3" href="$structbi_1_1Exception.html" title="Exception." alt="" coords="33,5,113,32"/>
-</map>

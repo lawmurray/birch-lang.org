@@ -1,7 +1,0 @@
-<map id="Unknown" name="Unknown">
-<area shape="rect" id="node1" title="Placeholder for unknown target type." alt="" coords="189,80,266,107"/>
-<area shape="rect" id="node2" href="$classbi_1_1Annotated.html" title="Annotated object." alt="" coords="5,5,87,32"/>
-<area shape="rect" id="node3" href="$classbi_1_1Parameterised.html" title="Parameterised statement." alt="" coords="111,5,218,32"/>
-<area shape="rect" id="node4" href="$classbi_1_1ReturnTyped.html" title="ReturnTyped expression or statement." alt="" coords="242,5,338,32"/>
-<area shape="rect" id="node5" href="$classbi_1_1Located.html" title="Object with a location within a file being parsed." alt="" coords="363,5,431,32"/>
-</map>

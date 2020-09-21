@@ -1,5 +1,0 @@
-<map id="NotAssignableException" name="NotAssignableException">
-<area shape="rect" id="node1" title="Left hand side of assignment operator is not assignable." alt="" coords="5,155,171,181"/>
-<area shape="rect" id="node2" href="$structbi_1_1CompilerException.html" title="Compiler exception." alt="" coords="22,80,154,107"/>
-<area shape="rect" id="node3" href="$structbi_1_1Exception.html" title="Exception." alt="" coords="48,5,128,32"/>
-</map>

@@ -1,6 +1,0 @@
-<map id="hpp_ostream" name="hpp_ostream">
-<area shape="rect" id="node1" title="Output stream for C++ header files." alt="" coords="24,229,121,256"/>
-<area shape="rect" id="node2" href="$classbi_1_1CppBaseGenerator.html" title="C++ code generator." alt="" coords="24,155,121,181"/>
-<area shape="rect" id="node3" href="$classbi_1_1indentable__ostream.html" title="Output stream with indenting and basic output for names and literals." alt="" coords="5,80,140,107"/>
-<area shape="rect" id="node4" href="$classbi_1_1Visitor.html" title="Visitor." alt="" coords="43,5,102,32"/>
-</map>

@@ -1,0 +1,1130 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Birch is an open source probabilistic programming language, based on imperative and object-oriented paradigms. It provides the trio of automatic differentiation, automatic marginalization, and automatic conjugacy, combined in an inference engine in the framework of Sequential Monte Carlo (SMC).">
+      
+      
+      
+      <link rel="shortcut icon" href="../../fontawesome/solid/leaf">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.2">
+    
+    
+      
+        <title>Exercise: Markov Model - Birch</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.25b81cc6.min.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.80a78273.min.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="">
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    
+      
+        
+<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-115470196-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}),document.addEventListener("DOMContentSwitch",function(){ga("send","pageview",document.location.pathname)})</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#exercise-markov-model" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../.." title="Birch" class="md-header-nav__button md-logo" aria-label="Birch">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M546.2 9.7c-5.6-12.5-21.6-13-28.3-1.2C486.9 62.4 431.4 96 368 96h-80C182 96 96 182 96 288c0 7 .8 13.7 1.5 20.5C161.3 262.8 253.4 224 384 224c8.8 0 16 7.2 16 16s-7.2 16-16 16C132.6 256 26 410.1 2.4 468c-6.6 16.3 1.2 34.9 17.5 41.6 16.4 6.8 35-1.1 41.8-17.3 1.5-3.6 20.9-47.9 71.9-90.6 32.4 43.9 94 85.8 174.9 77.2C465.5 467.5 576 326.7 576 154.3c0-50.2-10.8-102.2-29.8-144.6z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Birch
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Exercise: Markov Model
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/lawmurray/Birch" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    lawmurray/Birch
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+          
+
+  
+
+<nav class="md-tabs md-tabs--active" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../.." class="md-tabs__link">
+        Home
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../" class="md-tabs__link md-tabs__link--active">
+          Getting Started
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../language/" class="md-tabs__link">
+          Language
+        </a>
+      
+    </li>
+  
+
+      
+        
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Birch" class="md-nav__button md-logo" aria-label="Birch">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M546.2 9.7c-5.6-12.5-21.6-13-28.3-1.2C486.9 62.4 431.4 96 368 96h-80C182 96 96 182 96 288c0 7 .8 13.7 1.5 20.5C161.3 262.8 253.4 224 384 224c8.8 0 16 7.2 16 16s-7.2 16-16 16C132.6 256 26 410.1 2.4 468c-6.6 16.3 1.2 34.9 17.5 41.6 16.4 6.8 35-1.1 41.8-17.3 1.5-3.6 20.9-47.9 71.9-90.6 32.4 43.9 94 85.8 174.9 77.2C465.5 467.5 576 326.7 576 154.3c0-50.2-10.8-102.2-29.8-144.6z"/></svg>
+
+    </a>
+    Birch
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/lawmurray/Birch" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    lawmurray/Birch
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Getting Started
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Getting Started" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Getting Started
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../" title="Getting Started" class="md-nav__link">
+      Getting Started
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../orientation/" title="Orientation" class="md-nav__link">
+      Orientation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../preliminaries/" title="Preliminaries" class="md-nav__link">
+      Preliminaries
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../linear-regression/" title="Exercise: Bayesian Linear Regression" class="md-nav__link">
+      Exercise: Bayesian Linear Regression
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Exercise: Markov Model
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="Exercise: Markov Model" class="md-nav__link md-nav__link--active">
+      Exercise: Markov Model
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#model" class="md-nav__link">
+    Model
+  </a>
+  
+    <nav class="md-nav" aria-label="Model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameter-model" class="md-nav__link">
+    Parameter model
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#initial-model" class="md-nav__link">
+    Initial model
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transition-model" class="md-nav__link">
+    Transition model
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation" class="md-nav__link">
+    Implementation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data" class="md-nav__link">
+    Data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inference" class="md-nav__link">
+    Inference
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../next-steps/" title="Next steps" class="md-nav__link">
+      Next steps
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Language
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Language" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Language
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../language/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../language/comments/" title="Comments" class="md-nav__link">
+      Comments
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../language/variables/" title="Variables" class="md-nav__link">
+      Variables
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../language/types/" title="Types" class="md-nav__link">
+      Types
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../language/assignments/" title="Assignments" class="md-nav__link">
+      Assignments
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../language/control_flow/" title="Control flow" class="md-nav__link">
+      Control flow
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../language/arrays/" title="Arrays" class="md-nav__link">
+      Arrays
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../language/optionals/" title="Optionals" class="md-nav__link">
+      Optionals
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../language/tuples/" title="Tuples" class="md-nav__link">
+      Tuples
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../language/functions/" title="Functions" class="md-nav__link">
+      Functions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../language/lambdas/" title="Lambdas" class="md-nav__link">
+      Lambdas
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../language/programs/" title="Programs" class="md-nav__link">
+      Programs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../language/operators/" title="Operators" class="md-nav__link">
+      Operators
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../language/classes/" title="Classes" class="md-nav__link">
+      Classes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../language/aliases/" title="Aliases" class="md-nav__link">
+      Aliases
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../language/casts/" title="Casts" class="md-nav__link">
+      Casts
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../about/" title="About" class="md-nav__link">
+      About
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#model" class="md-nav__link">
+    Model
+  </a>
+  
+    <nav class="md-nav" aria-label="Model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameter-model" class="md-nav__link">
+    Parameter model
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#initial-model" class="md-nav__link">
+    Initial model
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transition-model" class="md-nav__link">
+    Transition model
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation" class="md-nav__link">
+    Implementation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data" class="md-nav__link">
+    Data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inference" class="md-nav__link">
+    Inference
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  
+                
+                
+                <h1 id="exercise-markov-model">Exercise: Markov Model</h1>
+<p>We will now look at implementing a <a href="https://en.wikipedia.org/wiki/Markov_model">Markov model</a>, specifically a simple SIR (susceptible-infectious-recovered) compartmental model for an influenza epidemic, using a classic data set of an outbreak of Russian influenza at a boarding school.</p>
+<h2 id="model">Model</h2>
+<p>The model is described in three parts: a <em>parameter</em> model, an <em>initial</em> model, and a <em>transition</em> model. Time is indexed by <span><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span>, in days. The state consists of variables <span><span class="MathJax_Preview">s_t</span><script type="math/tex">s_t</script></span>, <span><span class="MathJax_Preview">i_t</span><script type="math/tex">i_t</script></span>, and <span><span class="MathJax_Preview">r_t</span><script type="math/tex">r_t</script></span>, giving counts of the number of susceptible, infectious, and recovered individuals, respectively.</p>
+<h3 id="parameter-model">Parameter model</h3>
+<p>The parameter model is:</p>
+<div>
+<div class="MathJax_Preview">\begin{align}
+\lambda &amp;= 10 \\
+\delta &amp;\sim \mathcal{B}(2,2) \\
+\gamma &amp;\sim \mathcal{B}(2,2),
+\end{align}</div>
+<script type="math/tex; mode=display">\begin{align}
+\lambda &= 10 \\
+\delta &\sim \mathcal{B}(2,2) \\
+\gamma &\sim \mathcal{B}(2,2),
+\end{align}</script>
+</div>
+<p>where <span><span class="MathJax_Preview">\mathcal{B}</span><script type="math/tex">\mathcal{B}</script></span> denotes the <a href="https://en.wikipedia.org/wiki/beta_distribution">beta distribution</a>, <span><span class="MathJax_Preview">\lambda</span><script type="math/tex">\lambda</script></span> is a rate of interaction in the population, <span><span class="MathJax_Preview">\delta</span><script type="math/tex">\delta</script></span> the probability of infection when a susceptible individual interacts with an infectious individual, and <span><span class="MathJax_Preview">\gamma</span><script type="math/tex">\gamma</script></span> the daily recovery probability.</p>
+<h3 id="initial-model">Initial model</h3>
+<p>The initial model for time <span><span class="MathJax_Preview">t = 0</span><script type="math/tex">t = 0</script></span> depends on the data set. For the data set introduced below, it is as follows:</p>
+<div>
+<div class="MathJax_Preview">\begin{align}
+s_0 &amp;= 760 \\
+i_0 &amp;= 3 \\
+r_0 &amp;= 0.
+\end{align}</div>
+<script type="math/tex; mode=display">\begin{align}
+s_0 &= 760 \\
+i_0 &= 3 \\
+r_0 &= 0.
+\end{align}</script>
+</div>
+<h3 id="transition-model">Transition model</h3>
+<p>The transition model for time <span><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span> is:</p>
+<div>
+<div class="MathJax_Preview">\begin{align}
+\tau_t &amp;\sim \mathrm{Binomial}\left(s_{t-1}, 1 - \exp\left(\frac{-\lambda i_{t-1} }{s_{t-1} + i_{t-1} + r_{t-1}}\right) \right) \\
+\Delta i_t &amp;\sim \mathrm{Binomial}(\tau_t, \delta) \\
+\Delta r_t &amp;\sim \mathrm{Binomial}(i_{t-1}, \gamma),
+\end{align}</div>
+<script type="math/tex; mode=display">\begin{align}
+\tau_t &\sim \mathrm{Binomial}\left(s_{t-1}, 1 - \exp\left(\frac{-\lambda i_{t-1} }{s_{t-1} + i_{t-1} + r_{t-1}}\right) \right) \\
+\Delta i_t &\sim \mathrm{Binomial}(\tau_t, \delta) \\
+\Delta r_t &\sim \mathrm{Binomial}(i_{t-1}, \gamma),
+\end{align}</script>
+</div>
+<p>where <span><span class="MathJax_Preview">\tau_t</span><script type="math/tex">\tau_t</script></span> is the number of interactions between infectious and susceptible individuals, <span><span class="MathJax_Preview">\Delta i_t</span><script type="math/tex">\Delta i_t</script></span> the number of newly infected individuals, and <span><span class="MathJax_Preview">\Delta r_t</span><script type="math/tex">\Delta r_t</script></span> the number of newly recovered individuals. Population counts are then updated:</p>
+<div>
+<div class="MathJax_Preview">\begin{align}
+s_t &amp;= s_{t-1} - \Delta i_t \\
+i_t &amp;= i_{t-1} + \Delta i_t - \Delta r_t \\
+r_t &amp;= r_{t-1} + \Delta r_t.
+\end{align}</div>
+<script type="math/tex; mode=display">\begin{align}
+s_t &= s_{t-1} - \Delta i_t \\
+i_t &= i_{t-1} + \Delta i_t - \Delta r_t \\
+r_t &= r_{t-1} + \Delta r_t.
+\end{align}</script>
+</div>
+<h2 id="implementation">Implementation</h2>
+<p>To specify this model in Birch, we again need to create a class that inherits from <a href="/documentation/library/classes/Model">Model</a>. This time, however, the standard library provides the more-specific class <a href="/documentation/library/classes/MarkovModel">MarkovModel</a> that will do some of the work for us. <a href="/documentation/library/classes/MarkovModel">MarkovModel</a> itself inherits from <a href="/documentation/library/classes/Model">Model</a>, we just need to provide it with specific implementations of the parameter, initial and transition models.</p>
+<p>As well as easing implementation, the other advantage of <a href="/documentation/library/classes/MarkovModel">MarkovModel</a> is that it reveals something about the structure of the model, which may be useful to enable, or optimize, specific inference methods. It is expected that more classes for specific model structures, and more methods to make use of them, will be available in future.</p>
+<p><a href="/documentation/library/classes/MarkovModel">MarkovModel</a> is a <a href="/documentation/language/classes/#generic-parameters"><em>generic</em></a> class. It requires two other classes, one to contain the parameters of the model, and one to contain the state variables of the model. We will create these classes first, to be called <code>SIRParameter</code> and <code>SIRState</code>, respectively. We will then specify the parameter, initial and transition models in a class <code>SIRModel</code>, to inherit from <code>MarkovModel&lt;SIRParameter,SIRState&gt;</code>.</p>
+<p>We will start with the <code>SIRParameter</code> class.</p>
+<div class="admonition example">
+<p class="admonition-title">Exercise</p>
+<p>Add the following code to the file <code>birch/SIRParameter.birch</code>:</p>
+<pre><code>/**
+ * SIR model parameters.
+ */
+class SIRParameter {
+  /**
+   * Interaction rate.
+   */
+  λ:Random&lt;Real&gt;;
+
+  /**
+   * Infection probability.
+   */
+  δ:Random&lt;Real&gt;;
+
+  /**
+   * Recovery probability.
+   */
+  γ:Random&lt;Real&gt;;
+
+  function read(buffer:Buffer) {
+    buffer.get("λ", λ);
+    buffer.get("δ", δ);
+    buffer.get("γ", γ);
+  }
+
+  function write(buffer:Buffer) {
+    buffer.set("λ", λ);
+    buffer.set("δ", δ);
+    buffer.set("γ", γ);
+  }
+}
+</code></pre>
+</div>
+<p>This just groups all the parameters into one class, and overrides the standard <code>read</code> and <code>write</code> member functions.</p>
+<p>The <code>SIRState</code> class is similar.</p>
+<div class="admonition example">
+<p class="admonition-title">Exercise</p>
+<p>Add the following code to the file <code>birch/SIRState.birch</code>:</p>
+<pre><code>/**
+ * SIR model state.
+ */
+class SIRState {
+  /**
+   * Number of susceptible-infectious interactions.
+   */
+  τ:Random&lt;Integer&gt;;
+
+  /**
+   * Newly infected population.
+   */
+  Δi:Random&lt;Integer&gt;;
+
+  /**
+   * Newly recovered population.
+   */
+  Δr:Random&lt;Integer&gt;;
+
+  /**
+   * Susceptible population.
+   */
+  s:Random&lt;Integer&gt;;
+
+  /**
+   * Infectious population.
+   */
+  i:Random&lt;Integer&gt;;
+
+  /**
+   * Recovered population.
+   */
+  r:Random&lt;Integer&gt;;
+
+  function read(buffer:Buffer) {
+    buffer.get("Δi", Δi);
+    buffer.get("Δr", Δr);
+    buffer.get("s", s);
+    buffer.get("i", i);
+    buffer.get("r", r);
+  }
+
+  function write(buffer:Buffer) {
+    buffer.set("Δi", Δi);
+    buffer.set("Δr", Δr);
+    buffer.set("s", s);
+    buffer.set("i", i);
+    buffer.set("r", r);
+  }
+}
+</code></pre>
+</div>
+<p>This just groups all the state variables into one class, and overrides the standard <code>read</code> and <code>write</code> member functions. Note that it represents a <em>single</em> state of the model. The <code>MarkovModel</code> class will handle state trajectories for us.</p>
+<p>Finally, we create the class <code>SIRModel</code>, where most of the work happens. This inherits from <code>MarkovModel&lt;SIRParameter,SIRState&gt;</code>. It must implement member fibers <code>parameter</code>, <code>initial</code> and <code>transition</code> to specify the Markov model.</p>
+<div class="admonition example">
+<p class="admonition-title">Exercise</p>
+<p>Add the following code to the file <code>birch/SIRModel.bi</code>:</p>
+<pre><code>/**
+ * SIR model.
+ */
+class SIRModel &lt; MarkovModel&lt;SIRParameter,SIRState&gt; {
+  function parameter(θ:SIRParameter) {
+    θ.λ ~ Gamma(2.0, 5.0);
+    θ.δ ~ Beta(2.0, 2.0);
+    θ.γ ~ Beta(2.0, 2.0);
+  }
+
+  function initial(x:SIRState, θ:SIRParameter) {
+    //
+  }
+
+  function transition(x':SIRState, x:SIRState, θ:SIRParameter) {
+    x'.τ ~ Binomial(x.s, 1.0 - exp(-θ.λ*x.i/(x.s + x.i + x.r)));
+    x'.Δi ~ Binomial(x'.τ, θ.δ);
+    x'.Δr ~ Binomial(x.i, θ.γ);
+
+    x'.s ~ Delta(x.s - x'.Δi);
+    x'.i ~ Delta(x.i + x'.Δi - x'.Δr);
+    x'.r ~ Delta(x.r + x'.Δr);
+  }
+}
+</code></pre>
+</div>
+<p>Notice the three member functions in the above code:</p>
+<pre><code>function parameter(θ:SIRParameter);
+function initial(x:SIRState, θ:SIRParameter);
+function transition(x':SIRState, x:SIRState, θ:SIRParameter);
+</code></pre>
+<p>As suggested by their names and parameters:</p>
+<ul>
+<li>the first is for the parameter model, providing the parameters as the <code>θ</code> argument,</li>
+<li>the second is for the initial model, providing the initial state as the <code>x</code> argument, and parameters as the <code>θ</code> argument,</li>
+<li>the third is for the transition model, providing the current state as the <code>x'</code> argument, the previous state as the <code>x</code> argument, and the parameters as the <code>θ</code> argument.</li>
+</ul>
+<p>Here, <code>x'</code> is just the name of a variable. The prime <code>'</code> is a valid character for variable names in Birch, useful where it might also be used in mathematics.</p>
+<p>The initial model is empty by choice. While we could implement the initial model described above, it is specific to the data set that we will use. We would prefer not to hardcode it, in order that we might reuse this model for other data sets. Instead, we have elected to include the initial state in the input file that we will set up below.</p>
+<p>The transition model uses <a href="/documentation/library/classes/Delta/">Delta</a> distributions rather than simple assignment statements. This is because we have declared the variables <code>s</code>, <code>i</code> and <code>r</code> to be of type <code>Random&lt;Integer&gt;</code>, not just <code>Integer</code>. Using the <a href="/documentation/library/classes/Delta/">Delta</a> distributions ensures proper handling of the two possible situations for each variable: that it already has a value&mdash;in which case we observe that value&mdash;or that its value is missing&mdash;in which case we simulate it. Indeed, the code, as written, handles all cases, according to what is provided in the input file.</p>
+<div class="admonition example">
+<p class="admonition-title">Exercise</p>
+<p>Build with</p>
+<pre><code>birch build
+</code></pre>
+</div>
+<h2 id="data">Data</h2>
+<p>We will use a data set of the outbreak of Russian influenza at a boy's boarding school in northern England<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>.</p>
+<div class="admonition example">
+<p class="admonition-title">Exercise</p>
+<p>Download the data set <a href="/tutorial/influenza.json">here</a> and place it in your project's <code>input/</code> directory as <code>input/influenza.json</code>.</p>
+</div>
+<p>Have a look at the contents of the file in a text editor. It contains an array of states. The first state sets the values of all state variables, while for subsequent states it sets only <span><span class="MathJax_Preview">i_t</span><script type="math/tex">i_t</script></span>, the number of infectious individuals.</p>
+<h2 id="inference">Inference</h2>
+<p>We are nearly ready to perform inference. Unlike the <a href="/documentation/tutorial/linear-regression">linear regression</a> example, there is no exact analytical solution for this model that can be computed in reasonable time. A particle filter will be used for inference instead. Nevertheless, the delayed sampling<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup> heuristic in Birch will find some local analytical optimizations and automatically apply them. These include marginalizing out the parameters <span><span class="MathJax_Preview">\delta</span><script type="math/tex">\delta</script></span> and <span><span class="MathJax_Preview">\gamma</span><script type="math/tex">\gamma</script></span>, and enumerating sums and differences of binomials.</p>
+<p>The particle filter requires some configuration. This is provided in a configuration file.</p>
+<div class="admonition example">
+<p class="admonition-title">Exercise</p>
+<p>Create a file <code>config/sir.json</code> and enter the following contents:</p>
+<pre><code>{
+  "model": {
+    "class": "SIRModel"
+  },
+  "sampler": {
+    "nsamples": 10
+  },
+  "filter": {
+    "nparticles": 128
+  },
+  "input": "input/influenza.json",
+  "output": "output/sir.json"
+}
+</code></pre>
+</div>
+<p>This sets the number of posterior samples to draw, and the number of particles to use when running the particle filter. It also sets the model class, input file, and output file, which we previously provided on the command line instead. Usually it is easier---and preferable for reproducibility---to use configuration files rather than having to provide too much information on the command line.</p>
+<p>Now we can perform inference.</p>
+<div class="admonition example">
+<p class="admonition-title">Exercise</p>
+<p>Sample from the posterior distribution with</p>
+<pre><code>birch sample --config config/sir.json
+</code></pre>
+</div>
+<p>As before, you can inspect the results of the inference in <code>output/sir.json</code>, and perhaps plot them. Be aware that the output here is an <em>importance sample</em>. Each sample is assigned a weight, the logarithm of which is given by the associated <code>lweight</code> element in the output file.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>Anonymous (1978). Influenza in a boarding school. <em>British Medical Journal</em>. <strong>1</strong>:587.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>L.M. Murray, D. Lundén, J. Kudlicka, D. Broman and T.B. Schön (2018). <a href="https://arxiv.org/abs/1708.07787">Delayed Sampling and Automatic Rao&ndash;Blackwellization of Probabilistic Programs</a>. In <em>Proceedings of the 21st International Conference on Artificial Intelligence and Statistics (AISTATS) 2018</em>, Lanzarote, Spain.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../linear-regression/" title="Exercise: Bayesian Linear Regression" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Exercise: Bayesian Linear Regression
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../next-steps/" title="Next steps" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Next steps
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://github.com/lawmurray" target="_blank" rel="noopener" title="github.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.592d4e23.min.js"></script>
+      <script src="../../assets/javascripts/bundle.806ca5c4.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: ["tabs"],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.01088dc6.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>

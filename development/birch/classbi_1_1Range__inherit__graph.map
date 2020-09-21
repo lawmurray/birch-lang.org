@@ -1,8 +1,0 @@
-<map id="Range" name="Range">
-<area shape="rect" id="node1" title="Range expression." alt="" coords="144,171,204,197"/>
-<area shape="rect" id="node2" href="$classbi_1_1Expression.html" title="Expression." alt="" coords="60,95,147,121"/>
-<area shape="rect" id="node3" href="$classbi_1_1Located.html" title="Object with a location within a file being parsed." alt="" coords="5,5,73,32"/>
-<area shape="rect" id="node4" href="$classbi_1_1Typed.html" title="Typed expression or statement." alt="" coords="97,5,155,32"/>
-<area shape="rect" id="node5" href="$classbi_1_1Couple.html" title=" " alt="" coords="171,95,323,121"/>
-<area shape="rect" id="node6" href="$classbi_1_1Couple.html" title="Object containing two other objects, denoted left and right." alt="" coords="200,5,295,32"/>
-</map>

@@ -1,5 +1,0 @@
-<map id="Modifier" name="Modifier">
-<area shape="rect" id="node1" title="Modifying visitor." alt="" coords="61,5,129,32"/>
-<area shape="rect" id="node2" href="$classbi_1_1Annotator.html" title="Visitor to add an annotation to the target of a reference." alt="" coords="5,80,84,107"/>
-<area shape="rect" id="node3" href="$classbi_1_1Resolver.html" title="Resolve identifiers, infer types, apply code transformations." alt="" coords="109,80,183,107"/>
-</map>

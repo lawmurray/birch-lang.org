@@ -1,5 +1,0 @@
-<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classbi_1_1Modifier.html" title="Modifying visitor." alt="" coords="5,31,73,57"/>
-<area shape="rect" id="node2" href="$classbi_1_1Annotator.html" title="Visitor to add an annotation to the target of a reference." alt="" coords="121,5,200,32"/>
-<area shape="rect" id="node3" href="$classbi_1_1Resolver.html" title="Resolve identifiers, infer types, apply code transformations." alt="" coords="123,56,198,83"/>
-</map>

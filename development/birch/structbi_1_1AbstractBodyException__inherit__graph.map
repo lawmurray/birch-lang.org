@@ -1,5 +1,0 @@
-<map id="AbstractBodyException" name="AbstractBodyException">
-<area shape="rect" id="node1" title="Member function declared abstract, but with a body." alt="" coords="5,155,164,181"/>
-<area shape="rect" id="node2" href="$structbi_1_1CompilerException.html" title="Compiler exception." alt="" coords="19,80,151,107"/>
-<area shape="rect" id="node3" href="$structbi_1_1Exception.html" title="Exception." alt="" coords="45,5,125,32"/>
-</map>

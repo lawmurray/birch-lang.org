@@ -1,9 +1,0 @@
-<map id="ClassType" name="ClassType">
-<area shape="rect" id="node1" title="Class type." alt="" coords="136,171,220,197"/>
-<area shape="rect" id="node2" href="$classbi_1_1Type.html" title="Type." alt="" coords="14,95,65,121"/>
-<area shape="rect" id="node3" href="$classbi_1_1Located.html" title="Object with a location within a file being parsed." alt="" coords="5,5,73,32"/>
-<area shape="rect" id="node4" href="$classbi_1_1Named.html" title="Named object." alt="" coords="89,95,153,121"/>
-<area shape="rect" id="node5" href="$classbi_1_1TypeArgumented.html" title="Object with generic type arguments." alt="" coords="177,95,297,121"/>
-<area shape="rect" id="node6" href="$classbi_1_1Reference.html" title=" " alt="" coords="321,95,461,121"/>
-<area shape="rect" id="node7" href="$classbi_1_1Reference.html" title="Expression with a target (e.g." alt="" coords="320,5,463,32"/>
-</map>

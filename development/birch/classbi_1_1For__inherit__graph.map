@@ -1,8 +1,0 @@
-<map id="For" name="For">
-<area shape="rect" id="node1" title="For loop." alt="" coords="182,155,223,181"/>
-<area shape="rect" id="node2" href="$classbi_1_1Statement.html" title="Statement." alt="" coords="5,80,88,107"/>
-<area shape="rect" id="node3" href="$classbi_1_1Located.html" title="Object with a location within a file being parsed." alt="" coords="13,5,81,32"/>
-<area shape="rect" id="node4" href="$classbi_1_1Annotated.html" title="Annotated object." alt="" coords="113,80,194,107"/>
-<area shape="rect" id="node5" href="$classbi_1_1Scoped.html" title="Statement with a scope." alt="" coords="219,80,285,107"/>
-<area shape="rect" id="node6" href="$classbi_1_1Braced.html" title="Object with braces." alt="" coords="310,80,373,107"/>
-</map>
