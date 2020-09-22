@@ -38,7 +38,7 @@ google_analytics:
 nav:
   - index.md
   - 'Getting Started':
-    - getting-started/installation.md
+    - getting-started/index.md
     - getting-started/orientation.md
     - getting-started/hello-world.md
     - getting-started/linear-regression.md
