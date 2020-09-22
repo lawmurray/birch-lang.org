@@ -1,4 +1,4 @@
-# Exercise: Bayesian Linear Regression
+# Bayesian Linear Regression
 
 Now that we have a trivial model running, we can do something more interesting. We will start with a simple example of [Bayesian linear regression](http://en.wikipedia.org/wiki/Bayesian_linear_regression), using a [bike sharing data set](https://archive.ics.uci.edu/ml/datasets/bike+sharing+dataset)[^1] that will be provided in a suitable format.
 
