@@ -4,6 +4,8 @@
 
 Packages are provided for major Linux distributions. Click through to the [Open Build Service](https://software.opensuse.org//download.html?project=home%3Alawmurray%3Abirch&package=birch) and select your distribution for installation instructions.
 
+For Arch Linux, go straight to the [repository](https://download.opensuse.org/repositories/home:/lawmurray:/birch/Arch).
+
 ## :fontawesome-brands-apple: Mac
 
 Install [Homebrew](https://brew.sh) if not already, then install Birch with:
