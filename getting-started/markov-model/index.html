@@ -928,7 +928,7 @@ function transition(x':SIRState, x:SIRState, θ:SIRParameter);
 <p>Build the package:</p>
 <pre><code>birch build
 </code></pre>
-<p>then sample from the posterior distribution with</p>
+<p>then sample from the posterior distribution with:</p>
 <pre><code>birch sample --config config/sir.json
 </code></pre>
 <p>As before, you can inspect the results of the inference in <code>output/sir.json</code>, in a text editor, web browser, or on the command line (<code>less output/sir.json</code>). The output here is an importance sample: each sample is assigned a weight, the logarithm of which is given by the associated <code>lweight</code> element.</p>

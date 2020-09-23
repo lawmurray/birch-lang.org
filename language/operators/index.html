@@ -709,7 +709,7 @@
 </tr>
 </tbody>
 </table>
-<p>The postfix unary operators are used with <a href="optionals">optional</a> and <a href="fibers">fiber</a>. They are of equal precedence, and of higher precedence than all other operators, including the prefix unary operators:</p>
+<p>The postfix unary operators are used with <a href="optionals">optional</a>. They are of equal precedence, and of higher precedence than all other operators, including the prefix unary operators:</p>
 <table>
 <thead>
 <tr>
@@ -781,13 +781,14 @@
 </tbody>
 </table>
 <p>There are no operators for power or modulus: the standard library functions <code>pow</code> and <code>mod</code> should be used instead. There are no operators defined for bit operations.</p>
-<p>The last three operators are introduced for concise probabilistic statements and interactions between models and inference methods. They may only be used within fibers that yield the type <code>Event</code>, in which models are typically defined.</p>
+<p>The last three operators are introduced for concise probabilistic statements and interactions between models and inference methods.</p>
 <p>Let <code>x</code> be an object of basic type (e.g. <code>Real</code>), optional type (e.g. <code>Real?</code>) or random type (e.g. <code>Random&lt;Real&gt;</code>), and <code>p</code> an object of <code>Distribution</code> type. Then:</p>
 <ul>
-<li><code>x &lt;~ p</code> simulates from the distribution <code>p</code> and assigns the variate to <code>x</code>,</li>
-<li><code>x ~&gt; p</code> observes a variate of value <code>x</code> produced from the distribution <code>p</code>,</li>
-<li><code>x ~ p</code> assumes that the variate <code>x</code> is distributed according to the distribution <code>p</code>, although it may not be simulated from it immediately, or ever, according to subsequent statements.</li>
+<li><code>x &lt;~ p</code> simulates a variate <code>x</code> from the distribution <code>p</code>,</li>
+<li><code>x ~&gt; p</code> observes a variate <code>x</code> from the distribution <code>p</code>,</li>
+<li><code>x ~ p</code> assumes that <code>x</code> is distributed according to <code>p</code>.</li>
 </ul>
+<p>If <code>x</code> already has a value, <code>x ~ p</code> usually acts like <code>x ~&gt; p</code>, while if it does not have a value, <code>x ~ p</code> eventually acts something like <code>x &lt;~ p</code>, possibly after analytical optimizations.</p>
 <h3 id="overloading">Overloading</h3>
 <p>The action of standard operators is defined by overloads, declared using the <code>operator</code> statement. Only the standard operators may be overloaded. All other operators have in-built behavior as described above.</p>
 <div class="admonition info">
