@@ -17,7 +17,7 @@
     
     
       
-        <title>Hello World - Birch</title>
+        <title>Hello, World! - Birch</title>
       
     
     
@@ -94,7 +94,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Hello World
+              Hello, World!
             
           </span>
         </div>
@@ -293,18 +293,6 @@
           
           
 
-
-  <li class="md-nav__item">
-    <a href="../orientation/" title="Orientation" class="md-nav__link">
-      Orientation
-    </a>
-  </li>
-
-        
-          
-          
-          
-
   
 
 
@@ -315,8 +303,8 @@
       
     
     
-    <a href="./" title="Hello World" class="md-nav__link md-nav__link--active">
-      Hello World
+    <a href="./" title="Hello, World!" class="md-nav__link md-nav__link--active">
+      Hello, World!
     </a>
     
   </li>
@@ -628,9 +616,9 @@
                   
                 
                 
-                <h1 id="hello-world">Hello World</h1>
-<p>In this first exercise, you will learn how to use the <code>birch</code> program to create, build and run a package, understanding the development workflow.</p>
-<p>We will start by creating a new package. Create a new directory and change into it:</p>
+                <h1 id="hello-world">Hello, World!</h1>
+<p>We start by getting acquainted with the <code>birch</code> program that you have just installed, using it to create, build and run a simple Birch program. We will work from the terminal. If you are unfamiliar with Unix commands, that's okay, everything you need to type will be provided as we go.</p>
+<p>We will start by creating a new package. From the terminal, create a new directory and change into it:</p>
 <pre><code>mkdir HelloWorld
 cd HelloWorld
 </code></pre>
@@ -643,19 +631,20 @@ cd HelloWorld
 <li><code>config/</code> for configuration files, typically setting various options for a model and/or inference method,</li>
 <li><code>input/</code> for input files,</li>
 <li><code>output/</code> for output files,</li>
-<li>and a number of other meta files in the base directory.</li>
+<li>and a number of other meta files in the base directory such as <code>README.md</code> and <code>LICENSE</code>.</li>
 </ul>
-<p>A new package contains just one file, <code>src/hello.birch</code>, containing a program called <code>hello</code> that prints exactly what you think it does (view it with <code>cat src/hello.birch</code>).</p>
+<p>A new package contains just one source file, <code>src/hello.birch</code>, containing a program called <code>hello</code> that prints exactly what you think it does (view it with <code>cat src/hello.birch</code>).</p>
 <p>Build the package with:</p>
 <pre><code>birch build
 </code></pre>
-<p>then run the program with:</p>
+<p>then run the <code>hello</code> program with:</p>
 <pre><code>birch hello
 </code></pre>
 <p>If you see <code>Hello, World!</code> on the terminal then everything is in order!</p>
+<p>This is the typical workflow: whenever you make a change, run <code>birch build</code> to rebuild the package. The first time always takes a little longer than subsequent calls.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>When building, Birch will create a number of additional files in the current working directory. To delete all of these additional files, use:</p>
+<p>When building, Birch will create a number of additional files in the current working directory. If you ever want to delete these files, use:</p>
 <pre><code>birch clean
 </code></pre>
 </div>
@@ -686,7 +675,7 @@ git commit -m "Added initial files."
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../orientation/" title="Orientation" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../" title="Installation" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -695,7 +684,7 @@ git commit -m "Added initial files."
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Orientation
+                Installation
               </div>
             </div>
           </a>

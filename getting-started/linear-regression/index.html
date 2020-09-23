@@ -295,20 +295,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../orientation/" title="Orientation" class="md-nav__link">
-      Orientation
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../hello-world/" title="Hello World" class="md-nav__link">
-      Hello World
+    <a href="../hello-world/" title="Hello, World!" class="md-nav__link">
+      Hello, World!
     </a>
   </li>
 
@@ -721,37 +709,30 @@
                 
                 
                 <h1 id="bayesian-linear-regression">Bayesian Linear Regression</h1>
-<p>Now that we have a trivial model running, we can do something more interesting. We will start with a simple example of <a href="http://en.wikipedia.org/wiki/Bayesian_linear_regression">Bayesian linear regression</a>, using a <a href="https://archive.ics.uci.edu/ml/datasets/bike+sharing+dataset">bike sharing data set</a><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> that will be provided in a suitable format.</p>
+<p>Now that we have a trivial package running, we can do something more interesting. We will start with a simple example of <a href="http://en.wikipedia.org/wiki/Bayesian_linear_regression">Bayesian linear regression</a>, using a <a href="https://archive.ics.uci.edu/ml/datasets/bike+sharing+dataset">bike sharing data set</a><sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup> that will be provided in a suitable format.</p>
 <h2 id="model">Model</h2>
 <p>The model is given by:</p>
 <div>
 <div class="MathJax_Preview">\begin{align}
-\sigma^2 &amp;\sim \mathcal{IG}(3, 4/10) \\
-\boldsymbol{\beta} &amp;\sim \mathcal{N}(0, I\sigma^2) \\
-y_n &amp;\sim \mathcal{N}(\mathbf{x}_n^{\top}\boldsymbol{\beta}, \sigma^2)
+\sigma^2 &amp;\sim \mathrm{InverseGamma}(3, 4/10) \\
+\boldsymbol{\beta} \mid \sigma^2 &amp;\sim \mathrm{Gaussian}(0, I\sigma^2) \\
+y_n \mid \boldsymbol{\beta}, \sigma^2 &amp;\sim \mathrm{Gaussian}(\mathbf{x}_n^{\top}\boldsymbol{\beta}, \sigma^2)
 \end{align}</div>
 <script type="math/tex; mode=display">\begin{align}
-\sigma^2 &\sim \mathcal{IG}(3, 4/10) \\
-\boldsymbol{\beta} &\sim \mathcal{N}(0, I\sigma^2) \\
-y_n &\sim \mathcal{N}(\mathbf{x}_n^{\top}\boldsymbol{\beta}, \sigma^2)
+\sigma^2 &\sim \mathrm{InverseGamma}(3, 4/10) \\
+\boldsymbol{\beta} \mid \sigma^2 &\sim \mathrm{Gaussian}(0, I\sigma^2) \\
+y_n \mid \boldsymbol{\beta}, \sigma^2 &\sim \mathrm{Gaussian}(\mathbf{x}_n^{\top}\boldsymbol{\beta}, \sigma^2)
 \end{align}</script>
 </div>
-<p>where <span><span class="MathJax_Preview">\mathcal{IG}</span><script type="math/tex">\mathcal{IG}</script></span> denotes the <a href="https://en.wikipedia.org/wiki/Inverse-gamma_distribution">inverse-gamma distribution</a>, and <span><span class="MathJax_Preview">\mathcal{N}</span><script type="math/tex">\mathcal{N}</script></span> the <a href="https://en.wikipedia.org/wiki/Multivariate_normal_distribution">multivariate normal distribution</a>. The parameters of the model are the noise variance <span><span class="MathJax_Preview">\sigma^2</span><script type="math/tex">\sigma^2</script></span> and vector of coefficients <span><span class="MathJax_Preview">\boldsymbol{\beta}</span><script type="math/tex">\boldsymbol{\beta}</script></span>. The data consists of observations <span><span class="MathJax_Preview">y_n</span><script type="math/tex">y_n</script></span> and explanatory variables <span><span class="MathJax_Preview">\mathbf{x}_n</span><script type="math/tex">\mathbf{x}_n</script></span> for <span><span class="MathJax_Preview">n=1,\ldots,N</span><script type="math/tex">n=1,\ldots,N</script></span>.</p>
+<p>The parameters of the model are the noise variance <span><span class="MathJax_Preview">\sigma^2</span><script type="math/tex">\sigma^2</script></span> and vector of coefficients <span><span class="MathJax_Preview">\boldsymbol{\beta}</span><script type="math/tex">\boldsymbol{\beta}</script></span>. The data consists of observations <span><span class="MathJax_Preview">y_n</span><script type="math/tex">y_n</script></span> and explanatory variables <span><span class="MathJax_Preview">\mathbf{x}_n</span><script type="math/tex">\mathbf{x}_n</script></span> for <span><span class="MathJax_Preview">n=1,\ldots,N</span><script type="math/tex">n=1,\ldots,N</script></span>.</p>
 <h2 id="implementation">Implementation</h2>
-<p>To specify this model in Birch, we again create a class that inherits from <a href="/documentation/library/classes/Model">Model</a>.</p>
-<div class="admonition example">
-<p class="admonition-title">Exercise</p>
-<p>Create a file <code>birch/LinearRegressionModel.birch</code> and enter the following code:</p>
-<pre><code>class LinearRegressionModel &lt; Model {
-
-}
-</code></pre>
-</div>
-<p>Next, we declare the random variables of the model. These are usually declared as member variables of the class.</p>
-<div class="admonition example">
-<p class="admonition-title">Exercise</p>
-<p>Enter the following between the curly braces in the previous code:</p>
-<pre><code>  /**
+<p>To specify a model in Birch, we create a <a href="/language/classes">class</a> that inherits from <a href="https://docs.birch.sh/libraries/Standard/classes/Model">Model</a>. Use your preferred text editor to create a file <code>src/LinearRegressionModel.birch</code> and enter the following contents:</p>
+<pre><code>/**
+ * Bayesian linear regression model with conjugate normal-inverse-gamma
+ * prior.
+ */
+class LinearRegressionModel &lt; Model {
+  /**
    * Explanatory variables.
    */
   X:Real[_,_];
@@ -770,59 +751,53 @@ y_n &\sim \mathcal{N}(\mathbf{x}_n^{\top}\boldsymbol{\beta}, \sigma^2)
    * Observations.
    */
   y:Random&lt;Real[_]&gt;;
+
+  function simulate() {
+    let N &lt;- rows(X);
+    let P &lt;- columns(X);
+    if N &gt; 0 &amp;&amp; P &gt; 0 {
+      σ2 ~ InverseGamma(3.0, 0.4);
+      β ~ Gaussian(vector(0.0, P), identity(P), σ2);
+      y ~ Gaussian(X*β, σ2);
+    }
+  }
+}
 </code></pre>
-</div>
-<p>We have again used the <code>/**</code> <code>*/</code> comment style to document each of these member variables, so that we can use the <a href="/documentation/driver/commands/docs">docs</a> command in future.</p>
-<p>Variables in Birch are typed, and declared with the syntax <code>name:Type</code>. Lines always end in semicolons. We see here a few different types:</p>
+<p>The explanatory variables <span><span class="MathJax_Preview">X</span><script type="math/tex">X</script></span> (the <span><span class="MathJax_Preview">\mathbf{x}_n</span><script type="math/tex">\mathbf{x}_n</script></span>, as a matrix), observations <span><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span> (<span><span class="MathJax_Preview">y_n</span><script type="math/tex">y_n</script></span>, as a vector) and parameters <span><span class="MathJax_Preview">\beta</span><script type="math/tex">\beta</script></span> and <span><span class="MathJax_Preview">\sigma^2</span><script type="math/tex">\sigma^2</script></span> have been declared as <em>member variables</em> of the class. <a href="/language/variables">Variables</a> in Birch are typed. We see here a few different types:</p>
 <ul>
 <li><code>Real</code> is a double-precision floating point number.</li>
 <li><code>Real[_]</code> is a vector of <code>Real</code>.</li>
 <li><code>Real[_,_]</code> is a matrix of <code>Real</code>.</li>
-<li><code>Random&lt;Type&gt;</code> declares a <em>random</em> (variable) of given <code>Type</code>. The use of such randoms is optional, but it enables the use of the <em>delayed sampling</em> mechanism of Birch for full or partial analytical solutions to inference problems<sup id="fnref2:2"><a class="footnote-ref" href="#fn:2">2</a></sup>. It is particularly useful for this example.</li>
+<li><code>Random&lt;Type&gt;</code> declares a <a href="https://docs.birch.sh/libraries/Standard/classes/Random">Random</a> object of given <code>Type</code>. Such <em>randoms</em>&mdash;as we refer to them&mdash;<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>enable the important features of <em>automatic marginalization</em>, <em>automatic conjugacy</em>, and <em>automatic differentiation</em>. The former two of these are implemented in Birch using an algorithm called <em>delayed sampling</em><sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>. It is particularly useful in this example, as it enables an analytical solution to the problem.</li>
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>You can use Greek letters in Birch code. To enter them, you may need to install a separate keyboard in your operating system, or copy and paste from a character map.</p>
 </div>
-<p>Next, we need to establish the joint distribution of these random variables. The <a href="/documentation/library/classes/Model">Model</a> class has a <a href="/documentation/language/classes/#member-fibers"><em>member function</em></a> called <code>simulate</code> that we override to specify the joint distribution of our model.</p>
-<div class="admonition example">
-<p class="admonition-title">Exercise</p>
-<p>Enter the following between the curly braces of the <code>LinearRegressionModel</code> class:</p>
-<pre><code>function simulate() {
-  auto N &lt;- rows(X);
-  auto P &lt;- columns(X);
-  if N &gt; 0 &amp;&amp; P &gt; 0 {
-    σ2 ~ InverseGamma(3.0, 0.4);
-    β ~ Gaussian(vector(0.0, P), identity(P)*σ2);
-    y ~ Gaussian(X*β, σ2);
-  }
-}
-</code></pre>
-</div>
-<p>Hopefully, this looks similar enough to the equations given above that its meaning is clear. The <code>if</code> statement is merely defensive programming: it skips the model for the degenerate situations of no explanatory variables, or no data points.</p>
-<div class="admonition example">
-<p class="admonition-title">Exercise</p>
-<p>It is worth building at this point to check that there are no errors in the code you have entered so far:</p>
+<p>The <code>simulate()</code> member function implements the model:</p>
+<ul>
+<li>The <code>if</code> statement is merely defensive programming: it skips the model for the degenerate situation of no explanatory variables, or no data points.</li>
+<li>The <code>~</code> operator attaches a <em>distribution</em> (a <a href="https://docs.birch.sh/libraries/Standard/classes/Distribution">Distribution</a> object) to a <em>random</em>.</li>
+<li>The <code>let</code> keyword declares a variable, where the type of the variable is deduced from its initial value. An equivalent way to declare <code>N</code>, for example, would be <code>N:Integer &lt;- rows(X)</code>, but the <code>let</code> syntax often looks tidier.</li>
+</ul>
+<p>The basic model is now implemented. It is worth building and running at this stage as a check. Build, as usual, with:</p>
 <pre><code>birch build
 </code></pre>
-<p>As before, we can run the model with</p>
+<p>and run with:</p>
 <pre><code>birch sample --model LinearRegressionModel
 </code></pre>
-<p>although this will not yet do anything interesting; for that, we need data.</p>
-</div>
+<p>Running will not do anything interesting at this stage&mdash;for that we need some data!</p>
 <h2 id="data">Data</h2>
-<p>We will use a <a href="https://archive.ics.uci.edu/ml/datasets/bike+sharing+dataset">data set</a> from the Capital Bikeshare system in Washington D.C. for the years 2011 to 2012. The aim is to use weather and holiday information to predict the total number of bike hires on any given day<sup id="fnref2:1"><a class="footnote-ref" href="#fn:1">1</a></sup>.</p>
-<p>The data set has been preprocessed to convert categorical variables into multiple indicator variables; e.g. the season, a four-category variable, becomes four indicator variables. These conversions make it reasonable to attempt a linear regression. Each data point represents one day. The observation is of the logarithm of the total number of bike hires on that day.</p>
-<div class="admonition example">
-<p class="admonition-title">Exercise</p>
-<p>Download the data set <a href="/tutorial/bike_share.json">here</a> and place it in your project's <code>input/</code> directory as <code>input/bike_share.json</code>.</p>
+<p>We will use a <a href="https://archive.ics.uci.edu/ml/datasets/bike+sharing+dataset">data set</a> from the Capital Bikeshare system in Washington D.C. for the years 2011 to 2012. The aim is to use weather and holiday information to predict the total number of bike hires on any given day<sup id="fnref2:2"><a class="footnote-ref" href="#fn:2">2</a></sup>.</p>
+<p>The data set has been preprocessed to ont-hot encode categorical variables, e.g. the season, a four-category variable, becomes four indicator variables. These conversions make it reasonable to attempt a linear regression. Each data point represents one day. The observation is of the logarithm of the total number of bike hires on that day.</p>
+<p><a href="/getting-started/bike_share.json">Download the data set</a> to the <code>input/</code> directory. The file is in <a href="http://www.json.org">JSON</a> format. Birch supports both JSON and YAML file formats. You can view and edit these files by hand with a text editor, or for larger files, write programs to generate and manipulate them.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you're wanting to stay on the command line, check out <a href="https://stedolan.github.io/jq/">jq</a> for working with JSON files.</p>
 </div>
-<p>The file is in <a href="http://www.json.org">JSON</a> format. Birch supports both JSON and YAML file formats. You can view and edit these files by hand with a text editor, or for larger files, write programs to generate them.</p>
-<p>For now, have a look at the contents of the file in a text editor or web browser. It contains two variables: a matrix <code>X</code> and a vector <code>y</code>. We need to read these into our model.</p>
-<p>The <a href="/documentation/library/classes/Model">Model</a> class has a member function called <code>read</code> that we can override for this purpose. Similarly, it has a member function called <code>write</code> that we can override for output.</p>
-<div class="admonition example">
-<p class="admonition-title">Exercise</p>
-<p>Enter the following between the curly braces of the <code>LinearRegressionModel</code> class:</p>
+<p>For now, have a look at the contents of the file in a text editor, web browser, or on the command line (<code>less input/bike_share.json</code> and hit <code>q</code> when you've seen enough). It contains two variables: a matrix <code>X</code> and a vector <code>y</code>. We need to read these into the model.</p>
+<p>Recall that, in defining the <code>LinearRegressionModel</code> class, we overrode the <code>simulate()</code> member function of the <code>Model</code> class. The <code>Model</code> class also has two other member functions called <code>read()</code> and <code>write()</code> that we can implement to read and write data.</p>
+<p>Add the following two member functions after the <code>simulate()</code> member function in the <code>LinearRegressionModel</code> class:</p>
 <pre><code>function read(buffer:Buffer) {
   X &lt;-? buffer.getRealMatrix("X");
   y &lt;-? buffer.getRealVector("y");
@@ -833,26 +808,39 @@ function write(buffer:Buffer) {
   buffer.set("σ2", σ2);
 }
 </code></pre>
-<p>Rebuild:</p>
+<p>The <code>read()</code> member function reads from the input file into the member variables <code>X</code> and <code>y</code>. The strings <code>"X"</code> and <code>"y"</code> name the elements in the input file. The <code>write()</code> member function writes the parameters to the output file.</p>
+<p>The <a href="https://docs.birch.sh/libraries/Standard/classes/Buffer">Buffer</a> class provides the interface for easily reading and writing these. Its <code>get</code> style member functions (e.g. the <code>getReadMatrix()</code> and <code>getRealVector()</code> used above) return <a href="/language/optionals/">optionals</a>. An optional is just a variable that may or may not have a value. Here, if the requested element exists in the file, it has a value, otherwise it does not. The <code>&lt;-?</code> is a special assignment operator that assigns a value to the variable on the left only if the optional on the right actually has a value.</p>
+<h2 id="inference">Inference</h2>
+<p>Now rebuild:</p>
 <pre><code>birch build
 </code></pre>
-</div>
-<p>This <code>read</code> member function reads from the input file into the variables <code>X</code> and <code>y</code>. The strings <code>"X"</code> and <code>"y"</code> name elements in the input file. While the names correspond in this case, they need not in general. Similarly, the <code>write</code> function writes to the output file.</p>
-<p>The <a href="/documentation/library/classes/Buffer">Buffer</a> class provides the interface for easily reading and writing these. Its <code>get()</code> style member functions return <a href="/documentation/language/optionals/"><em>optionals</em></a>, as the requested variable may not exist in the file, or may not have the correct type. The <code>&lt;-?</code> assignment operates only if the optional on the right actually has a value.</p>
-<h2 id="inference">Inference</h2>
-<div class="admonition example">
-<p class="admonition-title">Exercise</p>
-<p>Sample from the posterior distribution with the command:</p>
+<p>and run:</p>
 <pre><code>birch sample \
     --model LinearRegressionModel \
     --input input/bike_share.json \
     --output output/linear_regression.json
 </code></pre>
-</div>
-<p>The particular model that we have written has an analytical solution, and has been written in such a way that Birch will recognise this and compute it accordingly via its delayed sampling heuristic<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>. The above command will output to <code>output/linear_regression.json</code>. You can open this file in a text editor to inspect the result. It contains a single posterior sample.</p>
+<p>This run command specifies the model class to use, the input file from which to read, and the output file to which to write.</p>
+<p>View the output with:</p>
+<pre><code>cat output/linear_regression.json
+</code></pre>
+<p>You will see a single sample drawn from the posterior distribution.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p><em>Debug</em> mode is used by default. This mode enables all error checking and disables most optimizations to assist debugging. It is recommended that you use debug mode when developing and testing code. When you are happy that your code is working correctly, you can use <em>release</em> mode instead, which will run much faster. This is enabled by adding the option <code>--enable-release</code> when calling <code>birch</code>, both when building and running:</p>
+<p>We have already noted that this particular example has an analytical solution. We can, in fact, output this solution if preferred. To do so, update the <code>write()</code> member function as follows, then re-build and re-run:</p>
+<pre><code>function write(buffer:Buffer) {
+  if β.hasDistribution() {
+    buffer.set("β", β.getDistribution());
+  } else {
+    buffer.set("β", β);
+    buffer.set("σ2", σ2);
+  }
+}
+</code></pre>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><em>Debug</em> mode is used by default. This mode enables all error checking and disables all optimizations to assist with debugging. Debug mode is recommended when developing and testing code. When you are happy that your code is working correctly, you can use <em>release</em> mode instead, which takes longer to build but runs much faster (several times so). Release mode is enabled by adding the option <code>--enable-release</code> when calling <code>birch</code>:</p>
 <pre><code>birch build --enable-release
 birch sample --enable-release ...
 </code></pre>
@@ -861,10 +849,13 @@ birch sample --enable-release ...
 <hr />
 <ol>
 <li id="fn:1">
-<p>H. Fanaee-T &amp; J. Gama (2014). <a href="http://dx.doi.org/10.1007/s13748-013-0040-3">Event labeling combining ensemble detectors and background knowledge</a>. <em>Progress in Artificial Intelligence</em>. <strong>2</strong>:113-127.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p>We avoid referring to them as <em>random variables</em>, as that is a precise mathematical term, although they do represent this concept within the program. A more accurate description might be a <em>random variate</em> that has been drawn from some distribution, although they are not exactly this either. We stick with <em>randoms</em>.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:2">
-<p>L.M. Murray, D. Lundén, J. Kudlicka, D. Broman and T.B. Schön (2018). <a href="https://arxiv.org/abs/1708.07787">Delayed Sampling and Automatic Rao&ndash;Blackwellization of Probabilistic Programs</a>. In <em>Proceedings of the 21st International Conference on Artificial Intelligence and Statistics (AISTATS) 2018</em>, Lanzarote, Spain.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<p>H. Fanaee-T &amp; J. Gama (2014). <a href="http://dx.doi.org/10.1007/s13748-013-0040-3">Event labeling combining ensemble detectors and background knowledge</a>. <em>Progress in Artificial Intelligence</em>. <strong>2</strong>:113-127.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p>L.M. Murray, D. Lundén, J. Kudlicka, D. Broman and T.B. Schön (2018). <a href="https://arxiv.org/abs/1708.07787">Delayed Sampling and Automatic Rao&ndash;Blackwellization of Probabilistic Programs</a>. In <em>Proceedings of the 21st International Conference on Artificial Intelligence and Statistics (AISTATS) 2018</em>, Lanzarote, Spain.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>
@@ -886,7 +877,7 @@ birch sample --enable-release ...
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../hello-world/" title="Hello World" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../hello-world/" title="Hello, World!" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -895,7 +886,7 @@ birch sample --enable-release ...
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Hello World
+                Hello, World!
               </div>
             </div>
           </a>
