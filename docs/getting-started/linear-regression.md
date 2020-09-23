@@ -1,150 +1,158 @@
 # Bayesian Linear Regression
 
-Now that we have a trivial model running, we can do something more interesting. We will start with a simple example of [Bayesian linear regression](http://en.wikipedia.org/wiki/Bayesian_linear_regression), using a [bike sharing data set](https://archive.ics.uci.edu/ml/datasets/bike+sharing+dataset)[^1] that will be provided in a suitable format.
+Now that we have a trivial package running, we can do something more interesting. We will start with a simple example of [Bayesian linear regression](http://en.wikipedia.org/wiki/Bayesian_linear_regression), using a [bike sharing data set](https://archive.ics.uci.edu/ml/datasets/bike+sharing+dataset)[^2] that will be provided in a suitable format.
 
 ## Model
 
 The model is given by:
 
 $$\begin{align}
-\sigma^2 &\sim \mathcal{IG}(3, 4/10) \\
-\boldsymbol{\beta} &\sim \mathcal{N}(0, I\sigma^2) \\
-y_n &\sim \mathcal{N}(\mathbf{x}_n^{\top}\boldsymbol{\beta}, \sigma^2)
+\sigma^2 &\sim \mathrm{InverseGamma}(3, 4/10) \\
+\boldsymbol{\beta} \mid \sigma^2 &\sim \mathrm{Gaussian}(0, I\sigma^2) \\
+y_n \mid \boldsymbol{\beta}, \sigma^2 &\sim \mathrm{Gaussian}(\mathbf{x}_n^{\top}\boldsymbol{\beta}, \sigma^2)
 \end{align}$$
 
-where $\mathcal{IG}$ denotes the [inverse-gamma distribution](https://en.wikipedia.org/wiki/Inverse-gamma_distribution), and $\mathcal{N}$ the [multivariate normal distribution](https://en.wikipedia.org/wiki/Multivariate_normal_distribution). The parameters of the model are the noise variance $\sigma^2$ and vector of coefficients $\boldsymbol{\beta}$. The data consists of observations $y_n$ and explanatory variables $\mathbf{x}_n$ for $n=1,\ldots,N$.
+The parameters of the model are the noise variance $\sigma^2$ and vector of coefficients $\boldsymbol{\beta}$. The data consists of observations $y_n$ and explanatory variables $\mathbf{x}_n$ for $n=1,\ldots,N$.
 
 
 ## Implementation
 
-To specify this model in Birch, we again create a class that inherits from [Model](/documentation/library/classes/Model).
+To specify a model in Birch, we create a [class](/language/classes) that inherits from [Model](https://docs.birch.sh/libraries/Standard/classes/Model). Use your preferred text editor to create a file `src/LinearRegressionModel.birch` and enter the following contents:
 
-!!! example "Exercise"
-    Create a file `birch/LinearRegressionModel.birch` and enter the following code:
+    /**
+     * Bayesian linear regression model with conjugate normal-inverse-gamma
+     * prior.
+     */
+    class LinearRegressionModel < Model {
+      /**
+       * Explanatory variables.
+       */
+      X:Real[_,_];
 
-        class LinearRegressionModel < Model {
+      /**
+       * Regression coefficients.
+       */
+      β:Random<Real[_]>;
 
+      /**
+       * Observation variance.
+       */
+      σ2:Random<Real>;
+
+      /**
+       * Observations.
+       */
+      y:Random<Real[_]>;
+
+      function simulate() {
+        let N <- rows(X);
+        let P <- columns(X);
+        if N > 0 && P > 0 {
+          σ2 ~ InverseGamma(3.0, 0.4);
+          β ~ Gaussian(vector(0.0, P), identity(P), σ2);
+          y ~ Gaussian(X*β, σ2);
         }
+      }
+    }
 
-Next, we declare the random variables of the model. These are usually declared as member variables of the class.
-
-!!! example "Exercise"
-    Enter the following between the curly braces in the previous code:
-
-          /**
-           * Explanatory variables.
-           */
-          X:Real[_,_];
-
-          /**
-           * Regression coefficients.
-           */
-          β:Random<Real[_]>;
-
-          /**
-           * Observation variance.
-           */
-          σ2:Random<Real>;
-
-          /**
-           * Observations.
-           */
-          y:Random<Real[_]>;
-
-We have again used the `/**` `*/` comment style to document each of these member variables, so that we can use the [docs](/documentation/driver/commands/docs) command in future.
-
-Variables in Birch are typed, and declared with the syntax `name:Type`. Lines always end in semicolons. We see here a few different types:
+The explanatory variables $X$ (the $\mathbf{x}_n$, as a matrix), observations $y$ ($y_n$, as a vector) and parameters $\beta$ and $\sigma^2$ have been declared as *member variables* of the class. [Variables](/language/variables) in Birch are typed. We see here a few different types:
 
   * `Real` is a double-precision floating point number.
   * `Real[_]` is a vector of `Real`.
   * `Real[_,_]` is a matrix of `Real`.
-  * `Random<Type>` declares a *random* (variable) of given `Type`. The use of such randoms is optional, but it enables the use of the *delayed sampling* mechanism of Birch for full or partial analytical solutions to inference problems[^2]. It is particularly useful for this example.
+  * `Random<Type>` declares a [Random](https://docs.birch.sh/libraries/Standard/classes/Random) object of given `Type`. Such *randoms*&mdash;as we refer to them&mdash;[^1]enable the important features of *automatic marginalization*, *automatic conjugacy*, and *automatic differentiation*. The former two of these are implemented in Birch using an algorithm called *delayed sampling*[^3]. It is particularly useful in this example, as it enables an analytical solution to the problem.
 
 !!! tip
     You can use Greek letters in Birch code. To enter them, you may need to install a separate keyboard in your operating system, or copy and paste from a character map.
 
-Next, we need to establish the joint distribution of these random variables. The [Model](/documentation/library/classes/Model) class has a [*member function*](/documentation/language/classes/#member-fibers) called `simulate` that we override to specify the joint distribution of our model.
+The `simulate()` member function implements the model:
 
-!!! example "Exercise"
-    Enter the following between the curly braces of the `LinearRegressionModel` class:
+  * The `if` statement is merely defensive programming: it skips the model for the degenerate situation of no explanatory variables, or no data points.
+  * The `~` operator attaches a *distribution* (a [Distribution](https://docs.birch.sh/libraries/Standard/classes/Distribution) object) to a *random*.
+  * The `let` keyword declares a variable, where the type of the variable is deduced from its initial value. An equivalent way to declare `N`, for example, would be `N:Integer <- rows(X)`, but the `let` syntax often looks tidier.
 
-        function simulate() {
-          auto N <- rows(X);
-          auto P <- columns(X);
-          if N > 0 && P > 0 {
-            σ2 ~ InverseGamma(3.0, 0.4);
-            β ~ Gaussian(vector(0.0, P), identity(P)*σ2);
-            y ~ Gaussian(X*β, σ2);
-          }
-        }
+The basic model is now implemented. It is worth building and running at this stage as a check. Build, as usual, with:
 
-Hopefully, this looks similar enough to the equations given above that its meaning is clear. The `if` statement is merely defensive programming: it skips the model for the degenerate situations of no explanatory variables, or no data points.
+    birch build
 
-!!! example "Exercise"
-    It is worth building at this point to check that there are no errors in the code you have entered so far:
+and run with:
 
-        birch build
+    birch sample --model LinearRegressionModel
 
-    As before, we can run the model with
-
-        birch sample --model LinearRegressionModel
-
-    although this will not yet do anything interesting; for that, we need data.
+Running will not do anything interesting at this stage&mdash;for that we need some data!
 
 ## Data
 
-We will use a [data set](https://archive.ics.uci.edu/ml/datasets/bike+sharing+dataset) from the Capital Bikeshare system in Washington D.C. for the years 2011 to 2012. The aim is to use weather and holiday information to predict the total number of bike hires on any given day[^1].
+We will use a [data set](https://archive.ics.uci.edu/ml/datasets/bike+sharing+dataset) from the Capital Bikeshare system in Washington D.C. for the years 2011 to 2012. The aim is to use weather and holiday information to predict the total number of bike hires on any given day[^2].
 
-The data set has been preprocessed to convert categorical variables into multiple indicator variables; e.g. the season, a four-category variable, becomes four indicator variables. These conversions make it reasonable to attempt a linear regression. Each data point represents one day. The observation is of the logarithm of the total number of bike hires on that day.
+The data set has been preprocessed to ont-hot encode categorical variables, e.g. the season, a four-category variable, becomes four indicator variables. These conversions make it reasonable to attempt a linear regression. Each data point represents one day. The observation is of the logarithm of the total number of bike hires on that day.
 
-!!! example "Exercise"
-    Download the data set [here](/tutorial/bike_share.json) and place it in your project's `input/` directory as `input/bike_share.json`.
+[Download the data set](/getting-started/bike_share.json) to the `input/` directory. The file is in [JSON](http://www.json.org) format. Birch supports both JSON and YAML file formats. You can view and edit these files by hand with a text editor, or for larger files, write programs to generate and manipulate them.
 
-The file is in [JSON](http://www.json.org) format. Birch supports both JSON and YAML file formats. You can view and edit these files by hand with a text editor, or for larger files, write programs to generate them.
+!!! tip
+    If you're wanting to stay on the command line, check out [jq](https://stedolan.github.io/jq/) for working with JSON files.
 
-For now, have a look at the contents of the file in a text editor or web browser. It contains two variables: a matrix `X` and a vector `y`. We need to read these into our model.
+For now, have a look at the contents of the file in a text editor, web browser, or on the command line (`less input/bike_share.json` and hit `q` when you've seen enough). It contains two variables: a matrix `X` and a vector `y`. We need to read these into the model.
 
-The [Model](/documentation/library/classes/Model) class has a member function called `read` that we can override for this purpose. Similarly, it has a member function called `write` that we can override for output.
+Recall that, in defining the `LinearRegressionModel` class, we overrode the `simulate()` member function of the `Model` class. The `Model` class also has two other member functions called `read()` and `write()` that we can implement to read and write data.
 
-!!! example "Exercise"
-    Enter the following between the curly braces of the `LinearRegressionModel` class:
+Add the following two member functions after the `simulate()` member function in the `LinearRegressionModel` class:
 
-        function read(buffer:Buffer) {
-          X <-? buffer.getRealMatrix("X");
-          y <-? buffer.getRealVector("y");
-        }
+    function read(buffer:Buffer) {
+      X <-? buffer.getRealMatrix("X");
+      y <-? buffer.getRealVector("y");
+    }
 
-        function write(buffer:Buffer) {
-          buffer.set("β", β);
-          buffer.set("σ2", σ2);
-        }
+    function write(buffer:Buffer) {
+      buffer.set("β", β);
+      buffer.set("σ2", σ2);
+    }
 
-    Rebuild:
+The `read()` member function reads from the input file into the member variables `X` and `y`. The strings `"X"` and `"y"` name the elements in the input file. The `write()` member function writes the parameters to the output file.
 
-        birch build
-
-This `read` member function reads from the input file into the variables `X` and `y`. The strings `"X"` and `"y"` name elements in the input file. While the names correspond in this case, they need not in general. Similarly, the `write` function writes to the output file.
-
-The [Buffer](/documentation/library/classes/Buffer) class provides the interface for easily reading and writing these. Its `get()` style member functions return [*optionals*](/documentation/language/optionals/), as the requested variable may not exist in the file, or may not have the correct type. The `<-?` assignment operates only if the optional on the right actually has a value.
+The [Buffer](https://docs.birch.sh/libraries/Standard/classes/Buffer) class provides the interface for easily reading and writing these. Its `get` style member functions (e.g. the `getReadMatrix()` and `getRealVector()` used above) return [optionals](/language/optionals/). An optional is just a variable that may or may not have a value. Here, if the requested element exists in the file, it has a value, otherwise it does not. The `<-?` is a special assignment operator that assigns a value to the variable on the left only if the optional on the right actually has a value.
 
 ## Inference
 
-!!! example "Exercise"
-    Sample from the posterior distribution with the command:
+Now rebuild:
 
-        birch sample \
-            --model LinearRegressionModel \
-            --input input/bike_share.json \
-            --output output/linear_regression.json
+    birch build
 
-The particular model that we have written has an analytical solution, and has been written in such a way that Birch will recognise this and compute it accordingly via its delayed sampling heuristic[^2]. The above command will output to `output/linear_regression.json`. You can open this file in a text editor to inspect the result. It contains a single posterior sample.
+and run:
+
+    birch sample \
+        --model LinearRegressionModel \
+        --input input/bike_share.json \
+        --output output/linear_regression.json
+
+This run command specifies the model class to use, the input file from which to read, and the output file to which to write.
+
+View the output with:
+
+    cat output/linear_regression.json
+
+You will see a single sample drawn from the posterior distribution.
 
 !!! tip
-    *Debug* mode is used by default. This mode enables all error checking and disables most optimizations to assist debugging. It is recommended that you use debug mode when developing and testing code. When you are happy that your code is working correctly, you can use *release* mode instead, which will run much faster. This is enabled by adding the option `--enable-release` when calling `birch`, both when building and running:
+    We have already noted that this particular example has an analytical solution. We can, in fact, output this solution if preferred. To do so, update the `write()` member function as follows, then re-build and re-run:
+
+        function write(buffer:Buffer) {
+          if β.hasDistribution() {
+            buffer.set("β", β.getDistribution());
+          } else {
+            buffer.set("β", β);
+            buffer.set("σ2", σ2);
+          }
+        }
+
+!!! tip
+    *Debug* mode is used by default. This mode enables all error checking and disables all optimizations to assist with debugging. Debug mode is recommended when developing and testing code. When you are happy that your code is working correctly, you can use *release* mode instead, which takes longer to build but runs much faster (several times so). Release mode is enabled by adding the option `--enable-release` when calling `birch`:
 
         birch build --enable-release
         birch sample --enable-release ...
 
-[^1]: H. Fanaee-T & J. Gama (2014). [Event labeling combining ensemble detectors and background knowledge](http://dx.doi.org/10.1007/s13748-013-0040-3). *Progress in Artificial Intelligence*. **2**:113-127.
+[^1]: We avoid referring to them as *random variables*, as that is a precise mathematical term, although they do represent this concept within the program. A more accurate description might be a *random variate* that has been drawn from some distribution, although they are not exactly this either. We stick with *randoms*.
 
-[^2]: L.M. Murray, D. Lundén, J. Kudlicka, D. Broman and T.B. Schön (2018). [Delayed Sampling and Automatic Rao&ndash;Blackwellization of Probabilistic Programs](https://arxiv.org/abs/1708.07787). In *Proceedings of the 21st International Conference on Artificial Intelligence and Statistics (AISTATS) 2018*, Lanzarote, Spain.
+[^2]: H. Fanaee-T & J. Gama (2014). [Event labeling combining ensemble detectors and background knowledge](http://dx.doi.org/10.1007/s13748-013-0040-3). *Progress in Artificial Intelligence*. **2**:113-127.
+
+[^3]: L.M. Murray, D. Lundén, J. Kudlicka, D. Broman and T.B. Schön (2018). [Delayed Sampling and Automatic Rao&ndash;Blackwellization of Probabilistic Programs](https://arxiv.org/abs/1708.07787). In *Proceedings of the 21st International Conference on Artificial Intelligence and Statistics (AISTATS) 2018*, Lanzarote, Spain.

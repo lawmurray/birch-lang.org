@@ -1,8 +1,8 @@
-# Hello World
+# Hello, World!
 
-In this first exercise, you will learn how to use the `birch` program to create, build and run a package, understanding the development workflow.
+We start by getting acquainted with the `birch` program that you have just installed, using it to create, build and run a simple Birch program. We will work from the terminal. If you are unfamiliar with Unix commands, that's okay, everything you need to type will be provided as we go.
 
-We will start by creating a new package. Create a new directory and change into it:
+We will start by creating a new package. From the terminal, create a new directory and change into it:
 
     mkdir HelloWorld
     cd HelloWorld
@@ -17,22 +17,24 @@ This creates the standard files and subdirectories for a Birch package, includin
   * `config/` for configuration files, typically setting various options for a model and/or inference method,
   * `input/` for input files,
   * `output/` for output files,
-  * and a number of other meta files in the base directory.
+  * and a number of other meta files in the base directory such as `README.md` and `LICENSE`.
 
-A new package contains just one file, `src/hello.birch`, containing a program called `hello` that prints exactly what you think it does (view it with `cat src/hello.birch`).
+A new package contains just one source file, `src/hello.birch`, containing a program called `hello` that prints exactly what you think it does (view it with `cat src/hello.birch`).
 
 Build the package with:
 
     birch build
 
-then run the program with:
+then run the `hello` program with:
 
     birch hello
 
 If you see `Hello, World!` on the terminal then everything is in order!
 
+This is the typical workflow: whenever you make a change, run `birch build` to rebuild the package. The first time always takes a little longer than subsequent calls.
+
 !!! tip
-    When building, Birch will create a number of additional files in the current working directory. To delete all of these additional files, use:
+    When building, Birch will create a number of additional files in the current working directory. If you ever want to delete these files, use:
 
         birch clean
 
