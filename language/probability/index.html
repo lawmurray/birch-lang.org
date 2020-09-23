@@ -17,7 +17,7 @@
     
     
       
-        <title>Aliases - Birch</title>
+        <title>Probability - Birch</title>
       
     
     
@@ -89,7 +89,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Aliases
+              Probability
             
           </span>
         </div>
@@ -546,18 +546,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-    <a href="./" title="Aliases" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../aliases/" title="Aliases" class="md-nav__link">
       Aliases
     </a>
-    
   </li>
 
         
@@ -577,11 +570,18 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../probability/" title="Probability" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+    <a href="./" title="Probability" class="md-nav__link md-nav__link--active">
       Probability
     </a>
+    
   </li>
 
         
@@ -618,14 +618,28 @@
                   
                 
                 
-                  <h1>Aliases</h1>
+                  <h1>Probability</h1>
                 
-                <p>A basic type <code>A</code> may be declared as an alias (synonym) for a basic type <code>B</code> with:</p>
-<pre><code>type A = B;
+                <p>Probabilistic statements use one of three operators, or the keyword <code>factor</code>:</p>
+<pre><code>x &lt;~ p;
+x ~&gt; p;
+x ~ p;
+factor w;
 </code></pre>
-<p>The same applies to class types, but use the <code>class</code> keyword:</p>
-<pre><code>class A = B;
+<p>Let <code>x</code> be a value of basic type (e.g. <code>Real</code>) or optional type (e.g. <code>Real?</code>), or object of <a href="https://docs.birch.sh/libraries/Standard/classes/Random">Random</a> type (e.g. <code>Random&lt;Real&gt;</code>), and <code>p</code> be an object of <a href="https://docs.birch.sh/libraries/Standard/classes/Distribution">Distribution</a> type. Then:</p>
+<ul>
+<li><code>x &lt;~ p</code> <em>simulates</em> a variate <code>x</code> from the distribution <code>p</code>,</li>
+<li><code>x ~&gt; p</code> <em>observes</em> a variate <code>x</code> from the distribution <code>p</code>,</li>
+<li><code>x ~ p</code> <em>assumes</em> that <code>x</code> is distributed according to <code>p</code>.</li>
+</ul>
+<p>If <code>x</code> has a value, <code>x ~ p</code> typically acts like <code>x ~&gt; p</code>, while if it does not have a value, <code>x ~ p</code> eventually acts something like <code>x &lt;~ p</code>, possibly after analytical optimizations.</p>
+<p>These statements emit events to an event handler, which is simply an object of type <a href="https://docs.birch.sh/libraries/Standard/classes/Handler">Handler</a>. By default, there is no event handler registered, so the events are ignored. To register an event handler <code>h</code>, use a <code>with</code> block:</p>
+<pre><code>with h {
+  // do something probabilistic
+}
 </code></pre>
+<p>The <code>factor</code> statement sends an arbitrary log-weight <code>w</code> to the event handler.</p>
+<p>Event handlers are typically used as an interface between inference methods and models, creating the opportunity for inference methods to intervene in model execution.</p>
                 
               
               
@@ -644,7 +658,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../classes/" title="Classes" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../casts/" title="Casts" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -653,19 +667,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Classes
+                Casts
               </div>
             </div>
           </a>
         
         
-          <a href="../casts/" title="Casts" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../about/" title="About" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Casts
+                About
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">

@@ -440,6 +440,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../assertions/" title="Assertions" class="md-nav__link">
+      Assertions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../arrays/" title="Arrays" class="md-nav__link">
       Arrays
     </a>
@@ -561,6 +573,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../probability/" title="Probability" class="md-nav__link">
+      Probability
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -600,7 +624,7 @@
 <pre><code>a:A?;
 </code></pre>
 <p>To check whether a variable of optional type has a value, use the postfix <code>?</code> operator, which returns <code>true</code> if there is a value and <code>false</code> if not. If there is a value, use the postfix <code>!</code> operator to retrieve it. A common usage idiom is as follows:</p>
-<pre><code>if (a?) {  // check if a has a value
+<pre><code>if a? {  // check if a has a value
   f(a!);  // if so, do something with the value of a
 }
 </code></pre>
@@ -609,8 +633,8 @@
 </code></pre>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>A variable of class type always has a value in Birch. In some other languages (e.g. Java), variables of class type may have a null value, and this null value is often used to denote no value. In Birch, optionals are always used where a variable may have no value.</p>
-<p>This is particularly useful when writing functions that accept arguments of class type, as there is no need to check whether those arguments actually have a value or not; they will always have a value, unless denoted as optional.</p>
+<p>In some languages, e.g. Java, objects may be null, and this null value may be used to indicate no value. In Birch, an object cannot have a null value, but an optional can be used instead.</p>
+<p>This is particularly useful when writing functions that accept objects as arguments, as there is no need to check whether those arguments actually have a value or not; they will always have a value, unless denoted as optional.</p>
 </div>
 <p>Optional types compose with other types. The following is an optional of array type:</p>
 <pre><code>a:A[_]?;
@@ -619,12 +643,12 @@
 <pre><code>a:A?[_];
 </code></pre>
 <p>In the former case, either the whole array exists or it does not. Retrieve an element with:</p>
-<pre><code>if (a?) {
+<pre><code>if a? {
   f(a![n]);
 }
 </code></pre>
 <p>In the latter case, the whole array exists, but each individual element may or may not have a value:</p>
-<pre><code>if (a[n]?) {
+<pre><code>if a[n]? {
   f(a[n]!);
 }
 </code></pre>
