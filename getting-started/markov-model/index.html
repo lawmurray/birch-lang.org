@@ -358,33 +358,6 @@
     Model
   </a>
   
-    <nav class="md-nav" aria-label="Model">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#parameter-model" class="md-nav__link">
-    Parameter model
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#initial-model" class="md-nav__link">
-    Initial model
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#transition-model" class="md-nav__link">
-    Transition model
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -696,33 +669,6 @@
     Model
   </a>
   
-    <nav class="md-nav" aria-label="Model">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#parameter-model" class="md-nav__link">
-    Parameter model
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#initial-model" class="md-nav__link">
-    Initial model
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#transition-model" class="md-nav__link">
-    Transition model
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -763,25 +709,23 @@
                 
                 
                 <h1 id="markov-model">Markov Model</h1>
-<p>We will now look at implementing a <a href="https://en.wikipedia.org/wiki/Markov_model">Markov model</a>, specifically a simple SIR (susceptible-infectious-recovered) compartmental model for an influenza epidemic, using a classic data set of an outbreak of Russian influenza at a boarding school.</p>
+<p>We will now look at implementing a simple SIR (susceptible-infectious-recovered) compartmental model of an epidemic, using a classic data set of an outbreak of influenza at a boarding school.</p>
 <h2 id="model">Model</h2>
 <p>The model is described in three parts: a <em>parameter</em> model, an <em>initial</em> model, and a <em>transition</em> model. Time is indexed by <span><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span>, in days. The state consists of variables <span><span class="MathJax_Preview">s_t</span><script type="math/tex">s_t</script></span>, <span><span class="MathJax_Preview">i_t</span><script type="math/tex">i_t</script></span>, and <span><span class="MathJax_Preview">r_t</span><script type="math/tex">r_t</script></span>, giving counts of the number of susceptible, infectious, and recovered individuals, respectively.</p>
-<h3 id="parameter-model">Parameter model</h3>
 <p>The parameter model is:</p>
 <div>
 <div class="MathJax_Preview">\begin{align}
 \lambda &amp;= 10 \\
-\delta &amp;\sim \mathcal{B}(2,2) \\
-\gamma &amp;\sim \mathcal{B}(2,2),
+\delta &amp;\sim \mathrm{Beta}(2,2) \\
+\gamma &amp;\sim \mathrm{Beta}(2,2),
 \end{align}</div>
 <script type="math/tex; mode=display">\begin{align}
 \lambda &= 10 \\
-\delta &\sim \mathcal{B}(2,2) \\
-\gamma &\sim \mathcal{B}(2,2),
+\delta &\sim \mathrm{Beta}(2,2) \\
+\gamma &\sim \mathrm{Beta}(2,2),
 \end{align}</script>
 </div>
-<p>where <span><span class="MathJax_Preview">\mathcal{B}</span><script type="math/tex">\mathcal{B}</script></span> denotes the <a href="https://en.wikipedia.org/wiki/beta_distribution">beta distribution</a>, <span><span class="MathJax_Preview">\lambda</span><script type="math/tex">\lambda</script></span> is a rate of interaction in the population, <span><span class="MathJax_Preview">\delta</span><script type="math/tex">\delta</script></span> the probability of infection when a susceptible individual interacts with an infectious individual, and <span><span class="MathJax_Preview">\gamma</span><script type="math/tex">\gamma</script></span> the daily recovery probability.</p>
-<h3 id="initial-model">Initial model</h3>
+<p>where <span><span class="MathJax_Preview">\lambda</span><script type="math/tex">\lambda</script></span> is a rate of interaction in the population, <span><span class="MathJax_Preview">\delta</span><script type="math/tex">\delta</script></span> the probability of infection when a susceptible individual interacts with an infectious individual, and <span><span class="MathJax_Preview">\gamma</span><script type="math/tex">\gamma</script></span> the daily recovery probability.</p>
 <p>The initial model for time <span><span class="MathJax_Preview">t = 0</span><script type="math/tex">t = 0</script></span> depends on the data set. For the data set introduced below, it is as follows:</p>
 <div>
 <div class="MathJax_Preview">\begin{align}
@@ -795,21 +739,20 @@ i_0 &= 3 \\
 r_0 &= 0.
 \end{align}</script>
 </div>
-<h3 id="transition-model">Transition model</h3>
 <p>The transition model for time <span><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span> is:</p>
 <div>
 <div class="MathJax_Preview">\begin{align}
-\tau_t &amp;\sim \mathrm{Binomial}\left(s_{t-1}, 1 - \exp\left(\frac{-\lambda i_{t-1} }{s_{t-1} + i_{t-1} + r_{t-1}}\right) \right) \\
-\Delta i_t &amp;\sim \mathrm{Binomial}(\tau_t, \delta) \\
-\Delta r_t &amp;\sim \mathrm{Binomial}(i_{t-1}, \gamma),
+\tau_t \mid s_{t-1}, i_{t-1}, r_{t-1}, \lambda &amp;\sim \mathrm{Binomial}\left(s_{t-1}, 1 - \exp\left(\frac{-\lambda i_{t-1} }{s_{t-1} + i_{t-1} + r_{t-1}}\right) \right) \\
+\Delta i_t \mid \tau_t, \delta &amp;\sim \mathrm{Binomial}(\tau_t, \delta) \\
+\Delta r_t \mid i_{t-1}, \gamma &amp;\sim \mathrm{Binomial}(i_{t-1}, \gamma),
 \end{align}</div>
 <script type="math/tex; mode=display">\begin{align}
-\tau_t &\sim \mathrm{Binomial}\left(s_{t-1}, 1 - \exp\left(\frac{-\lambda i_{t-1} }{s_{t-1} + i_{t-1} + r_{t-1}}\right) \right) \\
-\Delta i_t &\sim \mathrm{Binomial}(\tau_t, \delta) \\
-\Delta r_t &\sim \mathrm{Binomial}(i_{t-1}, \gamma),
+\tau_t \mid s_{t-1}, i_{t-1}, r_{t-1}, \lambda &\sim \mathrm{Binomial}\left(s_{t-1}, 1 - \exp\left(\frac{-\lambda i_{t-1} }{s_{t-1} + i_{t-1} + r_{t-1}}\right) \right) \\
+\Delta i_t \mid \tau_t, \delta &\sim \mathrm{Binomial}(\tau_t, \delta) \\
+\Delta r_t \mid i_{t-1}, \gamma &\sim \mathrm{Binomial}(i_{t-1}, \gamma),
 \end{align}</script>
 </div>
-<p>where <span><span class="MathJax_Preview">\tau_t</span><script type="math/tex">\tau_t</script></span> is the number of interactions between infectious and susceptible individuals, <span><span class="MathJax_Preview">\Delta i_t</span><script type="math/tex">\Delta i_t</script></span> the number of newly infected individuals, and <span><span class="MathJax_Preview">\Delta r_t</span><script type="math/tex">\Delta r_t</script></span> the number of newly recovered individuals. Population counts are then updated:</p>
+<p>where <span><span class="MathJax_Preview">\tau_t</span><script type="math/tex">\tau_t</script></span> is the number of interactions between infectious and susceptible individuals, <span><span class="MathJax_Preview">\Delta i_t</span><script type="math/tex">\Delta i_t</script></span> the number of newly infectious individuals, and <span><span class="MathJax_Preview">\Delta r_t</span><script type="math/tex">\Delta r_t</script></span> the number of newly recovered individuals. Population counts are then updated:</p>
 <div>
 <div class="MathJax_Preview">\begin{align}
 s_t &amp;= s_{t-1} - \Delta i_t \\
@@ -823,13 +766,9 @@ r_t &= r_{t-1} + \Delta r_t.
 \end{align}</script>
 </div>
 <h2 id="implementation">Implementation</h2>
-<p>To specify this model in Birch, we again need to create a class that inherits from <a href="/documentation/library/classes/Model">Model</a>. This time, however, the standard library provides the more-specific class <a href="/documentation/library/classes/MarkovModel">MarkovModel</a> that will do some of the work for us. <a href="/documentation/library/classes/MarkovModel">MarkovModel</a> itself inherits from <a href="/documentation/library/classes/Model">Model</a>, we just need to provide it with specific implementations of the parameter, initial and transition models.</p>
-<p>As well as easing implementation, the other advantage of <a href="/documentation/library/classes/MarkovModel">MarkovModel</a> is that it reveals something about the structure of the model, which may be useful to enable, or optimize, specific inference methods. It is expected that more classes for specific model structures, and more methods to make use of them, will be available in future.</p>
-<p><a href="/documentation/library/classes/MarkovModel">MarkovModel</a> is a <a href="/documentation/language/classes/#generic-parameters"><em>generic</em></a> class. It requires two other classes, one to contain the parameters of the model, and one to contain the state variables of the model. We will create these classes first, to be called <code>SIRParameter</code> and <code>SIRState</code>, respectively. We will then specify the parameter, initial and transition models in a class <code>SIRModel</code>, to inherit from <code>MarkovModel&lt;SIRParameter,SIRState&gt;</code>.</p>
-<p>We will start with the <code>SIRParameter</code> class.</p>
-<div class="admonition example">
-<p class="admonition-title">Exercise</p>
-<p>Add the following code to the file <code>birch/SIRParameter.birch</code>:</p>
+<p>We again create a class that inherits from <code>Model</code>, but the standard library provides a more specialized class <a href="https://docs.birch.sh/libraries/Standard/classes/MarkovModel">MarkovModel</a> that can handle some of the work for us here. <code>MarkovModel</code> inherits from <code>Model</code>. It overrides the <code>simulate()</code> member function to call three other member functions that it defines: <code>parameter()</code>, <code>initial()</code>, and <code>transition()</code>, for the three parts of a Markov model. Instead of creating a class that inherits from <code>Model</code> directly and overrides <code>simulate()</code>, we create a class that inherits from <code>MarkovModel</code> and overrides <code>parameter()</code>, <code>initial()</code> and <code>transition()</code>.</p>
+<p>Furthermore, <code>MarkovModel</code> is a <a href="/language/classes/#generics">generic</a> class, fully written <code>MarkovModel&lt;Parameter,State&gt;</code>. When used it is provided with two other classes as type arguments, one that describes the parameters of the model, and one that describes the state of the model. We create these two classes first.</p>
+<p>Create a file <code>src/SIRParameter.birch</code> with the following:</p>
 <pre><code>/**
  * SIR model parameters.
  */
@@ -862,12 +801,7 @@ class SIRParameter {
   }
 }
 </code></pre>
-</div>
-<p>This just groups all the parameters into one class, and overrides the standard <code>read</code> and <code>write</code> member functions.</p>
-<p>The <code>SIRState</code> class is similar.</p>
-<div class="admonition example">
-<p class="admonition-title">Exercise</p>
-<p>Add the following code to the file <code>birch/SIRState.birch</code>:</p>
+<p>Create a file <code>src/SIRState.birch</code> with the following:</p>
 <pre><code>/**
  * SIR model state.
  */
@@ -919,12 +853,8 @@ class SIRState {
   }
 }
 </code></pre>
-</div>
-<p>This just groups all the state variables into one class, and overrides the standard <code>read</code> and <code>write</code> member functions. Note that it represents a <em>single</em> state of the model. The <code>MarkovModel</code> class will handle state trajectories for us.</p>
-<p>Finally, we create the class <code>SIRModel</code>, where most of the work happens. This inherits from <code>MarkovModel&lt;SIRParameter,SIRState&gt;</code>. It must implement member fibers <code>parameter</code>, <code>initial</code> and <code>transition</code> to specify the Markov model.</p>
-<div class="admonition example">
-<p class="admonition-title">Exercise</p>
-<p>Add the following code to the file <code>birch/SIRModel.bi</code>:</p>
+<p>Finally, we create the class <code>SIRModel</code>, where most of the work happens. This inherits from <code>MarkovModel&lt;SIRParameter,SIRState&gt;</code>, specifying the two classes that we have just created as describing the parameters and state of the model.</p>
+<p>Create a file <code>src/SIRModel.bi</code> with the following</p>
 <pre><code>/**
  * SIR model.
  */
@@ -940,7 +870,7 @@ class SIRModel &lt; MarkovModel&lt;SIRParameter,SIRState&gt; {
   }
 
   function transition(x':SIRState, x:SIRState, θ:SIRParameter) {
-    x'.τ ~ Binomial(x.s, 1.0 - exp(-θ.λ*x.i/(x.s + x.i + x.r)));
+    x'.τ ~ Binomial(x.s, 1.0 - exp(-θ.λ*Real(x.i)/Real(x.s + x.i + x.r)));
     x'.Δi ~ Binomial(x'.τ, θ.δ);
     x'.Δr ~ Binomial(x.i, θ.γ);
 
@@ -950,7 +880,6 @@ class SIRModel &lt; MarkovModel&lt;SIRParameter,SIRState&gt; {
   }
 }
 </code></pre>
-</div>
 <p>Notice the three member functions in the above code:</p>
 <pre><code>function parameter(θ:SIRParameter);
 function initial(x:SIRState, θ:SIRParameter);
@@ -962,27 +891,20 @@ function transition(x':SIRState, x:SIRState, θ:SIRParameter);
 <li>the second is for the initial model, providing the initial state as the <code>x</code> argument, and parameters as the <code>θ</code> argument,</li>
 <li>the third is for the transition model, providing the current state as the <code>x'</code> argument, the previous state as the <code>x</code> argument, and the parameters as the <code>θ</code> argument.</li>
 </ul>
-<p>Here, <code>x'</code> is just the name of a variable. The prime <code>'</code> is a valid character for variable names in Birch, useful where it might also be used in mathematics.</p>
-<p>The initial model is empty by choice. While we could implement the initial model described above, it is specific to the data set that we will use. We would prefer not to hardcode it, in order that we might reuse this model for other data sets. Instead, we have elected to include the initial state in the input file that we will set up below.</p>
-<p>The transition model uses <a href="/documentation/library/classes/Delta/">Delta</a> distributions rather than simple assignment statements. This is because we have declared the variables <code>s</code>, <code>i</code> and <code>r</code> to be of type <code>Random&lt;Integer&gt;</code>, not just <code>Integer</code>. Using the <a href="/documentation/library/classes/Delta/">Delta</a> distributions ensures proper handling of the two possible situations for each variable: that it already has a value&mdash;in which case we observe that value&mdash;or that its value is missing&mdash;in which case we simulate it. Indeed, the code, as written, handles all cases, according to what is provided in the input file.</p>
-<div class="admonition example">
-<p class="admonition-title">Exercise</p>
-<p>Build with</p>
-<pre><code>birch build
-</code></pre>
-</div>
+<p>Here, <code>x'</code> is just the name of a variable. The prime <code>'</code> is a valid character for variable names in Birch, useful where it is also useful in mathematics.</p>
+<p>The initial model is empty by choice. While we could implement the initial model described above, it is specific to the data set that we will use. We would prefer not to hardcode it, in order that we might reuse this model for other data sets in future. We will provide the initial state in an input file, set up below.</p>
+<p>The <code>Real(x.i)</code> and <code>Real(x.s + x.i + x.r)</code> cast the <code>Integer</code> expressions to <code>Real</code> expressions.</p>
+<p>The transition model uses <a href="https://docs.birch.sh/libraries/Standard/classes/Delta/">Delta</a> distributions rather than simple assignment statements. This is because we have declared the member variables <code>s</code>, <code>i</code> and <code>r</code> as randoms, of type <code>Random&lt;Integer&gt;</code>, not just values, of type <code>Integer</code>. Using randoms facilitates some analytical optimizations here.</p>
 <h2 id="data">Data</h2>
-<p>We will use a data set of the outbreak of Russian influenza at a boy's boarding school in northern England<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>.</p>
-<div class="admonition example">
-<p class="admonition-title">Exercise</p>
-<p>Download the data set <a href="/tutorial/influenza.json">here</a> and place it in your project's <code>input/</code> directory as <code>input/influenza.json</code>.</p>
-</div>
-<p>Have a look at the contents of the file in a text editor. It contains an array of states. The first state sets the values of all state variables, while for subsequent states it sets only <span><span class="MathJax_Preview">i_t</span><script type="math/tex">i_t</script></span>, the number of infectious individuals.</p>
+<p>We will use a classic data set of the outbreak of influenza at a boarding school in northern England<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>. <a href="/getting-started/influenza.json">Download the data set</a> to the <code>input/</code> directory.</p>
+<p>Have a look at the contents of the file (<code>cat input/influenza.json</code>). It contains:</p>
+<ul>
+<li>An object <code>θ</code> that fixes the value of <span><span class="MathJax_Preview">\lambda</span><script type="math/tex">\lambda</script></span> to 10.</li>
+<li>An array <code>x</code> that fixes the initial value of all state variables, then only the value of <span><span class="MathJax_Preview">i_t</span><script type="math/tex">i_t</script></span> for subsequent elements.</li>
+</ul>
 <h2 id="inference">Inference</h2>
-<p>We are nearly ready to perform inference. Unlike the <a href="/documentation/tutorial/linear-regression">linear regression</a> example, there is no exact analytical solution for this model that can be computed in reasonable time. A particle filter will be used for inference instead. Nevertheless, the delayed sampling<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup> heuristic in Birch will find some local analytical optimizations and automatically apply them. These include marginalizing out the parameters <span><span class="MathJax_Preview">\delta</span><script type="math/tex">\delta</script></span> and <span><span class="MathJax_Preview">\gamma</span><script type="math/tex">\gamma</script></span>, and enumerating sums and differences of binomials.</p>
-<p>The particle filter requires some configuration. This is provided in a configuration file.</p>
-<div class="admonition example">
-<p class="admonition-title">Exercise</p>
+<p>Birch's inference engine is based on Sequential Monte Carlo (SMC) with several variants and configurable components, as well as automatic marginalization, automatic conjugacy, and automatic differentiation. For this model, the delayed sampling<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup> mechanism will find some analytical optimizations and apply them. These include marginalizing out the parameters <span><span class="MathJax_Preview">\delta</span><script type="math/tex">\delta</script></span> and <span><span class="MathJax_Preview">\gamma</span><script type="math/tex">\gamma</script></span>, as they form conjugate beta-binomial relationships with state variables, as well as enumerating sums and differences of discrete variables.</p>
+<p>The previous linear regression example was simple enough that no configuration was required. Here we need to change a few options. A configuration file is used for this purpose.</p>
 <p>Create a file <code>config/sir.json</code> and enter the following contents:</p>
 <pre><code>{
   "model": {
@@ -998,16 +920,18 @@ function transition(x':SIRState, x:SIRState, θ:SIRParameter);
   "output": "output/sir.json"
 }
 </code></pre>
+<p>This sets the number of posterior samples to draw (<code>sampler.nsamples</code>) and the number of particles used by SMC when drawing each (<code>filter.nparticles</code>). It also sets the model class (<code>model.class</code>), input file (<code>input</code>), and output file (<code>output</code>), which we provided on the command line instead in the linear regression example (it preferable to provide these in the configuration file instead).</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Any of these JSON files can be written in <a href="https://yaml.org/">YAML</a> if you prefer.</p>
 </div>
-<p>This sets the number of posterior samples to draw, and the number of particles to use when running the particle filter. It also sets the model class, input file, and output file, which we previously provided on the command line instead. Usually it is easier---and preferable for reproducibility---to use configuration files rather than having to provide too much information on the command line.</p>
-<p>Now we can perform inference.</p>
-<div class="admonition example">
-<p class="admonition-title">Exercise</p>
-<p>Sample from the posterior distribution with</p>
+<p>Build the package:</p>
+<pre><code>birch build
+</code></pre>
+<p>then sample from the posterior distribution with</p>
 <pre><code>birch sample --config config/sir.json
 </code></pre>
-</div>
-<p>As before, you can inspect the results of the inference in <code>output/sir.json</code>, and perhaps plot them. Be aware that the output here is an <em>importance sample</em>. Each sample is assigned a weight, the logarithm of which is given by the associated <code>lweight</code> element in the output file.</p>
+<p>As before, you can inspect the results of the inference in <code>output/sir.json</code>, in a text editor, web browser, or on the command line (<code>less output/sir.json</code>). The output here is an importance sample: each sample is assigned a weight, the logarithm of which is given by the associated <code>lweight</code> element.</p>
 <div class="footnote">
 <hr />
 <ol>
