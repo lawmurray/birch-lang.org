@@ -8,7 +8,7 @@ The prefix unary operators are all of equal precedence, and of higher precedence
 | ------------ | ------------ | --------------- |
 | `+` Identity | `-` Negative | `!` Logical not |
 
-The postfix unary operators are used with [optionals](optionals). They are of equal precedence, and of higher precedence than all other operators, including the prefix unary operators:
+The postfix unary operators are used with [optionals](/language/optionals). They are of equal precedence, and of higher precedence than all other operators, including the prefix unary operators:
 
 |           |         |
 | --------- | ------- |
