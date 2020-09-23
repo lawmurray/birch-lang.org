@@ -222,7 +222,7 @@ Build the package:
 
     birch build
 
-then sample from the posterior distribution with
+then sample from the posterior distribution with:
 
     birch sample --config config/sir.json
 

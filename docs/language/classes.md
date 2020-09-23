@@ -39,8 +39,6 @@ However, because objects are kept by reference, it is possible to declare an obj
     b:B;
     a:A <- b;
 
-!!! info
-    Some constraints on abstract and final classes are currently enforced by the C++ compiler, not the Birch compiler, and so will produce C++ compilation error messages, rather than Birch compilation error messages. These are still reasonably interpretable.
 
 ### Member variables
 

@@ -50,6 +50,7 @@ nav:
     - language/types.md
     - language/assignments.md
     - language/control_flow.md
+    - language/assertions.md
     - language/arrays.md
     - language/optionals.md
     - language/tuples.md
@@ -60,4 +61,5 @@ nav:
     - language/classes.md
     - language/aliases.md
     - language/casts.md
+    - language/probability.md
   - about.md

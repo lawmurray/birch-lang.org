@@ -33,5 +33,5 @@ For loops are written as:
 
 where `a` will be declared as a new variable of `Integer` type, and `b` and `c` evaluate to `Integer` type, with `b <= c`.
 
-!!! caution
+!!! attention
     It is **not** possible to iterate backward simply by setting `b > c`.

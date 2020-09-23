@@ -2,7 +2,7 @@ A variable of one type can be cast down to a more-specific target type by using 
 
 For `A < B`, with `a:A`, `b:B`, and `c:A?`:
 
-    b <- a;      // OK, as B > A
+    b <- a;      // OK, as A < B
     c <- A?(b);  // OK, but A < B so must use cast
 
 The optional `c` may be used to check whether the cast succeeded, and if so, to retrieve the result:

@@ -1,4 +1,4 @@
-The basic type `A` may be declared as an alias (synonym) for the basic type `B` with:
+A basic type `A` may be declared as an alias (synonym) for a basic type `B` with:
 
     type A = B;
 
