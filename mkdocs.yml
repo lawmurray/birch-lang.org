@@ -43,7 +43,6 @@ nav:
     - getting-started/next-steps.md
   - 'Language':
     - language/index.md
-    - language/comments.md
     - language/variables.md
     - language/types.md
     - language/assignments.md
@@ -60,4 +59,6 @@ nav:
     - language/aliases.md
     - language/casts.md
     - language/probability.md
+  - 'Documentation':
+    - 'https://docs.birch.sh'
   - about.md
