@@ -60,5 +60,5 @@ nav:
     - language/casts.md
     - language/probability.md
   - 'Documentation':
-    - 'https://docs.birch.sh'
+    - 'docs.birch.sh': 'https://docs.birch.sh'
   - about.md
