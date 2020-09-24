@@ -31,7 +31,7 @@ then run the `hello` program with:
 
 If you see `Hello, World!` on the terminal then everything is in order!
 
-This is the typical workflow: whenever you make a change, run `birch build` to rebuild the package. The first time always takes a little longer than subsequent calls.
+This is the typical workflow: whenever you make a change, run `birch build` to rebuild the package before running it again. The first time always takes a little longer than subsequent calls. Under the hood, the command is running a Birch-to-C++ source-to-source compiler, setting up a GNU Autotools build system (using [autoconf](https://www.gnu.org/software/autoconf/), [automake](https://www.gnu.org/software/automake/) and [libtool](https://www.gnu.org/software/libtool/)), and compiling the C++ sources to binaries. You will see the output of these steps on the terminal.
 
 !!! tip
     When building, Birch will create a number of additional files in the current working directory. If you ever want to delete these files, use:
