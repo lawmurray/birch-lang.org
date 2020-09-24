@@ -41,8 +41,6 @@
     
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
-    
     
       
         
@@ -382,8 +380,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../language/" title="Introduction" class="md-nav__link">
-      Introduction
+    <a href="../../language/" title="The Birch Programming Language" class="md-nav__link">
+      The Birch Programming Language
     </a>
   </li>
 
@@ -665,7 +663,7 @@ cd HelloWorld
 <pre><code>birch hello
 </code></pre>
 <p>If you see <code>Hello, World!</code> on the terminal then everything is in order!</p>
-<p>This is the typical workflow: whenever you make a change, run <code>birch build</code> to rebuild the package. The first time always takes a little longer than subsequent calls.</p>
+<p>This is the typical workflow: whenever you make a change, run <code>birch build</code> to rebuild the package before running it again. The first time always takes a little longer than subsequent calls. Under the hood, the command is running a Birch-to-C++ source-to-source compiler, setting up a GNU Autotools build system (using <a href="https://www.gnu.org/software/autoconf/">autoconf</a>, <a href="https://www.gnu.org/software/automake/">automake</a> and <a href="https://www.gnu.org/software/libtool/">libtool</a>), and compiling the C++ sources to binaries. You will see the output of these steps on the terminal.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>When building, Birch will create a number of additional files in the current working directory. If you ever want to delete these files, use:</p>
