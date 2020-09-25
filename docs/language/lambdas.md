@@ -1,6 +1,6 @@
 Lambda (anonymous) functions may appear in expressions as:
 
-    (a:A, b:B) -> C {
+    \(a:A, b:B) -> C {
       c:C;
       // do something
       return c;
