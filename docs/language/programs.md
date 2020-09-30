@@ -1,10 +1,10 @@
 A program is a special function that is an entry point into Birch code from the command line. It cannot be called from other Birch code. Declare a program with:
-
-    program example(x:Boolean, y:Integer <- 0, message:String,
-        long_name:Real) {
-      // do something
-    }
-
+```birch
+program example(x:Boolean, y:Integer <- 0, message:String,
+    long_name:Real) {
+    // do something
+}
+```
 where `x`, `y`, `message`, and `long_name` are program options, with `y` given a default value of zero. A program has no return value.
 
 To call a program from the command line, use `birch`, followed by the program name, following by a list of program options:

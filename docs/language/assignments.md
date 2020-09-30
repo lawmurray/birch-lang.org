@@ -1,6 +1,7 @@
 Assignment statements use the `<-` operator.
-
-    a <- b;
+```birch
+a <- b;
+```
 
 Assignment of basic types is by value, and of class types by reference. Assignment can be used in an expression, where it returns the value of the left operand after assignment.
 

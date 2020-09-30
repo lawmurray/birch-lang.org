@@ -38,22 +38,22 @@ The action of standard operators is defined by overloads, declared using the `op
     It is still possible to manipulate the behavior of some operators that cannot be overloaded. For example, the behavior of the assignment operator `<-` can be manipulated by declaring assignments and conversions in class declarations.
 
 A binary operator `+` with two operands `a:A` and `b:B`, and return type `C`, is declared as:
-
-    operator (a:A + b:B) -> C {
-      c:C;
-      // do something
-      return c;
-    }
-
+```birch
+operator (a:A + b:B) -> C {
+  c:C;
+  // do something
+  return c;
+}
+```
 Any of the standard binary operators may be used in place of `+`.
 
 A unary operator `+` with one operand `a:A`, and return type `C`, is declared as:
-
-    operator (+a:A) -> C {
-      c:C;
-      return c;
-    }
-
+```birch
+operator (+a:A) -> C {
+  c:C;
+  return c;
+}
+```
 Any of the standard unary operators may be used in place of `+`.
 
 Operators always have a return type. It is not possible to manipulate operator precedence.
