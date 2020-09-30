@@ -662,11 +662,12 @@
                   <h1>Probability</h1>
                 
                 <p>Probabilistic statements use one of three operators, or the keyword <code>factor</code>:</p>
-<pre><code>x &lt;~ p;
+<div class="highlight"><pre><span></span><code>x &lt;~ p;
 x ~&gt; p;
 x ~ p;
 factor w;
-</code></pre>
+</code></pre></div>
+
 <p>Let <code>x</code> be a value of basic type (e.g. <code>Real</code>) or optional type (e.g. <code>Real?</code>), or object of <a href="https://docs.birch.sh/libraries/Standard/classes/Random">Random</a> type (e.g. <code>Random&lt;Real&gt;</code>), and <code>p</code> be an object of <a href="https://docs.birch.sh/libraries/Standard/classes/Distribution">Distribution</a> type. Then:</p>
 <ul>
 <li><code>x &lt;~ p</code> <em>simulates</em> a variate <code>x</code> from the distribution <code>p</code>,</li>
@@ -675,10 +676,11 @@ factor w;
 </ul>
 <p>If <code>x</code> has a value, <code>x ~ p</code> typically acts like <code>x ~&gt; p</code>, while if it does not have a value, <code>x ~ p</code> eventually acts something like <code>x &lt;~ p</code>, possibly after analytical optimizations.</p>
 <p>These statements emit events to an event handler, which is simply an object of type <a href="https://docs.birch.sh/libraries/Standard/classes/Handler">Handler</a>. By default, there is no event handler registered, so the events are ignored. To register an event handler <code>h</code>, use a <code>with</code> block:</p>
-<pre><code>with h {
+<div class="highlight"><pre><span></span><code>with h {
   // do something probabilistic
 }
-</code></pre>
+</code></pre></div>
+
 <p>The <code>factor</code> statement sends an arbitrary log-weight <code>w</code> to the event handler.</p>
 <p>Event handlers are typically used as an interface between inference methods and models, creating the opportunity for inference methods to intervene in model execution.</p>
                 

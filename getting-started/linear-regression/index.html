@@ -792,42 +792,43 @@ y_n \mid \boldsymbol{\beta}, \sigma^2 &\sim \mathrm{Gaussian}(\mathbf{x}_n^{\top
 <p>The parameters of the model are the noise variance <span><span class="MathJax_Preview">\sigma^2</span><script type="math/tex">\sigma^2</script></span> and vector of coefficients <span><span class="MathJax_Preview">\boldsymbol{\beta}</span><script type="math/tex">\boldsymbol{\beta}</script></span>. The data consists of observations <span><span class="MathJax_Preview">y_n</span><script type="math/tex">y_n</script></span> and explanatory variables <span><span class="MathJax_Preview">\mathbf{x}_n</span><script type="math/tex">\mathbf{x}_n</script></span> for <span><span class="MathJax_Preview">n=1,\ldots,N</span><script type="math/tex">n=1,\ldots,N</script></span>.</p>
 <h2 id="implementation">Implementation</h2>
 <p>To specify a model in Birch, we create a <a href="/language/classes">class</a> that inherits from <a href="https://docs.birch.sh/libraries/Standard/classes/Model">Model</a>. Use your preferred text editor to create a file <code>src/LinearRegressionModel.birch</code> and enter the following contents:</p>
-<pre><code>/**
- * Bayesian linear regression model with conjugate normal-inverse-gamma
- * prior.
- */
-class LinearRegressionModel &lt; Model {
-  /**
-   * Explanatory variables.
-   */
-  X:Real[_,_];
+<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
+<span class="cm"> * Bayesian linear regression model with conjugate normal-inverse-gamma</span>
+<span class="cm"> * prior.</span>
+<span class="cm"> */</span>
+<span class="kd">class</span><span class="err"> </span><span class="kt">LinearRegressionModel</span><span class="err"> </span><span class="o">&lt;</span><span class="err"> </span><span class="kt">Model</span><span class="err"> </span><span class="p">{</span>
+<span class="err">  </span><span class="cm">/**</span>
+<span class="cm">   * Explanatory variables.</span>
+<span class="cm">   */</span>
+<span class="err">  X</span><span class="p">:</span><span class="kt">Real</span><span class="p">[</span><span class="kc">_</span><span class="p">,</span><span class="kc">_</span><span class="p">];</span>
 
-  /**
-   * Regression coefficients.
-   */
-  β:Random&lt;Real[_]&gt;;
+<span class="err">  </span><span class="cm">/**</span>
+<span class="cm">    * Regression coefficients.</span>
+<span class="cm">    */</span>
+<span class="err">  β</span><span class="p">:</span><span class="kt">Random</span><span class="o">&lt;</span><span class="kt">Real</span><span class="p">[</span><span class="kc">_</span><span class="p">]</span><span class="o">&gt;</span><span class="p">;</span>
 
-  /**
-   * Observation variance.
-   */
-  σ2:Random&lt;Real&gt;;
+<span class="err">  </span><span class="cm">/**</span>
+<span class="cm">    * Observation variance.</span>
+<span class="cm">    */</span>
+<span class="err">  σ2</span><span class="p">:</span><span class="kt">Random</span><span class="o">&lt;</span><span class="kt">Real</span><span class="o">&gt;</span><span class="p">;</span>
 
-  /**
-   * Observations.
-   */
-  y:Random&lt;Real[_]&gt;;
+<span class="err">  </span><span class="cm">/**</span>
+<span class="cm">    * Observations.</span>
+<span class="cm">    */</span>
+<span class="err">  y</span><span class="p">:</span><span class="kt">Random</span><span class="o">&lt;</span><span class="kt">Real</span><span class="p">[</span><span class="kc">_</span><span class="p">]</span><span class="o">&gt;</span><span class="p">;</span>
 
-  function simulate() {
-    let N &lt;- rows(X);
-    let P &lt;- columns(X);
-    if N &gt; 0 &amp;&amp; P &gt; 0 {
-      σ2 ~ InverseGamma(3.0, 0.4);
-      β ~ Gaussian(vector(0.0, P), identity(P), σ2);
-      y ~ Gaussian(X*β, σ2);
-    }
-  }
-}
-</code></pre>
+<span class="err">  </span><span class="kd">function</span><span class="err"> simulate</span><span class="p">()</span><span class="err"> </span><span class="p">{</span>
+<span class="err">    </span><span class="kd">let</span><span class="err"> N </span><span class="o">&lt;-</span><span class="err"> rows</span><span class="p">(</span><span class="err">X</span><span class="p">);</span>
+<span class="err">    </span><span class="kd">let</span><span class="err"> P </span><span class="o">&lt;-</span><span class="err"> columns</span><span class="p">(</span><span class="err">X</span><span class="p">);</span>
+<span class="err">    </span><span class="kd">if</span><span class="err"> N </span><span class="o">&gt;</span><span class="err"> </span><span class="mi">0</span><span class="err"> </span><span class="o">&amp;&amp;</span><span class="err"> P </span><span class="o">&gt;</span><span class="err"> </span><span class="mi">0</span><span class="err"> </span><span class="p">{</span>
+<span class="err">      σ2 </span><span class="o">~</span><span class="err"> </span><span class="kt">InverseGamma</span><span class="p">(</span><span class="mi">3</span><span class="o">.</span><span class="mi">0</span><span class="p">,</span><span class="err"> </span><span class="mi">0</span><span class="o">.</span><span class="mi">4</span><span class="p">);</span>
+<span class="err">      β </span><span class="o">~</span><span class="err"> </span><span class="kt">Gaussian</span><span class="p">(</span><span class="err">vector</span><span class="p">(</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="p">,</span><span class="err"> P</span><span class="p">),</span><span class="err"> identity</span><span class="p">(</span><span class="err">P</span><span class="p">),</span><span class="err"> σ2</span><span class="p">);</span>
+<span class="err">      y </span><span class="o">~</span><span class="err"> </span><span class="kt">Gaussian</span><span class="p">(</span><span class="err">X</span><span class="o">*</span><span class="err">β</span><span class="p">,</span><span class="err"> σ2</span><span class="p">);</span>
+<span class="err">    </span><span class="p">}</span>
+<span class="err">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
 <p>The explanatory variables <span><span class="MathJax_Preview">X</span><script type="math/tex">X</script></span> (the <span><span class="MathJax_Preview">\mathbf{x}_n</span><script type="math/tex">\mathbf{x}_n</script></span>, as a matrix), observations <span><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span> (<span><span class="MathJax_Preview">y_n</span><script type="math/tex">y_n</script></span>, as a vector) and parameters <span><span class="MathJax_Preview">\beta</span><script type="math/tex">\beta</script></span> and <span><span class="MathJax_Preview">\sigma^2</span><script type="math/tex">\sigma^2</script></span> have been declared as <em>member variables</em> of the class. <a href="/language/variables">Variables</a> in Birch are typed. We see here a few different types:</p>
 <ul>
 <li><code>Real</code> is a double-precision floating point number.</li>
@@ -846,11 +847,13 @@ class LinearRegressionModel &lt; Model {
 <li>The <code>let</code> keyword declares a variable, where the type of the variable is deduced from its initial value. An equivalent way to declare <code>N</code>, for example, would be <code>N:Integer &lt;- rows(X)</code>, but the <code>let</code> syntax often looks tidier.</li>
 </ul>
 <p>The basic model is now implemented. It is worth building and running at this stage as a check. Build, as usual, with:</p>
-<pre><code>birch build
-</code></pre>
+<div class="highlight"><pre><span></span><code>birch build
+</code></pre></div>
+
 <p>and run with:</p>
-<pre><code>birch sample --model LinearRegressionModel
-</code></pre>
+<div class="highlight"><pre><span></span><code>birch sample --model LinearRegressionModel
+</code></pre></div>
+
 <p>Running will not do anything interesting at this stage&mdash;for that we need some data!</p>
 <h2 id="data">Data</h2>
 <p>We will use a <a href="https://archive.ics.uci.edu/ml/datasets/bike+sharing+dataset">data set</a> from the Capital Bikeshare system in Washington D.C. for the years 2011 to 2012. The aim is to use weather and holiday information to predict the total number of bike hires on any given day<sup id="fnref2:2"><a class="footnote-ref" href="#fn:2">2</a></sup>.</p>
@@ -863,52 +866,58 @@ class LinearRegressionModel &lt; Model {
 <p>For now, have a look at the contents of the file in a text editor, web browser, or on the command line (<code>less input/bike_share.json</code> and hit <code>q</code> when you've seen enough). It contains two variables: a matrix <code>X</code> and a vector <code>y</code>. We need to read these into the model.</p>
 <p>Recall that, in defining the <code>LinearRegressionModel</code> class, we overrode the <code>simulate()</code> member function of the <code>Model</code> class. The <code>Model</code> class also has two other member functions called <code>read()</code> and <code>write()</code> that we can implement to read and write data.</p>
 <p>Add the following two member functions after the <code>simulate()</code> member function in the <code>LinearRegressionModel</code> class:</p>
-<pre><code>function read(buffer:Buffer) {
-  X &lt;-? buffer.getRealMatrix("X");
-  y &lt;-? buffer.getRealVector("y");
-}
+<div class="highlight"><pre><span></span><code><span class="err">    </span><span class="kd">function</span><span class="err"> read</span><span class="p">(</span><span class="err">buffer</span><span class="p">:</span><span class="kt">Buffer</span><span class="p">)</span><span class="err"> </span><span class="p">{</span>
+<span class="err">      X </span><span class="o">&lt;-?</span><span class="err"> buffer</span><span class="o">.</span><span class="err">getRealMatrix</span><span class="p">(</span><span class="s2">&quot;X&quot;</span><span class="p">);</span>
+<span class="err">      y </span><span class="o">&lt;-?</span><span class="err"> buffer</span><span class="o">.</span><span class="err">getRealVector</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">);</span>
+<span class="err">    </span><span class="p">}</span>
 
-function write(buffer:Buffer) {
-  buffer.set("β", β);
-  buffer.set("σ2", σ2);
-}
-</code></pre>
+<span class="err">    </span><span class="kd">function</span><span class="err"> write</span><span class="p">(</span><span class="err">buffer</span><span class="p">:</span><span class="kt">Buffer</span><span class="p">)</span><span class="err"> </span><span class="p">{</span>
+<span class="err">      buffer</span><span class="o">.</span><span class="err">set</span><span class="p">(</span><span class="s2">&quot;β&quot;</span><span class="p">,</span><span class="err"> β</span><span class="p">);</span>
+<span class="err">      buffer</span><span class="o">.</span><span class="err">set</span><span class="p">(</span><span class="s2">&quot;σ2&quot;</span><span class="p">,</span><span class="err"> σ2</span><span class="p">);</span>
+<span class="err">    </span><span class="p">}</span>
+</code></pre></div>
+
 <p>The <code>read()</code> member function reads from the input file into the member variables <code>X</code> and <code>y</code>. The strings <code>"X"</code> and <code>"y"</code> name the elements in the input file. The <code>write()</code> member function writes the parameters to the output file.</p>
 <p>The <a href="https://docs.birch.sh/libraries/Standard/classes/Buffer">Buffer</a> class provides the interface for easily reading and writing these. Its <code>get</code> style member functions (e.g. the <code>getReadMatrix()</code> and <code>getRealVector()</code> used above) return <a href="/language/optionals/">optionals</a>. An optional is just a variable that may or may not have a value. Here, if the requested element exists in the file, it has a value, otherwise it does not. The <code>&lt;-?</code> is a special assignment operator that assigns a value to the variable on the left only if the optional on the right actually has a value.</p>
 <h2 id="inference">Inference</h2>
 <p>Now rebuild:</p>
-<pre><code>birch build
-</code></pre>
+<div class="highlight"><pre><span></span><code>birch build
+</code></pre></div>
+
 <p>and run:</p>
-<pre><code>birch sample \
+<div class="highlight"><pre><span></span><code>birch sample \
     --model LinearRegressionModel \
     --input input/bike_share.json \
     --output output/linear_regression.json
-</code></pre>
+</code></pre></div>
+
 <p>This run command specifies the model class to use, the input file from which to read, and the output file to which to write.</p>
 <p>View the output with:</p>
-<pre><code>cat output/linear_regression.json
-</code></pre>
+<div class="highlight"><pre><span></span><code>cat output/linear_regression.json
+</code></pre></div>
+
 <p>You will see a single sample drawn from the posterior distribution.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>We have already noted that this particular example has an analytical solution. We can, in fact, output this solution if preferred. To do so, update the <code>write()</code> member function as follows, then re-build and re-run:</p>
-<pre><code>function write(buffer:Buffer) {
-  if β.hasDistribution() {
-    buffer.set("β", β.getDistribution());
-  } else {
-    buffer.set("β", β);
-    buffer.set("σ2", σ2);
-  }
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="err">    </span><span class="kd">function</span><span class="err"> write</span><span class="p">(</span><span class="err">buffer</span><span class="p">:</span><span class="kt">Buffer</span><span class="p">)</span><span class="err"> </span><span class="p">{</span>
+<span class="err">      </span><span class="kd">if</span><span class="err"> β</span><span class="o">.</span><span class="err">hasDistribution</span><span class="p">()</span><span class="err"> </span><span class="p">{</span>
+<span class="err">        buffer</span><span class="o">.</span><span class="err">set</span><span class="p">(</span><span class="s2">&quot;β&quot;</span><span class="p">,</span><span class="err"> β</span><span class="o">.</span><span class="err">getDistribution</span><span class="p">());</span>
+<span class="err">      </span><span class="p">}</span><span class="err"> </span><span class="kd">else</span><span class="err"> </span><span class="p">{</span>
+<span class="err">        buffer</span><span class="o">.</span><span class="err">set</span><span class="p">(</span><span class="s2">&quot;β&quot;</span><span class="p">,</span><span class="err"> β</span><span class="p">);</span>
+<span class="err">        buffer</span><span class="o">.</span><span class="err">set</span><span class="p">(</span><span class="s2">&quot;σ2&quot;</span><span class="p">,</span><span class="err"> σ2</span><span class="p">);</span>
+<span class="err">      </span><span class="p">}</span>
+<span class="err">    </span><span class="p">}</span>
+</code></pre></div>
+
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p><em>Debug</em> mode is used by default. This mode enables all error checking and disables all optimizations to assist with debugging. Debug mode is recommended when developing and testing code. When you are happy that your code is working correctly, you can use <em>release</em> mode instead, which takes longer to build but runs much faster (several times so). Release mode is enabled by adding the option <code>--enable-release</code> when calling <code>birch</code>:</p>
-<pre><code>birch build --enable-release
+<div class="highlight"><pre><span></span><code>birch build --enable-release
 birch sample --enable-release ...
-</code></pre>
+</code></pre></div>
+
 </div>
 <div class="footnote">
 <hr />

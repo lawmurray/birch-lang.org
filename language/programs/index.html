@@ -662,15 +662,17 @@
                   <h1>Programs</h1>
                 
                 <p>A program is a special function that is an entry point into Birch code from the command line. It cannot be called from other Birch code. Declare a program with:</p>
-<pre><code>program example(x:Boolean, y:Integer &lt;- 0, message:String,
+<div class="highlight"><pre><span></span><code>program example(x:Boolean, y:Integer &lt;- 0, message:String,
     long_name:Real) {
   // do something
 }
-</code></pre>
+</code></pre></div>
+
 <p>where <code>x</code>, <code>y</code>, <code>message</code>, and <code>long_name</code> are program options, with <code>y</code> given a default value of zero. A program has no return value.</p>
 <p>To call a program from the command line, use <code>birch</code>, followed by the program name, following by a list of program options:</p>
-<pre><code>birch example --message "Hello!" --long-name 10.0 -x true -y 10
-</code></pre>
+<div class="highlight"><pre><span></span><code>birch example --message &quot;Hello!&quot; --long-name 10.0 -x true -y 10
+</code></pre></div>
+
 <p>Program options may be given in any order but must be named. The name is usually prefixed with double-dash (<code>--</code>), but may be prefixed with single-dash (<code>-</code>) if the name is a single character.</p>
 <p>Whenever an underscore (<code>_</code>) appears in the name of a program option, it should be replaced with a dash (<code>-</code>) on the command line. This occurs in the example above, where the <code>long_name</code> program option becomes <code>--long-name</code> on the command line.</p>
 <p>Program options may be of any type for which an assignment from type <code>String</code> has been declared. This includes all basic types.</p>

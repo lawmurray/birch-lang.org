@@ -662,37 +662,43 @@
                   <h1>Optionals</h1>
                 
                 <p>Optional types allow variables to have a value of a particular type, or no value at all. An optional type is indicated by following any other type with <code>?</code>, like so:</p>
-<pre><code>a:A?;
-</code></pre>
+<div class="highlight"><pre><span></span><code>a:A?;
+</code></pre></div>
+
 <p>To check whether a variable of optional type has a value, use the postfix <code>?</code> operator, which returns <code>true</code> if there is a value and <code>false</code> if not. If there is a value, use the postfix <code>!</code> operator to retrieve it. A common usage idiom is as follows:</p>
-<pre><code>if a? {  // check if a has a value
+<div class="highlight"><pre><span></span><code>if a? {  // check if a has a value
   f(a!);  // if so, do something with the value of a
 }
-</code></pre>
+</code></pre></div>
+
 <p>The special value of <code>nil</code> may be assigned to an optional to remove an existing value (if any):</p>
-<pre><code>a &lt;- nil;
-</code></pre>
+<div class="highlight"><pre><span></span><code>a &lt;- nil;
+</code></pre></div>
+
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>In some languages, e.g. Java, objects may be null, and this null value may be used to indicate no value. In Birch, an object cannot have a null value, but an optional can be used instead.</p>
 <p>This is particularly useful when writing functions that accept objects as arguments, as there is no need to check whether those arguments actually have a value or not; they will always have a value, unless denoted as optional.</p>
 </div>
 <p>Optional types compose with other types. The following is an optional of array type:</p>
-<pre><code>a:A[_]?;
-</code></pre>
+<div class="highlight"><pre><span></span><code>a:A[_]?;
+</code></pre></div>
+
 <p>while the following is an array of optional type:</p>
-<pre><code>a:A?[_];
-</code></pre>
+<div class="highlight"><pre><span></span><code>a:A?[_];
+</code></pre></div>
+
 <p>In the former case, either the whole array exists or it does not. Retrieve an element with:</p>
-<pre><code>if a? {
+<div class="highlight"><pre><span></span><code>if a? {
   f(a![n]);
 }
-</code></pre>
+</code></pre></div>
+
 <p>In the latter case, the whole array exists, but each individual element may or may not have a value:</p>
-<pre><code>if a[n]? {
+<div class="highlight"><pre><span></span><code>if a[n]? {
   f(a[n]!);
 }
-</code></pre>
+</code></pre></div>
                 
               
               

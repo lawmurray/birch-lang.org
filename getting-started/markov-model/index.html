@@ -834,122 +834,126 @@ r_t &= r_{t-1} + \Delta r_t.
 <p>We again create a class that inherits from <code>Model</code>, but the standard library provides a more specialized class <a href="https://docs.birch.sh/libraries/Standard/classes/MarkovModel">MarkovModel</a> that can handle some of the work for us here. <code>MarkovModel</code> inherits from <code>Model</code>. It overrides the <code>simulate()</code> member function to call three other member functions that it defines: <code>parameter()</code>, <code>initial()</code>, and <code>transition()</code>, for the three parts of a Markov model. Instead of creating a class that inherits from <code>Model</code> directly and overrides <code>simulate()</code>, we create a class that inherits from <code>MarkovModel</code> and overrides <code>parameter()</code>, <code>initial()</code> and <code>transition()</code>.</p>
 <p>Furthermore, <code>MarkovModel</code> is a <a href="/language/classes/#generics">generic</a> class, fully written <code>MarkovModel&lt;Parameter,State&gt;</code>. When used it is provided with two other classes as type arguments, one that describes the parameters of the model, and one that describes the state of the model. We create these two classes first.</p>
 <p>Create a file <code>src/SIRParameter.birch</code> with the following:</p>
-<pre><code>/**
- * SIR model parameters.
- */
-class SIRParameter {
-  /**
-   * Interaction rate.
-   */
-  λ:Random&lt;Real&gt;;
+<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
+<span class="cm"> * SIR model parameters.</span>
+<span class="cm">*/</span>
+<span class="kd">class</span><span class="err"> </span><span class="kt">SIRParameter</span><span class="err"> </span><span class="p">{</span>
+<span class="err">  </span><span class="cm">/**</span>
+<span class="cm">   * Interaction rate.</span>
+<span class="cm">   */</span>
+<span class="err">  λ</span><span class="p">:</span><span class="kt">Random</span><span class="o">&lt;</span><span class="kt">Real</span><span class="o">&gt;</span><span class="p">;</span>
 
-  /**
-   * Infection probability.
-   */
-  δ:Random&lt;Real&gt;;
+<span class="err">  </span><span class="cm">/**</span>
+<span class="cm">   * Infection probability.</span>
+<span class="cm">   */</span>
+<span class="err">  δ</span><span class="p">:</span><span class="kt">Random</span><span class="o">&lt;</span><span class="kt">Real</span><span class="o">&gt;</span><span class="p">;</span>
 
-  /**
-   * Recovery probability.
-   */
-  γ:Random&lt;Real&gt;;
+<span class="err">  </span><span class="cm">/**</span>
+<span class="cm">   * Recovery probability.</span>
+<span class="cm">   */</span>
+<span class="err">  γ</span><span class="p">:</span><span class="kt">Random</span><span class="o">&lt;</span><span class="kt">Real</span><span class="o">&gt;</span><span class="p">;</span>
 
-  function read(buffer:Buffer) {
-    buffer.get("λ", λ);
-    buffer.get("δ", δ);
-    buffer.get("γ", γ);
-  }
+<span class="err">  </span><span class="kd">function</span><span class="err"> read</span><span class="p">(</span><span class="err">buffer</span><span class="p">:</span><span class="kt">Buffer</span><span class="p">)</span><span class="err"> </span><span class="p">{</span>
+<span class="err">    buffer</span><span class="o">.</span><span class="err">get</span><span class="p">(</span><span class="s2">&quot;λ&quot;</span><span class="p">,</span><span class="err"> λ</span><span class="p">);</span>
+<span class="err">    buffer</span><span class="o">.</span><span class="err">get</span><span class="p">(</span><span class="s2">&quot;δ&quot;</span><span class="p">,</span><span class="err"> δ</span><span class="p">);</span>
+<span class="err">    buffer</span><span class="o">.</span><span class="err">get</span><span class="p">(</span><span class="s2">&quot;γ&quot;</span><span class="p">,</span><span class="err"> γ</span><span class="p">);</span>
+<span class="err">  </span><span class="p">}</span>
 
-  function write(buffer:Buffer) {
-    buffer.set("λ", λ);
-    buffer.set("δ", δ);
-    buffer.set("γ", γ);
-  }
-}
-</code></pre>
+<span class="err">  </span><span class="kd">function</span><span class="err"> write</span><span class="p">(</span><span class="err">buffer</span><span class="p">:</span><span class="kt">Buffer</span><span class="p">)</span><span class="err"> </span><span class="p">{</span>
+<span class="err">    buffer</span><span class="o">.</span><span class="err">set</span><span class="p">(</span><span class="s2">&quot;λ&quot;</span><span class="p">,</span><span class="err"> λ</span><span class="p">);</span>
+<span class="err">    buffer</span><span class="o">.</span><span class="err">set</span><span class="p">(</span><span class="s2">&quot;δ&quot;</span><span class="p">,</span><span class="err"> δ</span><span class="p">);</span>
+<span class="err">    buffer</span><span class="o">.</span><span class="err">set</span><span class="p">(</span><span class="s2">&quot;γ&quot;</span><span class="p">,</span><span class="err"> γ</span><span class="p">);</span>
+<span class="err">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
 <p>Create a file <code>src/SIRState.birch</code> with the following:</p>
-<pre><code>/**
- * SIR model state.
- */
-class SIRState {
-  /**
-   * Number of susceptible-infectious interactions.
-   */
-  τ:Random&lt;Integer&gt;;
+<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
+<span class="cm"> * SIR model state.</span>
+<span class="cm"> */</span>
+<span class="kd">class</span><span class="err"> </span><span class="kt">SIRState</span><span class="err"> </span><span class="p">{</span>
+<span class="err">  </span><span class="cm">/**</span>
+<span class="cm">   * Number of susceptible-infectious interactions.</span>
+<span class="cm">   */</span>
+<span class="err">  τ</span><span class="p">:</span><span class="kt">Random</span><span class="o">&lt;</span><span class="kt">Integer</span><span class="o">&gt;</span><span class="p">;</span>
 
-  /**
-   * Newly infected population.
-   */
-  Δi:Random&lt;Integer&gt;;
+<span class="err">  </span><span class="cm">/**</span>
+<span class="cm">   * Newly infected population.</span>
+<span class="cm">   */</span>
+<span class="err">  Δi</span><span class="p">:</span><span class="kt">Random</span><span class="o">&lt;</span><span class="kt">Integer</span><span class="o">&gt;</span><span class="p">;</span>
 
-  /**
-   * Newly recovered population.
-   */
-  Δr:Random&lt;Integer&gt;;
+<span class="err">  </span><span class="cm">/**</span>
+<span class="cm">   * Newly recovered population.</span>
+<span class="cm">   */</span>
+<span class="err">  Δr</span><span class="p">:</span><span class="kt">Random</span><span class="o">&lt;</span><span class="kt">Integer</span><span class="o">&gt;</span><span class="p">;</span>
 
-  /**
-   * Susceptible population.
-   */
-  s:Random&lt;Integer&gt;;
+<span class="err">  </span><span class="cm">/**</span>
+<span class="cm">   * Susceptible population.</span>
+<span class="cm">   */</span>
+<span class="err">  s</span><span class="p">:</span><span class="kt">Random</span><span class="o">&lt;</span><span class="kt">Integer</span><span class="o">&gt;</span><span class="p">;</span>
 
-  /**
-   * Infectious population.
-   */
-  i:Random&lt;Integer&gt;;
+<span class="err">  </span><span class="cm">/**</span>
+<span class="cm">   * Infectious population.</span>
+<span class="cm">   */</span>
+<span class="err">  i</span><span class="p">:</span><span class="kt">Random</span><span class="o">&lt;</span><span class="kt">Integer</span><span class="o">&gt;</span><span class="p">;</span>
 
-  /**
-   * Recovered population.
-   */
-  r:Random&lt;Integer&gt;;
+<span class="err">  </span><span class="cm">/**</span>
+<span class="cm">   * Recovered population.</span>
+<span class="cm">   */</span>
+<span class="err">  r</span><span class="p">:</span><span class="kt">Random</span><span class="o">&lt;</span><span class="kt">Integer</span><span class="o">&gt;</span><span class="p">;</span>
 
-  function read(buffer:Buffer) {
-    buffer.get("Δi", Δi);
-    buffer.get("Δr", Δr);
-    buffer.get("s", s);
-    buffer.get("i", i);
-    buffer.get("r", r);
-  }
+<span class="err">  </span><span class="kd">function</span><span class="err"> read</span><span class="p">(</span><span class="err">buffer</span><span class="p">:</span><span class="kt">Buffer</span><span class="p">)</span><span class="err"> </span><span class="p">{</span>
+<span class="err">    buffer</span><span class="o">.</span><span class="err">get</span><span class="p">(</span><span class="s2">&quot;Δi&quot;</span><span class="p">,</span><span class="err"> Δi</span><span class="p">);</span>
+<span class="err">    buffer</span><span class="o">.</span><span class="err">get</span><span class="p">(</span><span class="s2">&quot;Δr&quot;</span><span class="p">,</span><span class="err"> Δr</span><span class="p">);</span>
+<span class="err">    buffer</span><span class="o">.</span><span class="err">get</span><span class="p">(</span><span class="s2">&quot;s&quot;</span><span class="p">,</span><span class="err"> s</span><span class="p">);</span>
+<span class="err">    buffer</span><span class="o">.</span><span class="err">get</span><span class="p">(</span><span class="s2">&quot;i&quot;</span><span class="p">,</span><span class="err"> i</span><span class="p">);</span>
+<span class="err">    buffer</span><span class="o">.</span><span class="err">get</span><span class="p">(</span><span class="s2">&quot;r&quot;</span><span class="p">,</span><span class="err"> r</span><span class="p">);</span>
+<span class="err">  </span><span class="p">}</span>
 
-  function write(buffer:Buffer) {
-    buffer.set("Δi", Δi);
-    buffer.set("Δr", Δr);
-    buffer.set("s", s);
-    buffer.set("i", i);
-    buffer.set("r", r);
-  }
-}
-</code></pre>
+<span class="err">  </span><span class="kd">function</span><span class="err"> write</span><span class="p">(</span><span class="err">buffer</span><span class="p">:</span><span class="kt">Buffer</span><span class="p">)</span><span class="err"> </span><span class="p">{</span>
+<span class="err">    buffer</span><span class="o">.</span><span class="err">set</span><span class="p">(</span><span class="s2">&quot;Δi&quot;</span><span class="p">,</span><span class="err"> Δi</span><span class="p">);</span>
+<span class="err">    buffer</span><span class="o">.</span><span class="err">set</span><span class="p">(</span><span class="s2">&quot;Δr&quot;</span><span class="p">,</span><span class="err"> Δr</span><span class="p">);</span>
+<span class="err">    buffer</span><span class="o">.</span><span class="err">set</span><span class="p">(</span><span class="s2">&quot;s&quot;</span><span class="p">,</span><span class="err"> s</span><span class="p">);</span>
+<span class="err">    buffer</span><span class="o">.</span><span class="err">set</span><span class="p">(</span><span class="s2">&quot;i&quot;</span><span class="p">,</span><span class="err"> i</span><span class="p">);</span>
+<span class="err">    buffer</span><span class="o">.</span><span class="err">set</span><span class="p">(</span><span class="s2">&quot;r&quot;</span><span class="p">,</span><span class="err"> r</span><span class="p">);</span>
+<span class="err">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
 <p>Finally, we create the class <code>SIRModel</code>, where most of the work happens. This inherits from <code>MarkovModel&lt;SIRParameter,SIRState&gt;</code>, specifying the two classes that we have just created as describing the parameters and state of the model.</p>
 <p>Create a file <code>src/SIRModel.bi</code> with the following</p>
-<pre><code>/**
- * SIR model.
- */
-class SIRModel &lt; MarkovModel&lt;SIRParameter,SIRState&gt; {
-  function parameter(θ:SIRParameter) {
-    θ.λ ~ Gamma(2.0, 5.0);
-    θ.δ ~ Beta(2.0, 2.0);
-    θ.γ ~ Beta(2.0, 2.0);
-  }
+<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
+<span class="cm"> * SIR model.</span>
+<span class="cm"> */</span>
+<span class="kd">class</span><span class="err"> </span><span class="kt">SIRModel</span><span class="err"> </span><span class="o">&lt;</span><span class="err"> </span><span class="kt">MarkovModel</span><span class="o">&lt;</span><span class="kt">SIRParameter</span><span class="p">,</span><span class="kt">SIRState</span><span class="o">&gt;</span><span class="err"> </span><span class="p">{</span>
+<span class="err">  </span><span class="kd">function</span><span class="err"> parameter</span><span class="p">(</span><span class="err">θ</span><span class="p">:</span><span class="kt">SIRParameter</span><span class="p">)</span><span class="err"> </span><span class="p">{</span>
+<span class="err">    θ</span><span class="o">.</span><span class="err">λ </span><span class="o">~</span><span class="err"> </span><span class="kt">Gamma</span><span class="p">(</span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="p">,</span><span class="err"> </span><span class="mi">5</span><span class="o">.</span><span class="mi">0</span><span class="p">);</span>
+<span class="err">    θ</span><span class="o">.</span><span class="err">δ </span><span class="o">~</span><span class="err"> </span><span class="kt">Beta</span><span class="p">(</span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="p">,</span><span class="err"> </span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="p">);</span>
+<span class="err">    θ</span><span class="o">.</span><span class="err">γ </span><span class="o">~</span><span class="err"> </span><span class="kt">Beta</span><span class="p">(</span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="p">,</span><span class="err"> </span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="p">);</span>
+<span class="err">  </span><span class="p">}</span>
 
-  function initial(x:SIRState, θ:SIRParameter) {
-    //
-  }
+<span class="err">  </span><span class="kd">function</span><span class="err"> initial</span><span class="p">(</span><span class="err">x</span><span class="p">:</span><span class="kt">SIRState</span><span class="p">,</span><span class="err"> θ</span><span class="p">:</span><span class="kt">SIRParameter</span><span class="p">)</span><span class="err"> </span><span class="p">{</span>
+<span class="err">    </span><span class="c c-Singleline">//</span>
+<span class="err">  </span><span class="p">}</span>
 
-  function transition(x':SIRState, x:SIRState, θ:SIRParameter) {
-    x'.τ ~ Binomial(x.s, 1.0 - exp(-θ.λ*Real(x.i)/Real(x.s + x.i + x.r)));
-    x'.Δi ~ Binomial(x'.τ, θ.δ);
-    x'.Δr ~ Binomial(x.i, θ.γ);
+<span class="err">  </span><span class="kd">function</span><span class="err"> transition</span><span class="p">(</span><span class="err">x&#39;</span><span class="p">:</span><span class="kt">SIRState</span><span class="p">,</span><span class="err"> x</span><span class="p">:</span><span class="kt">SIRState</span><span class="p">,</span><span class="err"> θ</span><span class="p">:</span><span class="kt">SIRParameter</span><span class="p">)</span><span class="err"> </span><span class="p">{</span>
+<span class="err">    x&#39;</span><span class="o">.</span><span class="err">τ </span><span class="o">~</span><span class="err"> </span><span class="kt">Binomial</span><span class="p">(</span><span class="err">x</span><span class="o">.</span><span class="err">s</span><span class="p">,</span><span class="err"> </span><span class="mi">1</span><span class="o">.</span><span class="mi">0</span><span class="err"> </span><span class="o">-</span><span class="err"> exp</span><span class="p">(</span><span class="o">-</span><span class="err">θ</span><span class="o">.</span><span class="err">λ</span><span class="o">*</span><span class="kt">Real</span><span class="p">(</span><span class="err">x</span><span class="o">.</span><span class="err">i</span><span class="p">)</span><span class="o">/</span><span class="kt">Real</span><span class="p">(</span><span class="err">x</span><span class="o">.</span><span class="err">s </span><span class="o">+</span><span class="err"> x</span><span class="o">.</span><span class="err">i </span><span class="o">+</span><span class="err"> x</span><span class="o">.</span><span class="err">r</span><span class="p">)));</span>
+<span class="err">    x&#39;</span><span class="o">.</span><span class="err">Δi </span><span class="o">~</span><span class="err"> </span><span class="kt">Binomial</span><span class="p">(</span><span class="err">x&#39;</span><span class="o">.</span><span class="err">τ</span><span class="p">,</span><span class="err"> θ</span><span class="o">.</span><span class="err">δ</span><span class="p">);</span>
+<span class="err">    x&#39;</span><span class="o">.</span><span class="err">Δr </span><span class="o">~</span><span class="err"> </span><span class="kt">Binomial</span><span class="p">(</span><span class="err">x</span><span class="o">.</span><span class="err">i</span><span class="p">,</span><span class="err"> θ</span><span class="o">.</span><span class="err">γ</span><span class="p">);</span>
 
-    x'.s ~ Delta(x.s - x'.Δi);
-    x'.i ~ Delta(x.i + x'.Δi - x'.Δr);
-    x'.r ~ Delta(x.r + x'.Δr);
-  }
-}
-</code></pre>
+<span class="err">    x&#39;</span><span class="o">.</span><span class="err">s </span><span class="o">~</span><span class="err"> </span><span class="kt">Delta</span><span class="p">(</span><span class="err">x</span><span class="o">.</span><span class="err">s </span><span class="o">-</span><span class="err"> x&#39;</span><span class="o">.</span><span class="err">Δi</span><span class="p">);</span>
+<span class="err">    x&#39;</span><span class="o">.</span><span class="err">i </span><span class="o">~</span><span class="err"> </span><span class="kt">Delta</span><span class="p">(</span><span class="err">x</span><span class="o">.</span><span class="err">i </span><span class="o">+</span><span class="err"> x&#39;</span><span class="o">.</span><span class="err">Δi </span><span class="o">-</span><span class="err"> x&#39;</span><span class="o">.</span><span class="err">Δr</span><span class="p">);</span>
+<span class="err">    x&#39;</span><span class="o">.</span><span class="err">r </span><span class="o">~</span><span class="err"> </span><span class="kt">Delta</span><span class="p">(</span><span class="err">x</span><span class="o">.</span><span class="err">r </span><span class="o">+</span><span class="err"> x&#39;</span><span class="o">.</span><span class="err">Δr</span><span class="p">);</span>
+<span class="err">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
 <p>Notice the three member functions in the above code:</p>
-<pre><code>function parameter(θ:SIRParameter);
-function initial(x:SIRState, θ:SIRParameter);
-function transition(x':SIRState, x:SIRState, θ:SIRParameter);
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="kd">function</span><span class="err"> parameter</span><span class="p">(</span><span class="err">θ</span><span class="p">:</span><span class="kt">SIRParameter</span><span class="p">);</span>
+<span class="kd">function</span><span class="err"> initial</span><span class="p">(</span><span class="err">x</span><span class="p">:</span><span class="kt">SIRState</span><span class="p">,</span><span class="err"> θ</span><span class="p">:</span><span class="kt">SIRParameter</span><span class="p">);</span>
+<span class="kd">function</span><span class="err"> transition</span><span class="p">(</span><span class="err">x&#39;</span><span class="p">:</span><span class="kt">SIRState</span><span class="p">,</span><span class="err"> x</span><span class="p">:</span><span class="kt">SIRState</span><span class="p">,</span><span class="err"> θ</span><span class="p">:</span><span class="kt">SIRParameter</span><span class="p">);</span>
+</code></pre></div>
+
 <p>As suggested by their names and parameters:</p>
 <ul>
 <li>the first is for the parameter model, providing the parameters as the <code>θ</code> argument,</li>
@@ -971,31 +975,34 @@ function transition(x':SIRState, x:SIRState, θ:SIRParameter);
 <p>Birch's inference engine is based on Sequential Monte Carlo (SMC) with several variants and configurable components, as well as automatic marginalization, automatic conjugacy, and automatic differentiation. For this model, the delayed sampling<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup> mechanism will find some analytical optimizations and apply them. These include marginalizing out the parameters <span><span class="MathJax_Preview">\delta</span><script type="math/tex">\delta</script></span> and <span><span class="MathJax_Preview">\gamma</span><script type="math/tex">\gamma</script></span>, as they form conjugate beta-binomial relationships with state variables, as well as enumerating sums and differences of discrete variables.</p>
 <p>The previous linear regression example was simple enough that no configuration was required. Here we need to change a few options. A configuration file is used for this purpose.</p>
 <p>Create a file <code>config/sir.json</code> and enter the following contents:</p>
-<pre><code>{
-  "model": {
-    "class": "SIRModel"
-  },
-  "sampler": {
-    "nsamples": 10
-  },
-  "filter": {
-    "nparticles": 128
-  },
-  "input": "input/influenza.json",
-  "output": "output/sir.json"
-}
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;model&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;SIRModel&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;sampler&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;nsamples&quot;</span><span class="p">:</span> <span class="mi">10</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;filter&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;nparticles&quot;</span><span class="p">:</span> <span class="mi">128</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;input&quot;</span><span class="p">:</span> <span class="s2">&quot;input/influenza.json&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;output&quot;</span><span class="p">:</span> <span class="s2">&quot;output/sir.json&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+
 <p>This sets the number of posterior samples to draw (<code>sampler.nsamples</code>) and the number of particles used by SMC when drawing each (<code>filter.nparticles</code>). It also sets the model class (<code>model.class</code>), input file (<code>input</code>), and output file (<code>output</code>), which we provided on the command line instead in the linear regression example (it preferable to provide these in the configuration file instead).</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Any of these JSON files can be written in <a href="https://yaml.org/">YAML</a> if you prefer.</p>
 </div>
 <p>Build the package:</p>
-<pre><code>birch build
-</code></pre>
+<div class="highlight"><pre><span></span><code>birch build
+</code></pre></div>
+
 <p>then sample from the posterior distribution with:</p>
-<pre><code>birch sample --config config/sir.json
-</code></pre>
+<div class="highlight"><pre><span></span><code>birch sample --config config/sir.json
+</code></pre></div>
+
 <p>As before, you can inspect the results of the inference in <code>output/sir.json</code>, in a text editor, web browser, or on the command line (<code>less output/sir.json</code>). The output here is an importance sample: each sample is assigned a weight, the logarithm of which is given by the associated <code>lweight</code> element.</p>
 <div class="footnote">
 <hr />

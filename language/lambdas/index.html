@@ -662,42 +662,48 @@
                   <h1>Lambdas</h1>
                 
                 <p>Lambda (anonymous) functions may appear in expressions as:</p>
-<pre><code>\(a:A, b:B) -&gt; C {
+<div class="highlight"><pre><span></span><code>\(a:A, b:B) -&gt; C {
   c:C;
   // do something
   return c;
 }
-</code></pre>
+</code></pre></div>
+
 <p>The type of such a lambda is <code>\(A, B) -&gt; C</code>. It is possible to declare a variable of this <em>function type</em>:</p>
-<pre><code>f:\(A, B) -&gt; C;
-</code></pre>
+<div class="highlight"><pre><span></span><code>f:\(A, B) -&gt; C;
+</code></pre></div>
+
 <p>to assign values to it:</p>
-<pre><code>f &lt;- \(a:A, b:B) -&gt; C {
+<div class="highlight"><pre><span></span><code>f &lt;- \(a:A, b:B) -&gt; C {
       c:C;
       // do something
       return c;
   };
-</code></pre>
+</code></pre></div>
+
 <p>and to call it:</p>
-<pre><code>f(a, b);
-</code></pre>
+<div class="highlight"><pre><span></span><code>f(a, b);
+</code></pre></div>
+
 <p>Functions can accept lambdas as arguments. Such a function may be declared:</p>
-<pre><code>function g(f:\(A, B) -&gt; C) -&gt; D {
+<div class="highlight"><pre><span></span><code>function g(f:\(A, B) -&gt; C) -&gt; D {
   d:D;
   // do something
   return d;
 }
-</code></pre>
+</code></pre></div>
+
 <p>and be called with:</p>
-<pre><code>g(\(a:A, b:B) -&gt; C {
+<div class="highlight"><pre><span></span><code>g(\(a:A, b:B) -&gt; C {
       c:C;
       // do something
       return c;
     });
-</code></pre>
+</code></pre></div>
+
 <p>or, if the lambda was previously assigned to a variable <code>f:\(A, B) -&gt; C</code> as above:</p>
-<pre><code>  g(f);
-</code></pre>
+<div class="highlight"><pre><span></span><code>  g(f);
+</code></pre></div>
                 
               
               

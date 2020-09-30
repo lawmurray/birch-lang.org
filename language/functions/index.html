@@ -728,37 +728,44 @@
                   <h1>Functions</h1>
                 
                 <p>A function with two parameters <code>a:A</code> and <code>b:B</code>, and return type <code>C</code>, is declared as:</p>
-<pre><code>function f(a:A, b:B) -&gt; C {
+<div class="highlight"><pre><span></span><code>function f(a:A, b:B) -&gt; C {
   c:C;
   // do something
   return c;
 }
-</code></pre>
+</code></pre></div>
+
 <p>For a function without a return value, omit the <code>-&gt;</code>:</p>
-<pre><code>function f(a:A, b:B) {
+<div class="highlight"><pre><span></span><code>function f(a:A, b:B) {
   // do something
 }
-</code></pre>
+</code></pre></div>
+
 <p>For a function without parameters, use empty parentheses:</p>
-<pre><code>function f() {
+<div class="highlight"><pre><span></span><code>function f() {
   // do something
 }
-</code></pre>
+</code></pre></div>
+
 <p>Functions are called by giving arguments in parentheses:</p>
-<pre><code>f(a, b)
-</code></pre>
+<div class="highlight"><pre><span></span><code>f(a, b)
+</code></pre></div>
+
 <p>When calling a function without parameters, use empty parentheses:</p>
-<pre><code>f()
-</code></pre>
+<div class="highlight"><pre><span></span><code>f()
+</code></pre></div>
+
 <h3 id="generic-functions">Generic functions</h3>
 <p>A function declaration may include type parameters that are provided arguments when the function is called. These are declared using angle brackets in the function declaration:</p>
-<pre><code>function f&lt;T,U&gt;(a:T, b:U) {
+<div class="highlight"><pre><span></span><code>function f&lt;T,U&gt;(a:T, b:U) {
   // do something
 }
-</code></pre>
+</code></pre></div>
+
 <p>Such a function is a <em>generic function</em>. When a generic function is called, type arguments can be provided:</p>
-<pre><code>f&lt;Real,Integer&gt;(1.0, 2);
-</code></pre>
+<div class="highlight"><pre><span></span><code>f&lt;Real,Integer&gt;(1.0, 2);
+</code></pre></div>
+
 <p>Here, <code>T</code> becomes <code>Real</code> and <code>U</code> becomes <code>Integer</code>. In many cases it is unnecessary to explicitly provide these type arguments, however, as the compiler can deduce them itself. In this particular example, using <code>f(1.0, 2)</code> is sufficient. Sometimes the compiler cannot deduce them itself, and they must be specified explicitly.</p>
                 
               

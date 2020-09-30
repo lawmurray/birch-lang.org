@@ -684,12 +684,14 @@
                 <h1 id="hello-world">Hello, World!</h1>
 <p>We start by getting acquainted with the <code>birch</code> program that you have just installed, using it to create, build and run a simple Birch program. We will work from the terminal. If you are unfamiliar with Unix commands, that's okay, everything you need to type will be provided as we go.</p>
 <p>We will start by creating a new package. From the terminal, create a new directory and change into it:</p>
-<pre><code>mkdir HelloWorld
+<div class="highlight"><pre><span></span><code>mkdir HelloWorld
 cd HelloWorld
-</code></pre>
+</code></pre></div>
+
 <p>Initialize a new Birch package with the following command:</p>
-<pre><code>birch init --package HelloWorld
-</code></pre>
+<div class="highlight"><pre><span></span><code>birch init --package HelloWorld
+</code></pre></div>
+
 <p>This creates the standard files and subdirectories for a Birch package, including (list them with <code>ls</code>):</p>
 <ul>
 <li><code>src/</code> for source code,</li>
@@ -700,26 +702,30 @@ cd HelloWorld
 </ul>
 <p>A new package contains just one source file, <code>src/hello.birch</code>, containing a program called <code>hello</code> that prints exactly what you think it does (view it with <code>cat src/hello.birch</code>).</p>
 <p>Build the package with:</p>
-<pre><code>birch build
-</code></pre>
+<div class="highlight"><pre><span></span><code>birch build
+</code></pre></div>
+
 <p>then run the <code>hello</code> program with:</p>
-<pre><code>birch hello
-</code></pre>
+<div class="highlight"><pre><span></span><code>birch hello
+</code></pre></div>
+
 <p>If you see <code>Hello, World!</code> on the terminal then everything is in order!</p>
 <p>This is the typical workflow: whenever you make a change, run <code>birch build</code> to rebuild the package before running it again. The first time always takes a little longer than subsequent calls. Under the hood, the command is running a Birch-to-C++ source-to-source compiler, setting up a GNU Autotools build system (using <a href="https://www.gnu.org/software/autoconf/">autoconf</a>, <a href="https://www.gnu.org/software/automake/">automake</a> and <a href="https://www.gnu.org/software/libtool/">libtool</a>), and compiling the C++ sources to binaries. You will see the output of these steps on the terminal.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>When building, Birch will create a number of additional files in the current working directory. If you ever want to delete these files, use:</p>
-<pre><code>birch clean
-</code></pre>
+<div class="highlight"><pre><span></span><code>birch clean
+</code></pre></div>
+
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Now is the best time to set up version control. For Git:</p>
-<pre><code>git init
+<div class="highlight"><pre><span></span><code>git init
 git add * .gitignore
-git commit -m "Added initial files."
-</code></pre>
+git commit -m &quot;Added initial files.&quot;
+</code></pre></div>
+
 <p>Typically, files in <code>src/</code>, <code>config/</code> and <code>input/</code> are tracked, while those in <code>output/</code> are not, as they are derived from the others when running programs.</p>
 </div>
                 
