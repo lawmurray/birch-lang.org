@@ -800,30 +800,30 @@ y_n \mid \boldsymbol{\beta}, \sigma^2 &\sim \mathrm{Gaussian}(\mathbf{x}_n^{\top
 <span class="err">  </span><span class="cm">/**</span>
 <span class="cm">   * Explanatory variables.</span>
 <span class="cm">   */</span>
-<span class="err">  X</span><span class="p">:</span><span class="kt">Real</span><span class="p">[</span><span class="kc">_</span><span class="p">,</span><span class="kc">_</span><span class="p">];</span>
+<span class="err">  </span><span class="nv">X</span><span class="p">:</span><span class="kt">Real</span><span class="p">[</span><span class="m">_</span><span class="p">,</span><span class="m">_</span><span class="p">];</span>
 
 <span class="err">  </span><span class="cm">/**</span>
 <span class="cm">    * Regression coefficients.</span>
 <span class="cm">    */</span>
-<span class="err">  β</span><span class="p">:</span><span class="kt">Random</span><span class="o">&lt;</span><span class="kt">Real</span><span class="p">[</span><span class="kc">_</span><span class="p">]</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="err">  </span><span class="nv">β</span><span class="p">:</span><span class="kt">Random</span><span class="o">&lt;</span><span class="kt">Real</span><span class="p">[</span><span class="m">_</span><span class="p">]</span><span class="o">&gt;</span><span class="p">;</span>
 
 <span class="err">  </span><span class="cm">/**</span>
 <span class="cm">    * Observation variance.</span>
 <span class="cm">    */</span>
-<span class="err">  σ2</span><span class="p">:</span><span class="kt">Random</span><span class="o">&lt;</span><span class="kt">Real</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="err">  </span><span class="nv">σ2</span><span class="p">:</span><span class="kt">Random</span><span class="o">&lt;</span><span class="kt">Real</span><span class="o">&gt;</span><span class="p">;</span>
 
 <span class="err">  </span><span class="cm">/**</span>
 <span class="cm">    * Observations.</span>
 <span class="cm">    */</span>
-<span class="err">  y</span><span class="p">:</span><span class="kt">Random</span><span class="o">&lt;</span><span class="kt">Real</span><span class="p">[</span><span class="kc">_</span><span class="p">]</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="err">  </span><span class="nv">y</span><span class="p">:</span><span class="kt">Random</span><span class="o">&lt;</span><span class="kt">Real</span><span class="p">[</span><span class="m">_</span><span class="p">]</span><span class="o">&gt;</span><span class="p">;</span>
 
-<span class="err">  </span><span class="kd">function</span><span class="err"> simulate</span><span class="p">()</span><span class="err"> </span><span class="p">{</span>
-<span class="err">    </span><span class="kd">let</span><span class="err"> N </span><span class="o">&lt;-</span><span class="err"> rows</span><span class="p">(</span><span class="err">X</span><span class="p">);</span>
-<span class="err">    </span><span class="kd">let</span><span class="err"> P </span><span class="o">&lt;-</span><span class="err"> columns</span><span class="p">(</span><span class="err">X</span><span class="p">);</span>
-<span class="err">    </span><span class="kd">if</span><span class="err"> N </span><span class="o">&gt;</span><span class="err"> </span><span class="mi">0</span><span class="err"> </span><span class="o">&amp;&amp;</span><span class="err"> P </span><span class="o">&gt;</span><span class="err"> </span><span class="mi">0</span><span class="err"> </span><span class="p">{</span>
-<span class="err">      σ2 </span><span class="o">~</span><span class="err"> </span><span class="kt">InverseGamma</span><span class="p">(</span><span class="mi">3</span><span class="o">.</span><span class="mi">0</span><span class="p">,</span><span class="err"> </span><span class="mi">0</span><span class="o">.</span><span class="mi">4</span><span class="p">);</span>
-<span class="err">      β </span><span class="o">~</span><span class="err"> </span><span class="kt">Gaussian</span><span class="p">(</span><span class="err">vector</span><span class="p">(</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="p">,</span><span class="err"> P</span><span class="p">),</span><span class="err"> identity</span><span class="p">(</span><span class="err">P</span><span class="p">),</span><span class="err"> σ2</span><span class="p">);</span>
-<span class="err">      y </span><span class="o">~</span><span class="err"> </span><span class="kt">Gaussian</span><span class="p">(</span><span class="err">X</span><span class="o">*</span><span class="err">β</span><span class="p">,</span><span class="err"> σ2</span><span class="p">);</span>
+<span class="err">  </span><span class="kd">function</span><span class="err"> </span><span class="nf">simulate</span><span class="p">()</span><span class="err"> </span><span class="p">{</span>
+<span class="err">    </span><span class="kd">let</span><span class="err"> </span><span class="nv">N</span><span class="err"> </span><span class="o">&lt;-</span><span class="err"> </span><span class="nf">rows</span><span class="p">(</span><span class="nv">X</span><span class="p">);</span>
+<span class="err">    </span><span class="kd">let</span><span class="err"> </span><span class="nv">P</span><span class="err"> </span><span class="o">&lt;-</span><span class="err"> </span><span class="nf">columns</span><span class="p">(</span><span class="nv">X</span><span class="p">);</span>
+<span class="err">    </span><span class="kd">if</span><span class="err"> </span><span class="nv">N</span><span class="err"> </span><span class="o">&gt;</span><span class="err"> </span><span class="mi">0</span><span class="err"> </span><span class="o">&amp;&amp;</span><span class="err"> </span><span class="nv">P</span><span class="err"> </span><span class="o">&gt;</span><span class="err"> </span><span class="mi">0</span><span class="err"> </span><span class="p">{</span>
+<span class="err">      </span><span class="nv">σ2</span><span class="err"> </span><span class="o">~</span><span class="err"> </span><span class="nf">InverseGamma</span><span class="p">(</span><span class="mi">3</span><span class="o">.</span><span class="mi">0</span><span class="p">,</span><span class="err"> </span><span class="mi">0</span><span class="o">.</span><span class="mi">4</span><span class="p">);</span>
+<span class="err">      </span><span class="nv">β</span><span class="err"> </span><span class="o">~</span><span class="err"> </span><span class="nf">Gaussian</span><span class="p">(</span><span class="nf">vector</span><span class="p">(</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="p">,</span><span class="err"> </span><span class="nv">P</span><span class="p">),</span><span class="err"> </span><span class="nf">identity</span><span class="p">(</span><span class="nv">P</span><span class="p">),</span><span class="err"> </span><span class="nv">σ2</span><span class="p">);</span>
+<span class="err">      </span><span class="nv">y</span><span class="err"> </span><span class="o">~</span><span class="err"> </span><span class="nf">Gaussian</span><span class="p">(</span><span class="nv">X</span><span class="o">*</span><span class="nv">β</span><span class="p">,</span><span class="err"> </span><span class="nv">σ2</span><span class="p">);</span>
 <span class="err">    </span><span class="p">}</span>
 <span class="err">  </span><span class="p">}</span>
 <span class="p">}</span>
@@ -866,14 +866,14 @@ y_n \mid \boldsymbol{\beta}, \sigma^2 &\sim \mathrm{Gaussian}(\mathbf{x}_n^{\top
 <p>For now, have a look at the contents of the file in a text editor, web browser, or on the command line (<code>less input/bike_share.json</code> and hit <code>q</code> when you've seen enough). It contains two variables: a matrix <code>X</code> and a vector <code>y</code>. We need to read these into the model.</p>
 <p>Recall that, in defining the <code>LinearRegressionModel</code> class, we overrode the <code>simulate()</code> member function of the <code>Model</code> class. The <code>Model</code> class also has two other member functions called <code>read()</code> and <code>write()</code> that we can implement to read and write data.</p>
 <p>Add the following two member functions after the <code>simulate()</code> member function in the <code>LinearRegressionModel</code> class:</p>
-<div class="highlight"><pre><span></span><code><span class="err">    </span><span class="kd">function</span><span class="err"> read</span><span class="p">(</span><span class="err">buffer</span><span class="p">:</span><span class="kt">Buffer</span><span class="p">)</span><span class="err"> </span><span class="p">{</span>
-<span class="err">      X </span><span class="o">&lt;-?</span><span class="err"> buffer</span><span class="o">.</span><span class="err">getRealMatrix</span><span class="p">(</span><span class="s2">&quot;X&quot;</span><span class="p">);</span>
-<span class="err">      y </span><span class="o">&lt;-?</span><span class="err"> buffer</span><span class="o">.</span><span class="err">getRealVector</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="err">    </span><span class="kd">function</span><span class="err"> </span><span class="nf">read</span><span class="p">(</span><span class="nv">buffer</span><span class="p">:</span><span class="kt">Buffer</span><span class="p">)</span><span class="err"> </span><span class="p">{</span>
+<span class="err">      </span><span class="nv">X</span><span class="err"> </span><span class="o">&lt;-?</span><span class="err"> </span><span class="nv">buffer</span><span class="o">.</span><span class="nf">getRealMatrix</span><span class="p">(</span><span class="s2">&quot;X&quot;</span><span class="p">);</span>
+<span class="err">      </span><span class="nv">y</span><span class="err"> </span><span class="o">&lt;-?</span><span class="err"> </span><span class="nv">buffer</span><span class="o">.</span><span class="nf">getRealVector</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">);</span>
 <span class="err">    </span><span class="p">}</span>
 
-<span class="err">    </span><span class="kd">function</span><span class="err"> write</span><span class="p">(</span><span class="err">buffer</span><span class="p">:</span><span class="kt">Buffer</span><span class="p">)</span><span class="err"> </span><span class="p">{</span>
-<span class="err">      buffer</span><span class="o">.</span><span class="err">set</span><span class="p">(</span><span class="s2">&quot;β&quot;</span><span class="p">,</span><span class="err"> β</span><span class="p">);</span>
-<span class="err">      buffer</span><span class="o">.</span><span class="err">set</span><span class="p">(</span><span class="s2">&quot;σ2&quot;</span><span class="p">,</span><span class="err"> σ2</span><span class="p">);</span>
+<span class="err">    </span><span class="kd">function</span><span class="err"> </span><span class="nf">write</span><span class="p">(</span><span class="nv">buffer</span><span class="p">:</span><span class="kt">Buffer</span><span class="p">)</span><span class="err"> </span><span class="p">{</span>
+<span class="err">      </span><span class="nv">buffer</span><span class="o">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;β&quot;</span><span class="p">,</span><span class="err"> </span><span class="nv">β</span><span class="p">);</span>
+<span class="err">      </span><span class="nv">buffer</span><span class="o">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;σ2&quot;</span><span class="p">,</span><span class="err"> </span><span class="nv">σ2</span><span class="p">);</span>
 <span class="err">    </span><span class="p">}</span>
 </code></pre></div>
 
@@ -900,12 +900,12 @@ y_n \mid \boldsymbol{\beta}, \sigma^2 &\sim \mathrm{Gaussian}(\mathbf{x}_n^{\top
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>We have already noted that this particular example has an analytical solution. We can, in fact, output this solution if preferred. To do so, update the <code>write()</code> member function as follows, then re-build and re-run:</p>
-<div class="highlight"><pre><span></span><code><span class="err">    </span><span class="kd">function</span><span class="err"> write</span><span class="p">(</span><span class="err">buffer</span><span class="p">:</span><span class="kt">Buffer</span><span class="p">)</span><span class="err"> </span><span class="p">{</span>
-<span class="err">      </span><span class="kd">if</span><span class="err"> β</span><span class="o">.</span><span class="err">hasDistribution</span><span class="p">()</span><span class="err"> </span><span class="p">{</span>
-<span class="err">        buffer</span><span class="o">.</span><span class="err">set</span><span class="p">(</span><span class="s2">&quot;β&quot;</span><span class="p">,</span><span class="err"> β</span><span class="o">.</span><span class="err">getDistribution</span><span class="p">());</span>
+<div class="highlight"><pre><span></span><code><span class="err">    </span><span class="kd">function</span><span class="err"> </span><span class="nf">write</span><span class="p">(</span><span class="nv">buffer</span><span class="p">:</span><span class="kt">Buffer</span><span class="p">)</span><span class="err"> </span><span class="p">{</span>
+<span class="err">      </span><span class="kd">if</span><span class="err"> </span><span class="nv">β</span><span class="o">.</span><span class="nf">hasDistribution</span><span class="p">()</span><span class="err"> </span><span class="p">{</span>
+<span class="err">        </span><span class="nv">buffer</span><span class="o">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;β&quot;</span><span class="p">,</span><span class="err"> </span><span class="nv">β</span><span class="o">.</span><span class="nf">getDistribution</span><span class="p">());</span>
 <span class="err">      </span><span class="p">}</span><span class="err"> </span><span class="kd">else</span><span class="err"> </span><span class="p">{</span>
-<span class="err">        buffer</span><span class="o">.</span><span class="err">set</span><span class="p">(</span><span class="s2">&quot;β&quot;</span><span class="p">,</span><span class="err"> β</span><span class="p">);</span>
-<span class="err">        buffer</span><span class="o">.</span><span class="err">set</span><span class="p">(</span><span class="s2">&quot;σ2&quot;</span><span class="p">,</span><span class="err"> σ2</span><span class="p">);</span>
+<span class="err">        </span><span class="nv">buffer</span><span class="o">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;β&quot;</span><span class="p">,</span><span class="err"> </span><span class="nv">β</span><span class="p">);</span>
+<span class="err">        </span><span class="nv">buffer</span><span class="o">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;σ2&quot;</span><span class="p">,</span><span class="err"> </span><span class="nv">σ2</span><span class="p">);</span>
 <span class="err">      </span><span class="p">}</span>
 <span class="err">    </span><span class="p">}</span>
 </code></pre></div>
