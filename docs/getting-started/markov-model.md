@@ -48,125 +48,133 @@ Furthermore, `MarkovModel` is a [generic](/language/classes/#generics) class, fu
 
 Create a file `src/SIRParameter.birch` with the following:
 
-    /**
-     * SIR model parameters.
-     */
-    class SIRParameter {
-      /**
-       * Interaction rate.
-       */
-      λ:Random<Real>;
+```birch
+/**
+ * SIR model parameters.
+*/
+class SIRParameter {
+  /**
+   * Interaction rate.
+   */
+  λ:Random<Real>;
 
-      /**
-       * Infection probability.
-       */
-      δ:Random<Real>;
+  /**
+   * Infection probability.
+   */
+  δ:Random<Real>;
 
-      /**
-       * Recovery probability.
-       */
-      γ:Random<Real>;
+  /**
+   * Recovery probability.
+   */
+  γ:Random<Real>;
 
-      function read(buffer:Buffer) {
-        buffer.get("λ", λ);
-        buffer.get("δ", δ);
-        buffer.get("γ", γ);
-      }
+  function read(buffer:Buffer) {
+    buffer.get("λ", λ);
+    buffer.get("δ", δ);
+    buffer.get("γ", γ);
+  }
 
-      function write(buffer:Buffer) {
-        buffer.set("λ", λ);
-        buffer.set("δ", δ);
-        buffer.set("γ", γ);
-      }
-    }
+  function write(buffer:Buffer) {
+    buffer.set("λ", λ);
+    buffer.set("δ", δ);
+    buffer.set("γ", γ);
+  }
+}
+```
 
 Create a file `src/SIRState.birch` with the following:
 
-    /**
-     * SIR model state.
-     */
-    class SIRState {
-      /**
-       * Number of susceptible-infectious interactions.
-       */
-      τ:Random<Integer>;
+```birch
+/**
+ * SIR model state.
+ */
+class SIRState {
+  /**
+   * Number of susceptible-infectious interactions.
+   */
+  τ:Random<Integer>;
 
-      /**
-       * Newly infected population.
-       */
-      Δi:Random<Integer>;
+  /**
+   * Newly infected population.
+   */
+  Δi:Random<Integer>;
 
-      /**
-       * Newly recovered population.
-       */
-      Δr:Random<Integer>;
+  /**
+   * Newly recovered population.
+   */
+  Δr:Random<Integer>;
 
-      /**
-       * Susceptible population.
-       */
-      s:Random<Integer>;
+  /**
+   * Susceptible population.
+   */
+  s:Random<Integer>;
 
-      /**
-       * Infectious population.
-       */
-      i:Random<Integer>;
+  /**
+   * Infectious population.
+   */
+  i:Random<Integer>;
 
-      /**
-       * Recovered population.
-       */
-      r:Random<Integer>;
+  /**
+   * Recovered population.
+   */
+  r:Random<Integer>;
 
-      function read(buffer:Buffer) {
-        buffer.get("Δi", Δi);
-        buffer.get("Δr", Δr);
-        buffer.get("s", s);
-        buffer.get("i", i);
-        buffer.get("r", r);
-      }
+  function read(buffer:Buffer) {
+    buffer.get("Δi", Δi);
+    buffer.get("Δr", Δr);
+    buffer.get("s", s);
+    buffer.get("i", i);
+    buffer.get("r", r);
+  }
 
-      function write(buffer:Buffer) {
-        buffer.set("Δi", Δi);
-        buffer.set("Δr", Δr);
-        buffer.set("s", s);
-        buffer.set("i", i);
-        buffer.set("r", r);
-      }
-    }
+  function write(buffer:Buffer) {
+    buffer.set("Δi", Δi);
+    buffer.set("Δr", Δr);
+    buffer.set("s", s);
+    buffer.set("i", i);
+    buffer.set("r", r);
+  }
+}
+```
 
 Finally, we create the class `SIRModel`, where most of the work happens. This inherits from `MarkovModel<SIRParameter,SIRState>`, specifying the two classes that we have just created as describing the parameters and state of the model.
 
 Create a file `src/SIRModel.bi` with the following
 
-    /**
-     * SIR model.
-     */
-    class SIRModel < MarkovModel<SIRParameter,SIRState> {
-      function parameter(θ:SIRParameter) {
-        θ.λ ~ Gamma(2.0, 5.0);
-        θ.δ ~ Beta(2.0, 2.0);
-        θ.γ ~ Beta(2.0, 2.0);
-      }
+```birch
+/**
+ * SIR model.
+ */
+class SIRModel < MarkovModel<SIRParameter,SIRState> {
+  function parameter(θ:SIRParameter) {
+    θ.λ ~ Gamma(2.0, 5.0);
+    θ.δ ~ Beta(2.0, 2.0);
+    θ.γ ~ Beta(2.0, 2.0);
+  }
 
-      function initial(x:SIRState, θ:SIRParameter) {
-        //
-      }
+  function initial(x:SIRState, θ:SIRParameter) {
+    //
+  }
 
-      function transition(x':SIRState, x:SIRState, θ:SIRParameter) {
-        x'.τ ~ Binomial(x.s, 1.0 - exp(-θ.λ*Real(x.i)/Real(x.s + x.i + x.r)));
-        x'.Δi ~ Binomial(x'.τ, θ.δ);
-        x'.Δr ~ Binomial(x.i, θ.γ);
+  function transition(x':SIRState, x:SIRState, θ:SIRParameter) {
+    x'.τ ~ Binomial(x.s, 1.0 - exp(-θ.λ*Real(x.i)/Real(x.s + x.i + x.r)));
+    x'.Δi ~ Binomial(x'.τ, θ.δ);
+    x'.Δr ~ Binomial(x.i, θ.γ);
 
-        x'.s ~ Delta(x.s - x'.Δi);
-        x'.i ~ Delta(x.i + x'.Δi - x'.Δr);
-        x'.r ~ Delta(x.r + x'.Δr);
-      }
-    }
+    x'.s ~ Delta(x.s - x'.Δi);
+    x'.i ~ Delta(x.i + x'.Δi - x'.Δr);
+    x'.r ~ Delta(x.r + x'.Δr);
+  }
+}
+```
 
 Notice the three member functions in the above code:
 
-    function parameter(θ:SIRParameter);
-    function initial(x:SIRState, θ:SIRParameter);
-    function transition(x':SIRState, x:SIRState, θ:SIRParameter);
+```birch
+function parameter(θ:SIRParameter);
+function initial(x:SIRState, θ:SIRParameter);
+function transition(x':SIRState, x:SIRState, θ:SIRParameter);
+```
 
 As suggested by their names and parameters:
 
@@ -199,19 +207,21 @@ The previous linear regression example was simple enough that no configuration w
 
 Create a file `config/sir.json` and enter the following contents:
 
-    {
-      "model": {
-        "class": "SIRModel"
-      },
-      "sampler": {
-        "nsamples": 10
-      },
-      "filter": {
-        "nparticles": 128
-      },
-      "input": "input/influenza.json",
-      "output": "output/sir.json"
-    }
+```json
+{
+  "model": {
+    "class": "SIRModel"
+  },
+  "sampler": {
+    "nsamples": 10
+  },
+  "filter": {
+    "nparticles": 128
+  },
+  "input": "input/influenza.json",
+  "output": "output/sir.json"
+}
+```
 
 This sets the number of posterior samples to draw (`sampler.nsamples`) and the number of particles used by SMC when drawing each (`filter.nparticles`). It also sets the model class (`model.class`), input file (`input`), and output file (`output`), which we provided on the command line instead in the linear regression example (it preferable to provide these in the configuration file instead).
 

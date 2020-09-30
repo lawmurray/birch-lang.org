@@ -19,41 +19,43 @@ The parameters of the model are the noise variance $\sigma^2$ and vector of coef
 
 To specify a model in Birch, we create a [class](/language/classes) that inherits from [Model](https://docs.birch.sh/libraries/Standard/classes/Model). Use your preferred text editor to create a file `src/LinearRegressionModel.birch` and enter the following contents:
 
-    /**
-     * Bayesian linear regression model with conjugate normal-inverse-gamma
-     * prior.
-     */
-    class LinearRegressionModel < Model {
-      /**
-       * Explanatory variables.
-       */
-      X:Real[_,_];
+```birch
+/**
+ * Bayesian linear regression model with conjugate normal-inverse-gamma
+ * prior.
+ */
+class LinearRegressionModel < Model {
+  /**
+   * Explanatory variables.
+   */
+  X:Real[_,_];
 
-      /**
-       * Regression coefficients.
-       */
-      β:Random<Real[_]>;
+  /**
+    * Regression coefficients.
+    */
+  β:Random<Real[_]>;
 
-      /**
-       * Observation variance.
-       */
-      σ2:Random<Real>;
+  /**
+    * Observation variance.
+    */
+  σ2:Random<Real>;
 
-      /**
-       * Observations.
-       */
-      y:Random<Real[_]>;
+  /**
+    * Observations.
+    */
+  y:Random<Real[_]>;
 
-      function simulate() {
-        let N <- rows(X);
-        let P <- columns(X);
-        if N > 0 && P > 0 {
-          σ2 ~ InverseGamma(3.0, 0.4);
-          β ~ Gaussian(vector(0.0, P), identity(P), σ2);
-          y ~ Gaussian(X*β, σ2);
-        }
-      }
+  function simulate() {
+    let N <- rows(X);
+    let P <- columns(X);
+    if N > 0 && P > 0 {
+      σ2 ~ InverseGamma(3.0, 0.4);
+      β ~ Gaussian(vector(0.0, P), identity(P), σ2);
+      y ~ Gaussian(X*β, σ2);
     }
+  }
+}
+```
 
 The explanatory variables $X$ (the $\mathbf{x}_n$, as a matrix), observations $y$ ($y_n$, as a vector) and parameters $\beta$ and $\sigma^2$ have been declared as *member variables* of the class. [Variables](/language/variables) in Birch are typed. We see here a few different types:
 
@@ -98,6 +100,7 @@ Recall that, in defining the `LinearRegressionModel` class, we overrode the `sim
 
 Add the following two member functions after the `simulate()` member function in the `LinearRegressionModel` class:
 
+```birch
     function read(buffer:Buffer) {
       X <-? buffer.getRealMatrix("X");
       y <-? buffer.getRealVector("y");
@@ -107,6 +110,7 @@ Add the following two member functions after the `simulate()` member function in
       buffer.set("β", β);
       buffer.set("σ2", σ2);
     }
+```
 
 The `read()` member function reads from the input file into the member variables `X` and `y`. The strings `"X"` and `"y"` name the elements in the input file. The `write()` member function writes the parameters to the output file.
 
@@ -136,6 +140,7 @@ You will see a single sample drawn from the posterior distribution.
 !!! tip
     We have already noted that this particular example has an analytical solution. We can, in fact, output this solution if preferred. To do so, update the `write()` member function as follows, then re-build and re-run:
 
+    ```birch
         function write(buffer:Buffer) {
           if β.hasDistribution() {
             buffer.set("β", β.getDistribution());
@@ -144,6 +149,7 @@ You will see a single sample drawn from the posterior distribution.
             buffer.set("σ2", σ2);
           }
         }
+    ```
 
 !!! tip
     *Debug* mode is used by default. This mode enables all error checking and disables all optimizations to assist with debugging. Debug mode is recommended when developing and testing code. When you are happy that your code is working correctly, you can use *release* mode instead, which takes longer to build but runs much faster (several times so). Release mode is enabled by adding the option `--enable-release` when calling `birch`:
