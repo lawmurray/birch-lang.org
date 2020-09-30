@@ -8,4 +8,4 @@ Currently requires a custom `pygments` package with Birch lexer. Install the Bir
     make mapfiles
     easy_install-3.8 --prefix $HOME/.local .
 
-Then can use `mkdocs serve`, etc, as normal.
+Then can use `mkdocs build`, `mkdocs serve`, `mkdocs gh-deploy`, etc, as normal.
