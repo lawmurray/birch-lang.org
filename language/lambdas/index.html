@@ -661,49 +661,43 @@
                 
                   <h1>Lambdas</h1>
                 
-                <p>Lambda (anonymous) functions may appear in expressions as:</p>
-<div class="highlight"><pre><span></span><code>\(a:A, b:B) -&gt; C {
-  c:C;
-  // do something
-  return c;
-}
+                <p>Lambda (anonymous) functions may appear in expressions as:
+<div class="highlight"><pre><span></span><code><span class="p">\(</span><span class="nv">a</span><span class="p">:</span><span class="kt">A</span><span class="p">,</span><span class="err"> </span><span class="nv">b</span><span class="p">:</span><span class="kt">B</span><span class="p">)</span><span class="err"> </span><span class="o">-&gt;</span><span class="err"> </span><span class="nv">C</span><span class="err"> </span><span class="p">{</span>
+<span class="err">  </span><span class="nv">c</span><span class="p">:</span><span class="kt">C</span><span class="p">;</span>
+<span class="err">  </span><span class="c c-Singleline">// do something</span>
+<span class="err">  </span><span class="kd">return</span><span class="err"> </span><span class="nv">c</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div>
-
-<p>The type of such a lambda is <code>\(A, B) -&gt; C</code>. It is possible to declare a variable of this <em>function type</em>:</p>
-<div class="highlight"><pre><span></span><code>f:\(A, B) -&gt; C;
+The type of such a lambda is <code>\(A, B) -&gt; C</code>. It is possible to declare a variable of this <em>function type</em>:
+<div class="highlight"><pre><span></span><code><span class="nv">f</span><span class="p">:\(</span><span class="nv">A</span><span class="p">,</span><span class="err"> </span><span class="nv">B</span><span class="p">)</span><span class="err"> </span><span class="o">-&gt;</span><span class="err"> </span><span class="nv">C</span><span class="p">;</span>
 </code></pre></div>
-
-<p>to assign values to it:</p>
-<div class="highlight"><pre><span></span><code>f &lt;- \(a:A, b:B) -&gt; C {
-      c:C;
-      // do something
-      return c;
-  };
+to assign values to it:
+<div class="highlight"><pre><span></span><code><span class="nv">f</span><span class="err"> </span><span class="o">&lt;-</span><span class="err"> </span><span class="p">\(</span><span class="nv">a</span><span class="p">:</span><span class="kt">A</span><span class="p">,</span><span class="err"> </span><span class="nv">b</span><span class="p">:</span><span class="kt">B</span><span class="p">)</span><span class="err"> </span><span class="o">-&gt;</span><span class="err"> </span><span class="nv">C</span><span class="err"> </span><span class="p">{</span>
+<span class="err">      </span><span class="nv">c</span><span class="p">:</span><span class="kt">C</span><span class="p">;</span>
+<span class="err">      </span><span class="c c-Singleline">// do something</span>
+<span class="err">      </span><span class="kd">return</span><span class="err"> </span><span class="nv">c</span><span class="p">;</span>
+<span class="err">    </span><span class="p">};</span>
 </code></pre></div>
-
-<p>and to call it:</p>
-<div class="highlight"><pre><span></span><code>f(a, b);
+and to call it:
+<div class="highlight"><pre><span></span><code><span class="nf">f</span><span class="p">(</span><span class="nv">a</span><span class="p">,</span><span class="err"> </span><span class="nv">b</span><span class="p">);</span>
+</code></pre></div></p>
+<p>Functions can accept lambdas as arguments. Such a function may be declared:
+<div class="highlight"><pre><span></span><code><span class="kd">function</span><span class="err"> </span><span class="nf">g</span><span class="p">(</span><span class="nv">f</span><span class="p">:\(</span><span class="nv">A</span><span class="p">,</span><span class="err"> </span><span class="nv">B</span><span class="p">)</span><span class="err"> </span><span class="o">-&gt;</span><span class="err"> </span><span class="nv">C</span><span class="p">)</span><span class="err"> </span><span class="o">-&gt;</span><span class="err"> </span><span class="nv">D</span><span class="err"> </span><span class="p">{</span>
+<span class="err">    </span><span class="nv">d</span><span class="p">:</span><span class="kt">D</span><span class="p">;</span>
+<span class="err">    </span><span class="c c-Singleline">// do something</span>
+<span class="err">    </span><span class="kd">return</span><span class="err"> </span><span class="nv">d</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div>
-
-<p>Functions can accept lambdas as arguments. Such a function may be declared:</p>
-<div class="highlight"><pre><span></span><code>function g(f:\(A, B) -&gt; C) -&gt; D {
-  d:D;
-  // do something
-  return d;
-}
+and be called with:
+<div class="highlight"><pre><span></span><code><span class="nf">g</span><span class="p">(\(</span><span class="nv">a</span><span class="p">:</span><span class="kt">A</span><span class="p">,</span><span class="err"> </span><span class="nv">b</span><span class="p">:</span><span class="kt">B</span><span class="p">)</span><span class="err"> </span><span class="o">-&gt;</span><span class="err"> </span><span class="nv">C</span><span class="err"> </span><span class="p">{</span>
+<span class="err">      </span><span class="nv">c</span><span class="p">:</span><span class="kt">C</span><span class="p">;</span>
+<span class="err">      </span><span class="c c-Singleline">// do something</span>
+<span class="err">      </span><span class="kd">return</span><span class="err"> </span><span class="nv">c</span><span class="p">;</span>
+<span class="err">    </span><span class="p">});</span>
 </code></pre></div>
-
-<p>and be called with:</p>
-<div class="highlight"><pre><span></span><code>g(\(a:A, b:B) -&gt; C {
-      c:C;
-      // do something
-      return c;
-    });
-</code></pre></div>
-
-<p>or, if the lambda was previously assigned to a variable <code>f:\(A, B) -&gt; C</code> as above:</p>
-<div class="highlight"><pre><span></span><code>  g(f);
-</code></pre></div>
+or, if the lambda was previously assigned to a variable <code>f:\(A, B) -&gt; C</code> as above:
+<div class="highlight"><pre><span></span><code><span class="nf">g</span><span class="p">(</span><span class="nv">f</span><span class="p">);</span>
+</code></pre></div></p>
                 
               
               
