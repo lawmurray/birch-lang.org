@@ -1,0 +1,636 @@
+# Programmatic Models and Probabilistic Programming
+
+Lawrence Murray, Uber AI
+
+---
+
+## Probabilistic Representations
+
+<table style="width:100%;">
+  <tr>
+    <th>Mathematical</th>
+    <th>Graphical</th>
+    <th>Programmatic</th>
+  </tr>
+  <tr>
+    <td style="width:33%;">
+      $$
+      p(\sigma^2) p(\beta \mid \sigma^2) p(y \mid \beta, \sigma^2)
+      $$      
+    </td>
+    <td style="width:33%;">
+      *******************
+      *  .--.       .-.
+      * | σ2 +---->| β +
+      *  '+-'       '+'
+      *   |          |
+      *   |          v
+      *   |         .-.
+      *    '------>| y |
+      *             '-'
+      *******************      
+    </td>
+    <td style="width:33%;">
+      ```birch
+      σ2 ~ InverseGamma(3.0, 0.4);
+      β ~ Gaussian(0.0, σ2);
+      y ~ Gaussian(x*β, σ2);
+      ```
+    </td>
+  </tr>
+</table>
+
+---
+
+## Distributions
+
+| Mathematical           | Description                                                  | Programmatic        |
+| ---------------------- | ------------------------------------------------------------ | ------------------- |
+| $p(\mathrm{d}x)$       | A distribution.                                              | `p:Distribution<X>` |
+| $x\sim p(\mathrm{d}x)$ | Simulate a variate $x$ from the distribution $p(\mathrm{d}x)$. | `x <~ p`            |
+| $\log p(x)$            | Evaluate the logarithm of the probability density (mass) function associated with the distribution $p(\mathrm{d}x)$ at the value $x$. | `x ~> p`            |
+
+---
+
+In Birch code, a distribution is represented by an object of the [Distribution](https://docs.birch.sh/libraries/Standard/classes/Distribution) class.
+
+However, we do not usually use `Distribution<X>` directly. Instead we use one of its derived classes, such as [Gaussian](https://docs.birch.sh/libraries/Standard/classes/Gaussian), [Gamma](https://docs.birch.sh/libraries/Standard/classes/Gamma), [Beta](https://docs.birch.sh/libraries/Standard/classes/Beta), [Uniform](https://docs.birch.sh/libraries/Standard/classes/Uniform)). The idiom is to use a *factory function* for the particular distribution of interest in combination with a probabilistic operator. For example, we can simulate from a distribution with the *simulate* operator (`<~`):
+```birch
+x:Real;
+x <~ Gaussian(0.0, 4.0);
+```
+
+---
+
+We can observe a variate with the *observe* operator (`~>`). For example, to observe a variate of value `1.5823` from a Gaussian distribution with mean `0.0` and variance `4.0`:
+```birch
+1.5823 ~> Gaussian(0.0, 4.0);
+```
+Or we could, of course, assign the value to a variable first and use that:
+```birch
+let x <- 1.5823;
+x ~> Gaussian(0.0, 4.0);
+```
+
+---
+
+## Randoms
+
+| Mathematical           | Description                                                  | Programmatic  |
+| ---------------------- | ------------------------------------------------------------ | ------------- |
+| $X\in \mathbb{X}$      | A random variable in the set (of type) $\mathbb{X}$.         | `x:Random<X>` |
+| $X\sim p(\mathrm{d}x)$ | Assume that the random variable $X$ is distributed according to the distribution $p(\mathrm{d}x)$. | `x ~ p`       |
+
+In Birch code, a random variable is represented by an object of the [Random](https://docs.birch.sh/libraries/Standard/classes/Random) class.
+
+--- 
+
+We can declare a random variable:
+```birch
+x:Random<Real>;
+```
+and assign a value into it:
+```birch
+x <- 1.5823;
+```
+We can even simulate a value into it:
+```birch
+x <~ Gaussian(0.0, 4.0);
+```
+
+It is only possible to assign or simulate a value once into a random variable, however. Once it has a value, it cannot be reassigned. We can get the value assigned to a random with `x.value()`.
+
+---
+
+For these use cases, a `Random<Real>` object offers no real benefit over a basic `x:Real` value. Where it becomes more useful is in conjunction with the *assume* operator (`~`):
+```birch
+x ~ Gaussian(0.0, 4.0);
+```
+The assume operator can also be used to represent joint distributions between random variables:
+```birch
+x:Random<Real>;
+y:Random<Boolean>;
+x ~ Beta(2.0, 2.0);
+y ~ Bernoulli(x);
+```
+
+---
+
+## Expressions
+
+The `Random` class is one of many derived from the [Expression](https://docs.birch.sh/libraries/Standard/classes/Expression) class. `Expression` objects implement *lazy evaluation* of mathematical expressions, as opposed to the *eager evaluation* that is the case otherwise.
+
+---
+
+Assume that we have variables $a$, $x$, and $c$, declared in code as:
+
+```birch
+a:Real <- 2.0;
+x:Real <- 5.0;
+c:Real <- -1.0;
+```
+
+`Real` is a basic type. Mathematical operators and functions are overloaded for `Real` to evaluate immediately. For example, in:
+```birch
+let y <- exp(a*x + c);
+```
+`y` will have type `Real`, and will contain the result of evaluation $\exp(ax + c) = \exp(2.0 \times 5.0 - 1.0) \approx 8103.08$.
+
+---
+
+On the other hand, if one or more of $a$, $x$, or $c$ has class type `Expression<Real>` (including `Random<Real>`, as it derives from `Expression<Real>`):
+```birch
+a:Real <- 2.0;
+x:Random<Real>;
+c:Real <- -1.0;
+```
+then alternative overloads are called that construct a further `Expression` object representing the expression itself, rather than its evaluation. If we repeat the previous statement:
+```birch
+let y <- exp(a*x + c);
+```
+`y` will now have type `Expression<Real>`.
+
+---
+
+The expression can be evaluated later by calling `y.value()`, although `x` will need to be assigned a value first. There are two ways to do this. We could assign or simulate a value for `x`:
+```birch
+x <- 5.0;
+```
+then call `y.value()`. In this case the evaluated value is the same as for the example above. Alternatively, we could use the assume operator to associate a distribution with `x`:
+```birch
+x ~ Gaussian(5.0, 4.0);
+```
+When `y.value()` is later called, a value will be simulated from that distribution and assigned to `x`, in order to evaluate `y`.
+
+---
+
+## Models
+
+Models are implemented by writing a class derived from [Model](https://docs.birch.sh/libraries/Standard/classes/Model) and overriding the member function `simulate()`.
+
+| Mathematical | Description | Programmatic |
+| ------------ | ----------- | ------------ |
+| $p(\mathrm{d}x)$ | The model. | `m:Model` |
+| $X$ | Random variables. | Usually member variables of `m`, or local variables of `m.simulate()` |
+| $x \sim p(\mathrm{d}x)$ | Simulate the model. | `m.simulate(t)` |
+
+---
+
+## Graphical models
+
+!!! note 
+    When we run the `simulate()`, we can think of any particular run as generating a Bayesian network (directed graphical model).
+
+Consider a simple linear regression model with the programmatic representation:
+```birch
+σ2 ~ InverseGamma(3.0, 0.4);
+β ~ Gaussian(vector(0.0, P), diagonal(σ2, P));
+y ~ Gaussian(X*β, σ2);
+```
+
+---
+
+We can represent the model mathematically as a factorization of the joint distribution into conditional distributions:
+$$
+p(\mathrm{d}\sigma^2, \mathrm{d}\beta, \mathrm{d}y) = p(\mathrm{d}\sigma^2) p(\mathrm{d}\beta \mid \sigma^2) p(\mathrm{d}y \mid \beta, \sigma^2),
+$$
+and graphically, with a directed graphical model:
+*******************
+*  .--.       .-.
+* | σ2 +---->| β +
+*  '+-'       '+'
+*   |          |
+*   |          v
+*   |         .-.
+*    '------>| y |
+*             '-'
+*******************
+
+Each statement in the programmatic representation defines a new factor in the mathematical representation, and a new node in the graphical representation. 
+
+---
+
+Many useful models can be represented in these three ways. Consider also a linear-Gaussian state-space model (hidden Markov model), represented programmatically as:
+```birch
+x[1] ~ Gaussian(0.0, 4.0);
+y[1] ~ Gaussian(b*x[1], 1.0);
+for t in 2..4 {
+  x[t] ~ Gaussian(a*x[t - 1], 4.0);
+  y[t] ~ Gaussian(b*x[t], 1.0);
+}
+```
+mathematically as:
+$$
+p(\mathrm{d}x_{1:T}, \mathrm{d}y_{1:T}) = p(\mathrm{d}x_1)p(\mathrm{d}y_1\mid x_1) \prod_{t=2}^T p(\mathrm{d}x_t \mid x_{t-1})p(\mathrm{d}y_t \mid x_t),
+$$
+
+---
+
+and graphically as:
+
+******************************************
+*  .--.       .--.       .--.       .--.
+* |x[1]+---->|x[2]+---->|x[3]+---->|x[4]|
+*  '-+'       '-+'       '-+'       '-+'
+*    |          |          |          |
+*    |          |          |          |
+*    v          v          v          v
+*  .--.       .--.       .--.       .--.
+* |y[1]|     |y[2]|     |y[3]|     |y[4]|
+*  '--'       '--'       '--'       '--'
+******************************************
+
+---
+
+## Programmatic models
+
+!!! info
+    Much like a graphical model is a probabilistic model expressed in a graphical language, a programmatic model is a probabilistic model expressed in a programming language.
+
+A key feature of programmatic models is that random variables can influence control flow of the program. This is referred to as *stochastic branching*.
+
+```birch
+t <~ Gaussian(25.0, 4.0);
+c <~ Bernoulli(0.9);
+if !c {
+  r <- 0.0;
+} else {
+  r <~ Gamma(2.0, 5.0 + t/25.0);
+}
+```
+
+---
+
+An `if` statement may have significant deviation between branches. Consider a model selection task:
+```birch
+c <~ Bernoulli(0.5);
+if c {
+  // run model A
+} else {
+  // run model B
+}
+```
+The two models could involve very different sets of random variables and dependencies between them, i.e. different graphical models.
+
+---
+
+Loops can also exhibit stochastic branching. Consider enumerating the components of a Gaussian mixture model with a random number of components:
+```birch
+K <~ Geometric(0.25);
+for k in 1..K {
+  σ2[k] ~ InverseGamma(2.0, 5.0);
+  μ[k] ~ Gaussian(0.0, 0.1*σ2);
+}
+```
+The random variable `K` affects the control flow of the program. Each time the program is run, the `for` loop iterates a random number of times.
+
+---
+
+Finally, consider a population model of an animal species, simulated with the Gillespie algorithm, where a random number of birth or death events occur in any given time interval:
+```birch
+T <- 10.0;  // end time
+x <- 100;  // starting population
+t <~ Exponential(1.0);  // time of first event
+while t < T {
+  b <~ Bernoulli(0.5);
+  if b {
+    x <- x + 1;  // birth event
+  } else {
+    x <- x - 1;  // death event
+  }
+  Δ <~ Exponential(1.0);  // time to next event
+  t <- t + Δ;  // time of next event
+}
+```
+Here, the `while` loop executes a random number of times, until the `t < T` condition fails.
+
+---
+
+All of these programs exhibit stochastic branching. On each run they may generate a different set of random variables and dependencies between them, i.e. a different set of nodes and edges between them, i.e. a different graphical model.
+
+!!! info
+    A programmatic model defines a distribution over graphical models.
+
+---
+
+## Probabilistic Computations
+
+In the following sections we look at various probabilistic computations, and how they are supported by the probabilistic representations introduced in preceding sections.
+
+!!! tip
+    Take home message of the next few sections: use a `Random` object whenever you want to do something clever with a random variable, such as marginalize it out, condition it on future observations, or compute a gradient with respect to it. Otherwise use a basic value.
+
+---
+
+## Automatic differentiation
+
+Consider a scalar function $f:\mathbb{R}^D \rightarrow \mathbb{R}$. We are interested in evaluating its gradient $\nabla f(x)$ at a given point $x \in \mathbb{R}^D$.
+
+Typically, a gradient is computed for the purpose of a gradient-based Markov kernel---such as a Langevin or Hamiltonian kernel---and $f$ is a log-likelihood function:
+$$
+f(x):=\log p(y\mid x)
+$$
+or a log-prior density function:
+$$
+f(x) := \log p(x).
+$$
+or a log-posterior density function:
+$$
+f(x) := \log p(x \mid y).
+$$
+
+---
+
+The idea of *automatic differentiation* is to evaluate $\nabla f(x)$ given only a program that implements $f$.
+
+To do so, Birch implements reverse-mode automatic differentiation, with optimizations for common subexpressions, which happens to be important for computing derivatives through Bayesian updates.
+
+Automatic differentiation is applied to an `Expression<Real>` object, which represents the function $f$, and the gradient is computed with respect to all `Random` objects that occur in the expression, which represent the argument $x$.
+
+---
+
+## Automatic marginalization
+
+Given a joint distribution $p(\mathrm{d}y,\mathrm{d}x)$, *marginalization* is the computation:
+$$
+p(\mathrm{d}y)=\int_\mathbb{X} p(\mathrm{d}y,\mathrm{d}x).
+$$
+That is, we *marginalize out* $x$ (as indicated by the $\mathbb{X}$) to obtain the *marginal distribution* over $y$. When $x$ is a discrete-valued random variable, we may instead write the integral as a sum:
+$$
+p(\mathrm{d}y)=\sum_{x\in\mathbb{X}}p(\mathrm{d}y, \mathrm{d}x).
+$$
+
+---
+
+Consider:
+```birch
+x ~ Beta(2,0, 2.0);
+y <~ Bernoulli(x);
+```
+Here, `x` can be marginalized out and `y` simulated from its marginal distribution, as the [BetaBernoulli](https://docs.birch.sh/libraries/Standard/classes/BetaBernoulli) form of the joint distribution between `x` and `y` is recognized.
+
+---
+
+Similarly, we could use:
+```birch
+x ~ Gamma(2.0, 1.0);
+y <~ Poisson(x);
+```
+because the [GammaPoisson](https://docs.birch.sh/libraries/Standard/classes/GammaPoisson) form is recognized.
+
+---
+
+Or:
+
+```birch
+x ~ Gaussian(0.0, 4.0);
+y ~ Gaussian(x, 4.0);
+z <~ Gaussian(y, 4.0);
+```
+because chains of Gaussians are recognized---here both `x` and `y` can be marginalized out.
+
+Standard conjugate forms, linear transformations, and sums and differences of discrete random variables are recognized forms for which marginalization is supported.
+
+---
+
+## Automatic conditioning
+
+Given a joint distribution $p(\mathrm{d}y,\mathrm{d}x)$, *conditioning* is the computation:
+$$
+p(\mathrm{d}x\mid y)=\frac{p(y\mid x)p(\mathrm{dx})}{p(y)}.
+$$
+That is, we *condition* on the value of $y$ to obtain the *conditional distribution* of $x$ given $y$. We may also refer to this as *Bayesian updating*, insofar as we interpret $p(\mathrm{d}x)$ as a prior distribution that we update to a posterior distribution $p(\mathrm{d}x\mid y)$.
+
+---
+
+Consider:
+```birch
+x ~ Gamma(2.0, 1.0);
+y ~ Poisson(x);
+```
+Conditioning is triggered when `y` obtains a value. The distribution associated with `x` is then updated to the conditional distribution of $x$ given $y$. If `x.value()` is later used to obtain a value for `x`, it will be drawn from that conditional distribution.
+
+In this way random variables are simulated consistently from the joint distribution.
+
+---
+
+## Delayed sampling
+
+Automatic marginalization and conditioning are implemented using a heuristic called *delayed sampling*[^1]. This has a small limitation: it supports marginalization through *chains* of random variables, but not through *trees* of random variables. Trees are reduced to chains by simulation where necessary.
+
+---
+
+Consider:
+```birch
+x ~ Gamma(2.0, 1.0);
+y ~ Poisson(x);
+z ~ Poisson(x);
+```
+Graphically, this can be represented as:
+
+*******************
+*        .-.
+*       | x |
+*        +-+
+*       /   \
+*      v     v
+*   .-+       +-.
+*  | y |     | z |
+*   '-'       '-'
+*******************
+
+This is a tree (the most basic), so delayed sampling cannot maintain a marginal distribution for all three random variables (jointly).
+
+---
+
+Instead---this is the heuristic---it reduces the tree to a chain by simulating `y`. This proceeds as follows:
+
+1. `x ~ Gamma(1.0, 2.0);`
+
+******************
+*        .-.
+*       | x |
+*        +-'
+******************
+
+2. `y ~ Poisson(x);`
+
+******************
+*        .-.
+*       | x |
+*        +-'
+*       /
+*      v
+*   .-+
+*  | y |
+*   '-'
+******************
+
+---
+
+3. `z ~ Poisson(x);`
+
+******************
+*        .-.
+*       | x |
+*        +-'
+*       /
+*      v
+*  .---.
+*  | y |
+*  '---'
+******************
+
+4. 
+
+******************
+*       .-.
+*      | x |
+*       +-+
+*      /   \
+*     v     v
+* .---.      +-.
+* | y |     | z |
+* '---'      '-'
+******************
+
+---
+
+Delayed sampling over Gaussian variables yields some common use-cases without explicit coding. Consider the following linear-Gaussian state-space model:
+```birch
+x[1] ~ Gaussian(0.0, 4.0);
+y[1] ~ Gaussian(b*x[1], 1.0);
+for t in 2..4 {
+  x[t] ~ Gaussian(a*x[t - 1], 4.0);
+  y[t] ~ Gaussian(b*x[t], 1.0);
+}
+```
+For the purposes of demonstration, we assume both `x` and `y` are latent (typically, for such a model, the `x` are latent while the `y` are observed). We see the previous steps repeated on each iteration of the loop: 
+
+--- 
+
+1. 
+*******************************************************
+*       .----.       .----.       .----.
+* ╌╌╌╌▶|x[t-3]+---->|x[t-2]+---->|x[t-1]|
+*       '-+--'       '-+--'       '-+--'
+*         |            |            |
+*         |            |            |
+*         v            v            v
+*      .--+---.     .--+---.      .-+--.
+*      |y[t-3]|     |y[t-2]|     |y[t-1]|
+*      '------'     '------'      '----'
+*******************************************************
+
+--- 
+
+2. 
+*******************************************************
+*       .----.       .----.       .----.
+* ╌╌╌╌▶|x[t-3]+---->|x[t-2]+---->|x[t-1]|
+*       '-+--'       '-+--'       '-+--'
+*         |            |            |
+*         |            |            |
+*         v            v            v
+*      .--+---.     .--+---.     .--+---.
+*      |y[t-3]|     |y[t-2]|     |y[t-1]|
+*      '------'     '------'     '------'
+*******************************************************
+
+---
+
+3. 
+*******************************************************
+*       .----.       .----.       .----.       .----.
+* ╌╌╌╌▶|x[t-3]+---->|x[t-2]+---->|x[t-1]+---->| x[t] |
+*       '-+--'       '-+--'       '-+--'       '----'
+*         |            |            |
+*         |            |            |
+*         v            v            v
+*      .--+---.     .--+---.     .--+---.
+*      |y[t-3]|     |y[t-2]|     |y[t-1]|
+*      '------'     '------'     '------'
+*******************************************************
+
+---
+
+4. 
+*******************************************************
+*       .----.       .----.       .----.       .----.
+* ╌╌╌╌▶|x[t-3]+---->|x[t-2]+---->|x[t-1]+---->| x[t] |
+*       '-+--'       '-+--'       '-+--'       '-+--'
+*         |            |            |            |
+*         |            |            |            |
+*         v            v            v            v
+*      .--+---.     .--+---.     .--+---.      .-+--.
+*      |y[t-3]|     |y[t-2]|     |y[t-1]|     | y[t] |
+*      '------'     '------'     '------'      '----'
+*******************************************************
+
+!!! tip
+    In fact, the operations automatically performed for this example are precisely those of the Kalman filter, without having to code them by hand.
+
+---
+
+## Probabilistic inference
+
+As a model runs it emits an event every time a simulate (`<~`), observe (`~>`) or assume (`~`) operator executes. The inference method registers an appropriate event handler (from the [Handler](https://docs.birch.sh/libraries/Standard/classes/Handler) hierarchy) to handle these. The events provide insight into the model, and a means to influence its execution. The inference method may, for example, implement:
+
+* *Importance sampling* by using a combination of simulation and observation to compute importance weights.
+
+* *Particle filtering* or *Sequential Monte Carlo* by extending importance sampling with resampling between epochs.
+
+* *Particle Gibbs*.
+
+---
+
+## Summary
+
+We have introduced the building blocks of probabilistic modeling in Birch, with fundamental representations and computations including:
+
+* [Distribution](https://docs.birch.sh/libraries/Standard/classes/Distribution), [Random](https://docs.birch.sh/libraries/Standard/classes/Random), [Expression](https://docs.birch.sh/libraries/Standard/classes/Expression) and [Model](https://docs.birch.sh/libraries/Standard/classes/Model) objects,
+
+* the simulate (`<~`), observe (`~>`) and assume (`~`) probabilistic operators,
+
+* *automatic differentiation*, *automatic marginalization*, and *automatic conditioning*, and *delayed sampling* as the heuristic used to implement these.
+
+* *stochastic branching*, where random variables affect the control flow of a program, and a *programmatic model*, as defining a distribution over graphical models.
+
+* For more, check out [https://birch.sh](https://birch.sh)
+
+<!-- Markdeep slides stuff -->
+<script>
+  markdeepSlidesOptions = {
+      aspectRatio: 16 / 9,
+      theme: 'simple',
+      fontSize: 24,
+      diagramZoom: 1.0,
+      totalSlideNumber: false,
+      progressBar: false,
+      breakOnHeadings: false,
+      slideChangeHook: (oldSlide, newSlide) => {},
+      modeChangeHook: (newMode) => {}
+  };
+</script>
+<link rel="stylesheet" href="markdeep-slides/lib/markdeep-relative-sizes/1.11/relativize.css">
+<link rel="stylesheet" href="markdeep-slides/markdeep-slides.css">
+<script src="markdeep-slides/markdeep-slides.js"></script>
+
+<!-- Markdeep stuff -->
+<script>
+  markdeepOptions = {
+      tocStyle: 'none',
+      detectMath: false,
+      onLoad: function() {
+          initSlides();
+      }
+  };
+</script>
+<style class="fallback">body{visibility:hidden;white-space:pre;font-family:monospace}</style>
+<script src="markdeep-slides/lib/markdeep/1.11/markdeep.min.js" charset="utf-8"></script>
+<script>window.alreadyProcessedMarkdeep||(document.body.style.visibility="visible")</script>
+<style>
+  table {
+    width: 100%;
+  }
+</style>
