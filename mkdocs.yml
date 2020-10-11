@@ -21,7 +21,6 @@ markdown_extensions:
   - footnotes
   - attr_list
   - markdown.extensions.smarty
-  - pymdownx.arithmatex
   - pymdownx.highlight
   - pymdownx.inlinehilite
   - pymdownx.superfences:
@@ -36,9 +35,9 @@ markdown_extensions:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
 extra_javascript:
-  - /js/markdeep.js
+  - /js/settings.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
   - https://morgan3d.github.io/markdeep/latest/markdeep.min.js
-  - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML
 extra:
   social:
     - icon: fontawesome/brands/github
@@ -54,7 +53,7 @@ nav:
     - getting-started/linear-regression.md
     - getting-started/markov-model.md
     - getting-started/next-steps.md
-  - 'Concepts':
+  - 'Key Concepts':
     - concepts/index.md
     - concepts/distributions.md
     - concepts/randoms.md
@@ -68,7 +67,7 @@ nav:
     - concepts/delayed-sampling.md
     - concepts/probabilistic-inference.md
     - concepts/summary.md
-  - 'Language':
+  - 'The Language':
     - language/index.md
     - language/variables.md
     - language/types.md
@@ -86,6 +85,6 @@ nav:
     - language/aliases.md
     - language/casts.md
     - language/probability.md
-  - 'Reference':
+  - 'Reference Docs':
     - 'docs.birch.sh': 'https://docs.birch.sh'
   - about.md

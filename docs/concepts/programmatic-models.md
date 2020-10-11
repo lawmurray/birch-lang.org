@@ -13,11 +13,9 @@ if !c {
 }
 ```
 The random variable `c` affects the control flow of the program. Each time the program is run a random choice is made as to which branch of the `if` statement is taken. If the true branch is taken, `r` does not depend on `t`, otherwise `r` does depend on `t`. We can represent the model mathematically as:
-
 $$
 p(\mathrm{d}t, \mathrm{d}c, \mathrm{d}r) = p(\mathrm{d}t) p(\mathrm{d}c) p(\mathrm{d}r \mid t, c),
 $$
-
 and graphically as:
 ```diagram
  .-.       .-.

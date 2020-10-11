@@ -5,13 +5,13 @@ Now that we have a trivial package running, we can do something more interesting
 ## Model
 
 The model is given by:
-
-$$\begin{align}
-\sigma^2 &\sim \mathrm{InverseGamma}(3, 4/10) \\
-\boldsymbol{\beta} \mid \sigma^2 &\sim \mathrm{Gaussian}(0, I\sigma^2) \\
+$$
+\begin{align}
+\sigma^2 &\sim \mathrm{InverseGamma}(3, 4/10) \\\\
+\boldsymbol{\beta} \mid \sigma^2 &\sim \mathrm{Gaussian}(0, I\sigma^2) \\\\
 y_n \mid \boldsymbol{\beta}, \sigma^2 &\sim \mathrm{Gaussian}(\mathbf{x}_n^{\top}\boldsymbol{\beta}, \sigma^2)
-\end{align}$$
-
+\end{align}
+$$
 The parameters of the model are the noise variance $\sigma^2$ and vector of coefficients $\boldsymbol{\beta}$. The data consists of observations $y_n$ and explanatory variables $\mathbf{x}_n$ for $n=1,\ldots,N$.
 
 

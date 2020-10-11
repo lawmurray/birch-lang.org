@@ -7,38 +7,39 @@ We will now look at implementing a simple SIR (susceptible-infectious-recovered)
 The model is described in three parts: a *parameter* model, an *initial* model, and a *transition* model. Time is indexed by $t$, in days. The state consists of variables $s_t$, $i_t$, and $r_t$, giving counts of the number of susceptible, infectious, and recovered individuals, respectively.
 
 The parameter model is:
-
-$$\begin{align}
-\lambda &= 10 \\
-\delta &\sim \mathrm{Beta}(2,2) \\
+$$
+\begin{align}
+\lambda &= 10 \\\\
+\delta &\sim \mathrm{Beta}(2,2) \\\\
 \gamma &\sim \mathrm{Beta}(2,2),
-\end{align}$$
-
+\end{align}
+$$
 where $\lambda$ is a rate of interaction in the population, $\delta$ the probability of infection when a susceptible individual interacts with an infectious individual, and $\gamma$ the daily recovery probability.
 
 The initial model for time $t = 0$ depends on the data set. For the data set introduced below, it is as follows:
-
-$$\begin{align}
-s_0 &= 760 \\
-i_0 &= 3 \\
+$$
+\begin{align}
+s_0 &= 760 \\\\
+i_0 &= 3 \\\\
 r_0 &= 0.
-\end{align}$$
-
+\end{align}
+$$
 The transition model for time $t$ is:
-
-$$\begin{align}
-\tau_t \mid s_{t-1}, i_{t-1}, r_{t-1}, \lambda &\sim \mathrm{Binomial}\left(s_{t-1}, 1 - \exp\left(\frac{-\lambda i_{t-1} }{s_{t-1} + i_{t-1} + r_{t-1}}\right) \right) \\
-\Delta i_t \mid \tau_t, \delta &\sim \mathrm{Binomial}(\tau_t, \delta) \\
+$$
+\begin{align}
+\tau_t \mid s_{t-1}, i_{t-1}, r_{t-1}, \lambda &\sim \mathrm{Binomial}\left(s_{t-1}, 1 - \exp\left(\frac{-\lambda i_{t-1} }{s_{t-1} + i_{t-1} + r_{t-1}}\right) \right) \\\\
+\Delta i_t \mid \tau_t, \delta &\sim \mathrm{Binomial}(\tau_t, \delta) \\\\
 \Delta r_t \mid i_{t-1}, \gamma &\sim \mathrm{Binomial}(i_{t-1}, \gamma),
-\end{align}$$
-
+\end{align}
+$$
 where $\tau_t$ is the number of interactions between infectious and susceptible individuals, $\Delta i_t$ the number of newly infectious individuals, and $\Delta r_t$ the number of newly recovered individuals. Population counts are then updated:
-
-$$\begin{align}
-s_t &= s_{t-1} - \Delta i_t \\
-i_t &= i_{t-1} + \Delta i_t - \Delta r_t \\
+$$
+\begin{align}
+s_t &= s_{t-1} - \Delta i_t \\\\
+i_t &= i_{t-1} + \Delta i_t - \Delta r_t \\\\
 r_t &= r_{t-1} + \Delta r_t.
-\end{align}$$
+\end{align}
+$$
 
 ## Implementation
 

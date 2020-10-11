@@ -2,7 +2,7 @@
 
 We start by getting acquainted with the `birch` program that you have just installed, using it to create, build and run a simple Birch program. We will work from the terminal. If you are unfamiliar with Unix commands, that's okay, everything you need to type will be provided as we go.
 
-We will start by creating a new package. From the terminal, create a new directory and change into it:
+We start by creating a new package. From the terminal, create a new directory and change into it:
 
     mkdir HelloWorld
     cd HelloWorld

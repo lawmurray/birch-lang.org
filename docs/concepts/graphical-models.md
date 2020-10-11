@@ -9,9 +9,9 @@ Consider a simple linear regression model with the programmatic representation:
 y ~ Gaussian(X*β, σ2);
 ```
 We can represent the model mathematically as a factorization of the joint distribution into conditional distributions:
-
-$$p(\mathrm{d}\sigma^2, \mathrm{d}\beta, \mathrm{d}y) = p(\mathrm{d}\sigma^2) p(\mathrm{d}\beta \mid \sigma^2) p(\mathrm{d}y \mid \beta, \sigma^2).$$
-
+$$
+p(\mathrm{d}\sigma^2, \mathrm{d}\beta, \mathrm{d}y) = p(\mathrm{d}\sigma^2) p(\mathrm{d}\beta \mid \sigma^2) p(\mathrm{d}y \mid \beta, \sigma^2).
+$$
 This factorization is also represented graphically using a directed graphical model as:
 ```diagram
  .--.       .-.
@@ -37,9 +37,9 @@ for t in 2..4 {
 }
 ```
 mathematically as:
-
-$$p(\mathrm{d}x_{1:T}, \mathrm{d}y_{1:T}) = p(\mathrm{d}x_1)p(\mathrm{d}y_1\mid x_1) \prod_{t=2}^T p(\mathrm{d}x_t \mid x_{t-1})p(\mathrm{d}y_t \mid x_t),$$
-
+$$
+p(\mathrm{d}x_{1:T}, \mathrm{d}y_{1:T}) = p(\mathrm{d}x_1)p(\mathrm{d}y_1\mid x_1) \prod_{t=2}^T p(\mathrm{d}x_t \mid x_{t-1})p(\mathrm{d}y_t \mid x_t),
+$$
 and graphically as:
 ```diagram
  .--.       .--.       .--.       .--.
