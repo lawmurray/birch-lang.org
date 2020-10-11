@@ -14,18 +14,15 @@ $$p(\mathrm{d}\sigma^2) p(\mathrm{d}\beta \mid \sigma^2) p(\mathrm{d}y \mid \bet
   <tr>
     <th>Graphical</th>
     <td>
-```mermaid
-graph LR
-    σ2((σ2))
-    β((β))
-    y((y))
-    σ2 --> β
-    β --> y
-    σ2 --> y
-    style σ2 fill:#fff,stroke:#000
-    style β fill:#fff,stroke:#000
-    style y fill:#fff,stroke:#000
-    linkStyle default interpolate basis
+```diagram
+ .--.       .-.
+| σ2 +---->| β +
+ '+-'       '+'
+  |          |
+  |          v
+  |         .-.
+   '------>| y |
+            '-'
 ```
     </td>
   </tr>

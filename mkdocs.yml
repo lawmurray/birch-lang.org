@@ -26,9 +26,6 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.superfences:
       custom_fences:
-        - name: mermaid
-          class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_div_format
         - name: markdeep
           class: markdeep
           format: !!python/name:pymdownx.superfences.fence_div_format
@@ -41,7 +38,6 @@ markdown_extensions:
 extra_javascript:
   - /js/markdeep.js
   - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML
-  - https://unpkg.com/mermaid/dist/mermaid.min.js
   - https://morgan3d.github.io/markdeep/latest/markdeep.min.js
 extra:
   social:
