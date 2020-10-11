@@ -10,9 +10,9 @@ y ~ Gaussian(X*β, σ2);
 ```
 We can represent the model mathematically as a factorization of the joint distribution into conditional distributions:
 $$
-p(\mathrm{d}\sigma^2, \mathrm{d}\beta, \mathrm{d}y) = p(\mathrm{d}\sigma^2) p(\mathrm{d}\beta \mid \sigma^2) p(\mathrm{d}y \mid \beta, \sigma^2).
+p(\mathrm{d}\sigma^2, \mathrm{d}\beta, \mathrm{d}y) = p(\mathrm{d}\sigma^2) p(\mathrm{d}\beta \mid \sigma^2) p(\mathrm{d}y \mid \beta, \sigma^2),
 $$
-This factorization is also represented graphically using a directed graphical model as:
+and graphically, with a directed graphical model:
 ```diagram
  .--.       .-.
 | σ2 +---->| β +
@@ -23,9 +23,7 @@ This factorization is also represented graphically using a directed graphical mo
    '------>| y |
             '-'
 ```
-Each statement in the programmatic representation defines a new factor in the mathematical representation, and a new node in the graphical representation.
-
-In the programmatic representation, the dependencies of each random variable are clear from the arguments given in constructing its associated distribution. In the mathematical representation they appear to the right of the bar ($\mid$) in the corresponding conditional distribution. In the graphical representation they connect with incoming arrows to the corresponding node.
+Each statement in the programmatic representation defines a new factor in the mathematical representation, and a new node in the graphical representation. In the programmatic representation, the dependencies of each random variable are clear from the arguments given in constructing its associated distribution. In the mathematical representation they appear to the right of the bar ($\mid$) in the corresponding conditional distribution. In the graphical representation they connect with incoming arrows from the corresponding nodes.
 
 Many useful models can be represented in these three ways. Consider also a linear-Gaussian state-space model (hidden Markov model), represented programmatically as:
 ```birch
