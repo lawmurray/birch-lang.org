@@ -29,12 +29,20 @@ markdown_extensions:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_div_format
+        - name: markdeep
+          class: markdeep
+          format: !!python/name:pymdownx.superfences.fence_div_format
+        - name: diagram
+          class: diagram
+          format: !!python/name:pymdownx.superfences.fence_div_format
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
 extra_javascript:
+  - /js/markdeep.js
   - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML
   - https://unpkg.com/mermaid/dist/mermaid.min.js
+  - https://morgan3d.github.io/markdeep/latest/markdeep.min.js
 extra:
   social:
     - icon: fontawesome/brands/github
