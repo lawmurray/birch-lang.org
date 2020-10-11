@@ -20,14 +20,21 @@ markdown_extensions:
   - admonition
   - footnotes
   - attr_list
+  - markdown.extensions.smarty
   - pymdownx.arithmatex
   - pymdownx.highlight
-  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_div_format
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
 extra_javascript:
   - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML
+  - https://unpkg.com/mermaid/dist/mermaid.min.js
 extra:
   social:
     - icon: fontawesome/brands/github
@@ -43,6 +50,20 @@ nav:
     - getting-started/linear-regression.md
     - getting-started/markov-model.md
     - getting-started/next-steps.md
+  - 'Concepts':
+    - concepts/index.md
+    - concepts/distributions.md
+    - concepts/randoms.md
+    - concepts/models.md
+    - concepts/graphical-models.md
+    - concepts/programmatic-models.md
+    - concepts/expressions.md
+    - concepts/automatic-differentiation.md
+    - concepts/automatic-marginalization.md
+    - concepts/automatic-conditioning.md
+    - concepts/delayed-sampling.md
+    - concepts/probabilistic-inference.md
+    - concepts/summary.md
   - 'Language':
     - language/index.md
     - language/variables.md
@@ -61,6 +82,6 @@ nav:
     - language/aliases.md
     - language/casts.md
     - language/probability.md
-  - 'Documentation':
+  - 'Reference':
     - 'docs.birch.sh': 'https://docs.birch.sh'
   - about.md

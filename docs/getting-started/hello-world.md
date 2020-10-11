@@ -14,9 +14,9 @@ Initialize a new Birch package with the following command:
 This creates the standard files and subdirectories for a Birch package, including (list them with `ls`):
 
   * `src/` for source code,
-  * `config/` for configuration files, typically setting various options for a model and/or inference method,
-  * `input/` for input files,
-  * `output/` for output files,
+  * `config/` for configuration files (setting various options for a model and/or inference method),
+  * `input/` for input files (your data sets), 
+  * `output/` for output files (the answers!),
   * and a number of other meta files in the base directory such as `README.md` and `LICENSE`.
 
 A new package contains just one source file, `src/hello.birch`, containing a program called `hello` that prints exactly what you think it does (view it with `cat src/hello.birch`).
