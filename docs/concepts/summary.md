@@ -6,7 +6,7 @@ We have introduced the building blocks of probabilistic modeling in Birch, with 
 
 * the simulate (`<~`), observe (`~>`) and assume (`~`) probabilistic operators,
 
-* the fundamental computations of *automatic differentiation*, *automatic marginalization*, and *automatic conjugacy*, as well as the *delayed sampling* heuristic used to implement the latter two,
+* the fundamental computations of *automatic differentiation*, *automatic marginalization*, and *automatic conditioning*, as well as the *delayed sampling* heuristic used to implement the latter two,
 
 * the concept of *stochastic branching*, where random variables affect the control flow of a program, and
 
