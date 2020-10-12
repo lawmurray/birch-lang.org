@@ -17,7 +17,7 @@ Conditioning is triggered when `y` obtains a value. This can occur in several ci
 * If, in the above code, `y` does not already have a value, but one is requested by replacing the second line with `#!birch y <~ Poisson(x);`, then the conditioning is triggered immediately.
 * If the above code remains the same, but `y.value()` is later used to obtain a value for `y`, then the conditioning is triggered at that time.
 
-In all of these cases `x` remains marginalized out, but the distribution associated with it is updated to the conditional distribution of $x$ given $y$. If `x.value()` is later used to obtain a value for `x`, it will be drawn from that conditional distribution. In this way random variables are simulated consistently from the joint distribution.
+In all of these cases `x` remains marginalized out, but the distribution associated with it is updated to the conditional distribution of `x` given `y`. If `x.value()` is later used to obtain a value for `x`, it will be drawn from that conditional distribution. In this way random variables are simulated consistently from the joint distribution.
 
 Conditioning can occur multiple times:
 ```birch
