@@ -80,56 +80,64 @@ for t in 2..4 {
 For the purposes of demonstration, we assume both `x` and `y` are latent (typically, for such a model, the `x` are latent while the `y` are observed). We see the previous steps repeated on each iteration of the loop: 
 
 1. At the start of the `t`th iteration, both `x[t-1]` and `y[t-1]` are marginalized out.
-```diagram
-      .----.       .----.       .----.
-╌╌╌╌▶|x[t-3]+---->|x[t-2]+---->|x[t-1]|
-      '-+--'       '-+--'       '-+--'
-        |            |            |
-        |            |            |
-        v            v            v
-     .--+---.     .--+---.      .-+--.
-     |y[t-3]|     |y[t-2]|     |y[t-1]|
-     '------'     '------'      '----'
+```markdeep
+******************************************
+*       .----.       .----.
+* ╌╌╌╌▶|x[t-2]+---->|x[t-1]|
+*       '-+--'       '-+--'
+*         |            |
+*         |            |
+*         v            v
+*      .--+---.      .-+--.
+*      |y[t-2]|     |y[t-1]|
+*      '------'      '----'
+******************************************
 ```
 
 2. `#!birch x[t] ~ Gaussian(a*x[t - 1], 4.0);`
    Adding `x[t]` to the graph would create a tree of marginalized variables, so `y[t-1]` is simulated to reduce the tree to a chain.
-```diagram
-      .----.       .----.       .----.
-╌╌╌╌▶|x[t-3]+---->|x[t-2]+---->|x[t-1]|
-      '-+--'       '-+--'       '-+--'
-        |            |            |
-        |            |            |
-        v            v            v
-     .--+---.     .--+---.     .--+---.
-     |y[t-3]|     |y[t-2]|     |y[t-1]|
-     '------'     '------'     '------'
+```markdeep
+******************************************
+*       .----.       .----.
+* ╌╌╌╌▶|x[t-2]+---->|x[t-1]|
+*       '-+--'       '-+--'
+*         |            |
+*         |            |
+*         v            v
+*      .--+---.     .--+---.
+*      |y[t-2]|     |y[t-1]|
+*      '------'     '------'
+******************************************
 ```
 
 3. Now the new node for the latent state is added; `x[t-1]` and `x[t]` remain marginalized out.
-```diagram
-      .----.       .----.       .----.       .----.
-╌╌╌╌▶|x[t-3]+---->|x[t-2]+---->|x[t-1]+---->| x[t] |
-      '-+--'       '-+--'       '-+--'       '----'
-        |            |            |
-        |            |            |
-        v            v            v
-     .--+---.     .--+---.     .--+---.
-     |y[t-3]|     |y[t-2]|     |y[t-1]|
-     '------'     '------'     '------'
+```markdeep
+******************************************
+*       .----.       .----.       .----.
+* ╌╌╌╌▶|x[t-2]+---->|x[t-1]+---->| x[t] |
+*       '-+--'       '-+--'       '----'
+*         |            |
+*         |            |
+*         v            v
+*      .--+---.     .--+---.
+*      |y[t-2]|     |y[t-1]|
+*      '------'     '------'
+******************************************
 ```
 
 4. Finally the new node for the observation is added; `x[t-1]`, `x[t]` and `y[t]` remain marginalized out, ready for the next iteration of the loop.
-```diagram
-      .----.       .----.       .----.       .----.
-╌╌╌╌▶|x[t-3]+---->|x[t-2]+---->|x[t-1]+---->| x[t] |
-      '-+--'       '-+--'       '-+--'       '-+--'
-        |            |            |            |
-        |            |            |            |
-        v            v            v            v
-     .--+---.     .--+---.     .--+---.      .-+--.
-     |y[t-3]|     |y[t-2]|     |y[t-1]|     | y[t] |
-     '------'     '------'     '------'      '----'
+```markdeep
+******************************************
+*       .----.       .----.       .----.
+* ╌╌╌╌▶|x[t-2]+---->|x[t-1]+---->| x[t] |
+*       '-+--'       '-+--'       '-+--'
+*         |            |            |
+*         |            |            |
+*         v            v            v
+*      .--+---.     .--+---.      .-+--.
+*      |y[t-2]|     |y[t-1]|     | y[t] |
+*      '------'     '------'      '----'
+******************************************
 ```
 
 In fact, the operations automatically performed for this example are precisely those of the Kalman filter, without having to code them by hand.
