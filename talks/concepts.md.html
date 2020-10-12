@@ -103,7 +103,7 @@ In Birch code, a random variable is represented by an object of the [Random](htt
 
 We can declare a random variable:
 ```birch
-x:Random<Real>;
+x:Random&lt;Real&gt;;
 ```
 and assign a value into it:
 ```birch
@@ -118,13 +118,13 @@ It is only possible to assign or simulate a value once into a random variable, h
 
 ---
 
-For these use cases, a `Random<Real>` object offers no real benefit over a basic `x:Real` value. Where it becomes more useful is in conjunction with the *assume* operator (`~`):
+For these use cases, a `Random&lt;Real&gt;` object offers no real benefit over a basic `x:Real` value. Where it becomes more useful is in conjunction with the *assume* operator (`~`):
 ```birch
 x ~ Gaussian(0.0, 4.0);
 ```
 The assume operator can also be used to represent joint distributions between random variables:
 ```birch
-x:Random<Real>;
+x:Random&lt;Real&gt;;
 y:Random<Boolean>;
 x ~ Beta(2.0, 2.0);
 y ~ Bernoulli(x);
@@ -154,17 +154,17 @@ let y <- exp(a*x + c);
 
 ---
 
-On the other hand, if one or more of $a$, $x$, or $c$ has class type `Expression<Real>` (including `Random<Real>`, as it derives from `Expression<Real>`):
+On the other hand, if one or more of $a$, $x$, or $c$ has class type `Expression&lt;Real&gt;` (including `Random&lt;Real&gt;`, as it derives from `Expression&lt;Real&gt;`):
 ```birch
 a:Real <- 2.0;
-x:Random<Real>;
+x:Random&lt;Real&gt;;
 c:Real <- -1.0;
 ```
 then alternative overloads are called that construct a further `Expression` object representing the expression itself, rather than its evaluation. If we repeat the previous statement:
 ```birch
 let y <- exp(a*x + c);
 ```
-`y` will now have type `Expression<Real>`.
+`y` will now have type `Expression&lt;Real&gt;`.
 
 ---
 
@@ -361,7 +361,7 @@ The idea of *automatic differentiation* is to evaluate $\nabla f(x)$ given only 
 
 To do so, Birch implements reverse-mode automatic differentiation, with optimizations for common subexpressions, which happens to be important for computing derivatives through Bayesian updates.
 
-Automatic differentiation is applied to an `Expression<Real>` object, which represents the function $f$, and the gradient is computed with respect to all `Random` objects that occur in the expression, which represent the argument $x$.
+Automatic differentiation is applied to an `Expression&lt;Real&gt;` object, which represents the function $f$, and the gradient is computed with respect to all `Random` objects that occur in the expression, which represent the argument $x$.
 
 ---
 
@@ -527,62 +527,62 @@ For the purposes of demonstration, we assume both `x` and `y` are latent (typica
 --- 
 
 1. 
-*******************************************************
+******************************************
+*       .----.       .----.
+* ╌╌╌╌▶|x[t-2]+---->|x[t-1]|
+*       '-+--'       '-+--'
+*         |            |
+*         |            |
+*         v            v
+*      .--+---.      .-+--.
+*      |y[t-2]|     |y[t-1]|
+*      '------'      '----'
+******************************************
+
+--- 
+
+2. 
+******************************************
+*       .----.       .----.
+* ╌╌╌╌▶|x[t-2]+---->|x[t-1]|
+*       '-+--'       '-+--'
+*         |            |
+*         |            |
+*         v            v
+*      .--+---.     .--+---.
+*      |y[t-2]|     |y[t-1]|
+*      '------'     '------'
+******************************************
+
+---
+
+3. 
+******************************************
 *       .----.       .----.       .----.
-* ╌╌╌╌▶|x[t-3]+---->|x[t-2]+---->|x[t-1]|
+* ╌╌╌╌▶|x[t-2]+---->|x[t-1]+---->| x[t] |
+*       '-+--'       '-+--'       '----'
+*         |            |
+*         |            |
+*         v            v
+*      .--+---.     .--+---.
+*      |y[t-2]|     |y[t-1]|
+*      '------'     '------'
+******************************************
+
+---
+
+4. 
+******************************************
+*       .----.       .----.       .----.
+* ╌╌╌╌▶|x[t-2]+---->|x[t-1]+---->| x[t] |
 *       '-+--'       '-+--'       '-+--'
 *         |            |            |
 *         |            |            |
 *         v            v            v
 *      .--+---.     .--+---.      .-+--.
-*      |y[t-3]|     |y[t-2]|     |y[t-1]|
+*      |y[t-2]|     |y[t-1]|     | y[t] |
 *      '------'     '------'      '----'
-*******************************************************
-
---- 
-
-2. 
-*******************************************************
-*       .----.       .----.       .----.
-* ╌╌╌╌▶|x[t-3]+---->|x[t-2]+---->|x[t-1]|
-*       '-+--'       '-+--'       '-+--'
-*         |            |            |
-*         |            |            |
-*         v            v            v
-*      .--+---.     .--+---.     .--+---.
-*      |y[t-3]|     |y[t-2]|     |y[t-1]|
-*      '------'     '------'     '------'
-*******************************************************
-
----
-
-3. 
-*******************************************************
-*       .----.       .----.       .----.       .----.
-* ╌╌╌╌▶|x[t-3]+---->|x[t-2]+---->|x[t-1]+---->| x[t] |
-*       '-+--'       '-+--'       '-+--'       '----'
-*         |            |            |
-*         |            |            |
-*         v            v            v
-*      .--+---.     .--+---.     .--+---.
-*      |y[t-3]|     |y[t-2]|     |y[t-1]|
-*      '------'     '------'     '------'
-*******************************************************
-
----
-
-4. 
-*******************************************************
-*       .----.       .----.       .----.       .----.
-* ╌╌╌╌▶|x[t-3]+---->|x[t-2]+---->|x[t-1]+---->| x[t] |
-*       '-+--'       '-+--'       '-+--'       '-+--'
-*         |            |            |            |
-*         |            |            |            |
-*         v            v            v            v
-*      .--+---.     .--+---.     .--+---.      .-+--.
-*      |y[t-3]|     |y[t-2]|     |y[t-1]|     | y[t] |
-*      '------'     '------'     '------'      '----'
-*******************************************************
+******************************************
 
 !!! tip
     In fact, the operations automatically performed for this example are precisely those of the Kalman filter, without having to code them by hand.

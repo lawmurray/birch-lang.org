@@ -953,52 +953,60 @@ For the purposes of demonstration, we assume both <code>x</code> and <code>y</co
 <ol>
 <li>
 <p>At the start of the <code>t</code>th iteration, both <code>x[t-1]</code> and <code>y[t-1]</code> are marginalized out.
-<div class="diagram">      .----.       .----.       .----.
-╌╌╌╌▶|x[t-3]+----&gt;|x[t-2]+----&gt;|x[t-1]|
-      '-+--'       '-+--'       '-+--'
-        |            |            |
-        |            |            |
-        v            v            v
-     .--+---.     .--+---.      .-+--.
-     |y[t-3]|     |y[t-2]|     |y[t-1]|
-     '------'     '------'      '----'</div></p>
+<div class="markdeep">******************************************
+*       .----.       .----.
+* ╌╌╌╌▶|x[t-2]+----&gt;|x[t-1]|
+*       '-+--'       '-+--'
+*         |            |
+*         |            |
+*         v            v
+*      .--+---.      .-+--.
+*      |y[t-2]|     |y[t-1]|
+*      '------'      '----'
+******************************************</div></p>
 </li>
 <li>
 <p><code class="highlight"><span class="nv">x</span><span class="p">[</span><span class="nv">t</span><span class="p">]</span><span class="err"> </span><span class="o">~</span><span class="err"> </span><span class="nf">Gaussian</span><span class="p">(</span><span class="nv">a</span><span class="o">*</span><span class="nv">x</span><span class="p">[</span><span class="nv">t</span><span class="err"> </span><span class="o">-</span><span class="err"> </span><span class="mi">1</span><span class="p">],</span><span class="err"> </span><span class="mi">4</span><span class="o">.</span><span class="mi">0</span><span class="p">);</span></code>
    Adding <code>x[t]</code> to the graph would create a tree of marginalized variables, so <code>y[t-1]</code> is simulated to reduce the tree to a chain.
-<div class="diagram">      .----.       .----.       .----.
-╌╌╌╌▶|x[t-3]+----&gt;|x[t-2]+----&gt;|x[t-1]|
-      '-+--'       '-+--'       '-+--'
-        |            |            |
-        |            |            |
-        v            v            v
-     .--+---.     .--+---.     .--+---.
-     |y[t-3]|     |y[t-2]|     |y[t-1]|
-     '------'     '------'     '------'</div></p>
+<div class="markdeep">******************************************
+*       .----.       .----.
+* ╌╌╌╌▶|x[t-2]+----&gt;|x[t-1]|
+*       '-+--'       '-+--'
+*         |            |
+*         |            |
+*         v            v
+*      .--+---.     .--+---.
+*      |y[t-2]|     |y[t-1]|
+*      '------'     '------'
+******************************************</div></p>
 </li>
 <li>
 <p>Now the new node for the latent state is added; <code>x[t-1]</code> and <code>x[t]</code> remain marginalized out.
-<div class="diagram">      .----.       .----.       .----.       .----.
-╌╌╌╌▶|x[t-3]+----&gt;|x[t-2]+----&gt;|x[t-1]+----&gt;| x[t] |
-      '-+--'       '-+--'       '-+--'       '----'
-        |            |            |
-        |            |            |
-        v            v            v
-     .--+---.     .--+---.     .--+---.
-     |y[t-3]|     |y[t-2]|     |y[t-1]|
-     '------'     '------'     '------'</div></p>
+<div class="markdeep">******************************************
+*       .----.       .----.       .----.
+* ╌╌╌╌▶|x[t-2]+----&gt;|x[t-1]+----&gt;| x[t] |
+*       '-+--'       '-+--'       '----'
+*         |            |
+*         |            |
+*         v            v
+*      .--+---.     .--+---.
+*      |y[t-2]|     |y[t-1]|
+*      '------'     '------'
+******************************************</div></p>
 </li>
 <li>
 <p>Finally the new node for the observation is added; <code>x[t-1]</code>, <code>x[t]</code> and <code>y[t]</code> remain marginalized out, ready for the next iteration of the loop.
-<div class="diagram">      .----.       .----.       .----.       .----.
-╌╌╌╌▶|x[t-3]+----&gt;|x[t-2]+----&gt;|x[t-1]+----&gt;| x[t] |
-      '-+--'       '-+--'       '-+--'       '-+--'
-        |            |            |            |
-        |            |            |            |
-        v            v            v            v
-     .--+---.     .--+---.     .--+---.      .-+--.
-     |y[t-3]|     |y[t-2]|     |y[t-1]|     | y[t] |
-     '------'     '------'     '------'      '----'</div></p>
+<div class="markdeep">******************************************
+*       .----.       .----.       .----.
+* ╌╌╌╌▶|x[t-2]+----&gt;|x[t-1]+----&gt;| x[t] |
+*       '-+--'       '-+--'       '-+--'
+*         |            |            |
+*         |            |            |
+*         v            v            v
+*      .--+---.     .--+---.      .-+--.
+*      |y[t-2]|     |y[t-1]|     | y[t] |
+*      '------'     '------'      '----'
+******************************************</div></p>
 </li>
 </ol>
 <p>In fact, the operations automatically performed for this example are precisely those of the Kalman filter, without having to code them by hand.</p>
