@@ -4,7 +4,10 @@ Lawrence Murray, Uber AI
 
 ---
 
-## Probabilistic Representations
+## Introduction
+
+!!! note
+    Probabilistic models can be expressed in many different ways.
 
 <table style="width:100%;">
   <tr>
@@ -40,7 +43,20 @@ Lawrence Murray, Uber AI
   </tr>
 </table>
 
+The aim of the lecture is to introduce *programmatic representations* of probabilistic models, and the *probabilistic programming* that they facilitate.
+
 ---
+
+## Birch
+
+We'll be using a probabilistic programming language called **Birch**. The material in this lecture is expanded upon under the *Key Concepts* section of the website ([birch.sh](https://birch.sh)).
+
+<center>
+<img src="screenshot.png" width="60%"/>
+</center>
+
+---
+
 
 ## Distributions
 
@@ -426,7 +442,6 @@ x ~ Gamma(2.0, 1.0);
 y ~ Poisson(x);
 z ~ Poisson(x);
 ```
-Graphically, this can be represented as:
 
 *******************
 *        .-.
@@ -439,11 +454,9 @@ Graphically, this can be represented as:
 *   '-'       '-'
 *******************
 
-This is a tree (the most basic), so delayed sampling cannot maintain a marginal distribution for all three random variables (jointly).
+This is a tree (the most basic), so delayed sampling cannot maintain a marginal distribution for all three random variables (jointly). Instead, it reduces the tree to a chain by simulating `y`.
 
 ---
-
-Instead---this is the heuristic---it reduces the tree to a chain by simulating `y`. This proceeds as follows:
 
 1. `x ~ Gamma(1.0, 2.0);`
 
@@ -452,6 +465,8 @@ Instead---this is the heuristic---it reduces the tree to a chain by simulating `
 *       | x |
 *        +-'
 ******************
+
+---
 
 2. `y ~ Poisson(x);`
 
@@ -481,7 +496,9 @@ Instead---this is the heuristic---it reduces the tree to a chain by simulating `
 *  '---'
 ******************
 
-4. 
+---
+
+4. `z ~ Poisson(x);`
 
 ******************
 *       .-.
