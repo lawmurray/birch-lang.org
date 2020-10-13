@@ -881,11 +881,15 @@
                 
                 
                 <h1 id="automatic-conditioning">Automatic conditioning</h1>
-<p>Given a joint distribution $p(\mathrm{d}y,\mathrm{d}x)$, <em>conditioning</em> is the computation:
+<p>Given a joint distribution $p(\mathrm{d}x,\mathrm{d}y) = p(\mathrm{d}x) p(\mathrm{d}y\mid x)$, <em>conditioning</em> is the computation:
 $$
 p(\mathrm{d}x\mid y)=\frac{p(y\mid x)p(\mathrm{dx})}{p(y)}.
 $$
 That is, we <em>condition</em> on the value of $y$ to obtain the <em>conditional distribution</em> of $x$ given $y$. We may also refer to this as <em>Bayesian updating</em>, insofar as we interpret $p(\mathrm{d}x)$ as a prior distribution that we update to a posterior distribution $p(\mathrm{d}x\mid y)$.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Automatic conditioning is supported for the same relationships as for automatic marginalization: standard conjugate forms, linear transformations, and sums and differences of discrete random variables.</p>
+</div>
 <p>Consider:
 <div class="highlight"><pre><span></span><code><span class="nv">x</span><span class="err"> </span><span class="o">~</span><span class="err"> </span><span class="nf">Gamma</span><span class="p">(</span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="p">,</span><span class="err"> </span><span class="mi">1</span><span class="o">.</span><span class="mi">0</span><span class="p">);</span>
 <span class="nv">y</span><span class="err"> </span><span class="o">~</span><span class="err"> </span><span class="nf">Poisson</span><span class="p">(</span><span class="nv">x</span><span class="p">);</span>

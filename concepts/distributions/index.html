@@ -897,14 +897,19 @@
 <td><code>p:Distribution&lt;X&gt;</code></td>
 </tr>
 <tr>
-<td>$x\sim p(\mathrm{d}x)$</td>
-<td>Simulate a variate $x$ from the distribution $p(\mathrm{d}x)$.</td>
-<td><code>x &lt;~ p</code></td>
+<td>$p(x)$</td>
+<td>Evaluate the probability density (mass) function associated with the probability distribution $p(\mathrm{d}x)$ at the point $x$.</td>
+<td></td>
 </tr>
 <tr>
 <td>$\log p(x)$</td>
-<td>Evaluate the logarithm of the probability density (mass) function associated with the distribution $p(\mathrm{d}x)$ at the value $x$.</td>
+<td>Evaluate the logarithm of the probability density (mass) function associated with the distribution $p(\mathrm{d}x)$ at the point $x$.</td>
 <td><code>x ~&gt; p</code></td>
+</tr>
+<tr>
+<td>$x\sim p(\mathrm{d}x)$</td>
+<td>Simulate a variate $x$ from the distribution $p(\mathrm{d}x)$.</td>
+<td><code>x &lt;~ p</code></td>
 </tr>
 </tbody>
 </table>
@@ -914,7 +919,7 @@
 <p>You may recognize the notation $p(\mathrm{d}x)$ from measure theory. We will not adopt measure-theoretic terms otherwise, but find the notation useful.</p>
 </div>
 <p>In Birch code, a distribution is represented by an object of the <a href="https://docs.birch.sh/libraries/Standard/classes/Distribution">Distribution</a> class. This is a generic class: we use it as <code>Distribution&lt;X&gt;</code>, where <code>X</code> is the domain of the distribution, e.g. <code>Distribution&lt;Real&gt;</code> (over $\mathbb{R}$), 
-<code>Distribution&lt;Integer&gt;</code> (over $\mathbb{Z}$), <code>Real[_]</code> (over $\mathbb{R}^D$), etc. However, we do not usually use <code>Distribution&lt;X&gt;</code> directly. Instead we use one of its derived classes, such as <a href="https://docs.birch.sh/libraries/Standard/classes/Gaussian">Gaussian</a>, <a href="https://docs.birch.sh/libraries/Standard/classes/Gamma">Gamma</a>, <a href="https://docs.birch.sh/libraries/Standard/classes/Beta">Beta</a>, <a href="https://docs.birch.sh/libraries/Standard/classes/Uniform">Uniform</a>). The idiom is to use a <em>factory function</em> for the particular distribution of interest in combination with a probabilistic operator. For example, we can simulate from a distribution with the <em>simulate</em> operator (<code>&lt;~</code>):
+<code>Distribution&lt;Integer&gt;</code> (over $\mathbb{Z}$), <code>Real[_]</code> (over $\mathbb{R}^D$), etc. However, we do not usually use <code>Distribution&lt;X&gt;</code> directly. Instead we use one of its derived classes, such as <a href="https://docs.birch.sh/libraries/Standard/classes/Gaussian">Gaussian</a>, <a href="https://docs.birch.sh/libraries/Standard/classes/Gamma">Gamma</a>, <a href="https://docs.birch.sh/libraries/Standard/classes/Beta">Beta</a>, <a href="https://docs.birch.sh/libraries/Standard/classes/Uniform">Uniform</a>. The idiom is to use a <em>factory function</em> for the particular distribution of interest in combination with a probabilistic operator. For example, we can simulate from a distribution with the <em>simulate</em> operator (<code>&lt;~</code>):
 <div class="highlight"><pre><span></span><code><span class="nv">x</span><span class="p">:</span><span class="kt">Real</span><span class="p">;</span>
 <span class="nv">x</span><span class="err"> </span><span class="o">&lt;~</span><span class="err"> </span><span class="nf">Gaussian</span><span class="p">(</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="p">,</span><span class="err"> </span><span class="mi">4</span><span class="o">.</span><span class="mi">0</span><span class="p">);</span>
 </code></pre></div></p>
