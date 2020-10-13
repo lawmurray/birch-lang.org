@@ -1,10 +1,13 @@
 # Automatic conditioning
 
-Given a joint distribution $p(\mathrm{d}y,\mathrm{d}x)$, *conditioning* is the computation:
+Given a joint distribution $p(\mathrm{d}x,\mathrm{d}y) = p(\mathrm{d}x) p(\mathrm{d}y\mid x)$, *conditioning* is the computation:
 $$
 p(\mathrm{d}x\mid y)=\frac{p(y\mid x)p(\mathrm{dx})}{p(y)}.
 $$
 That is, we *condition* on the value of $y$ to obtain the *conditional distribution* of $x$ given $y$. We may also refer to this as *Bayesian updating*, insofar as we interpret $p(\mathrm{d}x)$ as a prior distribution that we update to a posterior distribution $p(\mathrm{d}x\mid y)$.
+
+!!! tip
+    Automatic conditioning is supported for the same relationships as for automatic marginalization: standard conjugate forms, linear transformations, and sums and differences of discrete random variables.
 
 Consider:
 ```birch

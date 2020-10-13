@@ -11,11 +11,11 @@ Consider a scalar function $f:\mathbb{R}^D \rightarrow \mathbb{R}$. We are inter
 
 Typically, a gradient is computed for the purpose of a gradient-based Markov kernel---such as a Langevin or Hamiltonian kernel---and $f$ is a log-likelihood function:
 $$
-f(x):=\log p(y\mid x)
+f(x):=\log p(y\mid x),
 $$
 or a log-prior density function:
 $$
-f(x) := \log p(x).
+f(x) := \log p(x),
 $$
 or a log-posterior density function:
 $$
