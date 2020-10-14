@@ -41,6 +41,9 @@ make
 make install
 ```
 
+!!! tip
+    When running `make install` or `birch install` below, you may need to use `sudo` if installing system wide, i.e. `sudo make install` or `sudo birch install`.
+
 Install LibBirch by running, from within the `libbirch/` directory:
 
 ```sh
