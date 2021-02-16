@@ -1,6 +1,6 @@
 # Bayesian Linear Regression
 
-Now that we have a trivial package running, we can do something more interesting. We will start with a simple example of [Bayesian linear regression](http://en.wikipedia.org/wiki/Bayesian_linear_regression), using a [bike sharing data set](https://archive.ics.uci.edu/ml/datasets/bike+sharing+dataset)[^2] that will be provided in a suitable format.
+Now that we have a trivial package running, we can do something more interesting. We will start with a simple example of [Bayesian linear regression](http://en.wikipedia.org/wiki/Bayesian_linear_regression), using a [bike sharing data set](https://archive.ics.uci.edu/ml/datasets/bike+sharing+dataset)[^1] that will be provided in a suitable format.
 
 ## Model
 
@@ -62,7 +62,7 @@ The explanatory variables $X$ (the $\mathbf{x}_n$, as a matrix), observations $y
   * `Real` is a double-precision floating point number.
   * `Real[_]` is a vector of `Real`.
   * `Real[_,_]` is a matrix of `Real`.
-  * `Random<Type>` declares a [Random](https://docs.birch.sh/libraries/Standard/classes/Random) object of given `Type`. Such *randoms*&mdash;as we refer to them&mdash;[^1]enable the important features of *automatic marginalization*, *automatic conjugacy*, and *automatic differentiation*. The former two of these are implemented in Birch using an algorithm called *delayed sampling*[^3]. It is particularly useful in this example, as it enables an analytical solution to the problem.
+  * `Random<Type>` declares a [Random](https://docs.birch.sh/libraries/Standard/classes/Random) object of given `Type`. These enable the important features of *automatic marginalization*, *automatic conditioning*, and *automatic differentiation* (see [Key Concepts](/concepts)).
 
 !!! tip
     You can use Greek letters in Birch code. To enter them, you may need to install a separate keyboard in your operating system, or copy and paste from a character map.
@@ -70,7 +70,7 @@ The explanatory variables $X$ (the $\mathbf{x}_n$, as a matrix), observations $y
 The `simulate()` member function implements the model:
 
   * The `if` statement is merely defensive programming: it skips the model for the degenerate situation of no explanatory variables, or no data points.
-  * The `~` operator attaches a *distribution* (a [Distribution](https://docs.birch.sh/libraries/Standard/classes/Distribution) object) to a *random*.
+  * The `~` operator attaches a [Distribution](https://docs.birch.sh/libraries/Standard/classes/Distribution) to a `Random`.
   * The `let` keyword declares a variable, where the type of the variable is deduced from its initial value. An equivalent way to declare `N`, for example, would be `N:Integer <- rows(X)`, but the `let` syntax often looks tidier.
 
 The basic model is now implemented. It is worth building and running at this stage as a check. Build, as usual, with:
@@ -85,7 +85,7 @@ Running will not do anything interesting at this stage&mdash;for that we need so
 
 ## Data
 
-We will use a [data set](https://archive.ics.uci.edu/ml/datasets/bike+sharing+dataset) from the Capital Bikeshare system in Washington D.C. for the years 2011 to 2012. The aim is to use weather and holiday information to predict the total number of bike hires on any given day[^2].
+We will use a [data set](https://archive.ics.uci.edu/ml/datasets/bike+sharing+dataset) from the Capital Bikeshare system in Washington D.C. for the years 2011 to 2012. The aim is to use weather and holiday information to predict the total number of bike hires on any given day[^1].
 
 The data set has been preprocessed to ont-hot encode categorical variables, e.g. the season, a four-category variable, becomes four indicator variables. These conversions make it reasonable to attempt a linear regression. Each data point represents one day. The observation is of the logarithm of the total number of bike hires on that day.
 
@@ -96,14 +96,14 @@ The data set has been preprocessed to ont-hot encode categorical variables, e.g.
 
 For now, have a look at the contents of the file in a text editor, web browser, or on the command line (`less input/bike_share.json` and hit `q` when you've seen enough). It contains two variables: a matrix `X` and a vector `y`. We need to read these into the model.
 
-Recall that, in defining the `LinearRegressionModel` class, we overrode the `simulate()` member function of the `Model` class. The `Model` class also has two other member functions called `read()` and `write()` that we can implement to read and write data.
+Recall that, in defining the `LinearRegressionModel` class, we overrode the `simulate()` member function of the `Model` class. The `Model` class also has two other member functions: `read(buffer:Buffer)` and `write(buffer:Buffer)`. We override these to read and write data.
 
 Add the following two member functions after the `simulate()` member function in the `LinearRegressionModel` class:
 
 ```birch
     function read(buffer:Buffer) {
-      X <-? buffer.getRealMatrix("X");
-      y <-? buffer.getRealVector("y");
+      X <-? buffer.get<Real[_,_]>("X");
+      y <-? buffer.get<Real[_]>("y");
     }
 
     function write(buffer:Buffer) {
@@ -112,9 +112,13 @@ Add the following two member functions after the `simulate()` member function in
     }
 ```
 
-The `read()` member function reads from the input file into the member variables `X` and `y`. The strings `"X"` and `"y"` name the elements in the input file. The `write()` member function writes the parameters to the output file.
+The [Buffer](https://docs.birch.sh/libraries/Standard/classes/Buffer) class provides the interface for easily reading and writing files. Its basic interface provides `get` functions for reading, and `set` functions for writing, usually with key-value pairs.
 
-The [Buffer](https://docs.birch.sh/libraries/Standard/classes/Buffer) class provides the interface for easily reading and writing these. Its `get` style member functions (e.g. the `getReadMatrix()` and `getRealVector()` used above) return [optionals](/language/optionals/). An optional is just a variable that may or may not have a value. Here, if the requested element exists in the file, it has a value, otherwise it does not. The `<-?` is a special assignment operator that assigns a value to the variable on the left only if the optional on the right actually has a value.
+The `write(buffer:Buffer)` member function is the simpler of the two. It writes the parameters to the output file using `set` function calls. The first argument of each call is the key to write, and the second the value.
+
+The `read(buffer:Buffer)` member function reads from the input file using `get` function calls. The single argument of each is the key to read. We also need to specify the type of the value to read. This is given as a *type argument* in angle brackets immediately after the function name, e.g.  `get<Real[_,_]>`. Functions that take type arguments like this are known as [generic functions](/language/functions/).
+
+The `get` member function returns an [optional](/language/optionals/). An optional is just a variable that may or may not have a value. Here, if the requested element exists in the file, it has a value, otherwise it does not. The `<-?` is a special assignment operator that assigns a value to the variable on the left only if the optional on the right actually has a value. That is, if the key is found in the file the value is read and assigned to the variable on the left, otherwise nothing happens.
 
 ## Inference
 
@@ -157,8 +161,5 @@ You will see a single sample drawn from the posterior distribution.
         birch build --enable-release
         birch sample --enable-release ...
 
-[^1]: We avoid referring to them as *random variables*, as that is a precise mathematical term, although they do represent this concept within the program. A more accurate description might be a *random variate* that has been drawn from some distribution, although they are not exactly this either. We stick with *randoms*.
+[^1]: H. Fanaee-T & J. Gama (2014). [Event labeling combining ensemble detectors and background knowledge](http://dx.doi.org/10.1007/s13748-013-0040-3). *Progress in Artificial Intelligence*. **2**:113-127.
 
-[^2]: H. Fanaee-T & J. Gama (2014). [Event labeling combining ensemble detectors and background knowledge](http://dx.doi.org/10.1007/s13748-013-0040-3). *Progress in Artificial Intelligence*. **2**:113-127.
-
-[^3]: L.M. Murray, D. Lundén, J. Kudlicka, D. Broman and T.B. Schön (2018). [Delayed Sampling and Automatic Rao&ndash;Blackwellization of Probabilistic Programs](https://arxiv.org/abs/1708.07787). In *Proceedings of the 21st International Conference on Artificial Intelligence and Statistics (AISTATS) 2018*, Lanzarote, Spain.

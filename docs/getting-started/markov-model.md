@@ -1,6 +1,9 @@
 # Markov Model
 
-We will now look at implementing a simple SIR (susceptible-infectious-recovered) compartmental model of an epidemic, using a classic data set of an outbreak of influenza at a boarding school.
+We will now implement a simple SIR (susceptible-infectious-recovered) compartmental model of an epidemic, using a classic data set of an outbreak of influenza at a boarding school.
+
+!!! info "Updates"
+    The previous version of this page recommended using [MarkovModel](https://docs.birch.sh/libraries/Standard/classes/MarkovModel) as the base class for this model. This has now been deprecated, and the preferred implementation is to derive directly from [Model](https://docs.birch.sh/libraries/Standard/classes/Model) instead. The page has been updated accordingly.
 
 ## Model
 
@@ -43,17 +46,20 @@ $$
 
 ## Implementation
 
-We again create a class that inherits from `Model`, but the standard library provides a more specialized class [MarkovModel](https://docs.birch.sh/libraries/Standard/classes/MarkovModel) that can handle some of the work for us here. `MarkovModel` inherits from `Model`. It overrides the `simulate()` member function to call three other member functions that it defines: `parameter()`, `initial()`, and `transition()`, for the three parts of a Markov model. Instead of creating a class that inherits from `Model` directly and overrides `simulate()`, we create a class that inherits from `MarkovModel` and overrides `parameter()`, `initial()` and `transition()`.
+We again create a class that inherits from `Model`, but this time use some additional features. In the [previous example](linear-regression) we overrode the member functions `simulate()`, `read(buffer:Buffer)` and `write(buffer:Buffer)`. In this example, we will also override the `simulate(t:Integer)`, `read(t:Integer, buffer:Buffer)` and `write(t:Integer, buffer:Buffer)` functions. These allow sequential execution of the model in steps, indexed by the integer `t`. Often `t` indexes time (as will be the case here), but it need not: in general it can index any dimension along which a model can be expressed sequentially. For example, `t` may simply index observations. Structuring the implementation this way allows Sequential Monte Carlo (SMC) to used for inference, with resampling performed between steps.
 
-Furthermore, `MarkovModel` is a [generic](/language/classes/#generics) class, fully written `MarkovModel<Parameter,State>`. When used it is provided with two other classes as type arguments, one that describes the parameters of the model, and one that describes the state of the model. We create these two classes first.
+!!! tip
+    When overriding a member function, the types of the parameters must stay the same, but their names may change. This means that you can rename `t` to something else if you prefer, but it must have type `Integer`.
 
-Create a file `src/SIRParameter.birch` with the following:
+We will use the `simulate()` function to implement the parameter model, and the `simulate(t:Integer)` function to implement the initial and transition models.
+
+Create a file `src/SIRMode.birch` with the following:
 
 ```birch
 /**
- * SIR model parameters.
-*/
-class SIRParameter {
+ * SIR (susceptible-infectious-recovered) model.
+ */
+class SIRModel < Model {
   /**
    * Interaction rate.
    */
@@ -69,136 +75,95 @@ class SIRParameter {
    */
   γ:Random<Real>;
 
-  function read(buffer:Buffer) {
-    buffer.get("λ", λ);
-    buffer.get("δ", δ);
-    buffer.get("γ", γ);
+  /**
+   * Susceptible population at each time.
+   */
+  s:Tape<Random<Integer>>;
+
+  /**
+   * Infectious population at each time.
+   */
+  i:Tape<Random<Integer>>;
+
+  /**
+   * Recovered population at each time.
+   */
+  r:Tape<Random<Integer>>;
+
+  override function simulate() {
+    λ ~ Gamma(2.0, 5.0);
+    δ ~ Beta(2.0, 2.0);
+    γ ~ Beta(2.0, 2.0);
   }
 
-  function write(buffer:Buffer) {
+  override function simulate(t:Integer) {
+    if t == 1 {
+      // the initial state is set in the input file
+    } else {
+      let n <- s[t - 1] + i[t - 1] + r[t - 1];  // total population
+      let τ ~ Binomial(s[t - 1], 1.0 - exp(-λ*Real(i[t - 1])/Real(n)));
+      let Δi ~ Binomial(τ, δ);
+      let Δr ~ Binomial(i[t - 1], γ);
+
+      s[t] ~ Delta(s[t - 1] - Δi);
+      i[t] ~ Delta(i[t - 1] + Δi - Δr);
+      r[t] ~ Delta(r[t - 1] + Δr);
+    }
+  }
+
+  override function read(buffer:Buffer) {
+    λ <-? buffer.get<Real>("λ");
+    δ <-? buffer.get<Real>("δ");
+    γ <-? buffer.get<Real>("γ");
+  }
+
+  override function read(t:Integer, buffer:Buffer) {
+    s[t] <-? buffer.get<Integer>("s");
+    i[t] <-? buffer.get<Integer>("i");
+    r[t] <-? buffer.get<Integer>("r");
+  }
+
+  override function write(buffer:Buffer) {
     buffer.set("λ", λ);
     buffer.set("δ", δ);
     buffer.set("γ", γ);
   }
-}
-```
 
-Create a file `src/SIRState.birch` with the following:
-
-```birch
-/**
- * SIR model state.
- */
-class SIRState {
-  /**
-   * Number of susceptible-infectious interactions.
-   */
-  τ:Random<Integer>;
-
-  /**
-   * Newly infected population.
-   */
-  Δi:Random<Integer>;
-
-  /**
-   * Newly recovered population.
-   */
-  Δr:Random<Integer>;
-
-  /**
-   * Susceptible population.
-   */
-  s:Random<Integer>;
-
-  /**
-   * Infectious population.
-   */
-  i:Random<Integer>;
-
-  /**
-   * Recovered population.
-   */
-  r:Random<Integer>;
-
-  function read(buffer:Buffer) {
-    buffer.get("Δi", Δi);
-    buffer.get("Δr", Δr);
-    buffer.get("s", s);
-    buffer.get("i", i);
-    buffer.get("r", r);
-  }
-
-  function write(buffer:Buffer) {
-    buffer.set("Δi", Δi);
-    buffer.set("Δr", Δr);
-    buffer.set("s", s);
-    buffer.set("i", i);
-    buffer.set("r", r);
+  override function write(t:Integer, buffer:Buffer) {
+    buffer.set("s", s[t]);
+    buffer.set("i", i[t]);
+    buffer.set("r", r[t]);
   }
 }
 ```
 
-Finally, we create the class `SIRModel`, where most of the work happens. This inherits from `MarkovModel<SIRParameter,SIRState>`, specifying the two classes that we have just created as describing the parameters and state of the model.
+This code introduces a few new features:
 
-Create a file `src/SIRModel.bi` with the following
+* The `Real(i[t - 1])` and `Real(n)` cast the `Integer` expressions to `Real` expressions. `Real` here is just a function from the standard library made for this purpose.
+* The state histories `s`, `i` and `r` are stored in a container called [Tape](https://docs.birch.sh/libraries/Standard/classes/Tape/). This is a recursive data structure that works much like a list. It is quite commonly used for storing state histories as it works nicely with Birch's dynamic memory management, allowing objects to be shared between multiple instances of a model so as to significantly reduce memory use[^3].
+* The variables `n`, `τ`, `Δi` and `Δr` are declared as local variables in the `simulate(t:Integer)` function rather than as member variables of the `SIRModel` class. This choice is made because we do not intend to read them from a file, or write them to a file, so only need to keep them temporarily.
 
-```birch
-/**
- * SIR model.
- */
-class SIRModel < MarkovModel<SIRParameter,SIRState> {
-  function parameter(θ:SIRParameter) {
-    θ.λ ~ Gamma(2.0, 5.0);
-    θ.δ ~ Beta(2.0, 2.0);
-    θ.γ ~ Beta(2.0, 2.0);
-  }
+!!! tip
+    [Type casting](/languages/casts) does exist in Birch, but is mostly meant for class types, in particular casting an object from a base class to a derived class. Basic types such as `Real` and `Integer` are converted with these functions instead.
 
-  function initial(x:SIRState, θ:SIRParameter) {
-    //
-  }
-
-  function transition(x':SIRState, x:SIRState, θ:SIRParameter) {
-    x'.τ ~ Binomial(x.s, 1.0 - exp(-θ.λ*Real(x.i)/Real(x.s + x.i + x.r)));
-    x'.Δi ~ Binomial(x'.τ, θ.δ);
-    x'.Δr ~ Binomial(x.i, θ.γ);
-
-    x'.s ~ Delta(x.s - x'.Δi);
-    x'.i ~ Delta(x.i + x'.Δi - x'.Δr);
-    x'.r ~ Delta(x.r + x'.Δr);
-  }
-}
-```
-
-Notice the three member functions in the above code:
+The transition model associates `s`, `i` and `r` with [Delta](https://docs.birch.sh/libraries/Standard/classes/Delta/) distributions rather than simply assigning to them. The `Delta` distribution is just a degenerate distribution on a single integer value. We might instead want to write:
 
 ```birch
-function parameter(θ:SIRParameter);
-function initial(x:SIRState, θ:SIRParameter);
-function transition(x':SIRState, x:SIRState, θ:SIRParameter);
+s[t] <- s[t - 1] - Δi;
+i[t] <- i[t - 1] + Δi - Δr;
+r[t] <- r[t - 1] + Δr;
 ```
 
-As suggested by their names and parameters:
-
-  * the first is for the parameter model, providing the parameters as the `θ` argument,
-  * the second is for the initial model, providing the initial state as the `x` argument, and parameters as the `θ` argument,
-  * the third is for the transition model, providing the current state as the `x'` argument, the previous state as the `x` argument, and the parameters as the `θ` argument.
-
-Here, `x'` is just the name of a variable. The prime `'` is a valid character for variable names in Birch, useful where it is also useful in mathematics.
-
-The initial model is empty by choice. While we could implement the initial model described above, it is specific to the data set that we will use. We would prefer not to hardcode it, in order that we might reuse this model for other data sets in future. We will provide the initial state in an input file, set up below.
-
-The `Real(x.i)` and `Real(x.s + x.i + x.r)` cast the `Integer` expressions to `Real` expressions.
-
-The transition model uses [Delta](https://docs.birch.sh/libraries/Standard/classes/Delta/) distributions rather than simple assignment statements. This is because we have declared the member variables `s`, `i` and `r` as randoms, of type `Random<Integer>`, not just values, of type `Integer`. Using randoms facilitates some analytical optimizations here.
+However, the use of the `Delta` distribution allows Birch to enumerate sums and differences of discrete-valued random variables and perform automatic marginalization and conditioning. In particular, we will observe `i[t]` here, and Birch will be able to enumerate the conditional distribution of `Δi` and `Δr` given `i[t]` and `i[t - 1]`. This is a nice analytical optimization for this particular model.
 
 ## Data
 
 We will use a classic data set of the outbreak of influenza at a boarding school in northern England[^1]. [Download the data set](/getting-started/influenza.json) to the `input/` directory.
 
-Have a look at the contents of the file (`cat input/influenza.json`). It contains:
+Have a look at the contents of the file (`cat input/influenza.json`). At the root level it contains an array. The first element of that array provides an entry with key `λ` and value `10`. This first element is read by the `read(buffer:Buffer)` member function of our model. The remaining elements provide an entry `i` with various values. These elements are read by the `read(t:Integer, buffer:Buffer)` member function prior to the the `t`th time step being executed by `simulate(t:Integer)`.
 
-  * An object `θ` that fixes the value of $\lambda$ to 10.
-  * An array `x` that fixes the initial value of all state variables, then only the value of $i_t$ for subsequent elements.
+!!! tip
+    If we wanted, we could also specify values for `s` and/or `r` in the input file. Notice that `read(t:Integer, buffer:Buffer)` supports these. Recall that the `<-?` operator will only assign a value on the left if the key is found in the file. So if we provide these values, the model acts as though they are observed, if we do not provide them, the model acts as though they are latent.
 
 ## Inference
 
@@ -214,9 +179,11 @@ Create a file `config/sir.json` and enter the following contents:
     "class": "SIRModel"
   },
   "sampler": {
+    "class": "ParticleSampler",
     "nsamples": 10
   },
   "filter": {
+    "class": "ParticleFilter",
     "nparticles": 128
   },
   "input": "input/influenza.json",
@@ -239,6 +206,10 @@ then sample from the posterior distribution with:
 
 As before, you can inspect the results of the inference in `output/sir.json`, in a text editor, web browser, or on the command line (`less output/sir.json`). The output here is an importance sample: each sample is assigned a weight, the logarithm of which is given by the associated `lweight` element.
 
+!!! tip
+    A future tutorial will outline how to configure the inference method, but as a starting point, you can change `sampler.class` and/or `filter.class` in the `config/sir.json` file to name a different sampler such as [ParticleGibbs](https://docs.birch.sh/libraries/Standard/classes/ParticleGibbs/), or an different filter such as [AliveParticleFilter](https://docs.birch.sh/libraries/Standard/classes/Delta/).
+
 [^1]: Anonymous (1978). Influenza in a boarding school. *British Medical Journal*. **1**:587.
 
 [^2]: L.M. Murray, D. Lundén, J. Kudlicka, D. Broman and T.B. Schön (2018). [Delayed Sampling and Automatic Rao&ndash;Blackwellization of Probabilistic Programs](https://arxiv.org/abs/1708.07787). In *Proceedings of the 21st International Conference on Artificial Intelligence and Statistics (AISTATS) 2018*, Lanzarote, Spain.
+[^3]: * L.M. Murray (2020). [Lazy object copy as a platform for population-based probabilistic programming](https://arxiv.org/abs/2001.05293).
