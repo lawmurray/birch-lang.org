@@ -12,7 +12,7 @@ $$
 y_n \mid \boldsymbol{\beta}, \sigma^2 &\sim \mathrm{Gaussian}(\mathbf{x}_n^{\top}\boldsymbol{\beta}, \sigma^2)
 \end{align}
 $$
-The parameters of the model are the noise variance $\sigma^2$ and vector of coefficients $\boldsymbol{\beta}$. The data consists of observations $y_n$ and explanatory variables $\mathbf{x}_n$ for $n=1,\ldots,N$.
+The parameters of the model are the noise variance $\sigma^2$ and vector of coefficients $\boldsymbol{\beta}$. The data consists of labels (alternatively: outcomes, dependent variables) $y_n$ and features (alternatively: predictors, covariates, explanatory variables, independent variables) $\mathbf{x}_n$ for $n=1,\ldots,N$.
 
 
 ## Implementation
@@ -31,18 +31,18 @@ class LinearRegressionModel < Model {
   X:Real[_,_];
 
   /**
-    * Regression coefficients.
-    */
+   * Regression coefficients.
+   */
   β:Random<Real[_]>;
 
   /**
-    * Observation variance.
-    */
+   * Observation variance.
+   */
   σ2:Random<Real>;
 
   /**
-    * Observations.
-    */
+   * Observations.
+   */
   y:Random<Real[_]>;
 
   function simulate() {
@@ -57,7 +57,7 @@ class LinearRegressionModel < Model {
 }
 ```
 
-The explanatory variables $X$ (the $\mathbf{x}_n$, as a matrix), observations $y$ ($y_n$, as a vector) and parameters $\beta$ and $\sigma^2$ have been declared as *member variables* of the class. [Variables](/language/variables) in Birch are typed. We see here a few different types:
+The features $X$ (the $\mathbf{x}_n$, as a matrix), observations $y$ ($y_n$, as a vector) and parameters $\beta$ and $\sigma^2$ have been declared as *member variables* of the class. [Variables](/language/variables) in Birch are typed. We see here a few different types:
 
   * `Real` is a double-precision floating point number.
   * `Real[_]` is a vector of `Real`.
@@ -70,8 +70,8 @@ The explanatory variables $X$ (the $\mathbf{x}_n$, as a matrix), observations $y
 The `simulate()` member function implements the model:
 
   * The `if` statement is merely defensive programming: it skips the model for the degenerate situation of no explanatory variables, or no data points.
-  * The `~` operator attaches a [Distribution](https://docs.birch.sh/libraries/Standard/classes/Distribution) to a `Random`.
-  * The `let` keyword declares a variable, where the type of the variable is deduced from its initial value. An equivalent way to declare `N`, for example, would be `N:Integer <- rows(X)`, but the `let` syntax often looks tidier.
+  * The `~` operator associates a [Distribution](https://docs.birch.sh/libraries/Standard/classes/Distribution) with a `Random`.
+  * The `let` keyword declares a variable, where the type of the variable is inferred from its initial value. An equivalent way to declare `N`, for example, would be `N:Integer <- rows(X)`.
 
 The basic model is now implemented. It is worth building and running at this stage as a check. Build, as usual, with:
 
@@ -87,14 +87,14 @@ Running will not do anything interesting at this stage&mdash;for that we need so
 
 We will use a [data set](https://archive.ics.uci.edu/ml/datasets/bike+sharing+dataset) from the Capital Bikeshare system in Washington D.C. for the years 2011 to 2012. The aim is to use weather and holiday information to predict the total number of bike hires on any given day[^1].
 
-The data set has been preprocessed to ont-hot encode categorical variables, e.g. the season, a four-category variable, becomes four indicator variables. These conversions make it reasonable to attempt a linear regression. Each data point represents one day. The observation is of the logarithm of the total number of bike hires on that day.
+The data set has been preprocessed to one-hot encode categorical features, e.g. the season, a four-category variable, becomes four indicator variables. These conversions make it reasonable to attempt a linear regression. Each data point represents one day. The observation is of the logarithm of the total number of bike hires on that day.
 
 [Download the data set](/getting-started/bike_share.json) to the `input/` directory. The file is in [JSON](http://www.json.org) format. Birch supports both JSON and YAML file formats. You can view and edit these files by hand with a text editor, or for larger files, write programs to generate and manipulate them.
 
 !!! tip
     If you're wanting to stay on the command line, check out [jq](https://stedolan.github.io/jq/) for working with JSON files.
 
-For now, have a look at the contents of the file in a text editor, web browser, or on the command line (`less input/bike_share.json` and hit `q` when you've seen enough). It contains two variables: a matrix `X` and a vector `y`. We need to read these into the model.
+For now, have a look at the contents of the file (`less input/bike_share.json` and hit `q` when you've seen enough). It contains two variables: a matrix `X` and a vector `y`. We need to read these into the model.
 
 Recall that, in defining the `LinearRegressionModel` class, we overrode the `simulate()` member function of the `Model` class. The `Model` class also has two other member functions: `read(buffer:Buffer)` and `write(buffer:Buffer)`. We override these to read and write data.
 

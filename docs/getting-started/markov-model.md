@@ -46,7 +46,7 @@ $$
 
 ## Implementation
 
-We again create a class that inherits from `Model`, but this time use some additional features. In the [previous example](linear-regression) we overrode the member functions `simulate()`, `read(buffer:Buffer)` and `write(buffer:Buffer)`. In this example, we will also override the `simulate(t:Integer)`, `read(t:Integer, buffer:Buffer)` and `write(t:Integer, buffer:Buffer)` functions. These allow sequential execution of the model in steps, indexed by the integer `t`. Often `t` indexes time (as will be the case here), but it need not: in general it can index any dimension along which a model can be expressed sequentially. For example, `t` may simply index observations. Structuring the implementation this way allows Sequential Monte Carlo (SMC) to used for inference, with resampling performed between steps.
+We again create a class that inherits from `Model`, but this time use some additional features. In the [previous example](/getting-started/linear-regression) we overrode the member functions `simulate()`, `read(buffer:Buffer)` and `write(buffer:Buffer)`. In this example, we will also override the `simulate(t:Integer)`, `read(t:Integer, buffer:Buffer)` and `write(t:Integer, buffer:Buffer)` functions. These allow sequential execution of the model in steps, indexed by the integer `t`. Often `t` indexes time (as will be the case here), but it need not: in general it can index any dimension along which a model can be expressed sequentially. For example, `t` may simply index observations. Structuring the implementation this way allows Sequential Monte Carlo (SMC) to be used for inference, with resampling performed between steps.
 
 !!! tip
     When overriding a member function, the types of the parameters must stay the same, but their names may change. This means that you can rename `t` to something else if you prefer, but it must have type `Integer`.
@@ -140,11 +140,11 @@ class SIRModel < Model {
 This code introduces a few new features:
 
 * The `Real(i[t - 1])` and `Real(n)` cast the `Integer` expressions to `Real` expressions. `Real` here is just a function from the standard library made for this purpose.
-* The state histories `s`, `i` and `r` are stored in a container called [Tape](https://docs.birch.sh/libraries/Standard/classes/Tape/). This is a recursive data structure that works much like a list. It is quite commonly used for storing state histories as it works nicely with Birch's dynamic memory management, allowing objects to be shared between multiple instances of a model so as to significantly reduce memory use[^3].
+* The state histories `s`, `i` and `r` are stored in a container called [Tape](https://docs.birch.sh/libraries/Standard/classes/Tape/). This is a recursive data structure that works much like a list. It is commonly used for storing state histories as it works nicely with Birch's dynamic memory management, allowing objects to be shared between multiple instances of a model so as to significantly reduce memory use[^3].
 * The variables `n`, `τ`, `Δi` and `Δr` are declared as local variables in the `simulate(t:Integer)` function rather than as member variables of the `SIRModel` class. This choice is made because we do not intend to read them from a file, or write them to a file, so only need to keep them temporarily.
 
 !!! tip
-    [Type casting](/languages/casts) does exist in Birch, but is mostly meant for class types, in particular casting an object from a base class to a derived class. Basic types such as `Real` and `Integer` are converted with these functions instead.
+    [Type casting](/language/casts) does exist in Birch, but is mostly meant for class types, in particular casting an object from a base class to a derived class. Basic types such as `Real` and `Integer` are converted with functions like `Real(x:Integer)` instead.
 
 The transition model associates `s`, `i` and `r` with [Delta](https://docs.birch.sh/libraries/Standard/classes/Delta/) distributions rather than simply assigning to them. The `Delta` distribution is just a degenerate distribution on a single integer value. We might instead want to write:
 
@@ -160,14 +160,14 @@ However, the use of the `Delta` distribution allows Birch to enumerate sums and 
 
 We will use a classic data set of the outbreak of influenza at a boarding school in northern England[^1]. [Download the data set](/getting-started/influenza.json) to the `input/` directory.
 
-Have a look at the contents of the file (`cat input/influenza.json`). At the root level it contains an array. The first element of that array provides an entry with key `λ` and value `10`. This first element is read by the `read(buffer:Buffer)` member function of our model. The remaining elements provide an entry `i` with various values. These elements are read by the `read(t:Integer, buffer:Buffer)` member function prior to the the `t`th time step being executed by `simulate(t:Integer)`.
+Have a look at the contents of the file (`cat input/influenza.json`). At the root level it contains an array. The first element of that array provides an entry with key `λ` and value `10`. This first element is read by the `read(buffer:Buffer)` member function of our model. The remaining elements provide an entry `i` with various values. These elements are read by the `read(t:Integer, buffer:Buffer)` member function prior to the the `t`th time step being executed by `simulate(t:Integer)`. In particular the second entry, corresponding to `t == 1`, sets the initial value of all state variables.
 
 !!! tip
-    If we wanted, we could also specify values for `s` and/or `r` in the input file. Notice that `read(t:Integer, buffer:Buffer)` supports these. Recall that the `<-?` operator will only assign a value on the left if the key is found in the file. So if we provide these values, the model acts as though they are observed, if we do not provide them, the model acts as though they are latent.
+    If we wanted, we could also specify values for `s` and/or `r` in the input file for other times. We have set up `read(t:Integer, buffer:Buffer)` to support this. Recall that the `<-?` operator will only assign a value to the left if the key is found in the file. So if we provide these values, the model acts as though they are observed, if we do not provide them, the model acts as though they are latent.
 
 ## Inference
 
-Birch's inference engine is based on Sequential Monte Carlo (SMC) with several variants and configurable components, as well as automatic marginalization, automatic conjugacy, and automatic differentiation. For this model, the delayed sampling[^2] mechanism will find some analytical optimizations and apply them. These include marginalizing out the parameters $\delta$ and $\gamma$, as they form conjugate beta-binomial relationships with state variables, as well as enumerating sums and differences of discrete variables.
+Birch's inference engine is based on SMC with several variants and configurable components, as well as automatic marginalization, automatic conjugacy, and automatic differentiation. For this model, the delayed sampling[^2] mechanism will find some analytical optimizations and apply them. These include marginalizing out the parameters $\delta$ and $\gamma$, as they form conjugate beta-binomial relationships with state variables, as well as enumerating sums and differences of discrete variables.
 
 The previous linear regression example was simple enough that no configuration was required. Here we need to change a few options. A configuration file is used for this purpose.
 
@@ -191,7 +191,7 @@ Create a file `config/sir.json` and enter the following contents:
 }
 ```
 
-This sets the number of posterior samples to draw (`sampler.nsamples`) and the number of particles used by SMC when drawing each (`filter.nparticles`). It also sets the model class (`model.class`), input file (`input`), and output file (`output`), which we provided on the command line instead in the linear regression example (it preferable to provide these in the configuration file instead).
+This sets the number of posterior samples to draw (`sampler.nsamples`) and the number of particles used by SMC when drawing each (`filter.nparticles`). It also sets the model class (`model.class`), input file (`input`), and output file (`output`), which we provided on the command line instead in the linear regression example (it is preferable to provide these in the configuration file instead, for reproducibility).
 
 !!! tip
     Any of these JSON files can be written in [YAML](https://yaml.org/) if you prefer.
@@ -207,9 +207,10 @@ then sample from the posterior distribution with:
 As before, you can inspect the results of the inference in `output/sir.json`, in a text editor, web browser, or on the command line (`less output/sir.json`). The output here is an importance sample: each sample is assigned a weight, the logarithm of which is given by the associated `lweight` element.
 
 !!! tip
-    A future tutorial will outline how to configure the inference method, but as a starting point, you can change `sampler.class` and/or `filter.class` in the `config/sir.json` file to name a different sampler such as [ParticleGibbs](https://docs.birch.sh/libraries/Standard/classes/ParticleGibbs/), or an different filter such as [AliveParticleFilter](https://docs.birch.sh/libraries/Standard/classes/Delta/).
+    A future tutorial will outline how to configure the inference method, but as a starting point, you can change `sampler.class` and/or `filter.class` in the `config/sir.json` file to name a different sampler such as [ParticleGibbsSampler](https://docs.birch.sh/libraries/Standard/classes/ParticleGibbsSampler/), or a different filter such as [AliveParticleFilter](https://docs.birch.sh/libraries/Standard/classes/AliveParticleFilter/).
 
 [^1]: Anonymous (1978). Influenza in a boarding school. *British Medical Journal*. **1**:587.
 
 [^2]: L.M. Murray, D. Lundén, J. Kudlicka, D. Broman and T.B. Schön (2018). [Delayed Sampling and Automatic Rao&ndash;Blackwellization of Probabilistic Programs](https://arxiv.org/abs/1708.07787). In *Proceedings of the 21st International Conference on Artificial Intelligence and Statistics (AISTATS) 2018*, Lanzarote, Spain.
-[^3]: * L.M. Murray (2020). [Lazy object copy as a platform for population-based probabilistic programming](https://arxiv.org/abs/2001.05293).
+
+[^3]: L.M. Murray (2020). [Lazy object copy as a platform for population-based probabilistic programming](https://arxiv.org/abs/2001.05293).
