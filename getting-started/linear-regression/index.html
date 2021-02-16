@@ -223,6 +223,19 @@
 
       
         
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../getting-involved/" class="md-tabs__link">
+          Getting Involved
+        </a>
+      
+    </li>
+  
+
+      
+        
       
     </ul>
   </div>
@@ -896,6 +909,48 @@
       
 
 
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Getting Involved
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Getting Involved" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Getting Involved
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-involved/" title="Getting involved" class="md-nav__link">
+      Getting involved
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
   <li class="md-nav__item">
     <a href="../../about/" title="About" class="md-nav__link">
       About
@@ -973,7 +1028,7 @@
                 
                 
                 <h1 id="bayesian-linear-regression">Bayesian Linear Regression</h1>
-<p>Now that we have a trivial package running, we can do something more interesting. We will start with a simple example of <a href="http://en.wikipedia.org/wiki/Bayesian_linear_regression">Bayesian linear regression</a>, using a <a href="https://archive.ics.uci.edu/ml/datasets/bike+sharing+dataset">bike sharing data set</a><sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup> that will be provided in a suitable format.</p>
+<p>Now that we have a trivial package running, we can do something more interesting. We will start with a simple example of <a href="http://en.wikipedia.org/wiki/Bayesian_linear_regression">Bayesian linear regression</a>, using a <a href="https://archive.ics.uci.edu/ml/datasets/bike+sharing+dataset">bike sharing data set</a><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> that will be provided in a suitable format.</p>
 <h2 id="model">Model</h2>
 <p>The model is given by:
 $$
@@ -983,7 +1038,7 @@ $$
 y_n \mid \boldsymbol{\beta}, \sigma^2 &amp;\sim \mathrm{Gaussian}(\mathbf{x}_n^{\top}\boldsymbol{\beta}, \sigma^2)
 \end{align}
 $$
-The parameters of the model are the noise variance $\sigma^2$ and vector of coefficients $\boldsymbol{\beta}$. The data consists of observations $y_n$ and explanatory variables $\mathbf{x}_n$ for $n=1,\ldots,N$.</p>
+The parameters of the model are the noise variance $\sigma^2$ and vector of coefficients $\boldsymbol{\beta}$. The data consists of labels (alternatively: outcomes, dependent variables) $y_n$ and features (alternatively: predictors, covariates, explanatory variables, independent variables) $\mathbf{x}_n$ for $n=1,\ldots,N$.</p>
 <h2 id="implementation">Implementation</h2>
 <p>To specify a model in Birch, we create a <a href="/language/classes">class</a> that inherits from <a href="https://docs.birch.sh/libraries/Standard/classes/Model">Model</a>. Use your preferred text editor to create a file <code>src/LinearRegressionModel.birch</code> and enter the following contents:</p>
 <div class="highlight"><pre><span></span><code><span class="cm">/**</span>
@@ -997,18 +1052,18 @@ The parameters of the model are the noise variance $\sigma^2$ and vector of coef
 <span class="err">  </span><span class="nv">X</span><span class="p">:</span><span class="kt">Real</span><span class="p">[</span><span class="m">_</span><span class="p">,</span><span class="m">_</span><span class="p">];</span>
 
 <span class="err">  </span><span class="cm">/**</span>
-<span class="cm">    * Regression coefficients.</span>
-<span class="cm">    */</span>
+<span class="cm">   * Regression coefficients.</span>
+<span class="cm">   */</span>
 <span class="err">  </span><span class="nv">β</span><span class="p">:</span><span class="kt">Random</span><span class="o">&lt;</span><span class="kt">Real</span><span class="p">[</span><span class="m">_</span><span class="p">]</span><span class="o">&gt;</span><span class="p">;</span>
 
 <span class="err">  </span><span class="cm">/**</span>
-<span class="cm">    * Observation variance.</span>
-<span class="cm">    */</span>
+<span class="cm">   * Observation variance.</span>
+<span class="cm">   */</span>
 <span class="err">  </span><span class="nv">σ2</span><span class="p">:</span><span class="kt">Random</span><span class="o">&lt;</span><span class="kt">Real</span><span class="o">&gt;</span><span class="p">;</span>
 
 <span class="err">  </span><span class="cm">/**</span>
-<span class="cm">    * Observations.</span>
-<span class="cm">    */</span>
+<span class="cm">   * Observations.</span>
+<span class="cm">   */</span>
 <span class="err">  </span><span class="nv">y</span><span class="p">:</span><span class="kt">Random</span><span class="o">&lt;</span><span class="kt">Real</span><span class="p">[</span><span class="m">_</span><span class="p">]</span><span class="o">&gt;</span><span class="p">;</span>
 
 <span class="err">  </span><span class="kd">function</span><span class="err"> </span><span class="nf">simulate</span><span class="p">()</span><span class="err"> </span><span class="p">{</span>
@@ -1022,12 +1077,12 @@ The parameters of the model are the noise variance $\sigma^2$ and vector of coef
 <span class="err">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>The explanatory variables $X$ (the $\mathbf{x}_n$, as a matrix), observations $y$ ($y_n$, as a vector) and parameters $\beta$ and $\sigma^2$ have been declared as <em>member variables</em> of the class. <a href="/language/variables">Variables</a> in Birch are typed. We see here a few different types:</p>
+<p>The features $X$ (the $\mathbf{x}_n$, as a matrix), observations $y$ ($y_n$, as a vector) and parameters $\beta$ and $\sigma^2$ have been declared as <em>member variables</em> of the class. <a href="/language/variables">Variables</a> in Birch are typed. We see here a few different types:</p>
 <ul>
 <li><code>Real</code> is a double-precision floating point number.</li>
 <li><code>Real[_]</code> is a vector of <code>Real</code>.</li>
 <li><code>Real[_,_]</code> is a matrix of <code>Real</code>.</li>
-<li><code>Random&lt;Type&gt;</code> declares a <a href="https://docs.birch.sh/libraries/Standard/classes/Random">Random</a> object of given <code>Type</code>. Such <em>randoms</em>&mdash;as we refer to them&mdash;<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>enable the important features of <em>automatic marginalization</em>, <em>automatic conjugacy</em>, and <em>automatic differentiation</em>. The former two of these are implemented in Birch using an algorithm called <em>delayed sampling</em><sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>. It is particularly useful in this example, as it enables an analytical solution to the problem.</li>
+<li><code>Random&lt;Type&gt;</code> declares a <a href="https://docs.birch.sh/libraries/Standard/classes/Random">Random</a> object of given <code>Type</code>. These enable the important features of <em>automatic marginalization</em>, <em>automatic conditioning</em>, and <em>automatic differentiation</em> (see <a href="/concepts">Key Concepts</a>).</li>
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -1036,8 +1091,8 @@ The parameters of the model are the noise variance $\sigma^2$ and vector of coef
 <p>The <code>simulate()</code> member function implements the model:</p>
 <ul>
 <li>The <code>if</code> statement is merely defensive programming: it skips the model for the degenerate situation of no explanatory variables, or no data points.</li>
-<li>The <code>~</code> operator attaches a <em>distribution</em> (a <a href="https://docs.birch.sh/libraries/Standard/classes/Distribution">Distribution</a> object) to a <em>random</em>.</li>
-<li>The <code>let</code> keyword declares a variable, where the type of the variable is deduced from its initial value. An equivalent way to declare <code>N</code>, for example, would be <code>N:Integer &lt;- rows(X)</code>, but the <code>let</code> syntax often looks tidier.</li>
+<li>The <code>~</code> operator associates a <a href="https://docs.birch.sh/libraries/Standard/classes/Distribution">Distribution</a> with a <code>Random</code>.</li>
+<li>The <code>let</code> keyword declares a variable, where the type of the variable is inferred from its initial value. An equivalent way to declare <code>N</code>, for example, would be <code>N:Integer &lt;- rows(X)</code>.</li>
 </ul>
 <p>The basic model is now implemented. It is worth building and running at this stage as a check. Build, as usual, with:</p>
 <div class="highlight"><pre><span></span><code>birch build
@@ -1047,19 +1102,19 @@ The parameters of the model are the noise variance $\sigma^2$ and vector of coef
 </code></pre></div>
 <p>Running will not do anything interesting at this stage&mdash;for that we need some data!</p>
 <h2 id="data">Data</h2>
-<p>We will use a <a href="https://archive.ics.uci.edu/ml/datasets/bike+sharing+dataset">data set</a> from the Capital Bikeshare system in Washington D.C. for the years 2011 to 2012. The aim is to use weather and holiday information to predict the total number of bike hires on any given day<sup id="fnref2:2"><a class="footnote-ref" href="#fn:2">2</a></sup>.</p>
-<p>The data set has been preprocessed to ont-hot encode categorical variables, e.g. the season, a four-category variable, becomes four indicator variables. These conversions make it reasonable to attempt a linear regression. Each data point represents one day. The observation is of the logarithm of the total number of bike hires on that day.</p>
+<p>We will use a <a href="https://archive.ics.uci.edu/ml/datasets/bike+sharing+dataset">data set</a> from the Capital Bikeshare system in Washington D.C. for the years 2011 to 2012. The aim is to use weather and holiday information to predict the total number of bike hires on any given day<sup id="fnref2:1"><a class="footnote-ref" href="#fn:1">1</a></sup>.</p>
+<p>The data set has been preprocessed to one-hot encode categorical features, e.g. the season, a four-category variable, becomes four indicator variables. These conversions make it reasonable to attempt a linear regression. Each data point represents one day. The observation is of the logarithm of the total number of bike hires on that day.</p>
 <p><a href="/getting-started/bike_share.json">Download the data set</a> to the <code>input/</code> directory. The file is in <a href="http://www.json.org">JSON</a> format. Birch supports both JSON and YAML file formats. You can view and edit these files by hand with a text editor, or for larger files, write programs to generate and manipulate them.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>If you&rsquo;re wanting to stay on the command line, check out <a href="https://stedolan.github.io/jq/">jq</a> for working with JSON files.</p>
 </div>
-<p>For now, have a look at the contents of the file in a text editor, web browser, or on the command line (<code>less input/bike_share.json</code> and hit <code>q</code> when you&rsquo;ve seen enough). It contains two variables: a matrix <code>X</code> and a vector <code>y</code>. We need to read these into the model.</p>
-<p>Recall that, in defining the <code>LinearRegressionModel</code> class, we overrode the <code>simulate()</code> member function of the <code>Model</code> class. The <code>Model</code> class also has two other member functions called <code>read()</code> and <code>write()</code> that we can implement to read and write data.</p>
+<p>For now, have a look at the contents of the file (<code>less input/bike_share.json</code> and hit <code>q</code> when you&rsquo;ve seen enough). It contains two variables: a matrix <code>X</code> and a vector <code>y</code>. We need to read these into the model.</p>
+<p>Recall that, in defining the <code>LinearRegressionModel</code> class, we overrode the <code>simulate()</code> member function of the <code>Model</code> class. The <code>Model</code> class also has two other member functions: <code>read(buffer:Buffer)</code> and <code>write(buffer:Buffer)</code>. We override these to read and write data.</p>
 <p>Add the following two member functions after the <code>simulate()</code> member function in the <code>LinearRegressionModel</code> class:</p>
 <div class="highlight"><pre><span></span><code><span class="err">    </span><span class="kd">function</span><span class="err"> </span><span class="nf">read</span><span class="p">(</span><span class="nv">buffer</span><span class="p">:</span><span class="kt">Buffer</span><span class="p">)</span><span class="err"> </span><span class="p">{</span>
-<span class="err">      </span><span class="nv">X</span><span class="err"> </span><span class="o">&lt;-?</span><span class="err"> </span><span class="nv">buffer</span><span class="o">.</span><span class="nf">getRealMatrix</span><span class="p">(</span><span class="s2">&quot;X&quot;</span><span class="p">);</span>
-<span class="err">      </span><span class="nv">y</span><span class="err"> </span><span class="o">&lt;-?</span><span class="err"> </span><span class="nv">buffer</span><span class="o">.</span><span class="nf">getRealVector</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">);</span>
+<span class="err">      </span><span class="nv">X</span><span class="err"> </span><span class="o">&lt;-?</span><span class="err"> </span><span class="nv">buffer</span><span class="o">.</span><span class="nv">get</span><span class="o">&lt;</span><span class="kt">Real</span><span class="p">[</span><span class="m">_</span><span class="p">,</span><span class="m">_</span><span class="p">]</span><span class="o">&gt;</span><span class="p">(</span><span class="s2">&quot;X&quot;</span><span class="p">);</span>
+<span class="err">      </span><span class="nv">y</span><span class="err"> </span><span class="o">&lt;-?</span><span class="err"> </span><span class="nv">buffer</span><span class="o">.</span><span class="nv">get</span><span class="o">&lt;</span><span class="kt">Real</span><span class="p">[</span><span class="m">_</span><span class="p">]</span><span class="o">&gt;</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">);</span>
 <span class="err">    </span><span class="p">}</span>
 
 <span class="err">    </span><span class="kd">function</span><span class="err"> </span><span class="nf">write</span><span class="p">(</span><span class="nv">buffer</span><span class="p">:</span><span class="kt">Buffer</span><span class="p">)</span><span class="err"> </span><span class="p">{</span>
@@ -1067,8 +1122,10 @@ The parameters of the model are the noise variance $\sigma^2$ and vector of coef
 <span class="err">      </span><span class="nv">buffer</span><span class="o">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;σ2&quot;</span><span class="p">,</span><span class="err"> </span><span class="nv">σ2</span><span class="p">);</span>
 <span class="err">    </span><span class="p">}</span>
 </code></pre></div>
-<p>The <code>read()</code> member function reads from the input file into the member variables <code>X</code> and <code>y</code>. The strings <code>"X"</code> and <code>"y"</code> name the elements in the input file. The <code>write()</code> member function writes the parameters to the output file.</p>
-<p>The <a href="https://docs.birch.sh/libraries/Standard/classes/Buffer">Buffer</a> class provides the interface for easily reading and writing these. Its <code>get</code> style member functions (e.g. the <code>getReadMatrix()</code> and <code>getRealVector()</code> used above) return <a href="/language/optionals/">optionals</a>. An optional is just a variable that may or may not have a value. Here, if the requested element exists in the file, it has a value, otherwise it does not. The <code>&lt;-?</code> is a special assignment operator that assigns a value to the variable on the left only if the optional on the right actually has a value.</p>
+<p>The <a href="https://docs.birch.sh/libraries/Standard/classes/Buffer">Buffer</a> class provides the interface for easily reading and writing files. Its basic interface provides <code>get</code> functions for reading, and <code>set</code> functions for writing, usually with key-value pairs.</p>
+<p>The <code>write(buffer:Buffer)</code> member function is the simpler of the two. It writes the parameters to the output file using <code>set</code> function calls. The first argument of each call is the key to write, and the second the value.</p>
+<p>The <code>read(buffer:Buffer)</code> member function reads from the input file using <code>get</code> function calls. The single argument of each is the key to read. We also need to specify the type of the value to read. This is given as a <em>type argument</em> in angle brackets immediately after the function name, e.g.  <code>get&lt;Real[_,_]&gt;</code>. Functions that take type arguments like this are known as <a href="/language/functions/">generic functions</a>.</p>
+<p>The <code>get</code> member function returns an <a href="/language/optionals/">optional</a>. An optional is just a variable that may or may not have a value. Here, if the requested element exists in the file, it has a value, otherwise it does not. The <code>&lt;-?</code> is a special assignment operator that assigns a value to the variable on the left only if the optional on the right actually has a value. That is, if the key is found in the file the value is read and assigned to the variable on the left, otherwise nothing happens.</p>
 <h2 id="inference">Inference</h2>
 <p>Now rebuild:</p>
 <div class="highlight"><pre><span></span><code>birch build
@@ -1108,13 +1165,7 @@ birch sample --enable-release ...
 <hr />
 <ol>
 <li id="fn:1">
-<p>We avoid referring to them as <em>random variables</em>, as that is a precise mathematical term, although they do represent this concept within the program. A more accurate description might be a <em>random variate</em> that has been drawn from some distribution, although they are not exactly this either. We stick with <em>randoms</em>.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
-<li id="fn:2">
-<p>H. Fanaee-T &amp; J. Gama (2014). <a href="http://dx.doi.org/10.1007/s13748-013-0040-3">Event labeling combining ensemble detectors and background knowledge</a>. <em>Progress in Artificial Intelligence</em>. <strong>2</strong>:113-127.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
-</li>
-<li id="fn:3">
-<p>L.M. Murray, D. Lundén, J. Kudlicka, D. Broman and T.B. Schön (2018). <a href="https://arxiv.org/abs/1708.07787">Delayed Sampling and Automatic Rao&ndash;Blackwellization of Probabilistic Programs</a>. In <em>Proceedings of the 21st International Conference on Artificial Intelligence and Statistics (AISTATS) 2018</em>, Lanzarote, Spain.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+<p>H. Fanaee-T &amp; J. Gama (2014). <a href="http://dx.doi.org/10.1007/s13748-013-0040-3">Event labeling combining ensemble detectors and background knowledge</a>. <em>Progress in Artificial Intelligence</em>. <strong>2</strong>:113-127.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>

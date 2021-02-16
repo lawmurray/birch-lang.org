@@ -223,6 +223,19 @@
 
       
         
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../getting-involved/" class="md-tabs__link">
+          Getting Involved
+        </a>
+      
+    </li>
+  
+
+      
+        
       
     </ul>
   </div>
@@ -818,6 +831,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#slicing" class="md-nav__link">
+    Slicing
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -913,6 +933,48 @@
       
 
 
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Getting Involved
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Getting Involved" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Getting Involved
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-involved/" title="Getting involved" class="md-nav__link">
+      Getting involved
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
   <li class="md-nav__item">
     <a href="../../about/" title="About" class="md-nav__link">
       About
@@ -988,6 +1050,13 @@
         <li class="md-nav__item">
   <a href="#conversion" class="md-nav__link">
     Conversion
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#slicing" class="md-nav__link">
+    Slicing
   </a>
   
 </li>
@@ -1184,6 +1253,19 @@ For <code>a:A</code> and <code>c:C</code>, the following function call would the
 <span class="nv">a</span><span class="p">:</span><span class="kt">A</span><span class="p">;</span>
 <span class="nf">f</span><span class="p">(</span><span class="nv">a</span><span class="p">);</span>
 </code></pre></div></p>
+<h3 id="slicing">Slicing</h3>
+<p>Objects of class type <code>A</code> may be accessed using square brackets if an appropriate declaration has been made within the class body:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="err"> </span><span class="nv">A</span><span class="err"> </span><span class="p">{</span>
+<span class="err">  </span><span class="kd">operator</span><span class="err"> </span><span class="p">[</span><span class="nv">j</span><span class="p">:</span><span class="kt">J</span><span class="p">]</span><span class="err"> </span><span class="o">-&gt;</span><span class="err"> </span><span class="nv">D</span><span class="err"> </span><span class="p">{</span>
+<span class="err">    </span><span class="kd">return</span><span class="err"> </span><span class="nv">d</span><span class="p">[</span><span class="nv">j</span><span class="p">];</span>
+<span class="err">  </span><span class="p">}</span>
+<span class="err">  </span><span class="nv">d</span><span class="p">:</span><span class="kt">D</span><span class="p">[</span><span class="m">_</span><span class="p">];</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>This is called a <em>slice operator</em>. For <code>a:A</code> and <code>i:J</code>, using <code>a[i]</code> would call the slice operator. Furthermore, the return value of a slice operator is <em>by reference</em>, which means it is possible to assign to the return value:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">a</span><span class="p">[</span><span class="nv">i</span><span class="p">]</span><span class="err"> </span><span class="o">&lt;-</span><span class="err"> </span><span class="nv">e</span><span class="p">;</span>
+</code></pre></div>
+<p>Slice operators may have parameters of any type.</p>
                 
               
               

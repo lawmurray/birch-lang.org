@@ -218,6 +218,19 @@
 
       
         
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../getting-involved/" class="md-tabs__link">
+          Getting Involved
+        </a>
+      
+    </li>
+  
+
+      
+        
       
     </ul>
   </div>
@@ -835,6 +848,48 @@
       
 
 
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Getting Involved
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Getting Involved" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Getting Involved
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-involved/" title="Getting involved" class="md-nav__link">
+      Getting involved
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
   <li class="md-nav__item">
     <a href="../../about/" title="About" class="md-nav__link">
       About
@@ -870,16 +925,23 @@
 <ul>
 <li><code>x &lt;~ p</code> <em>simulates</em> a variate <code>x</code> from the distribution <code>p</code>,</li>
 <li><code>x ~&gt; p</code> <em>observes</em> a variate <code>x</code> from the distribution <code>p</code>,</li>
-<li><code>x ~ p</code> <em>assumes</em> that <code>x</code> is distributed according to <code>p</code>.</li>
+<li><code>x ~ p</code> <em>assumes</em> that <code>x</code> is distributed according to <code>p</code>,</li>
+<li><code>factor w</code> applies an arbitrary log-weight <code>w</code> to the current execution.</li>
 </ul>
-<p>If <code>x</code> has a value, <code>x ~ p</code> typically acts like <code>x ~&gt; p</code>, while if it does not have a value, <code>x ~ p</code> eventually acts something like <code>x &lt;~ p</code>, possibly after analytical optimizations.</p>
-<p>These statements emit events to an event handler, which is simply an object of type <a href="https://docs.birch.sh/libraries/Standard/classes/Handler">Handler</a>. By default, there is no event handler registered, so the events are ignored. To register an event handler <code>h</code>, use a <code>with</code> block:
+<p>These statements emit events to an event handler, which is simply an object of type <a href="https://docs.birch.sh/libraries/Standard/classes/Handler">Handler</a>. Event handlers are typically used as an interface between inference methods and models, creating the opportunity for inference methods to intervene in model execution. By default, there is no event handler registered, so the events are ignored. To register an event handler <code>h:Handler</code>, use a <code>with</code> block:
 <div class="highlight"><pre><span></span><code><span class="kd">with</span><span class="err"> </span><span class="nv">h</span><span class="err"> </span><span class="p">{</span>
 <span class="err">  </span><span class="c c-Singleline">// do something probabilistic</span>
 <span class="p">}</span>
 </code></pre></div>
-The <code>factor</code> statement sends an arbitrary log-weight <code>w</code> to the event handler.</p>
-<p>Event handlers are typically used as an interface between inference methods and models, creating the opportunity for inference methods to intervene in model execution.</p>
+The <code>~</code> and <code>&lt;~</code> operators may be used to assign initial values to variables:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">x</span><span class="p">:</span><span class="kt">Real</span><span class="err"> </span><span class="o">&lt;~</span><span class="err"> </span><span class="nf">Gaussian</span><span class="p">(</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="p">,</span><span class="err"> </span><span class="mi">1</span><span class="o">.</span><span class="mi">0</span><span class="p">);</span>
+<span class="nv">y</span><span class="p">:</span><span class="kt">Random</span><span class="o">&lt;</span><span class="kt">Real</span><span class="o">&gt;</span><span class="err"> </span><span class="o">~</span><span class="err"> </span><span class="nf">Gaussian</span><span class="p">(</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="p">,</span><span class="err"> </span><span class="mi">1</span><span class="o">.</span><span class="mi">0</span><span class="p">);</span>
+</code></pre></div>
+<p>They may even be used with <code>let</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="err"> </span><span class="nv">x</span><span class="err"> </span><span class="o">&lt;~</span><span class="err"> </span><span class="nf">Gaussian</span><span class="p">(</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="p">,</span><span class="err"> </span><span class="mi">1</span><span class="o">.</span><span class="mi">0</span><span class="p">);</span>
+<span class="kd">let</span><span class="err"> </span><span class="nv">y</span><span class="err"> </span><span class="o">~</span><span class="err"> </span><span class="nf">Gaussian</span><span class="p">(</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="p">,</span><span class="err"> </span><span class="mi">1</span><span class="o">.</span><span class="mi">0</span><span class="p">);</span>
+</code></pre></div>
+<p>Here, the type of <code>x</code> is inferred to be <code>Real</code>, and that of <code>y</code> to be <code>Random&lt;Real&gt;</code>.</p>
                 
               
               
@@ -913,13 +975,13 @@ The <code>factor</code> statement sends an arbitrary log-weight <code>w</code> t
           </a>
         
         
-          <a href="../../about/" title="About" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../getting-involved/" title="Getting involved" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                About
+                Getting involved
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">

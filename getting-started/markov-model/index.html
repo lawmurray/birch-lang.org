@@ -223,6 +223,19 @@
 
       
         
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../getting-involved/" class="md-tabs__link">
+          Getting Involved
+        </a>
+      
+    </li>
+  
+
+      
+        
       
     </ul>
   </div>
@@ -896,6 +909,48 @@
       
 
 
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Getting Involved
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Getting Involved" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Getting Involved
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-involved/" title="Getting involved" class="md-nav__link">
+      Getting involved
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
   <li class="md-nav__item">
     <a href="../../about/" title="About" class="md-nav__link">
       About
@@ -973,7 +1028,11 @@
                 
                 
                 <h1 id="markov-model">Markov Model</h1>
-<p>We will now look at implementing a simple SIR (susceptible-infectious-recovered) compartmental model of an epidemic, using a classic data set of an outbreak of influenza at a boarding school.</p>
+<p>We will now implement a simple SIR (susceptible-infectious-recovered) compartmental model of an epidemic, using a classic data set of an outbreak of influenza at a boarding school.</p>
+<div class="admonition info">
+<p class="admonition-title">Updates</p>
+<p>The previous version of this page recommended using <a href="https://docs.birch.sh/libraries/Standard/classes/MarkovModel">MarkovModel</a> as the base class for this model. This has now been deprecated, and the preferred implementation is to derive directly from <a href="https://docs.birch.sh/libraries/Standard/classes/Model">Model</a> instead. The page has been updated accordingly.</p>
+</div>
 <h2 id="model">Model</h2>
 <p>The model is described in three parts: a <em>parameter</em> model, an <em>initial</em> model, and a <em>transition</em> model. Time is indexed by $t$, in days. The state consists of variables $s_t$, $i_t$, and $r_t$, giving counts of the number of susceptible, infectious, and recovered individuals, respectively.</p>
 <p>The parameter model is:
@@ -1010,13 +1069,17 @@ r_t &amp;= r_{t-1} + \Delta r_t.
 \end{align}
 $$</p>
 <h2 id="implementation">Implementation</h2>
-<p>We again create a class that inherits from <code>Model</code>, but the standard library provides a more specialized class <a href="https://docs.birch.sh/libraries/Standard/classes/MarkovModel">MarkovModel</a> that can handle some of the work for us here. <code>MarkovModel</code> inherits from <code>Model</code>. It overrides the <code>simulate()</code> member function to call three other member functions that it defines: <code>parameter()</code>, <code>initial()</code>, and <code>transition()</code>, for the three parts of a Markov model. Instead of creating a class that inherits from <code>Model</code> directly and overrides <code>simulate()</code>, we create a class that inherits from <code>MarkovModel</code> and overrides <code>parameter()</code>, <code>initial()</code> and <code>transition()</code>.</p>
-<p>Furthermore, <code>MarkovModel</code> is a <a href="/language/classes/#generics">generic</a> class, fully written <code>MarkovModel&lt;Parameter,State&gt;</code>. When used it is provided with two other classes as type arguments, one that describes the parameters of the model, and one that describes the state of the model. We create these two classes first.</p>
-<p>Create a file <code>src/SIRParameter.birch</code> with the following:</p>
+<p>We again create a class that inherits from <code>Model</code>, but this time use some additional features. In the <a href="/getting-started/linear-regression">previous example</a> we overrode the member functions <code>simulate()</code>, <code>read(buffer:Buffer)</code> and <code>write(buffer:Buffer)</code>. In this example, we will also override the <code>simulate(t:Integer)</code>, <code>read(t:Integer, buffer:Buffer)</code> and <code>write(t:Integer, buffer:Buffer)</code> functions. These allow sequential execution of the model in steps, indexed by the integer <code>t</code>. Often <code>t</code> indexes time (as will be the case here), but it need not: in general it can index any dimension along which a model can be expressed sequentially. For example, <code>t</code> may simply index observations. Structuring the implementation this way allows Sequential Monte Carlo (SMC) to be used for inference, with resampling performed between steps.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>When overriding a member function, the types of the parameters must stay the same, but their names may change. This means that you can rename <code>t</code> to something else if you prefer, but it must have type <code>Integer</code>.</p>
+</div>
+<p>We will use the <code>simulate()</code> function to implement the parameter model, and the <code>simulate(t:Integer)</code> function to implement the initial and transition models.</p>
+<p>Create a file <code>src/SIRMode.birch</code> with the following:</p>
 <div class="highlight"><pre><span></span><code><span class="cm">/**</span>
-<span class="cm"> * SIR model parameters.</span>
-<span class="cm">*/</span>
-<span class="kd">class</span><span class="err"> </span><span class="kt">SIRParameter</span><span class="err"> </span><span class="p">{</span>
+<span class="cm"> * SIR (susceptible-infectious-recovered) model.</span>
+<span class="cm"> */</span>
+<span class="kd">class</span><span class="err"> </span><span class="kt">SIRModel</span><span class="err"> </span><span class="o">&lt;</span><span class="err"> </span><span class="kt">Model</span><span class="err"> </span><span class="p">{</span>
 <span class="err">  </span><span class="cm">/**</span>
 <span class="cm">   * Interaction rate.</span>
 <span class="cm">   */</span>
@@ -1032,122 +1095,92 @@ $$</p>
 <span class="cm">   */</span>
 <span class="err">  </span><span class="nv">γ</span><span class="p">:</span><span class="kt">Random</span><span class="o">&lt;</span><span class="kt">Real</span><span class="o">&gt;</span><span class="p">;</span>
 
-<span class="err">  </span><span class="kd">function</span><span class="err"> </span><span class="nf">read</span><span class="p">(</span><span class="nv">buffer</span><span class="p">:</span><span class="kt">Buffer</span><span class="p">)</span><span class="err"> </span><span class="p">{</span>
-<span class="err">    </span><span class="nv">buffer</span><span class="o">.</span><span class="nf">get</span><span class="p">(</span><span class="s2">&quot;λ&quot;</span><span class="p">,</span><span class="err"> </span><span class="nv">λ</span><span class="p">);</span>
-<span class="err">    </span><span class="nv">buffer</span><span class="o">.</span><span class="nf">get</span><span class="p">(</span><span class="s2">&quot;δ&quot;</span><span class="p">,</span><span class="err"> </span><span class="nv">δ</span><span class="p">);</span>
-<span class="err">    </span><span class="nv">buffer</span><span class="o">.</span><span class="nf">get</span><span class="p">(</span><span class="s2">&quot;γ&quot;</span><span class="p">,</span><span class="err"> </span><span class="nv">γ</span><span class="p">);</span>
+<span class="err">  </span><span class="cm">/**</span>
+<span class="cm">   * Susceptible population at each time.</span>
+<span class="cm">   */</span>
+<span class="err">  </span><span class="nv">s</span><span class="p">:</span><span class="kt">Tape</span><span class="o">&lt;</span><span class="kt">Random</span><span class="o">&lt;</span><span class="kt">Integer</span><span class="o">&gt;&gt;</span><span class="p">;</span>
+
+<span class="err">  </span><span class="cm">/**</span>
+<span class="cm">   * Infectious population at each time.</span>
+<span class="cm">   */</span>
+<span class="err">  </span><span class="nv">i</span><span class="p">:</span><span class="kt">Tape</span><span class="o">&lt;</span><span class="kt">Random</span><span class="o">&lt;</span><span class="kt">Integer</span><span class="o">&gt;&gt;</span><span class="p">;</span>
+
+<span class="err">  </span><span class="cm">/**</span>
+<span class="cm">   * Recovered population at each time.</span>
+<span class="cm">   */</span>
+<span class="err">  </span><span class="nv">r</span><span class="p">:</span><span class="kt">Tape</span><span class="o">&lt;</span><span class="kt">Random</span><span class="o">&lt;</span><span class="kt">Integer</span><span class="o">&gt;&gt;</span><span class="p">;</span>
+
+<span class="err">  </span><span class="kd">override</span><span class="err"> </span><span class="kd">function</span><span class="err"> </span><span class="nf">simulate</span><span class="p">()</span><span class="err"> </span><span class="p">{</span>
+<span class="err">    </span><span class="nv">λ</span><span class="err"> </span><span class="o">~</span><span class="err"> </span><span class="nf">Gamma</span><span class="p">(</span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="p">,</span><span class="err"> </span><span class="mi">5</span><span class="o">.</span><span class="mi">0</span><span class="p">);</span>
+<span class="err">    </span><span class="nv">δ</span><span class="err"> </span><span class="o">~</span><span class="err"> </span><span class="nf">Beta</span><span class="p">(</span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="p">,</span><span class="err"> </span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="p">);</span>
+<span class="err">    </span><span class="nv">γ</span><span class="err"> </span><span class="o">~</span><span class="err"> </span><span class="nf">Beta</span><span class="p">(</span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="p">,</span><span class="err"> </span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="p">);</span>
 <span class="err">  </span><span class="p">}</span>
 
-<span class="err">  </span><span class="kd">function</span><span class="err"> </span><span class="nf">write</span><span class="p">(</span><span class="nv">buffer</span><span class="p">:</span><span class="kt">Buffer</span><span class="p">)</span><span class="err"> </span><span class="p">{</span>
+<span class="err">  </span><span class="kd">override</span><span class="err"> </span><span class="kd">function</span><span class="err"> </span><span class="nf">simulate</span><span class="p">(</span><span class="nv">t</span><span class="p">:</span><span class="kt">Integer</span><span class="p">)</span><span class="err"> </span><span class="p">{</span>
+<span class="err">    </span><span class="kd">if</span><span class="err"> </span><span class="nv">t</span><span class="err"> </span><span class="o">==</span><span class="err"> </span><span class="mi">1</span><span class="err"> </span><span class="p">{</span>
+<span class="err">      </span><span class="c c-Singleline">// the initial state is set in the input file</span>
+<span class="err">    </span><span class="p">}</span><span class="err"> </span><span class="kd">else</span><span class="err"> </span><span class="p">{</span>
+<span class="err">      </span><span class="kd">let</span><span class="err"> </span><span class="nv">n</span><span class="err"> </span><span class="o">&lt;-</span><span class="err"> </span><span class="nv">s</span><span class="p">[</span><span class="nv">t</span><span class="err"> </span><span class="o">-</span><span class="err"> </span><span class="mi">1</span><span class="p">]</span><span class="err"> </span><span class="o">+</span><span class="err"> </span><span class="nv">i</span><span class="p">[</span><span class="nv">t</span><span class="err"> </span><span class="o">-</span><span class="err"> </span><span class="mi">1</span><span class="p">]</span><span class="err"> </span><span class="o">+</span><span class="err"> </span><span class="nv">r</span><span class="p">[</span><span class="nv">t</span><span class="err"> </span><span class="o">-</span><span class="err"> </span><span class="mi">1</span><span class="p">];</span><span class="err">  </span><span class="c c-Singleline">// total population</span>
+<span class="err">      </span><span class="kd">let</span><span class="err"> </span><span class="nv">τ</span><span class="err"> </span><span class="o">~</span><span class="err"> </span><span class="nf">Binomial</span><span class="p">(</span><span class="nv">s</span><span class="p">[</span><span class="nv">t</span><span class="err"> </span><span class="o">-</span><span class="err"> </span><span class="mi">1</span><span class="p">],</span><span class="err"> </span><span class="mi">1</span><span class="o">.</span><span class="mi">0</span><span class="err"> </span><span class="o">-</span><span class="err"> </span><span class="nf">exp</span><span class="p">(</span><span class="o">-</span><span class="nv">λ</span><span class="o">*</span><span class="nf">Real</span><span class="p">(</span><span class="nv">i</span><span class="p">[</span><span class="nv">t</span><span class="err"> </span><span class="o">-</span><span class="err"> </span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="nf">Real</span><span class="p">(</span><span class="nv">n</span><span class="p">)));</span>
+<span class="err">      </span><span class="kd">let</span><span class="err"> </span><span class="nv">Δi</span><span class="err"> </span><span class="o">~</span><span class="err"> </span><span class="nf">Binomial</span><span class="p">(</span><span class="nv">τ</span><span class="p">,</span><span class="err"> </span><span class="nv">δ</span><span class="p">);</span>
+<span class="err">      </span><span class="kd">let</span><span class="err"> </span><span class="nv">Δr</span><span class="err"> </span><span class="o">~</span><span class="err"> </span><span class="nf">Binomial</span><span class="p">(</span><span class="nv">i</span><span class="p">[</span><span class="nv">t</span><span class="err"> </span><span class="o">-</span><span class="err"> </span><span class="mi">1</span><span class="p">],</span><span class="err"> </span><span class="nv">γ</span><span class="p">);</span>
+
+<span class="err">      </span><span class="nv">s</span><span class="p">[</span><span class="nv">t</span><span class="p">]</span><span class="err"> </span><span class="o">~</span><span class="err"> </span><span class="nf">Delta</span><span class="p">(</span><span class="nv">s</span><span class="p">[</span><span class="nv">t</span><span class="err"> </span><span class="o">-</span><span class="err"> </span><span class="mi">1</span><span class="p">]</span><span class="err"> </span><span class="o">-</span><span class="err"> </span><span class="nv">Δi</span><span class="p">);</span>
+<span class="err">      </span><span class="nv">i</span><span class="p">[</span><span class="nv">t</span><span class="p">]</span><span class="err"> </span><span class="o">~</span><span class="err"> </span><span class="nf">Delta</span><span class="p">(</span><span class="nv">i</span><span class="p">[</span><span class="nv">t</span><span class="err"> </span><span class="o">-</span><span class="err"> </span><span class="mi">1</span><span class="p">]</span><span class="err"> </span><span class="o">+</span><span class="err"> </span><span class="nv">Δi</span><span class="err"> </span><span class="o">-</span><span class="err"> </span><span class="nv">Δr</span><span class="p">);</span>
+<span class="err">      </span><span class="nv">r</span><span class="p">[</span><span class="nv">t</span><span class="p">]</span><span class="err"> </span><span class="o">~</span><span class="err"> </span><span class="nf">Delta</span><span class="p">(</span><span class="nv">r</span><span class="p">[</span><span class="nv">t</span><span class="err"> </span><span class="o">-</span><span class="err"> </span><span class="mi">1</span><span class="p">]</span><span class="err"> </span><span class="o">+</span><span class="err"> </span><span class="nv">Δr</span><span class="p">);</span>
+<span class="err">    </span><span class="p">}</span>
+<span class="err">  </span><span class="p">}</span>
+
+<span class="err">  </span><span class="kd">override</span><span class="err"> </span><span class="kd">function</span><span class="err"> </span><span class="nf">read</span><span class="p">(</span><span class="nv">buffer</span><span class="p">:</span><span class="kt">Buffer</span><span class="p">)</span><span class="err"> </span><span class="p">{</span>
+<span class="err">    </span><span class="nv">λ</span><span class="err"> </span><span class="o">&lt;-?</span><span class="err"> </span><span class="nv">buffer</span><span class="o">.</span><span class="nv">get</span><span class="o">&lt;</span><span class="kt">Real</span><span class="o">&gt;</span><span class="p">(</span><span class="s2">&quot;λ&quot;</span><span class="p">);</span>
+<span class="err">    </span><span class="nv">δ</span><span class="err"> </span><span class="o">&lt;-?</span><span class="err"> </span><span class="nv">buffer</span><span class="o">.</span><span class="nv">get</span><span class="o">&lt;</span><span class="kt">Real</span><span class="o">&gt;</span><span class="p">(</span><span class="s2">&quot;δ&quot;</span><span class="p">);</span>
+<span class="err">    </span><span class="nv">γ</span><span class="err"> </span><span class="o">&lt;-?</span><span class="err"> </span><span class="nv">buffer</span><span class="o">.</span><span class="nv">get</span><span class="o">&lt;</span><span class="kt">Real</span><span class="o">&gt;</span><span class="p">(</span><span class="s2">&quot;γ&quot;</span><span class="p">);</span>
+<span class="err">  </span><span class="p">}</span>
+
+<span class="err">  </span><span class="kd">override</span><span class="err"> </span><span class="kd">function</span><span class="err"> </span><span class="nf">read</span><span class="p">(</span><span class="nv">t</span><span class="p">:</span><span class="kt">Integer</span><span class="p">,</span><span class="err"> </span><span class="nv">buffer</span><span class="p">:</span><span class="kt">Buffer</span><span class="p">)</span><span class="err"> </span><span class="p">{</span>
+<span class="err">    </span><span class="nv">s</span><span class="p">[</span><span class="nv">t</span><span class="p">]</span><span class="err"> </span><span class="o">&lt;-?</span><span class="err"> </span><span class="nv">buffer</span><span class="o">.</span><span class="nv">get</span><span class="o">&lt;</span><span class="kt">Integer</span><span class="o">&gt;</span><span class="p">(</span><span class="s2">&quot;s&quot;</span><span class="p">);</span>
+<span class="err">    </span><span class="nv">i</span><span class="p">[</span><span class="nv">t</span><span class="p">]</span><span class="err"> </span><span class="o">&lt;-?</span><span class="err"> </span><span class="nv">buffer</span><span class="o">.</span><span class="nv">get</span><span class="o">&lt;</span><span class="kt">Integer</span><span class="o">&gt;</span><span class="p">(</span><span class="s2">&quot;i&quot;</span><span class="p">);</span>
+<span class="err">    </span><span class="nv">r</span><span class="p">[</span><span class="nv">t</span><span class="p">]</span><span class="err"> </span><span class="o">&lt;-?</span><span class="err"> </span><span class="nv">buffer</span><span class="o">.</span><span class="nv">get</span><span class="o">&lt;</span><span class="kt">Integer</span><span class="o">&gt;</span><span class="p">(</span><span class="s2">&quot;r&quot;</span><span class="p">);</span>
+<span class="err">  </span><span class="p">}</span>
+
+<span class="err">  </span><span class="kd">override</span><span class="err"> </span><span class="kd">function</span><span class="err"> </span><span class="nf">write</span><span class="p">(</span><span class="nv">buffer</span><span class="p">:</span><span class="kt">Buffer</span><span class="p">)</span><span class="err"> </span><span class="p">{</span>
 <span class="err">    </span><span class="nv">buffer</span><span class="o">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;λ&quot;</span><span class="p">,</span><span class="err"> </span><span class="nv">λ</span><span class="p">);</span>
 <span class="err">    </span><span class="nv">buffer</span><span class="o">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;δ&quot;</span><span class="p">,</span><span class="err"> </span><span class="nv">δ</span><span class="p">);</span>
 <span class="err">    </span><span class="nv">buffer</span><span class="o">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;γ&quot;</span><span class="p">,</span><span class="err"> </span><span class="nv">γ</span><span class="p">);</span>
 <span class="err">  </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>Create a file <code>src/SIRState.birch</code> with the following:</p>
-<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
-<span class="cm"> * SIR model state.</span>
-<span class="cm"> */</span>
-<span class="kd">class</span><span class="err"> </span><span class="kt">SIRState</span><span class="err"> </span><span class="p">{</span>
-<span class="err">  </span><span class="cm">/**</span>
-<span class="cm">   * Number of susceptible-infectious interactions.</span>
-<span class="cm">   */</span>
-<span class="err">  </span><span class="nv">τ</span><span class="p">:</span><span class="kt">Random</span><span class="o">&lt;</span><span class="kt">Integer</span><span class="o">&gt;</span><span class="p">;</span>
 
-<span class="err">  </span><span class="cm">/**</span>
-<span class="cm">   * Newly infected population.</span>
-<span class="cm">   */</span>
-<span class="err">  </span><span class="nv">Δi</span><span class="p">:</span><span class="kt">Random</span><span class="o">&lt;</span><span class="kt">Integer</span><span class="o">&gt;</span><span class="p">;</span>
-
-<span class="err">  </span><span class="cm">/**</span>
-<span class="cm">   * Newly recovered population.</span>
-<span class="cm">   */</span>
-<span class="err">  </span><span class="nv">Δr</span><span class="p">:</span><span class="kt">Random</span><span class="o">&lt;</span><span class="kt">Integer</span><span class="o">&gt;</span><span class="p">;</span>
-
-<span class="err">  </span><span class="cm">/**</span>
-<span class="cm">   * Susceptible population.</span>
-<span class="cm">   */</span>
-<span class="err">  </span><span class="nv">s</span><span class="p">:</span><span class="kt">Random</span><span class="o">&lt;</span><span class="kt">Integer</span><span class="o">&gt;</span><span class="p">;</span>
-
-<span class="err">  </span><span class="cm">/**</span>
-<span class="cm">   * Infectious population.</span>
-<span class="cm">   */</span>
-<span class="err">  </span><span class="nv">i</span><span class="p">:</span><span class="kt">Random</span><span class="o">&lt;</span><span class="kt">Integer</span><span class="o">&gt;</span><span class="p">;</span>
-
-<span class="err">  </span><span class="cm">/**</span>
-<span class="cm">   * Recovered population.</span>
-<span class="cm">   */</span>
-<span class="err">  </span><span class="nv">r</span><span class="p">:</span><span class="kt">Random</span><span class="o">&lt;</span><span class="kt">Integer</span><span class="o">&gt;</span><span class="p">;</span>
-
-<span class="err">  </span><span class="kd">function</span><span class="err"> </span><span class="nf">read</span><span class="p">(</span><span class="nv">buffer</span><span class="p">:</span><span class="kt">Buffer</span><span class="p">)</span><span class="err"> </span><span class="p">{</span>
-<span class="err">    </span><span class="nv">buffer</span><span class="o">.</span><span class="nf">get</span><span class="p">(</span><span class="s2">&quot;Δi&quot;</span><span class="p">,</span><span class="err"> </span><span class="nv">Δi</span><span class="p">);</span>
-<span class="err">    </span><span class="nv">buffer</span><span class="o">.</span><span class="nf">get</span><span class="p">(</span><span class="s2">&quot;Δr&quot;</span><span class="p">,</span><span class="err"> </span><span class="nv">Δr</span><span class="p">);</span>
-<span class="err">    </span><span class="nv">buffer</span><span class="o">.</span><span class="nf">get</span><span class="p">(</span><span class="s2">&quot;s&quot;</span><span class="p">,</span><span class="err"> </span><span class="nv">s</span><span class="p">);</span>
-<span class="err">    </span><span class="nv">buffer</span><span class="o">.</span><span class="nf">get</span><span class="p">(</span><span class="s2">&quot;i&quot;</span><span class="p">,</span><span class="err"> </span><span class="nv">i</span><span class="p">);</span>
-<span class="err">    </span><span class="nv">buffer</span><span class="o">.</span><span class="nf">get</span><span class="p">(</span><span class="s2">&quot;r&quot;</span><span class="p">,</span><span class="err"> </span><span class="nv">r</span><span class="p">);</span>
-<span class="err">  </span><span class="p">}</span>
-
-<span class="err">  </span><span class="kd">function</span><span class="err"> </span><span class="nf">write</span><span class="p">(</span><span class="nv">buffer</span><span class="p">:</span><span class="kt">Buffer</span><span class="p">)</span><span class="err"> </span><span class="p">{</span>
-<span class="err">    </span><span class="nv">buffer</span><span class="o">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;Δi&quot;</span><span class="p">,</span><span class="err"> </span><span class="nv">Δi</span><span class="p">);</span>
-<span class="err">    </span><span class="nv">buffer</span><span class="o">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;Δr&quot;</span><span class="p">,</span><span class="err"> </span><span class="nv">Δr</span><span class="p">);</span>
-<span class="err">    </span><span class="nv">buffer</span><span class="o">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;s&quot;</span><span class="p">,</span><span class="err"> </span><span class="nv">s</span><span class="p">);</span>
-<span class="err">    </span><span class="nv">buffer</span><span class="o">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;i&quot;</span><span class="p">,</span><span class="err"> </span><span class="nv">i</span><span class="p">);</span>
-<span class="err">    </span><span class="nv">buffer</span><span class="o">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;r&quot;</span><span class="p">,</span><span class="err"> </span><span class="nv">r</span><span class="p">);</span>
+<span class="err">  </span><span class="kd">override</span><span class="err"> </span><span class="kd">function</span><span class="err"> </span><span class="nf">write</span><span class="p">(</span><span class="nv">t</span><span class="p">:</span><span class="kt">Integer</span><span class="p">,</span><span class="err"> </span><span class="nv">buffer</span><span class="p">:</span><span class="kt">Buffer</span><span class="p">)</span><span class="err"> </span><span class="p">{</span>
+<span class="err">    </span><span class="nv">buffer</span><span class="o">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;s&quot;</span><span class="p">,</span><span class="err"> </span><span class="nv">s</span><span class="p">[</span><span class="nv">t</span><span class="p">]);</span>
+<span class="err">    </span><span class="nv">buffer</span><span class="o">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;i&quot;</span><span class="p">,</span><span class="err"> </span><span class="nv">i</span><span class="p">[</span><span class="nv">t</span><span class="p">]);</span>
+<span class="err">    </span><span class="nv">buffer</span><span class="o">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;r&quot;</span><span class="p">,</span><span class="err"> </span><span class="nv">r</span><span class="p">[</span><span class="nv">t</span><span class="p">]);</span>
 <span class="err">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>Finally, we create the class <code>SIRModel</code>, where most of the work happens. This inherits from <code>MarkovModel&lt;SIRParameter,SIRState&gt;</code>, specifying the two classes that we have just created as describing the parameters and state of the model.</p>
-<p>Create a file <code>src/SIRModel.bi</code> with the following</p>
-<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
-<span class="cm"> * SIR model.</span>
-<span class="cm"> */</span>
-<span class="kd">class</span><span class="err"> </span><span class="kt">SIRModel</span><span class="err"> </span><span class="o">&lt;</span><span class="err"> </span><span class="kt">MarkovModel</span><span class="o">&lt;</span><span class="kt">SIRParameter</span><span class="p">,</span><span class="kt">SIRState</span><span class="o">&gt;</span><span class="err"> </span><span class="p">{</span>
-<span class="err">  </span><span class="kd">function</span><span class="err"> </span><span class="nf">parameter</span><span class="p">(</span><span class="nv">θ</span><span class="p">:</span><span class="kt">SIRParameter</span><span class="p">)</span><span class="err"> </span><span class="p">{</span>
-<span class="err">    </span><span class="nv">θ</span><span class="o">.</span><span class="nv">λ</span><span class="err"> </span><span class="o">~</span><span class="err"> </span><span class="nf">Gamma</span><span class="p">(</span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="p">,</span><span class="err"> </span><span class="mi">5</span><span class="o">.</span><span class="mi">0</span><span class="p">);</span>
-<span class="err">    </span><span class="nv">θ</span><span class="o">.</span><span class="nv">δ</span><span class="err"> </span><span class="o">~</span><span class="err"> </span><span class="nf">Beta</span><span class="p">(</span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="p">,</span><span class="err"> </span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="p">);</span>
-<span class="err">    </span><span class="nv">θ</span><span class="o">.</span><span class="nv">γ</span><span class="err"> </span><span class="o">~</span><span class="err"> </span><span class="nf">Beta</span><span class="p">(</span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="p">,</span><span class="err"> </span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="p">);</span>
-<span class="err">  </span><span class="p">}</span>
-
-<span class="err">  </span><span class="kd">function</span><span class="err"> </span><span class="nf">initial</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span><span class="kt">SIRState</span><span class="p">,</span><span class="err"> </span><span class="nv">θ</span><span class="p">:</span><span class="kt">SIRParameter</span><span class="p">)</span><span class="err"> </span><span class="p">{</span>
-<span class="err">    </span><span class="c c-Singleline">//</span>
-<span class="err">  </span><span class="p">}</span>
-
-<span class="err">  </span><span class="kd">function</span><span class="err"> </span><span class="nf">transition</span><span class="p">(</span><span class="nv">x</span><span class="err">&#39;</span><span class="p">:</span><span class="kt">SIRState</span><span class="p">,</span><span class="err"> </span><span class="nv">x</span><span class="p">:</span><span class="kt">SIRState</span><span class="p">,</span><span class="err"> </span><span class="nv">θ</span><span class="p">:</span><span class="kt">SIRParameter</span><span class="p">)</span><span class="err"> </span><span class="p">{</span>
-<span class="err">    </span><span class="nv">x</span><span class="err">&#39;</span><span class="o">.</span><span class="nv">τ</span><span class="err"> </span><span class="o">~</span><span class="err"> </span><span class="nf">Binomial</span><span class="p">(</span><span class="nv">x</span><span class="o">.</span><span class="nv">s</span><span class="p">,</span><span class="err"> </span><span class="mi">1</span><span class="o">.</span><span class="mi">0</span><span class="err"> </span><span class="o">-</span><span class="err"> </span><span class="nf">exp</span><span class="p">(</span><span class="o">-</span><span class="nv">θ</span><span class="o">.</span><span class="nv">λ</span><span class="o">*</span><span class="nf">Real</span><span class="p">(</span><span class="nv">x</span><span class="o">.</span><span class="nv">i</span><span class="p">)</span><span class="o">/</span><span class="nf">Real</span><span class="p">(</span><span class="nv">x</span><span class="o">.</span><span class="nv">s</span><span class="err"> </span><span class="o">+</span><span class="err"> </span><span class="nv">x</span><span class="o">.</span><span class="nv">i</span><span class="err"> </span><span class="o">+</span><span class="err"> </span><span class="nv">x</span><span class="o">.</span><span class="nv">r</span><span class="p">)));</span>
-<span class="err">    </span><span class="nv">x</span><span class="err">&#39;</span><span class="o">.</span><span class="nv">Δi</span><span class="err"> </span><span class="o">~</span><span class="err"> </span><span class="nf">Binomial</span><span class="p">(</span><span class="nv">x</span><span class="err">&#39;</span><span class="o">.</span><span class="nv">τ</span><span class="p">,</span><span class="err"> </span><span class="nv">θ</span><span class="o">.</span><span class="nv">δ</span><span class="p">);</span>
-<span class="err">    </span><span class="nv">x</span><span class="err">&#39;</span><span class="o">.</span><span class="nv">Δr</span><span class="err"> </span><span class="o">~</span><span class="err"> </span><span class="nf">Binomial</span><span class="p">(</span><span class="nv">x</span><span class="o">.</span><span class="nv">i</span><span class="p">,</span><span class="err"> </span><span class="nv">θ</span><span class="o">.</span><span class="nv">γ</span><span class="p">);</span>
-
-<span class="err">    </span><span class="nv">x</span><span class="err">&#39;</span><span class="o">.</span><span class="nv">s</span><span class="err"> </span><span class="o">~</span><span class="err"> </span><span class="nf">Delta</span><span class="p">(</span><span class="nv">x</span><span class="o">.</span><span class="nv">s</span><span class="err"> </span><span class="o">-</span><span class="err"> </span><span class="nv">x</span><span class="err">&#39;</span><span class="o">.</span><span class="nv">Δi</span><span class="p">);</span>
-<span class="err">    </span><span class="nv">x</span><span class="err">&#39;</span><span class="o">.</span><span class="nv">i</span><span class="err"> </span><span class="o">~</span><span class="err"> </span><span class="nf">Delta</span><span class="p">(</span><span class="nv">x</span><span class="o">.</span><span class="nv">i</span><span class="err"> </span><span class="o">+</span><span class="err"> </span><span class="nv">x</span><span class="err">&#39;</span><span class="o">.</span><span class="nv">Δi</span><span class="err"> </span><span class="o">-</span><span class="err"> </span><span class="nv">x</span><span class="err">&#39;</span><span class="o">.</span><span class="nv">Δr</span><span class="p">);</span>
-<span class="err">    </span><span class="nv">x</span><span class="err">&#39;</span><span class="o">.</span><span class="nv">r</span><span class="err"> </span><span class="o">~</span><span class="err"> </span><span class="nf">Delta</span><span class="p">(</span><span class="nv">x</span><span class="o">.</span><span class="nv">r</span><span class="err"> </span><span class="o">+</span><span class="err"> </span><span class="nv">x</span><span class="err">&#39;</span><span class="o">.</span><span class="nv">Δr</span><span class="p">);</span>
-<span class="err">  </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>Notice the three member functions in the above code:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">function</span><span class="err"> </span><span class="nf">parameter</span><span class="p">(</span><span class="nv">θ</span><span class="p">:</span><span class="kt">SIRParameter</span><span class="p">);</span>
-<span class="kd">function</span><span class="err"> </span><span class="nf">initial</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span><span class="kt">SIRState</span><span class="p">,</span><span class="err"> </span><span class="nv">θ</span><span class="p">:</span><span class="kt">SIRParameter</span><span class="p">);</span>
-<span class="kd">function</span><span class="err"> </span><span class="nf">transition</span><span class="p">(</span><span class="nv">x</span><span class="err">&#39;</span><span class="p">:</span><span class="kt">SIRState</span><span class="p">,</span><span class="err"> </span><span class="nv">x</span><span class="p">:</span><span class="kt">SIRState</span><span class="p">,</span><span class="err"> </span><span class="nv">θ</span><span class="p">:</span><span class="kt">SIRParameter</span><span class="p">);</span>
-</code></pre></div>
-<p>As suggested by their names and parameters:</p>
+<p>This code introduces a few new features:</p>
 <ul>
-<li>the first is for the parameter model, providing the parameters as the <code>θ</code> argument,</li>
-<li>the second is for the initial model, providing the initial state as the <code>x</code> argument, and parameters as the <code>θ</code> argument,</li>
-<li>the third is for the transition model, providing the current state as the <code>x'</code> argument, the previous state as the <code>x</code> argument, and the parameters as the <code>θ</code> argument.</li>
+<li>The <code>Real(i[t - 1])</code> and <code>Real(n)</code> cast the <code>Integer</code> expressions to <code>Real</code> expressions. <code>Real</code> here is just a function from the standard library made for this purpose.</li>
+<li>The state histories <code>s</code>, <code>i</code> and <code>r</code> are stored in a container called <a href="https://docs.birch.sh/libraries/Standard/classes/Tape/">Tape</a>. This is a recursive data structure that works much like a list. It is commonly used for storing state histories as it works nicely with Birch&rsquo;s dynamic memory management, allowing objects to be shared between multiple instances of a model so as to significantly reduce memory use<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>.</li>
+<li>The variables <code>n</code>, <code>τ</code>, <code>Δi</code> and <code>Δr</code> are declared as local variables in the <code>simulate(t:Integer)</code> function rather than as member variables of the <code>SIRModel</code> class. This choice is made because we do not intend to read them from a file, or write them to a file, so only need to keep them temporarily.</li>
 </ul>
-<p>Here, <code>x'</code> is just the name of a variable. The prime <code>'</code> is a valid character for variable names in Birch, useful where it is also useful in mathematics.</p>
-<p>The initial model is empty by choice. While we could implement the initial model described above, it is specific to the data set that we will use. We would prefer not to hardcode it, in order that we might reuse this model for other data sets in future. We will provide the initial state in an input file, set up below.</p>
-<p>The <code>Real(x.i)</code> and <code>Real(x.s + x.i + x.r)</code> cast the <code>Integer</code> expressions to <code>Real</code> expressions.</p>
-<p>The transition model uses <a href="https://docs.birch.sh/libraries/Standard/classes/Delta/">Delta</a> distributions rather than simple assignment statements. This is because we have declared the member variables <code>s</code>, <code>i</code> and <code>r</code> as randoms, of type <code>Random&lt;Integer&gt;</code>, not just values, of type <code>Integer</code>. Using randoms facilitates some analytical optimizations here.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><a href="/language/casts">Type casting</a> does exist in Birch, but is mostly meant for class types, in particular casting an object from a base class to a derived class. Basic types such as <code>Real</code> and <code>Integer</code> are converted with functions like <code>Real(x:Integer)</code> instead.</p>
+</div>
+<p>The transition model associates <code>s</code>, <code>i</code> and <code>r</code> with <a href="https://docs.birch.sh/libraries/Standard/classes/Delta/">Delta</a> distributions rather than simply assigning to them. The <code>Delta</code> distribution is just a degenerate distribution on a single integer value. We might instead want to write:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">s</span><span class="p">[</span><span class="nv">t</span><span class="p">]</span><span class="err"> </span><span class="o">&lt;-</span><span class="err"> </span><span class="nv">s</span><span class="p">[</span><span class="nv">t</span><span class="err"> </span><span class="o">-</span><span class="err"> </span><span class="mi">1</span><span class="p">]</span><span class="err"> </span><span class="o">-</span><span class="err"> </span><span class="nv">Δi</span><span class="p">;</span>
+<span class="nv">i</span><span class="p">[</span><span class="nv">t</span><span class="p">]</span><span class="err"> </span><span class="o">&lt;-</span><span class="err"> </span><span class="nv">i</span><span class="p">[</span><span class="nv">t</span><span class="err"> </span><span class="o">-</span><span class="err"> </span><span class="mi">1</span><span class="p">]</span><span class="err"> </span><span class="o">+</span><span class="err"> </span><span class="nv">Δi</span><span class="err"> </span><span class="o">-</span><span class="err"> </span><span class="nv">Δr</span><span class="p">;</span>
+<span class="nv">r</span><span class="p">[</span><span class="nv">t</span><span class="p">]</span><span class="err"> </span><span class="o">&lt;-</span><span class="err"> </span><span class="nv">r</span><span class="p">[</span><span class="nv">t</span><span class="err"> </span><span class="o">-</span><span class="err"> </span><span class="mi">1</span><span class="p">]</span><span class="err"> </span><span class="o">+</span><span class="err"> </span><span class="nv">Δr</span><span class="p">;</span>
+</code></pre></div>
+<p>However, the use of the <code>Delta</code> distribution allows Birch to enumerate sums and differences of discrete-valued random variables and perform automatic marginalization and conditioning. In particular, we will observe <code>i[t]</code> here, and Birch will be able to enumerate the conditional distribution of <code>Δi</code> and <code>Δr</code> given <code>i[t]</code> and <code>i[t - 1]</code>. This is a nice analytical optimization for this particular model.</p>
 <h2 id="data">Data</h2>
 <p>We will use a classic data set of the outbreak of influenza at a boarding school in northern England<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>. <a href="/getting-started/influenza.json">Download the data set</a> to the <code>input/</code> directory.</p>
-<p>Have a look at the contents of the file (<code>cat input/influenza.json</code>). It contains:</p>
-<ul>
-<li>An object <code>θ</code> that fixes the value of $\lambda$ to 10.</li>
-<li>An array <code>x</code> that fixes the initial value of all state variables, then only the value of $i_t$ for subsequent elements.</li>
-</ul>
+<p>Have a look at the contents of the file (<code>cat input/influenza.json</code>). At the root level it contains an array. The first element of that array provides an entry with key <code>λ</code> and value <code>10</code>. This first element is read by the <code>read(buffer:Buffer)</code> member function of our model. The remaining elements provide an entry <code>i</code> with various values. These elements are read by the <code>read(t:Integer, buffer:Buffer)</code> member function prior to the the <code>t</code>th time step being executed by <code>simulate(t:Integer)</code>. In particular the second entry, corresponding to <code>t == 1</code>, sets the initial value of all state variables.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If we wanted, we could also specify values for <code>s</code> and/or <code>r</code> in the input file for other times. We have set up <code>read(t:Integer, buffer:Buffer)</code> to support this. Recall that the <code>&lt;-?</code> operator will only assign a value to the left if the key is found in the file. So if we provide these values, the model acts as though they are observed, if we do not provide them, the model acts as though they are latent.</p>
+</div>
 <h2 id="inference">Inference</h2>
-<p>Birch&rsquo;s inference engine is based on Sequential Monte Carlo (SMC) with several variants and configurable components, as well as automatic marginalization, automatic conjugacy, and automatic differentiation. For this model, the delayed sampling<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup> mechanism will find some analytical optimizations and apply them. These include marginalizing out the parameters $\delta$ and $\gamma$, as they form conjugate beta-binomial relationships with state variables, as well as enumerating sums and differences of discrete variables.</p>
+<p>Birch&rsquo;s inference engine is based on SMC with several variants and configurable components, as well as automatic marginalization, automatic conjugacy, and automatic differentiation. For this model, the delayed sampling<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup> mechanism will find some analytical optimizations and apply them. These include marginalizing out the parameters $\delta$ and $\gamma$, as they form conjugate beta-binomial relationships with state variables, as well as enumerating sums and differences of discrete variables.</p>
 <p>The previous linear regression example was simple enough that no configuration was required. Here we need to change a few options. A configuration file is used for this purpose.</p>
 <p>Create a file <code>config/sir.json</code> and enter the following contents:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
@@ -1155,16 +1188,18 @@ $$</p>
     <span class="nt">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;SIRModel&quot;</span>
   <span class="p">},</span>
   <span class="nt">&quot;sampler&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;ParticleSampler&quot;</span><span class="p">,</span>
     <span class="nt">&quot;nsamples&quot;</span><span class="p">:</span> <span class="mi">10</span>
   <span class="p">},</span>
   <span class="nt">&quot;filter&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;ParticleFilter&quot;</span><span class="p">,</span>
     <span class="nt">&quot;nparticles&quot;</span><span class="p">:</span> <span class="mi">128</span>
   <span class="p">},</span>
   <span class="nt">&quot;input&quot;</span><span class="p">:</span> <span class="s2">&quot;input/influenza.json&quot;</span><span class="p">,</span>
   <span class="nt">&quot;output&quot;</span><span class="p">:</span> <span class="s2">&quot;output/sir.json&quot;</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>This sets the number of posterior samples to draw (<code>sampler.nsamples</code>) and the number of particles used by SMC when drawing each (<code>filter.nparticles</code>). It also sets the model class (<code>model.class</code>), input file (<code>input</code>), and output file (<code>output</code>), which we provided on the command line instead in the linear regression example (it preferable to provide these in the configuration file instead).</p>
+<p>This sets the number of posterior samples to draw (<code>sampler.nsamples</code>) and the number of particles used by SMC when drawing each (<code>filter.nparticles</code>). It also sets the model class (<code>model.class</code>), input file (<code>input</code>), and output file (<code>output</code>), which we provided on the command line instead in the linear regression example (it is preferable to provide these in the configuration file instead, for reproducibility).</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Any of these JSON files can be written in <a href="https://yaml.org/">YAML</a> if you prefer.</p>
@@ -1176,6 +1211,10 @@ $$</p>
 <div class="highlight"><pre><span></span><code>birch sample --config config/sir.json
 </code></pre></div>
 <p>As before, you can inspect the results of the inference in <code>output/sir.json</code>, in a text editor, web browser, or on the command line (<code>less output/sir.json</code>). The output here is an importance sample: each sample is assigned a weight, the logarithm of which is given by the associated <code>lweight</code> element.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>A future tutorial will outline how to configure the inference method, but as a starting point, you can change <code>sampler.class</code> and/or <code>filter.class</code> in the <code>config/sir.json</code> file to name a different sampler such as <a href="https://docs.birch.sh/libraries/Standard/classes/ParticleGibbsSampler/">ParticleGibbsSampler</a>, or a different filter such as <a href="https://docs.birch.sh/libraries/Standard/classes/AliveParticleFilter/">AliveParticleFilter</a>.</p>
+</div>
 <div class="footnote">
 <hr />
 <ol>
@@ -1184,6 +1223,9 @@ $$</p>
 </li>
 <li id="fn:2">
 <p>L.M. Murray, D. Lundén, J. Kudlicka, D. Broman and T.B. Schön (2018). <a href="https://arxiv.org/abs/1708.07787">Delayed Sampling and Automatic Rao&ndash;Blackwellization of Probabilistic Programs</a>. In <em>Proceedings of the 21st International Conference on Artificial Intelligence and Statistics (AISTATS) 2018</em>, Lanzarote, Spain.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p>L.M. Murray (2020). <a href="https://arxiv.org/abs/2001.05293">Lazy object copy as a platform for population-based probabilistic programming</a>.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>
