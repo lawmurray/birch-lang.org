@@ -14,3 +14,7 @@ let a <- b;
 ```
 
 Variables may be named using Latin or Greek upper or lower case letters, underscore (`_`) and prime (`'`). The prime is often used for the names of temporary variables or of updates to existing variables, as in mathematics.
+
+!!! tip
+    The [probabilistic operators](/language/probability/) may also be used to assign initial values.
+

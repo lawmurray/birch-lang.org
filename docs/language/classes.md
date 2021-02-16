@@ -233,3 +233,25 @@ function f(c:C) {
 a:A;
 f(a);
 ```
+
+### Slicing
+
+Objects of class type `A` may be accessed using square brackets if an appropriate declaration has been made within the class body:
+
+```birch
+class A {
+  operator [j:J] -> D {
+    return d[j];
+  }
+  d:D[_];
+}
+```
+
+This is called a *slice operator*. For `a:A` and `i:J`, using `a[i]` would call the slice operator. Furthermore, the return value of a slice operator is *by reference*, which means it is possible to assign to the return value:
+
+```birch
+a[i] <- e;
+```
+
+Slice operators may have parameters of any type.
+
