@@ -31,7 +31,9 @@
 ## Contributors
 
 * [Lawrence Murray](http://www.indii.org/research)
-  * [Jan Kudlicka](https://jan.kudlicka.eu/)
-  * Riccardo Sven Risuleo
-  * Matteo Scandella
-  * [Anna Wigren](https://www.it.uu.se/katalog/annwi999/main)
+* [Jan Kudlicka](https://jan.kudlicka.eu/)
+* [Pranav Subramani](https://pranavsubramani.github.io/)
+* Riccardo Sven Risuleo
+* Matteo Scandella
+* [David Widmann](https://widmann.dev/)
+* [Anna Wigren](https://www.it.uu.se/katalog/annwi999/main)
