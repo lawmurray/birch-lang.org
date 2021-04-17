@@ -42,9 +42,6 @@ extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/lawmurray
-google_analytics:
-  - 'UA-115470196-1'
-  - 'auto'
 nav:
   - index.md
   - 'Getting Started':
