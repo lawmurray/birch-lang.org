@@ -21,43 +21,5 @@ Native support is not yet provided, but you can install [Windows Subsystem for L
 
 ## :fontawesome-solid-file-archive: From source
 
-If a package is not available for your operating system or you have special requirements, you can install from source. This requires:
+If a package is not available for your operating system or you have special requirements, you can install Birch from source. See the [README.md](https://github.com/lawmurray/Birch) file for up-to-date instructions.
 
-  * GNU autoconf, automake, libtool, flex, and bison
-  * [LibYAML](https://pyyaml.org/wiki/LibYAML)
-  * [Boost](https://boost.org)
-  * [Eigen](https://eigen.tuxfamily.org)
-
-All Birch sources are in the same repository. The master branch is considered stable. Clone it:
-
-    git clone https://github.com/lawmurray/Birch.git
-
-Install the driver by running, from within the `driver/` directory:
-
-```sh
-./bootstrap
-./configure
-make
-make install
-```
-
-!!! tip
-    When running `make install` or `birch install` below, you may need to use `sudo` if installing system wide, i.e. `sudo make install` or `sudo birch install`.
-
-Install LibBirch by running, from within the `libbirch/` directory:
-
-```sh
-./bootstrap
-./configure
-make
-make install
-```
-
-Install the standard library by running, from within the `libraries/Standard/` directory:
-
-```sh
-birch build
-birch install
-```
-
-This constitutes a minimal install. You may also like to install other packages in the `libraries/` directory. It is not usual to install the packages in the `examples/` directory, although you may like to build and run these for testing or learning purposes.
