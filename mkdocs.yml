@@ -15,7 +15,7 @@ theme:
     primary: white
     accent: deep orange
   features:
-    - tabs
+    - navigation.tabs
 markdown_extensions:
   - admonition
   - footnotes
