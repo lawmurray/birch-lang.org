@@ -9,10 +9,10 @@ $$
 \begin{align}
 \sigma^2 &\sim \mathrm{InverseGamma}(3, 4/10) \\\\
 \boldsymbol{\beta} \mid \sigma^2 &\sim \mathrm{Gaussian}(0, I\sigma^2) \\\\
-y_n \mid \boldsymbol{\beta}, \sigma^2 &\sim \mathrm{Gaussian}(\mathbf{x}_n^{\top}\boldsymbol{\beta}, \sigma^2)
+\mathbf{y} \mid \boldsymbol{\beta}, \sigma^2 &\sim \mathrm{Gaussian}(\mathbf{X}\boldsymbol{\beta}, I\sigma^2)
 \end{align}
 $$
-The parameters of the model are the noise variance $\sigma^2$ and vector of coefficients $\boldsymbol{\beta}$. The data consists of labels (alternatively: outcomes, dependent variables) $y_n$ and features (alternatively: predictors, covariates, explanatory variables, independent variables) $\mathbf{x}_n$ for $n=1,\ldots,N$.
+The parameters of the model are the noise variance $\sigma^2$ and vector of coefficients $\boldsymbol{\beta}$. The data consists of labels (alternatively: outcomes, dependent variables) in the vector $\mathbf{y}$ and features (alternatively: predictors, covariates, explanatory variables, independent variables) in the matrix $\mathbf{X}$, where each row corresponds to an observation and each column to a feature.
 
 
 ## Implementation
@@ -50,8 +50,8 @@ class LinearRegressionModel < Model {
     let P <- columns(X);
     if N > 0 && P > 0 {
       σ2 ~ InverseGamma(3.0, 0.4);
-      β ~ Gaussian(vector(0.0, P), identity(P), σ2);
-      y ~ Gaussian(X*β, σ2);
+      β ~ MultivariateGaussian(vector(0.0, P), identity(P)*σ2);
+      y ~ MultivariateGaussian(X*β, identity(N)*σ2);
     }
   }
 }

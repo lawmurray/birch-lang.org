@@ -2,9 +2,6 @@
 
 We will now implement a simple SIR (susceptible-infectious-recovered) compartmental model of an epidemic, using a classic data set of an outbreak of influenza at a boarding school.
 
-!!! info "Updates"
-    The previous version of this page recommended using [MarkovModel](https://docs.birch.sh/libraries/Standard/classes/MarkovModel) as the base class for this model. This has now been deprecated, and the preferred implementation is to derive directly from [Model](https://docs.birch.sh/libraries/Standard/classes/Model) instead. The page has been updated accordingly.
-
 ## Model
 
 The model is described in three parts: a *parameter* model, an *initial* model, and a *transition* model. Time is indexed by $t$, in days. The state consists of variables $s_t$, $i_t$, and $r_t$, giving counts of the number of susceptible, infectious, and recovered individuals, respectively.
@@ -101,7 +98,7 @@ class SIRModel < Model {
       // the initial state is set in the input file
     } else {
       let n <- s[t - 1] + i[t - 1] + r[t - 1];  // total population
-      let τ ~ Binomial(s[t - 1], 1.0 - exp(-λ*Real(i[t - 1])/Real(n)));
+      let τ ~ Binomial(s[t - 1], 1.0 - exp(-λ*i[t - 1]/n));
       let Δi ~ Binomial(τ, δ);
       let Δr ~ Binomial(i[t - 1], γ);
 
@@ -139,12 +136,8 @@ class SIRModel < Model {
 
 This code introduces a few new features:
 
-* The `Real(i[t - 1])` and `Real(n)` cast the `Integer` expressions to `Real` expressions. `Real` here is just a function from the standard library made for this purpose.
 * The state histories `s`, `i` and `r` are stored in a container called [Tape](https://docs.birch.sh/libraries/Standard/classes/Tape/). This is a recursive data structure that works much like a list. It is commonly used for storing state histories as it works nicely with Birch's dynamic memory management, allowing objects to be shared between multiple instances of a model so as to significantly reduce memory use[^3].
 * The variables `n`, `τ`, `Δi` and `Δr` are declared as local variables in the `simulate(t:Integer)` function rather than as member variables of the `SIRModel` class. This choice is made because we do not intend to read them from a file, or write them to a file, so only need to keep them temporarily.
-
-!!! tip
-    [Type casting](/language/casts) does exist in Birch, but is mostly meant for class types, in particular casting an object from a base class to a derived class. Basic types such as `Real` and `Integer` are converted with functions like `Real(x:Integer)` instead.
 
 The transition model associates `s`, `i` and `r` with [Delta](https://docs.birch.sh/libraries/Standard/classes/Delta/) distributions rather than simply assigning to them. The `Delta` distribution is just a degenerate distribution on a single integer value. We might instead want to write:
 
@@ -207,7 +200,7 @@ then sample from the posterior distribution with:
 As before, you can inspect the results of the inference in `output/sir.json`, in a text editor, web browser, or on the command line (`less output/sir.json`). The output here is an importance sample: each sample is assigned a weight, the logarithm of which is given by the associated `lweight` element.
 
 !!! tip
-    A future tutorial will outline how to configure the inference method, but as a starting point, you can change `sampler.class` and/or `filter.class` in the `config/sir.json` file to name a different sampler such as [ParticleGibbsSampler](https://docs.birch.sh/libraries/Standard/classes/ParticleGibbsSampler/), or a different filter such as [AliveParticleFilter](https://docs.birch.sh/libraries/Standard/classes/AliveParticleFilter/).
+    A future tutorial will outline how to configure the inference method, but as a starting point, you can set various options in the `sampler` and/or `filter` sections of the `config/sir.json` file.
 
 [^1]: Anonymous (1978). Influenza in a boarding school. *British Medical Journal*. **1**:587.
 
