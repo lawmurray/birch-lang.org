@@ -45,7 +45,7 @@ class LinearRegressionModel < Model {
    */
   y:Random<Real[_]>;
 
-  function simulate() {
+  override function simulate() {
     let N <- rows(X);
     let P <- columns(X);
     if N > 0 && P > 0 {
@@ -101,12 +101,12 @@ Recall that, in defining the `LinearRegressionModel` class, we overrode the `sim
 Add the following two member functions after the `simulate()` member function in the `LinearRegressionModel` class:
 
 ```birch
-    function read(buffer:Buffer) {
+    override function read(buffer:Buffer) {
       X <-? buffer.get<Real[_,_]>("X");
       y <-? buffer.get<Real[_]>("y");
     }
 
-    function write(buffer:Buffer) {
+    override function write(buffer:Buffer) {
       buffer.set("β", β);
       buffer.set("σ2", σ2);
     }
@@ -145,7 +145,7 @@ You will see a single sample drawn from the posterior distribution.
     We have already noted that this particular example has an analytical solution. We can, in fact, output this solution if preferred. To do so, update the `write()` member function as follows, then re-build and re-run:
 
     ```birch
-        function write(buffer:Buffer) {
+        override function write(buffer:Buffer) {
           if β.hasDistribution() {
             buffer.set("β", β.getDistribution());
           } else {
