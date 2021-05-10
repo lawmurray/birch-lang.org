@@ -1178,11 +1178,15 @@ However, because objects are kept by reference, it is possible to declare an obj
 <div class="highlight"><pre><span></span><code><span class="kd">abstract</span><span class="err"> </span><span class="kd">function</span><span class="err"> </span><span class="nf">f</span><span class="p">(</span><span class="nv">a</span><span class="p">:</span><span class="kt">A</span><span class="p">,</span><span class="err"> </span><span class="nv">b</span><span class="p">:</span><span class="kt">B</span><span class="p">);</span>
 </code></pre></div>
 An abstract member function does not have a body.</p>
-<p>A member function may be marked <code>override</code> to indicate that it is intended to override a member function in a base class, producing an error if it does not. While it is unnecesary to use <code>override</code> in order to override a member function, it is good practice to catch errors:
+<p>A member function may be marked <code>override</code> to indicate that it is intended to override a member function in a base class, producing an error if it does not:
 <div class="highlight"><pre><span></span><code><span class="kd">override</span><span class="err"> </span><span class="kd">function</span><span class="err"> </span><span class="nf">f</span><span class="p">(</span><span class="nv">a</span><span class="p">:</span><span class="kt">A</span><span class="p">,</span><span class="err"> </span><span class="nv">b</span><span class="p">:</span><span class="kt">B</span><span class="p">)</span><span class="err"> </span><span class="p">{</span>
 <span class="err">  </span><span class="c c-Singleline">// do something</span>
 <span class="p">}</span>
 </code></pre></div></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>While it is not required to use <code>override</code> in order to override a member function, it is strongly recommended, and the compiler will issue a warning when it is not used. A member function that overrides another without specifying <code>override</code> will hide member functions in the base class that have the same name, but different parameters. Typically this is not the intent.</p>
+</div>
 <p>A member function may be marked <code>final</code> to indicate that it cannot be overridden by a derived class:
 <div class="highlight"><pre><span></span><code><span class="kd">final</span><span class="err"> </span><span class="kd">function</span><span class="err"> </span><span class="nf">f</span><span class="p">(</span><span class="nv">a</span><span class="p">:</span><span class="kt">A</span><span class="p">,</span><span class="err"> </span><span class="nv">b</span><span class="p">:</span><span class="kt">B</span><span class="p">)</span><span class="err"> </span><span class="p">{</span>
 <span class="err">  </span><span class="c c-Singleline">// do something</span>
@@ -1236,16 +1240,7 @@ The member variables of <code>a</code> are now initialized such that <code>a.b =
 <span class="err">  </span><span class="c c-Singleline">// declare members</span>
 <span class="p">}</span>
 </code></pre></div>
-Initialization parameters are used for simple object initialization, such as to set initial values and array sizes. They do not allow arbitrary code to be executed upon object construction. This is the role of a <em>constructor</em>. Birch does not, however, have any special language support for constructors. Instead, it is idiomatic to use <em>factory functions</em>, exploiting the fact that the same name can be used for both a function and a class in the Birch language.</p>
-<p>A factory function is given the same name as the class it is intended to construct:
-<div class="highlight"><pre><span></span><code><span class="kd">function</span><span class="err"> </span><span class="nf">A</span><span class="p">(</span><span class="nv">b</span><span class="p">:</span><span class="kt">B</span><span class="p">,</span><span class="err"> </span><span class="nv">c</span><span class="p">:</span><span class="kt">C</span><span class="p">)</span><span class="err"> </span><span class="o">-&gt;</span><span class="err"> </span><span class="nv">A</span><span class="err"> </span><span class="p">{</span>
-<span class="err">  </span><span class="nv">a</span><span class="p">:</span><span class="kt">A</span><span class="p">;</span>
-<span class="err">  </span><span class="c c-Singleline">// do something</span>
-<span class="err">  </span><span class="kd">return</span><span class="err"> </span><span class="nv">a</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div>
-This function is treated as any other&mdash;there is nothing special about it&mdash;but it is idiomatic that such a function should return an object of the same type as its name, or of a derived type. The possibility of returning a derived type makes a factory function slightly more flexible than an ordinary constructor.</p>
-<p>For complex object construction, it can be useful to define a member function within the class that does most of the work, with the factory function simply instantiating the object, then passing its arguments to this function. It is idiomatic for such a member function to be given the name <code>make</code>.</p>
+Initialization parameters are used for simple object initialization, such as to set initial values and array sizes.</p>
 <h3 id="assignment">Assignment</h3>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>

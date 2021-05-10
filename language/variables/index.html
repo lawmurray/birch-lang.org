@@ -961,6 +961,9 @@
 </code></pre></div></p>
 <p>When an initial value is used in this way, the <code>let</code> keyword may be used to infer the type of that variable, rather than specifying it explicitly:
 <div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="err"> </span><span class="nv">a</span><span class="err"> </span><span class="o">&lt;-</span><span class="err"> </span><span class="nv">b</span><span class="p">;</span>
+</code></pre></div>
+In fact <code>let</code> may be used to declare multiple variables simultaneously, where initial values are given as a tuple:
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="err"> </span><span class="p">(</span><span class="nv">a</span><span class="p">,</span><span class="err"> </span><span class="nv">b</span><span class="p">)</span><span class="err"> </span><span class="o">&lt;-</span><span class="err"> </span><span class="p">(</span><span class="nv">c</span><span class="p">,</span><span class="err"> </span><span class="nv">d</span><span class="p">);</span>
 </code></pre></div></p>
 <p>Variables may be named using Latin or Greek upper or lower case letters, underscore (<code>_</code>) and prime (<code>'</code>). The prime is often used for the names of temporary variables or of updates to existing variables, as in mathematics.</p>
 <div class="admonition tip">
