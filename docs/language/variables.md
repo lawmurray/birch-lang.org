@@ -12,6 +12,10 @@ When an initial value is used in this way, the `let` keyword may be used to infe
 ```birch
 let a <- b;
 ```
+In fact `let` may be used to declare multiple variables simultaneously, where initial values are given as a tuple:
+```birch
+let (a, b) <- (c, d);
+```
 
 Variables may be named using Latin or Greek upper or lower case letters, underscore (`_`) and prime (`'`). The prime is often used for the names of temporary variables or of updates to existing variables, as in mathematics.
 

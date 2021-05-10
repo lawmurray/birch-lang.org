@@ -93,12 +93,15 @@ abstract function f(a:A, b:B);
 ```
 An abstract member function does not have a body.
 
-A member function may be marked `override` to indicate that it is intended to override a member function in a base class, producing an error if it does not. While it is unnecesary to use `override` in order to override a member function, it is good practice to catch errors:
+A member function may be marked `override` to indicate that it is intended to override a member function in a base class, producing an error if it does not:
 ```birch
 override function f(a:A, b:B) {
   // do something
 }
 ```
+
+!!! tip
+    While it is not required to use `override` in order to override a member function, it is strongly recommended, and the compiler will issue a warning when it is not used. A member function that overrides another without specifying `override` will hide member functions in the base class that have the same name, but different parameters. Typically this is not the intent.
 
 A member function may be marked `final` to indicate that it cannot be overridden by a derived class:
 ```birch
@@ -172,19 +175,7 @@ class A(d:Integer) < B(d) {
   // declare members
 }
 ```
-Initialization parameters are used for simple object initialization, such as to set initial values and array sizes. They do not allow arbitrary code to be executed upon object construction. This is the role of a *constructor*. Birch does not, however, have any special language support for constructors. Instead, it is idiomatic to use *factory functions*, exploiting the fact that the same name can be used for both a function and a class in the Birch language.
-
-A factory function is given the same name as the class it is intended to construct:
-```birch
-function A(b:B, c:C) -> A {
-  a:A;
-  // do something
-  return a;
-}
-```
-This function is treated as any other---there is nothing special about it---but it is idiomatic that such a function should return an object of the same type as its name, or of a derived type. The possibility of returning a derived type makes a factory function slightly more flexible than an ordinary constructor.
-
-For complex object construction, it can be useful to define a member function within the class that does most of the work, with the factory function simply instantiating the object, then passing its arguments to this function. It is idiomatic for such a member function to be given the name `make`.
+Initialization parameters are used for simple object initialization, such as to set initial values and array sizes.
 
 ### Assignment
 
