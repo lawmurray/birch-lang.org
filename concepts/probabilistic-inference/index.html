@@ -981,7 +981,6 @@
 <p>This section will be expanded in future.</p>
 </div>
 <p>Inference methods include those of the <a href="https://docs.birch.sh/libraries/Standard/classes/ParticleFilter">ParticleFilter</a> class hierarchy, for sequentially filtering a model, and of the <a href="https://docs.birch.sh/libraries/Standard/classes/ParticleSampler">ParticleSampler</a> class hierarchy, which build on these to draw samples from the posterior distribution.</p>
-<p>Specialized particle filters include the <a href="https://docs.birch.sh/libraries/Standard/classes/AliveParticleFilter">AliveParticleFilter</a> for situations where weights may be zero, and the <a href="https://docs.birch.sh/libraries/Standard/classes/MoveParticleFilter">MoveParticleFilter</a> for resample-move using gradient-based kernels. Additionally, automatic marginalization and automatic conjugacy provide for Rao&ndash;Blackwellization and adaptation in the sense of the auxiliary particle filter.</p>
 <p>As a model runs it emits an event every time a simulate (<code>&lt;~</code>), observe (<code>~&gt;</code>) or assume (<code>~</code>) operator executes. The inference method registers an appropriate event handler (from the <a href="https://docs.birch.sh/libraries/Standard/classes/Handler">Handler</a> hierarchy) to handle these. The events provide insight into the model, and a means to influence its execution. The inference method may, for example, implement:</p>
 <ul>
 <li>
