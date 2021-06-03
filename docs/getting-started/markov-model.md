@@ -139,7 +139,7 @@ This code introduces a few new features:
 * The state histories `s`, `i` and `r` are stored in a container called [Tape](https://docs.birch.sh/libraries/Standard/classes/Tape/). This is a recursive data structure that works much like a list. It is commonly used for storing state histories as it works nicely with Birch's dynamic memory management, allowing objects to be shared between multiple instances of a model so as to significantly reduce memory use[^3].
 * The variables `n`, `τ`, `Δi` and `Δr` are declared as local variables in the `simulate(t:Integer)` function rather than as member variables of the `SIRModel` class. This choice is made because we do not intend to read them from a file, or write them to a file, so only need to keep them temporarily.
 
-The transition model associates `s`, `i` and `r` with [Delta](https://docs.birch.sh/libraries/Standard/classes/Delta/) distributions rather than simply assigning to them. The `Delta` distribution is just a degenerate distribution on a single integer value. We might instead want to write:
+The transition model associates `s`, `i` and `r` with [delta](https://docs.birch.sh/libraries/Standard/classes/DeltaDistribution/) distributions rather than simply assigning to them. The delta distribution is just a degenerate distribution on a single integer value. We might instead want to write:
 
 ```birch
 s[t] <- s[t - 1] - Δi;
@@ -147,7 +147,7 @@ i[t] <- i[t - 1] + Δi - Δr;
 r[t] <- r[t - 1] + Δr;
 ```
 
-However, the use of the `Delta` distribution allows Birch to enumerate sums and differences of discrete-valued random variables and perform automatic marginalization and conditioning. In particular, we will observe `i[t]` here, and Birch will be able to enumerate the conditional distribution of `Δi` and `Δr` given `i[t]` and `i[t - 1]`. This is a nice analytical optimization for this particular model.
+However, the use of the delta distribution allows Birch to enumerate sums and differences of discrete-valued random variables and perform automatic marginalization and conditioning. In particular, we will observe `i[t]` here, and Birch will be able to enumerate the conditional distribution of `Δi` and `Δr` given `i[t]` and `i[t - 1]`. This is a nice analytical optimization for this particular model.
 
 ## Data
 

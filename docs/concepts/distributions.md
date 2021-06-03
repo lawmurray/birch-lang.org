@@ -15,13 +15,13 @@ This notation may be unfamiliar, particularly as many texts rely on context, rat
     You may recognize the notation $p(\mathrm{d}x)$ from measure theory. We will not adopt measure-theoretic terms otherwise, but find the notation useful.
 
 In Birch code, a distribution is represented by an object of the [Distribution](https://docs.birch.sh/libraries/Standard/classes/Distribution) class. This is a generic class: we use it as `Distribution<X>`, where `X` is the domain of the distribution, e.g. `Distribution<Real>` (over $\mathbb{R}$), 
-`Distribution<Integer>` (over $\mathbb{Z}$), `Real[_]` (over $\mathbb{R}^D$), etc. However, we do not usually use `Distribution<X>` directly. Instead we use one of its derived classes, such as [Gaussian](https://docs.birch.sh/libraries/Standard/classes/Gaussian), [Gamma](https://docs.birch.sh/libraries/Standard/classes/Gamma), [Beta](https://docs.birch.sh/libraries/Standard/classes/Beta), [Uniform](https://docs.birch.sh/libraries/Standard/classes/Uniform). The idiom is to use a *factory function* for the particular distribution of interest in combination with a probabilistic operator. For example, we can simulate from a distribution with the *simulate* operator (`<~`):
+`Distribution<Integer>` (over $\mathbb{Z}$), `Real[_]` (over $\mathbb{R}^D$), etc. However, we do not usually use `Distribution<X>` directly. Instead we use one of its derived classes, such as [GaussianDistribution](https://docs.birch.sh/libraries/Standard/classes/GaussianDistribution), [GammaDistribution](https://docs.birch.sh/libraries/Standard/classes/GammaDistribution), [BetaDistribution](https://docs.birch.sh/libraries/Standard/classes/BetaDistribution), [UniformDistribution](https://docs.birch.sh/libraries/Standard/classes/UniformDistribution). The idiom is to use a function for the particular distribution of interest in combination with a probabilistic operator. For example, we can simulate from a distribution with the *simulate* operator (`<~`):
 ```birch
 x:Real;
 x <~ Gaussian(0.0, 4.0);
 ```
 
-The factory function `Gaussian()` creates an object of class `Gaussian`, which derives from class `Distribution<Real>`. The `<~` operator then simulates a variate from it, and assigns the value of that variate to the variable `x`. We can instead use code such as the following:
+The function [Gaussian](https://docs.birch.sh/libraries/Standard/functions/Gaussian) creates an object of class `GaussianDistirbution`, which derives from class `Distribution<Real>`. The `<~` operator then simulates a variate from it, and assigns the value of that variate to the variable `x`. We can instead use code such as the following:
 ```birch
 x:Real;
 p:Distribution<Real> <- Gaussian(0.0, 4.0);

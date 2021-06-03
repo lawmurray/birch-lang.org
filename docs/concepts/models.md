@@ -11,6 +11,4 @@ As already introduced in the [Getting Started](/getting-started/linear-regressio
 | $x_0 \sim p(\mathrm{d}x_0)$ | Simulate the initial model. | `m.simulate()` |
 | $x_t \sim p(\mathrm{d}x_t\mid x_{0:t-1})$ | Simulate the $t$th epoch model. | `m.simulate(t)` |
 
-Some classes derive from `Model` to provide more specific structures, such as [MarkovModel](https://docs.birch.sh/libraries/Standard/classes/MarkovModel) and [HiddenMarkovModel](https://docs.birch.sh/libraries/Standard/classes/HiddenMarkovModel). It is possible to write a class derived from one of these rather than `Model` directly.
-
 When implementing the `simulate()` and `simulate(t)` member functions, we make use of all the building blocks previously described to enumerate the random variables of the model and their relationships. This includes `Distribution`, `Random` and `Expression` objects, as well as the simulate (`<~`), observe (`~>`) and assume (`~`) operators.

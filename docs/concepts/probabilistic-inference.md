@@ -7,8 +7,6 @@ Before concluding we provide a brief sketch of probabilistic inference in Birch.
 
 Inference methods include those of the [ParticleFilter](https://docs.birch.sh/libraries/Standard/classes/ParticleFilter) class hierarchy, for sequentially filtering a model, and of the [ParticleSampler](https://docs.birch.sh/libraries/Standard/classes/ParticleSampler) class hierarchy, which build on these to draw samples from the posterior distribution.
 
-Specialized particle filters include the [AliveParticleFilter](https://docs.birch.sh/libraries/Standard/classes/AliveParticleFilter) for situations where weights may be zero, and the [MoveParticleFilter](https://docs.birch.sh/libraries/Standard/classes/MoveParticleFilter) for resample-move using gradient-based kernels. Additionally, automatic marginalization and automatic conjugacy provide for Rao--Blackwellization and adaptation in the sense of the auxiliary particle filter.
-
 As a model runs it emits an event every time a simulate (`<~`), observe (`~>`) or assume (`~`) operator executes. The inference method registers an appropriate event handler (from the [Handler](https://docs.birch.sh/libraries/Standard/classes/Handler) hierarchy) to handle these. The events provide insight into the model, and a means to influence its execution. The inference method may, for example, implement:
 
 * *Importance sampling* by using a combination of simulation and observation to compute importance weights.
