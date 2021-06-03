@@ -4,9 +4,9 @@ Birch works on a wide variety of operating systems running on x86, ARM and RISC-
 
 ## :fontawesome-brands-linux: Linux
 
-Packages are provided for major Linux distributions, including Debian, Ubuntu, Fedora, CentOS, openSUSE, SUSE Linux Enterprise, Mageia, and Arch. Click through to the [Open Build Service](https://software.opensuse.org//download.html?project=home%3Alawmurray%3Abirch&package=birch) and select your distribution for installation instructions.
+Packages are provided for major Linux distributions, including Debian, Ubuntu, Fedora, CentOS, openSUSE, SUSE Linux Enterprise, Mageia, and Arch. Click through to the [Open Build Service](https://software.opensuse.org//download.html?project=home%3Alawmurray%3Abirch&package=birch) and select your distribution for installation instructions; for Raspbian (i.e. Raspberry Pi), select Debian.
 
-For Raspberry Pi OS, head straight to the [repository](https://download.opensuse.org/repositories/home:/lawmurray:/birch/). For Alpine Linux, which you may be particularly interested in for installing Birch in a lightweight container environment, you will need to install [from source](#from-source), but we do support `musl` for this purpose.
+For Alpine Linux, which you may be particularly interested in for installing Birch in a lightweight container environment, you will need to install [from source](#from-source), but we do support `musl` for this purpose.
 
 ## :fontawesome-brands-freebsd: FreeBSD
 
