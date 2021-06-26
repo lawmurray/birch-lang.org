@@ -156,10 +156,17 @@ You will see a single sample drawn from the posterior distribution.
     ```
 
 !!! tip
-    *Debug* mode is used by default. This mode enables all error checking and disables all optimizations to assist with debugging. Debug mode is recommended when developing and testing code. When you are happy that your code is working correctly, you can use *release* mode instead, which takes longer to build but runs much faster (several times so). Release mode is enabled by adding the option `--enable-release` when calling `birch`:
+    When running `birch`, *debug mode* is used by default. This mode enables assertion checking and disables most optimizations to assist with debugging. Debug mode is recommended when developing and testing code. When you are happy that your code is working correctly, you can use *release mode* instead, which disables assertion checking and enables all optimizations, running much faster. Release mode is enabled by adding the option `--mode=release` when calling `birch`:
 
-        birch build --enable-release
-        birch sample --enable-release ...
+        birch sample --mode=release ...
+        
+    Alternatively, set the environment variable `BIRCH_MODE`:
+    
+        export BIRCH_MODE=release
+        
+    which you can unset to restore debug mode:
+    
+        unset BIRCH_MODE
 
 [^1]: H. Fanaee-T & J. Gama (2014). [Event labeling combining ensemble detectors and background knowledge](http://dx.doi.org/10.1007/s13748-013-0040-3). *Progress in Artificial Intelligence*. **2**:113-127.
 
