@@ -1189,9 +1189,14 @@ The parameters of the model are the noise variance $\sigma^2$ and vector of coef
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p><em>Debug</em> mode is used by default. This mode enables all error checking and disables all optimizations to assist with debugging. Debug mode is recommended when developing and testing code. When you are happy that your code is working correctly, you can use <em>release</em> mode instead, which takes longer to build but runs much faster (several times so). Release mode is enabled by adding the option <code>--enable-release</code> when calling <code>birch</code>:</p>
-<div class="highlight"><pre><span></span><code>birch build --enable-release
-birch sample --enable-release ...
+<p>When running <code>birch</code>, <em>debug mode</em> is used by default. This mode enables assertion checking and disables most optimizations to assist with debugging. Debug mode is recommended when developing and testing code. When you are happy that your code is working correctly, you can use <em>release mode</em> instead, which disables assertion checking and enables all optimizations, running much faster. Release mode is enabled by adding the option <code>--mode=release</code> when calling <code>birch</code>:</p>
+<div class="highlight"><pre><span></span><code>birch sample --mode=release ...
+</code></pre></div>
+<p>Alternatively, set the environment variable <code>BIRCH_MODE</code>:</p>
+<div class="highlight"><pre><span></span><code>export BIRCH_MODE=release
+</code></pre></div>
+<p>which you can unset to restore debug mode:</p>
+<div class="highlight"><pre><span></span><code>unset BIRCH_MODE
 </code></pre></div>
 </div>
 <div class="footnote">
