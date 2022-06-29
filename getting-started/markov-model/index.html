@@ -12,7 +12,7 @@
       
       
       <link rel="icon" href="../../fontawesome/solid/leaf">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.0">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.4">
     
     
       
@@ -20,10 +20,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.33e2939f.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.f7f47774.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ef6f36e2.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
         
           
           
@@ -44,6 +44,8 @@
     
     
       
+
+
     
     
   </head>
@@ -112,14 +114,18 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
       </label>
-      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
-      </button>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
@@ -397,6 +403,7 @@
       
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
+      
         
       
       
@@ -411,6 +418,7 @@
       
         
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
   
   
     
@@ -1010,6 +1018,7 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
+  
     
   
   
@@ -1105,85 +1114,85 @@ $$</p>
 </div>
 <p>We will use the <code>simulate()</code> function to implement the parameter model, and the <code>simulate(t:Integer)</code> function to implement the initial and transition models.</p>
 <p>Create a file <code>src/SIRMode.birch</code> with the following:</p>
-<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
-<span class="cm"> * SIR (susceptible-infectious-recovered) model.</span>
-<span class="cm"> */</span>
-<span class="kd">class</span><span class="err"> </span><span class="kt">SIRModel</span><span class="err"> </span><span class="o">&lt;</span><span class="err"> </span><span class="kt">Model</span><span class="err"> </span><span class="p">{</span>
-<span class="err">  </span><span class="cm">/**</span>
-<span class="cm">   * Interaction rate.</span>
-<span class="cm">   */</span>
-<span class="err">  </span><span class="nv">λ</span><span class="p">:</span><span class="kt">Random</span><span class="o">&lt;</span><span class="kt">Real</span><span class="o">&gt;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code>/**
+ * SIR (susceptible-infectious-recovered) model.
+ */
+class SIRModel &lt; Model {
+  /**
+   * Interaction rate.
+   */
+  λ:Random&lt;Real&gt;;
 
-<span class="err">  </span><span class="cm">/**</span>
-<span class="cm">   * Infection probability.</span>
-<span class="cm">   */</span>
-<span class="err">  </span><span class="nv">δ</span><span class="p">:</span><span class="kt">Random</span><span class="o">&lt;</span><span class="kt">Real</span><span class="o">&gt;</span><span class="p">;</span>
+  /**
+   * Infection probability.
+   */
+  δ:Random&lt;Real&gt;;
 
-<span class="err">  </span><span class="cm">/**</span>
-<span class="cm">   * Recovery probability.</span>
-<span class="cm">   */</span>
-<span class="err">  </span><span class="nv">γ</span><span class="p">:</span><span class="kt">Random</span><span class="o">&lt;</span><span class="kt">Real</span><span class="o">&gt;</span><span class="p">;</span>
+  /**
+   * Recovery probability.
+   */
+  γ:Random&lt;Real&gt;;
 
-<span class="err">  </span><span class="cm">/**</span>
-<span class="cm">   * Susceptible population at each time.</span>
-<span class="cm">   */</span>
-<span class="err">  </span><span class="nv">s</span><span class="p">:</span><span class="kt">Tape</span><span class="o">&lt;</span><span class="kt">Random</span><span class="o">&lt;</span><span class="kt">Integer</span><span class="o">&gt;&gt;</span><span class="p">;</span>
+  /**
+   * Susceptible population at each time.
+   */
+  s:Tape&lt;Random&lt;Integer&gt;&gt;;
 
-<span class="err">  </span><span class="cm">/**</span>
-<span class="cm">   * Infectious population at each time.</span>
-<span class="cm">   */</span>
-<span class="err">  </span><span class="nv">i</span><span class="p">:</span><span class="kt">Tape</span><span class="o">&lt;</span><span class="kt">Random</span><span class="o">&lt;</span><span class="kt">Integer</span><span class="o">&gt;&gt;</span><span class="p">;</span>
+  /**
+   * Infectious population at each time.
+   */
+  i:Tape&lt;Random&lt;Integer&gt;&gt;;
 
-<span class="err">  </span><span class="cm">/**</span>
-<span class="cm">   * Recovered population at each time.</span>
-<span class="cm">   */</span>
-<span class="err">  </span><span class="nv">r</span><span class="p">:</span><span class="kt">Tape</span><span class="o">&lt;</span><span class="kt">Random</span><span class="o">&lt;</span><span class="kt">Integer</span><span class="o">&gt;&gt;</span><span class="p">;</span>
+  /**
+   * Recovered population at each time.
+   */
+  r:Tape&lt;Random&lt;Integer&gt;&gt;;
 
-<span class="err">  </span><span class="kd">override</span><span class="err"> </span><span class="kd">function</span><span class="err"> </span><span class="nf">simulate</span><span class="p">()</span><span class="err"> </span><span class="p">{</span>
-<span class="err">    </span><span class="nv">λ</span><span class="err"> </span><span class="o">~</span><span class="err"> </span><span class="nf">Gamma</span><span class="p">(</span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="p">,</span><span class="err"> </span><span class="mi">5</span><span class="o">.</span><span class="mi">0</span><span class="p">);</span>
-<span class="err">    </span><span class="nv">δ</span><span class="err"> </span><span class="o">~</span><span class="err"> </span><span class="nf">Beta</span><span class="p">(</span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="p">,</span><span class="err"> </span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="p">);</span>
-<span class="err">    </span><span class="nv">γ</span><span class="err"> </span><span class="o">~</span><span class="err"> </span><span class="nf">Beta</span><span class="p">(</span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="p">,</span><span class="err"> </span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="p">);</span>
-<span class="err">  </span><span class="p">}</span>
+  override function simulate() {
+    λ ~ Gamma(2.0, 5.0);
+    δ ~ Beta(2.0, 2.0);
+    γ ~ Beta(2.0, 2.0);
+  }
 
-<span class="err">  </span><span class="kd">override</span><span class="err"> </span><span class="kd">function</span><span class="err"> </span><span class="nf">simulate</span><span class="p">(</span><span class="nv">t</span><span class="p">:</span><span class="kt">Integer</span><span class="p">)</span><span class="err"> </span><span class="p">{</span>
-<span class="err">    </span><span class="kd">if</span><span class="err"> </span><span class="nv">t</span><span class="err"> </span><span class="o">==</span><span class="err"> </span><span class="mi">1</span><span class="err"> </span><span class="p">{</span>
-<span class="err">      </span><span class="c c-Singleline">// the initial state is set in the input file</span>
-<span class="err">    </span><span class="p">}</span><span class="err"> </span><span class="kd">else</span><span class="err"> </span><span class="p">{</span>
-<span class="err">      </span><span class="kd">let</span><span class="err"> </span><span class="nv">n</span><span class="err"> </span><span class="o">&lt;-</span><span class="err"> </span><span class="nv">s</span><span class="p">[</span><span class="nv">t</span><span class="err"> </span><span class="o">-</span><span class="err"> </span><span class="mi">1</span><span class="p">]</span><span class="err"> </span><span class="o">+</span><span class="err"> </span><span class="nv">i</span><span class="p">[</span><span class="nv">t</span><span class="err"> </span><span class="o">-</span><span class="err"> </span><span class="mi">1</span><span class="p">]</span><span class="err"> </span><span class="o">+</span><span class="err"> </span><span class="nv">r</span><span class="p">[</span><span class="nv">t</span><span class="err"> </span><span class="o">-</span><span class="err"> </span><span class="mi">1</span><span class="p">];</span><span class="err">  </span><span class="c c-Singleline">// total population</span>
-<span class="err">      </span><span class="kd">let</span><span class="err"> </span><span class="nv">τ</span><span class="err"> </span><span class="o">~</span><span class="err"> </span><span class="nf">Binomial</span><span class="p">(</span><span class="nv">s</span><span class="p">[</span><span class="nv">t</span><span class="err"> </span><span class="o">-</span><span class="err"> </span><span class="mi">1</span><span class="p">],</span><span class="err"> </span><span class="mi">1</span><span class="o">.</span><span class="mi">0</span><span class="err"> </span><span class="o">-</span><span class="err"> </span><span class="nf">exp</span><span class="p">(</span><span class="o">-</span><span class="nv">λ</span><span class="o">*</span><span class="nv">i</span><span class="p">[</span><span class="nv">t</span><span class="err"> </span><span class="o">-</span><span class="err"> </span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="nv">n</span><span class="p">));</span>
-<span class="err">      </span><span class="kd">let</span><span class="err"> </span><span class="nv">Δi</span><span class="err"> </span><span class="o">~</span><span class="err"> </span><span class="nf">Binomial</span><span class="p">(</span><span class="nv">τ</span><span class="p">,</span><span class="err"> </span><span class="nv">δ</span><span class="p">);</span>
-<span class="err">      </span><span class="kd">let</span><span class="err"> </span><span class="nv">Δr</span><span class="err"> </span><span class="o">~</span><span class="err"> </span><span class="nf">Binomial</span><span class="p">(</span><span class="nv">i</span><span class="p">[</span><span class="nv">t</span><span class="err"> </span><span class="o">-</span><span class="err"> </span><span class="mi">1</span><span class="p">],</span><span class="err"> </span><span class="nv">γ</span><span class="p">);</span>
+  override function simulate(t:Integer) {
+    if t == 1 {
+      // the initial state is set in the input file
+    } else {
+      let n &lt;- s[t - 1] + i[t - 1] + r[t - 1];  // total population
+      let τ ~ Binomial(s[t - 1], 1.0 - exp(-λ*i[t - 1]/n));
+      let Δi ~ Binomial(τ, δ);
+      let Δr ~ Binomial(i[t - 1], γ);
 
-<span class="err">      </span><span class="nv">s</span><span class="p">[</span><span class="nv">t</span><span class="p">]</span><span class="err"> </span><span class="o">~</span><span class="err"> </span><span class="nf">Delta</span><span class="p">(</span><span class="nv">s</span><span class="p">[</span><span class="nv">t</span><span class="err"> </span><span class="o">-</span><span class="err"> </span><span class="mi">1</span><span class="p">]</span><span class="err"> </span><span class="o">-</span><span class="err"> </span><span class="nv">Δi</span><span class="p">);</span>
-<span class="err">      </span><span class="nv">i</span><span class="p">[</span><span class="nv">t</span><span class="p">]</span><span class="err"> </span><span class="o">~</span><span class="err"> </span><span class="nf">Delta</span><span class="p">(</span><span class="nv">i</span><span class="p">[</span><span class="nv">t</span><span class="err"> </span><span class="o">-</span><span class="err"> </span><span class="mi">1</span><span class="p">]</span><span class="err"> </span><span class="o">+</span><span class="err"> </span><span class="nv">Δi</span><span class="err"> </span><span class="o">-</span><span class="err"> </span><span class="nv">Δr</span><span class="p">);</span>
-<span class="err">      </span><span class="nv">r</span><span class="p">[</span><span class="nv">t</span><span class="p">]</span><span class="err"> </span><span class="o">~</span><span class="err"> </span><span class="nf">Delta</span><span class="p">(</span><span class="nv">r</span><span class="p">[</span><span class="nv">t</span><span class="err"> </span><span class="o">-</span><span class="err"> </span><span class="mi">1</span><span class="p">]</span><span class="err"> </span><span class="o">+</span><span class="err"> </span><span class="nv">Δr</span><span class="p">);</span>
-<span class="err">    </span><span class="p">}</span>
-<span class="err">  </span><span class="p">}</span>
+      s[t] ~ Delta(s[t - 1] - Δi);
+      i[t] ~ Delta(i[t - 1] + Δi - Δr);
+      r[t] ~ Delta(r[t - 1] + Δr);
+    }
+  }
 
-<span class="err">  </span><span class="kd">override</span><span class="err"> </span><span class="kd">function</span><span class="err"> </span><span class="nf">read</span><span class="p">(</span><span class="nv">buffer</span><span class="p">:</span><span class="kt">Buffer</span><span class="p">)</span><span class="err"> </span><span class="p">{</span>
-<span class="err">    </span><span class="nv">λ</span><span class="err"> </span><span class="o">&lt;-?</span><span class="err"> </span><span class="nv">buffer</span><span class="o">.</span><span class="nv">get</span><span class="o">&lt;</span><span class="kt">Real</span><span class="o">&gt;</span><span class="p">(</span><span class="s2">&quot;λ&quot;</span><span class="p">);</span>
-<span class="err">    </span><span class="nv">δ</span><span class="err"> </span><span class="o">&lt;-?</span><span class="err"> </span><span class="nv">buffer</span><span class="o">.</span><span class="nv">get</span><span class="o">&lt;</span><span class="kt">Real</span><span class="o">&gt;</span><span class="p">(</span><span class="s2">&quot;δ&quot;</span><span class="p">);</span>
-<span class="err">    </span><span class="nv">γ</span><span class="err"> </span><span class="o">&lt;-?</span><span class="err"> </span><span class="nv">buffer</span><span class="o">.</span><span class="nv">get</span><span class="o">&lt;</span><span class="kt">Real</span><span class="o">&gt;</span><span class="p">(</span><span class="s2">&quot;γ&quot;</span><span class="p">);</span>
-<span class="err">  </span><span class="p">}</span>
+  override function read(buffer:Buffer) {
+    λ &lt;-? buffer.get&lt;Real&gt;(&quot;λ&quot;);
+    δ &lt;-? buffer.get&lt;Real&gt;(&quot;δ&quot;);
+    γ &lt;-? buffer.get&lt;Real&gt;(&quot;γ&quot;);
+  }
 
-<span class="err">  </span><span class="kd">override</span><span class="err"> </span><span class="kd">function</span><span class="err"> </span><span class="nf">read</span><span class="p">(</span><span class="nv">t</span><span class="p">:</span><span class="kt">Integer</span><span class="p">,</span><span class="err"> </span><span class="nv">buffer</span><span class="p">:</span><span class="kt">Buffer</span><span class="p">)</span><span class="err"> </span><span class="p">{</span>
-<span class="err">    </span><span class="nv">s</span><span class="p">[</span><span class="nv">t</span><span class="p">]</span><span class="err"> </span><span class="o">&lt;-?</span><span class="err"> </span><span class="nv">buffer</span><span class="o">.</span><span class="nv">get</span><span class="o">&lt;</span><span class="kt">Integer</span><span class="o">&gt;</span><span class="p">(</span><span class="s2">&quot;s&quot;</span><span class="p">);</span>
-<span class="err">    </span><span class="nv">i</span><span class="p">[</span><span class="nv">t</span><span class="p">]</span><span class="err"> </span><span class="o">&lt;-?</span><span class="err"> </span><span class="nv">buffer</span><span class="o">.</span><span class="nv">get</span><span class="o">&lt;</span><span class="kt">Integer</span><span class="o">&gt;</span><span class="p">(</span><span class="s2">&quot;i&quot;</span><span class="p">);</span>
-<span class="err">    </span><span class="nv">r</span><span class="p">[</span><span class="nv">t</span><span class="p">]</span><span class="err"> </span><span class="o">&lt;-?</span><span class="err"> </span><span class="nv">buffer</span><span class="o">.</span><span class="nv">get</span><span class="o">&lt;</span><span class="kt">Integer</span><span class="o">&gt;</span><span class="p">(</span><span class="s2">&quot;r&quot;</span><span class="p">);</span>
-<span class="err">  </span><span class="p">}</span>
+  override function read(t:Integer, buffer:Buffer) {
+    s[t] &lt;-? buffer.get&lt;Integer&gt;(&quot;s&quot;);
+    i[t] &lt;-? buffer.get&lt;Integer&gt;(&quot;i&quot;);
+    r[t] &lt;-? buffer.get&lt;Integer&gt;(&quot;r&quot;);
+  }
 
-<span class="err">  </span><span class="kd">override</span><span class="err"> </span><span class="kd">function</span><span class="err"> </span><span class="nf">write</span><span class="p">(</span><span class="nv">buffer</span><span class="p">:</span><span class="kt">Buffer</span><span class="p">)</span><span class="err"> </span><span class="p">{</span>
-<span class="err">    </span><span class="nv">buffer</span><span class="o">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;λ&quot;</span><span class="p">,</span><span class="err"> </span><span class="nv">λ</span><span class="p">);</span>
-<span class="err">    </span><span class="nv">buffer</span><span class="o">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;δ&quot;</span><span class="p">,</span><span class="err"> </span><span class="nv">δ</span><span class="p">);</span>
-<span class="err">    </span><span class="nv">buffer</span><span class="o">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;γ&quot;</span><span class="p">,</span><span class="err"> </span><span class="nv">γ</span><span class="p">);</span>
-<span class="err">  </span><span class="p">}</span>
+  override function write(buffer:Buffer) {
+    buffer.set(&quot;λ&quot;, λ);
+    buffer.set(&quot;δ&quot;, δ);
+    buffer.set(&quot;γ&quot;, γ);
+  }
 
-<span class="err">  </span><span class="kd">override</span><span class="err"> </span><span class="kd">function</span><span class="err"> </span><span class="nf">write</span><span class="p">(</span><span class="nv">t</span><span class="p">:</span><span class="kt">Integer</span><span class="p">,</span><span class="err"> </span><span class="nv">buffer</span><span class="p">:</span><span class="kt">Buffer</span><span class="p">)</span><span class="err"> </span><span class="p">{</span>
-<span class="err">    </span><span class="nv">buffer</span><span class="o">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;s&quot;</span><span class="p">,</span><span class="err"> </span><span class="nv">s</span><span class="p">[</span><span class="nv">t</span><span class="p">]);</span>
-<span class="err">    </span><span class="nv">buffer</span><span class="o">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;i&quot;</span><span class="p">,</span><span class="err"> </span><span class="nv">i</span><span class="p">[</span><span class="nv">t</span><span class="p">]);</span>
-<span class="err">    </span><span class="nv">buffer</span><span class="o">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;r&quot;</span><span class="p">,</span><span class="err"> </span><span class="nv">r</span><span class="p">[</span><span class="nv">t</span><span class="p">]);</span>
-<span class="err">  </span><span class="p">}</span>
-<span class="p">}</span>
+  override function write(t:Integer, buffer:Buffer) {
+    buffer.set(&quot;s&quot;, s[t]);
+    buffer.set(&quot;i&quot;, i[t]);
+    buffer.set(&quot;r&quot;, r[t]);
+  }
+}
 </code></pre></div>
 <p>This code introduces a few new features:</p>
 <ul>
@@ -1191,9 +1200,9 @@ $$</p>
 <li>The variables <code>n</code>, <code>τ</code>, <code>Δi</code> and <code>Δr</code> are declared as local variables in the <code>simulate(t:Integer)</code> function rather than as member variables of the <code>SIRModel</code> class. This choice is made because we do not intend to read them from a file, or write them to a file, so only need to keep them temporarily.</li>
 </ul>
 <p>The transition model associates <code>s</code>, <code>i</code> and <code>r</code> with <a href="https://docs.birch.sh/libraries/Standard/classes/DeltaDistribution/">delta</a> distributions rather than simply assigning to them. The delta distribution is just a degenerate distribution on a single integer value. We might instead want to write:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">s</span><span class="p">[</span><span class="nv">t</span><span class="p">]</span><span class="err"> </span><span class="o">&lt;-</span><span class="err"> </span><span class="nv">s</span><span class="p">[</span><span class="nv">t</span><span class="err"> </span><span class="o">-</span><span class="err"> </span><span class="mi">1</span><span class="p">]</span><span class="err"> </span><span class="o">-</span><span class="err"> </span><span class="nv">Δi</span><span class="p">;</span>
-<span class="nv">i</span><span class="p">[</span><span class="nv">t</span><span class="p">]</span><span class="err"> </span><span class="o">&lt;-</span><span class="err"> </span><span class="nv">i</span><span class="p">[</span><span class="nv">t</span><span class="err"> </span><span class="o">-</span><span class="err"> </span><span class="mi">1</span><span class="p">]</span><span class="err"> </span><span class="o">+</span><span class="err"> </span><span class="nv">Δi</span><span class="err"> </span><span class="o">-</span><span class="err"> </span><span class="nv">Δr</span><span class="p">;</span>
-<span class="nv">r</span><span class="p">[</span><span class="nv">t</span><span class="p">]</span><span class="err"> </span><span class="o">&lt;-</span><span class="err"> </span><span class="nv">r</span><span class="p">[</span><span class="nv">t</span><span class="err"> </span><span class="o">-</span><span class="err"> </span><span class="mi">1</span><span class="p">]</span><span class="err"> </span><span class="o">+</span><span class="err"> </span><span class="nv">Δr</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code>s[t] &lt;- s[t - 1] - Δi;
+i[t] &lt;- i[t - 1] + Δi - Δr;
+r[t] &lt;- r[t - 1] + Δr;
 </code></pre></div>
 <p>However, the use of the delta distribution allows Birch to enumerate sums and differences of discrete-valued random variables and perform automatic marginalization and conditioning. In particular, we will observe <code>i[t]</code> here, and Birch will be able to enumerate the conditional distribution of <code>Δi</code> and <code>Δr</code> given <code>i[t]</code> and <code>i[t - 1]</code>. This is a nice analytical optimization for this particular model.</p>
 <h2 id="data">Data</h2>
@@ -1271,7 +1280,8 @@ $$</p>
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../linear-regression/" class="md-footer__link md-footer__link--prev" rel="prev">
+        
+        <a href="../linear-regression/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Bayesian Linear Regression" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1286,7 +1296,8 @@ $$</p>
         </a>
       
       
-        <a href="../next-steps/" class="md-footer__link md-footer__link--next" rel="next">
+        
+        <a href="../next-steps/" class="md-footer__link md-footer__link--next" aria-label="Next: Next steps" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
@@ -1334,10 +1345,10 @@ $$</p>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fe42c31b.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.709b4209.min.js", "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d892486b.min.js"></script>
+      <script src="../../assets/javascripts/bundle.febc23d1.min.js"></script>
       
         <script src="/js/settings.js"></script>
       

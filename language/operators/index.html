@@ -12,7 +12,7 @@
       
       
       <link rel="icon" href="../../fontawesome/solid/leaf">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.0">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.4">
     
     
       
@@ -20,10 +20,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.33e2939f.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.f7f47774.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ef6f36e2.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
         
           
           
@@ -44,6 +44,8 @@
     
     
       
+
+
     
     
   </head>
@@ -112,14 +114,18 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
       </label>
-      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
-      </button>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
@@ -782,6 +788,7 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
       
+      
         <label class="md-nav__link md-nav__link--active" for="__toc">
           Operators
           <span class="md-nav__icon md-icon"></span>
@@ -793,6 +800,7 @@
       
         
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
   
   
   
@@ -1000,6 +1008,7 @@
   
   
   
+  
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
       Table of contents
@@ -1140,18 +1149,18 @@
 <p>It is still possible to manipulate the behavior of some operators that cannot be overloaded. For example, the behavior of the assignment operator <code>&lt;-</code> can be manipulated by declaring assignments and conversions in class declarations.</p>
 </div>
 <p>A binary operator <code>+</code> with two operands <code>a:A</code> and <code>b:B</code>, and return type <code>C</code>, is declared as:
-<div class="highlight"><pre><span></span><code><span class="kd">operator</span><span class="err"> </span><span class="p">(</span><span class="nv">a</span><span class="p">:</span><span class="kt">A</span><span class="err"> </span><span class="o">+</span><span class="err"> </span><span class="nv">b</span><span class="p">:</span><span class="kt">B</span><span class="p">)</span><span class="err"> </span><span class="o">-&gt;</span><span class="err"> </span><span class="nv">C</span><span class="err"> </span><span class="p">{</span>
-<span class="err">  </span><span class="nv">c</span><span class="p">:</span><span class="kt">C</span><span class="p">;</span>
-<span class="err">  </span><span class="c c-Singleline">// do something</span>
-<span class="err">  </span><span class="kd">return</span><span class="err"> </span><span class="nv">c</span><span class="p">;</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code>operator (a:A + b:B) -&gt; C {
+  c:C;
+  // do something
+  return c;
+}
 </code></pre></div>
 Any of the standard binary operators may be used in place of <code>+</code>.</p>
 <p>A unary operator <code>+</code> with one operand <code>a:A</code>, and return type <code>C</code>, is declared as:
-<div class="highlight"><pre><span></span><code><span class="kd">operator</span><span class="err"> </span><span class="p">(</span><span class="o">+</span><span class="nv">a</span><span class="p">:</span><span class="kt">A</span><span class="p">)</span><span class="err"> </span><span class="o">-&gt;</span><span class="err"> </span><span class="nv">C</span><span class="err"> </span><span class="p">{</span>
-<span class="err">  </span><span class="nv">c</span><span class="p">:</span><span class="kt">C</span><span class="p">;</span>
-<span class="err">  </span><span class="kd">return</span><span class="err"> </span><span class="nv">c</span><span class="p">;</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code>operator (+a:A) -&gt; C {
+  c:C;
+  return c;
+}
 </code></pre></div>
 Any of the standard unary operators may be used in place of <code>+</code>.</p>
 <p>Operators always have a return type. It is not possible to manipulate operator precedence.</p>
@@ -1173,7 +1182,8 @@ Any of the standard unary operators may be used in place of <code>+</code>.</p>
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../programs/" class="md-footer__link md-footer__link--prev" rel="prev">
+        
+        <a href="../programs/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Programs" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1188,7 +1198,8 @@ Any of the standard unary operators may be used in place of <code>+</code>.</p>
         </a>
       
       
-        <a href="../classes/" class="md-footer__link md-footer__link--next" rel="next">
+        
+        <a href="../classes/" class="md-footer__link md-footer__link--next" aria-label="Next: Classes" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
@@ -1236,10 +1247,10 @@ Any of the standard unary operators may be used in place of <code>+</code>.</p>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fe42c31b.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.709b4209.min.js", "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d892486b.min.js"></script>
+      <script src="../../assets/javascripts/bundle.febc23d1.min.js"></script>
       
         <script src="/js/settings.js"></script>
       

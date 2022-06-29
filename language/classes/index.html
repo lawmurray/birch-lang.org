@@ -12,7 +12,7 @@
       
       
       <link rel="icon" href="../../fontawesome/solid/leaf">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.0">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.4">
     
     
       
@@ -20,10 +20,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.33e2939f.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.f7f47774.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ef6f36e2.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
         
           
           
@@ -44,6 +44,8 @@
     
     
       
+
+
     
     
   </head>
@@ -112,14 +114,18 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
       </label>
-      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
-      </button>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
@@ -794,6 +800,7 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
       
+      
         <label class="md-nav__link md-nav__link--active" for="__toc">
           Classes
           <span class="md-nav__icon md-icon"></span>
@@ -805,6 +812,7 @@
       
         
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
   
   
   
@@ -1035,6 +1043,7 @@
   
   
   
+  
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
       Table of contents
@@ -1113,132 +1122,132 @@
                   <h1>Classes</h1>
                 
                 <p>A class named <code>A</code> is declared as:
-<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="err"> </span><span class="nv">A</span><span class="err"> </span><span class="p">{</span>
-<span class="err">  </span><span class="c c-Singleline">// declare members</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code>class A {
+  // declare members
+}
 </code></pre></div></p>
 <p>A variable of class type <code>A</code> is then declared as usual:
-<div class="highlight"><pre><span></span><code><span class="nv">a</span><span class="p">:</span><span class="kt">A</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code>a:A;
 </code></pre></div></p>
 <h3 id="inheritance">Inheritance</h3>
 <p>A class type named <code>A</code> that inherits from a class type named <code>B</code> is declared as:
-<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="err"> </span><span class="nv">A</span><span class="err"> </span><span class="o">&lt;</span><span class="err"> </span><span class="nv">B</span><span class="err"> </span><span class="p">{</span>
-<span class="err">  </span><span class="c c-Singleline">// declare members</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code>class A &lt; B {
+  // declare members
+}
 </code></pre></div>
 The class <code>B</code> is referred to as the <em>base class</em> of <code>A</code>. Conversely, <code>A</code> is referred to as a <em>derived class</em> of <code>B</code>.</p>
 <p>A class may be marked <code>abstract</code> to indicate that it cannot be instantiated:
-<div class="highlight"><pre><span></span><code><span class="kd">abstract</span><span class="err"> </span><span class="kd">class</span><span class="err"> </span><span class="nv">A</span><span class="err"> </span><span class="p">{</span>
-<span class="err">  </span><span class="c c-Singleline">// declare members</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code>abstract class A {
+  // declare members
+}
 </code></pre></div></p>
 <p>A class may be marked <code>final</code> to indicate that it cannot be inherited by another class:
-<div class="highlight"><pre><span></span><code><span class="kd">final</span><span class="err"> </span><span class="kd">class</span><span class="err"> </span><span class="nv">B</span><span class="err"> </span><span class="o">&lt;</span><span class="err"> </span><span class="nv">A</span><span class="err"> </span><span class="p">{</span>
-<span class="err">  </span><span class="c c-Singleline">// declare members</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code>final class B &lt; A {
+  // declare members
+}
 </code></pre></div></p>
 <p>An abstract class cannot be instantiated directly:
-<div class="highlight"><pre><span></span><code><span class="nv">a</span><span class="p">:</span><span class="kt">A</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code>a:A;
 </code></pre></div>
 However, because objects are kept by reference, it is possible to declare an object of an abstract class, but initialize it with an object of a derived class:
-<div class="highlight"><pre><span></span><code><span class="nv">b</span><span class="p">:</span><span class="kt">B</span><span class="p">;</span>
-<span class="nv">a</span><span class="p">:</span><span class="kt">A</span><span class="err"> </span><span class="o">&lt;-</span><span class="err"> </span><span class="nv">b</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code>b:B;
+a:A &lt;- b;
 </code></pre></div></p>
 <h3 id="member-variables">Member variables</h3>
 <p>Variable declarations that appear within the body of a class are <em>member variables</em>:
-<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="err"> </span><span class="nv">A</span><span class="err"> </span><span class="p">{</span>
-<span class="err">  </span><span class="nv">c</span><span class="p">:</span><span class="kt">C</span><span class="p">;</span>
-<span class="err">  </span><span class="nv">d</span><span class="p">:</span><span class="kt">D</span><span class="p">;</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code>class A {
+  c:C;
+  d:D;
+}
 </code></pre></div></p>
 <p>An object of the class type contains instantiations of these member variables, which may be accessed with the dot (<code>.</code>) operator:
-<div class="highlight"><pre><span></span><code><span class="nf">f</span><span class="p">(</span><span class="nv">a</span><span class="o">.</span><span class="nv">c</span><span class="p">);</span>
-<span class="nf">f</span><span class="p">(</span><span class="nv">a</span><span class="o">.</span><span class="nv">d</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code>f(a.c);
+f(a.d);
 </code></pre></div></p>
 <h3 id="member-functions">Member functions</h3>
 <p>Function declarations that appear within the body of a class are <em>member functions</em>:
-<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="err"> </span><span class="nv">A</span><span class="err"> </span><span class="p">{</span>
-<span class="err">  </span><span class="kd">function</span><span class="err"> </span><span class="nf">f</span><span class="p">(</span><span class="nv">b</span><span class="p">:</span><span class="kt">B</span><span class="p">,</span><span class="err"> </span><span class="nv">c</span><span class="p">:</span><span class="kt">C</span><span class="p">)</span><span class="err"> </span><span class="o">-&gt;</span><span class="err"> </span><span class="nv">D</span><span class="err"> </span><span class="p">{</span>
-<span class="err">    </span><span class="c c-Singleline">// do something</span>
-<span class="err">  </span><span class="p">}</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code>class A {
+  function f(b:B, c:C) -&gt; D {
+    // do something
+  }
+}
 </code></pre></div></p>
 <p>These member functions can be called on an object of the class type, again accessed with the dot (<code>.</code>) operator. For <code>a:A</code>, <code>b:B</code>, <code>c:C</code>, <code>d:D</code>:
-<div class="highlight"><pre><span></span><code><span class="nv">d</span><span class="err"> </span><span class="o">&lt;-</span><span class="err"> </span><span class="nv">a</span><span class="o">.</span><span class="nf">f</span><span class="p">(</span><span class="nv">b</span><span class="p">,</span><span class="err"> </span><span class="nv">c</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code>d &lt;- a.f(b, c);
 </code></pre></div></p>
 <p>The body of a member function may use any member variables of the object on which the member function is called. The keyword <code>this</code> is used to explicitly refer to the object on which the member function is called. If the class has a base class, the keyword <code>super</code> is also used to explicitly refer to the object on which the member function is called, but cast to the base class.</p>
 <p>All member functions are virtual. To delegate a call to a member function of the base class, also use the <code>super</code> keyword:
-<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="err"> </span><span class="nv">A</span><span class="err"> </span><span class="o">&lt;</span><span class="err"> </span><span class="nv">B</span><span class="err"> </span><span class="p">{</span>
-<span class="err">  </span><span class="kd">function</span><span class="err"> </span><span class="nf">f</span><span class="p">(</span><span class="nv">c</span><span class="p">:</span><span class="kt">C</span><span class="p">)</span><span class="err"> </span><span class="p">{</span>
-<span class="err">    </span><span class="bp">super</span><span class="o">.</span><span class="nf">f</span><span class="p">(</span><span class="nv">c</span><span class="p">);</span><span class="err">  </span><span class="c c-Singleline">// calls f(c:C) in class B</span>
-<span class="err">  </span><span class="p">}</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code>class A &lt; B {
+  function f(c:C) {
+    super.f(c);  // calls f(c:C) in class B
+  }
+}
 </code></pre></div></p>
 <p>A member function may be marked <code>abstract</code> to indicate that it must be overridden by a derived class if objects of that class are to be instantiated:
-<div class="highlight"><pre><span></span><code><span class="kd">abstract</span><span class="err"> </span><span class="kd">function</span><span class="err"> </span><span class="nf">f</span><span class="p">(</span><span class="nv">a</span><span class="p">:</span><span class="kt">A</span><span class="p">,</span><span class="err"> </span><span class="nv">b</span><span class="p">:</span><span class="kt">B</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code>abstract function f(a:A, b:B);
 </code></pre></div>
 An abstract member function does not have a body.</p>
 <p>A member function may be marked <code>override</code> to indicate that it is intended to override a member function in a base class, producing an error if it does not:
-<div class="highlight"><pre><span></span><code><span class="kd">override</span><span class="err"> </span><span class="kd">function</span><span class="err"> </span><span class="nf">f</span><span class="p">(</span><span class="nv">a</span><span class="p">:</span><span class="kt">A</span><span class="p">,</span><span class="err"> </span><span class="nv">b</span><span class="p">:</span><span class="kt">B</span><span class="p">)</span><span class="err"> </span><span class="p">{</span>
-<span class="err">  </span><span class="c c-Singleline">// do something</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code>override function f(a:A, b:B) {
+  // do something
+}
 </code></pre></div></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>While it is not required to use <code>override</code> in order to override a member function, it is strongly recommended, and the compiler will issue a warning when it is not used. A member function that overrides another without specifying <code>override</code> will hide member functions in the base class that have the same name, but different parameters. Typically this is not the intent.</p>
 </div>
 <p>A member function may be marked <code>final</code> to indicate that it cannot be overridden by a derived class:
-<div class="highlight"><pre><span></span><code><span class="kd">final</span><span class="err"> </span><span class="kd">function</span><span class="err"> </span><span class="nf">f</span><span class="p">(</span><span class="nv">a</span><span class="p">:</span><span class="kt">A</span><span class="p">,</span><span class="err"> </span><span class="nv">b</span><span class="p">:</span><span class="kt">B</span><span class="p">)</span><span class="err"> </span><span class="p">{</span>
-<span class="err">  </span><span class="c c-Singleline">// do something</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code>final function f(a:A, b:B) {
+  // do something
+}
 </code></pre></div>
 A final member function must have a body. A class with one or more abstract member functions must be marked as an abstract class.</p>
 <h3 id="generics">Generics</h3>
 <p>A class declaration may include parameters for generic types that are to be specified when the class is used. These are declared using angle brackets in the class declaration:
-<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="err"> </span><span class="nv">A</span><span class="o">&lt;</span><span class="nv">T</span><span class="p">,</span><span class="nv">U</span><span class="o">&gt;</span><span class="err"> </span><span class="p">{</span>
-<span class="err">  </span><span class="c c-Singleline">// declare members</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code>class A&lt;T,U&gt; {
+  // declare members
+}
 </code></pre></div></p>
 <p>When a variable of this type is declared, arguments are specified for the generic types, also using angle brackets:
-<div class="highlight"><pre><span></span><code><span class="nv">a</span><span class="p">:</span><span class="kt">A</span><span class="o">&lt;</span><span class="nv">B</span><span class="p">,</span><span class="nv">C</span><span class="o">&gt;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code>a:A&lt;B,C&gt;;
 </code></pre></div>
 These arguments may be of any type. Within the body of the class, the type parameters may be used as though a type themselves:
-<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="err"> </span><span class="nv">A</span><span class="o">&lt;</span><span class="nv">T</span><span class="p">,</span><span class="nv">U</span><span class="o">&gt;</span><span class="err"> </span><span class="p">{</span>
-<span class="err">  </span><span class="nv">t</span><span class="p">:</span><span class="kt">T</span><span class="p">;</span>
-<span class="err">  </span><span class="nv">u</span><span class="p">:</span><span class="kt">U</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code>class A&lt;T,U&gt; {
+  t:T;
+  u:U;
 
-<span class="err">  </span><span class="kd">function</span><span class="err"> </span><span class="nf">get</span><span class="p">()</span><span class="err"> </span><span class="o">-&gt;</span><span class="err"> </span><span class="nv">U</span><span class="err"> </span><span class="p">{</span>
-<span class="err">    </span><span class="kd">return</span><span class="err"> </span><span class="nv">u</span><span class="p">;</span>
-<span class="err">  </span><span class="p">}</span>
-<span class="p">}</span>
+  function get() -&gt; U {
+    return u;
+  }
+}
 </code></pre></div></p>
 <p>A member function may also be generic. Such functions are non-virtual, that is, they are never overridden, even by member functions in a derived class with the same parameters.</p>
 <h3 id="initialization">Initialization</h3>
 <p>When an object of a class type is declared, its member variables are initialized according to the initial values given in the class body. For the class:
-<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="err"> </span><span class="nv">A</span><span class="err"> </span><span class="p">{</span>
-<span class="err">  </span><span class="nv">b</span><span class="p">:</span><span class="kt">Integer</span><span class="err"> </span><span class="o">&lt;-</span><span class="err"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="err">  </span><span class="nv">c</span><span class="p">:</span><span class="kt">Integer</span><span class="p">;</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code>class A {
+  b:Integer &lt;- 0;
+  c:Integer;
+}
 </code></pre></div>
 and variable declaration:
-<div class="highlight"><pre><span></span><code><span class="nv">a</span><span class="p">:</span><span class="kt">A</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code>a:A;
 </code></pre></div>
 The member variables of <code>a</code> are initialized such that <code>a.b == 0</code>, while <code>a.c</code> is uninitialized.</p>
 <p>A class can be given initialization parameters, which may be used to initialize any member variables. These are given in parentheses (after any generic parameters, if used):
-<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="err"> </span><span class="nf">A</span><span class="p">(</span><span class="nv">d</span><span class="p">:</span><span class="kt">Integer</span><span class="p">)</span><span class="err"> </span><span class="p">{</span>
-<span class="err">  </span><span class="nv">b</span><span class="p">:</span><span class="kt">Integer</span><span class="err"> </span><span class="o">&lt;-</span><span class="err"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="err">  </span><span class="nv">c</span><span class="p">:</span><span class="kt">Integer</span><span class="err"> </span><span class="o">&lt;-</span><span class="err"> </span><span class="nv">d</span><span class="p">;</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code>class A(d:Integer) {
+  b:Integer &lt;- 0;
+  c:Integer &lt;- d;
+}
 </code></pre></div>
 Arguments to these parameters must be given when an object of the class type is declared:
-<div class="highlight"><pre><span></span><code><span class="nv">a</span><span class="p">:</span><span class="kt">A</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code>a:A(1);
 </code></pre></div>
 The member variables of <code>a</code> are now initialized such that <code>a.b == 0</code>, and <code>a.c == 1</code>.</p>
 <p>The declarations <code>a:A;</code> and <code>a:A();</code> are equivalent.</p>
 <p>Initialization arguments can be passed onto the base class if required:
-<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="err"> </span><span class="nf">A</span><span class="p">(</span><span class="nv">d</span><span class="p">:</span><span class="kt">Integer</span><span class="p">)</span><span class="err"> </span><span class="o">&lt;</span><span class="err"> </span><span class="nf">B</span><span class="p">(</span><span class="nv">d</span><span class="p">)</span><span class="err"> </span><span class="p">{</span>
-<span class="err">  </span><span class="c c-Singleline">// declare members</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code>class A(d:Integer) &lt; B(d) {
+  // declare members
+}
 </code></pre></div>
 Initialization parameters are used for simple object initialization, such as to set initial values and array sizes.</p>
 <h3 id="assignment">Assignment</h3>
@@ -1248,50 +1257,50 @@ Initialization parameters are used for simple object initialization, such as to 
 </div>
 <p>Objects of class type <code>A</code> may be assigned another object of basic type <code>A</code> or an object of a derived type of <code>A</code>; i.e. if <code>a:A</code> and <code>b:B</code> with <code>A &lt; B</code>, it is possible to assign <code>b &lt;- a</code> but not <code>a &lt;- b</code>.</p>
 <p>Such assignments are by reference. Objects of class type <code>A</code> may be assigned <em>by value</em> from a basic type if an appropriate declaration has been made within the class body. To permit assignment of type <code>C</code>, for example:
-<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="err"> </span><span class="nv">A</span><span class="err"> </span><span class="p">{</span>
-<span class="err">  </span><span class="kd">operator</span><span class="err"> </span><span class="o">&lt;-</span><span class="err"> </span><span class="nv">c</span><span class="p">:</span><span class="kt">C</span><span class="err"> </span><span class="p">{</span>
-<span class="err">    </span><span class="c c-Singleline">// do something</span>
-<span class="err">  </span><span class="p">}</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code>class A {
+  operator &lt;- c:C {
+    // do something
+  }
+}
 </code></pre></div>
 The body of the operator should update the state of the object using the argument. There is no return value. For <code>a:A</code> and <code>c:C</code>, the assignment <code>a &lt;- c</code> would then be valid, even though <code>C</code> is not a derived class of <code>A</code>.</p>
 <h3 id="conversion">Conversion</h3>
 <p>Objects of class type <code>A</code> may be implicitly cast to an object of any base class of <code>A</code>; i.e. if <code>a:A</code> and <code>b:B</code> with <code>A &lt; B</code>, the object <code>a</code> can be implicitly converted to an object of type <code>B</code>, as in the following:
-<div class="highlight"><pre><span></span><code><span class="kd">function</span><span class="err"> </span><span class="nf">f</span><span class="p">(</span><span class="nv">b</span><span class="p">:</span><span class="kt">B</span><span class="p">)</span><span class="err"> </span><span class="p">{</span>
-<span class="err">  </span><span class="c c-Singleline">// do something</span>
-<span class="p">}</span>
-<span class="nv">a</span><span class="p">:</span><span class="kt">A</span><span class="p">;</span>
-<span class="nf">f</span><span class="p">(</span><span class="nv">a</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code>function f(b:B) {
+  // do something
+}
+a:A;
+f(a);
 </code></pre></div>
 Such casts are <em>by reference</em>. For basic types, it is possible to declare implicit conversions <em>by value</em>, if an appropriate declaration has been made within the class body. To permit conversion to type <code>C</code>, for example:
-<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="err"> </span><span class="nv">A</span><span class="err"> </span><span class="p">{</span>
-<span class="err">  </span><span class="kd">operator</span><span class="err"> </span><span class="o">-&gt;</span><span class="err"> </span><span class="nv">C</span><span class="err"> </span><span class="p">{</span>
-<span class="err">    </span><span class="nv">c</span><span class="p">:</span><span class="kt">C</span><span class="p">;</span>
-<span class="err">    </span><span class="c c-Singleline">// do something</span>
-<span class="err">    </span><span class="kd">return</span><span class="err"> </span><span class="nv">c</span><span class="p">;</span>
-<span class="err">  </span><span class="p">}</span>
-<span class="err">  </span><span class="o">...</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code>class A {
+  operator -&gt; C {
+    c:C;
+    // do something
+    return c;
+  }
+  ...
+}
 </code></pre></div>
 For <code>a:A</code> and <code>c:C</code>, the following function call would then be valid, even though <code>C</code> is not a base class of <code>A</code>
-<div class="highlight"><pre><span></span><code><span class="kd">function</span><span class="err"> </span><span class="nf">f</span><span class="p">(</span><span class="nv">c</span><span class="p">:</span><span class="kt">C</span><span class="p">)</span><span class="err"> </span><span class="p">{</span>
-<span class="err">  </span><span class="c c-Singleline">// do something</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code>function f(c:C) {
+  // do something
+}
 
-<span class="nv">a</span><span class="p">:</span><span class="kt">A</span><span class="p">;</span>
-<span class="nf">f</span><span class="p">(</span><span class="nv">a</span><span class="p">);</span>
+a:A;
+f(a);
 </code></pre></div></p>
 <h3 id="slicing">Slicing</h3>
 <p>Objects of class type <code>A</code> may be accessed using square brackets if an appropriate declaration has been made within the class body:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">class</span><span class="err"> </span><span class="nv">A</span><span class="err"> </span><span class="p">{</span>
-<span class="err">  </span><span class="kd">operator</span><span class="err"> </span><span class="p">[</span><span class="nv">j</span><span class="p">:</span><span class="kt">J</span><span class="p">]</span><span class="err"> </span><span class="o">-&gt;</span><span class="err"> </span><span class="nv">D</span><span class="err"> </span><span class="p">{</span>
-<span class="err">    </span><span class="kd">return</span><span class="err"> </span><span class="nv">d</span><span class="p">[</span><span class="nv">j</span><span class="p">];</span>
-<span class="err">  </span><span class="p">}</span>
-<span class="err">  </span><span class="nv">d</span><span class="p">:</span><span class="kt">D</span><span class="p">[</span><span class="m">_</span><span class="p">];</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code>class A {
+  operator [j:J] -&gt; D {
+    return d[j];
+  }
+  d:D[_];
+}
 </code></pre></div>
 <p>This is called a <em>slice operator</em>. For <code>a:A</code> and <code>i:J</code>, using <code>a[i]</code> would call the slice operator. Furthermore, the return value of a slice operator is <em>by reference</em>, which means it is possible to assign to the return value:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">a</span><span class="p">[</span><span class="nv">i</span><span class="p">]</span><span class="err"> </span><span class="o">&lt;-</span><span class="err"> </span><span class="nv">e</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code>a[i] &lt;- e;
 </code></pre></div>
 <p>Slice operators may have parameters of any type.</p>
                 
@@ -1312,7 +1321,8 @@ For <code>a:A</code> and <code>c:C</code>, the following function call would the
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../operators/" class="md-footer__link md-footer__link--prev" rel="prev">
+        
+        <a href="../operators/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Operators" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1327,7 +1337,8 @@ For <code>a:A</code> and <code>c:C</code>, the following function call would the
         </a>
       
       
-        <a href="../aliases/" class="md-footer__link md-footer__link--next" rel="next">
+        
+        <a href="../aliases/" class="md-footer__link md-footer__link--next" aria-label="Next: Aliases" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
@@ -1375,10 +1386,10 @@ For <code>a:A</code> and <code>c:C</code>, the following function call would the
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fe42c31b.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.709b4209.min.js", "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d892486b.min.js"></script>
+      <script src="../../assets/javascripts/bundle.febc23d1.min.js"></script>
       
         <script src="/js/settings.js"></script>
       
