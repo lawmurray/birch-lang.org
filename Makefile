@@ -1,7 +1,7 @@
 .PHONY: pygments
 pygments:
 	cp src/birch.py pygments/pygments/lexers/.
-	cd pygments && make mapfiles && easy_install-3.8 --prefix $(HOME)/.local .
+	cd pygments && make mapfiles && python3.10 setup.py install --force --prefix $(HOME)/.local
 
 build: pygments
 	mkdocs build
@@ -11,3 +11,4 @@ serve: pygments
 
 deploy:
 	mkdocs gh-deploy
+
