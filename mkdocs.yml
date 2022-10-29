@@ -1,4 +1,5 @@
 site_name: Birch
+site_url: https://birch.sh
 site_description: 'Birch is an open source probabilistic programming language, based on imperative and object-oriented paradigms. It provides the trio of automatic differentiation, automatic marginalization, and automatic conjugacy, combined in an inference engine in the framework of Sequential Monte Carlo (SMC).'
 repo_url: https://github.com/lawmurray/Birch
 repo_name: lawmurray/Birch
