@@ -43,6 +43,8 @@ extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/lawmurray
+    - icon: fontawesome/brands/mastodon
+      link: https://fosstodon.org/@lawmurray
 nav:
   - index.md
   - 'Getting Started':
