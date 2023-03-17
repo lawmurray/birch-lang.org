@@ -17,6 +17,7 @@ theme:
     accent: deep orange
   features:
     - navigation.tabs
+    - navigation.footer
 markdown_extensions:
   - admonition
   - footnotes
