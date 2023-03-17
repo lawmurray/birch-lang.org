@@ -17,7 +17,7 @@ Enter the following commands, according to your specific version, to add the rep
     sudo apt install birch
     ```
 
-??? example "Ubuntu 22.10 Jammy Jellyfish (amd64)"
+??? example "Ubuntu 22.04 Jammy Jellyfish (amd64)"
     ```
     echo 'deb http://download.indii.org/deb jammy main' | sudo tee /etc/apt/sources.list.d/birch.list
     curl -fsSL https://download.indii.org/deb/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/birch.gpg > /dev/null
