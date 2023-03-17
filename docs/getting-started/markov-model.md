@@ -102,8 +102,8 @@ class SIRModel < Model {
       let Δi ~ Binomial(τ, δ);
       let Δr ~ Binomial(i[t - 1], γ);
 
-      s[t] ~ Delta(s[t - 1] - Δi);
       i[t] ~ Delta(i[t - 1] + Δi - Δr);
+      s[t] ~ Delta(s[t - 1] - Δi);
       r[t] ~ Delta(r[t - 1] + Δr);
     }
   }
@@ -142,12 +142,12 @@ This code introduces a few new features:
 The transition model associates `s`, `i` and `r` with [delta](https://docs.birch.sh/libraries/Standard/classes/DeltaDistribution/) distributions rather than simply assigning to them. The delta distribution is just a degenerate distribution on a single integer value. We might instead want to write:
 
 ```birch
-s[t] <- s[t - 1] - Δi;
 i[t] <- i[t - 1] + Δi - Δr;
+s[t] <- s[t - 1] - Δi;
 r[t] <- r[t - 1] + Δr;
 ```
 
-However, the use of the delta distribution allows Birch to enumerate sums and differences of discrete-valued random variables and perform automatic marginalization and conditioning. In particular, we will observe `i[t]` here, and Birch will be able to enumerate the conditional distribution of `Δi` and `Δr` given `i[t]` and `i[t - 1]`. This is a nice analytical optimization for this particular model.
+However, the use of the delta distribution allows Birch to enumerate sums and differences of discrete-valued random variables and perform automatic marginalization and conditioning. In particular, we will observe `i[t]` here, and Birch will be able to enumerate the conditional distribution of `Δi` and `Δr` given `i[t]` and `i[t - 1]`---this is why we place it first. This is a nice analytical optimization for this particular model.
 
 ## Data
 
