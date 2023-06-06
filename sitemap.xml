@@ -2,192 +2,192 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://birch.sh/</loc>
-         <lastmod>2023-03-17</lastmod>
+         <lastmod>2023-06-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch.sh/about/</loc>
-         <lastmod>2023-03-17</lastmod>
+         <lastmod>2023-06-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch.sh/concepts/</loc>
-         <lastmod>2023-03-17</lastmod>
+         <lastmod>2023-06-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch.sh/concepts/automatic-conditioning/</loc>
-         <lastmod>2023-03-17</lastmod>
+         <lastmod>2023-06-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch.sh/concepts/automatic-differentiation/</loc>
-         <lastmod>2023-03-17</lastmod>
+         <lastmod>2023-06-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch.sh/concepts/automatic-marginalization/</loc>
-         <lastmod>2023-03-17</lastmod>
+         <lastmod>2023-06-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch.sh/concepts/delayed-sampling/</loc>
-         <lastmod>2023-03-17</lastmod>
+         <lastmod>2023-06-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch.sh/concepts/distributions/</loc>
-         <lastmod>2023-03-17</lastmod>
+         <lastmod>2023-06-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch.sh/concepts/expressions/</loc>
-         <lastmod>2023-03-17</lastmod>
+         <lastmod>2023-06-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch.sh/concepts/graphical-models/</loc>
-         <lastmod>2023-03-17</lastmod>
+         <lastmod>2023-06-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch.sh/concepts/models/</loc>
-         <lastmod>2023-03-17</lastmod>
+         <lastmod>2023-06-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch.sh/concepts/probabilistic-inference/</loc>
-         <lastmod>2023-03-17</lastmod>
+         <lastmod>2023-06-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch.sh/concepts/programmatic-models/</loc>
-         <lastmod>2023-03-17</lastmod>
+         <lastmod>2023-06-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch.sh/concepts/randoms/</loc>
-         <lastmod>2023-03-17</lastmod>
+         <lastmod>2023-06-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch.sh/concepts/summary/</loc>
-         <lastmod>2023-03-17</lastmod>
+         <lastmod>2023-06-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch.sh/getting-involved/</loc>
-         <lastmod>2023-03-17</lastmod>
+         <lastmod>2023-06-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch.sh/getting-started/</loc>
-         <lastmod>2023-03-17</lastmod>
+         <lastmod>2023-06-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch.sh/getting-started/hello-world/</loc>
-         <lastmod>2023-03-17</lastmod>
+         <lastmod>2023-06-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch.sh/getting-started/linear-regression/</loc>
-         <lastmod>2023-03-17</lastmod>
+         <lastmod>2023-06-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch.sh/getting-started/markov-model/</loc>
-         <lastmod>2023-03-17</lastmod>
+         <lastmod>2023-06-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch.sh/getting-started/next-steps/</loc>
-         <lastmod>2023-03-17</lastmod>
+         <lastmod>2023-06-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch.sh/language/</loc>
-         <lastmod>2023-03-17</lastmod>
+         <lastmod>2023-06-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch.sh/language/aliases/</loc>
-         <lastmod>2023-03-17</lastmod>
+         <lastmod>2023-06-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch.sh/language/arrays/</loc>
-         <lastmod>2023-03-17</lastmod>
+         <lastmod>2023-06-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch.sh/language/assertions/</loc>
-         <lastmod>2023-03-17</lastmod>
+         <lastmod>2023-06-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch.sh/language/assignments/</loc>
-         <lastmod>2023-03-17</lastmod>
+         <lastmod>2023-06-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch.sh/language/casts/</loc>
-         <lastmod>2023-03-17</lastmod>
+         <lastmod>2023-06-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch.sh/language/classes/</loc>
-         <lastmod>2023-03-17</lastmod>
+         <lastmod>2023-06-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch.sh/language/control_flow/</loc>
-         <lastmod>2023-03-17</lastmod>
+         <lastmod>2023-06-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch.sh/language/functions/</loc>
-         <lastmod>2023-03-17</lastmod>
+         <lastmod>2023-06-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch.sh/language/lambdas/</loc>
-         <lastmod>2023-03-17</lastmod>
+         <lastmod>2023-06-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch.sh/language/operators/</loc>
-         <lastmod>2023-03-17</lastmod>
+         <lastmod>2023-06-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch.sh/language/optionals/</loc>
-         <lastmod>2023-03-17</lastmod>
+         <lastmod>2023-06-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch.sh/language/probability/</loc>
-         <lastmod>2023-03-17</lastmod>
+         <lastmod>2023-06-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch.sh/language/programs/</loc>
-         <lastmod>2023-03-17</lastmod>
+         <lastmod>2023-06-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch.sh/language/tuples/</loc>
-         <lastmod>2023-03-17</lastmod>
+         <lastmod>2023-06-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch.sh/language/types/</loc>
-         <lastmod>2023-03-17</lastmod>
+         <lastmod>2023-06-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch.sh/language/variables/</loc>
-         <lastmod>2023-03-17</lastmod>
+         <lastmod>2023-06-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
