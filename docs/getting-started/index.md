@@ -59,6 +59,13 @@ Birch is open source software released under the [Apache License, Version 2.0](h
 
 ## :fontawesome-brands-fedora: Fedora
 
+??? info "Fedora 39 (x86_64)"
+    ```
+    sudo dnf config-manager --add-repo https://download.indii.org/rpm/fedora/39/indii.org.repo
+    sudo dnf update
+    sudo dnf install birch
+    ```
+
 ??? info "Fedora 38 (x86_64)"
     ```
     sudo dnf config-manager --add-repo https://download.indii.org/rpm/fedora/38/indii.org.repo
@@ -94,15 +101,6 @@ Birch is open source software released under the [Apache License, Version 2.0](h
     sudo zypper addrepo https://download.indii.org/rpm/opensuse/tumbleweed/indii.org.repo
     sudo zypper refresh
     sudo zypper install birch
-    ```
-
-## :fontawesome-brands-linux: Mageia
-
-??? info "Mageia 8 (x86_64)"
-    ```
-    sudo dnf config-manager --add-repo https://download.indii.org/rpm/mageia/8/indii.org.repo
-    sudo dnf update
-    sudo dnf install birch
     ```
 
 ## :fontawesome-brands-apple: Mac
