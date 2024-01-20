@@ -1505,36 +1505,36 @@
   <h1>Functions</h1>
 
 <p>A function with two parameters <code>a:A</code> and <code>b:B</code>, and return type <code>C</code>, is declared as:
-<div class="highlight"><pre><span></span><code><span class="kd">function</span><span class="err"> </span><span class="nf">f</span><span class="p">(</span><span class="nv">a</span><span class="p">:</span><span class="kt">A</span><span class="p">,</span><span class="err"> </span><span class="nv">b</span><span class="p">:</span><span class="kt">B</span><span class="p">)</span><span class="err"> </span><span class="o">-&gt;</span><span class="err"> </span><span class="nv">C</span><span class="err"> </span><span class="p">{</span>
-<span class="err">  </span><span class="nv">c</span><span class="p">:</span><span class="kt">C</span><span class="p">;</span>
-<span class="err">  </span><span class="c c-Singleline">// do something</span>
-<span class="err">  </span><span class="kd">return</span><span class="err"> </span><span class="nv">c</span><span class="p">;</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code>function f(a:A, b:B) -&gt; C {
+  c:C;
+  // do something
+  return c;
+}
 </code></pre></div></p>
 <p>For a function without a return value, omit the <code>-&gt;</code>:
-<div class="highlight"><pre><span></span><code><span class="kd">function</span><span class="err"> </span><span class="nf">f</span><span class="p">(</span><span class="nv">a</span><span class="p">:</span><span class="kt">A</span><span class="p">,</span><span class="err"> </span><span class="nv">b</span><span class="p">:</span><span class="kt">B</span><span class="p">)</span><span class="err"> </span><span class="p">{</span>
-<span class="err">  </span><span class="c c-Singleline">// do something</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code>function f(a:A, b:B) {
+  // do something
+}
 </code></pre></div>
 For a function without parameters, use empty parentheses:
-<div class="highlight"><pre><span></span><code><span class="kd">function</span><span class="err"> </span><span class="nf">f</span><span class="p">()</span><span class="err"> </span><span class="p">{</span>
-<span class="err">  </span><span class="c c-Singleline">// do something</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code>function f() {
+  // do something
+}
 </code></pre></div>
 Functions are called by giving arguments in parentheses:
-<div class="highlight"><pre><span></span><code><span class="nf">f</span><span class="p">(</span><span class="nv">a</span><span class="p">,</span><span class="err"> </span><span class="nv">b</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code>f(a, b)
 </code></pre></div>
 When calling a function without parameters, use empty parentheses:
-<div class="highlight"><pre><span></span><code><span class="nf">f</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code>f()
 </code></pre></div></p>
 <h3 id="generic-functions">Generic functions</h3>
 <p>A function declaration may include type parameters that are provided arguments when the function is called. These are declared using angle brackets in the function declaration:
-<div class="highlight"><pre><span></span><code><span class="kd">function</span><span class="err"> </span><span class="nv">f</span><span class="o">&lt;</span><span class="nv">T</span><span class="p">,</span><span class="nv">U</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">a</span><span class="p">:</span><span class="kt">T</span><span class="p">,</span><span class="err"> </span><span class="nv">b</span><span class="p">:</span><span class="kt">U</span><span class="p">)</span><span class="err"> </span><span class="p">{</span>
-<span class="err">  </span><span class="c c-Singleline">// do something</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code>function f&lt;T,U&gt;(a:T, b:U) {
+  // do something
+}
 </code></pre></div>
 Such a function is a <em>generic function</em>. When a generic function is called, type arguments can be provided:
-<div class="highlight"><pre><span></span><code><span class="nv">f</span><span class="o">&lt;</span><span class="kt">Real</span><span class="p">,</span><span class="kt">Integer</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">1</span><span class="o">.</span><span class="mi">0</span><span class="p">,</span><span class="err"> </span><span class="mi">2</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code>f&lt;Real,Integer&gt;(1.0, 2);
 </code></pre></div>
 Here, <code>T</code> becomes <code>Real</code> and <code>U</code> becomes <code>Integer</code>. In many cases it is unnecessary to explicitly provide these type arguments, however, as the compiler can deduce them itself. In this particular example, using <code>f(1.0, 2)</code> is sufficient. Sometimes the compiler cannot deduce them itself, and they must be specified explicitly.</p>
 

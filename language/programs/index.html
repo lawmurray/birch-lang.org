@@ -1446,10 +1446,10 @@
   <h1>Programs</h1>
 
 <p>A program is a special function that is an entry point into Birch code from the command line. It cannot be called from other Birch code. Declare a program with:
-<div class="highlight"><pre><span></span><code><span class="kd">program</span><span class="err"> </span><span class="nf">example</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span><span class="kt">Boolean</span><span class="p">,</span><span class="err"> </span><span class="nv">y</span><span class="p">:</span><span class="kt">Integer</span><span class="err"> </span><span class="o">&lt;-</span><span class="err"> </span><span class="mi">0</span><span class="p">,</span><span class="err"> </span><span class="nv">message</span><span class="p">:</span><span class="kt">String</span><span class="p">,</span>
-<span class="err">    </span><span class="nv">long_name</span><span class="p">:</span><span class="kt">Real</span><span class="p">)</span><span class="err"> </span><span class="p">{</span>
-<span class="err">    </span><span class="c c-Singleline">// do something</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code>program example(x:Boolean, y:Integer &lt;- 0, message:String,
+    long_name:Real) {
+    // do something
+}
 </code></pre></div>
 where <code>x</code>, <code>y</code>, <code>message</code>, and <code>long_name</code> are program options, with <code>y</code> given a default value of zero. A program has no return value.</p>
 <p>To call a program from the command line, use <code>birch</code>, followed by the program name, following by a list of program options:</p>

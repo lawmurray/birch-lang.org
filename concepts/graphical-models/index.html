@@ -1455,9 +1455,9 @@
 <h1 id="graphical-models">Graphical models</h1>
 <p>When we run the <code>simulate()</code> and <code>simulate(t)</code> member functions of a model, we can think of any particular run as generating a Bayesian network (directed graphical model).</p>
 <p>Consider a simple linear regression model with the programmatic representation:
-<div class="highlight"><pre><span></span><code><span class="nv">σ2</span><span class="err"> </span><span class="o">~</span><span class="err"> </span><span class="nf">InverseGamma</span><span class="p">(</span><span class="mi">3</span><span class="o">.</span><span class="mi">0</span><span class="p">,</span><span class="err"> </span><span class="mi">0</span><span class="o">.</span><span class="mi">4</span><span class="p">);</span>
-<span class="nv">β</span><span class="err"> </span><span class="o">~</span><span class="err"> </span><span class="nf">Gaussian</span><span class="p">(</span><span class="nf">vector</span><span class="p">(</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="p">,</span><span class="err"> </span><span class="nv">P</span><span class="p">),</span><span class="err"> </span><span class="nf">diagonal</span><span class="p">(</span><span class="nv">σ2</span><span class="p">,</span><span class="err"> </span><span class="nv">P</span><span class="p">));</span>
-<span class="nv">y</span><span class="err"> </span><span class="o">~</span><span class="err"> </span><span class="nf">Gaussian</span><span class="p">(</span><span class="nv">X</span><span class="o">*</span><span class="nv">β</span><span class="p">,</span><span class="err"> </span><span class="nv">σ2</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code>σ2 ~ InverseGamma(3.0, 0.4);
+β ~ Gaussian(vector(0.0, P), diagonal(σ2, P));
+y ~ Gaussian(X*β, σ2);
 </code></pre></div>
 We can represent the model mathematically as a factorization of the joint distribution into conditional distributions:
 $$
@@ -1474,12 +1474,12 @@ and graphically, with a directed graphical model:
             '-'</div>
 Each statement in the programmatic representation defines a new factor in the mathematical representation, and a new node in the graphical representation. In the programmatic representation, the dependencies of each random variable are clear from the arguments given in constructing its associated distribution. In the mathematical representation they appear to the right of the bar ($\mid$) in the corresponding conditional distribution. In the graphical representation they connect with incoming arrows from the corresponding nodes.</p>
 <p>Many useful models can be represented in these three ways. Consider also a linear-Gaussian state-space model (hidden Markov model), represented programmatically as:
-<div class="highlight"><pre><span></span><code><span class="nv">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="err"> </span><span class="o">~</span><span class="err"> </span><span class="nf">Gaussian</span><span class="p">(</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="p">,</span><span class="err"> </span><span class="mi">4</span><span class="o">.</span><span class="mi">0</span><span class="p">);</span>
-<span class="nv">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="err"> </span><span class="o">~</span><span class="err"> </span><span class="nf">Gaussian</span><span class="p">(</span><span class="nv">b</span><span class="o">*</span><span class="nv">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="err"> </span><span class="mi">1</span><span class="o">.</span><span class="mi">0</span><span class="p">);</span>
-<span class="kd">for</span><span class="err"> </span><span class="nv">t</span><span class="err"> </span><span class="kd">in</span><span class="err"> </span><span class="mi">2</span><span class="o">..</span><span class="mi">4</span><span class="err"> </span><span class="p">{</span>
-<span class="err">  </span><span class="nv">x</span><span class="p">[</span><span class="nv">t</span><span class="p">]</span><span class="err"> </span><span class="o">~</span><span class="err"> </span><span class="nf">Gaussian</span><span class="p">(</span><span class="nv">a</span><span class="o">*</span><span class="nv">x</span><span class="p">[</span><span class="nv">t</span><span class="err"> </span><span class="o">-</span><span class="err"> </span><span class="mi">1</span><span class="p">],</span><span class="err"> </span><span class="mi">4</span><span class="o">.</span><span class="mi">0</span><span class="p">);</span>
-<span class="err">  </span><span class="nv">y</span><span class="p">[</span><span class="nv">t</span><span class="p">]</span><span class="err"> </span><span class="o">~</span><span class="err"> </span><span class="nf">Gaussian</span><span class="p">(</span><span class="nv">b</span><span class="o">*</span><span class="nv">x</span><span class="p">[</span><span class="nv">t</span><span class="p">],</span><span class="err"> </span><span class="mi">1</span><span class="o">.</span><span class="mi">0</span><span class="p">);</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code>x[1] ~ Gaussian(0.0, 4.0);
+y[1] ~ Gaussian(b*x[1], 1.0);
+for t in 2..4 {
+  x[t] ~ Gaussian(a*x[t - 1], 4.0);
+  y[t] ~ Gaussian(b*x[t], 1.0);
+}
 </code></pre></div>
 mathematically as:
 $$

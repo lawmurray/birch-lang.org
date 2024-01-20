@@ -1467,18 +1467,18 @@ $$</p>
 <p>Automatic marginalization is supported for standard conjugate forms, linear transformations, and sums and differences of discrete random variables.</p>
 </div>
 <p>A random variable is trivially marginalized out whenever it does not yet have a value, but has a distribution associated with it via the assume (<code>~</code>) operator. This is trivial because, unless that random variable is subsequently used, it will never be simulated, and so is marginalized out. More interesting are situations where a random variable is used, but it still remains marginalized out. Consider:
-<div class="highlight"><pre><span></span><code><span class="nv">x</span><span class="err"> </span><span class="o">~</span><span class="err"> </span><span class="nf">Beta</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="err"> </span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="p">);</span>
-<span class="nv">y</span><span class="err"> </span><span class="o">&lt;~</span><span class="err"> </span><span class="nf">Bernoulli</span><span class="p">(</span><span class="nv">x</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code>x ~ Beta(2,0, 2.0);
+y &lt;~ Bernoulli(x);
 </code></pre></div>
 Here, <code>x</code> can be marginalized out and <code>y</code> simulated from its marginal distribution, as the <a href="https://docs.birch.sh/libraries/Standard/classes/BetaBernoulliDistribution">beta-Bernoulli</a> form of the joint distribution between <code>x</code> and <code>y</code> is recognized. Specifically, the code defines $p(\mathrm{d}x,\mathrm{d}y) = p(\mathrm{d}x) p(\mathrm{d}y\mid x)$, and from this, automatic marginalization computes $p(\mathrm{d}y)$, a beta-Bernoulli distribution, which was not explicitly defined.</p>
 <p>Similarly, we could use:
-<div class="highlight"><pre><span></span><code><span class="nv">x</span><span class="err"> </span><span class="o">~</span><span class="err"> </span><span class="nf">Gamma</span><span class="p">(</span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="p">,</span><span class="err"> </span><span class="mi">1</span><span class="o">.</span><span class="mi">0</span><span class="p">);</span>
-<span class="nv">y</span><span class="err"> </span><span class="o">&lt;~</span><span class="err"> </span><span class="nf">Poisson</span><span class="p">(</span><span class="nv">x</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code>x ~ Gamma(2.0, 1.0);
+y &lt;~ Poisson(x);
 </code></pre></div>
 because the <a href="https://docs.birch.sh/libraries/Standard/classes/GammaPoissonDistribution">gamma-Poisson</a> form is recognized, or:
-<div class="highlight"><pre><span></span><code><span class="nv">x</span><span class="err"> </span><span class="o">~</span><span class="err"> </span><span class="nf">Gaussian</span><span class="p">(</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="p">,</span><span class="err"> </span><span class="mi">4</span><span class="o">.</span><span class="mi">0</span><span class="p">);</span>
-<span class="nv">y</span><span class="err"> </span><span class="o">~</span><span class="err"> </span><span class="nf">Gaussian</span><span class="p">(</span><span class="nv">x</span><span class="p">,</span><span class="err"> </span><span class="mi">4</span><span class="o">.</span><span class="mi">0</span><span class="p">);</span>
-<span class="nv">z</span><span class="err"> </span><span class="o">&lt;~</span><span class="err"> </span><span class="nf">Gaussian</span><span class="p">(</span><span class="nv">y</span><span class="p">,</span><span class="err"> </span><span class="mi">4</span><span class="o">.</span><span class="mi">0</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code>x ~ Gaussian(0.0, 4.0);
+y ~ Gaussian(x, 4.0);
+z &lt;~ Gaussian(y, 4.0);
 </code></pre></div>
 because chains of Gaussians are recognized. In this latter case, both <code>x</code> and <code>y</code> can be marginalized out.</p>
 

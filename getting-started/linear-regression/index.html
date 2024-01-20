@@ -1576,41 +1576,41 @@ $$
 The parameters of the model are the noise variance $\sigma^2$ and vector of coefficients $\boldsymbol{\beta}$. The data consists of labels (alternatively: outcomes, dependent variables) in the vector $\mathbf{y}$ and features (alternatively: predictors, covariates, explanatory variables, independent variables) in the matrix $\mathbf{X}$, where each row corresponds to an observation and each column to a feature.</p>
 <h2 id="implementation">Implementation</h2>
 <p>To specify a model in Birch, we create a <a href="/language/classes">class</a> that inherits from <a href="https://docs.birch.sh/libraries/Standard/classes/Model">Model</a>. Use your preferred text editor to create a file <code>src/LinearRegressionModel.birch</code> and enter the following contents:</p>
-<div class="highlight"><pre><span></span><code><span class="cm">/**</span>
-<span class="cm"> * Bayesian linear regression model with conjugate normal-inverse-gamma</span>
-<span class="cm"> * prior.</span>
-<span class="cm"> */</span>
-<span class="kd">class</span><span class="err"> </span><span class="kt">LinearRegressionModel</span><span class="err"> </span><span class="o">&lt;</span><span class="err"> </span><span class="kt">Model</span><span class="err"> </span><span class="p">{</span>
-<span class="err">  </span><span class="cm">/**</span>
-<span class="cm">   * Explanatory variables.</span>
-<span class="cm">   */</span>
-<span class="err">  </span><span class="nv">X</span><span class="p">:</span><span class="kt">Real</span><span class="p">[</span><span class="m">_</span><span class="p">,</span><span class="m">_</span><span class="p">];</span>
+<div class="highlight"><pre><span></span><code>/**
+ * Bayesian linear regression model with conjugate normal-inverse-gamma
+ * prior.
+ */
+class LinearRegressionModel &lt; Model {
+  /**
+   * Explanatory variables.
+   */
+  X:Real[_,_];
 
-<span class="err">  </span><span class="cm">/**</span>
-<span class="cm">   * Regression coefficients.</span>
-<span class="cm">   */</span>
-<span class="err">  </span><span class="nv">β</span><span class="p">:</span><span class="kt">Random</span><span class="o">&lt;</span><span class="kt">Real</span><span class="p">[</span><span class="m">_</span><span class="p">]</span><span class="o">&gt;</span><span class="p">;</span>
+  /**
+   * Regression coefficients.
+   */
+  β:Random&lt;Real[_]&gt;;
 
-<span class="err">  </span><span class="cm">/**</span>
-<span class="cm">   * Observation variance.</span>
-<span class="cm">   */</span>
-<span class="err">  </span><span class="nv">σ2</span><span class="p">:</span><span class="kt">Random</span><span class="o">&lt;</span><span class="kt">Real</span><span class="o">&gt;</span><span class="p">;</span>
+  /**
+   * Observation variance.
+   */
+  σ2:Random&lt;Real&gt;;
 
-<span class="err">  </span><span class="cm">/**</span>
-<span class="cm">   * Observations.</span>
-<span class="cm">   */</span>
-<span class="err">  </span><span class="nv">y</span><span class="p">:</span><span class="kt">Random</span><span class="o">&lt;</span><span class="kt">Real</span><span class="p">[</span><span class="m">_</span><span class="p">]</span><span class="o">&gt;</span><span class="p">;</span>
+  /**
+   * Observations.
+   */
+  y:Random&lt;Real[_]&gt;;
 
-<span class="err">  </span><span class="kd">override</span><span class="err"> </span><span class="kd">function</span><span class="err"> </span><span class="nf">simulate</span><span class="p">()</span><span class="err"> </span><span class="p">{</span>
-<span class="err">    </span><span class="kd">let</span><span class="err"> </span><span class="nv">N</span><span class="err"> </span><span class="o">&lt;-</span><span class="err"> </span><span class="nf">rows</span><span class="p">(</span><span class="nv">X</span><span class="p">);</span>
-<span class="err">    </span><span class="kd">let</span><span class="err"> </span><span class="nv">P</span><span class="err"> </span><span class="o">&lt;-</span><span class="err"> </span><span class="nf">columns</span><span class="p">(</span><span class="nv">X</span><span class="p">);</span>
-<span class="err">    </span><span class="kd">if</span><span class="err"> </span><span class="nv">N</span><span class="err"> </span><span class="o">&gt;</span><span class="err"> </span><span class="mi">0</span><span class="err"> </span><span class="o">&amp;&amp;</span><span class="err"> </span><span class="nv">P</span><span class="err"> </span><span class="o">&gt;</span><span class="err"> </span><span class="mi">0</span><span class="err"> </span><span class="p">{</span>
-<span class="err">      </span><span class="nv">σ2</span><span class="err"> </span><span class="o">~</span><span class="err"> </span><span class="nf">InverseGamma</span><span class="p">(</span><span class="mi">3</span><span class="o">.</span><span class="mi">0</span><span class="p">,</span><span class="err"> </span><span class="mi">0</span><span class="o">.</span><span class="mi">4</span><span class="p">);</span>
-<span class="err">      </span><span class="nv">β</span><span class="err"> </span><span class="o">~</span><span class="err"> </span><span class="nf">MultivariateGaussian</span><span class="p">(</span><span class="nf">vector</span><span class="p">(</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="p">,</span><span class="err"> </span><span class="nv">P</span><span class="p">),</span><span class="err"> </span><span class="nf">identity</span><span class="p">(</span><span class="nv">P</span><span class="p">)</span><span class="o">*</span><span class="nv">σ2</span><span class="p">);</span>
-<span class="err">      </span><span class="nv">y</span><span class="err"> </span><span class="o">~</span><span class="err"> </span><span class="nf">MultivariateGaussian</span><span class="p">(</span><span class="nv">X</span><span class="o">*</span><span class="nv">β</span><span class="p">,</span><span class="err"> </span><span class="nf">identity</span><span class="p">(</span><span class="nv">N</span><span class="p">)</span><span class="o">*</span><span class="nv">σ2</span><span class="p">);</span>
-<span class="err">    </span><span class="p">}</span>
-<span class="err">  </span><span class="p">}</span>
-<span class="p">}</span>
+  override function simulate() {
+    let N &lt;- rows(X);
+    let P &lt;- columns(X);
+    if N &gt; 0 &amp;&amp; P &gt; 0 {
+      σ2 ~ InverseGamma(3.0, 0.4);
+      β ~ MultivariateGaussian(vector(0.0, P), identity(P)*σ2);
+      y ~ MultivariateGaussian(X*β, identity(N)*σ2);
+    }
+  }
+}
 </code></pre></div>
 <p>The features $X$ (the $\mathbf{x}_n$, as a matrix), observations $y$ ($y_n$, as a vector) and parameters $\beta$ and $\sigma^2$ have been declared as <em>member variables</em> of the class. <a href="/language/variables">Variables</a> in Birch are typed. We see here a few different types:</p>
 <ul>
@@ -1647,15 +1647,15 @@ The parameters of the model are the noise variance $\sigma^2$ and vector of coef
 <p>For now, have a look at the contents of the file (<code>less input/bike_share.json</code> and hit <code>q</code> when you&rsquo;ve seen enough). It contains two variables: a matrix <code>X</code> and a vector <code>y</code>. We need to read these into the model.</p>
 <p>Recall that, in defining the <code>LinearRegressionModel</code> class, we overrode the <code>simulate()</code> member function of the <code>Model</code> class. The <code>Model</code> class also has two other member functions: <code>read(buffer:Buffer)</code> and <code>write(buffer:Buffer)</code>. We override these to read and write data.</p>
 <p>Add the following two member functions after the <code>simulate()</code> member function in the <code>LinearRegressionModel</code> class:</p>
-<div class="highlight"><pre><span></span><code><span class="err">    </span><span class="kd">override</span><span class="err"> </span><span class="kd">function</span><span class="err"> </span><span class="nf">read</span><span class="p">(</span><span class="nv">buffer</span><span class="p">:</span><span class="kt">Buffer</span><span class="p">)</span><span class="err"> </span><span class="p">{</span>
-<span class="err">      </span><span class="nv">X</span><span class="err"> </span><span class="o">&lt;-?</span><span class="err"> </span><span class="nv">buffer</span><span class="o">.</span><span class="nv">get</span><span class="o">&lt;</span><span class="kt">Real</span><span class="p">[</span><span class="m">_</span><span class="p">,</span><span class="m">_</span><span class="p">]</span><span class="o">&gt;</span><span class="p">(</span><span class="s2">&quot;X&quot;</span><span class="p">);</span>
-<span class="err">      </span><span class="nv">y</span><span class="err"> </span><span class="o">&lt;-?</span><span class="err"> </span><span class="nv">buffer</span><span class="o">.</span><span class="nv">get</span><span class="o">&lt;</span><span class="kt">Real</span><span class="p">[</span><span class="m">_</span><span class="p">]</span><span class="o">&gt;</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">);</span>
-<span class="err">    </span><span class="p">}</span>
+<div class="highlight"><pre><span></span><code>    override function read(buffer:Buffer) {
+      X &lt;-? buffer.get&lt;Real[_,_]&gt;(&quot;X&quot;);
+      y &lt;-? buffer.get&lt;Real[_]&gt;(&quot;y&quot;);
+    }
 
-<span class="err">    </span><span class="kd">override</span><span class="err"> </span><span class="kd">function</span><span class="err"> </span><span class="nf">write</span><span class="p">(</span><span class="nv">buffer</span><span class="p">:</span><span class="kt">Buffer</span><span class="p">)</span><span class="err"> </span><span class="p">{</span>
-<span class="err">      </span><span class="nv">buffer</span><span class="o">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;β&quot;</span><span class="p">,</span><span class="err"> </span><span class="nv">β</span><span class="p">);</span>
-<span class="err">      </span><span class="nv">buffer</span><span class="o">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;σ2&quot;</span><span class="p">,</span><span class="err"> </span><span class="nv">σ2</span><span class="p">);</span>
-<span class="err">    </span><span class="p">}</span>
+    override function write(buffer:Buffer) {
+      buffer.set(&quot;β&quot;, β);
+      buffer.set(&quot;σ2&quot;, σ2);
+    }
 </code></pre></div>
 <p>The <a href="https://docs.birch.sh/libraries/Standard/classes/Buffer">Buffer</a> class provides the interface for easily reading and writing files. Its basic interface provides <code>get</code> functions for reading, and <code>set</code> functions for writing, usually with key-value pairs.</p>
 <p>The <code>write(buffer:Buffer)</code> member function is the simpler of the two. It writes the parameters to the output file using <code>set</code> function calls. The first argument of each call is the key to write, and the second the value.</p>
@@ -1679,14 +1679,14 @@ The parameters of the model are the noise variance $\sigma^2$ and vector of coef
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>We have already noted that this particular example has an analytical solution. We can, in fact, output this solution if preferred. To do so, update the <code>write()</code> member function as follows, then re-build and re-run:</p>
-<div class="highlight"><pre><span></span><code><span class="err">    </span><span class="kd">override</span><span class="err"> </span><span class="kd">function</span><span class="err"> </span><span class="nf">write</span><span class="p">(</span><span class="nv">buffer</span><span class="p">:</span><span class="kt">Buffer</span><span class="p">)</span><span class="err"> </span><span class="p">{</span>
-<span class="err">      </span><span class="kd">if</span><span class="err"> </span><span class="nv">β</span><span class="o">.</span><span class="nf">hasDistribution</span><span class="p">()</span><span class="err"> </span><span class="p">{</span>
-<span class="err">        </span><span class="nv">buffer</span><span class="o">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;β&quot;</span><span class="p">,</span><span class="err"> </span><span class="nv">β</span><span class="o">.</span><span class="nf">getDistribution</span><span class="p">());</span>
-<span class="err">      </span><span class="p">}</span><span class="err"> </span><span class="kd">else</span><span class="err"> </span><span class="p">{</span>
-<span class="err">        </span><span class="nv">buffer</span><span class="o">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;β&quot;</span><span class="p">,</span><span class="err"> </span><span class="nv">β</span><span class="p">);</span>
-<span class="err">        </span><span class="nv">buffer</span><span class="o">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">&quot;σ2&quot;</span><span class="p">,</span><span class="err"> </span><span class="nv">σ2</span><span class="p">);</span>
-<span class="err">      </span><span class="p">}</span>
-<span class="err">    </span><span class="p">}</span>
+<div class="highlight"><pre><span></span><code>    override function write(buffer:Buffer) {
+      if β.hasDistribution() {
+        buffer.set(&quot;β&quot;, β.getDistribution());
+      } else {
+        buffer.set(&quot;β&quot;, β);
+        buffer.set(&quot;σ2&quot;, σ2);
+      }
+    }
 </code></pre></div>
 </div>
 <div class="admonition tip">

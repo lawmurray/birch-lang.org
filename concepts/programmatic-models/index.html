@@ -1455,13 +1455,13 @@
 <h1 id="programmatic-models">Programmatic models</h1>
 <p>Much like a graphical model is a probabilistic model expressed in a graphical language, a programmatic model is a probabilistic model expressed in a programming language. A key feature of programmatic models is that random variables can influence control flow of the program. This is referred to as <em>stochastic branching</em>.</p>
 <p>Consider a spike-and-slab model, as might be used to predict rainfall: with some probability it does not rain at all, otherwise it does rain, and the number of millimetres ($r$) might be gamma-distributed, dependent on the temperature ($t$):
-<div class="highlight"><pre><span></span><code><span class="nv">t</span><span class="err"> </span><span class="o">&lt;~</span><span class="err"> </span><span class="nf">Gaussian</span><span class="p">(</span><span class="mi">25</span><span class="o">.</span><span class="mi">0</span><span class="p">,</span><span class="err"> </span><span class="mi">4</span><span class="o">.</span><span class="mi">0</span><span class="p">);</span>
-<span class="nv">c</span><span class="err"> </span><span class="o">&lt;~</span><span class="err"> </span><span class="nf">Bernoulli</span><span class="p">(</span><span class="mi">0</span><span class="o">.</span><span class="mi">9</span><span class="p">);</span>
-<span class="kd">if</span><span class="err"> </span><span class="o">!</span><span class="nv">c</span><span class="err"> </span><span class="p">{</span>
-<span class="err">  </span><span class="nv">r</span><span class="err"> </span><span class="o">&lt;-</span><span class="err"> </span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span><span class="err"> </span><span class="kd">else</span><span class="err"> </span><span class="p">{</span>
-<span class="err">  </span><span class="nv">r</span><span class="err"> </span><span class="o">&lt;~</span><span class="err"> </span><span class="nf">Gamma</span><span class="p">(</span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="p">,</span><span class="err"> </span><span class="mi">5</span><span class="o">.</span><span class="mi">0</span><span class="err"> </span><span class="o">+</span><span class="err"> </span><span class="nv">t</span><span class="o">/</span><span class="mi">25</span><span class="o">.</span><span class="mi">0</span><span class="p">);</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code>t &lt;~ Gaussian(25.0, 4.0);
+c &lt;~ Bernoulli(0.9);
+if !c {
+  r &lt;- 0.0;
+} else {
+  r &lt;~ Gamma(2.0, 5.0 + t/25.0);
+}
 </code></pre></div>
 The random variable <code>c</code> affects the control flow of the program. Each time the program is run a random choice is made as to which branch of the <code>if</code> statement is taken. If the true branch is taken, <code>r</code> does not depend on <code>t</code>, otherwise <code>r</code> does depend on <code>t</code>. We can represent the model mathematically as:
 $$
@@ -1478,36 +1478,36 @@ and graphically as:
       '-'</div>
 But there is some information lost in these representations: they do not indicate that the variable <code>c</code> affects control flow, and in doing so actually mediates whether or not an edge occurs between <code>t</code> and <code>r</code>. Instead, this relationship will need to be encoded in the conditional distribution $p(\mathrm{d}r \mid t, c)$.</p>
 <p>An <code>if</code> statement may have significant deviation between branches. Consider a model selection task:
-<div class="highlight"><pre><span></span><code><span class="nv">c</span><span class="err"> </span><span class="o">&lt;~</span><span class="err"> </span><span class="nf">Bernoulli</span><span class="p">(</span><span class="mi">0</span><span class="o">.</span><span class="mi">5</span><span class="p">);</span>
-<span class="kd">if</span><span class="err"> </span><span class="nv">c</span><span class="err"> </span><span class="p">{</span>
-<span class="err">  </span><span class="c c-Singleline">// run model A</span>
-<span class="p">}</span><span class="err"> </span><span class="kd">else</span><span class="err"> </span><span class="p">{</span>
-<span class="err">  </span><span class="c c-Singleline">// run model B</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code>c &lt;~ Bernoulli(0.5);
+if c {
+  // run model A
+} else {
+  // run model B
+}
 </code></pre></div>
 The two models could involve very different sets of random variables and dependencies between them, i.e. different graphical models.</p>
 <p>Loops can also exhibit stochastic branching. Consider enumerating the components of a Gaussian mixture model with a random number of components:
-<div class="highlight"><pre><span></span><code><span class="nv">K</span><span class="err"> </span><span class="o">&lt;~</span><span class="err"> </span><span class="nf">Geometric</span><span class="p">(</span><span class="mi">0</span><span class="o">.</span><span class="mi">25</span><span class="p">);</span>
-<span class="kd">for</span><span class="err"> </span><span class="nv">k</span><span class="err"> </span><span class="kd">in</span><span class="err"> </span><span class="mi">1</span><span class="o">..</span><span class="nv">K</span><span class="err"> </span><span class="p">{</span>
-<span class="err">  </span><span class="nv">σ2</span><span class="p">[</span><span class="nv">k</span><span class="p">]</span><span class="err"> </span><span class="o">~</span><span class="err"> </span><span class="nf">InverseGamma</span><span class="p">(</span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="p">,</span><span class="err"> </span><span class="mi">5</span><span class="o">.</span><span class="mi">0</span><span class="p">);</span>
-<span class="err">  </span><span class="nv">μ</span><span class="p">[</span><span class="nv">k</span><span class="p">]</span><span class="err"> </span><span class="o">~</span><span class="err"> </span><span class="nf">Gaussian</span><span class="p">(</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="p">,</span><span class="err"> </span><span class="mi">0</span><span class="o">.</span><span class="mi">1</span><span class="o">*</span><span class="nv">σ2</span><span class="p">);</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code>K &lt;~ Geometric(0.25);
+for k in 1..K {
+  σ2[k] ~ InverseGamma(2.0, 5.0);
+  μ[k] ~ Gaussian(0.0, 0.1*σ2);
+}
 </code></pre></div>
 The random variable <code>K</code> affects the control flow of the program. Each time the program is run, the <code>for</code> loop iterates a random number of times.</p>
 <p>Finally, consider a population model of an animal species, simulated with the Gillespie algorithm, where a random number of birth or death events occur in any given time interval:
-<div class="highlight"><pre><span></span><code><span class="nv">T</span><span class="err"> </span><span class="o">&lt;-</span><span class="err"> </span><span class="mi">10</span><span class="o">.</span><span class="mi">0</span><span class="p">;</span><span class="err">  </span><span class="c c-Singleline">// end time</span>
-<span class="nv">x</span><span class="err"> </span><span class="o">&lt;-</span><span class="err"> </span><span class="mi">100</span><span class="p">;</span><span class="err">  </span><span class="c c-Singleline">// starting population</span>
-<span class="nv">t</span><span class="err"> </span><span class="o">&lt;~</span><span class="err"> </span><span class="nf">Exponential</span><span class="p">(</span><span class="mi">1</span><span class="o">.</span><span class="mi">0</span><span class="p">);</span><span class="err">  </span><span class="c c-Singleline">// time of first event</span>
-<span class="kd">while</span><span class="err"> </span><span class="nv">t</span><span class="err"> </span><span class="o">&lt;</span><span class="err"> </span><span class="nv">T</span><span class="err"> </span><span class="p">{</span>
-<span class="err">  </span><span class="nv">b</span><span class="err"> </span><span class="o">&lt;~</span><span class="err"> </span><span class="nf">Bernoulli</span><span class="p">(</span><span class="mi">0</span><span class="o">.</span><span class="mi">5</span><span class="p">);</span>
-<span class="err">  </span><span class="kd">if</span><span class="err"> </span><span class="nv">b</span><span class="err"> </span><span class="p">{</span>
-<span class="err">    </span><span class="nv">x</span><span class="err"> </span><span class="o">&lt;-</span><span class="err"> </span><span class="nv">x</span><span class="err"> </span><span class="o">+</span><span class="err"> </span><span class="mi">1</span><span class="p">;</span><span class="err">  </span><span class="c c-Singleline">// birth event</span>
-<span class="err">  </span><span class="p">}</span><span class="err"> </span><span class="kd">else</span><span class="err"> </span><span class="p">{</span>
-<span class="err">    </span><span class="nv">x</span><span class="err"> </span><span class="o">&lt;-</span><span class="err"> </span><span class="nv">x</span><span class="err"> </span><span class="o">-</span><span class="err"> </span><span class="mi">1</span><span class="p">;</span><span class="err">  </span><span class="c c-Singleline">// death event</span>
-<span class="err">  </span><span class="p">}</span>
-<span class="err">  </span><span class="nv">Δ</span><span class="err"> </span><span class="o">&lt;~</span><span class="err"> </span><span class="nf">Exponential</span><span class="p">(</span><span class="mi">1</span><span class="o">.</span><span class="mi">0</span><span class="p">);</span><span class="err">  </span><span class="c c-Singleline">// time to next event</span>
-<span class="err">  </span><span class="nv">t</span><span class="err"> </span><span class="o">&lt;-</span><span class="err"> </span><span class="nv">t</span><span class="err"> </span><span class="o">+</span><span class="err"> </span><span class="nv">Δ</span><span class="p">;</span><span class="err">  </span><span class="c c-Singleline">// time of next event</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code>T &lt;- 10.0;  // end time
+x &lt;- 100;  // starting population
+t &lt;~ Exponential(1.0);  // time of first event
+while t &lt; T {
+  b &lt;~ Bernoulli(0.5);
+  if b {
+    x &lt;- x + 1;  // birth event
+  } else {
+    x &lt;- x - 1;  // death event
+  }
+  Δ &lt;~ Exponential(1.0);  // time to next event
+  t &lt;- t + Δ;  // time of next event
+}
 </code></pre></div>
 Here, the <code>while</code> loop executes a random number of times, until the <code>t &lt; T</code> condition fails.</p>
 <div class="admonition tip">
