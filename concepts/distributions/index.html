@@ -264,7 +264,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="https://docs.birch.sh" class="md-tabs__link">
+        <a href="https://docs.birch-lang.org" class="md-tabs__link">
           
   
   Reference Docs
@@ -1305,11 +1305,11 @@
   
   
     <li class="md-nav__item">
-      <a href="https://docs.birch.sh" class="md-nav__link">
+      <a href="https://docs.birch-lang.org" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    docs.birch.sh
+    docs.birch-lang.org
   </span>
   
 
@@ -1483,23 +1483,23 @@
 <p class="admonition-title">Tip</p>
 <p>You may recognize the notation $p(\mathrm{d}x)$ from measure theory. We will not adopt measure-theoretic terms otherwise, but find the notation useful.</p>
 </div>
-<p>In Birch code, a distribution is represented by an object of the <a href="https://docs.birch.sh/libraries/Standard/classes/Distribution">Distribution</a> class. This is a generic class: we use it as <code>Distribution&lt;X&gt;</code>, where <code>X</code> is the domain of the distribution, e.g. <code>Distribution&lt;Real&gt;</code> (over $\mathbb{R}$), 
-<code>Distribution&lt;Integer&gt;</code> (over $\mathbb{Z}$), <code>Real[_]</code> (over $\mathbb{R}^D$), etc. However, we do not usually use <code>Distribution&lt;X&gt;</code> directly. Instead we use one of its derived classes, such as <a href="https://docs.birch.sh/libraries/Standard/classes/GaussianDistribution">GaussianDistribution</a>, <a href="https://docs.birch.sh/libraries/Standard/classes/GammaDistribution">GammaDistribution</a>, <a href="https://docs.birch.sh/libraries/Standard/classes/BetaDistribution">BetaDistribution</a>, <a href="https://docs.birch.sh/libraries/Standard/classes/UniformDistribution">UniformDistribution</a>. The idiom is to use a function for the particular distribution of interest in combination with a probabilistic operator. For example, we can simulate from a distribution with the <em>simulate</em> operator (<code>&lt;~</code>):
-<div class="highlight"><pre><span></span><code>x:Real;
-x &lt;~ Gaussian(0.0, 4.0);
+<p>In Birch code, a distribution is represented by an object of the <a href="https://docs.birch-lang.org/libraries/Standard/classes/Distribution">Distribution</a> class. This is a generic class: we use it as <code>Distribution&lt;X&gt;</code>, where <code>X</code> is the domain of the distribution, e.g. <code>Distribution&lt;Real&gt;</code> (over $\mathbb{R}$), 
+<code>Distribution&lt;Integer&gt;</code> (over $\mathbb{Z}$), <code>Real[_]</code> (over $\mathbb{R}^D$), etc. However, we do not usually use <code>Distribution&lt;X&gt;</code> directly. Instead we use one of its derived classes, such as <a href="https://docs.birch-lang.org/libraries/Standard/classes/GaussianDistribution">GaussianDistribution</a>, <a href="https://docs.birch-lang.org/libraries/Standard/classes/GammaDistribution">GammaDistribution</a>, <a href="https://docs.birch-lang.org/libraries/Standard/classes/BetaDistribution">BetaDistribution</a>, <a href="https://docs.birch-lang.org/libraries/Standard/classes/UniformDistribution">UniformDistribution</a>. The idiom is to use a function for the particular distribution of interest in combination with a probabilistic operator. For example, we can simulate from a distribution with the <em>simulate</em> operator (<code>&lt;~</code>):
+<div class="highlight"><pre><span></span><code><span class="nv">x</span><span class="p">:</span><span class="kt">Real</span><span class="p">;</span>
+<span class="nv">x</span><span class="err"> </span><span class="o">&lt;~</span><span class="err"> </span><span class="nf">Gaussian</span><span class="p">(</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="p">,</span><span class="err"> </span><span class="mi">4</span><span class="o">.</span><span class="mi">0</span><span class="p">);</span>
 </code></pre></div></p>
-<p>The function <a href="https://docs.birch.sh/libraries/Standard/functions/Gaussian">Gaussian</a> creates an object of class <code>GaussianDistirbution</code>, which derives from class <code>Distribution&lt;Real&gt;</code>. The <code>&lt;~</code> operator then simulates a variate from it, and assigns the value of that variate to the variable <code>x</code>. We can instead use code such as the following:
-<div class="highlight"><pre><span></span><code>x:Real;
-p:Distribution&lt;Real&gt; &lt;- Gaussian(0.0, 4.0);
-x &lt;~ p;
+<p>The function <a href="https://docs.birch-lang.org/libraries/Standard/functions/Gaussian">Gaussian</a> creates an object of class <code>GaussianDistirbution</code>, which derives from class <code>Distribution&lt;Real&gt;</code>. The <code>&lt;~</code> operator then simulates a variate from it, and assigns the value of that variate to the variable <code>x</code>. We can instead use code such as the following:
+<div class="highlight"><pre><span></span><code><span class="nv">x</span><span class="p">:</span><span class="kt">Real</span><span class="p">;</span>
+<span class="nv">p</span><span class="p">:</span><span class="kt">Distribution</span><span class="o">&lt;</span><span class="kt">Real</span><span class="o">&gt;</span><span class="err"> </span><span class="o">&lt;-</span><span class="err"> </span><span class="nf">Gaussian</span><span class="p">(</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="p">,</span><span class="err"> </span><span class="mi">4</span><span class="o">.</span><span class="mi">0</span><span class="p">);</span>
+<span class="nv">x</span><span class="err"> </span><span class="o">&lt;~</span><span class="err"> </span><span class="nv">p</span><span class="p">;</span>
 </code></pre></div>
 which works, and is perfectly correct, just not idiomatic.</p>
 <p>We can observe a variate with the <em>observe</em> operator (<code>~&gt;</code>). For example, to observe a variate of value <code>1.5823</code> from a Gaussian distribution with mean <code>0.0</code> and variance <code>4.0</code>:
-<div class="highlight"><pre><span></span><code>1.5823 ~&gt; Gaussian(0.0, 4.0);
+<div class="highlight"><pre><span></span><code><span class="mi">1</span><span class="o">.</span><span class="mi">5823</span><span class="err"> </span><span class="o">~&gt;</span><span class="err"> </span><span class="nf">Gaussian</span><span class="p">(</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="p">,</span><span class="err"> </span><span class="mi">4</span><span class="o">.</span><span class="mi">0</span><span class="p">);</span>
 </code></pre></div>
 Or we could, of course, assign the value to a variable first and use that:
-<div class="highlight"><pre><span></span><code>let x &lt;- 1.5823;
-x ~&gt; Gaussian(0.0, 4.0);
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="err"> </span><span class="nv">x</span><span class="err"> </span><span class="o">&lt;-</span><span class="err"> </span><span class="mi">1</span><span class="o">.</span><span class="mi">5823</span><span class="p">;</span>
+<span class="nv">x</span><span class="err"> </span><span class="o">~&gt;</span><span class="err"> </span><span class="nf">Gaussian</span><span class="p">(</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="p">,</span><span class="err"> </span><span class="mi">4</span><span class="o">.</span><span class="mi">0</span><span class="p">);</span>
 </code></pre></div></p>
 
 

@@ -264,7 +264,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="https://docs.birch.sh" class="md-tabs__link">
+        <a href="https://docs.birch-lang.org" class="md-tabs__link">
           
   
   Reference Docs
@@ -1305,11 +1305,11 @@
   
   
     <li class="md-nav__item">
-      <a href="https://docs.birch.sh" class="md-nav__link">
+      <a href="https://docs.birch-lang.org" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    docs.birch.sh
+    docs.birch-lang.org
   </span>
   
 
@@ -1468,27 +1468,27 @@
 </tr>
 </tbody>
 </table>
-<p>In Birch code, a random variable is represented by an object of the <a href="https://docs.birch.sh/libraries/Standard/classes/Random">Random</a> class. Like <code>Distribution</code>, <code>Random</code> is a generic class: we use it as <code>Random&lt;X&gt;</code>, where <code>X</code> is the type of variate it accepts, e.g. <code>Random&lt;Real&gt;</code> (on $\mathbb{R}$), <code>Random&lt;Integer&gt;</code> (on $\mathbb{Z}$), <code>Random&lt;Real[_]&gt;</code> (on $\mathbb{R}^D$), etc.</p>
+<p>In Birch code, a random variable is represented by an object of the <a href="https://docs.birch-lang.org/libraries/Standard/classes/Random">Random</a> class. Like <code>Distribution</code>, <code>Random</code> is a generic class: we use it as <code>Random&lt;X&gt;</code>, where <code>X</code> is the type of variate it accepts, e.g. <code>Random&lt;Real&gt;</code> (on $\mathbb{R}$), <code>Random&lt;Integer&gt;</code> (on $\mathbb{Z}$), <code>Random&lt;Real[_]&gt;</code> (on $\mathbb{R}^D$), etc.</p>
 <p>We can declare a random variable:
-<div class="highlight"><pre><span></span><code>x:Random&lt;Real&gt;;
+<div class="highlight"><pre><span></span><code><span class="nv">x</span><span class="p">:</span><span class="kt">Random</span><span class="o">&lt;</span><span class="kt">Real</span><span class="o">&gt;</span><span class="p">;</span>
 </code></pre></div>
 and assign a value into it:
-<div class="highlight"><pre><span></span><code>x &lt;- 1.5823;
+<div class="highlight"><pre><span></span><code><span class="nv">x</span><span class="err"> </span><span class="o">&lt;-</span><span class="err"> </span><span class="mi">1</span><span class="o">.</span><span class="mi">5823</span><span class="p">;</span>
 </code></pre></div>
 We can even simulate a value into it:
-<div class="highlight"><pre><span></span><code>x &lt;~ Gaussian(0.0, 4.0);
+<div class="highlight"><pre><span></span><code><span class="nv">x</span><span class="err"> </span><span class="o">&lt;~</span><span class="err"> </span><span class="nf">Gaussian</span><span class="p">(</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="p">,</span><span class="err"> </span><span class="mi">4</span><span class="o">.</span><span class="mi">0</span><span class="p">);</span>
 </code></pre></div></p>
 <p>It is only possible to assign or simulate a value once into a random variable, however. Once it has a value, it cannot be reassigned. We can get the value assigned to a random with <code>x.value()</code>, possibly while observing:
-<div class="highlight"><pre><span></span><code>x.value() ~&gt; Gaussian(0.0, 4.0);
+<div class="highlight"><pre><span></span><code><span class="nv">x</span><span class="o">.</span><span class="nf">value</span><span class="p">()</span><span class="err"> </span><span class="o">~&gt;</span><span class="err"> </span><span class="nf">Gaussian</span><span class="p">(</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="p">,</span><span class="err"> </span><span class="mi">4</span><span class="o">.</span><span class="mi">0</span><span class="p">);</span>
 </code></pre></div></p>
 <p>For these use cases, a <code>Random&lt;Real&gt;</code> object offers no real benefit over a basic <code>x:Real</code> value. Where it becomes more useful is in conjunction with the <em>assume</em> operator (<code>~</code>):
-<div class="highlight"><pre><span></span><code>x ~ Gaussian(0.0, 4.0);
+<div class="highlight"><pre><span></span><code><span class="nv">x</span><span class="err"> </span><span class="o">~</span><span class="err"> </span><span class="nf">Gaussian</span><span class="p">(</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="p">,</span><span class="err"> </span><span class="mi">4</span><span class="o">.</span><span class="mi">0</span><span class="p">);</span>
 </code></pre></div>
 The assume operator can also be used to represent joint distributions between random variables:
-<div class="highlight"><pre><span></span><code>x:Random&lt;Real&gt;;
-y:Random&lt;Boolean&gt;;
-x ~ Beta(2.0, 2.0);
-y ~ Bernoulli(x);
+<div class="highlight"><pre><span></span><code><span class="nv">x</span><span class="p">:</span><span class="kt">Random</span><span class="o">&lt;</span><span class="kt">Real</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="nv">y</span><span class="p">:</span><span class="kt">Random</span><span class="o">&lt;</span><span class="kt">Boolean</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="nv">x</span><span class="err"> </span><span class="o">~</span><span class="err"> </span><span class="nf">Beta</span><span class="p">(</span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="p">,</span><span class="err"> </span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="p">);</span>
+<span class="nv">y</span><span class="err"> </span><span class="o">~</span><span class="err"> </span><span class="nf">Bernoulli</span><span class="p">(</span><span class="nv">x</span><span class="p">);</span>
 </code></pre></div></p>
 <p><code>Random</code> objects, in combination with the assume operator (<code>~</code>), facilitate probabilistic computations such as automatic marginalization, conditioning and differentiation. We will return to such computations later.</p>
 

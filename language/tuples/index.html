@@ -259,7 +259,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="https://docs.birch.sh" class="md-tabs__link">
+        <a href="https://docs.birch-lang.org" class="md-tabs__link">
           
   
   Reference Docs
@@ -1298,11 +1298,11 @@
   
   
     <li class="md-nav__item">
-      <a href="https://docs.birch.sh" class="md-nav__link">
+      <a href="https://docs.birch-lang.org" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    docs.birch.sh
+    docs.birch-lang.org
   </span>
   
 
@@ -1439,21 +1439,21 @@
   <h1>Tuples</h1>
 
 <p>Tuples are tied using parentheses:
-<div class="highlight"><pre><span></span><code>(a, b, c)
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="nv">a</span><span class="p">,</span><span class="err"> </span><span class="nv">b</span><span class="p">,</span><span class="err"> </span><span class="nv">c</span><span class="p">)</span>
 </code></pre></div></p>
 <p>For <code>a:A</code>, <code>b:B</code>, and <code>c:C</code>, the type of such a tuple is <code>(A, B, C)</code>. It is not possible to declare variables of tuple type, but tuples may be used to return multiple values from a function:
-<div class="highlight"><pre><span></span><code>function f(x:X, y:Y) -&gt; (A, B, C) {
-  a:A;
-  b:B;
-  c:C;
-  return (a, b, c);
-}
+<div class="highlight"><pre><span></span><code><span class="kd">function</span><span class="err"> </span><span class="nf">f</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span><span class="kt">X</span><span class="p">,</span><span class="err"> </span><span class="nv">y</span><span class="p">:</span><span class="kt">Y</span><span class="p">)</span><span class="err"> </span><span class="o">-&gt;</span><span class="err"> </span><span class="p">(</span><span class="nv">A</span><span class="p">,</span><span class="err"> </span><span class="nv">B</span><span class="p">,</span><span class="err"> </span><span class="nv">C</span><span class="p">)</span><span class="err"> </span><span class="p">{</span>
+<span class="err">  </span><span class="nv">a</span><span class="p">:</span><span class="kt">A</span><span class="p">;</span>
+<span class="err">  </span><span class="nv">b</span><span class="p">:</span><span class="kt">B</span><span class="p">;</span>
+<span class="err">  </span><span class="nv">c</span><span class="p">:</span><span class="kt">C</span><span class="p">;</span>
+<span class="err">  </span><span class="kd">return</span><span class="err"> </span><span class="p">(</span><span class="nv">a</span><span class="p">,</span><span class="err"> </span><span class="nv">b</span><span class="p">,</span><span class="err"> </span><span class="nv">c</span><span class="p">);</span>
+<span class="p">}</span>
 </code></pre></div></p>
 <p>To untie a tuple, use parentheses on the left:
-<div class="highlight"><pre><span></span><code>a:A;
-b:B;
-c:C;
-(a, b, c) &lt;- f(x, y);
+<div class="highlight"><pre><span></span><code><span class="nv">a</span><span class="p">:</span><span class="kt">A</span><span class="p">;</span>
+<span class="nv">b</span><span class="p">:</span><span class="kt">B</span><span class="p">;</span>
+<span class="nv">c</span><span class="p">:</span><span class="kt">C</span><span class="p">;</span>
+<span class="p">(</span><span class="nv">a</span><span class="p">,</span><span class="err"> </span><span class="nv">b</span><span class="p">,</span><span class="err"> </span><span class="nv">c</span><span class="p">)</span><span class="err"> </span><span class="o">&lt;-</span><span class="err"> </span><span class="nf">f</span><span class="p">(</span><span class="nv">x</span><span class="p">,</span><span class="err"> </span><span class="nv">y</span><span class="p">);</span>
 </code></pre></div></p>
 
 

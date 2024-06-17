@@ -264,7 +264,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="https://docs.birch.sh" class="md-tabs__link">
+        <a href="https://docs.birch-lang.org" class="md-tabs__link">
           
   
   Reference Docs
@@ -1305,11 +1305,11 @@
   
   
     <li class="md-nav__item">
-      <a href="https://docs.birch.sh" class="md-nav__link">
+      <a href="https://docs.birch-lang.org" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    docs.birch.sh
+    docs.birch-lang.org
   </span>
   
 
@@ -1456,20 +1456,20 @@ That is, we <em>condition</em> on the value of $y$ to obtain the <em>conditional
 <p>Automatic conditioning is supported for the same relationships as for automatic marginalization: standard conjugate forms, linear transformations, and sums and differences of discrete random variables.</p>
 </div>
 <p>Consider:
-<div class="highlight"><pre><span></span><code>x ~ Gamma(2.0, 1.0);
-y ~ Poisson(x);
+<div class="highlight"><pre><span></span><code><span class="nv">x</span><span class="err"> </span><span class="o">~</span><span class="err"> </span><span class="nf">Gamma</span><span class="p">(</span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="p">,</span><span class="err"> </span><span class="mi">1</span><span class="o">.</span><span class="mi">0</span><span class="p">);</span>
+<span class="nv">y</span><span class="err"> </span><span class="o">~</span><span class="err"> </span><span class="nf">Poisson</span><span class="p">(</span><span class="nv">x</span><span class="p">);</span>
 </code></pre></div>
 Conditioning is triggered when <code>y</code> obtains a value. This can occur in several circumstances:</p>
 <ul>
-<li>If, in the above code, <code>y</code> already has a value, or if the second line is replaced with <code class="highlight">y ~&gt; Poisson(x);</code>, then the conditioning is triggered immediately.</li>
-<li>If, in the above code, <code>y</code> does not already have a value, but one is requested by replacing the second line with <code class="highlight">y &lt;~ Poisson(x);</code>, then the conditioning is triggered immediately.</li>
+<li>If, in the above code, <code>y</code> already has a value, or if the second line is replaced with <code class="highlight"><span class="nv">y</span><span class="err"> </span><span class="o">~&gt;</span><span class="err"> </span><span class="nf">Poisson</span><span class="p">(</span><span class="nv">x</span><span class="p">);</span></code>, then the conditioning is triggered immediately.</li>
+<li>If, in the above code, <code>y</code> does not already have a value, but one is requested by replacing the second line with <code class="highlight"><span class="nv">y</span><span class="err"> </span><span class="o">&lt;~</span><span class="err"> </span><span class="nf">Poisson</span><span class="p">(</span><span class="nv">x</span><span class="p">);</span></code>, then the conditioning is triggered immediately.</li>
 <li>If the above code remains the same, but <code>y.value()</code> is later used to obtain a value for <code>y</code>, then the conditioning is triggered at that time.</li>
 </ul>
 <p>In all of these cases <code>x</code> remains marginalized out, but the distribution associated with it is updated to the conditional distribution of <code>x</code> given <code>y</code>. If <code>x.value()</code> is later used to obtain a value for <code>x</code>, it will be drawn from that conditional distribution. In this way random variables are simulated consistently from the joint distribution.</p>
 <p>Conditioning can occur multiple times:
-<div class="highlight"><pre><span></span><code>x ~ Gamma(2.0, 1.0);
-y &lt;~ Poisson(x);
-z &lt;~ Poisson(x);
+<div class="highlight"><pre><span></span><code><span class="nv">x</span><span class="err"> </span><span class="o">~</span><span class="err"> </span><span class="nf">Gamma</span><span class="p">(</span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="p">,</span><span class="err"> </span><span class="mi">1</span><span class="o">.</span><span class="mi">0</span><span class="p">);</span>
+<span class="nv">y</span><span class="err"> </span><span class="o">&lt;~</span><span class="err"> </span><span class="nf">Poisson</span><span class="p">(</span><span class="nv">x</span><span class="p">);</span>
+<span class="nv">z</span><span class="err"> </span><span class="o">&lt;~</span><span class="err"> </span><span class="nf">Poisson</span><span class="p">(</span><span class="nv">x</span><span class="p">);</span>
 </code></pre></div>
 Here, the distribution associated with <code>x</code> is updated twice, to the conditional distribution given both <code>y</code> and <code>z</code>.</p>
 
