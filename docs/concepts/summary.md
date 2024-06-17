@@ -2,7 +2,7 @@
 
 We have introduced the building blocks of probabilistic modeling in Birch, with fundamental representations and computations including:
 
-* [Distribution](https://docs.birch.sh/libraries/Standard/classes/Distribution), [Random](https://docs.birch.sh/libraries/Standard/classes/Random), [Expression](https://docs.birch.sh/libraries/Standard/classes/Expression) and [Model](https://docs.birch.sh/libraries/Standard/classes/Model) objects,
+* [Distribution](https://docs.birch-lang.org/libraries/Standard/classes/Distribution), [Random](https://docs.birch-lang.org/libraries/Standard/classes/Random), [Expression](https://docs.birch-lang.org/libraries/Standard/classes/Expression) and [Model](https://docs.birch-lang.org/libraries/Standard/classes/Model) objects,
 
 * the simulate (`<~`), observe (`~>`) and assume (`~`) probabilistic operators,
 

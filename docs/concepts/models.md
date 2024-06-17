@@ -1,6 +1,6 @@
 # Models
 
-As already introduced in the [Getting Started](/getting-started/linear-regression) section, models are implemented by writing a class derived from [Model](https://docs.birch.sh/libraries/Standard/classes/Model) and overriding the member function `simulate()`. Optionally, it is also possible to override the member functions `size()` and `simulate(t:Integer)` so that the model unfolds incrementally over a number of epochs.
+As already introduced in the [Getting Started](/getting-started/linear-regression) section, models are implemented by writing a class derived from [Model](https://docs.birch-lang.org/libraries/Standard/classes/Model) and overriding the member function `simulate()`. Optionally, it is also possible to override the member functions `size()` and `simulate(t:Integer)` so that the model unfolds incrementally over a number of epochs.
 
 | Mathematical | Description | Programmatic |
 | ------------ | ----------- | ------------ |

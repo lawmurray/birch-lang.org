@@ -136,10 +136,10 @@ class SIRModel < Model {
 
 This code introduces a few new features:
 
-* The state histories `s`, `i` and `r` are stored in a container called [Tape](https://docs.birch.sh/libraries/Standard/classes/Tape/). This is a recursive data structure that works much like a list. It is commonly used for storing state histories as it works nicely with Birch's dynamic memory management, allowing objects to be shared between multiple instances of a model so as to significantly reduce memory use[^3].
+* The state histories `s`, `i` and `r` are stored in a container called [Tape](https://docs.birch-lang.org/libraries/Standard/classes/Tape/). This is a recursive data structure that works much like a list. It is commonly used for storing state histories as it works nicely with Birch's dynamic memory management, allowing objects to be shared between multiple instances of a model so as to significantly reduce memory use[^3].
 * The variables `n`, `τ`, `Δi` and `Δr` are declared as local variables in the `simulate(t:Integer)` function rather than as member variables of the `SIRModel` class. This choice is made because we do not intend to read them from a file, or write them to a file, so only need to keep them temporarily.
 
-The transition model associates `s`, `i` and `r` with [delta](https://docs.birch.sh/libraries/Standard/classes/DeltaDistribution/) distributions rather than simply assigning to them. The delta distribution is just a degenerate distribution on a single integer value. We might instead want to write:
+The transition model associates `s`, `i` and `r` with [delta](https://docs.birch-lang.org/libraries/Standard/classes/DeltaDistribution/) distributions rather than simply assigning to them. The delta distribution is just a degenerate distribution on a single integer value. We might instead want to write:
 
 ```birch
 i[t] <- i[t - 1] + Δi - Δr;

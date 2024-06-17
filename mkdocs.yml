@@ -88,7 +88,7 @@ nav:
     - language/casts.md
     - language/probability.md
   - 'Reference Docs':
-    - 'docs.birch.sh': 'https://docs.birch.sh'
+    - 'docs.birch-lang.org': 'https://docs.birch-lang.org'
   - 'Getting Involved':
     - getting-involved/index.md
   - about.md
