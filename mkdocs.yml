@@ -1,5 +1,5 @@
 site_name: Birch
-site_url: https://birch.sh
+site_url: https://birch-lang.org
 site_description: 'Birch is an open source probabilistic programming language that transpiles to C++. It features automatic differentiation, automatic marginalization, and automatic conditioning.'
 repo_url: https://github.com/lawmurray/Birch
 repo_name: lawmurray/Birch

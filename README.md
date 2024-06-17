@@ -1,4 +1,4 @@
-# birch.sh website
+# birch-lang.org website
 
 Currently requires a custom `pygments` package with Birch lexer. Install the Birch lexer with:
 
