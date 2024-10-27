@@ -23,22 +23,6 @@ Birch is open source software released under the [Apache License, Version 2.0](h
     sudo apt install birch
     ```
 
-??? info "Ubuntu 22.04 Jammy Jellyfish (amd64)"
-    ```
-    echo 'deb http://download.indii.org/deb jammy main' | sudo tee /etc/apt/sources.list.d/indii.org.list
-    curl -fsSL https://download.indii.org/deb/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/indii.org.gpg > /dev/null
-    sudo apt update
-    sudo apt install birch
-    ```
-
-??? info "Ubuntu 20.04 Focal Fossa (amd64)"
-    ```
-    echo 'deb http://download.indii.org/deb focal main' | sudo tee /etc/apt/sources.list.d/indii.org.list
-    curl -fsSL https://download.indii.org/deb/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/indii.org.gpg > /dev/null
-    sudo apt update
-    sudo apt install birch
-    ```
-
 ## :simple-debian: Debian
 
 ??? info "Debian 12 Bookworm (amd64)"
