@@ -49,14 +49,6 @@ Birch is open source software released under the [Apache License, Version 2.0](h
     sudo apt install birch
     ```
 
-??? info "Debian 11 Bullseye (amd64)"
-    ```
-    echo 'deb http://download.indii.org/deb bullseye main' | sudo tee /etc/apt/sources.list.d/indii.org.list
-    curl -fsSL https://download.indii.org/deb/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/indii.org.gpg > /dev/null
-    sudo apt update
-    sudo apt install birch
-    ```
-
 ## :fontawesome-brands-fedora: Fedora
 
 ??? info "Fedora 40 (x86_64)"
