@@ -3,191 +3,153 @@
     <url>
          <loc>https://birch-lang.org/</loc>
          <lastmod>2024-10-28</lastmod>
-         <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch-lang.org/about/</loc>
          <lastmod>2024-10-28</lastmod>
-         <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch-lang.org/concepts/</loc>
          <lastmod>2024-10-28</lastmod>
-         <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch-lang.org/concepts/automatic-conditioning/</loc>
          <lastmod>2024-10-28</lastmod>
-         <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch-lang.org/concepts/automatic-differentiation/</loc>
          <lastmod>2024-10-28</lastmod>
-         <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch-lang.org/concepts/automatic-marginalization/</loc>
          <lastmod>2024-10-28</lastmod>
-         <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch-lang.org/concepts/delayed-sampling/</loc>
          <lastmod>2024-10-28</lastmod>
-         <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch-lang.org/concepts/distributions/</loc>
          <lastmod>2024-10-28</lastmod>
-         <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch-lang.org/concepts/expressions/</loc>
          <lastmod>2024-10-28</lastmod>
-         <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch-lang.org/concepts/graphical-models/</loc>
          <lastmod>2024-10-28</lastmod>
-         <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch-lang.org/concepts/models/</loc>
          <lastmod>2024-10-28</lastmod>
-         <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch-lang.org/concepts/probabilistic-inference/</loc>
          <lastmod>2024-10-28</lastmod>
-         <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch-lang.org/concepts/programmatic-models/</loc>
          <lastmod>2024-10-28</lastmod>
-         <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch-lang.org/concepts/randoms/</loc>
          <lastmod>2024-10-28</lastmod>
-         <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch-lang.org/concepts/summary/</loc>
          <lastmod>2024-10-28</lastmod>
-         <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch-lang.org/getting-involved/</loc>
          <lastmod>2024-10-28</lastmod>
-         <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch-lang.org/getting-started/</loc>
          <lastmod>2024-10-28</lastmod>
-         <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch-lang.org/getting-started/hello-world/</loc>
          <lastmod>2024-10-28</lastmod>
-         <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch-lang.org/getting-started/linear-regression/</loc>
          <lastmod>2024-10-28</lastmod>
-         <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch-lang.org/getting-started/markov-model/</loc>
          <lastmod>2024-10-28</lastmod>
-         <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch-lang.org/getting-started/next-steps/</loc>
          <lastmod>2024-10-28</lastmod>
-         <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch-lang.org/language/</loc>
          <lastmod>2024-10-28</lastmod>
-         <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch-lang.org/language/aliases/</loc>
          <lastmod>2024-10-28</lastmod>
-         <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch-lang.org/language/arrays/</loc>
          <lastmod>2024-10-28</lastmod>
-         <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch-lang.org/language/assertions/</loc>
          <lastmod>2024-10-28</lastmod>
-         <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch-lang.org/language/assignments/</loc>
          <lastmod>2024-10-28</lastmod>
-         <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch-lang.org/language/casts/</loc>
          <lastmod>2024-10-28</lastmod>
-         <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch-lang.org/language/classes/</loc>
          <lastmod>2024-10-28</lastmod>
-         <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch-lang.org/language/control_flow/</loc>
          <lastmod>2024-10-28</lastmod>
-         <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch-lang.org/language/functions/</loc>
          <lastmod>2024-10-28</lastmod>
-         <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch-lang.org/language/lambdas/</loc>
          <lastmod>2024-10-28</lastmod>
-         <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch-lang.org/language/operators/</loc>
          <lastmod>2024-10-28</lastmod>
-         <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch-lang.org/language/optionals/</loc>
          <lastmod>2024-10-28</lastmod>
-         <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch-lang.org/language/probability/</loc>
          <lastmod>2024-10-28</lastmod>
-         <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch-lang.org/language/programs/</loc>
          <lastmod>2024-10-28</lastmod>
-         <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch-lang.org/language/tuples/</loc>
          <lastmod>2024-10-28</lastmod>
-         <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch-lang.org/language/types/</loc>
          <lastmod>2024-10-28</lastmod>
-         <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://birch-lang.org/language/variables/</loc>
          <lastmod>2024-10-28</lastmod>
-         <changefreq>daily</changefreq>
     </url>
 </urlset>
