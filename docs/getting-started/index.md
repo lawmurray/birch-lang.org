@@ -2,70 +2,20 @@
 
 Birch is open source software released under the [Apache License, Version 2.0](https://github.com/lawmurray/Birch/blob/master/LICENSE). It works on a wide variety of operating systems running on x86 and ARM architectures, as well as Nvidia GPUs. Follow the instructions below for your system, or [install from source](#others-install-from-source).
 
+## :fontawesome-brands-linux: Linux
+
+Install from the [software repository](https://download.indii.org), following the instructions provided there.
+
 !!! info
     To enable CUDA support, [install CUDA][cuda] separately and then the NumBirch CUDA backend, which comes as a package named `numbirch-cuda-dev` or `numbirch-cuda-devel` depending on your system.
 
-## :fontawesome-brands-ubuntu: Ubuntu
-
-??? info "Ubuntu 24.10 Oracular Oriole (amd64)"
-    ```
-    echo 'deb http://download.indii.org/deb oracular main' | sudo tee /etc/apt/sources.list.d/indii.org.list
-    curl -fsSL https://download.indii.org/deb/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/indii.org.gpg > /dev/null
-    sudo apt update
-    sudo apt install birch
-    ```
-
-??? info "Ubuntu 24.04 Noble Numbat (amd64)"
-    ```
-    echo 'deb http://download.indii.org/deb noble main' | sudo tee /etc/apt/sources.list.d/indii.org.list
-    curl -fsSL https://download.indii.org/deb/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/indii.org.gpg > /dev/null
-    sudo apt update
-    sudo apt install birch
-    ```
-
-## :simple-debian: Debian
-
-??? info "Debian 12 Bookworm (amd64)"
-    ```
-    echo 'deb http://download.indii.org/deb bookworm main' | sudo tee /etc/apt/sources.list.d/indii.org.list
-    curl -fsSL https://download.indii.org/deb/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/indii.org.gpg > /dev/null
-    sudo apt update
-    sudo apt install birch
-    ```
-
-## :fontawesome-brands-fedora: Fedora
-
-??? info "Fedora 40 (x86_64)"
-    ```
-    sudo dnf config-manager --add-repo https://download.indii.org/rpm/fedora/40/indii.org.repo
-    sudo dnf update
-    sudo dnf install birch
-    ```
-
-??? info "Fedora 39 (x86_64)"
-    ```
-    sudo dnf config-manager --add-repo https://download.indii.org/rpm/fedora/39/indii.org.repo
-    sudo dnf update
-    sudo dnf install birch
-    ```
-
-## :simple-opensuse: openSUSE
-
-??? info "openSUSE Tumbleweed (x86_64)"
-    ```
-    sudo zypper addrepo https://download.indii.org/rpm/opensuse/tumbleweed/indii.org.repo
-    sudo zypper refresh
-    sudo zypper install birch
-    ```
-
 ## :fontawesome-brands-apple: Mac
 
-??? info "Homebrew"
-    Install [Homebrew](https://brew.sh) if not already, then install Birch with:
-    ```sh
-    brew tap lawmurray/all
-    brew install birch
-    ```
+Install [Homebrew](https://brew.sh) if not already, then install Birch with:
+```sh
+brew tap lawmurray/all
+brew install birch
+```
 
 ## :fontawesome-brands-windows: Windows
 
