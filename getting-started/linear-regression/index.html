@@ -291,7 +291,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="https://docs.birch-lang.org" class="md-tabs__link">
+        <a href="https://birch-docs.indii.org" class="md-tabs__link">
           
   
   
@@ -1718,14 +1718,14 @@
   
   
     <li class="md-nav__item">
-      <a href="https://docs.birch-lang.org" class="md-nav__link">
+      <a href="https://birch-docs.indii.org" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    docs.birch-lang.org
+    birch-docs.indii.org
   
 
     
@@ -1958,7 +1958,7 @@ $$
 $$
 The parameters of the model are the noise variance $\sigma^2$ and vector of coefficients $\boldsymbol{\beta}$. The data consists of labels (alternatively: outcomes, dependent variables) in the vector $\mathbf{y}$ and features (alternatively: predictors, covariates, explanatory variables, independent variables) in the matrix $\mathbf{X}$, where each row corresponds to an observation and each column to a feature.</p>
 <h2 id="implementation">Implementation</h2>
-<p>To specify a model in Birch, we create a <a href="/language/classes">class</a> that inherits from <a href="https://docs.birch-lang.org/libraries/Standard/classes/Model">Model</a>. Use your preferred text editor to create a file <code>src/LinearRegressionModel.birch</code> and enter the following contents:</p>
+<p>To specify a model in Birch, we create a <a href="/language/classes">class</a> that inherits from <a href="https://birch-docs.indii.org/libraries/Standard/classes/Model">Model</a>. Use your preferred text editor to create a file <code>src/LinearRegressionModel.birch</code> and enter the following contents:</p>
 <div class="highlight"><pre><span></span><code><span class="cm">/**</span>
 <span class="cm"> * Bayesian linear regression model with conjugate normal-inverse-gamma</span>
 <span class="cm"> * prior.</span>
@@ -2000,7 +2000,7 @@ The parameters of the model are the noise variance $\sigma^2$ and vector of coef
 <li><code>Real</code> is a double-precision floating point number.</li>
 <li><code>Real[_]</code> is a vector of <code>Real</code>.</li>
 <li><code>Real[_,_]</code> is a matrix of <code>Real</code>.</li>
-<li><code>Random&lt;Type&gt;</code> declares a <a href="https://docs.birch-lang.org/libraries/Standard/classes/Random">Random</a> object of given <code>Type</code>. These enable the important features of <em>automatic marginalization</em>, <em>automatic conditioning</em>, and <em>automatic differentiation</em> (see <a href="/concepts">Key Concepts</a>).</li>
+<li><code>Random&lt;Type&gt;</code> declares a <a href="https://birch-docs.indii.org/libraries/Standard/classes/Random">Random</a> object of given <code>Type</code>. These enable the important features of <em>automatic marginalization</em>, <em>automatic conditioning</em>, and <em>automatic differentiation</em> (see <a href="/concepts">Key Concepts</a>).</li>
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -2009,7 +2009,7 @@ The parameters of the model are the noise variance $\sigma^2$ and vector of coef
 <p>The <code>simulate()</code> member function implements the model:</p>
 <ul>
 <li>The <code>if</code> statement is merely defensive programming: it skips the model for the degenerate situation of no explanatory variables, or no data points.</li>
-<li>The <code>~</code> operator associates a <a href="https://docs.birch-lang.org/libraries/Standard/classes/Distribution">Distribution</a> with a <code>Random</code>.</li>
+<li>The <code>~</code> operator associates a <a href="https://birch-docs.indii.org/libraries/Standard/classes/Distribution">Distribution</a> with a <code>Random</code>.</li>
 <li>The <code>let</code> keyword declares a variable, where the type of the variable is inferred from its initial value. An equivalent way to declare <code>N</code>, for example, would be <code>N:Integer &lt;- rows(X)</code>.</li>
 </ul>
 <p>The basic model is now implemented. It is worth building and running at this stage as a check. Build, as usual, with:</p>
@@ -2040,7 +2040,7 @@ The parameters of the model are the noise variance $\sigma^2$ and vector of coef
 <span class="err">      </span><span class="nv">buffer</span><span class="o">.</span><span class="nf">set</span><span class="p">(</span><span class="s2">"σ2"</span><span class="p">,</span><span class="err"> </span><span class="nv">σ2</span><span class="p">);</span>
 <span class="err">    </span><span class="p">}</span>
 </code></pre></div>
-<p>The <a href="https://docs.birch-lang.org/libraries/Standard/classes/Buffer">Buffer</a> class provides the interface for easily reading and writing files. Its basic interface provides <code>get</code> functions for reading, and <code>set</code> functions for writing, usually with key-value pairs.</p>
+<p>The <a href="https://birch-docs.indii.org/libraries/Standard/classes/Buffer">Buffer</a> class provides the interface for easily reading and writing files. Its basic interface provides <code>get</code> functions for reading, and <code>set</code> functions for writing, usually with key-value pairs.</p>
 <p>The <code>write(buffer:Buffer)</code> member function is the simpler of the two. It writes the parameters to the output file using <code>set</code> function calls. The first argument of each call is the key to write, and the second the value.</p>
 <p>The <code>read(buffer:Buffer)</code> member function reads from the input file using <code>get</code> function calls. The single argument of each is the key to read. We also need to specify the type of the value to read. This is given as a <em>type argument</em> in angle brackets immediately after the function name, e.g.  <code>get&lt;Real[_,_]&gt;</code>. Functions that take type arguments like this are known as <a href="/language/functions/">generic functions</a>.</p>
 <p>The <code>get</code> member function returns an <a href="/language/optionals/">optional</a>. An optional is just a variable that may or may not have a value. Here, if the requested element exists in the file, it has a value, otherwise it does not. The <code>&lt;-?</code> is a special assignment operator that assigns a value to the variable on the left only if the optional on the right actually has a value. That is, if the key is found in the file the value is read and assigned to the variable on the left, otherwise nothing happens.</p>

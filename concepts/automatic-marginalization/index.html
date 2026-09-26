@@ -291,7 +291,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="https://docs.birch-lang.org" class="md-tabs__link">
+        <a href="https://birch-docs.indii.org" class="md-tabs__link">
           
   
   
@@ -1637,14 +1637,14 @@
   
   
     <li class="md-nav__item">
-      <a href="https://docs.birch-lang.org" class="md-nav__link">
+      <a href="https://birch-docs.indii.org" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    docs.birch-lang.org
+    birch-docs.indii.org
   
 
     
@@ -1830,12 +1830,12 @@ $$</p>
 <div class="highlight"><pre><span></span><code><span class="nv">x</span><span class="err"> </span><span class="o">~</span><span class="err"> </span><span class="nf">Beta</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="err"> </span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="p">);</span>
 <span class="nv">y</span><span class="err"> </span><span class="o">&lt;~</span><span class="err"> </span><span class="nf">Bernoulli</span><span class="p">(</span><span class="nv">x</span><span class="p">);</span>
 </code></pre></div>
-Here, <code>x</code> can be marginalized out and <code>y</code> simulated from its marginal distribution, as the <a href="https://docs.birch-lang.org/libraries/Standard/classes/BetaBernoulliDistribution">beta-Bernoulli</a> form of the joint distribution between <code>x</code> and <code>y</code> is recognized. Specifically, the code defines $p(\mathrm{d}x,\mathrm{d}y) = p(\mathrm{d}x) p(\mathrm{d}y\mid x)$, and from this, automatic marginalization computes $p(\mathrm{d}y)$, a beta-Bernoulli distribution, which was not explicitly defined.</p>
+Here, <code>x</code> can be marginalized out and <code>y</code> simulated from its marginal distribution, as the <a href="https://birch-docs.indii.org/libraries/Standard/classes/BetaBernoulliDistribution">beta-Bernoulli</a> form of the joint distribution between <code>x</code> and <code>y</code> is recognized. Specifically, the code defines $p(\mathrm{d}x,\mathrm{d}y) = p(\mathrm{d}x) p(\mathrm{d}y\mid x)$, and from this, automatic marginalization computes $p(\mathrm{d}y)$, a beta-Bernoulli distribution, which was not explicitly defined.</p>
 <p>Similarly, we could use:
 <div class="highlight"><pre><span></span><code><span class="nv">x</span><span class="err"> </span><span class="o">~</span><span class="err"> </span><span class="nf">Gamma</span><span class="p">(</span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="p">,</span><span class="err"> </span><span class="mi">1</span><span class="o">.</span><span class="mi">0</span><span class="p">);</span>
 <span class="nv">y</span><span class="err"> </span><span class="o">&lt;~</span><span class="err"> </span><span class="nf">Poisson</span><span class="p">(</span><span class="nv">x</span><span class="p">);</span>
 </code></pre></div>
-because the <a href="https://docs.birch-lang.org/libraries/Standard/classes/GammaPoissonDistribution">gamma-Poisson</a> form is recognized, or:
+because the <a href="https://birch-docs.indii.org/libraries/Standard/classes/GammaPoissonDistribution">gamma-Poisson</a> form is recognized, or:
 <div class="highlight"><pre><span></span><code><span class="nv">x</span><span class="err"> </span><span class="o">~</span><span class="err"> </span><span class="nf">Gaussian</span><span class="p">(</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="p">,</span><span class="err"> </span><span class="mi">4</span><span class="o">.</span><span class="mi">0</span><span class="p">);</span>
 <span class="nv">y</span><span class="err"> </span><span class="o">~</span><span class="err"> </span><span class="nf">Gaussian</span><span class="p">(</span><span class="nv">x</span><span class="p">,</span><span class="err"> </span><span class="mi">4</span><span class="o">.</span><span class="mi">0</span><span class="p">);</span>
 <span class="nv">z</span><span class="err"> </span><span class="o">&lt;~</span><span class="err"> </span><span class="nf">Gaussian</span><span class="p">(</span><span class="nv">y</span><span class="p">,</span><span class="err"> </span><span class="mi">4</span><span class="o">.</span><span class="mi">0</span><span class="p">);</span>

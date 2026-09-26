@@ -291,7 +291,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="https://docs.birch-lang.org" class="md-tabs__link">
+        <a href="https://birch-docs.indii.org" class="md-tabs__link">
           
   
   
@@ -1718,14 +1718,14 @@
   
   
     <li class="md-nav__item">
-      <a href="https://docs.birch-lang.org" class="md-nav__link">
+      <a href="https://birch-docs.indii.org" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    docs.birch-lang.org
+    birch-docs.indii.org
   
 
     
@@ -2072,10 +2072,10 @@ $$</p>
 </code></pre></div>
 <p>This code introduces a few new features:</p>
 <ul>
-<li>The state histories <code>s</code>, <code>i</code> and <code>r</code> are stored in a container called <a href="https://docs.birch-lang.org/libraries/Standard/classes/Tape/">Tape</a>. This is a recursive data structure that works much like a list. It is commonly used for storing state histories as it works nicely with Birch&rsquo;s dynamic memory management, allowing objects to be shared between multiple instances of a model so as to significantly reduce memory use<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>.</li>
+<li>The state histories <code>s</code>, <code>i</code> and <code>r</code> are stored in a container called <a href="https://birch-docs.indii.org/libraries/Standard/classes/Tape/">Tape</a>. This is a recursive data structure that works much like a list. It is commonly used for storing state histories as it works nicely with Birch&rsquo;s dynamic memory management, allowing objects to be shared between multiple instances of a model so as to significantly reduce memory use<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>.</li>
 <li>The variables <code>n</code>, <code>τ</code>, <code>Δi</code> and <code>Δr</code> are declared as local variables in the <code>simulate(t:Integer)</code> function rather than as member variables of the <code>SIRModel</code> class. This choice is made because we do not intend to read them from a file, or write them to a file, so only need to keep them temporarily.</li>
 </ul>
-<p>The transition model associates <code>s</code>, <code>i</code> and <code>r</code> with <a href="https://docs.birch-lang.org/libraries/Standard/classes/DeltaDistribution/">delta</a> distributions rather than simply assigning to them. The delta distribution is just a degenerate distribution on a single integer value. We might instead want to write:</p>
+<p>The transition model associates <code>s</code>, <code>i</code> and <code>r</code> with <a href="https://birch-docs.indii.org/libraries/Standard/classes/DeltaDistribution/">delta</a> distributions rather than simply assigning to them. The delta distribution is just a degenerate distribution on a single integer value. We might instead want to write:</p>
 <div class="highlight"><pre><span></span><code><span class="nv">i</span><span class="p">[</span><span class="nv">t</span><span class="p">]</span><span class="err"> </span><span class="o">&lt;-</span><span class="err"> </span><span class="nv">i</span><span class="p">[</span><span class="nv">t</span><span class="err"> </span><span class="o">-</span><span class="err"> </span><span class="mi">1</span><span class="p">]</span><span class="err"> </span><span class="o">+</span><span class="err"> </span><span class="nv">Δi</span><span class="err"> </span><span class="o">-</span><span class="err"> </span><span class="nv">Δr</span><span class="p">;</span>
 <span class="nv">s</span><span class="p">[</span><span class="nv">t</span><span class="p">]</span><span class="err"> </span><span class="o">&lt;-</span><span class="err"> </span><span class="nv">s</span><span class="p">[</span><span class="nv">t</span><span class="err"> </span><span class="o">-</span><span class="err"> </span><span class="mi">1</span><span class="p">]</span><span class="err"> </span><span class="o">-</span><span class="err"> </span><span class="nv">Δi</span><span class="p">;</span>
 <span class="nv">r</span><span class="p">[</span><span class="nv">t</span><span class="p">]</span><span class="err"> </span><span class="o">&lt;-</span><span class="err"> </span><span class="nv">r</span><span class="p">[</span><span class="nv">t</span><span class="err"> </span><span class="o">-</span><span class="err"> </span><span class="mi">1</span><span class="p">]</span><span class="err"> </span><span class="o">+</span><span class="err"> </span><span class="nv">Δr</span><span class="p">;</span>

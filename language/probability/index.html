@@ -286,7 +286,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="https://docs.birch-lang.org" class="md-tabs__link">
+        <a href="https://birch-docs.indii.org" class="md-tabs__link">
           
   
   
@@ -1630,14 +1630,14 @@
   
   
     <li class="md-nav__item">
-      <a href="https://docs.birch-lang.org" class="md-nav__link">
+      <a href="https://birch-docs.indii.org" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    docs.birch-lang.org
+    birch-docs.indii.org
   
 
     
@@ -1811,14 +1811,14 @@
 <span class="nv">x</span><span class="err"> </span><span class="o">~</span><span class="err"> </span><span class="nv">p</span><span class="p">;</span>
 <span class="kd">factor</span><span class="err"> </span><span class="nv">w</span><span class="p">;</span>
 </code></pre></div></p>
-<p>Let <code>x</code> be a value of basic type (e.g. <code>Real</code>) or optional type (e.g. <code>Real?</code>), or object of <a href="https://docs.birch-lang.org/libraries/Standard/classes/Random">Random</a> type (e.g. <code>Random&lt;Real&gt;</code>), and <code>p</code> be an object of <a href="https://docs.birch-lang.org/libraries/Standard/classes/Distribution">Distribution</a> type. Then:</p>
+<p>Let <code>x</code> be a value of basic type (e.g. <code>Real</code>) or optional type (e.g. <code>Real?</code>), or object of <a href="https://birch-docs.indii.org/libraries/Standard/classes/Random">Random</a> type (e.g. <code>Random&lt;Real&gt;</code>), and <code>p</code> be an object of <a href="https://birch-docs.indii.org/libraries/Standard/classes/Distribution">Distribution</a> type. Then:</p>
 <ul>
 <li><code>x &lt;~ p</code> <em>simulates</em> a variate <code>x</code> from the distribution <code>p</code>,</li>
 <li><code>x ~&gt; p</code> <em>observes</em> a variate <code>x</code> from the distribution <code>p</code>,</li>
 <li><code>x ~ p</code> <em>assumes</em> that <code>x</code> is distributed according to <code>p</code>,</li>
 <li><code>factor w</code> applies an arbitrary log-weight <code>w</code> to the current execution.</li>
 </ul>
-<p>These statements emit events to an event handler, which is simply an object of type <a href="https://docs.birch-lang.org/libraries/Standard/classes/Handler">Handler</a>. Event handlers are typically used as an interface between inference methods and models, creating the opportunity for inference methods to intervene in model execution. By default, there is no event handler registered, so the events are ignored. To register an event handler <code>h:Handler</code>, use a <code>with</code> block:
+<p>These statements emit events to an event handler, which is simply an object of type <a href="https://birch-docs.indii.org/libraries/Standard/classes/Handler">Handler</a>. Event handlers are typically used as an interface between inference methods and models, creating the opportunity for inference methods to intervene in model execution. By default, there is no event handler registered, so the events are ignored. To register an event handler <code>h:Handler</code>, use a <code>with</code> block:
 <div class="highlight"><pre><span></span><code><span class="kd">with</span><span class="err"> </span><span class="nv">h</span><span class="err"> </span><span class="p">{</span>
 <span class="err">  </span><span class="c c-Singleline">// do something probabilistic</span>
 <span class="p">}</span>
