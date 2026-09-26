@@ -92,7 +92,7 @@ nav:
     - language/casts.md
     - language/probability.md
   - 'Reference Docs':
-    - 'docs.birch-lang.org': 'https://docs.birch-lang.org'
+    - 'birch-docs.indii.org': 'https://birch-docs.indii.org'
   - 'Getting Involved':
     - getting-involved/index.md
   - about.md

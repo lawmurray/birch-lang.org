@@ -7,7 +7,7 @@ We again introduce some notation:
 | $X\in \mathbb{X}$      | A random variable in the set (of type) $\mathbb{X}$.         | `x:Random<X>` |
 | $X\sim p(\mathrm{d}x)$ | Assume that the random variable $X$ is distributed according to the distribution $p(\mathrm{d}x)$. | `x ~ p`       |
 
-In Birch code, a random variable is represented by an object of the [Random](https://docs.birch-lang.org/libraries/Standard/classes/Random) class. Like `Distribution`, `Random` is a generic class: we use it as `Random<X>`, where `X` is the type of variate it accepts, e.g. `Random<Real>` (on $\mathbb{R}$), `Random<Integer>` (on $\mathbb{Z}$), `Random<Real[_]>` (on $\mathbb{R}^D$), etc.
+In Birch code, a random variable is represented by an object of the [Random](https://birch-docs.indii.org/libraries/Standard/classes/Random) class. Like `Distribution`, `Random` is a generic class: we use it as `Random<X>`, where `X` is the type of variate it accepts, e.g. `Random<Real>` (on $\mathbb{R}$), `Random<Integer>` (on $\mathbb{Z}$), `Random<Real[_]>` (on $\mathbb{R}^D$), etc.
 
 We can declare a random variable:
 ```birch

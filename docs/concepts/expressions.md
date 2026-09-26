@@ -1,6 +1,6 @@
 # Expressions
 
-The `Random` class is one of many derived from the [Expression](https://docs.birch-lang.org/libraries/Standard/classes/Expression) class. `Expression` objects implement *lazy evaluation* of mathematical expressions, as opposed to the *eager evaluation* that is the case otherwise. Many mathematical functions and operators are overloaded for `Expression` objects; instead of evaluating immediately, they construct and return a further `Expression` object.
+The `Random` class is one of many derived from the [Expression](https://birch-docs.indii.org/libraries/Standard/classes/Expression) class. `Expression` objects implement *lazy evaluation* of mathematical expressions, as opposed to the *eager evaluation* that is the case otherwise. Many mathematical functions and operators are overloaded for `Expression` objects; instead of evaluating immediately, they construct and return a further `Expression` object.
 
 Assume that we have variables $a$, $x$, and $c$, declared in code as:
 

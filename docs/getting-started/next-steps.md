@@ -6,9 +6,9 @@ This concludes the tutorial. For further study, see:
 
 * [The language](/language) documentation to learn more about the Birch programming language itself.
 
-* [The reference documentation](https://docs.birch-lang.org/libraries/Standard) to learn more about the features provided by the Birch standard library.
+* [The reference documentation](https://birch-docs.indii.org/libraries/Standard) to learn more about the features provided by the Birch standard library.
 
-* The examples, as [documentation](https://docs.birch-lang.org) or [source code](https://github.com/lawmurray/Birch/tree/master/examples).
+* The examples, as [documentation](https://birch-docs.indii.org) or [source code](https://github.com/lawmurray/Birch/tree/master/examples).
 
 * [Discussions](https://github.com/lawmurray/Birch/discussions) for all of your questions (and some of your answers).
 

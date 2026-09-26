@@ -6,4 +6,4 @@ Comments are written as:
 /* block comment */
 /** documentation comment */
 ```
-Documentation comments appear immediately prior to class, function and variable declarations. Their contents are extracted by the [docs](https://docs.birch-lang.org/libraries/Standard/programs/docs) command.
+Documentation comments appear immediately prior to class, function and variable declarations. Their contents are extracted by the [docs](https://birch-docs.indii.org/libraries/Standard/programs/docs) command.

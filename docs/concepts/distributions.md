@@ -14,14 +14,14 @@ This notation may be unfamiliar, particularly as many texts rely on context, rat
 !!! tip
     You may recognize the notation $p(\mathrm{d}x)$ from measure theory. We will not adopt measure-theoretic terms otherwise, but find the notation useful.
 
-In Birch code, a distribution is represented by an object of the [Distribution](https://docs.birch-lang.org/libraries/Standard/classes/Distribution) class. This is a generic class: we use it as `Distribution<X>`, where `X` is the domain of the distribution, e.g. `Distribution<Real>` (over $\mathbb{R}$), 
-`Distribution<Integer>` (over $\mathbb{Z}$), `Real[_]` (over $\mathbb{R}^D$), etc. However, we do not usually use `Distribution<X>` directly. Instead we use one of its derived classes, such as [GaussianDistribution](https://docs.birch-lang.org/libraries/Standard/classes/GaussianDistribution), [GammaDistribution](https://docs.birch-lang.org/libraries/Standard/classes/GammaDistribution), [BetaDistribution](https://docs.birch-lang.org/libraries/Standard/classes/BetaDistribution), [UniformDistribution](https://docs.birch-lang.org/libraries/Standard/classes/UniformDistribution). The idiom is to use a function for the particular distribution of interest in combination with a probabilistic operator. For example, we can simulate from a distribution with the *simulate* operator (`<~`):
+In Birch code, a distribution is represented by an object of the [Distribution](https://birch-docs.indii.org/libraries/Standard/classes/Distribution) class. This is a generic class: we use it as `Distribution<X>`, where `X` is the domain of the distribution, e.g. `Distribution<Real>` (over $\mathbb{R}$), 
+`Distribution<Integer>` (over $\mathbb{Z}$), `Real[_]` (over $\mathbb{R}^D$), etc. However, we do not usually use `Distribution<X>` directly. Instead we use one of its derived classes, such as [GaussianDistribution](https://birch-docs.indii.org/libraries/Standard/classes/GaussianDistribution), [GammaDistribution](https://birch-docs.indii.org/libraries/Standard/classes/GammaDistribution), [BetaDistribution](https://birch-docs.indii.org/libraries/Standard/classes/BetaDistribution), [UniformDistribution](https://birch-docs.indii.org/libraries/Standard/classes/UniformDistribution). The idiom is to use a function for the particular distribution of interest in combination with a probabilistic operator. For example, we can simulate from a distribution with the *simulate* operator (`<~`):
 ```birch
 x:Real;
 x <~ Gaussian(0.0, 4.0);
 ```
 
-The function [Gaussian](https://docs.birch-lang.org/libraries/Standard/functions/Gaussian) creates an object of class `GaussianDistirbution`, which derives from class `Distribution<Real>`. The `<~` operator then simulates a variate from it, and assigns the value of that variate to the variable `x`. We can instead use code such as the following:
+The function [Gaussian](https://birch-docs.indii.org/libraries/Standard/functions/Gaussian) creates an object of class `GaussianDistirbution`, which derives from class `Distribution<Real>`. The `<~` operator then simulates a variate from it, and assigns the value of that variate to the variable `x`. We can instead use code such as the following:
 ```birch
 x:Real;
 p:Distribution<Real> <- Gaussian(0.0, 4.0);

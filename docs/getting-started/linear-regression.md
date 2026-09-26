@@ -17,7 +17,7 @@ The parameters of the model are the noise variance $\sigma^2$ and vector of coef
 
 ## Implementation
 
-To specify a model in Birch, we create a [class](/language/classes) that inherits from [Model](https://docs.birch-lang.org/libraries/Standard/classes/Model). Use your preferred text editor to create a file `src/LinearRegressionModel.birch` and enter the following contents:
+To specify a model in Birch, we create a [class](/language/classes) that inherits from [Model](https://birch-docs.indii.org/libraries/Standard/classes/Model). Use your preferred text editor to create a file `src/LinearRegressionModel.birch` and enter the following contents:
 
 ```birch
 /**
@@ -62,7 +62,7 @@ The features $X$ (the $\mathbf{x}_n$, as a matrix), observations $y$ ($y_n$, as 
   * `Real` is a double-precision floating point number.
   * `Real[_]` is a vector of `Real`.
   * `Real[_,_]` is a matrix of `Real`.
-  * `Random<Type>` declares a [Random](https://docs.birch-lang.org/libraries/Standard/classes/Random) object of given `Type`. These enable the important features of *automatic marginalization*, *automatic conditioning*, and *automatic differentiation* (see [Key Concepts](/concepts)).
+  * `Random<Type>` declares a [Random](https://birch-docs.indii.org/libraries/Standard/classes/Random) object of given `Type`. These enable the important features of *automatic marginalization*, *automatic conditioning*, and *automatic differentiation* (see [Key Concepts](/concepts)).
 
 !!! tip
     You can use Greek letters in Birch code. To enter them, you may need to install a separate keyboard in your operating system, or copy and paste from a character map.
@@ -70,7 +70,7 @@ The features $X$ (the $\mathbf{x}_n$, as a matrix), observations $y$ ($y_n$, as 
 The `simulate()` member function implements the model:
 
   * The `if` statement is merely defensive programming: it skips the model for the degenerate situation of no explanatory variables, or no data points.
-  * The `~` operator associates a [Distribution](https://docs.birch-lang.org/libraries/Standard/classes/Distribution) with a `Random`.
+  * The `~` operator associates a [Distribution](https://birch-docs.indii.org/libraries/Standard/classes/Distribution) with a `Random`.
   * The `let` keyword declares a variable, where the type of the variable is inferred from its initial value. An equivalent way to declare `N`, for example, would be `N:Integer <- rows(X)`.
 
 The basic model is now implemented. It is worth building and running at this stage as a check. Build, as usual, with:
@@ -112,7 +112,7 @@ Add the following two member functions after the `simulate()` member function in
     }
 ```
 
-The [Buffer](https://docs.birch-lang.org/libraries/Standard/classes/Buffer) class provides the interface for easily reading and writing files. Its basic interface provides `get` functions for reading, and `set` functions for writing, usually with key-value pairs.
+The [Buffer](https://birch-docs.indii.org/libraries/Standard/classes/Buffer) class provides the interface for easily reading and writing files. Its basic interface provides `get` functions for reading, and `set` functions for writing, usually with key-value pairs.
 
 The `write(buffer:Buffer)` member function is the simpler of the two. It writes the parameters to the output file using `set` function calls. The first argument of each call is the key to write, and the second the value.
 
