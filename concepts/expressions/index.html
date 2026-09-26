@@ -1815,27 +1815,27 @@
 <h1 id="expressions">Expressions</h1>
 <p>The <code>Random</code> class is one of many derived from the <a href="https://docs.birch-lang.org/libraries/Standard/classes/Expression">Expression</a> class. <code>Expression</code> objects implement <em>lazy evaluation</em> of mathematical expressions, as opposed to the <em>eager evaluation</em> that is the case otherwise. Many mathematical functions and operators are overloaded for <code>Expression</code> objects; instead of evaluating immediately, they construct and return a further <code>Expression</code> object.</p>
 <p>Assume that we have variables $a$, $x$, and $c$, declared in code as:</p>
-<div class="highlight"><pre><span></span><code>a:Real &lt;- 2.0;
-x:Real &lt;- 5.0;
-c:Real &lt;- -1.0;
+<div class="highlight"><pre><span></span><code><span class="nv">a</span><span class="p">:</span><span class="kt">Real</span><span class="err"> </span><span class="o">&lt;-</span><span class="err"> </span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="p">;</span>
+<span class="nv">x</span><span class="p">:</span><span class="kt">Real</span><span class="err"> </span><span class="o">&lt;-</span><span class="err"> </span><span class="mi">5</span><span class="o">.</span><span class="mi">0</span><span class="p">;</span>
+<span class="nv">c</span><span class="p">:</span><span class="kt">Real</span><span class="err"> </span><span class="o">&lt;-</span><span class="err"> </span><span class="o">-</span><span class="mi">1</span><span class="o">.</span><span class="mi">0</span><span class="p">;</span>
 </code></pre></div>
 <p><code>Real</code> is a basic type. Mathematical operators and functions are overloaded for <code>Real</code> to evaluate immediately. For example, in:
-<div class="highlight"><pre><span></span><code>let y &lt;- exp(a*x + c);
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="err"> </span><span class="nv">y</span><span class="err"> </span><span class="o">&lt;-</span><span class="err"> </span><span class="nf">exp</span><span class="p">(</span><span class="nv">a</span><span class="o">*</span><span class="nv">x</span><span class="err"> </span><span class="o">+</span><span class="err"> </span><span class="nv">c</span><span class="p">);</span>
 </code></pre></div>
 <code>y</code> will have type <code>Real</code>, and will contain the result of evaluation $\exp(ax + c) = \exp(2.0 \times 5.0 - 1.0) \approx 8103.08$.</p>
 <p>On the other hand, if one or more of $a$, $x$, or $c$ has class type <code>Expression&lt;Real&gt;</code> (including <code>Random&lt;Real&gt;</code>, as it derives from <code>Expression&lt;Real&gt;</code>):
-<div class="highlight"><pre><span></span><code>a:Real &lt;- 2.0;
-x:Random&lt;Real&gt;;
-c:Real &lt;- -1.0;
+<div class="highlight"><pre><span></span><code><span class="nv">a</span><span class="p">:</span><span class="kt">Real</span><span class="err"> </span><span class="o">&lt;-</span><span class="err"> </span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="p">;</span>
+<span class="nv">x</span><span class="p">:</span><span class="kt">Random</span><span class="o">&lt;</span><span class="kt">Real</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="nv">c</span><span class="p">:</span><span class="kt">Real</span><span class="err"> </span><span class="o">&lt;-</span><span class="err"> </span><span class="o">-</span><span class="mi">1</span><span class="o">.</span><span class="mi">0</span><span class="p">;</span>
 </code></pre></div>
 then alternative overloads are called that construct a further <code>Expression</code> object representing the expression itself, rather than its evaluation. If we repeat the previous statement:
-<div class="highlight"><pre><span></span><code>let y &lt;- exp(a*x + c);
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="err"> </span><span class="nv">y</span><span class="err"> </span><span class="o">&lt;-</span><span class="err"> </span><span class="nf">exp</span><span class="p">(</span><span class="nv">a</span><span class="o">*</span><span class="nv">x</span><span class="err"> </span><span class="o">+</span><span class="err"> </span><span class="nv">c</span><span class="p">);</span>
 </code></pre></div>
 <code>y</code> will now have type <code>Expression&lt;Real&gt;</code>. The expression can be evaluated later by calling <code>y.value()</code>, although <code>x</code> will need to be assigned a value first. There are two ways to do this. We could assign or simulate a value for <code>x</code>:
-<div class="highlight"><pre><span></span><code>x &lt;- 5.0;
+<div class="highlight"><pre><span></span><code><span class="nv">x</span><span class="err"> </span><span class="o">&lt;-</span><span class="err"> </span><span class="mi">5</span><span class="o">.</span><span class="mi">0</span><span class="p">;</span>
 </code></pre></div>
 then call <code>y.value()</code>. In this case the evaluated value is the same as for the example above. Alternatively, we could use the assume operator to associate a distribution with <code>x</code>:
-<div class="highlight"><pre><span></span><code>x ~ Gaussian(5.0, 4.0);
+<div class="highlight"><pre><span></span><code><span class="nv">x</span><span class="err"> </span><span class="o">~</span><span class="err"> </span><span class="nf">Gaussian</span><span class="p">(</span><span class="mi">5</span><span class="o">.</span><span class="mi">0</span><span class="p">,</span><span class="err"> </span><span class="mi">4</span><span class="o">.</span><span class="mi">0</span><span class="p">);</span>
 </code></pre></div>
 When <code>y.value()</code> is later called, a value will be simulated from that distribution and assigned to <code>x</code>, in order to evaluate <code>y</code>. The evaluated value will, of course, depend on that value.</p>
 

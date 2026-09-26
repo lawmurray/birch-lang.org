@@ -1806,13 +1806,13 @@
   <h1>Control flow</h1>
 
 <p>For <code>a:Boolean</code> and <code>b:Boolean</code>, conditionals can be written as follows:
-<div class="highlight"><pre><span></span><code>if a {
-  // do something
-} else if b {
-  // do something
-} else {
-  // do something
-}
+<div class="highlight"><pre><span></span><code><span class="kd">if</span><span class="err"> </span><span class="nv">a</span><span class="err"> </span><span class="p">{</span>
+<span class="err">  </span><span class="c c-Singleline">// do something</span>
+<span class="p">}</span><span class="err"> </span><span class="kd">else</span><span class="err"> </span><span class="kd">if</span><span class="err"> </span><span class="nv">b</span><span class="err"> </span><span class="p">{</span>
+<span class="err">  </span><span class="c c-Singleline">// do something</span>
+<span class="p">}</span><span class="err"> </span><span class="kd">else</span><span class="err"> </span><span class="p">{</span>
+<span class="err">  </span><span class="c c-Singleline">// do something</span>
+<span class="p">}</span>
 </code></pre></div>
 where zero or more <code>else if</code> blocks may appear, and zero or one <code>else</code> block.</p>
 <div class="admonition tip">
@@ -1820,19 +1820,19 @@ where zero or more <code>else if</code> blocks may appear, and zero or one <code
 <p>Parentheses around the conditions are optional, i.e. if you can write <code>if a { ... }</code> or <code>if (a) { ... }</code>. The same applies to the loop structures below.</p>
 </div>
 <p>Conditional loops are written as:
-<div class="highlight"><pre><span></span><code>while a {
-  // do something
-}
+<div class="highlight"><pre><span></span><code><span class="kd">while</span><span class="err"> </span><span class="nv">a</span><span class="err"> </span><span class="p">{</span>
+<span class="err">  </span><span class="c c-Singleline">// do something</span>
+<span class="p">}</span>
 </code></pre></div>
 or:
-<div class="highlight"><pre><span></span><code>do {
-  // do something
-} while a;
+<div class="highlight"><pre><span></span><code><span class="kd">do</span><span class="err"> </span><span class="p">{</span>
+<span class="err">  </span><span class="c c-Singleline">// do something</span>
+<span class="p">}</span><span class="err"> </span><span class="kd">while</span><span class="err"> </span><span class="nv">a</span><span class="p">;</span>
 </code></pre></div>
 For loops are written as:
-<div class="highlight"><pre><span></span><code>for a in b..c {
-  // do something
-}
+<div class="highlight"><pre><span></span><code><span class="kd">for</span><span class="err"> </span><span class="nv">a</span><span class="err"> </span><span class="kd">in</span><span class="err"> </span><span class="nv">b</span><span class="o">..</span><span class="nv">c</span><span class="err"> </span><span class="p">{</span>
+<span class="err">  </span><span class="c c-Singleline">// do something</span>
+<span class="p">}</span>
 </code></pre></div>
 where <code>a</code> will be declared as a new variable of <code>Integer</code> type, and <code>b</code> and <code>c</code> evaluate to <code>Integer</code> type, with <code>b &lt;= c</code>.</p>
 <div class="admonition tip">

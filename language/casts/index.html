@@ -1807,13 +1807,13 @@
 
 <p>A variable of one type can be cast down to a more-specific target type by using a cast function. The name of the cast function is the name of the target type, followed by <code>?</code>. The cast function returns an optional of the target type, with a value if the cast was successful, or no value if the cast was unsuccessful.</p>
 <p>For <code>A &lt; B</code>, with <code>a:A</code>, <code>b:B</code>, and <code>c:A?</code>:
-<div class="highlight"><pre><span></span><code>b &lt;- a;      // OK, as A &lt; B
-c &lt;- A?(b);  // OK, but A &lt; B so must use cast
+<div class="highlight"><pre><span></span><code><span class="nv">b</span><span class="err"> </span><span class="o">&lt;-</span><span class="err"> </span><span class="nv">a</span><span class="p">;</span><span class="err">      </span><span class="c c-Singleline">// OK, as A &lt; B</span>
+<span class="nv">c</span><span class="err"> </span><span class="o">&lt;-</span><span class="err"> </span><span class="nv">A</span><span class="o">?</span><span class="p">(</span><span class="nv">b</span><span class="p">);</span><span class="err">  </span><span class="c c-Singleline">// OK, but A &lt; B so must use cast</span>
 </code></pre></div>
 The optional <code>c</code> may be used to check whether the cast succeeded, and if so, to retrieve the result:
-<div class="highlight"><pre><span></span><code>if c? {
-  f(c!);  // cast was successful, can do something with c
-}
+<div class="highlight"><pre><span></span><code><span class="kd">if</span><span class="err"> </span><span class="nv">c</span><span class="o">?</span><span class="err"> </span><span class="p">{</span>
+<span class="err">  </span><span class="nf">f</span><span class="p">(</span><span class="nv">c</span><span class="o">!</span><span class="p">);</span><span class="err">  </span><span class="c c-Singleline">// cast was successful, can do something with c</span>
+<span class="p">}</span>
 </code></pre></div>
 It is possible to cast an optional in the same way, without first checking for a value. The cast of an optional succeeds if that optional has a value, and that value can be cast to the target type. So for <code>b:B?</code> instead of <code>b:B</code>, the above example is the same.</p>
 

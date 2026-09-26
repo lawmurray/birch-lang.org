@@ -2017,18 +2017,18 @@
 <p>It is still possible to manipulate the behavior of some operators that cannot be overloaded. For example, the behavior of the assignment operator <code>&lt;-</code> can be manipulated by declaring assignments and conversions in class declarations.</p>
 </div>
 <p>A binary operator <code>+</code> with two operands <code>a:A</code> and <code>b:B</code>, and return type <code>C</code>, is declared as:
-<div class="highlight"><pre><span></span><code>operator (a:A + b:B) -&gt; C {
-  c:C;
-  // do something
-  return c;
-}
+<div class="highlight"><pre><span></span><code><span class="kd">operator</span><span class="err"> </span><span class="p">(</span><span class="nv">a</span><span class="p">:</span><span class="kt">A</span><span class="err"> </span><span class="o">+</span><span class="err"> </span><span class="nv">b</span><span class="p">:</span><span class="kt">B</span><span class="p">)</span><span class="err"> </span><span class="o">-&gt;</span><span class="err"> </span><span class="nv">C</span><span class="err"> </span><span class="p">{</span>
+<span class="err">  </span><span class="nv">c</span><span class="p">:</span><span class="kt">C</span><span class="p">;</span>
+<span class="err">  </span><span class="c c-Singleline">// do something</span>
+<span class="err">  </span><span class="kd">return</span><span class="err"> </span><span class="nv">c</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div>
 Any of the standard binary operators may be used in place of <code>+</code>.</p>
 <p>A unary operator <code>+</code> with one operand <code>a:A</code>, and return type <code>C</code>, is declared as:
-<div class="highlight"><pre><span></span><code>operator (+a:A) -&gt; C {
-  c:C;
-  return c;
-}
+<div class="highlight"><pre><span></span><code><span class="kd">operator</span><span class="err"> </span><span class="p">(</span><span class="o">+</span><span class="nv">a</span><span class="p">:</span><span class="kt">A</span><span class="p">)</span><span class="err"> </span><span class="o">-&gt;</span><span class="err"> </span><span class="nv">C</span><span class="err"> </span><span class="p">{</span>
+<span class="err">  </span><span class="nv">c</span><span class="p">:</span><span class="kt">C</span><span class="p">;</span>
+<span class="err">  </span><span class="kd">return</span><span class="err"> </span><span class="nv">c</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div>
 Any of the standard unary operators may be used in place of <code>+</code>.</p>
 <p>Operators always have a return type. It is not possible to manipulate operator precedence.</p>
